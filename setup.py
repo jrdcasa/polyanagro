@@ -1,0 +1,255 @@
+import logging
+from datetime import datetime
+import os
+import shutil
+import sys
+import subprocess
+import tempfile
+from setuptools import setup, Extension
+from distutils.ccompiler import new_compiler
+from distutils.sysconfig import customize_compiler
+
+
+# Formatter for the logger
+class CustomFormatter(logging.Formatter):
+    """Logging Formatter to add colors and count warning / errors"""
+    FORMATS = {
+        logging.ERROR: "\n\tERROR: %(asctime)s: %(msg)s",
+        logging.WARNING: "\n\tWARNING: %(msg)s",
+        logging.DEBUG: "%(asctime)s: %(msg)s",
+        "DEFAULT": "%(msg)s",
+    }
+
+    def format(self, record):
+        log_fmt = self.FORMATS.get(record.levelno, self.FORMATS['DEFAULT'])
+        date_fmt = '%d-%m-%Y %d %H:%M:%S'
+        formatter = logging.Formatter(log_fmt, date_fmt)
+        return formatter.format(record)
+
+# Install packages from pip ==============================================================
+def install_with_pip(pack, vers=None, log=None):
+
+    # Update pip
+    p = subprocess.Popen([sys.executable, "-m", "pip", "install", "--upgrade", "pip"],
+                         stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    p.communicate()
+
+    # sys.executable gives the path of the python interpreter
+    now = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+    if vers is None:
+        m = "{}: ** POLYANAGRO: Installing {}".format(now, pack)
+        print(m) if log is None else log.info(m)
+        # subprocess.call([sys.executable, "-m", "pip", "install", "{0}".format(pack)])
+        p = subprocess.Popen([sys.executable, "-m", "pip", "install", "{0}".format(pack)],
+                             stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        p.communicate()
+    else:
+        m = "{}: ** POLYANAGRO: Installing {}=={}".format(now, pack, vers)
+        print(m) if log is None else log.info(m)
+        # subprocess.call([sys.executable, "-m", "pip", "install", "{0}=={1}".format(pack, vers), " &>install.log"])
+        p = subprocess.Popen([sys.executable, "-m", "pip", "install", "{0}=={1}".format(pack, vers)],
+                             stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        p.communicate()
+
+# ================================================================================================
+def install_topology_library(log=None):
+    """
+    Installing the python topology library if is not present in the python environment.
+    """
+
+    import git
+
+    giturl = "https://github.com/jrdcasa/topology.git"
+    install_dir = 'topology'
+
+    now = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+
+    m = "\n\t\t INSTALLING TOPOLOGY LIBRARY INTO THE PYTHON ENVIRONMENT FROM GITHUB\n\n"
+
+    if os.path.isdir(os.path.join(os.getcwd(), install_dir)):
+        m += "{}: ** POLYANAGRO: topology library is already installed in your system. {}".format(now, giturl)
+        print(m) if log is None else log.info(m)
+    else:
+        m += "{}: ** POLYANAGRO: topology library is not installed in your system\n".format(now)
+        m += "{}: ** POLYANAGRO: Installing from git... {}\n".format(now, giturl)
+        print(m) if log is None else log.info(m)
+
+        fullpath_install = os.path.abspath(install_dir)
+
+        # Look at thirdparty directory
+        if os.path.isdir(fullpath_install):
+            shutil.rmtree(fullpath_install)
+        os.makedirs(fullpath_install)
+
+        try:
+            git.Repo.clone_from(giturl, fullpath_install)
+        except git.GitCommandError as e:
+            m = "================= ERROR INSTALL ================\n"
+            m += "** POLYANAGRO: The github repository for topology is not valid or not exists.!!!\n"
+            m += "** POLYANAGRO: giturl     : {}\n".format(giturl)
+            m += "** POLYANAGRO: install_dir: {}\n".format(fullpath_install)
+            m += "** POLYANAGRO: Topology library cannot be installed\n"
+            m += "** POLYANAGRO: The installation is aborted\n"
+            m += "** Error: {}\n".format(e.stderr)
+            m += "\n================= ERROR INSTALL ================"
+            print(m) if log is None else log.info(m)
+            exit()
+
+        os.chdir(fullpath_install)
+        #print(os.getcwd())
+        subprocess.call(["python", "setup.py", "install"])
+        os.chdir("..")
+
+# Disabling-output-when-compiling-with-distutil =================================================
+def hasfunction(cc, funcname, include=None, extra_postargs=None):
+    # From http://stackoverflow.com/questions/
+    #            7018879/disabling-output-when-compiling-with-distutils
+    tmpdir = tempfile.mkdtemp(prefix='hasfunction-')
+    devnull = oldstderr = None
+    try:
+        try:
+            fname = os.path.join(tmpdir, 'funcname.c')
+            with open(fname, 'w') as fout:
+                if include is not None:
+                    fout.write('#include {0!s}\n'.format(include))
+                fout.write('int main(void) {\n')
+                fout.write('    {0!s};\n'.format(funcname))
+                fout.write('}\n')
+            # Redirect stderr to /dev/null to hide any error messages
+            # from the compiler.
+            # This will have to be changed if we ever have to check
+            # for a function on Windows.
+            devnull = open('/dev/null', 'w')
+            oldstderr = os.dup(sys.stderr.fileno())
+            os.dup2(devnull.fileno(), sys.stderr.fileno())
+            objects = cc.compile([fname], output_dir=tmpdir,
+                                 extra_postargs=extra_postargs)
+            cc.link_executable(objects, os.path.join(tmpdir, "a.out"))
+        except Exception:
+            return False
+        return True
+    finally:
+        if oldstderr is not None:
+            os.dup2(oldstderr, sys.stderr.fileno())
+        if devnull is not None:
+            devnull.close()
+        shutil.rmtree(tmpdir)
+
+# Does this compiler support OpenMP parallelization?""" ==============================================================
+def detect_openmp():
+    print("TOPOLOGY: Attempting to autodetect OpenMP support... ", end="")
+    compiler = new_compiler()
+    customize_compiler(compiler)
+    compiler.add_library('gomp')
+    include = '<omp.h>'
+    extra_postargs = ['-fopenmp']
+    hasopenmp = hasfunction(compiler, 'omp_get_num_threads()', include=include,
+                            extra_postargs=extra_postargs)
+    if hasopenmp:
+        print("POLYANAGRO: Compiler supports OpenMP")
+    else:
+        print("POLYANAGRO: Did not detect OpenMP support.")
+
+    return hasopenmp
+
+# Setup external extensions ==============================================================
+def setup_external_extensions(debug_cflags=False, use_openmp=True):
+    has_openmp = detect_openmp()
+
+    # parallel_libraries = ['gomp'] if has_openmp and use_openmp else []
+    mathlib = ['m']
+    define_macros = []
+    extra_compile_args = ['-std=c99', '-ffast-math', '-O3', '-funroll-loops', '-Wno-cpp']
+    if debug_cflags:
+        extra_compile_args.extend(['-Wall', '-pedantic'])
+        define_macros.extend([('DEBUG', '1')])
+
+    parallel_args = ['-fopenmp'] if has_openmp and use_openmp else []
+    parallel_libraries = ['gomp'] if has_openmp and use_openmp else []
+    parallel_macros = [('PARALLEL', None)] if has_openmp and use_openmp else []
+
+    extensions_install = [
+        Extension("ext_libc.c_rg_openmp", ["polyanagro/ext_libc/c_rg_openmp.pyx"],
+                  libraries=mathlib + parallel_libraries,
+                  define_macros=define_macros + parallel_macros,
+                  extra_compile_args=parallel_args + extra_compile_args,
+                  extra_link_args=parallel_args),
+        Extension("ext_libc.c_unit_bond_vectors", ["polyanagro/ext_libc/c_unit_bond_vectors.pyx"],
+                  libraries=mathlib + parallel_libraries,
+                  define_macros=define_macros + parallel_macros,
+                  extra_compile_args=parallel_args + extra_compile_args,
+                  extra_link_args=parallel_args),
+        Extension("ext_libc.c_rdf_openmp", ["polyanagro/ext_libc/c_rdf_openmp.pyx"],
+                  libraries=mathlib,
+                  define_macros=define_macros,
+                  extra_compile_args=extra_compile_args, ),
+        Extension("ext_libc.c_distC", ["polyanagro/ext_libc/c_distC.pyx"],
+                  libraries=mathlib + parallel_libraries,
+                  define_macros=define_macros + parallel_macros,
+                  extra_compile_args=parallel_args + extra_compile_args,
+                  extra_link_args=['-lgomp']),
+        Extension("ext_libc.c_acf_openmp", ["polyanagro/ext_libc/c_acf_openmp.pyx"],
+                  libraries=mathlib + parallel_libraries,
+                  define_macros=define_macros + parallel_macros,
+                  extra_compile_args=parallel_args + extra_compile_args,
+                  extra_link_args=['-lgomp']),
+    ]
+
+    return extensions_install
+
+
+
+
+# Main setup
+if __name__ == '__main__':
+
+    # Creating the logger to install.log file ===================================
+    logger = logging.getLogger(name="INSTALL_LOG")
+    logger.setLevel(logging.DEBUG)
+    h1 = logging.FileHandler("install.log", 'w')
+    h1.setFormatter(CustomFormatter())
+    # Output also in the screen
+    logger.addHandler(h1)
+    f1 = logging.StreamHandler()
+    f1.setFormatter(CustomFormatter())
+    logger.addHandler(f1)
+
+    # Print sys path ===================================
+    m1 = "\t\t SYS PATH\n"
+    for item in sys.path:
+        m1 += item + "\n"
+    nowm = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+    m1 += "\n\t\t INSTALLING PIP PACKAGES ({})\n".format(nowm)
+    print(m1) if logger is None else logger.info(m1)
+    # Install requirements ===================================
+    with open('requirements.txt') as f:
+        required = f.read().splitlines()
+    for ipack in required:
+        try:
+            pkg, version = ipack.split(">=")[0:2]
+            if pkg[0] == "#":
+                continue
+            install_with_pip(pkg, vers=version, log=logger)
+        except ValueError:
+            pkg = ipack
+            if pkg[0] == "#" or len(pkg)<2:
+                continue
+            install_with_pip(pkg, log=logger)
+        finally:
+            pass
+
+    # Install Topology library from github =======================================
+    install_topology_library(log=logger)
+
+    # Setup POLYANAGRO ===========================================
+    from Cython.Build import cythonize
+
+    # Extensions
+    extensions = setup_external_extensions()
+    nowm = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+    m1 = "\n\t\t RUNNING SETUP FROM SETUPTOOLS {}\n\n".format(nowm)
+    print(m1) if logger is None else logger.info(m1)
+    print(os.getcwd())
+    setup(
+        ext_modules=cythonize(extensions,
+                              compiler_directives={'language_level': sys.version_info[0]}))

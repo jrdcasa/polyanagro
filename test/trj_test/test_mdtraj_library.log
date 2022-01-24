@@ -1,0 +1,252 @@
+
+	Job Information
+	---------------
+
+		***************** START MDTRAJ TEST *****************
+		Starting: 	 14-10-2021 17:53:14
+
+	============== TEST_01 TrappeUA Polymer ================================
+	   Testing to read trajectories of a polymer typed with Trappe-UA
+	   Basic test for topology and trajectory read
+
+	*** Creating a trajectory from...
+	../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc
+	../data/0003Ch-C020-002br04/RUN-002/traj_comp.part0002.xtc
+	../data/0003Ch-C020-002br04/RUN-003/traj_comp.part0003.xtc
+
+	*** Adding topology 
+	
+	Empty topology in trajectory
+	*** End Adding topology
+
+	TIME(Read_Trajectories): 0.000374 seconds
+	*** End Creating a trajectory 
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 0.012438 seconds
+	*** End Building bonds from topology... 
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	*** Backbone atoms have been assigned to the topology.
+	Topology file: ../data/0003Ch-C020-002br04/namd.psf
+	TIME(Building_bonds_from_topology): 0.005762 seconds
+	*** End Building bonds from topology... 
+
+
+	Building bonds from PSF topology... 
+	Setting bond orders: FALSE
+	*** Backbone atoms have been assigned to the topology.
+	Topology file: ../data/0003Ch-C020-002br04/namd.psf
+	TIME(Building_bonds_from_PSF_topology): 0.000679 seconds
+	top1 and top2 are equal: False
+	==============        END   TEST_01       ================================
+
+	============== TEST_02 Copy of topology and trajectory ================================
+	   Testing the copy of a topology and trajectory
+
+	*** Creating a trajectory from...
+	../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc
+	../data/0003Ch-C020-002br04/RUN-002/traj_comp.part0002.xtc
+	../data/0003Ch-C020-002br04/RUN-003/traj_comp.part0003.xtc
+
+	*** Adding topology 
+	
+	Empty topology in trajectory
+	*** End Adding topology
+
+	TIME(Read_Trajectories): 0.000148 seconds
+	*** End Creating a trajectory 
+
+	*** Creating a trajectory from...
+
+	============== TEST_03 Ethanol/Water OPLS ================================
+	 Testing to read trajectories of a mix of small molecules using OPLS
+
+	*** Creating a trajectory from...
+	../data/ethanol-water/RUN-0001/traj_comp.xtc
+
+	*** Adding topology 
+	
+	Empty topology in trajectory
+	*** End Adding topology
+
+	TIME(Read_Trajectories): 0.000159 seconds
+	*** End Creating a trajectory 
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 0.169056 seconds
+	*** End Building bonds from topology... 
+
+	==============        END   TEST_03       ================================
+
+	============== TEST_04 Aromatic molecule ================================
+	   Testing to read trajectories of containing aromatic molecules (benzene)
+
+	*** Creating a trajectory from...
+	../data/benzene/RUN-0001/traj_comp.xtc
+
+	*** Adding topology 
+	
+	Empty topology in trajectory
+	*** End Adding topology
+
+	TIME(Read_Trajectories): 0.000156 seconds
+	*** End Creating a trajectory 
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 0.004512 seconds
+	*** End Building bonds from topology... 
+
+	==============        END   TEST_04       ================================
+
+	============== TEST_05 Check Read multiple trajectories ================================
+	   Check Read Multiple Trajectories 
+
+	*** Creating a trajectory from...
+	../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc
+	../data/0003Ch-C020-002br04/RUN-002/traj_comp.part0002.xtc
+	../data/0003Ch-C020-002br04/RUN-003/traj_comp.part0003.xtc
+
+	*** Adding topology 
+	
+	Empty topology in trajectory
+	*** End Adding topology
+
+	TIME(Read_Trajectories): 0.000186 seconds
+	*** End Creating a trajectory 
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 0.006789 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../data/0003Ch-C020-002br04/RUN-001/topol.tpr
+	Number of frames: 301
+	TIME(Adding topology): 0.013424 seconds
+	*** End Adding topology
+
+
+	Writing trajectory... trj_test/traj_test05_jump_w.xtc
+	Frame         0 of       301	time: 0.000175 seconds
+	Frame       100 of       301	time: 0.020951 seconds
+	Frame       200 of       301	time: 0.041934 seconds
+	Frame       300 of       301	time: 0.062042 seconds
+
+	Writing trajectory... trj_test/traj_test05_nojump_w.xtc
+	Frame         0 of       301	time: 0.000129 seconds
+	Frame       100 of       301	time: 0.021548 seconds
+	Frame       200 of       301	time: 0.042703 seconds
+	Frame       300 of       301	time: 0.063618 seconds
+
+	Writing trajectory... trj_test/traj_test05_unwrap_w.dcd
+	Frame         0 of       301	time: 0.000126 seconds
+	Frame       100 of       301	time: 0.020428 seconds
+	Frame       200 of       301	time: 0.040476 seconds
+	Frame       300 of       301	time: 0.0608 seconds
+	==============        END   TEST_05       ================================
+
+	============== TEST_06 Check Read multiple trajectories and topology ================================
+     Check Read Multiple Trajectories with Topology 
+
+	*** Creating a trajectory from...
+	../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc
+	../data/0003Ch-C020-002br04/RUN-002/traj_comp.part0002.xtc
+	../data/0003Ch-C020-002br04/RUN-003/traj_comp.part0003.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 0.007784 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../data/0003Ch-C020-002br04/RUN-001/topol.tpr
+	Number of frames: 301
+	TIME(Adding topology): 0.010035 seconds
+	*** End Adding topology
+
+	Number of frames: 301
+	TIME(Read_Trajectories): 0.018081 seconds
+	*** End Creating a trajectory 
+
+
+	Writing trajectory... trj_test/trajtopo_test06_nojump_w.xtc
+	Frame         0 of       301	time: 0.00015 seconds
+	Frame       100 of       301	time: 0.021761 seconds
+	Frame       200 of       301	time: 0.043615 seconds
+	Frame       300 of       301	time: 0.06489 seconds
+	==============        END   TEST_06       ================================
+
+	============== TEST_07 Check Read multiple big trajectories ================================
+	     Check Read Multiple big Trajectories 
+
+	*** Creating a trajectory from...
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/traj_comp.xtc
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/02-RESTART-1000-2000ns/traj_comp.part0002.xtc
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/03-RESTART-2000-3000ns/traj_comp.part0003.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 3.464962 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/topol.tpr
+	Number of frames: 151
+	TIME(Adding topology): 1.447191 seconds
+	*** End Adding topology
+
+	Number of frames: 151
+	TIME(Read_Trajectories): 4.91254 seconds
+	*** End Creating a trajectory 
+
+
+	Writing trajectory... trj_test/trjfull_out_big_unwrap.xtc
+	Frame         0 of       151	time: 0.003133 seconds
+	Frame       100 of       151	time: 0.665117 seconds
+	Unwrapping coordinates --> time: 1.067276 seconds
+
+	Writing trajectory... trj_test/trjfull_out_big_unwrap_nojump.xtc
+	Frame         0 of       151	time: 0.002786 seconds
+	Frame       100 of       151	time: 0.824551 seconds
+	Unwrapping No Jump coordinates --> time: 1.314376 seconds
+
+	Writing trajectory... trj_test/trjfull_out_big.xtc
+	Frame         0 of       151	time: 0.002788 seconds
+	Frame       100 of       151	time: 0.573987 seconds
+	No Wrapping coordinates --> time: 0.930068 seconds
+	==============        END   TEST_07       ================================
+
+	============== TEST_08 Add trajectory ================================
+     Check add a new trajectory file to a Trajectory with Topology 
+
+	*** Creating a trajectory from...
+	../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc
+	../data/0003Ch-C020-002br04/RUN-002/traj_comp.part0002.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 0.008068 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../data/0003Ch-C020-002br04/RUN-001/topol.tpr
+	Number of frames: 201
+	TIME(Adding topology): 0.008585 seconds
+	*** End Adding topology
+
+	Number of frames: 201
+	TIME(Read_Trajectories): 0.016965 seconds
+	*** End Creating a trajectory 
+
+	Total number of frames: 301
+	Adding the trajectory ../data/0003Ch-C020-002br04/RUN-003/traj_comp.part0003.xtc
+	==============        END   TEST_08       ================================
+
+		Finishing at: 	 14-10-2021 17:53:24
+		***************** END MDTRAJ TEST *****************
+

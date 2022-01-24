@@ -1,0 +1,748 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.8.4" />
+<title>polyanagro.Chain_Statistics API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>polyanagro.Chain_Statistics</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import numpy as np
+import datetime
+import os
+import sys
+import h5py
+import polyanagro as pag
+# from polyanagro.Logger import LogMessage
+# from ext_libc.c_unwrap_openmp import calc_rg_openmp, calc_rg_openmp_massweigth
+# from ext_libc.c_acf_openmp import calc_acf_ete
+# from polyanagro.internal_coordinates import distance_diagonal_array
+
+# ===============================================================
+class Chain_Statistics(pag.Calculations):
+
+    # #########################################################################
+    def __init__(self, trj, top, dt=1, stride=1,removetmpfiles_ee=True, removetmpfiles_rg=True):
+
+        super().__init__(trj, top, dt, stride)
+        self._removetmpfiles_ee = removetmpfiles_ee
+        self._removetmpfiles_rg = removetmpfiles_rg
+        self._rg2_frame = {}
+        self._ree2_frame = {}
+        self._uree_frame = None
+        self._rEE_ACF = None
+
+        self._ree_max = sys.float_info.min
+        self._ree_min = sys.float_info.max
+        self._rg_max = sys.float_info.min
+        self._rg_min = sys.float_info.max
+
+    # #########################################################################
+    def calculate(self, write_rg=True, pbc =True, diroutput=&#34;./&#34;, listendtoend=None, acfE2E=False, distributions=False):
+
+        # Write messages
+        LogMessage(&#39;info&#39;,&#34;&#34;)
+        LogMessage(&#39;info&#39;,&#34;Calculating Radius of gyration...&#34;)
+        start_time = datetime.datetime.now()
+
+        LogMessage(&#39;info&#39;,&#34;&#34;)
+        LogMessage(&#39;info&#39;,&#34;Calculating Radius of gyration...&#34;)
+        if write_rg:
+            LogMessage(&#39;info&#39;,&#34;Radius of gyration written to {0:s} &#34;.format(diroutput+&#34;Rg.dat&#34;))
+        if not listendtoend is None:
+            LogMessage(&#39;info&#39;,&#34;&#34;)
+            LogMessage(&#39;info&#39;,&#34;Calculating End to End distance...&#34;)
+            LogMessage(&#39;info&#39;,&#34;End to End distance written to {0:s} \n&#34;.format(diroutput+&#34;Ree.dat&#34;))
+
+        # Start ndarray to store the end to end vectors for autocorrelation function
+        if acfE2E:
+            nchains = len(self._nmols_array)
+            nframes = self._trajectory.get_numframes()
+            self._uree_frame = np.zeros([3, nchains, nframes], dtype=np.float32)
+            self._rEE_ACF = np.zeros([nframes], dtype=np.float32)
+
+        # Start calculations for each frame
+        iframe_jumpfirst = 0
+        for itrj in self._trajectory.trjlist:
+
+            ini = 0 if iframe_jumpfirst == 0 else self._stride
+
+            for iframe_local in range(ini, itrj.n_frames, self._stride):
+
+                if iframe_local%self._freq == 0:
+                    elapsed_time = datetime.datetime.now() - start_time
+                    line = &#34;IFRAME: {0:d} in {1:s} seconds&#34;.format\
+                        (iframe_local, str(elapsed_time.total_seconds()))
+                    LogMessage(&#39;info&#39;,&#34;time: {0:s} seconds&#34;.format(line))
+
+                if pbc:
+                    self._unwrap_coordinates(itrj, iframe_local, pbc=pbc)
+
+                self._single_rg(iframe_jumpfirst, filename=diroutput+&#34;Rg.dat&#34;, tmpfileindiviualchain=distributions)
+                self._single_ree(iframe_jumpfirst, filename=diroutput+&#34;Ree.dat&#34;, listendtoend=listendtoend,tmpfileindiviualchain=distributions)
+                iframe_jumpfirst += self._stride
+
+        # Write final messages and time
+        end_time = datetime.datetime.now()
+        elapsed_time = end_time - start_time
+        LogMessage(&#39;info&#39;,&#34;TIME(Chain_Statistics): {0:s} seconds&#34;.format
+             (str(elapsed_time.total_seconds())))
+
+        if acfE2E:
+            # Write messages
+            start_time = datetime.datetime.now()
+            LogMessage(&#39;info&#39;,&#34;&#34;)
+            LogMessage(&#39;info&#39;,&#34;Calculating End-to-End autocorrelation vector...&#34;)
+
+            self._acf_e2e(filename=diroutput+&#34;rEE_ACF.dat&#34;)
+
+            # Write final messages and time
+            end_time = datetime.datetime.now()
+            elapsed_time = end_time - start_time
+            LogMessage(&#39;info&#39;,&#34;TIME(End-to-End autocorrelation vector): {0:s} seconds&#34;.format
+                 (str(elapsed_time.total_seconds())))
+
+        if distributions:
+            with open(&#34;.tmp_rg_distances.dat&#34;, &#39;a&#39;) as f:
+                f.writelines(&#34;Rg_min_max: {0:.4f} {1:.4f}\n&#34;.format(self._rg_min, self._rg_max))
+            if not listendtoend is None:
+                with open(&#34;.tmp_ree_distances.dat&#34;, &#39;a&#39;) as f:
+                    f.writelines(&#34;Ree_min_max: {0:.4f} {1:.4f}\n&#34;.format(self._ree_min, self._ree_max))
+
+            self._distribution(&#34;.tmp_ree_distances.dat&#34;)
+            self._distribution(&#34;.tmp_rg_distances.dat&#34;)
+
+            print(&#34;Calculate distributions TO BE DONE!!!!!!&#34;)
+
+    # #########################################################################
+    def _single_rg(self, iframe_total, filename=&#34;Rg.dat&#34;, write_result=True, ismassweight=False, tmpfileindiviualchain=False):
+
+        mass = np.array(self._top._mass, dtype=np.float32)
+        nchains = len(self._nmols_array)
+        rgsq_ich_iframe = np.zeros([nchains, 4], dtype=np.float32)
+
+        if ismassweight:
+            calc_rg_openmp_massweigth(self._nmols_array, mass, self._coords_unwrap, rgsq_ich_iframe)
+        else:
+            calc_rg_openmp(self._nmols_array, mass, self._coords_unwrap, rgsq_ich_iframe)
+
+        # Calculate the average
+        rg2_avg = 0.0
+        rg2_std = 0.0
+        for ich in range(nchains):
+            rg2_avg += rgsq_ich_iframe[ich,3]
+        rg2_avg = rg2_avg / nchains
+        # Calculate the standard deviation
+        for ich in range(nchains):
+            rg2_std += (rgsq_ich_iframe[ich,3] - rg2_avg)*(rgsq_ich_iframe[ich,3] - rg2_avg)
+        rg2_std = np.sqrt(rg2_std/(nchains-1))
+
+        self._rg2_frame[iframe_total*self._dt] = [rg2_avg, rg2_std]
+
+        # Write a tmp file containing the radius of gyration for each chain.
+        # Each line corresponds to all chains in the current frame
+        # This is useful to calculate the radius of gyration distribution
+        if tmpfileindiviualchain:
+            try:
+                if self._removetmpfiles_rg:
+                    os.remove(&#34;.tmp_rg_distances.dat&#34;)
+            except FileNotFoundError:
+                pass
+            with open(&#34;.tmp_rg_distances.dat&#34;,&#39;a&#39;) as f:
+                self._removetmpfiles_rg = False
+                line = &#34;{} &#34;.format(iframe_total)
+                for ich in range(nchains):
+                    rg = rgsq_ich_iframe[ich,3]**0.5
+                    line += &#34; {0:.4f} &#34;.format(rg)
+                    self._rg_max = rg if rg &gt; self._rg_max else self._rg_max
+                    self._rg_min = rg if rg &lt; self._rg_min else self._rg_min
+                line += &#34;\n&#34;
+                f.writelines(line)
+
+        if write_result:
+            i = iframe_total*self._dt
+            if iframe_total == 0:
+                with open(filename,&#39;w&#39;) as f:
+                    f.writelines(&#34;#   Time(ps)     Rg^2(A^2)     stdRg^2(A^2)\n&#34;)
+                    f.writelines(&#34;#==========================================\n&#34;)
+
+                    f.writelines(&#34;{0:&gt;10.2f}   {1:&gt;10.2f}   {2:&gt;10.2f} \n&#34;.format(i,
+                                                    self._rg2_frame[i][0],
+                                                    self._rg2_frame[i][1]))
+            else:
+                with open(filename,&#39;a&#39;) as f:
+                    f.writelines(&#34;{0:&gt;10.2f}   {1:&gt;10.2f}   {2:&gt;10.2f} \n&#34;.format(i,
+                                                    self._rg2_frame[i][0],
+                                                    self._rg2_frame[i][1]))
+
+        return rg2_avg, rg2_std
+
+    # #########################################################################
+    def _single_ree(self, iframe_total, filename=&#34;Ree.dat&#34;, write_result=True, listendtoend=None, tmpfileindiviualchain=False):
+
+        nchains = len(self._nmols_array)
+        reesq_ich_iframe = np.zeros([nchains, 4], dtype=np.float32)
+        ref = np.zeros((nchains,3))
+        conf = np.zeros((nchains,3))
+
+        # Calculate the average
+        ree2_avg = 0.0
+        ree2_std = 0.0
+
+        for item in listendtoend:
+            ich, ihead, itail = item
+            ref[ich,:] = self._coords_unwrap[ihead,:]
+            conf[ich,:] = self._coords_unwrap[itail,:]
+
+        dij, reex, reey, reez = distance_diagonal_array(ref, conf, openmp=True)
+
+        for ich in range(nchains):
+            reesq_ich_iframe[ich,3] = dij[ich]*dij[ich]
+            ree2_avg += reesq_ich_iframe[ich,3]
+            if not self._uree_frame is None:
+                self._uree_frame[0, ich, iframe_total] = reex[ich] / dij[ich]
+                self._uree_frame[1, ich, iframe_total] = reey[ich] / dij[ich]
+                self._uree_frame[2, ich, iframe_total] = reez[ich] / dij[ich]
+
+        ree2_avg = ree2_avg / nchains
+        # Calculate the standard deviation
+        for ich in range(nchains):
+            ree2_std += (reesq_ich_iframe[ich,3] - ree2_avg)*(reesq_ich_iframe[ich,3] - ree2_avg)
+        ree2_std = np.sqrt(ree2_std/(nchains-1))
+
+        self._ree2_frame[iframe_total*self._dt] = [ree2_avg, ree2_std]
+
+        # ====== DATA FOR Ree DISTRIBUTIONS =======
+        # Write a tmp file containing all end-to-end distances for each chain.
+        # Each line corresponds to all chains in the current frame
+        # This is useful to calculate the end-to-end distribution
+        if tmpfileindiviualchain:
+            try:
+                if self._removetmpfiles_ee:
+                    #os.remove(&#34;.tmp_ree_distances.dat&#34;)
+                    os.remove(&#34;.tmp_ree_distances.hdf5&#34;)
+            except FileNotFoundError:
+                pass
+            # with open(&#34;.tmp_ree_distances.dat&#34;,&#39;a&#39;) as f:
+            #     self._removetmpfiles_ee = False
+            #     line = &#34;{} &#34;.format(iframe_total)
+            #     for ich_ee in dij:
+            #         line += &#34; {0:.4f} &#34;.format(ich_ee)
+            #         self._ree_max = ich_ee if ich_ee &gt; self._ree_max else self._ree_max
+            #         self._ree_min = ich_ee if ich_ee &lt; self._ree_min else self._ree_min
+            #     line += &#34;\n&#34;
+            #     f.writelines(line)
+            with h5py.File(&#34;.tmp_ree_distances.hdf5&#34;,&#39;a&#39;) as f:
+                self._removetmpfiles_ee = False
+                arr = np.zeros(nchains)
+                for ich in range(nchains):
+                    arr[ich] = dij[ich]
+                dset = f.create_dataset(&#39;Frame_{0:07d}&#39;.format(iframe_total), data=arr)
+
+
+        # ====== DATA FOR Ree DISTRIBUTIONS =======
+
+        if write_result:
+            i = iframe_total*self._dt
+            if iframe_total == 0:
+                with open(filename,&#39;w&#39;) as f:
+                    f.writelines(&#34;#   Time(ps)     Ree^2(A^2)     stdRee^2(A^2)\n&#34;)
+                    f.writelines(&#34;#============================================\n&#34;)
+                    f.writelines(&#34;{0:&gt;10.2f}   {1:&gt;10.2f}   {2:&gt;10.2f} \n&#34;.format(i,
+                                                    self._ree2_frame[i][0],
+                                                    self._ree2_frame[i][1]))
+            else:
+                with open(filename,&#39;a&#39;) as f:
+                    f.writelines(&#34;{0:&gt;10.2f}   {1:&gt;10.2f}   {2:&gt;10.2f} \n&#34;.format(i,
+                                                   self._ree2_frame[i][0],
+                                                    self._ree2_frame[i][1]))
+
+        return ree2_avg, ree2_std
+
+    # #########################################################################
+    def _acf_e2e(self, filename=&#34;rEE_ACF.dat&#34;, write_result=True):
+
+        print(&#34;==================== FALTA NORMALIZAR LOS END_TO_END VECTORS ===================&#34;)
+        print(&#34;==================== FALTA NORMALIZAR LOS END_TO_END VECTORS ===================&#34;)
+        print(&#34;==================== FALTA NORMALIZAR LOS END_TO_END VECTORS ===================&#34;)
+        print(&#34;==================== FALTA NORMALIZAR LOS END_TO_END VECTORS ===================&#34;)
+        print(&#34;==================== FALTA NORMALIZAR LOS END_TO_END VECTORS ===================&#34;)
+        print(&#34;==================== FALTA NORMALIZAR LOS END_TO_END VECTORS ===================&#34;)
+        print(&#34;==================== FALTA NORMALIZAR LOS END_TO_END VECTORS ===================&#34;)
+        print(&#34;==================== FALTA NORMALIZAR LOS END_TO_END VECTORS ===================&#34;)
+        print(&#34;==================== FALTA NORMALIZAR LOS END_TO_END VECTORS ===================&#34;)
+
+
+
+
+        ndumps = self._uree_frame.shape[2]
+        calc_acf_ete(self._uree_frame, self._rEE_ACF)
+
+        self._dt = 1.0
+        if write_result:
+            for iframe_total in range(0, self._rEE_ACF.shape[0]):
+                i = iframe_total*self._dt
+                if iframe_total == 0:
+                    with open(filename,&#39;w&#39;) as f:
+                        f.writelines(&#34;#   Time(ps)     rEE_ACF\n&#34;)
+                        f.writelines(&#34;#===================================\n&#34;)
+                        f.writelines(&#34;{0:&gt;10.2f}     {1:&lt;10.8f}   \n&#34;.format(i,
+                                                        self._rEE_ACF[iframe_total]))
+                else:
+                    with open(filename,&#39;a&#39;) as f:
+                        f.writelines(&#34;{0:&gt;10.2f}     {1:&lt;10.8f} \n&#34;.format(i,
+                                                        self._rEE_ACF[iframe_total]))
+
+    # #########################################################################
+    def _distribution(self, filename):
+
+        print(filename)
+        with open(filename, &#39;r&#39;) as f:
+            print(f)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="polyanagro.Chain_Statistics.Chain_Statistics"><code class="flex name class">
+<span>class <span class="ident">Chain_Statistics</span></span>
+<span>(</span><span>trj, top, dt=1, stride=1, removetmpfiles_ee=True, removetmpfiles_rg=True)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Chain_Statistics(pag.Calculations):
+
+    # #########################################################################
+    def __init__(self, trj, top, dt=1, stride=1,removetmpfiles_ee=True, removetmpfiles_rg=True):
+
+        super().__init__(trj, top, dt, stride)
+        self._removetmpfiles_ee = removetmpfiles_ee
+        self._removetmpfiles_rg = removetmpfiles_rg
+        self._rg2_frame = {}
+        self._ree2_frame = {}
+        self._uree_frame = None
+        self._rEE_ACF = None
+
+        self._ree_max = sys.float_info.min
+        self._ree_min = sys.float_info.max
+        self._rg_max = sys.float_info.min
+        self._rg_min = sys.float_info.max
+
+    # #########################################################################
+    def calculate(self, write_rg=True, pbc =True, diroutput=&#34;./&#34;, listendtoend=None, acfE2E=False, distributions=False):
+
+        # Write messages
+        LogMessage(&#39;info&#39;,&#34;&#34;)
+        LogMessage(&#39;info&#39;,&#34;Calculating Radius of gyration...&#34;)
+        start_time = datetime.datetime.now()
+
+        LogMessage(&#39;info&#39;,&#34;&#34;)
+        LogMessage(&#39;info&#39;,&#34;Calculating Radius of gyration...&#34;)
+        if write_rg:
+            LogMessage(&#39;info&#39;,&#34;Radius of gyration written to {0:s} &#34;.format(diroutput+&#34;Rg.dat&#34;))
+        if not listendtoend is None:
+            LogMessage(&#39;info&#39;,&#34;&#34;)
+            LogMessage(&#39;info&#39;,&#34;Calculating End to End distance...&#34;)
+            LogMessage(&#39;info&#39;,&#34;End to End distance written to {0:s} \n&#34;.format(diroutput+&#34;Ree.dat&#34;))
+
+        # Start ndarray to store the end to end vectors for autocorrelation function
+        if acfE2E:
+            nchains = len(self._nmols_array)
+            nframes = self._trajectory.get_numframes()
+            self._uree_frame = np.zeros([3, nchains, nframes], dtype=np.float32)
+            self._rEE_ACF = np.zeros([nframes], dtype=np.float32)
+
+        # Start calculations for each frame
+        iframe_jumpfirst = 0
+        for itrj in self._trajectory.trjlist:
+
+            ini = 0 if iframe_jumpfirst == 0 else self._stride
+
+            for iframe_local in range(ini, itrj.n_frames, self._stride):
+
+                if iframe_local%self._freq == 0:
+                    elapsed_time = datetime.datetime.now() - start_time
+                    line = &#34;IFRAME: {0:d} in {1:s} seconds&#34;.format\
+                        (iframe_local, str(elapsed_time.total_seconds()))
+                    LogMessage(&#39;info&#39;,&#34;time: {0:s} seconds&#34;.format(line))
+
+                if pbc:
+                    self._unwrap_coordinates(itrj, iframe_local, pbc=pbc)
+
+                self._single_rg(iframe_jumpfirst, filename=diroutput+&#34;Rg.dat&#34;, tmpfileindiviualchain=distributions)
+                self._single_ree(iframe_jumpfirst, filename=diroutput+&#34;Ree.dat&#34;, listendtoend=listendtoend,tmpfileindiviualchain=distributions)
+                iframe_jumpfirst += self._stride
+
+        # Write final messages and time
+        end_time = datetime.datetime.now()
+        elapsed_time = end_time - start_time
+        LogMessage(&#39;info&#39;,&#34;TIME(Chain_Statistics): {0:s} seconds&#34;.format
+             (str(elapsed_time.total_seconds())))
+
+        if acfE2E:
+            # Write messages
+            start_time = datetime.datetime.now()
+            LogMessage(&#39;info&#39;,&#34;&#34;)
+            LogMessage(&#39;info&#39;,&#34;Calculating End-to-End autocorrelation vector...&#34;)
+
+            self._acf_e2e(filename=diroutput+&#34;rEE_ACF.dat&#34;)
+
+            # Write final messages and time
+            end_time = datetime.datetime.now()
+            elapsed_time = end_time - start_time
+            LogMessage(&#39;info&#39;,&#34;TIME(End-to-End autocorrelation vector): {0:s} seconds&#34;.format
+                 (str(elapsed_time.total_seconds())))
+
+        if distributions:
+            with open(&#34;.tmp_rg_distances.dat&#34;, &#39;a&#39;) as f:
+                f.writelines(&#34;Rg_min_max: {0:.4f} {1:.4f}\n&#34;.format(self._rg_min, self._rg_max))
+            if not listendtoend is None:
+                with open(&#34;.tmp_ree_distances.dat&#34;, &#39;a&#39;) as f:
+                    f.writelines(&#34;Ree_min_max: {0:.4f} {1:.4f}\n&#34;.format(self._ree_min, self._ree_max))
+
+            self._distribution(&#34;.tmp_ree_distances.dat&#34;)
+            self._distribution(&#34;.tmp_rg_distances.dat&#34;)
+
+            print(&#34;Calculate distributions TO BE DONE!!!!!!&#34;)
+
+    # #########################################################################
+    def _single_rg(self, iframe_total, filename=&#34;Rg.dat&#34;, write_result=True, ismassweight=False, tmpfileindiviualchain=False):
+
+        mass = np.array(self._top._mass, dtype=np.float32)
+        nchains = len(self._nmols_array)
+        rgsq_ich_iframe = np.zeros([nchains, 4], dtype=np.float32)
+
+        if ismassweight:
+            calc_rg_openmp_massweigth(self._nmols_array, mass, self._coords_unwrap, rgsq_ich_iframe)
+        else:
+            calc_rg_openmp(self._nmols_array, mass, self._coords_unwrap, rgsq_ich_iframe)
+
+        # Calculate the average
+        rg2_avg = 0.0
+        rg2_std = 0.0
+        for ich in range(nchains):
+            rg2_avg += rgsq_ich_iframe[ich,3]
+        rg2_avg = rg2_avg / nchains
+        # Calculate the standard deviation
+        for ich in range(nchains):
+            rg2_std += (rgsq_ich_iframe[ich,3] - rg2_avg)*(rgsq_ich_iframe[ich,3] - rg2_avg)
+        rg2_std = np.sqrt(rg2_std/(nchains-1))
+
+        self._rg2_frame[iframe_total*self._dt] = [rg2_avg, rg2_std]
+
+        # Write a tmp file containing the radius of gyration for each chain.
+        # Each line corresponds to all chains in the current frame
+        # This is useful to calculate the radius of gyration distribution
+        if tmpfileindiviualchain:
+            try:
+                if self._removetmpfiles_rg:
+                    os.remove(&#34;.tmp_rg_distances.dat&#34;)
+            except FileNotFoundError:
+                pass
+            with open(&#34;.tmp_rg_distances.dat&#34;,&#39;a&#39;) as f:
+                self._removetmpfiles_rg = False
+                line = &#34;{} &#34;.format(iframe_total)
+                for ich in range(nchains):
+                    rg = rgsq_ich_iframe[ich,3]**0.5
+                    line += &#34; {0:.4f} &#34;.format(rg)
+                    self._rg_max = rg if rg &gt; self._rg_max else self._rg_max
+                    self._rg_min = rg if rg &lt; self._rg_min else self._rg_min
+                line += &#34;\n&#34;
+                f.writelines(line)
+
+        if write_result:
+            i = iframe_total*self._dt
+            if iframe_total == 0:
+                with open(filename,&#39;w&#39;) as f:
+                    f.writelines(&#34;#   Time(ps)     Rg^2(A^2)     stdRg^2(A^2)\n&#34;)
+                    f.writelines(&#34;#==========================================\n&#34;)
+
+                    f.writelines(&#34;{0:&gt;10.2f}   {1:&gt;10.2f}   {2:&gt;10.2f} \n&#34;.format(i,
+                                                    self._rg2_frame[i][0],
+                                                    self._rg2_frame[i][1]))
+            else:
+                with open(filename,&#39;a&#39;) as f:
+                    f.writelines(&#34;{0:&gt;10.2f}   {1:&gt;10.2f}   {2:&gt;10.2f} \n&#34;.format(i,
+                                                    self._rg2_frame[i][0],
+                                                    self._rg2_frame[i][1]))
+
+        return rg2_avg, rg2_std
+
+    # #########################################################################
+    def _single_ree(self, iframe_total, filename=&#34;Ree.dat&#34;, write_result=True, listendtoend=None, tmpfileindiviualchain=False):
+
+        nchains = len(self._nmols_array)
+        reesq_ich_iframe = np.zeros([nchains, 4], dtype=np.float32)
+        ref = np.zeros((nchains,3))
+        conf = np.zeros((nchains,3))
+
+        # Calculate the average
+        ree2_avg = 0.0
+        ree2_std = 0.0
+
+        for item in listendtoend:
+            ich, ihead, itail = item
+            ref[ich,:] = self._coords_unwrap[ihead,:]
+            conf[ich,:] = self._coords_unwrap[itail,:]
+
+        dij, reex, reey, reez = distance_diagonal_array(ref, conf, openmp=True)
+
+        for ich in range(nchains):
+            reesq_ich_iframe[ich,3] = dij[ich]*dij[ich]
+            ree2_avg += reesq_ich_iframe[ich,3]
+            if not self._uree_frame is None:
+                self._uree_frame[0, ich, iframe_total] = reex[ich] / dij[ich]
+                self._uree_frame[1, ich, iframe_total] = reey[ich] / dij[ich]
+                self._uree_frame[2, ich, iframe_total] = reez[ich] / dij[ich]
+
+        ree2_avg = ree2_avg / nchains
+        # Calculate the standard deviation
+        for ich in range(nchains):
+            ree2_std += (reesq_ich_iframe[ich,3] - ree2_avg)*(reesq_ich_iframe[ich,3] - ree2_avg)
+        ree2_std = np.sqrt(ree2_std/(nchains-1))
+
+        self._ree2_frame[iframe_total*self._dt] = [ree2_avg, ree2_std]
+
+        # ====== DATA FOR Ree DISTRIBUTIONS =======
+        # Write a tmp file containing all end-to-end distances for each chain.
+        # Each line corresponds to all chains in the current frame
+        # This is useful to calculate the end-to-end distribution
+        if tmpfileindiviualchain:
+            try:
+                if self._removetmpfiles_ee:
+                    #os.remove(&#34;.tmp_ree_distances.dat&#34;)
+                    os.remove(&#34;.tmp_ree_distances.hdf5&#34;)
+            except FileNotFoundError:
+                pass
+            # with open(&#34;.tmp_ree_distances.dat&#34;,&#39;a&#39;) as f:
+            #     self._removetmpfiles_ee = False
+            #     line = &#34;{} &#34;.format(iframe_total)
+            #     for ich_ee in dij:
+            #         line += &#34; {0:.4f} &#34;.format(ich_ee)
+            #         self._ree_max = ich_ee if ich_ee &gt; self._ree_max else self._ree_max
+            #         self._ree_min = ich_ee if ich_ee &lt; self._ree_min else self._ree_min
+            #     line += &#34;\n&#34;
+            #     f.writelines(line)
+            with h5py.File(&#34;.tmp_ree_distances.hdf5&#34;,&#39;a&#39;) as f:
+                self._removetmpfiles_ee = False
+                arr = np.zeros(nchains)
+                for ich in range(nchains):
+                    arr[ich] = dij[ich]
+                dset = f.create_dataset(&#39;Frame_{0:07d}&#39;.format(iframe_total), data=arr)
+
+
+        # ====== DATA FOR Ree DISTRIBUTIONS =======
+
+        if write_result:
+            i = iframe_total*self._dt
+            if iframe_total == 0:
+                with open(filename,&#39;w&#39;) as f:
+                    f.writelines(&#34;#   Time(ps)     Ree^2(A^2)     stdRee^2(A^2)\n&#34;)
+                    f.writelines(&#34;#============================================\n&#34;)
+                    f.writelines(&#34;{0:&gt;10.2f}   {1:&gt;10.2f}   {2:&gt;10.2f} \n&#34;.format(i,
+                                                    self._ree2_frame[i][0],
+                                                    self._ree2_frame[i][1]))
+            else:
+                with open(filename,&#39;a&#39;) as f:
+                    f.writelines(&#34;{0:&gt;10.2f}   {1:&gt;10.2f}   {2:&gt;10.2f} \n&#34;.format(i,
+                                                   self._ree2_frame[i][0],
+                                                    self._ree2_frame[i][1]))
+
+        return ree2_avg, ree2_std
+
+    # #########################################################################
+    def _acf_e2e(self, filename=&#34;rEE_ACF.dat&#34;, write_result=True):
+
+        print(&#34;==================== FALTA NORMALIZAR LOS END_TO_END VECTORS ===================&#34;)
+        print(&#34;==================== FALTA NORMALIZAR LOS END_TO_END VECTORS ===================&#34;)
+        print(&#34;==================== FALTA NORMALIZAR LOS END_TO_END VECTORS ===================&#34;)
+        print(&#34;==================== FALTA NORMALIZAR LOS END_TO_END VECTORS ===================&#34;)
+        print(&#34;==================== FALTA NORMALIZAR LOS END_TO_END VECTORS ===================&#34;)
+        print(&#34;==================== FALTA NORMALIZAR LOS END_TO_END VECTORS ===================&#34;)
+        print(&#34;==================== FALTA NORMALIZAR LOS END_TO_END VECTORS ===================&#34;)
+        print(&#34;==================== FALTA NORMALIZAR LOS END_TO_END VECTORS ===================&#34;)
+        print(&#34;==================== FALTA NORMALIZAR LOS END_TO_END VECTORS ===================&#34;)
+
+
+
+
+        ndumps = self._uree_frame.shape[2]
+        calc_acf_ete(self._uree_frame, self._rEE_ACF)
+
+        self._dt = 1.0
+        if write_result:
+            for iframe_total in range(0, self._rEE_ACF.shape[0]):
+                i = iframe_total*self._dt
+                if iframe_total == 0:
+                    with open(filename,&#39;w&#39;) as f:
+                        f.writelines(&#34;#   Time(ps)     rEE_ACF\n&#34;)
+                        f.writelines(&#34;#===================================\n&#34;)
+                        f.writelines(&#34;{0:&gt;10.2f}     {1:&lt;10.8f}   \n&#34;.format(i,
+                                                        self._rEE_ACF[iframe_total]))
+                else:
+                    with open(filename,&#39;a&#39;) as f:
+                        f.writelines(&#34;{0:&gt;10.2f}     {1:&lt;10.8f} \n&#34;.format(i,
+                                                        self._rEE_ACF[iframe_total]))
+
+    # #########################################################################
+    def _distribution(self, filename):
+
+        print(filename)
+        with open(filename, &#39;r&#39;) as f:
+            print(f)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="polyanagro.Calculations.Calculations" href="Calculations.html#polyanagro.Calculations.Calculations">Calculations</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="polyanagro.Chain_Statistics.Chain_Statistics.calculate"><code class="name flex">
+<span>def <span class="ident">calculate</span></span>(<span>self, write_rg=True, pbc=True, diroutput='./', listendtoend=None, acfE2E=False, distributions=False)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def calculate(self, write_rg=True, pbc =True, diroutput=&#34;./&#34;, listendtoend=None, acfE2E=False, distributions=False):
+
+    # Write messages
+    LogMessage(&#39;info&#39;,&#34;&#34;)
+    LogMessage(&#39;info&#39;,&#34;Calculating Radius of gyration...&#34;)
+    start_time = datetime.datetime.now()
+
+    LogMessage(&#39;info&#39;,&#34;&#34;)
+    LogMessage(&#39;info&#39;,&#34;Calculating Radius of gyration...&#34;)
+    if write_rg:
+        LogMessage(&#39;info&#39;,&#34;Radius of gyration written to {0:s} &#34;.format(diroutput+&#34;Rg.dat&#34;))
+    if not listendtoend is None:
+        LogMessage(&#39;info&#39;,&#34;&#34;)
+        LogMessage(&#39;info&#39;,&#34;Calculating End to End distance...&#34;)
+        LogMessage(&#39;info&#39;,&#34;End to End distance written to {0:s} \n&#34;.format(diroutput+&#34;Ree.dat&#34;))
+
+    # Start ndarray to store the end to end vectors for autocorrelation function
+    if acfE2E:
+        nchains = len(self._nmols_array)
+        nframes = self._trajectory.get_numframes()
+        self._uree_frame = np.zeros([3, nchains, nframes], dtype=np.float32)
+        self._rEE_ACF = np.zeros([nframes], dtype=np.float32)
+
+    # Start calculations for each frame
+    iframe_jumpfirst = 0
+    for itrj in self._trajectory.trjlist:
+
+        ini = 0 if iframe_jumpfirst == 0 else self._stride
+
+        for iframe_local in range(ini, itrj.n_frames, self._stride):
+
+            if iframe_local%self._freq == 0:
+                elapsed_time = datetime.datetime.now() - start_time
+                line = &#34;IFRAME: {0:d} in {1:s} seconds&#34;.format\
+                    (iframe_local, str(elapsed_time.total_seconds()))
+                LogMessage(&#39;info&#39;,&#34;time: {0:s} seconds&#34;.format(line))
+
+            if pbc:
+                self._unwrap_coordinates(itrj, iframe_local, pbc=pbc)
+
+            self._single_rg(iframe_jumpfirst, filename=diroutput+&#34;Rg.dat&#34;, tmpfileindiviualchain=distributions)
+            self._single_ree(iframe_jumpfirst, filename=diroutput+&#34;Ree.dat&#34;, listendtoend=listendtoend,tmpfileindiviualchain=distributions)
+            iframe_jumpfirst += self._stride
+
+    # Write final messages and time
+    end_time = datetime.datetime.now()
+    elapsed_time = end_time - start_time
+    LogMessage(&#39;info&#39;,&#34;TIME(Chain_Statistics): {0:s} seconds&#34;.format
+         (str(elapsed_time.total_seconds())))
+
+    if acfE2E:
+        # Write messages
+        start_time = datetime.datetime.now()
+        LogMessage(&#39;info&#39;,&#34;&#34;)
+        LogMessage(&#39;info&#39;,&#34;Calculating End-to-End autocorrelation vector...&#34;)
+
+        self._acf_e2e(filename=diroutput+&#34;rEE_ACF.dat&#34;)
+
+        # Write final messages and time
+        end_time = datetime.datetime.now()
+        elapsed_time = end_time - start_time
+        LogMessage(&#39;info&#39;,&#34;TIME(End-to-End autocorrelation vector): {0:s} seconds&#34;.format
+             (str(elapsed_time.total_seconds())))
+
+    if distributions:
+        with open(&#34;.tmp_rg_distances.dat&#34;, &#39;a&#39;) as f:
+            f.writelines(&#34;Rg_min_max: {0:.4f} {1:.4f}\n&#34;.format(self._rg_min, self._rg_max))
+        if not listendtoend is None:
+            with open(&#34;.tmp_ree_distances.dat&#34;, &#39;a&#39;) as f:
+                f.writelines(&#34;Ree_min_max: {0:.4f} {1:.4f}\n&#34;.format(self._ree_min, self._ree_max))
+
+        self._distribution(&#34;.tmp_ree_distances.dat&#34;)
+        self._distribution(&#34;.tmp_rg_distances.dat&#34;)
+
+        print(&#34;Calculate distributions TO BE DONE!!!!!!&#34;)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="polyanagro" href="index.html">polyanagro</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="polyanagro.Chain_Statistics.Chain_Statistics" href="#polyanagro.Chain_Statistics.Chain_Statistics">Chain_Statistics</a></code></h4>
+<ul class="">
+<li><code><a title="polyanagro.Chain_Statistics.Chain_Statistics.calculate" href="#polyanagro.Chain_Statistics.Chain_Statistics.calculate">calculate</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.8.4</a>.</p>
+</footer>
+</body>
+</html>

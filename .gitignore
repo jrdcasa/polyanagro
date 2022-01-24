@@ -1,0 +1,8 @@
+dist/
+*egg*/
+*.swp
+build/
+**/__pycache__
+topology/
+data/trj_gro
+test/test_data_dist01/trj.dcd

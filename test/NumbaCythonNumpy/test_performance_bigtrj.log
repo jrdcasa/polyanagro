@@ -1,0 +1,120 @@
+
+	Job Information
+	---------------
+
+	***************** START Numba-Cython-Python TEST *****************
+	Starting: 	 02-10-2020 20:08:16
+
+
+	================================ START TEST_01 ================================
+                 Unwrapping coordinates  
+
+	*** Creating a trajectory from...
+	/media/jramos/PEBranch/0100Ch-C500-009br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-0500ns/traj_comp.xtc
+	/media/jramos/PEBranch/0100Ch-C500-009br02/T-450K/06-NPT-100ns-Parrinello/02-RESTART-0500-1000ns/traj_comp.total.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 15.650247 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	/media/jramos/PEBranch/0100Ch-C500-009br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-0500ns/topol.tpr
+	Number of frames: 50001
+	TIME(Adding topology): 13.521007 seconds
+	*** End Adding topology 
+	Number of frames: 50001
+	TIME(Read_Trajectories): 29.171589 seconds
+	*** End Creating a trajectory 
+
+
+	@@@@@@@@ Time setup trajectory: 	 29.17 seconds
+
+
+	@@@@@@@@ Cython @@@@@@@@
+
+	IFRAME: 0 in 2.1e-05 seconds
+	IFRAME: 2500 in 128.053727 seconds
+	IFRAME: 5000 in 255.311116 seconds
+	IFRAME: 7500 in 383.281982 seconds
+	IFRAME: 10000 in 511.588227 seconds
+	IFRAME: 12500 in 639.98411 seconds
+	IFRAME: 15000 in 768.943221 seconds
+	IFRAME: 17500 in 897.563237 seconds
+	IFRAME: 20000 in 1026.04881 seconds
+	IFRAME: 22500 in 1154.799396 seconds
+	IFRAME: 25000 in 1283.401077 seconds
+	IFRAME: 27500 in 1412.055592 seconds
+	IFRAME: 30000 in 1541.299659 seconds
+	IFRAME: 32500 in 1669.623175 seconds
+	IFRAME: 35000 in 1798.272583 seconds
+	IFRAME: 37500 in 1926.825991 seconds
+	IFRAME: 40000 in 2055.381659 seconds
+	IFRAME: 42500 in 2183.794745 seconds
+	IFRAME: 45000 in 2314.216302 seconds
+	IFRAME: 47500 in 2444.150328 seconds
+	IFRAME: 50000 in 2573.946011 seconds
+
+	@@@@@@@@ Time Unwrap coordinates Cython: 	 2574.00 seconds
+
+
+	@@@@@@@@ Numba @@@@@@@@
+
+	IFRAME: 0 in 3.2e-05 seconds
+	IFRAME: 2500 in 130.160055 seconds
+	IFRAME: 5000 in 259.478356 seconds
+	IFRAME: 7500 in 388.230077 seconds
+	IFRAME: 10000 in 517.204743 seconds
+	IFRAME: 12500 in 646.007847 seconds
+	IFRAME: 15000 in 775.016669 seconds
+	IFRAME: 17500 in 904.891726 seconds
+	IFRAME: 20000 in 1034.737813 seconds
+	IFRAME: 22500 in 1164.93169 seconds
+	IFRAME: 25000 in 1294.668791 seconds
+	IFRAME: 27500 in 1424.020253 seconds
+	IFRAME: 30000 in 1553.366309 seconds
+	IFRAME: 32500 in 1683.738137 seconds
+	IFRAME: 35000 in 1812.976934 seconds
+	IFRAME: 37500 in 1942.263845 seconds
+	IFRAME: 40000 in 2071.309266 seconds
+	IFRAME: 42500 in 2200.569822 seconds
+	IFRAME: 45000 in 2329.67679 seconds
+	IFRAME: 47500 in 2458.863551 seconds
+	IFRAME: 50000 in 2589.791512 seconds
+	@@@@@@@@ Time Unwrap coordinates Numba: 	 2589.84 seconds
+
+
+	@@@@@@@@ Total time Test01: 	 5193.01 seconds
+	============== END   TEST_01 ================================
+
+	================================ START TEST_02 ================================
+                 Multiprocessing by frame  
+
+	*** Creating a trajectory from...
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/traj_comp.xtc
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/02-RESTART-1000-2000ns/traj_comp.part0002.xtc
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/03-RESTART-2000-3000ns/traj_comp.part0003.xtc
+
+	*** Adding topology 
+	
+	Empty topology in trajectory
+	*** End Adding topology 
+	TIME(Read_Trajectories): 0.000136 seconds
+	*** End Creating a trajectory 
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 13.815033 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/topol.tpr
+	Number of frames: 151
+	TIME(Adding topology): 12.206172 seconds
+	*** End Adding topology 
+
+	@@@@@@@@ Time setup trajectory: 	 26.02 seconds
+
+
+	@@@@@@@@ Total time Test01: 	 26.02 seconds
+	================================ END   TEST_02 ================================

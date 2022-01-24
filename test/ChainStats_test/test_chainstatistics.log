@@ -1,0 +1,58 @@
+
+	Job Information
+	---------------
+
+		***************** START RadiusofGyration TEST *****************
+			Estimated time to run the test is 2-3 minutes.
+		Starting: 	 21-01-2022 19:02:35
+
+
+	============== START TEST_01 ================================
+                  Small Trajectory Rg2 and Ree2 
+
+		 Trajectory XTC and TOPOLOGY TPR
+		-----------------------------------
+	*** Creating a trajectory from...
+	../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc
+	../data/0003Ch-C020-002br04/RUN-002/traj_comp.part0002.xtc
+	../data/0003Ch-C020-002br04/RUN-003/traj_comp.part0003.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 0.03322 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../data/0003Ch-C020-002br04/RUN-001/topol.tpr
+	Number of frames: 301
+	TIME(Adding topology): 0.025765 seconds
+	*** End Adding topology
+
+	Number of frames: 301
+	TIME(Read_Trajectories): 0.059553 seconds
+	*** End Creating a trajectory 
+
+		 Trajectory XTC and TOPOLOGY PSF
+		-----------------------------------
+	*** Creating a trajectory from...
+	../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc
+	../data/0003Ch-C020-002br04/RUN-002/traj_comp.part0002.xtc
+	../data/0003Ch-C020-002br04/RUN-003/traj_comp.part0003.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	*** Backbone atoms have been assigned to the topology.
+	Topology file: ../data/0003Ch-C020-002br04/namd_out.psf
+	TIME(Building_bonds_from_topology): 0.016774 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../data/0003Ch-C020-002br04/namd_out.psf
+	Number of frames: 301
+	TIME(Adding topology): 0.019557 seconds
+	*** End Adding topology
+
+	Number of frames: 301
+	TIME(Read_Trajectories): 0.036827 seconds
+	*** End Creating a trajectory 
+

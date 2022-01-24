@@ -1,0 +1,4948 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.8.4" />
+<title>polyanagro.MolecularGraph API documentation</title>
+<meta name="description" content="This module implements a class to handle molecule as graphs. This class should not be used by the users, instead of
+use Topology class" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>polyanagro.MolecularGraph</code></h1>
+</header>
+<section id="section-intro">
+<p>This module implements a class to handle molecule as graphs. This class should not be used by the users, instead of
+use Topology class</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+This module implements a class to handle molecule as graphs. This class should not be used by the users, instead of
+use Topology class
+&#34;&#34;&#34;
+
+import pygraphviz as pgv
+import networkx as nx
+import matplotlib.pyplot as plt
+
+import sys
+import copy
+import polyanagro as pag
+
+class MolecularGraph(object):
+
+    __slots__ = [&#39;_graphdict&#39;, &#39;_nmols&#39;, &#39;_natoms&#39;, &#39;_undirected&#39;, &#39;_bonds&#39;, &#39;_cycles&#39;]
+
+    # ##################################################################################################################
+    def __init__(self, nvert = -1, listbonds = None, undirected=True):
+
+
+        &#34;&#34;&#34;
+        `MolecularGraph` implements objects that describe the connectivity of the atoms in a molecule or polymer chain.
+        Each atom is a vertex and the edges of the graph represents a bond. The vertice numbering starts at zero
+
+        Parameters:
+            * ``nvert`` (int, default = -1): Number of nodes (atoms) of the graph.
+            * ``listbonds``  (list, default = None): A list containing the edges (bonds) of the graph. The None value is used for a graph without edges.
+            * ``undirected`` (boolean, default = True): False for directed graph or True for undirected graph. (see warning above)
+
+        Return:
+            * ``None``
+
+        Attributes:
+            * ``self._graphdict`` (dict)--&gt; A dictionary with the following format. The key is the number of node\
+            and the values is a list with the neighbours to the node
+            * ``self._nmols`` (list of lists)--&gt; The length of the list is the number of unconnected graphs.\
+            Each sublist contains the number of atoms of the molecule.
+            * ``self._bonds`` (list of tuples)--&gt; A list of sets. Each set is a bond. Example:\
+            [{0,1},{1,2},{1,3}]
+            * ``self._cycles`` (list of lists)--&gt;  A list of list. Each list is a ring (or cycle).\
+            Example: [[5, 2, 7, 8, 9, 12, 6, 5]]
+            * ``self._undirected`` (bool)--&gt; True for an undirected graph, otherwise False
+            * ``self._natoms`` (int)--&gt; Number of atoms aka number of get_vertices (nodes)
+
+         Examples
+         --------
+        An empty graph:
+
+            &gt;&gt;&gt; MolecularGraph()
+
+        A graph without get_edges, only nodes (10)
+
+            &gt;&gt;&gt; MolecularGraph(nvert=10)
+
+        A graph with nodes and egdes
+
+            &gt;&gt;&gt; MolecularGraph(nvert=2, listbonds=[[0,1], [1,2]])
+
+        A system with two molecules, with 13 and 5 atoms, respectively. The molecule #1 contains a cycle
+
+        .. image:: ../../figures/graph07_nx.png
+
+        Data::
+
+            self._graphdict = {0: [1], 1: [0, 2, 3], 2: [1, 5, 7], 3: [1, 4], 4: [3],
+            5: [2, 6, 10], 6: [5, 12], 7: [2, 8], 8: [7, 9], 9: [8, 12], 10: [5, 11], 11: [10],
+            12: [9, 6], 13: [14], 14: [13, 15], 15: [14, 17, 16], 16: [15], 17: [15]}
+
+            self._bonds = [{0, 1}, {1, 2}, {1, 3}, {2, 5}, {3, 4}, {5, 6}, {10, 5}, {2, 7},
+            {8, 7}, {8, 9}, {10, 11}, {9, 12}, {12, 6},
+            {13, 14}, {14, 15}, {17, 15}, {16, 15}]
+
+            self._natoms = 18
+
+            self._undirected = True
+
+            self._cycles = [[5, 2, 7, 8, 9, 12, 6, 5]]
+
+            self._nmols = [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+            [13, 14, 15, 16, 17]]
+
+        Notes
+        -----
+        Difference between undirected (undirected = True) and directed (undirected = False)
+
+        .. image:: ../../figures/g2dvsg2u.png
+
+        Data ::
+
+            TEST 05 Undirected: {0: [1], 1: [0, 2, 3], 2: [1, 5, 7], 3: [1, 4], 4: [3], 5: [2, 6, 10], 6: [5], 7: [2, 8], 8: [7, 9], 9: [8], 10: [5, 11], 11: [10]}
+            TEST 05   Directed: {0: [1], 1: [2, 3], 2: [5, 7], 3: [4], 4: [], 5: [6], 6: [], 7: [], 8: [7, 9], 9: [], 10: [5, 11], 11: []}
+
+
+        .. warning:: Directed graphs should not work properly. The most methods work well with undirected graphs
+
+        &#34;&#34;&#34;
+
+        self._graphdict = {}
+        self._nmols = []
+        self._bonds = []
+        self._cycles = []
+
+        self._undirected = undirected
+        self._natoms = 0
+        if nvert != -1:
+            for i in range(0,nvert):
+                self.add_vertex(i)
+
+        if listbonds is not None:
+            for ibond in listbonds:
+                self.add_edge(ibond)
+
+        self._set_forest()
+
+    # ##################################################################################################################
+    def __str__(self):
+
+        &#34;&#34;&#34; Returns the state of the attributtes of an instance&#34;&#34;&#34;
+        objstr = str(self.__repr__())+&#34;\n&#34;
+        for key in self.__slots__:
+            try:
+                value = getattr(self,key)
+                objstr +=  str(key) +&#34;: &#34;+str(value) + &#34;\n&#34;
+            except AttributeError:
+                objstr += str(key) +&#34;: NOT SET&#34; + &#34;\n&#34;
+
+        objstr += &#34;\nget_vertices: &#34;
+        for k in self._graphdict:
+            objstr += str(k) + &#34; &#34;
+        objstr += &#34;\nget_edges: &#34;
+        for edge in self._generate_edges():
+            objstr += str(edge) + &#34; &#34;
+        return objstr
+
+    # ##################################################################################################################
+    def __sizeof__(self):
+
+        &#34;&#34;&#34;
+        This method returns the number of bytes of the actual instance.
+
+        :return: Number of bytes
+        &#34;&#34;&#34;
+
+        nbytes = 0
+
+        nbytes += pag.total_size(self._graphdict)
+        nbytes += pag.total_size(self._nmols)
+        nbytes += pag.total_size(self._natoms)
+
+        return nbytes
+
+    # ##################################################################################################################
+    def get_vertices(self):
+
+        &#34;&#34;&#34;
+        Returns a list of all vertices in the graph
+
+        Parameters
+        ----------
+        None
+
+        Return
+        ------
+        A list of vertices
+
+        Example:
+        -------
+            &gt;&gt;&gt; v = self.g11.get_vertices()
+            ... [0, 1, 2, 3, 4, 5, 6]
+
+        &#34;&#34;&#34;
+
+        return list(self._graphdict.keys())
+
+    # ##################################################################################################################
+    def get_edges(self):
+
+        &#34;&#34;&#34;
+        It returns a list of all edges in the graph
+
+        Parameters
+        ----------
+        None
+
+        Return
+        ------
+        A list containing all edges
+
+        Example
+        -------
+        All edges in the system. The order is [min, max]
+
+        .. image:: ../../figures/graph11_nx.png
+
+        &gt;&gt;&gt; e = self.g11.get_edges()
+        ... el = [{0, 1}, {1, 2}, {1, 3}, {2, 5}, {3, 4}, {5, 6}]
+        ... self.assertEqual(e, el)
+        &#34;&#34;&#34;
+
+        return self._generate_edges()
+
+    # # ##################################################################################################################
+    def add_vertex(self, vertex):
+
+        &#34;&#34;&#34;
+        This function add a vertex to the molecular graph. The new vertex is not bonded to any other in the graph.
+        If the vertex exists in the `self._graphdict` attribute nothing has to be done.
+
+        Parameters
+        ----------
+        vertex : int
+            Index of the vertex.
+
+        Return
+        ------
+        None
+
+        Example
+        -------
+        Add a vertex to a graph
+
+        &gt;&gt;&gt; g.add_vertex(200)
+
+        .. image:: ../../figures/then_and_now.png
+
+
+        &#34;&#34;&#34;
+
+        if vertex not in self._graphdict.keys():
+            self._graphdict[vertex] = []
+            self._natoms +=1
+
+    # ##################################################################################################################
+    def add_edge(self, edge, setforest=True):
+
+        &#34;&#34;&#34;
+
+        It creates a new edge in the graph between two existing nodes.
+        The type of parameter **edge** can be a set, a tuple or a list of two nodes;
+        Multiple edges can exist between two vertices
+        Both vertex must exist in the molecular graph. If any vertex is not in the
+        molecular graph nothing is done.
+
+        .. image:: ../../figures/then_and_now_edges.png
+
+        Parameters
+        ----------
+        edge : set, tuple or list
+              The vertice numbers to create an edge (aka bond)
+
+        setforest : boolean, default=True
+            If True the `_set_forest` method is called.
+            This is useful when multiple edges are added to a graph,
+            in this case only in the last addition the parameter `setforest` should be true in order to
+            update the `self._nmols` attribute (see the example)
+
+        Return
+        ------
+        None
+
+        Example
+        -------
+        Adding an edge between the vertex 12 and 13 in a molecular graph called `a`
+        &gt;&gt;&gt;  g.add_edge([12,13])
+
+        Adding multiple edges
+        &gt;&gt;&gt;  g.add_edge((1,7), setforest=False)
+        ...  g.add_edge((2, 8), setforest=False)
+        ...  g.add_edge((9, 8), setforest=True)
+
+        &#34;&#34;&#34;
+
+        edge = set(edge)
+        (vertex1, vertex2) = tuple(edge)
+        if (vertex1 and vertex2) in self._graphdict:
+
+                if vertex2 not in self._graphdict[vertex1]:
+                    self._graphdict[vertex1].append(vertex2)
+                self._bonds.append({vertex1, vertex2})
+                if self._undirected:
+                    if vertex1 not in self._graphdict[vertex2]:
+                        self._graphdict[vertex2].append(vertex1)
+
+        if setforest:
+            self._set_forest()
+
+    # ##################################################################################################################
+    def remove_edge(self, edge):
+
+        &#34;&#34;&#34;
+        It deletes an edge in the graph between two existing nodes.
+        The parameter **edge** can be a set, a tuple or a list of two nodes;
+        Between two vertices can be multiple edges.
+
+        Both vertex must exist in the molecular graph. If any vertex is not in the
+        molecular graph nothing is done
+
+        Parameters
+        ----------
+         edge: Set, tuple or list
+            Vertices to create an edges (aka bond)
+
+        Return
+        ------
+        None
+
+        Examples
+        --------
+
+        &gt;&gt;&gt;g4.remove_edge([2,3])
+
+        .. image:: ../../figures/then_and_now_removeedges.png
+
+        &#34;&#34;&#34;
+
+        edge = set(edge)
+        (vertex1, vertex2) = tuple(edge)
+        if (vertex1 and vertex2) in self._graphdict:
+            self._bonds.remove({vertex2, vertex1})
+            self._graphdict[vertex2].remove(vertex1)
+            if self._undirected: self._graphdict[vertex1].remove(vertex2)
+
+        self._set_forest()
+
+    # ##################################################################################################################
+    def _generate_edges(self):
+
+        &#34;&#34;&#34;
+        A method generating the edges of the
+        graph &#34;graph&#34;. Edges are represented as sets
+        with one (a loop back to the vertex) or two
+        get_vertices.
+
+        Parameters
+        ----------
+        None
+
+        Return
+        ------
+        A list of edges
+
+        Example: [{0, 1}, {1, 2}, {2, 3}, {3, 4}, {4, 5}, {6, 7}, {8, 7}, {10, 7}, {8, 9}, {8, 11}]
+
+        &#34;&#34;&#34;
+
+        edges = []
+        for vertex in self._graphdict:
+            for neighbour in self._graphdict[vertex]:
+                if {neighbour, vertex} not in edges:
+                    edges.append({vertex, neighbour})
+
+        return edges
+
+    # ##################################################################################################################
+    def find_all_paths(self, start_vertex, end_vertex, path=[]):
+
+        &#34;&#34;&#34;
+        It finds all paths from start_vertex to
+            end_vertex in graph, This is a recursive function.
+
+        Parameters
+        ----------
+        start_vertex : integer
+            Starting vertex of the path
+        end_vertex :integer
+            Finish vertex of the path
+        path : list of lists
+            Paths between start_vertex and end_vertex
+
+        Return
+        ------
+        Return a list of paths. If there is not path between start_vertex and end_vertex returns an empty list. The
+        starting and ending node are included in the path
+
+        Example
+        -------
+        Find all paths between the node 2 and 12 of the following graph:
+
+        .. image:: ../../figures/g3_03_nx.png
+
+        &gt;&gt;&gt; path = self.g3.find_all_paths(2,12)
+        ... [[2, 5, 6, 12], [2, 7, 8, 9, 12]]
+
+        .. warning:: This is a recursive function
+
+        &#34;&#34;&#34;
+        graph = self._graphdict
+        path = path + [start_vertex]
+        if start_vertex == end_vertex:
+            return [path]
+        if start_vertex not in graph:
+            return []
+        paths = []
+        for vertex in graph[start_vertex]:
+            if vertex not in path:
+                extended_paths = self.find_all_paths(vertex, end_vertex, path)
+                for p in extended_paths:
+                    paths.append(p)
+        return paths
+
+    # ##################################################################################################################
+    def find_all_paths_length(self, start_vertex, length, path=[]):
+
+        &#34;&#34;&#34;
+        It finds all paths of length ``length`` in graph from start_vertex. This is a recursive function
+
+        Parameters
+        ----------
+        start_vertex : integer
+            Starting vertex of the path
+        length : integer
+            Length of the paths to find. This is defined as the number of edges between the start_vertex and the end_vertex
+        path : list
+            Path between start_vertex and end_vertex
+
+        Return
+        ------
+        Return a list of paths of length ``length``**. If length is greater than the max. length in the graph returns
+        an empty list. If length is zero returns a list only containing  the start_vertex node.
+        If there is not path between start_vertex and end_vertex returns an empty list. The
+        starting node is included in the path
+
+        Example
+        -------
+        Find all paths between the starting in the node 2 with length 4 of the following graph:
+
+        .. image:: ../../figures/g3_03_nx.png
+
+        .. warning:: This is a recursive function
+
+        &#34;&#34;&#34;
+
+        l = length
+        graph = self._graphdict
+
+        path = path + [start_vertex]
+        if l == 0:
+            return [path]
+        if start_vertex not in graph:
+            return []
+        paths = []
+        for vertex in graph[start_vertex]:
+            if vertex not in path:
+                extended_paths = self.find_all_paths_length(vertex, l-1, path)
+                for p in extended_paths:
+                    paths.append(p)
+
+        return paths
+
+    # ##################################################################################################################
+    def find_isolated_vertices(self):
+
+        &#34;&#34;&#34;
+        It returns a list of isolated vertices. A isolated vertex is defined as a vertex without edges
+
+        Parameters
+        ----------
+        None
+
+        Return
+        ------
+        Return a list of isolated nodes
+
+        Example
+        -------
+        .. image:: ../../figures/graph04.png
+
+        &gt;&gt;&gt; self.g4.find_isolated_vertices()
+        ... [12]
+
+
+        &#34;&#34;&#34;
+
+        graph = self._graphdict
+        isolated = []
+        for vertex in graph:
+            # print(isolated, vertex)
+            if not graph[vertex]:
+                isolated += [vertex]
+
+        if not self._undirected:
+            l_edges =  self.get_edges()
+            for iedge in l_edges:
+
+                for i in iedge:
+                    if i in isolated:
+                        isolated.remove(i)
+
+        return isolated
+
+    # ##################################################################################################################
+    def is_connected(self, vertices_encountered = set(), start_vertex=None):
+
+        &#34;&#34;&#34;
+        Determines if the graph is connected. This is a recursive function
+
+        Parameters
+        ----------
+        vertices_encountered: set
+            Returns a set of vertices connected
+        start_vertex integer
+            Startting point
+
+        Return
+        ------
+        Return a boolean. True if the graph is connected
+
+        .. warning:: This is a recursive function
+
+        Example
+        -------
+
+        &gt;&gt;&gt; g1.is_connected()
+
+        &#34;&#34;&#34;
+
+        gdict = self._graphdict
+        vertices = list(gdict.keys())
+        if not start_vertex:
+            # choose a vertex from graph as a starting point
+            start_vertex = vertices[0]
+        vertices_encountered.add(start_vertex)
+        if len(vertices_encountered) != len(vertices):
+            for vertex in gdict[start_vertex]:
+                if vertex not in vertices_encountered:
+                    if self.is_connected(vertices_encountered, vertex):
+                        return True
+        else:
+            return True
+        return False
+
+    # ##################################################################################################################
+    def dfs_iterative(self, start=0):
+
+        &#34;&#34;&#34;
+        Depth-First Search. Iterative version (DFS: https://en.wikipedia.org/wiki/Depth-first_search)
+
+        Parameters
+        ----------
+        start : integer
+            Node to start the search
+
+        Return
+        ------
+        Return a list with the DFS path
+
+        Example
+        -------
+        DFS in a graph
+
+        &gt;&gt;&gt; g.dfs_iterative(start=6)
+
+        .. image:: ../../figures/graph06_test12.png
+
+        Data::
+
+            [6, 7, 8, 9, 11, 10]
+
+       &#34;&#34;&#34;
+
+        g = self._graphdict
+        V = self.get_vertices()
+
+        visited = [False for i in range(len(V))]
+
+        # Create a stack for DFS
+        stack = list()
+        path = list()
+        s = start
+
+        # Push the current source node.
+        stack.append(s)
+
+        while len(stack):
+            # Pop a vertex from stack and print it
+            s = stack[-1]
+            stack.pop()
+
+            # Stack may contain same vertex twice. So
+            # we need to print the popped item only
+            # if it is not visited.
+            if not visited[s]:
+                path.append(s)
+                visited[s] = True
+
+            # Get all adjacent vertices of the popped vertex s
+            # If a adjacent has not been visited, then puah it
+            # to the stack.
+            for node in reversed(g[s]):
+                if not visited[node]:
+                    stack.append(node)
+
+        return path
+
+    # ##################################################################################################################
+    def bfs_iterative(self, start=0):
+
+        &#34;&#34;&#34;
+        Breath-First Search. Iterative version (BFS: https://en.wikipedia.org/wiki/Breath-first_search)
+
+        Parameters
+        ----------
+        start : integer
+            Node to start the search
+
+        Return
+        ------
+        Return a list with the BFS path
+
+        Example
+        -------
+        BFS in a graph
+
+        &gt;&gt;&gt; g.bfs_iterative(start=6)
+
+        .. image:: ../../figures/graph06_test12.png
+
+        Data::
+
+            [6, 7, 8, 10,  9, 11]
+
+        &#34;&#34;&#34;
+
+        visitedlist = []
+        queue = [start]
+
+        g_disorder = self._graphdict
+        g = {}
+        for i in g_disorder:
+             g[i] = sorted(g_disorder[i])
+
+        while queue:
+            vertex = queue.pop(0)
+            if vertex not in visitedlist:
+                visitedlist.append(vertex)
+
+                for inode in g[vertex]:
+                    if visitedlist.count(inode) &gt; 0:
+                        continue
+                    else:
+                        queue.append(inode)
+
+        return visitedlist
+
+    # ##################################################################################################################
+    def get_forest(self):
+
+        &#34;&#34;&#34;
+        It returns a list of lists. Each sublist is a molecule (chain) of the system
+
+        Parameters
+        ----------
+        None
+
+        Return
+        ------
+        A list of lists: forest =&gt; [[ichain1], [ichain2], ...]
+
+        Examples
+        --------
+        .. image:: ../../figures/graph04.png
+
+        &gt;&gt;&gt; l2 = self.g4.get_forest()
+        ... lr = [[0, 1, 2, 3, 4, 5], [6, 7, 8, 9, 11, 10], [12]] #= self._nmols
+
+        &#34;&#34;&#34;
+
+        return self._nmols
+
+    # ###############################################################################################################
+    def _set_forest_recursive(self):
+
+        &#34;&#34;&#34;Method to generate connected components in
+        an undirected graph. This use dfs a recursive function. Use DFS recursive
+
+        Returns
+
+        List of list: A list with the connected components as a sublist of get_vertices
+
+        &#34;&#34;&#34;
+
+        # Get get_vertices
+        gdict = self._graphdict
+        vertices = list(gdict.keys())
+        nvertices = len(vertices)
+
+        # Initialize visited list
+        visited = []
+        cc = []
+        for i in range(nvertices):
+            visited.append(False)
+        for v in range(nvertices):
+            if not visited[v]:
+                temp = []
+                cc.append(self.dfs(temp, v, visited))
+
+        self._nmols = cc
+
+    # ###############################################################################################################
+    def _set_forest(self):
+
+        &#34;&#34;&#34;
+        Method to generate connected components in
+        an undirected graph. Use DFS iterative
+
+        Parameters
+        ----------
+        None
+
+        Return
+        ------
+        List of list: A list with the connected components as a sublist of get_vertices
+
+        Example
+        -------
+
+        &#34;&#34;&#34;
+
+        # Get get_vertices
+        gdict = self._graphdict
+        vertices = list(gdict.keys())
+        nvertices = len(vertices)
+
+        # Initialize visited list
+        visited = []
+        cc = []
+        for i in range(nvertices):
+            visited.append(False)
+
+        for v in range(nvertices):
+            if not visited[v]:
+                imol = self.dfs_iterative(start=v)
+                cc.append(imol)
+                for ivert in imol:
+                    visited[ivert] = True
+
+        self._nmols = cc
+
+        return cc
+
+    # ##################################################################################################################
+    def get_graph(self):
+
+        &#34;&#34;&#34;
+        It returns the attribute self._graphdict
+
+        Parameters
+        ----------
+        None
+
+        Return
+        ------
+        It returns the attribute self._graphdict
+
+        Example
+        -------
+        .. image:: ../../figures/graph11_nx.png
+
+        &gt;&gt;&gt; g11.get_graph()
+        ... {0: [1], 1: [2, 3], 2: [5], 3: [4], 4: [], 5: [6], 6: []}
+
+        &#34;&#34;&#34;
+
+        return self._graphdict
+
+    ##################################################################################################################
+    def draw_graph_pygraphviz(self, title=&#39;simple&#39;):
+        &#34;&#34;&#34;
+        Create an image of the graph using pygraphviz library
+
+        Parameters
+        ----------
+        title : string
+            The name of the file containing the image
+
+        Return
+        ------
+        None
+
+        Example
+        -------
+        Draw the graph `g4` in a file named `graphs/graph04.png`
+
+        &gt;&gt;&gt; g4.draw_graph_pygraphviz(title=&#34;graphs/graph04&#34;)
+
+        &#34;&#34;&#34;
+        A = pgv.AGraph()
+
+        # Isolated nodes
+        for i in self.get_vertices():
+            if len(self._graphdict[i]) == 0:
+                A.add_node(i,color=&#39;blue&#39;)
+
+        for ibond_old in self._bonds:
+            ibond_copy = copy.deepcopy(ibond_old)
+            i = ibond_copy.pop()
+            A.add_node(i,color=&#39;blue&#39;)
+
+        for ibond_old in self._bonds:
+            ibond_copy = copy.deepcopy(ibond_old)
+            i = ibond_copy.pop()
+
+            try:
+                j = ibond_copy.pop()
+                A.add_edge(i,j,color=&#39;blue&#39;)
+            except IndexError:
+                pass
+
+        filenamedot=title+&#39;.dot&#39;
+        filenamepng=title+&#39;.png&#39;
+        A.write(filenamedot) # write to simple.dot
+        A.draw(filenamepng,prog=&#34;dot&#34;)
+
+    ##################################################################################################################
+    def draw_graph_networkx(self, title=&#39;simple&#39;):
+
+        &#34;&#34;&#34;
+        Create an image of the graph using networkx library
+
+        Parameters
+        ----------
+        title : string
+            The name of the file containing the image
+
+        Return
+        ------
+        None
+
+        Example
+        -------
+        Draw the graph `g4` in a file named `graphs/graph04_f.png`
+
+        &gt;&gt;&gt; g4.draw_graph_networkx(title=&#34;graphs/graph04&#34;)
+
+        &#34;&#34;&#34;
+        try:
+            import networkx as nx
+            import matplotlib.pyplot as plt
+        except:
+            pass
+
+        A = nx.Graph()
+
+        # Isolated nodes
+        for i in self.get_vertices():
+            if len(self._graphdict[i]) == 0:
+                A.add_node(i,color=&#39;blue&#39;)
+
+        for ibond_old in self._bonds:
+            ibond_copy = copy.deepcopy(ibond_old)
+            i = ibond_copy.pop()
+            A.add_node(i)
+
+        for ibond_old in self._bonds:
+            ibond_copy = copy.deepcopy(ibond_old)
+            i = ibond_copy.pop()
+
+            try:
+                j = ibond_copy.pop()
+                A.add_edge(i,j)
+            except IndexError:
+                pass
+
+        filenamepng=title+&#39;.png&#39;
+        pos=nx.spring_layout(A)
+        # nodes
+        nx.draw_networkx_nodes(A, pos,node_size=500, node_color=&#34;grey&#34;)
+        # edges
+        nx.draw_networkx_edges(A,pos, width=2, edge_color=&#34;black&#34;, style=&#34;solid&#34;)
+        # labels
+        nx.draw_networkx_labels(A,pos,font_size=10,font_family=&#39;sans-serif&#39;)
+        plt.savefig(filenamepng)
+        del A
+        plt.close()
+        #plt.show()
+
+    # ##################################################################################################################
+    def draw_graph_forest_pygraphviz(self, title = &#39;simple&#39;):
+
+        &#34;&#34;&#34;
+        Create an image for each tree of the graph using pygraphviz library. It can be useful to create a file for each molecule
+        in the system.
+
+        Parameters
+        ----------
+        title : string
+            The patter to be used in the name of the file containing the image
+
+        Return
+        ------
+        None
+
+        Example
+        -------
+        Draw the each subgraph of the graph `g4` in a file with the pattern `graphs/graph04_f???.png`
+
+        &gt;&gt;&gt; g4.draw_graph_forest_pygraphviz(title=&#34;graphs/graph04_f&#34;)
+
+        &#34;&#34;&#34;
+
+
+
+        for imol in range(len(self._nmols)):
+            A = pgv.AGraph()
+            for iatom in self._nmols[imol]:
+                A.add_node(iatom, color=&#39;blue&#39;)
+                for jatom in self._graphdict[iatom]:
+                    A.add_edge(iatom, jatom, color=&#39;blue&#39;)
+
+            string = &#34;%s%03d&#34; % (title, imol)
+            filenamepng = string+&#34;.png&#34;
+            A.write(string+&#39;.dot&#39;)  # write to simple.dot
+            A.draw(filenamepng, prog=&#34;neato&#34;)
+
+    # ##################################################################################################################
+    def draw_graph_forest_networkx(self, title = &#39;simple&#39;):
+
+        &#34;&#34;&#34;
+        Create an image for each tree of the graph using networkx library. It can be useful to create a file for each molecule
+        in the system.
+
+        Parameters
+        ----------
+        title : string
+            The patter to be used in the name of the file containing the image
+
+        Return
+        ------
+        None
+
+        Example
+        -------
+        Draw the each subgraph of the graph `g4` in a file with the pattern `graphs/graph04_f???.png`
+
+        &gt;&gt;&gt; g4.draw_graph_forest_networkx(title=&#34;graphs/graph04_f&#34;)
+
+        &#34;&#34;&#34;
+
+        for imol in range(len(self._nmols)):
+            A = nx.Graph()
+            for iatom in self._nmols[imol]:
+                A.add_node(iatom)
+                for jatom in self._graphdict[iatom]:
+                    A.add_edge(iatom, jatom)
+
+            string = &#34;%s%06d&#34; % (title, imol)
+            filenamepng = string+&#34;.png&#34;
+
+            #pos=nx.spring_layout(A, weight=None)
+            pos=nx.kamada_kawai_layout(A, weight=None)
+
+            # nodes
+            nx.draw_networkx_nodes(A, pos,node_size=500, node_color=&#34;grey&#34;)
+            # edges
+            nx.draw_networkx_edges(A,pos, width=2, edge_color=&#34;black&#34;, style=&#34;solid&#34;)
+            # labels
+            nx.draw_networkx_labels(A,pos,font_size=8,font_family=&#39;sans-serif&#39;)
+            plt.savefig(filenamepng)
+            del A
+            plt.close()
+
+    # ##################################################################################################################
+    def iscyclic(self):
+        &#34;&#34;&#34;
+        Returns a boolean list. Each item of the list corresponds to a graph (molecule)
+
+        Parameter
+        ---------
+        None
+
+        Returns
+        ------
+        A boolean list
+
+        Example
+        -------
+
+        .. image:: ../../figures/graph07_nx.png
+
+        &gt;&gt;&gt; iscyclic2 = self.g7.iscyclic()
+        ... self.assertEqual(iscyclic2, [True, False])
+
+
+        &#34;&#34;&#34;
+
+        ismol_cyclic = []
+        # Mark all the get_vertices as not visited
+        visited = {}
+        nverts = self._natoms
+        for i in range(nverts):
+            visited[i] = False
+
+        for ich in range(len(self._nmols)):
+            nvert_ich = self._nmols[ich]
+            # Call the recursive helper function to
+            # detect cycle in different DFS trees
+            cycle_is_found = False
+            for i in nvert_ich:
+                if not visited[i]:  # Don&#39;t recur for u if it is already visited
+                    if self._iscyclicutil(i, visited, -1):
+                        cycle_is_found = True
+
+            if cycle_is_found:
+                ismol_cyclic.append(True)
+            else:
+                ismol_cyclic.append(False)
+
+        return ismol_cyclic
+
+    # ##################################################################################################################
+    def _iscyclicutil(self, v, visited, parent):
+        &#34;&#34;&#34;
+        A recursive function that uses visited[] and parent to detect
+        cycle in subgraph reachable from vertex v.
+        &#34;&#34;&#34;
+
+        # Mark the current node as visited
+        visited[v] = True
+
+        # Recur for all the get_vertices adjacent to this vertex
+        for i in self._graphdict[v]:
+            # If the node is not visited then recurse on it
+            if not visited[i]:
+                if self._iscyclicutil(i, visited, v):
+                    return True
+            # If an adjacent vertex is visited and not parent of current vertex,
+            # then there is a cycle
+            elif parent != i:
+                return True
+        return False
+
+    # ##################################################################################################################
+    def get_allbonds(self):
+
+        &#34;&#34;&#34;
+        It returns all bonds in the graph.
+
+        Parameters
+        ----------
+        None
+
+        Return
+        ------
+        A list containing all bond angles
+
+        Example
+        -------
+        All bond angles in the system. The order is [min, max]
+
+        .. image:: ../../figures/graph07_nx.png
+
+        &gt;&gt;&gt; bl1 = self.g7.get_allbonds()
+        ... self.assertEqual(bl1,[[0, 1], [1, 2], [1, 3], [2, 5], [2, 7], [3, 4],
+        ...                  [5, 6], [5, 10], [6, 12], [7, 8], [8, 9], [9, 12],
+        ...                   [10, 11], [13, 14], [14, 15], [15, 17], [15, 16]])
+
+        &#34;&#34;&#34;
+
+        bl = []
+
+        # Append all bonds
+        for ivert in self.get_vertices():
+            p = self.find_all_paths_length(ivert, 1)
+            for item in p:
+                at1 = item[0]
+                at2 = item[1]
+                # Removing repeat bonds
+                if at1 &gt; at2: continue
+                bl.append([at1, at2])
+
+        return bl
+
+    # ##################################################################################################################
+    def get_allbends(self):
+
+        &#34;&#34;&#34;
+        It returns all angle bends in the graph.
+
+        Parameters
+        ----------
+        None
+
+        Return
+        ------
+        A list containing all bend angles
+
+        Example
+        -------
+        All bend angles in the system
+
+        .. image:: ../../figures/graph07_nx.png
+
+        &gt;&gt;&gt; al1 = self.g7.get_allbends()
+        ... self.assertEqual(al1,[[0, 1, 2], [0, 1, 3], [1, 2, 5], [1, 2, 7],
+        ...                     [1, 3, 4], [2, 1, 3], [2, 5, 6], [2, 5, 10],
+        ...                     [2, 7, 8], [5, 2, 7], [5, 6, 12], [5, 10, 11],
+        ...                     [6, 5, 10], [6, 12, 9], [7, 8, 9], [8, 9, 12],
+        ...                     [13, 14, 15], [14, 15, 17], [14, 15, 16], [16, 15, 17]])
+
+        &#34;&#34;&#34;
+
+        al = []
+
+        # Append all bend angles
+        for ivert in self.get_vertices():
+            p = self.find_all_paths_length(ivert, 2)
+            for item in p:
+                at1 = item[0]
+                at2 = item[1]
+                at3 = item[2]
+                # Removing repeat bonds
+                if at1 &gt; at3: continue
+                al.append([at1, at2, at3])
+
+        return al
+
+    # ##################################################################################################################
+    def get_alldihedrals(self):
+
+        &#34;&#34;&#34;
+        It returns all dihedral angles in the graph.
+
+        Parameters
+        ----------
+        None
+
+        Return
+        ------
+        A list containing all dihedral angles. In this implementation, the greater atom number is the first atom in the list
+
+        Example
+        -------
+        All dihedral angles in the system
+
+        .. image:: ../../figures/graph07_nx.png
+
+        &gt;&gt;&gt; d1 = g7.get_alldihedrals()
+        ... self.assertEqual(d1,[[5, 2, 1, 0], [7, 2, 1, 0], [4, 3, 1, 0], [6, 5, 2, 1],
+        ...                     [10, 5, 2, 1], [8, 7, 2, 1], [4, 3, 1, 2], [12, 6, 5, 2],
+        ...                     [11, 10, 5, 2], [9, 8, 7, 2], [5, 2, 1, 3], [7, 2, 1, 3],
+        ...                     [8, 7, 2, 5], [9, 12, 6, 5], [7, 2, 5, 6], [11, 10, 5, 6],
+        ...                     [8, 9, 12, 6], [10, 5, 2, 7], [12, 9, 8, 7], [12, 6, 5, 10],
+        ...                     [17, 15, 14, 13], [16, 15, 14, 13]])
+
+        &#34;&#34;&#34;
+
+        dl = []
+
+        # Append all bend angles
+        for ivert in self.get_vertices():
+            p = self.find_all_paths_length(ivert, 3)
+            for item in p:
+                at1 = item[0]
+                at2 = item[1]
+                at3 = item[2]
+                at4 = item[3]
+                # Removing repeat bonds
+                if [at1, at2, at3, at4] in dl: continue
+                dl.append([at4, at3, at2, at1])
+
+        return dl
+
+    # ##################################################################################################################
+    def get_allimpropers(self, isbackbone_dict):
+
+        &#34;&#34;&#34;
+        It returns all improper angles in the graph.
+
+        Parameters
+        ----------
+        isbackbone_dict: Dictionary
+            The key is the number of the atom and the value True (backbone atom) or False (not backbone atom)
+
+        Return
+        ------
+        A list containing all improper angles. In this implementation, the greater atom number is the first atom in the list
+
+        Example
+        -------
+        All improper angles in the system
+
+        .. image:: ../../figures/graph07_nx.png
+
+        &gt;&gt;&gt; isbackbone_dict = {}
+        ... for i in range(0,self.g7._natoms):
+        ...    isbackbone_dict[i] = True
+        ... isbackbone_dict[2] = False
+        ... isbackbone_dict[5] = False
+        ... isbackbone_dict[6] = False
+        ... isbackbone_dict[7] = False
+        ... isbackbone_dict[8] = False
+        ... isbackbone_dict[9] = False
+        ... isbackbone_dict[10] = False
+        ... isbackbone_dict[11] = False
+        ... isbackbone_dict[12] = False
+        ... isbackbone_dict[16] = False
+        ... d1 = self.g7.get_allimpropers(isbackbone_dict=isbackbone_dict)
+        ... self.assertEqual(d1,[[1, 0, 3, 2], [2, 5, 7, 1], [15, 14, 17, 16]])
+
+        .. warning:: A criteria about the order of atoms need to be implemented and checked
+
+        &#34;&#34;&#34;
+
+        il = []
+
+        # Append all impropers --&gt;
+        for ivert in self.get_vertices():
+            p = self.find_all_paths_length(ivert, 1)
+            if len(p) == 3:
+                iat1 = ivert
+                tmplist = []
+                for item in p:
+                    tmplist.append(item[1])
+                    tmplist.sort()
+                tmpdict = {0:iat1, 1:-1, 2:-1, 3:-1}
+
+                if isbackbone_dict[iat1]:
+                    while tmplist:
+                        a = tmplist.pop(0)
+                        if isbackbone_dict[a]:
+                            if tmpdict[1] == -1:
+                                tmpdict[1] = a
+                            else:
+                                tmpdict[2] = a
+                        else:
+                            tmpdict[3] = a
+                else:
+                    while tmplist:
+                        a = tmplist.pop(0)
+                        if not isbackbone_dict[a]:
+                            if tmpdict[1] == -1:
+                                tmpdict[1] = a
+                            else:
+                                tmpdict[2] = a
+                        else:
+                            tmpdict[3] = a
+
+                l1 = [tmpdict[0],tmpdict[1],tmpdict[2],tmpdict[3] ]
+                if l1.count(-1) == 0: il.append(l1)
+
+            elif len(p) == 4:
+                iat1 = ivert
+                tmplist = []
+                for item in p:
+                    tmplist.append(item[1])
+                    tmplist.sort()
+                tmpdict1 = {0:iat1, 1:-1, 2:-1, 3:-1}
+                tmpdict2 = {0:iat1, 1:-1, 2:-1, 3:-1}
+
+                if isbackbone_dict[iat1]:
+                    while tmplist:
+                        a = tmplist.pop(0)
+                        if isbackbone_dict[a]:
+                             if tmpdict1[1] == -1:
+                                 tmpdict1[1] = a
+                             else:
+                                 tmpdict1[2] = a
+                             if tmpdict2[1] == -1:
+                                 tmpdict2[1] = a
+                             else:
+                                 tmpdict2[2] = a
+
+                        else:
+                            if tmpdict1[3] == -1:
+                                tmpdict1[3] = a
+                            else:
+                                tmpdict2[3] = a
+                else:
+                    print (&#34;ERROR. Improper angles cannot be found in complex branches&#34;)
+                    sys.exit()
+
+                l1 = [tmpdict1[0],tmpdict1[1],tmpdict1[2],tmpdict1[3] ]
+                if l1.count(-1) == 0: il.append(l1)
+                l2 = [tmpdict2[0],tmpdict2[1],tmpdict2[2],tmpdict2[3] ]
+                if l2.count(-1) == 0: il.append(l2)
+
+        # Aromatic --&gt; Planarity must be get in the force field class (i.e see: trappeUA_ff.py)
+
+        return il
+
+    # ##################################################################################################################
+    def get_neighbours(self, inode):
+
+        &#34;&#34;&#34;
+        This method returns all neighbours
+
+        Parameters
+        ----------
+        inode :: integer
+            Number of the parent node
+
+        Return
+        ------
+        It returns a list with all neighbors to the inode.
+
+        Examples
+        --------
+
+        .. image:: ../../figures/g3_03_nx.png
+
+        &gt;&gt;&gt; ln = self.g3.get_neighbours(2)
+        ... self.assertEqual(ln, [1, 5, 7])
+
+        &#34;&#34;&#34;
+
+        li = self.find_all_paths_length(inode, 1)
+        ln = []
+        for item in li:
+            if item[0] == inode:
+                ln.append(item[1])
+            else:
+                ln.append(item[0])
+
+        l = len(li)
+
+        return ln
+
+    # ##################################################################################################################
+    def perception_rings(self):
+
+        &#34;&#34;&#34;
+
+        &#34;A New Algorithm for Exhaustive Ring Perception in a Molecular Graph&#34;
+        Th. Hanser, Ph. Jauffret, and G. Kaufmann
+        J. Chem. Inf. Comput. Sci. 1996, 36, 1146-1152
+        https://doi.org/10.1021/ci960322f
+
+        Abstract:
+        A new fast and easy to implement algorithm for exhaustive ring perception is presented. This algorithm is
+        based upon a progressive reduction (collapsing) of the path graph associated with the molecular graph studied.
+        The path graph is an image of the molecular graph in which each vertex corresponds to a vertex of the
+        molecular graph and each edge a-b describes an existing path between a and b in the molecular graph.
+        During the reduction, nodes of the path graph are removed, and the information related to cycle occurrence
+        is concentrated in the label of new get_edges between the remaining get_vertices. Each loop formed in the path
+        graph during this collapsing process corresponds to a cycle in the molecular graph. Once the path graph
+        has totally collapsed, all the rings in the molecular graph have been perceived.
+
+        Returns
+
+
+        &#34;&#34;&#34;
+
+        # ####################################
+        def convert_perception_rings(vertex= {}):
+
+            # Copy the nodes from m-graph to p-graph
+            for v in self._graphdict.keys():
+                vertex[v] = []
+
+            # Copy the get_edges from m-graph to p-graph
+            for v in self._graphdict.keys():
+                for n in self._graphdict[v]:
+                    if not [v,n] in vertex[v] and not [n,v] in vertex[v]:
+                        vertex[v].append([v,n])
+
+         # ####################################
+        def ordernodesbyconnections_perception_rings(vertex_dict):
+
+            &#34;&#34;&#34; Takes the dictionary of nodes in pgraph and it returns
+            a list [ (number_node, connectivity)]. The last element of the
+            list is the node with a small value for connectivity. This can be extracted
+            with list.pop()
+
+            Parameters
+            ----------
+            pgraph
+
+            Returns
+            -------
+
+            &#34;&#34;&#34;
+
+            ordered_nodes_by_connection = dict()
+
+            for key in vertex_dict:
+                ordered_nodes_by_connection[key] = len(vertex_dict[key])
+
+            nodes_ordered = sorted(ordered_nodes_by_connection.items(), key=lambda kv: kv[1])
+            nodes_ordered.reverse()
+
+
+            # print(ordered_nodes_by_connection)
+            # print(ordered_nodes_by_connection.items())
+            # print(sorted(ordered_nodes_by_connection.items()))
+            # print(nodes_ordered)
+            #
+            # sys.exit()
+
+            return nodes_ordered
+
+        # ####################################
+        def get_pairs_perception_rings(v, v_edges):
+
+            &#34;&#34;&#34;Get all pairs for the node v
+
+            &#34;&#34;&#34;
+
+            pairs = []
+            for item in v_edges[v]:
+                    pairs.append(item)
+
+            return pairs
+
+        # ####################################
+        def intersection_perception_rings(l1, l2):
+
+            x = set(l1).intersection(l2)
+            return x
+
+
+        # ####################################
+        def remove_perception_rings(v, vertex_dict):
+
+            cycles = []
+            p = get_pairs_perception_rings(v, vertex_dict)
+
+            for i in range(len(p)):
+                # It is already a cycle
+                if p[i][0] == p[i][-1]: continue
+
+                for j in range(i+1, len(p)):
+                    # pxy x pxz = {x}
+                    if p[j][0] == p[j][-1]: continue
+                    #if v in intersection_perception_rings(p[i], p[j]):
+                    set_int = intersection_perception_rings(p[i], p[j])
+                    if ({v} == set_int) or \
+                        ({p[i][0], p[i][-1]} == {p[j][0], p[j][-1]} and len(set_int) == 2 ):
+
+                        # Temporal variable for the nodes to be deleted
+                        tmp_p_i = copy.deepcopy(p[i])
+                        tmp_p_j = copy.deepcopy(p[j])
+
+                        # Concatenate the paths --&gt; pyz &lt;-- pxy + pxz
+                        if tmp_p_i[-1] != v: tmp_p_i.reverse()
+                        if tmp_p_j[0]  != v: tmp_p_j.reverse()
+                        tmp_p_i.extend(tmp_p_j[1:])
+
+                        # Update the vertex_dict (p-graph)
+                        s_node_in_path = tmp_p_i[0]
+                        e_node_in_path = tmp_p_i[-1]
+
+                        # Update the new path for each vertex
+                        vertex_dict[s_node_in_path].append(tmp_p_i)
+
+                        if s_node_in_path != e_node_in_path:
+                            vertex_dict[e_node_in_path].append(tmp_p_i)
+
+            for pxy in p:
+
+                fe = pxy[0]
+                le = pxy[-1]
+                if fe == le:
+                    cycles.append(pxy)
+
+                if fe != v:
+                    try:
+                        vertex_dict[fe].remove(pxy)
+                    except ValueError:
+                        pxy.reverse()
+                        vertex_dict[fe].remove(pxy)
+
+                elif le != v:
+                    try:
+                        vertex_dict[le].remove(pxy)
+                    except ValueError:
+                        pxy.reverse()
+                        vertex_dict[le].remove(pxy)
+
+
+            del(vertex_dict[v])
+            return cycles
+
+        #  ==========  Main perception_rings Loop ================
+        # Start a new graph: The P-Graph
+        vertex_edges = {}
+        convert_perception_rings(vertex=vertex_edges)
+
+        # Sort nodes by connectivity
+        l_nodes = ordernodesbyconnections_perception_rings(vertex_edges)
+        # Proccess all nodes in order of connectivity
+        while l_nodes:
+
+            inode = l_nodes.pop()[0]
+            c = remove_perception_rings(inode, vertex_edges)
+
+            if len(c) != 0:
+                self._cycles.extend(c)
+
+            pass</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="polyanagro.MolecularGraph.MolecularGraph"><code class="flex name class">
+<span>class <span class="ident">MolecularGraph</span></span>
+<span>(</span><span>nvert=-1, listbonds=None, undirected=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p><code><a title="polyanagro.MolecularGraph.MolecularGraph" href="#polyanagro.MolecularGraph.MolecularGraph">MolecularGraph</a></code> implements objects that describe the connectivity of the atoms in a molecule or polymer chain.
+Each atom is a vertex and the edges of the graph represents a bond. The vertice numbering starts at zero</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>nvert</code> (int, default = -1): Number of nodes (atoms) of the graph.</li>
+<li><code>listbonds</code>
+(list, default = None): A list containing the edges (bonds) of the graph. The None value is used for a graph without edges.</li>
+<li><code>undirected</code> (boolean, default = True): False for directed graph or True for undirected graph. (see warning above)</li>
+</ul>
+<h2 id="return">Return</h2>
+<ul>
+<li><code>None</code></li>
+</ul>
+<h2 id="attributes">Attributes</h2>
+<ul>
+<li><code>self._graphdict</code> (dict)&ndash;&gt; A dictionary with the following format. The key is the number of node
+and the values is a list with the neighbours to the node</li>
+<li><code>self._nmols</code> (list of lists)&ndash;&gt; The length of the list is the number of unconnected graphs.
+Each sublist contains the number of atoms of the molecule.</li>
+<li><code>self._bonds</code> (list of tuples)&ndash;&gt; A list of sets. Each set is a bond. Example:
+[{0,1},{1,2},{1,3}]</li>
+<li><code>self._cycles</code> (list of lists)&ndash;&gt;
+A list of list. Each list is a ring (or cycle).
+Example: [[5, 2, 7, 8, 9, 12, 6, 5]]</li>
+<li><code>self._undirected</code> (bool)&ndash;&gt; True for an undirected graph, otherwise False</li>
+<li><code>self._natoms</code> (int)&ndash;&gt; Number of atoms aka number of get_vertices (nodes)
+Examples</li>
+</ul>
+<hr>
+<p>An empty graph:</p>
+<pre><code>&gt;&gt;&gt; MolecularGraph()
+</code></pre>
+<p>A graph without get_edges, only nodes (10)</p>
+<pre><code>&gt;&gt;&gt; MolecularGraph(nvert=10)
+</code></pre>
+<p>A graph with nodes and egdes</p>
+<pre><code>&gt;&gt;&gt; MolecularGraph(nvert=2, listbonds=[[0,1], [1,2]])
+</code></pre>
+<p>A system with two molecules, with 13 and 5 atoms, respectively. The molecule #1 contains a cycle</p>
+<p><img alt="" src="../../figures/graph07_nx.png"></p>
+<p>Data::</p>
+<pre><code>self._graphdict = {0: [1], 1: [0, 2, 3], 2: [1, 5, 7], 3: [1, 4], 4: [3],
+5: [2, 6, 10], 6: [5, 12], 7: [2, 8], 8: [7, 9], 9: [8, 12], 10: [5, 11], 11: [10],
+12: [9, 6], 13: [14], 14: [13, 15], 15: [14, 17, 16], 16: [15], 17: [15]}
+
+self._bonds = [{0, 1}, {1, 2}, {1, 3}, {2, 5}, {3, 4}, {5, 6}, {10, 5}, {2, 7},
+{8, 7}, {8, 9}, {10, 11}, {9, 12}, {12, 6},
+{13, 14}, {14, 15}, {17, 15}, {16, 15}]
+
+self._natoms = 18
+
+self._undirected = True
+
+self._cycles = [[5, 2, 7, 8, 9, 12, 6, 5]]
+
+self._nmols = [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+[13, 14, 15, 16, 17]]
+</code></pre>
+<h2 id="notes">Notes</h2>
+<p>Difference between undirected (undirected = True) and directed (undirected = False)</p>
+<p><img alt="" src="../../figures/g2dvsg2u.png"></p>
+<p>Data ::</p>
+<pre><code>TEST 05 Undirected: {0: [1], 1: [0, 2, 3], 2: [1, 5, 7], 3: [1, 4], 4: [3], 5: [2, 6, 10], 6: [5], 7: [2, 8], 8: [7, 9], 9: [8], 10: [5, 11], 11: [10]}
+TEST 05   Directed: {0: [1], 1: [2, 3], 2: [5, 7], 3: [4], 4: [], 5: [6], 6: [], 7: [], 8: [7, 9], 9: [], 10: [5, 11], 11: []}
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning:&ensp;Directed graphs should not work properly. The most methods work well with undirected graphs</p>
+</div></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class MolecularGraph(object):
+
+    __slots__ = [&#39;_graphdict&#39;, &#39;_nmols&#39;, &#39;_natoms&#39;, &#39;_undirected&#39;, &#39;_bonds&#39;, &#39;_cycles&#39;]
+
+    # ##################################################################################################################
+    def __init__(self, nvert = -1, listbonds = None, undirected=True):
+
+
+        &#34;&#34;&#34;
+        `MolecularGraph` implements objects that describe the connectivity of the atoms in a molecule or polymer chain.
+        Each atom is a vertex and the edges of the graph represents a bond. The vertice numbering starts at zero
+
+        Parameters:
+            * ``nvert`` (int, default = -1): Number of nodes (atoms) of the graph.
+            * ``listbonds``  (list, default = None): A list containing the edges (bonds) of the graph. The None value is used for a graph without edges.
+            * ``undirected`` (boolean, default = True): False for directed graph or True for undirected graph. (see warning above)
+
+        Return:
+            * ``None``
+
+        Attributes:
+            * ``self._graphdict`` (dict)--&gt; A dictionary with the following format. The key is the number of node\
+            and the values is a list with the neighbours to the node
+            * ``self._nmols`` (list of lists)--&gt; The length of the list is the number of unconnected graphs.\
+            Each sublist contains the number of atoms of the molecule.
+            * ``self._bonds`` (list of tuples)--&gt; A list of sets. Each set is a bond. Example:\
+            [{0,1},{1,2},{1,3}]
+            * ``self._cycles`` (list of lists)--&gt;  A list of list. Each list is a ring (or cycle).\
+            Example: [[5, 2, 7, 8, 9, 12, 6, 5]]
+            * ``self._undirected`` (bool)--&gt; True for an undirected graph, otherwise False
+            * ``self._natoms`` (int)--&gt; Number of atoms aka number of get_vertices (nodes)
+
+         Examples
+         --------
+        An empty graph:
+
+            &gt;&gt;&gt; MolecularGraph()
+
+        A graph without get_edges, only nodes (10)
+
+            &gt;&gt;&gt; MolecularGraph(nvert=10)
+
+        A graph with nodes and egdes
+
+            &gt;&gt;&gt; MolecularGraph(nvert=2, listbonds=[[0,1], [1,2]])
+
+        A system with two molecules, with 13 and 5 atoms, respectively. The molecule #1 contains a cycle
+
+        .. image:: ../../figures/graph07_nx.png
+
+        Data::
+
+            self._graphdict = {0: [1], 1: [0, 2, 3], 2: [1, 5, 7], 3: [1, 4], 4: [3],
+            5: [2, 6, 10], 6: [5, 12], 7: [2, 8], 8: [7, 9], 9: [8, 12], 10: [5, 11], 11: [10],
+            12: [9, 6], 13: [14], 14: [13, 15], 15: [14, 17, 16], 16: [15], 17: [15]}
+
+            self._bonds = [{0, 1}, {1, 2}, {1, 3}, {2, 5}, {3, 4}, {5, 6}, {10, 5}, {2, 7},
+            {8, 7}, {8, 9}, {10, 11}, {9, 12}, {12, 6},
+            {13, 14}, {14, 15}, {17, 15}, {16, 15}]
+
+            self._natoms = 18
+
+            self._undirected = True
+
+            self._cycles = [[5, 2, 7, 8, 9, 12, 6, 5]]
+
+            self._nmols = [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+            [13, 14, 15, 16, 17]]
+
+        Notes
+        -----
+        Difference between undirected (undirected = True) and directed (undirected = False)
+
+        .. image:: ../../figures/g2dvsg2u.png
+
+        Data ::
+
+            TEST 05 Undirected: {0: [1], 1: [0, 2, 3], 2: [1, 5, 7], 3: [1, 4], 4: [3], 5: [2, 6, 10], 6: [5], 7: [2, 8], 8: [7, 9], 9: [8], 10: [5, 11], 11: [10]}
+            TEST 05   Directed: {0: [1], 1: [2, 3], 2: [5, 7], 3: [4], 4: [], 5: [6], 6: [], 7: [], 8: [7, 9], 9: [], 10: [5, 11], 11: []}
+
+
+        .. warning:: Directed graphs should not work properly. The most methods work well with undirected graphs
+
+        &#34;&#34;&#34;
+
+        self._graphdict = {}
+        self._nmols = []
+        self._bonds = []
+        self._cycles = []
+
+        self._undirected = undirected
+        self._natoms = 0
+        if nvert != -1:
+            for i in range(0,nvert):
+                self.add_vertex(i)
+
+        if listbonds is not None:
+            for ibond in listbonds:
+                self.add_edge(ibond)
+
+        self._set_forest()
+
+    # ##################################################################################################################
+    def __str__(self):
+
+        &#34;&#34;&#34; Returns the state of the attributtes of an instance&#34;&#34;&#34;
+        objstr = str(self.__repr__())+&#34;\n&#34;
+        for key in self.__slots__:
+            try:
+                value = getattr(self,key)
+                objstr +=  str(key) +&#34;: &#34;+str(value) + &#34;\n&#34;
+            except AttributeError:
+                objstr += str(key) +&#34;: NOT SET&#34; + &#34;\n&#34;
+
+        objstr += &#34;\nget_vertices: &#34;
+        for k in self._graphdict:
+            objstr += str(k) + &#34; &#34;
+        objstr += &#34;\nget_edges: &#34;
+        for edge in self._generate_edges():
+            objstr += str(edge) + &#34; &#34;
+        return objstr
+
+    # ##################################################################################################################
+    def __sizeof__(self):
+
+        &#34;&#34;&#34;
+        This method returns the number of bytes of the actual instance.
+
+        :return: Number of bytes
+        &#34;&#34;&#34;
+
+        nbytes = 0
+
+        nbytes += pag.total_size(self._graphdict)
+        nbytes += pag.total_size(self._nmols)
+        nbytes += pag.total_size(self._natoms)
+
+        return nbytes
+
+    # ##################################################################################################################
+    def get_vertices(self):
+
+        &#34;&#34;&#34;
+        Returns a list of all vertices in the graph
+
+        Parameters
+        ----------
+        None
+
+        Return
+        ------
+        A list of vertices
+
+        Example:
+        -------
+            &gt;&gt;&gt; v = self.g11.get_vertices()
+            ... [0, 1, 2, 3, 4, 5, 6]
+
+        &#34;&#34;&#34;
+
+        return list(self._graphdict.keys())
+
+    # ##################################################################################################################
+    def get_edges(self):
+
+        &#34;&#34;&#34;
+        It returns a list of all edges in the graph
+
+        Parameters
+        ----------
+        None
+
+        Return
+        ------
+        A list containing all edges
+
+        Example
+        -------
+        All edges in the system. The order is [min, max]
+
+        .. image:: ../../figures/graph11_nx.png
+
+        &gt;&gt;&gt; e = self.g11.get_edges()
+        ... el = [{0, 1}, {1, 2}, {1, 3}, {2, 5}, {3, 4}, {5, 6}]
+        ... self.assertEqual(e, el)
+        &#34;&#34;&#34;
+
+        return self._generate_edges()
+
+    # # ##################################################################################################################
+    def add_vertex(self, vertex):
+
+        &#34;&#34;&#34;
+        This function add a vertex to the molecular graph. The new vertex is not bonded to any other in the graph.
+        If the vertex exists in the `self._graphdict` attribute nothing has to be done.
+
+        Parameters
+        ----------
+        vertex : int
+            Index of the vertex.
+
+        Return
+        ------
+        None
+
+        Example
+        -------
+        Add a vertex to a graph
+
+        &gt;&gt;&gt; g.add_vertex(200)
+
+        .. image:: ../../figures/then_and_now.png
+
+
+        &#34;&#34;&#34;
+
+        if vertex not in self._graphdict.keys():
+            self._graphdict[vertex] = []
+            self._natoms +=1
+
+    # ##################################################################################################################
+    def add_edge(self, edge, setforest=True):
+
+        &#34;&#34;&#34;
+
+        It creates a new edge in the graph between two existing nodes.
+        The type of parameter **edge** can be a set, a tuple or a list of two nodes;
+        Multiple edges can exist between two vertices
+        Both vertex must exist in the molecular graph. If any vertex is not in the
+        molecular graph nothing is done.
+
+        .. image:: ../../figures/then_and_now_edges.png
+
+        Parameters
+        ----------
+        edge : set, tuple or list
+              The vertice numbers to create an edge (aka bond)
+
+        setforest : boolean, default=True
+            If True the `_set_forest` method is called.
+            This is useful when multiple edges are added to a graph,
+            in this case only in the last addition the parameter `setforest` should be true in order to
+            update the `self._nmols` attribute (see the example)
+
+        Return
+        ------
+        None
+
+        Example
+        -------
+        Adding an edge between the vertex 12 and 13 in a molecular graph called `a`
+        &gt;&gt;&gt;  g.add_edge([12,13])
+
+        Adding multiple edges
+        &gt;&gt;&gt;  g.add_edge((1,7), setforest=False)
+        ...  g.add_edge((2, 8), setforest=False)
+        ...  g.add_edge((9, 8), setforest=True)
+
+        &#34;&#34;&#34;
+
+        edge = set(edge)
+        (vertex1, vertex2) = tuple(edge)
+        if (vertex1 and vertex2) in self._graphdict:
+
+                if vertex2 not in self._graphdict[vertex1]:
+                    self._graphdict[vertex1].append(vertex2)
+                self._bonds.append({vertex1, vertex2})
+                if self._undirected:
+                    if vertex1 not in self._graphdict[vertex2]:
+                        self._graphdict[vertex2].append(vertex1)
+
+        if setforest:
+            self._set_forest()
+
+    # ##################################################################################################################
+    def remove_edge(self, edge):
+
+        &#34;&#34;&#34;
+        It deletes an edge in the graph between two existing nodes.
+        The parameter **edge** can be a set, a tuple or a list of two nodes;
+        Between two vertices can be multiple edges.
+
+        Both vertex must exist in the molecular graph. If any vertex is not in the
+        molecular graph nothing is done
+
+        Parameters
+        ----------
+         edge: Set, tuple or list
+            Vertices to create an edges (aka bond)
+
+        Return
+        ------
+        None
+
+        Examples
+        --------
+
+        &gt;&gt;&gt;g4.remove_edge([2,3])
+
+        .. image:: ../../figures/then_and_now_removeedges.png
+
+        &#34;&#34;&#34;
+
+        edge = set(edge)
+        (vertex1, vertex2) = tuple(edge)
+        if (vertex1 and vertex2) in self._graphdict:
+            self._bonds.remove({vertex2, vertex1})
+            self._graphdict[vertex2].remove(vertex1)
+            if self._undirected: self._graphdict[vertex1].remove(vertex2)
+
+        self._set_forest()
+
+    # ##################################################################################################################
+    def _generate_edges(self):
+
+        &#34;&#34;&#34;
+        A method generating the edges of the
+        graph &#34;graph&#34;. Edges are represented as sets
+        with one (a loop back to the vertex) or two
+        get_vertices.
+
+        Parameters
+        ----------
+        None
+
+        Return
+        ------
+        A list of edges
+
+        Example: [{0, 1}, {1, 2}, {2, 3}, {3, 4}, {4, 5}, {6, 7}, {8, 7}, {10, 7}, {8, 9}, {8, 11}]
+
+        &#34;&#34;&#34;
+
+        edges = []
+        for vertex in self._graphdict:
+            for neighbour in self._graphdict[vertex]:
+                if {neighbour, vertex} not in edges:
+                    edges.append({vertex, neighbour})
+
+        return edges
+
+    # ##################################################################################################################
+    def find_all_paths(self, start_vertex, end_vertex, path=[]):
+
+        &#34;&#34;&#34;
+        It finds all paths from start_vertex to
+            end_vertex in graph, This is a recursive function.
+
+        Parameters
+        ----------
+        start_vertex : integer
+            Starting vertex of the path
+        end_vertex :integer
+            Finish vertex of the path
+        path : list of lists
+            Paths between start_vertex and end_vertex
+
+        Return
+        ------
+        Return a list of paths. If there is not path between start_vertex and end_vertex returns an empty list. The
+        starting and ending node are included in the path
+
+        Example
+        -------
+        Find all paths between the node 2 and 12 of the following graph:
+
+        .. image:: ../../figures/g3_03_nx.png
+
+        &gt;&gt;&gt; path = self.g3.find_all_paths(2,12)
+        ... [[2, 5, 6, 12], [2, 7, 8, 9, 12]]
+
+        .. warning:: This is a recursive function
+
+        &#34;&#34;&#34;
+        graph = self._graphdict
+        path = path + [start_vertex]
+        if start_vertex == end_vertex:
+            return [path]
+        if start_vertex not in graph:
+            return []
+        paths = []
+        for vertex in graph[start_vertex]:
+            if vertex not in path:
+                extended_paths = self.find_all_paths(vertex, end_vertex, path)
+                for p in extended_paths:
+                    paths.append(p)
+        return paths
+
+    # ##################################################################################################################
+    def find_all_paths_length(self, start_vertex, length, path=[]):
+
+        &#34;&#34;&#34;
+        It finds all paths of length ``length`` in graph from start_vertex. This is a recursive function
+
+        Parameters
+        ----------
+        start_vertex : integer
+            Starting vertex of the path
+        length : integer
+            Length of the paths to find. This is defined as the number of edges between the start_vertex and the end_vertex
+        path : list
+            Path between start_vertex and end_vertex
+
+        Return
+        ------
+        Return a list of paths of length ``length``**. If length is greater than the max. length in the graph returns
+        an empty list. If length is zero returns a list only containing  the start_vertex node.
+        If there is not path between start_vertex and end_vertex returns an empty list. The
+        starting node is included in the path
+
+        Example
+        -------
+        Find all paths between the starting in the node 2 with length 4 of the following graph:
+
+        .. image:: ../../figures/g3_03_nx.png
+
+        .. warning:: This is a recursive function
+
+        &#34;&#34;&#34;
+
+        l = length
+        graph = self._graphdict
+
+        path = path + [start_vertex]
+        if l == 0:
+            return [path]
+        if start_vertex not in graph:
+            return []
+        paths = []
+        for vertex in graph[start_vertex]:
+            if vertex not in path:
+                extended_paths = self.find_all_paths_length(vertex, l-1, path)
+                for p in extended_paths:
+                    paths.append(p)
+
+        return paths
+
+    # ##################################################################################################################
+    def find_isolated_vertices(self):
+
+        &#34;&#34;&#34;
+        It returns a list of isolated vertices. A isolated vertex is defined as a vertex without edges
+
+        Parameters
+        ----------
+        None
+
+        Return
+        ------
+        Return a list of isolated nodes
+
+        Example
+        -------
+        .. image:: ../../figures/graph04.png
+
+        &gt;&gt;&gt; self.g4.find_isolated_vertices()
+        ... [12]
+
+
+        &#34;&#34;&#34;
+
+        graph = self._graphdict
+        isolated = []
+        for vertex in graph:
+            # print(isolated, vertex)
+            if not graph[vertex]:
+                isolated += [vertex]
+
+        if not self._undirected:
+            l_edges =  self.get_edges()
+            for iedge in l_edges:
+
+                for i in iedge:
+                    if i in isolated:
+                        isolated.remove(i)
+
+        return isolated
+
+    # ##################################################################################################################
+    def is_connected(self, vertices_encountered = set(), start_vertex=None):
+
+        &#34;&#34;&#34;
+        Determines if the graph is connected. This is a recursive function
+
+        Parameters
+        ----------
+        vertices_encountered: set
+            Returns a set of vertices connected
+        start_vertex integer
+            Startting point
+
+        Return
+        ------
+        Return a boolean. True if the graph is connected
+
+        .. warning:: This is a recursive function
+
+        Example
+        -------
+
+        &gt;&gt;&gt; g1.is_connected()
+
+        &#34;&#34;&#34;
+
+        gdict = self._graphdict
+        vertices = list(gdict.keys())
+        if not start_vertex:
+            # choose a vertex from graph as a starting point
+            start_vertex = vertices[0]
+        vertices_encountered.add(start_vertex)
+        if len(vertices_encountered) != len(vertices):
+            for vertex in gdict[start_vertex]:
+                if vertex not in vertices_encountered:
+                    if self.is_connected(vertices_encountered, vertex):
+                        return True
+        else:
+            return True
+        return False
+
+    # ##################################################################################################################
+    def dfs_iterative(self, start=0):
+
+        &#34;&#34;&#34;
+        Depth-First Search. Iterative version (DFS: https://en.wikipedia.org/wiki/Depth-first_search)
+
+        Parameters
+        ----------
+        start : integer
+            Node to start the search
+
+        Return
+        ------
+        Return a list with the DFS path
+
+        Example
+        -------
+        DFS in a graph
+
+        &gt;&gt;&gt; g.dfs_iterative(start=6)
+
+        .. image:: ../../figures/graph06_test12.png
+
+        Data::
+
+            [6, 7, 8, 9, 11, 10]
+
+       &#34;&#34;&#34;
+
+        g = self._graphdict
+        V = self.get_vertices()
+
+        visited = [False for i in range(len(V))]
+
+        # Create a stack for DFS
+        stack = list()
+        path = list()
+        s = start
+
+        # Push the current source node.
+        stack.append(s)
+
+        while len(stack):
+            # Pop a vertex from stack and print it
+            s = stack[-1]
+            stack.pop()
+
+            # Stack may contain same vertex twice. So
+            # we need to print the popped item only
+            # if it is not visited.
+            if not visited[s]:
+                path.append(s)
+                visited[s] = True
+
+            # Get all adjacent vertices of the popped vertex s
+            # If a adjacent has not been visited, then puah it
+            # to the stack.
+            for node in reversed(g[s]):
+                if not visited[node]:
+                    stack.append(node)
+
+        return path
+
+    # ##################################################################################################################
+    def bfs_iterative(self, start=0):
+
+        &#34;&#34;&#34;
+        Breath-First Search. Iterative version (BFS: https://en.wikipedia.org/wiki/Breath-first_search)
+
+        Parameters
+        ----------
+        start : integer
+            Node to start the search
+
+        Return
+        ------
+        Return a list with the BFS path
+
+        Example
+        -------
+        BFS in a graph
+
+        &gt;&gt;&gt; g.bfs_iterative(start=6)
+
+        .. image:: ../../figures/graph06_test12.png
+
+        Data::
+
+            [6, 7, 8, 10,  9, 11]
+
+        &#34;&#34;&#34;
+
+        visitedlist = []
+        queue = [start]
+
+        g_disorder = self._graphdict
+        g = {}
+        for i in g_disorder:
+             g[i] = sorted(g_disorder[i])
+
+        while queue:
+            vertex = queue.pop(0)
+            if vertex not in visitedlist:
+                visitedlist.append(vertex)
+
+                for inode in g[vertex]:
+                    if visitedlist.count(inode) &gt; 0:
+                        continue
+                    else:
+                        queue.append(inode)
+
+        return visitedlist
+
+    # ##################################################################################################################
+    def get_forest(self):
+
+        &#34;&#34;&#34;
+        It returns a list of lists. Each sublist is a molecule (chain) of the system
+
+        Parameters
+        ----------
+        None
+
+        Return
+        ------
+        A list of lists: forest =&gt; [[ichain1], [ichain2], ...]
+
+        Examples
+        --------
+        .. image:: ../../figures/graph04.png
+
+        &gt;&gt;&gt; l2 = self.g4.get_forest()
+        ... lr = [[0, 1, 2, 3, 4, 5], [6, 7, 8, 9, 11, 10], [12]] #= self._nmols
+
+        &#34;&#34;&#34;
+
+        return self._nmols
+
+    # ###############################################################################################################
+    def _set_forest_recursive(self):
+
+        &#34;&#34;&#34;Method to generate connected components in
+        an undirected graph. This use dfs a recursive function. Use DFS recursive
+
+        Returns
+
+        List of list: A list with the connected components as a sublist of get_vertices
+
+        &#34;&#34;&#34;
+
+        # Get get_vertices
+        gdict = self._graphdict
+        vertices = list(gdict.keys())
+        nvertices = len(vertices)
+
+        # Initialize visited list
+        visited = []
+        cc = []
+        for i in range(nvertices):
+            visited.append(False)
+        for v in range(nvertices):
+            if not visited[v]:
+                temp = []
+                cc.append(self.dfs(temp, v, visited))
+
+        self._nmols = cc
+
+    # ###############################################################################################################
+    def _set_forest(self):
+
+        &#34;&#34;&#34;
+        Method to generate connected components in
+        an undirected graph. Use DFS iterative
+
+        Parameters
+        ----------
+        None
+
+        Return
+        ------
+        List of list: A list with the connected components as a sublist of get_vertices
+
+        Example
+        -------
+
+        &#34;&#34;&#34;
+
+        # Get get_vertices
+        gdict = self._graphdict
+        vertices = list(gdict.keys())
+        nvertices = len(vertices)
+
+        # Initialize visited list
+        visited = []
+        cc = []
+        for i in range(nvertices):
+            visited.append(False)
+
+        for v in range(nvertices):
+            if not visited[v]:
+                imol = self.dfs_iterative(start=v)
+                cc.append(imol)
+                for ivert in imol:
+                    visited[ivert] = True
+
+        self._nmols = cc
+
+        return cc
+
+    # ##################################################################################################################
+    def get_graph(self):
+
+        &#34;&#34;&#34;
+        It returns the attribute self._graphdict
+
+        Parameters
+        ----------
+        None
+
+        Return
+        ------
+        It returns the attribute self._graphdict
+
+        Example
+        -------
+        .. image:: ../../figures/graph11_nx.png
+
+        &gt;&gt;&gt; g11.get_graph()
+        ... {0: [1], 1: [2, 3], 2: [5], 3: [4], 4: [], 5: [6], 6: []}
+
+        &#34;&#34;&#34;
+
+        return self._graphdict
+
+    ##################################################################################################################
+    def draw_graph_pygraphviz(self, title=&#39;simple&#39;):
+        &#34;&#34;&#34;
+        Create an image of the graph using pygraphviz library
+
+        Parameters
+        ----------
+        title : string
+            The name of the file containing the image
+
+        Return
+        ------
+        None
+
+        Example
+        -------
+        Draw the graph `g4` in a file named `graphs/graph04.png`
+
+        &gt;&gt;&gt; g4.draw_graph_pygraphviz(title=&#34;graphs/graph04&#34;)
+
+        &#34;&#34;&#34;
+        A = pgv.AGraph()
+
+        # Isolated nodes
+        for i in self.get_vertices():
+            if len(self._graphdict[i]) == 0:
+                A.add_node(i,color=&#39;blue&#39;)
+
+        for ibond_old in self._bonds:
+            ibond_copy = copy.deepcopy(ibond_old)
+            i = ibond_copy.pop()
+            A.add_node(i,color=&#39;blue&#39;)
+
+        for ibond_old in self._bonds:
+            ibond_copy = copy.deepcopy(ibond_old)
+            i = ibond_copy.pop()
+
+            try:
+                j = ibond_copy.pop()
+                A.add_edge(i,j,color=&#39;blue&#39;)
+            except IndexError:
+                pass
+
+        filenamedot=title+&#39;.dot&#39;
+        filenamepng=title+&#39;.png&#39;
+        A.write(filenamedot) # write to simple.dot
+        A.draw(filenamepng,prog=&#34;dot&#34;)
+
+    ##################################################################################################################
+    def draw_graph_networkx(self, title=&#39;simple&#39;):
+
+        &#34;&#34;&#34;
+        Create an image of the graph using networkx library
+
+        Parameters
+        ----------
+        title : string
+            The name of the file containing the image
+
+        Return
+        ------
+        None
+
+        Example
+        -------
+        Draw the graph `g4` in a file named `graphs/graph04_f.png`
+
+        &gt;&gt;&gt; g4.draw_graph_networkx(title=&#34;graphs/graph04&#34;)
+
+        &#34;&#34;&#34;
+        try:
+            import networkx as nx
+            import matplotlib.pyplot as plt
+        except:
+            pass
+
+        A = nx.Graph()
+
+        # Isolated nodes
+        for i in self.get_vertices():
+            if len(self._graphdict[i]) == 0:
+                A.add_node(i,color=&#39;blue&#39;)
+
+        for ibond_old in self._bonds:
+            ibond_copy = copy.deepcopy(ibond_old)
+            i = ibond_copy.pop()
+            A.add_node(i)
+
+        for ibond_old in self._bonds:
+            ibond_copy = copy.deepcopy(ibond_old)
+            i = ibond_copy.pop()
+
+            try:
+                j = ibond_copy.pop()
+                A.add_edge(i,j)
+            except IndexError:
+                pass
+
+        filenamepng=title+&#39;.png&#39;
+        pos=nx.spring_layout(A)
+        # nodes
+        nx.draw_networkx_nodes(A, pos,node_size=500, node_color=&#34;grey&#34;)
+        # edges
+        nx.draw_networkx_edges(A,pos, width=2, edge_color=&#34;black&#34;, style=&#34;solid&#34;)
+        # labels
+        nx.draw_networkx_labels(A,pos,font_size=10,font_family=&#39;sans-serif&#39;)
+        plt.savefig(filenamepng)
+        del A
+        plt.close()
+        #plt.show()
+
+    # ##################################################################################################################
+    def draw_graph_forest_pygraphviz(self, title = &#39;simple&#39;):
+
+        &#34;&#34;&#34;
+        Create an image for each tree of the graph using pygraphviz library. It can be useful to create a file for each molecule
+        in the system.
+
+        Parameters
+        ----------
+        title : string
+            The patter to be used in the name of the file containing the image
+
+        Return
+        ------
+        None
+
+        Example
+        -------
+        Draw the each subgraph of the graph `g4` in a file with the pattern `graphs/graph04_f???.png`
+
+        &gt;&gt;&gt; g4.draw_graph_forest_pygraphviz(title=&#34;graphs/graph04_f&#34;)
+
+        &#34;&#34;&#34;
+
+
+
+        for imol in range(len(self._nmols)):
+            A = pgv.AGraph()
+            for iatom in self._nmols[imol]:
+                A.add_node(iatom, color=&#39;blue&#39;)
+                for jatom in self._graphdict[iatom]:
+                    A.add_edge(iatom, jatom, color=&#39;blue&#39;)
+
+            string = &#34;%s%03d&#34; % (title, imol)
+            filenamepng = string+&#34;.png&#34;
+            A.write(string+&#39;.dot&#39;)  # write to simple.dot
+            A.draw(filenamepng, prog=&#34;neato&#34;)
+
+    # ##################################################################################################################
+    def draw_graph_forest_networkx(self, title = &#39;simple&#39;):
+
+        &#34;&#34;&#34;
+        Create an image for each tree of the graph using networkx library. It can be useful to create a file for each molecule
+        in the system.
+
+        Parameters
+        ----------
+        title : string
+            The patter to be used in the name of the file containing the image
+
+        Return
+        ------
+        None
+
+        Example
+        -------
+        Draw the each subgraph of the graph `g4` in a file with the pattern `graphs/graph04_f???.png`
+
+        &gt;&gt;&gt; g4.draw_graph_forest_networkx(title=&#34;graphs/graph04_f&#34;)
+
+        &#34;&#34;&#34;
+
+        for imol in range(len(self._nmols)):
+            A = nx.Graph()
+            for iatom in self._nmols[imol]:
+                A.add_node(iatom)
+                for jatom in self._graphdict[iatom]:
+                    A.add_edge(iatom, jatom)
+
+            string = &#34;%s%06d&#34; % (title, imol)
+            filenamepng = string+&#34;.png&#34;
+
+            #pos=nx.spring_layout(A, weight=None)
+            pos=nx.kamada_kawai_layout(A, weight=None)
+
+            # nodes
+            nx.draw_networkx_nodes(A, pos,node_size=500, node_color=&#34;grey&#34;)
+            # edges
+            nx.draw_networkx_edges(A,pos, width=2, edge_color=&#34;black&#34;, style=&#34;solid&#34;)
+            # labels
+            nx.draw_networkx_labels(A,pos,font_size=8,font_family=&#39;sans-serif&#39;)
+            plt.savefig(filenamepng)
+            del A
+            plt.close()
+
+    # ##################################################################################################################
+    def iscyclic(self):
+        &#34;&#34;&#34;
+        Returns a boolean list. Each item of the list corresponds to a graph (molecule)
+
+        Parameter
+        ---------
+        None
+
+        Returns
+        ------
+        A boolean list
+
+        Example
+        -------
+
+        .. image:: ../../figures/graph07_nx.png
+
+        &gt;&gt;&gt; iscyclic2 = self.g7.iscyclic()
+        ... self.assertEqual(iscyclic2, [True, False])
+
+
+        &#34;&#34;&#34;
+
+        ismol_cyclic = []
+        # Mark all the get_vertices as not visited
+        visited = {}
+        nverts = self._natoms
+        for i in range(nverts):
+            visited[i] = False
+
+        for ich in range(len(self._nmols)):
+            nvert_ich = self._nmols[ich]
+            # Call the recursive helper function to
+            # detect cycle in different DFS trees
+            cycle_is_found = False
+            for i in nvert_ich:
+                if not visited[i]:  # Don&#39;t recur for u if it is already visited
+                    if self._iscyclicutil(i, visited, -1):
+                        cycle_is_found = True
+
+            if cycle_is_found:
+                ismol_cyclic.append(True)
+            else:
+                ismol_cyclic.append(False)
+
+        return ismol_cyclic
+
+    # ##################################################################################################################
+    def _iscyclicutil(self, v, visited, parent):
+        &#34;&#34;&#34;
+        A recursive function that uses visited[] and parent to detect
+        cycle in subgraph reachable from vertex v.
+        &#34;&#34;&#34;
+
+        # Mark the current node as visited
+        visited[v] = True
+
+        # Recur for all the get_vertices adjacent to this vertex
+        for i in self._graphdict[v]:
+            # If the node is not visited then recurse on it
+            if not visited[i]:
+                if self._iscyclicutil(i, visited, v):
+                    return True
+            # If an adjacent vertex is visited and not parent of current vertex,
+            # then there is a cycle
+            elif parent != i:
+                return True
+        return False
+
+    # ##################################################################################################################
+    def get_allbonds(self):
+
+        &#34;&#34;&#34;
+        It returns all bonds in the graph.
+
+        Parameters
+        ----------
+        None
+
+        Return
+        ------
+        A list containing all bond angles
+
+        Example
+        -------
+        All bond angles in the system. The order is [min, max]
+
+        .. image:: ../../figures/graph07_nx.png
+
+        &gt;&gt;&gt; bl1 = self.g7.get_allbonds()
+        ... self.assertEqual(bl1,[[0, 1], [1, 2], [1, 3], [2, 5], [2, 7], [3, 4],
+        ...                  [5, 6], [5, 10], [6, 12], [7, 8], [8, 9], [9, 12],
+        ...                   [10, 11], [13, 14], [14, 15], [15, 17], [15, 16]])
+
+        &#34;&#34;&#34;
+
+        bl = []
+
+        # Append all bonds
+        for ivert in self.get_vertices():
+            p = self.find_all_paths_length(ivert, 1)
+            for item in p:
+                at1 = item[0]
+                at2 = item[1]
+                # Removing repeat bonds
+                if at1 &gt; at2: continue
+                bl.append([at1, at2])
+
+        return bl
+
+    # ##################################################################################################################
+    def get_allbends(self):
+
+        &#34;&#34;&#34;
+        It returns all angle bends in the graph.
+
+        Parameters
+        ----------
+        None
+
+        Return
+        ------
+        A list containing all bend angles
+
+        Example
+        -------
+        All bend angles in the system
+
+        .. image:: ../../figures/graph07_nx.png
+
+        &gt;&gt;&gt; al1 = self.g7.get_allbends()
+        ... self.assertEqual(al1,[[0, 1, 2], [0, 1, 3], [1, 2, 5], [1, 2, 7],
+        ...                     [1, 3, 4], [2, 1, 3], [2, 5, 6], [2, 5, 10],
+        ...                     [2, 7, 8], [5, 2, 7], [5, 6, 12], [5, 10, 11],
+        ...                     [6, 5, 10], [6, 12, 9], [7, 8, 9], [8, 9, 12],
+        ...                     [13, 14, 15], [14, 15, 17], [14, 15, 16], [16, 15, 17]])
+
+        &#34;&#34;&#34;
+
+        al = []
+
+        # Append all bend angles
+        for ivert in self.get_vertices():
+            p = self.find_all_paths_length(ivert, 2)
+            for item in p:
+                at1 = item[0]
+                at2 = item[1]
+                at3 = item[2]
+                # Removing repeat bonds
+                if at1 &gt; at3: continue
+                al.append([at1, at2, at3])
+
+        return al
+
+    # ##################################################################################################################
+    def get_alldihedrals(self):
+
+        &#34;&#34;&#34;
+        It returns all dihedral angles in the graph.
+
+        Parameters
+        ----------
+        None
+
+        Return
+        ------
+        A list containing all dihedral angles. In this implementation, the greater atom number is the first atom in the list
+
+        Example
+        -------
+        All dihedral angles in the system
+
+        .. image:: ../../figures/graph07_nx.png
+
+        &gt;&gt;&gt; d1 = g7.get_alldihedrals()
+        ... self.assertEqual(d1,[[5, 2, 1, 0], [7, 2, 1, 0], [4, 3, 1, 0], [6, 5, 2, 1],
+        ...                     [10, 5, 2, 1], [8, 7, 2, 1], [4, 3, 1, 2], [12, 6, 5, 2],
+        ...                     [11, 10, 5, 2], [9, 8, 7, 2], [5, 2, 1, 3], [7, 2, 1, 3],
+        ...                     [8, 7, 2, 5], [9, 12, 6, 5], [7, 2, 5, 6], [11, 10, 5, 6],
+        ...                     [8, 9, 12, 6], [10, 5, 2, 7], [12, 9, 8, 7], [12, 6, 5, 10],
+        ...                     [17, 15, 14, 13], [16, 15, 14, 13]])
+
+        &#34;&#34;&#34;
+
+        dl = []
+
+        # Append all bend angles
+        for ivert in self.get_vertices():
+            p = self.find_all_paths_length(ivert, 3)
+            for item in p:
+                at1 = item[0]
+                at2 = item[1]
+                at3 = item[2]
+                at4 = item[3]
+                # Removing repeat bonds
+                if [at1, at2, at3, at4] in dl: continue
+                dl.append([at4, at3, at2, at1])
+
+        return dl
+
+    # ##################################################################################################################
+    def get_allimpropers(self, isbackbone_dict):
+
+        &#34;&#34;&#34;
+        It returns all improper angles in the graph.
+
+        Parameters
+        ----------
+        isbackbone_dict: Dictionary
+            The key is the number of the atom and the value True (backbone atom) or False (not backbone atom)
+
+        Return
+        ------
+        A list containing all improper angles. In this implementation, the greater atom number is the first atom in the list
+
+        Example
+        -------
+        All improper angles in the system
+
+        .. image:: ../../figures/graph07_nx.png
+
+        &gt;&gt;&gt; isbackbone_dict = {}
+        ... for i in range(0,self.g7._natoms):
+        ...    isbackbone_dict[i] = True
+        ... isbackbone_dict[2] = False
+        ... isbackbone_dict[5] = False
+        ... isbackbone_dict[6] = False
+        ... isbackbone_dict[7] = False
+        ... isbackbone_dict[8] = False
+        ... isbackbone_dict[9] = False
+        ... isbackbone_dict[10] = False
+        ... isbackbone_dict[11] = False
+        ... isbackbone_dict[12] = False
+        ... isbackbone_dict[16] = False
+        ... d1 = self.g7.get_allimpropers(isbackbone_dict=isbackbone_dict)
+        ... self.assertEqual(d1,[[1, 0, 3, 2], [2, 5, 7, 1], [15, 14, 17, 16]])
+
+        .. warning:: A criteria about the order of atoms need to be implemented and checked
+
+        &#34;&#34;&#34;
+
+        il = []
+
+        # Append all impropers --&gt;
+        for ivert in self.get_vertices():
+            p = self.find_all_paths_length(ivert, 1)
+            if len(p) == 3:
+                iat1 = ivert
+                tmplist = []
+                for item in p:
+                    tmplist.append(item[1])
+                    tmplist.sort()
+                tmpdict = {0:iat1, 1:-1, 2:-1, 3:-1}
+
+                if isbackbone_dict[iat1]:
+                    while tmplist:
+                        a = tmplist.pop(0)
+                        if isbackbone_dict[a]:
+                            if tmpdict[1] == -1:
+                                tmpdict[1] = a
+                            else:
+                                tmpdict[2] = a
+                        else:
+                            tmpdict[3] = a
+                else:
+                    while tmplist:
+                        a = tmplist.pop(0)
+                        if not isbackbone_dict[a]:
+                            if tmpdict[1] == -1:
+                                tmpdict[1] = a
+                            else:
+                                tmpdict[2] = a
+                        else:
+                            tmpdict[3] = a
+
+                l1 = [tmpdict[0],tmpdict[1],tmpdict[2],tmpdict[3] ]
+                if l1.count(-1) == 0: il.append(l1)
+
+            elif len(p) == 4:
+                iat1 = ivert
+                tmplist = []
+                for item in p:
+                    tmplist.append(item[1])
+                    tmplist.sort()
+                tmpdict1 = {0:iat1, 1:-1, 2:-1, 3:-1}
+                tmpdict2 = {0:iat1, 1:-1, 2:-1, 3:-1}
+
+                if isbackbone_dict[iat1]:
+                    while tmplist:
+                        a = tmplist.pop(0)
+                        if isbackbone_dict[a]:
+                             if tmpdict1[1] == -1:
+                                 tmpdict1[1] = a
+                             else:
+                                 tmpdict1[2] = a
+                             if tmpdict2[1] == -1:
+                                 tmpdict2[1] = a
+                             else:
+                                 tmpdict2[2] = a
+
+                        else:
+                            if tmpdict1[3] == -1:
+                                tmpdict1[3] = a
+                            else:
+                                tmpdict2[3] = a
+                else:
+                    print (&#34;ERROR. Improper angles cannot be found in complex branches&#34;)
+                    sys.exit()
+
+                l1 = [tmpdict1[0],tmpdict1[1],tmpdict1[2],tmpdict1[3] ]
+                if l1.count(-1) == 0: il.append(l1)
+                l2 = [tmpdict2[0],tmpdict2[1],tmpdict2[2],tmpdict2[3] ]
+                if l2.count(-1) == 0: il.append(l2)
+
+        # Aromatic --&gt; Planarity must be get in the force field class (i.e see: trappeUA_ff.py)
+
+        return il
+
+    # ##################################################################################################################
+    def get_neighbours(self, inode):
+
+        &#34;&#34;&#34;
+        This method returns all neighbours
+
+        Parameters
+        ----------
+        inode :: integer
+            Number of the parent node
+
+        Return
+        ------
+        It returns a list with all neighbors to the inode.
+
+        Examples
+        --------
+
+        .. image:: ../../figures/g3_03_nx.png
+
+        &gt;&gt;&gt; ln = self.g3.get_neighbours(2)
+        ... self.assertEqual(ln, [1, 5, 7])
+
+        &#34;&#34;&#34;
+
+        li = self.find_all_paths_length(inode, 1)
+        ln = []
+        for item in li:
+            if item[0] == inode:
+                ln.append(item[1])
+            else:
+                ln.append(item[0])
+
+        l = len(li)
+
+        return ln
+
+    # ##################################################################################################################
+    def perception_rings(self):
+
+        &#34;&#34;&#34;
+
+        &#34;A New Algorithm for Exhaustive Ring Perception in a Molecular Graph&#34;
+        Th. Hanser, Ph. Jauffret, and G. Kaufmann
+        J. Chem. Inf. Comput. Sci. 1996, 36, 1146-1152
+        https://doi.org/10.1021/ci960322f
+
+        Abstract:
+        A new fast and easy to implement algorithm for exhaustive ring perception is presented. This algorithm is
+        based upon a progressive reduction (collapsing) of the path graph associated with the molecular graph studied.
+        The path graph is an image of the molecular graph in which each vertex corresponds to a vertex of the
+        molecular graph and each edge a-b describes an existing path between a and b in the molecular graph.
+        During the reduction, nodes of the path graph are removed, and the information related to cycle occurrence
+        is concentrated in the label of new get_edges between the remaining get_vertices. Each loop formed in the path
+        graph during this collapsing process corresponds to a cycle in the molecular graph. Once the path graph
+        has totally collapsed, all the rings in the molecular graph have been perceived.
+
+        Returns
+
+
+        &#34;&#34;&#34;
+
+        # ####################################
+        def convert_perception_rings(vertex= {}):
+
+            # Copy the nodes from m-graph to p-graph
+            for v in self._graphdict.keys():
+                vertex[v] = []
+
+            # Copy the get_edges from m-graph to p-graph
+            for v in self._graphdict.keys():
+                for n in self._graphdict[v]:
+                    if not [v,n] in vertex[v] and not [n,v] in vertex[v]:
+                        vertex[v].append([v,n])
+
+         # ####################################
+        def ordernodesbyconnections_perception_rings(vertex_dict):
+
+            &#34;&#34;&#34; Takes the dictionary of nodes in pgraph and it returns
+            a list [ (number_node, connectivity)]. The last element of the
+            list is the node with a small value for connectivity. This can be extracted
+            with list.pop()
+
+            Parameters
+            ----------
+            pgraph
+
+            Returns
+            -------
+
+            &#34;&#34;&#34;
+
+            ordered_nodes_by_connection = dict()
+
+            for key in vertex_dict:
+                ordered_nodes_by_connection[key] = len(vertex_dict[key])
+
+            nodes_ordered = sorted(ordered_nodes_by_connection.items(), key=lambda kv: kv[1])
+            nodes_ordered.reverse()
+
+
+            # print(ordered_nodes_by_connection)
+            # print(ordered_nodes_by_connection.items())
+            # print(sorted(ordered_nodes_by_connection.items()))
+            # print(nodes_ordered)
+            #
+            # sys.exit()
+
+            return nodes_ordered
+
+        # ####################################
+        def get_pairs_perception_rings(v, v_edges):
+
+            &#34;&#34;&#34;Get all pairs for the node v
+
+            &#34;&#34;&#34;
+
+            pairs = []
+            for item in v_edges[v]:
+                    pairs.append(item)
+
+            return pairs
+
+        # ####################################
+        def intersection_perception_rings(l1, l2):
+
+            x = set(l1).intersection(l2)
+            return x
+
+
+        # ####################################
+        def remove_perception_rings(v, vertex_dict):
+
+            cycles = []
+            p = get_pairs_perception_rings(v, vertex_dict)
+
+            for i in range(len(p)):
+                # It is already a cycle
+                if p[i][0] == p[i][-1]: continue
+
+                for j in range(i+1, len(p)):
+                    # pxy x pxz = {x}
+                    if p[j][0] == p[j][-1]: continue
+                    #if v in intersection_perception_rings(p[i], p[j]):
+                    set_int = intersection_perception_rings(p[i], p[j])
+                    if ({v} == set_int) or \
+                        ({p[i][0], p[i][-1]} == {p[j][0], p[j][-1]} and len(set_int) == 2 ):
+
+                        # Temporal variable for the nodes to be deleted
+                        tmp_p_i = copy.deepcopy(p[i])
+                        tmp_p_j = copy.deepcopy(p[j])
+
+                        # Concatenate the paths --&gt; pyz &lt;-- pxy + pxz
+                        if tmp_p_i[-1] != v: tmp_p_i.reverse()
+                        if tmp_p_j[0]  != v: tmp_p_j.reverse()
+                        tmp_p_i.extend(tmp_p_j[1:])
+
+                        # Update the vertex_dict (p-graph)
+                        s_node_in_path = tmp_p_i[0]
+                        e_node_in_path = tmp_p_i[-1]
+
+                        # Update the new path for each vertex
+                        vertex_dict[s_node_in_path].append(tmp_p_i)
+
+                        if s_node_in_path != e_node_in_path:
+                            vertex_dict[e_node_in_path].append(tmp_p_i)
+
+            for pxy in p:
+
+                fe = pxy[0]
+                le = pxy[-1]
+                if fe == le:
+                    cycles.append(pxy)
+
+                if fe != v:
+                    try:
+                        vertex_dict[fe].remove(pxy)
+                    except ValueError:
+                        pxy.reverse()
+                        vertex_dict[fe].remove(pxy)
+
+                elif le != v:
+                    try:
+                        vertex_dict[le].remove(pxy)
+                    except ValueError:
+                        pxy.reverse()
+                        vertex_dict[le].remove(pxy)
+
+
+            del(vertex_dict[v])
+            return cycles
+
+        #  ==========  Main perception_rings Loop ================
+        # Start a new graph: The P-Graph
+        vertex_edges = {}
+        convert_perception_rings(vertex=vertex_edges)
+
+        # Sort nodes by connectivity
+        l_nodes = ordernodesbyconnections_perception_rings(vertex_edges)
+        # Proccess all nodes in order of connectivity
+        while l_nodes:
+
+            inode = l_nodes.pop()[0]
+            c = remove_perception_rings(inode, vertex_edges)
+
+            if len(c) != 0:
+                self._cycles.extend(c)
+
+            pass</code></pre>
+</details>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="polyanagro.Topology.Topology" href="Topology.html#polyanagro.Topology.Topology">Topology</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="polyanagro.MolecularGraph.MolecularGraph.add_edge"><code class="name flex">
+<span>def <span class="ident">add_edge</span></span>(<span>self, edge, setforest=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>It creates a new edge in the graph between two existing nodes.
+The type of parameter <strong>edge</strong> can be a set, a tuple or a list of two nodes;
+Multiple edges can exist between two vertices
+Both vertex must exist in the molecular graph. If any vertex is not in the
+molecular graph nothing is done.</p>
+<p><img alt="" src="../../figures/then_and_now_edges.png"></p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>edge</code></strong> :&ensp;<code>set, tuple</code> or <code>list</code></dt>
+<dd>The vertice numbers to create an edge (aka bond)</dd>
+<dt><strong><code>setforest</code></strong> :&ensp;<code>boolean</code>, default=<code>True</code></dt>
+<dd>If True the <code>_set_forest</code> method is called.
+This is useful when multiple edges are added to a graph,
+in this case only in the last addition the parameter <code>setforest</code> should be true in order to
+update the <code>self._nmols</code> attribute (see the example)</dd>
+</dl>
+<h2 id="return">Return</h2>
+<p>None</p>
+<h2 id="example">Example</h2>
+<p>Adding an edge between the vertex 12 and 13 in a molecular graph called <code>a</code></p>
+<pre><code class="python">&gt;&gt;&gt;  g.add_edge([12,13])
+</code></pre>
+<p>Adding multiple edges</p>
+<pre><code class="python">&gt;&gt;&gt;  g.add_edge((1,7), setforest=False)
+...  g.add_edge((2, 8), setforest=False)
+...  g.add_edge((9, 8), setforest=True)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_edge(self, edge, setforest=True):
+
+    &#34;&#34;&#34;
+
+    It creates a new edge in the graph between two existing nodes.
+    The type of parameter **edge** can be a set, a tuple or a list of two nodes;
+    Multiple edges can exist between two vertices
+    Both vertex must exist in the molecular graph. If any vertex is not in the
+    molecular graph nothing is done.
+
+    .. image:: ../../figures/then_and_now_edges.png
+
+    Parameters
+    ----------
+    edge : set, tuple or list
+          The vertice numbers to create an edge (aka bond)
+
+    setforest : boolean, default=True
+        If True the `_set_forest` method is called.
+        This is useful when multiple edges are added to a graph,
+        in this case only in the last addition the parameter `setforest` should be true in order to
+        update the `self._nmols` attribute (see the example)
+
+    Return
+    ------
+    None
+
+    Example
+    -------
+    Adding an edge between the vertex 12 and 13 in a molecular graph called `a`
+    &gt;&gt;&gt;  g.add_edge([12,13])
+
+    Adding multiple edges
+    &gt;&gt;&gt;  g.add_edge((1,7), setforest=False)
+    ...  g.add_edge((2, 8), setforest=False)
+    ...  g.add_edge((9, 8), setforest=True)
+
+    &#34;&#34;&#34;
+
+    edge = set(edge)
+    (vertex1, vertex2) = tuple(edge)
+    if (vertex1 and vertex2) in self._graphdict:
+
+            if vertex2 not in self._graphdict[vertex1]:
+                self._graphdict[vertex1].append(vertex2)
+            self._bonds.append({vertex1, vertex2})
+            if self._undirected:
+                if vertex1 not in self._graphdict[vertex2]:
+                    self._graphdict[vertex2].append(vertex1)
+
+    if setforest:
+        self._set_forest()</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.MolecularGraph.MolecularGraph.add_vertex"><code class="name flex">
+<span>def <span class="ident">add_vertex</span></span>(<span>self, vertex)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function add a vertex to the molecular graph. The new vertex is not bonded to any other in the graph.
+If the vertex exists in the <code>self._graphdict</code> attribute nothing has to be done.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>vertex</code></strong> :&ensp;<code>int</code></dt>
+<dd>Index of the vertex.</dd>
+</dl>
+<h2 id="return">Return</h2>
+<p>None</p>
+<h2 id="example">Example</h2>
+<p>Add a vertex to a graph</p>
+<pre><code class="python">&gt;&gt;&gt; g.add_vertex(200)
+</code></pre>
+<p><img alt="" src="../../figures/then_and_now.png"></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_vertex(self, vertex):
+
+    &#34;&#34;&#34;
+    This function add a vertex to the molecular graph. The new vertex is not bonded to any other in the graph.
+    If the vertex exists in the `self._graphdict` attribute nothing has to be done.
+
+    Parameters
+    ----------
+    vertex : int
+        Index of the vertex.
+
+    Return
+    ------
+    None
+
+    Example
+    -------
+    Add a vertex to a graph
+
+    &gt;&gt;&gt; g.add_vertex(200)
+
+    .. image:: ../../figures/then_and_now.png
+
+
+    &#34;&#34;&#34;
+
+    if vertex not in self._graphdict.keys():
+        self._graphdict[vertex] = []
+        self._natoms +=1</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.MolecularGraph.MolecularGraph.bfs_iterative"><code class="name flex">
+<span>def <span class="ident">bfs_iterative</span></span>(<span>self, start=0)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Breath-First Search. Iterative version (BFS: <a href="https://en.wikipedia.org/wiki/Breath-first_search">https://en.wikipedia.org/wiki/Breath-first_search</a>)</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>start</code></strong> :&ensp;<code>integer</code></dt>
+<dd>Node to start the search</dd>
+</dl>
+<h2 id="return">Return</h2>
+<p>Return a list with the BFS path</p>
+<h2 id="example">Example</h2>
+<p>BFS in a graph</p>
+<pre><code class="python">&gt;&gt;&gt; g.bfs_iterative(start=6)
+</code></pre>
+<p><img alt="" src="../../figures/graph06_test12.png"></p>
+<p>Data::</p>
+<pre><code>[6, 7, 8, 10,  9, 11]
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def bfs_iterative(self, start=0):
+
+    &#34;&#34;&#34;
+    Breath-First Search. Iterative version (BFS: https://en.wikipedia.org/wiki/Breath-first_search)
+
+    Parameters
+    ----------
+    start : integer
+        Node to start the search
+
+    Return
+    ------
+    Return a list with the BFS path
+
+    Example
+    -------
+    BFS in a graph
+
+    &gt;&gt;&gt; g.bfs_iterative(start=6)
+
+    .. image:: ../../figures/graph06_test12.png
+
+    Data::
+
+        [6, 7, 8, 10,  9, 11]
+
+    &#34;&#34;&#34;
+
+    visitedlist = []
+    queue = [start]
+
+    g_disorder = self._graphdict
+    g = {}
+    for i in g_disorder:
+         g[i] = sorted(g_disorder[i])
+
+    while queue:
+        vertex = queue.pop(0)
+        if vertex not in visitedlist:
+            visitedlist.append(vertex)
+
+            for inode in g[vertex]:
+                if visitedlist.count(inode) &gt; 0:
+                    continue
+                else:
+                    queue.append(inode)
+
+    return visitedlist</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.MolecularGraph.MolecularGraph.dfs_iterative"><code class="name flex">
+<span>def <span class="ident">dfs_iterative</span></span>(<span>self, start=0)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Depth-First Search. Iterative version (DFS: <a href="https://en.wikipedia.org/wiki/Depth-first_search">https://en.wikipedia.org/wiki/Depth-first_search</a>)</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>start</code></strong> :&ensp;<code>integer</code></dt>
+<dd>Node to start the search</dd>
+</dl>
+<h2 id="return">Return</h2>
+<p>Return a list with the DFS path</p>
+<h2 id="example">Example</h2>
+<p>DFS in a graph</p>
+<pre><code class="python">&gt;&gt;&gt; g.dfs_iterative(start=6)
+</code></pre>
+<p><img alt="" src="../../figures/graph06_test12.png"></p>
+<p>Data::</p>
+<pre><code>[6, 7, 8, 9, 11, 10]
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def dfs_iterative(self, start=0):
+
+    &#34;&#34;&#34;
+    Depth-First Search. Iterative version (DFS: https://en.wikipedia.org/wiki/Depth-first_search)
+
+    Parameters
+    ----------
+    start : integer
+        Node to start the search
+
+    Return
+    ------
+    Return a list with the DFS path
+
+    Example
+    -------
+    DFS in a graph
+
+    &gt;&gt;&gt; g.dfs_iterative(start=6)
+
+    .. image:: ../../figures/graph06_test12.png
+
+    Data::
+
+        [6, 7, 8, 9, 11, 10]
+
+   &#34;&#34;&#34;
+
+    g = self._graphdict
+    V = self.get_vertices()
+
+    visited = [False for i in range(len(V))]
+
+    # Create a stack for DFS
+    stack = list()
+    path = list()
+    s = start
+
+    # Push the current source node.
+    stack.append(s)
+
+    while len(stack):
+        # Pop a vertex from stack and print it
+        s = stack[-1]
+        stack.pop()
+
+        # Stack may contain same vertex twice. So
+        # we need to print the popped item only
+        # if it is not visited.
+        if not visited[s]:
+            path.append(s)
+            visited[s] = True
+
+        # Get all adjacent vertices of the popped vertex s
+        # If a adjacent has not been visited, then puah it
+        # to the stack.
+        for node in reversed(g[s]):
+            if not visited[node]:
+                stack.append(node)
+
+    return path</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.MolecularGraph.MolecularGraph.draw_graph_forest_networkx"><code class="name flex">
+<span>def <span class="ident">draw_graph_forest_networkx</span></span>(<span>self, title='simple')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Create an image for each tree of the graph using networkx library. It can be useful to create a file for each molecule
+in the system.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>title</code></strong> :&ensp;<code>string</code></dt>
+<dd>The patter to be used in the name of the file containing the image</dd>
+</dl>
+<h2 id="return">Return</h2>
+<p>None</p>
+<h2 id="example">Example</h2>
+<p>Draw the each subgraph of the graph <code>g4</code> in a file with the pattern <code>graphs/graph04_f???.png</code></p>
+<pre><code class="python">&gt;&gt;&gt; g4.draw_graph_forest_networkx(title=&quot;graphs/graph04_f&quot;)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def draw_graph_forest_networkx(self, title = &#39;simple&#39;):
+
+    &#34;&#34;&#34;
+    Create an image for each tree of the graph using networkx library. It can be useful to create a file for each molecule
+    in the system.
+
+    Parameters
+    ----------
+    title : string
+        The patter to be used in the name of the file containing the image
+
+    Return
+    ------
+    None
+
+    Example
+    -------
+    Draw the each subgraph of the graph `g4` in a file with the pattern `graphs/graph04_f???.png`
+
+    &gt;&gt;&gt; g4.draw_graph_forest_networkx(title=&#34;graphs/graph04_f&#34;)
+
+    &#34;&#34;&#34;
+
+    for imol in range(len(self._nmols)):
+        A = nx.Graph()
+        for iatom in self._nmols[imol]:
+            A.add_node(iatom)
+            for jatom in self._graphdict[iatom]:
+                A.add_edge(iatom, jatom)
+
+        string = &#34;%s%06d&#34; % (title, imol)
+        filenamepng = string+&#34;.png&#34;
+
+        #pos=nx.spring_layout(A, weight=None)
+        pos=nx.kamada_kawai_layout(A, weight=None)
+
+        # nodes
+        nx.draw_networkx_nodes(A, pos,node_size=500, node_color=&#34;grey&#34;)
+        # edges
+        nx.draw_networkx_edges(A,pos, width=2, edge_color=&#34;black&#34;, style=&#34;solid&#34;)
+        # labels
+        nx.draw_networkx_labels(A,pos,font_size=8,font_family=&#39;sans-serif&#39;)
+        plt.savefig(filenamepng)
+        del A
+        plt.close()</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.MolecularGraph.MolecularGraph.draw_graph_forest_pygraphviz"><code class="name flex">
+<span>def <span class="ident">draw_graph_forest_pygraphviz</span></span>(<span>self, title='simple')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Create an image for each tree of the graph using pygraphviz library. It can be useful to create a file for each molecule
+in the system.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>title</code></strong> :&ensp;<code>string</code></dt>
+<dd>The patter to be used in the name of the file containing the image</dd>
+</dl>
+<h2 id="return">Return</h2>
+<p>None</p>
+<h2 id="example">Example</h2>
+<p>Draw the each subgraph of the graph <code>g4</code> in a file with the pattern <code>graphs/graph04_f???.png</code></p>
+<pre><code class="python">&gt;&gt;&gt; g4.draw_graph_forest_pygraphviz(title=&quot;graphs/graph04_f&quot;)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def draw_graph_forest_pygraphviz(self, title = &#39;simple&#39;):
+
+    &#34;&#34;&#34;
+    Create an image for each tree of the graph using pygraphviz library. It can be useful to create a file for each molecule
+    in the system.
+
+    Parameters
+    ----------
+    title : string
+        The patter to be used in the name of the file containing the image
+
+    Return
+    ------
+    None
+
+    Example
+    -------
+    Draw the each subgraph of the graph `g4` in a file with the pattern `graphs/graph04_f???.png`
+
+    &gt;&gt;&gt; g4.draw_graph_forest_pygraphviz(title=&#34;graphs/graph04_f&#34;)
+
+    &#34;&#34;&#34;
+
+
+
+    for imol in range(len(self._nmols)):
+        A = pgv.AGraph()
+        for iatom in self._nmols[imol]:
+            A.add_node(iatom, color=&#39;blue&#39;)
+            for jatom in self._graphdict[iatom]:
+                A.add_edge(iatom, jatom, color=&#39;blue&#39;)
+
+        string = &#34;%s%03d&#34; % (title, imol)
+        filenamepng = string+&#34;.png&#34;
+        A.write(string+&#39;.dot&#39;)  # write to simple.dot
+        A.draw(filenamepng, prog=&#34;neato&#34;)</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.MolecularGraph.MolecularGraph.draw_graph_networkx"><code class="name flex">
+<span>def <span class="ident">draw_graph_networkx</span></span>(<span>self, title='simple')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Create an image of the graph using networkx library</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>title</code></strong> :&ensp;<code>string</code></dt>
+<dd>The name of the file containing the image</dd>
+</dl>
+<h2 id="return">Return</h2>
+<p>None</p>
+<h2 id="example">Example</h2>
+<p>Draw the graph <code>g4</code> in a file named <code>graphs/graph04_f.png</code></p>
+<pre><code class="python">&gt;&gt;&gt; g4.draw_graph_networkx(title=&quot;graphs/graph04&quot;)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def draw_graph_networkx(self, title=&#39;simple&#39;):
+
+    &#34;&#34;&#34;
+    Create an image of the graph using networkx library
+
+    Parameters
+    ----------
+    title : string
+        The name of the file containing the image
+
+    Return
+    ------
+    None
+
+    Example
+    -------
+    Draw the graph `g4` in a file named `graphs/graph04_f.png`
+
+    &gt;&gt;&gt; g4.draw_graph_networkx(title=&#34;graphs/graph04&#34;)
+
+    &#34;&#34;&#34;
+    try:
+        import networkx as nx
+        import matplotlib.pyplot as plt
+    except:
+        pass
+
+    A = nx.Graph()
+
+    # Isolated nodes
+    for i in self.get_vertices():
+        if len(self._graphdict[i]) == 0:
+            A.add_node(i,color=&#39;blue&#39;)
+
+    for ibond_old in self._bonds:
+        ibond_copy = copy.deepcopy(ibond_old)
+        i = ibond_copy.pop()
+        A.add_node(i)
+
+    for ibond_old in self._bonds:
+        ibond_copy = copy.deepcopy(ibond_old)
+        i = ibond_copy.pop()
+
+        try:
+            j = ibond_copy.pop()
+            A.add_edge(i,j)
+        except IndexError:
+            pass
+
+    filenamepng=title+&#39;.png&#39;
+    pos=nx.spring_layout(A)
+    # nodes
+    nx.draw_networkx_nodes(A, pos,node_size=500, node_color=&#34;grey&#34;)
+    # edges
+    nx.draw_networkx_edges(A,pos, width=2, edge_color=&#34;black&#34;, style=&#34;solid&#34;)
+    # labels
+    nx.draw_networkx_labels(A,pos,font_size=10,font_family=&#39;sans-serif&#39;)
+    plt.savefig(filenamepng)
+    del A
+    plt.close()</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.MolecularGraph.MolecularGraph.draw_graph_pygraphviz"><code class="name flex">
+<span>def <span class="ident">draw_graph_pygraphviz</span></span>(<span>self, title='simple')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Create an image of the graph using pygraphviz library</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>title</code></strong> :&ensp;<code>string</code></dt>
+<dd>The name of the file containing the image</dd>
+</dl>
+<h2 id="return">Return</h2>
+<p>None</p>
+<h2 id="example">Example</h2>
+<p>Draw the graph <code>g4</code> in a file named <code>graphs/graph04.png</code></p>
+<pre><code class="python">&gt;&gt;&gt; g4.draw_graph_pygraphviz(title=&quot;graphs/graph04&quot;)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def draw_graph_pygraphviz(self, title=&#39;simple&#39;):
+    &#34;&#34;&#34;
+    Create an image of the graph using pygraphviz library
+
+    Parameters
+    ----------
+    title : string
+        The name of the file containing the image
+
+    Return
+    ------
+    None
+
+    Example
+    -------
+    Draw the graph `g4` in a file named `graphs/graph04.png`
+
+    &gt;&gt;&gt; g4.draw_graph_pygraphviz(title=&#34;graphs/graph04&#34;)
+
+    &#34;&#34;&#34;
+    A = pgv.AGraph()
+
+    # Isolated nodes
+    for i in self.get_vertices():
+        if len(self._graphdict[i]) == 0:
+            A.add_node(i,color=&#39;blue&#39;)
+
+    for ibond_old in self._bonds:
+        ibond_copy = copy.deepcopy(ibond_old)
+        i = ibond_copy.pop()
+        A.add_node(i,color=&#39;blue&#39;)
+
+    for ibond_old in self._bonds:
+        ibond_copy = copy.deepcopy(ibond_old)
+        i = ibond_copy.pop()
+
+        try:
+            j = ibond_copy.pop()
+            A.add_edge(i,j,color=&#39;blue&#39;)
+        except IndexError:
+            pass
+
+    filenamedot=title+&#39;.dot&#39;
+    filenamepng=title+&#39;.png&#39;
+    A.write(filenamedot) # write to simple.dot
+    A.draw(filenamepng,prog=&#34;dot&#34;)</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.MolecularGraph.MolecularGraph.find_all_paths"><code class="name flex">
+<span>def <span class="ident">find_all_paths</span></span>(<span>self, start_vertex, end_vertex, path=[])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>It finds all paths from start_vertex to
+end_vertex in graph, This is a recursive function.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>start_vertex</code></strong> :&ensp;<code>integer</code></dt>
+<dd>Starting vertex of the path</dd>
+<dt>end_vertex :integer</dt>
+<dt>Finish vertex of the path</dt>
+<dt><strong><code>path</code></strong> :&ensp;<code>list</code> of <code>lists</code></dt>
+<dd>Paths between start_vertex and end_vertex</dd>
+</dl>
+<h2 id="return">Return</h2>
+<p>Return a list of paths. If there is not path between start_vertex and end_vertex returns an empty list. The
+starting and ending node are included in the path</p>
+<h2 id="example">Example</h2>
+<p>Find all paths between the node 2 and 12 of the following graph:</p>
+<p><img alt="" src="../../figures/g3_03_nx.png"></p>
+<pre><code class="python">&gt;&gt;&gt; path = self.g3.find_all_paths(2,12)
+... [[2, 5, 6, 12], [2, 7, 8, 9, 12]]
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning:&ensp;This is a recursive function</p>
+</div></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def find_all_paths(self, start_vertex, end_vertex, path=[]):
+
+    &#34;&#34;&#34;
+    It finds all paths from start_vertex to
+        end_vertex in graph, This is a recursive function.
+
+    Parameters
+    ----------
+    start_vertex : integer
+        Starting vertex of the path
+    end_vertex :integer
+        Finish vertex of the path
+    path : list of lists
+        Paths between start_vertex and end_vertex
+
+    Return
+    ------
+    Return a list of paths. If there is not path between start_vertex and end_vertex returns an empty list. The
+    starting and ending node are included in the path
+
+    Example
+    -------
+    Find all paths between the node 2 and 12 of the following graph:
+
+    .. image:: ../../figures/g3_03_nx.png
+
+    &gt;&gt;&gt; path = self.g3.find_all_paths(2,12)
+    ... [[2, 5, 6, 12], [2, 7, 8, 9, 12]]
+
+    .. warning:: This is a recursive function
+
+    &#34;&#34;&#34;
+    graph = self._graphdict
+    path = path + [start_vertex]
+    if start_vertex == end_vertex:
+        return [path]
+    if start_vertex not in graph:
+        return []
+    paths = []
+    for vertex in graph[start_vertex]:
+        if vertex not in path:
+            extended_paths = self.find_all_paths(vertex, end_vertex, path)
+            for p in extended_paths:
+                paths.append(p)
+    return paths</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.MolecularGraph.MolecularGraph.find_all_paths_length"><code class="name flex">
+<span>def <span class="ident">find_all_paths_length</span></span>(<span>self, start_vertex, length, path=[])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>It finds all paths of length <code>length</code> in graph from start_vertex. This is a recursive function</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>start_vertex</code></strong> :&ensp;<code>integer</code></dt>
+<dd>Starting vertex of the path</dd>
+<dt><strong><code>length</code></strong> :&ensp;<code>integer</code></dt>
+<dd>Length of the paths to find. This is defined as the number of edges between the start_vertex and the end_vertex</dd>
+<dt><strong><code>path</code></strong> :&ensp;<code>list</code></dt>
+<dd>Path between start_vertex and end_vertex</dd>
+</dl>
+<h2 id="return">Return</h2>
+<p>Return a list of paths of length <code>length</code>**. If length is greater than the max. length in the graph returns
+an empty list. If length is zero returns a list only containing
+the start_vertex node.
+If there is not path between start_vertex and end_vertex returns an empty list. The
+starting node is included in the path</p>
+<h2 id="example">Example</h2>
+<p>Find all paths between the starting in the node 2 with length 4 of the following graph:</p>
+<p><img alt="" src="../../figures/g3_03_nx.png"></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning:&ensp;This is a recursive function</p>
+</div></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def find_all_paths_length(self, start_vertex, length, path=[]):
+
+    &#34;&#34;&#34;
+    It finds all paths of length ``length`` in graph from start_vertex. This is a recursive function
+
+    Parameters
+    ----------
+    start_vertex : integer
+        Starting vertex of the path
+    length : integer
+        Length of the paths to find. This is defined as the number of edges between the start_vertex and the end_vertex
+    path : list
+        Path between start_vertex and end_vertex
+
+    Return
+    ------
+    Return a list of paths of length ``length``**. If length is greater than the max. length in the graph returns
+    an empty list. If length is zero returns a list only containing  the start_vertex node.
+    If there is not path between start_vertex and end_vertex returns an empty list. The
+    starting node is included in the path
+
+    Example
+    -------
+    Find all paths between the starting in the node 2 with length 4 of the following graph:
+
+    .. image:: ../../figures/g3_03_nx.png
+
+    .. warning:: This is a recursive function
+
+    &#34;&#34;&#34;
+
+    l = length
+    graph = self._graphdict
+
+    path = path + [start_vertex]
+    if l == 0:
+        return [path]
+    if start_vertex not in graph:
+        return []
+    paths = []
+    for vertex in graph[start_vertex]:
+        if vertex not in path:
+            extended_paths = self.find_all_paths_length(vertex, l-1, path)
+            for p in extended_paths:
+                paths.append(p)
+
+    return paths</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.MolecularGraph.MolecularGraph.find_isolated_vertices"><code class="name flex">
+<span>def <span class="ident">find_isolated_vertices</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>It returns a list of isolated vertices. A isolated vertex is defined as a vertex without edges</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>None</code></strong></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="return">Return</h2>
+<p>Return a list of isolated nodes</p>
+<h2 id="example">Example</h2>
+<p><img alt="" src="../../figures/graph04.png"></p>
+<pre><code class="python">&gt;&gt;&gt; self.g4.find_isolated_vertices()
+... [12]
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def find_isolated_vertices(self):
+
+    &#34;&#34;&#34;
+    It returns a list of isolated vertices. A isolated vertex is defined as a vertex without edges
+
+    Parameters
+    ----------
+    None
+
+    Return
+    ------
+    Return a list of isolated nodes
+
+    Example
+    -------
+    .. image:: ../../figures/graph04.png
+
+    &gt;&gt;&gt; self.g4.find_isolated_vertices()
+    ... [12]
+
+
+    &#34;&#34;&#34;
+
+    graph = self._graphdict
+    isolated = []
+    for vertex in graph:
+        # print(isolated, vertex)
+        if not graph[vertex]:
+            isolated += [vertex]
+
+    if not self._undirected:
+        l_edges =  self.get_edges()
+        for iedge in l_edges:
+
+            for i in iedge:
+                if i in isolated:
+                    isolated.remove(i)
+
+    return isolated</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.MolecularGraph.MolecularGraph.get_allbends"><code class="name flex">
+<span>def <span class="ident">get_allbends</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>It returns all angle bends in the graph.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>None</code></strong></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="return">Return</h2>
+<p>A list containing all bend angles</p>
+<h2 id="example">Example</h2>
+<p>All bend angles in the system</p>
+<p><img alt="" src="../../figures/graph07_nx.png"></p>
+<pre><code class="python">&gt;&gt;&gt; al1 = self.g7.get_allbends()
+... self.assertEqual(al1,[[0, 1, 2], [0, 1, 3], [1, 2, 5], [1, 2, 7],
+...                     [1, 3, 4], [2, 1, 3], [2, 5, 6], [2, 5, 10],
+...                     [2, 7, 8], [5, 2, 7], [5, 6, 12], [5, 10, 11],
+...                     [6, 5, 10], [6, 12, 9], [7, 8, 9], [8, 9, 12],
+...                     [13, 14, 15], [14, 15, 17], [14, 15, 16], [16, 15, 17]])
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_allbends(self):
+
+    &#34;&#34;&#34;
+    It returns all angle bends in the graph.
+
+    Parameters
+    ----------
+    None
+
+    Return
+    ------
+    A list containing all bend angles
+
+    Example
+    -------
+    All bend angles in the system
+
+    .. image:: ../../figures/graph07_nx.png
+
+    &gt;&gt;&gt; al1 = self.g7.get_allbends()
+    ... self.assertEqual(al1,[[0, 1, 2], [0, 1, 3], [1, 2, 5], [1, 2, 7],
+    ...                     [1, 3, 4], [2, 1, 3], [2, 5, 6], [2, 5, 10],
+    ...                     [2, 7, 8], [5, 2, 7], [5, 6, 12], [5, 10, 11],
+    ...                     [6, 5, 10], [6, 12, 9], [7, 8, 9], [8, 9, 12],
+    ...                     [13, 14, 15], [14, 15, 17], [14, 15, 16], [16, 15, 17]])
+
+    &#34;&#34;&#34;
+
+    al = []
+
+    # Append all bend angles
+    for ivert in self.get_vertices():
+        p = self.find_all_paths_length(ivert, 2)
+        for item in p:
+            at1 = item[0]
+            at2 = item[1]
+            at3 = item[2]
+            # Removing repeat bonds
+            if at1 &gt; at3: continue
+            al.append([at1, at2, at3])
+
+    return al</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.MolecularGraph.MolecularGraph.get_allbonds"><code class="name flex">
+<span>def <span class="ident">get_allbonds</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>It returns all bonds in the graph.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>None</code></strong></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="return">Return</h2>
+<p>A list containing all bond angles</p>
+<h2 id="example">Example</h2>
+<p>All bond angles in the system. The order is [min, max]</p>
+<p><img alt="" src="../../figures/graph07_nx.png"></p>
+<pre><code class="python">&gt;&gt;&gt; bl1 = self.g7.get_allbonds()
+... self.assertEqual(bl1,[[0, 1], [1, 2], [1, 3], [2, 5], [2, 7], [3, 4],
+...                  [5, 6], [5, 10], [6, 12], [7, 8], [8, 9], [9, 12],
+...                   [10, 11], [13, 14], [14, 15], [15, 17], [15, 16]])
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_allbonds(self):
+
+    &#34;&#34;&#34;
+    It returns all bonds in the graph.
+
+    Parameters
+    ----------
+    None
+
+    Return
+    ------
+    A list containing all bond angles
+
+    Example
+    -------
+    All bond angles in the system. The order is [min, max]
+
+    .. image:: ../../figures/graph07_nx.png
+
+    &gt;&gt;&gt; bl1 = self.g7.get_allbonds()
+    ... self.assertEqual(bl1,[[0, 1], [1, 2], [1, 3], [2, 5], [2, 7], [3, 4],
+    ...                  [5, 6], [5, 10], [6, 12], [7, 8], [8, 9], [9, 12],
+    ...                   [10, 11], [13, 14], [14, 15], [15, 17], [15, 16]])
+
+    &#34;&#34;&#34;
+
+    bl = []
+
+    # Append all bonds
+    for ivert in self.get_vertices():
+        p = self.find_all_paths_length(ivert, 1)
+        for item in p:
+            at1 = item[0]
+            at2 = item[1]
+            # Removing repeat bonds
+            if at1 &gt; at2: continue
+            bl.append([at1, at2])
+
+    return bl</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.MolecularGraph.MolecularGraph.get_alldihedrals"><code class="name flex">
+<span>def <span class="ident">get_alldihedrals</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>It returns all dihedral angles in the graph.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>None</code></strong></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="return">Return</h2>
+<p>A list containing all dihedral angles. In this implementation, the greater atom number is the first atom in the list</p>
+<h2 id="example">Example</h2>
+<p>All dihedral angles in the system</p>
+<p><img alt="" src="../../figures/graph07_nx.png"></p>
+<pre><code class="python">&gt;&gt;&gt; d1 = g7.get_alldihedrals()
+... self.assertEqual(d1,[[5, 2, 1, 0], [7, 2, 1, 0], [4, 3, 1, 0], [6, 5, 2, 1],
+...                     [10, 5, 2, 1], [8, 7, 2, 1], [4, 3, 1, 2], [12, 6, 5, 2],
+...                     [11, 10, 5, 2], [9, 8, 7, 2], [5, 2, 1, 3], [7, 2, 1, 3],
+...                     [8, 7, 2, 5], [9, 12, 6, 5], [7, 2, 5, 6], [11, 10, 5, 6],
+...                     [8, 9, 12, 6], [10, 5, 2, 7], [12, 9, 8, 7], [12, 6, 5, 10],
+...                     [17, 15, 14, 13], [16, 15, 14, 13]])
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_alldihedrals(self):
+
+    &#34;&#34;&#34;
+    It returns all dihedral angles in the graph.
+
+    Parameters
+    ----------
+    None
+
+    Return
+    ------
+    A list containing all dihedral angles. In this implementation, the greater atom number is the first atom in the list
+
+    Example
+    -------
+    All dihedral angles in the system
+
+    .. image:: ../../figures/graph07_nx.png
+
+    &gt;&gt;&gt; d1 = g7.get_alldihedrals()
+    ... self.assertEqual(d1,[[5, 2, 1, 0], [7, 2, 1, 0], [4, 3, 1, 0], [6, 5, 2, 1],
+    ...                     [10, 5, 2, 1], [8, 7, 2, 1], [4, 3, 1, 2], [12, 6, 5, 2],
+    ...                     [11, 10, 5, 2], [9, 8, 7, 2], [5, 2, 1, 3], [7, 2, 1, 3],
+    ...                     [8, 7, 2, 5], [9, 12, 6, 5], [7, 2, 5, 6], [11, 10, 5, 6],
+    ...                     [8, 9, 12, 6], [10, 5, 2, 7], [12, 9, 8, 7], [12, 6, 5, 10],
+    ...                     [17, 15, 14, 13], [16, 15, 14, 13]])
+
+    &#34;&#34;&#34;
+
+    dl = []
+
+    # Append all bend angles
+    for ivert in self.get_vertices():
+        p = self.find_all_paths_length(ivert, 3)
+        for item in p:
+            at1 = item[0]
+            at2 = item[1]
+            at3 = item[2]
+            at4 = item[3]
+            # Removing repeat bonds
+            if [at1, at2, at3, at4] in dl: continue
+            dl.append([at4, at3, at2, at1])
+
+    return dl</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.MolecularGraph.MolecularGraph.get_allimpropers"><code class="name flex">
+<span>def <span class="ident">get_allimpropers</span></span>(<span>self, isbackbone_dict)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>It returns all improper angles in the graph.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>isbackbone_dict</code></strong> :&ensp;<code>Dictionary</code></dt>
+<dd>The key is the number of the atom and the value True (backbone atom) or False (not backbone atom)</dd>
+</dl>
+<h2 id="return">Return</h2>
+<p>A list containing all improper angles. In this implementation, the greater atom number is the first atom in the list</p>
+<h2 id="example">Example</h2>
+<p>All improper angles in the system</p>
+<p><img alt="" src="../../figures/graph07_nx.png"></p>
+<pre><code class="python">&gt;&gt;&gt; isbackbone_dict = {}
+... for i in range(0,self.g7._natoms):
+...    isbackbone_dict[i] = True
+... isbackbone_dict[2] = False
+... isbackbone_dict[5] = False
+... isbackbone_dict[6] = False
+... isbackbone_dict[7] = False
+... isbackbone_dict[8] = False
+... isbackbone_dict[9] = False
+... isbackbone_dict[10] = False
+... isbackbone_dict[11] = False
+... isbackbone_dict[12] = False
+... isbackbone_dict[16] = False
+... d1 = self.g7.get_allimpropers(isbackbone_dict=isbackbone_dict)
+... self.assertEqual(d1,[[1, 0, 3, 2], [2, 5, 7, 1], [15, 14, 17, 16]])
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning:&ensp;A criteria about the order of atoms need to be implemented and checked</p>
+</div></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_allimpropers(self, isbackbone_dict):
+
+    &#34;&#34;&#34;
+    It returns all improper angles in the graph.
+
+    Parameters
+    ----------
+    isbackbone_dict: Dictionary
+        The key is the number of the atom and the value True (backbone atom) or False (not backbone atom)
+
+    Return
+    ------
+    A list containing all improper angles. In this implementation, the greater atom number is the first atom in the list
+
+    Example
+    -------
+    All improper angles in the system
+
+    .. image:: ../../figures/graph07_nx.png
+
+    &gt;&gt;&gt; isbackbone_dict = {}
+    ... for i in range(0,self.g7._natoms):
+    ...    isbackbone_dict[i] = True
+    ... isbackbone_dict[2] = False
+    ... isbackbone_dict[5] = False
+    ... isbackbone_dict[6] = False
+    ... isbackbone_dict[7] = False
+    ... isbackbone_dict[8] = False
+    ... isbackbone_dict[9] = False
+    ... isbackbone_dict[10] = False
+    ... isbackbone_dict[11] = False
+    ... isbackbone_dict[12] = False
+    ... isbackbone_dict[16] = False
+    ... d1 = self.g7.get_allimpropers(isbackbone_dict=isbackbone_dict)
+    ... self.assertEqual(d1,[[1, 0, 3, 2], [2, 5, 7, 1], [15, 14, 17, 16]])
+
+    .. warning:: A criteria about the order of atoms need to be implemented and checked
+
+    &#34;&#34;&#34;
+
+    il = []
+
+    # Append all impropers --&gt;
+    for ivert in self.get_vertices():
+        p = self.find_all_paths_length(ivert, 1)
+        if len(p) == 3:
+            iat1 = ivert
+            tmplist = []
+            for item in p:
+                tmplist.append(item[1])
+                tmplist.sort()
+            tmpdict = {0:iat1, 1:-1, 2:-1, 3:-1}
+
+            if isbackbone_dict[iat1]:
+                while tmplist:
+                    a = tmplist.pop(0)
+                    if isbackbone_dict[a]:
+                        if tmpdict[1] == -1:
+                            tmpdict[1] = a
+                        else:
+                            tmpdict[2] = a
+                    else:
+                        tmpdict[3] = a
+            else:
+                while tmplist:
+                    a = tmplist.pop(0)
+                    if not isbackbone_dict[a]:
+                        if tmpdict[1] == -1:
+                            tmpdict[1] = a
+                        else:
+                            tmpdict[2] = a
+                    else:
+                        tmpdict[3] = a
+
+            l1 = [tmpdict[0],tmpdict[1],tmpdict[2],tmpdict[3] ]
+            if l1.count(-1) == 0: il.append(l1)
+
+        elif len(p) == 4:
+            iat1 = ivert
+            tmplist = []
+            for item in p:
+                tmplist.append(item[1])
+                tmplist.sort()
+            tmpdict1 = {0:iat1, 1:-1, 2:-1, 3:-1}
+            tmpdict2 = {0:iat1, 1:-1, 2:-1, 3:-1}
+
+            if isbackbone_dict[iat1]:
+                while tmplist:
+                    a = tmplist.pop(0)
+                    if isbackbone_dict[a]:
+                         if tmpdict1[1] == -1:
+                             tmpdict1[1] = a
+                         else:
+                             tmpdict1[2] = a
+                         if tmpdict2[1] == -1:
+                             tmpdict2[1] = a
+                         else:
+                             tmpdict2[2] = a
+
+                    else:
+                        if tmpdict1[3] == -1:
+                            tmpdict1[3] = a
+                        else:
+                            tmpdict2[3] = a
+            else:
+                print (&#34;ERROR. Improper angles cannot be found in complex branches&#34;)
+                sys.exit()
+
+            l1 = [tmpdict1[0],tmpdict1[1],tmpdict1[2],tmpdict1[3] ]
+            if l1.count(-1) == 0: il.append(l1)
+            l2 = [tmpdict2[0],tmpdict2[1],tmpdict2[2],tmpdict2[3] ]
+            if l2.count(-1) == 0: il.append(l2)
+
+    # Aromatic --&gt; Planarity must be get in the force field class (i.e see: trappeUA_ff.py)
+
+    return il</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.MolecularGraph.MolecularGraph.get_edges"><code class="name flex">
+<span>def <span class="ident">get_edges</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>It returns a list of all edges in the graph</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>None</code></strong></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="return">Return</h2>
+<p>A list containing all edges</p>
+<h2 id="example">Example</h2>
+<p>All edges in the system. The order is [min, max]</p>
+<p><img alt="" src="../../figures/graph11_nx.png"></p>
+<pre><code class="python">&gt;&gt;&gt; e = self.g11.get_edges()
+... el = [{0, 1}, {1, 2}, {1, 3}, {2, 5}, {3, 4}, {5, 6}]
+... self.assertEqual(e, el)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_edges(self):
+
+    &#34;&#34;&#34;
+    It returns a list of all edges in the graph
+
+    Parameters
+    ----------
+    None
+
+    Return
+    ------
+    A list containing all edges
+
+    Example
+    -------
+    All edges in the system. The order is [min, max]
+
+    .. image:: ../../figures/graph11_nx.png
+
+    &gt;&gt;&gt; e = self.g11.get_edges()
+    ... el = [{0, 1}, {1, 2}, {1, 3}, {2, 5}, {3, 4}, {5, 6}]
+    ... self.assertEqual(e, el)
+    &#34;&#34;&#34;
+
+    return self._generate_edges()</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.MolecularGraph.MolecularGraph.get_forest"><code class="name flex">
+<span>def <span class="ident">get_forest</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>It returns a list of lists. Each sublist is a molecule (chain) of the system</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>None</code></strong></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="return">Return</h2>
+<p>A list of lists: forest =&gt; [[ichain1], [ichain2], &hellip;]</p>
+<h2 id="examples">Examples</h2>
+<p><img alt="" src="../../figures/graph04.png"></p>
+<pre><code class="python">&gt;&gt;&gt; l2 = self.g4.get_forest()
+... lr = [[0, 1, 2, 3, 4, 5], [6, 7, 8, 9, 11, 10], [12]] #= self._nmols
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_forest(self):
+
+    &#34;&#34;&#34;
+    It returns a list of lists. Each sublist is a molecule (chain) of the system
+
+    Parameters
+    ----------
+    None
+
+    Return
+    ------
+    A list of lists: forest =&gt; [[ichain1], [ichain2], ...]
+
+    Examples
+    --------
+    .. image:: ../../figures/graph04.png
+
+    &gt;&gt;&gt; l2 = self.g4.get_forest()
+    ... lr = [[0, 1, 2, 3, 4, 5], [6, 7, 8, 9, 11, 10], [12]] #= self._nmols
+
+    &#34;&#34;&#34;
+
+    return self._nmols</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.MolecularGraph.MolecularGraph.get_graph"><code class="name flex">
+<span>def <span class="ident">get_graph</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>It returns the attribute self._graphdict</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>None</code></strong></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="return">Return</h2>
+<p>It returns the attribute self._graphdict</p>
+<h2 id="example">Example</h2>
+<p><img alt="" src="../../figures/graph11_nx.png"></p>
+<pre><code class="python">&gt;&gt;&gt; g11.get_graph()
+... {0: [1], 1: [2, 3], 2: [5], 3: [4], 4: [], 5: [6], 6: []}
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_graph(self):
+
+    &#34;&#34;&#34;
+    It returns the attribute self._graphdict
+
+    Parameters
+    ----------
+    None
+
+    Return
+    ------
+    It returns the attribute self._graphdict
+
+    Example
+    -------
+    .. image:: ../../figures/graph11_nx.png
+
+    &gt;&gt;&gt; g11.get_graph()
+    ... {0: [1], 1: [2, 3], 2: [5], 3: [4], 4: [], 5: [6], 6: []}
+
+    &#34;&#34;&#34;
+
+    return self._graphdict</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.MolecularGraph.MolecularGraph.get_neighbours"><code class="name flex">
+<span>def <span class="ident">get_neighbours</span></span>(<span>self, inode)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method returns all neighbours</p>
+<h2 id="parameters">Parameters</h2>
+<p>inode :: integer
+Number of the parent node</p>
+<h2 id="return">Return</h2>
+<p>It returns a list with all neighbors to the inode.</p>
+<h2 id="examples">Examples</h2>
+<p><img alt="" src="../../figures/g3_03_nx.png"></p>
+<pre><code class="python">&gt;&gt;&gt; ln = self.g3.get_neighbours(2)
+... self.assertEqual(ln, [1, 5, 7])
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_neighbours(self, inode):
+
+    &#34;&#34;&#34;
+    This method returns all neighbours
+
+    Parameters
+    ----------
+    inode :: integer
+        Number of the parent node
+
+    Return
+    ------
+    It returns a list with all neighbors to the inode.
+
+    Examples
+    --------
+
+    .. image:: ../../figures/g3_03_nx.png
+
+    &gt;&gt;&gt; ln = self.g3.get_neighbours(2)
+    ... self.assertEqual(ln, [1, 5, 7])
+
+    &#34;&#34;&#34;
+
+    li = self.find_all_paths_length(inode, 1)
+    ln = []
+    for item in li:
+        if item[0] == inode:
+            ln.append(item[1])
+        else:
+            ln.append(item[0])
+
+    l = len(li)
+
+    return ln</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.MolecularGraph.MolecularGraph.get_vertices"><code class="name flex">
+<span>def <span class="ident">get_vertices</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a list of all vertices in the graph</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>None</code></strong></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="return">Return</h2>
+<p>A list of vertices</p>
+<h2 id="example">Example:</h2>
+<pre><code>&gt;&gt;&gt; v = self.g11.get_vertices()
+... [0, 1, 2, 3, 4, 5, 6]
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_vertices(self):
+
+    &#34;&#34;&#34;
+    Returns a list of all vertices in the graph
+
+    Parameters
+    ----------
+    None
+
+    Return
+    ------
+    A list of vertices
+
+    Example:
+    -------
+        &gt;&gt;&gt; v = self.g11.get_vertices()
+        ... [0, 1, 2, 3, 4, 5, 6]
+
+    &#34;&#34;&#34;
+
+    return list(self._graphdict.keys())</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.MolecularGraph.MolecularGraph.is_connected"><code class="name flex">
+<span>def <span class="ident">is_connected</span></span>(<span>self, vertices_encountered=set(), start_vertex=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Determines if the graph is connected. This is a recursive function</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>vertices_encountered</code></strong> :&ensp;<code>set</code></dt>
+<dd>Returns a set of vertices connected</dd>
+</dl>
+<p>start_vertex integer
+Startting point</p>
+<h2 id="return">Return</h2>
+<p>Return a boolean. True if the graph is connected</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning:&ensp;This is a recursive function</p>
+</div>
+<h2 id="example">Example</h2>
+<pre><code class="python">&gt;&gt;&gt; g1.is_connected()
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def is_connected(self, vertices_encountered = set(), start_vertex=None):
+
+    &#34;&#34;&#34;
+    Determines if the graph is connected. This is a recursive function
+
+    Parameters
+    ----------
+    vertices_encountered: set
+        Returns a set of vertices connected
+    start_vertex integer
+        Startting point
+
+    Return
+    ------
+    Return a boolean. True if the graph is connected
+
+    .. warning:: This is a recursive function
+
+    Example
+    -------
+
+    &gt;&gt;&gt; g1.is_connected()
+
+    &#34;&#34;&#34;
+
+    gdict = self._graphdict
+    vertices = list(gdict.keys())
+    if not start_vertex:
+        # choose a vertex from graph as a starting point
+        start_vertex = vertices[0]
+    vertices_encountered.add(start_vertex)
+    if len(vertices_encountered) != len(vertices):
+        for vertex in gdict[start_vertex]:
+            if vertex not in vertices_encountered:
+                if self.is_connected(vertices_encountered, vertex):
+                    return True
+    else:
+        return True
+    return False</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.MolecularGraph.MolecularGraph.iscyclic"><code class="name flex">
+<span>def <span class="ident">iscyclic</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a boolean list. Each item of the list corresponds to a graph (molecule)</p>
+<h2 id="parameter">Parameter</h2>
+<p>None</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>A boolean list</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="example">Example</h2>
+<p><img alt="" src="../../figures/graph07_nx.png"></p>
+<pre><code class="python">&gt;&gt;&gt; iscyclic2 = self.g7.iscyclic()
+... self.assertEqual(iscyclic2, [True, False])
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def iscyclic(self):
+    &#34;&#34;&#34;
+    Returns a boolean list. Each item of the list corresponds to a graph (molecule)
+
+    Parameter
+    ---------
+    None
+
+    Returns
+    ------
+    A boolean list
+
+    Example
+    -------
+
+    .. image:: ../../figures/graph07_nx.png
+
+    &gt;&gt;&gt; iscyclic2 = self.g7.iscyclic()
+    ... self.assertEqual(iscyclic2, [True, False])
+
+
+    &#34;&#34;&#34;
+
+    ismol_cyclic = []
+    # Mark all the get_vertices as not visited
+    visited = {}
+    nverts = self._natoms
+    for i in range(nverts):
+        visited[i] = False
+
+    for ich in range(len(self._nmols)):
+        nvert_ich = self._nmols[ich]
+        # Call the recursive helper function to
+        # detect cycle in different DFS trees
+        cycle_is_found = False
+        for i in nvert_ich:
+            if not visited[i]:  # Don&#39;t recur for u if it is already visited
+                if self._iscyclicutil(i, visited, -1):
+                    cycle_is_found = True
+
+        if cycle_is_found:
+            ismol_cyclic.append(True)
+        else:
+            ismol_cyclic.append(False)
+
+    return ismol_cyclic</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.MolecularGraph.MolecularGraph.perception_rings"><code class="name flex">
+<span>def <span class="ident">perception_rings</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>"A New Algorithm for Exhaustive Ring Perception in a Molecular Graph"
+Th. Hanser, Ph. Jauffret, and G. Kaufmann
+J. Chem. Inf. Comput. Sci. 1996, 36, 1146-1152
+<a href="https://doi.org/10.1021/ci960322f">https://doi.org/10.1021/ci960322f</a></p>
+<p>Abstract:
+A new fast and easy to implement algorithm for exhaustive ring perception is presented. This algorithm is
+based upon a progressive reduction (collapsing) of the path graph associated with the molecular graph studied.
+The path graph is an image of the molecular graph in which each vertex corresponds to a vertex of the
+molecular graph and each edge a-b describes an existing path between a and b in the molecular graph.
+During the reduction, nodes of the path graph are removed, and the information related to cycle occurrence
+is concentrated in the label of new get_edges between the remaining get_vertices. Each loop formed in the path
+graph during this collapsing process corresponds to a cycle in the molecular graph. Once the path graph
+has totally collapsed, all the rings in the molecular graph have been perceived.</p>
+<p>Returns</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def perception_rings(self):
+
+    &#34;&#34;&#34;
+
+    &#34;A New Algorithm for Exhaustive Ring Perception in a Molecular Graph&#34;
+    Th. Hanser, Ph. Jauffret, and G. Kaufmann
+    J. Chem. Inf. Comput. Sci. 1996, 36, 1146-1152
+    https://doi.org/10.1021/ci960322f
+
+    Abstract:
+    A new fast and easy to implement algorithm for exhaustive ring perception is presented. This algorithm is
+    based upon a progressive reduction (collapsing) of the path graph associated with the molecular graph studied.
+    The path graph is an image of the molecular graph in which each vertex corresponds to a vertex of the
+    molecular graph and each edge a-b describes an existing path between a and b in the molecular graph.
+    During the reduction, nodes of the path graph are removed, and the information related to cycle occurrence
+    is concentrated in the label of new get_edges between the remaining get_vertices. Each loop formed in the path
+    graph during this collapsing process corresponds to a cycle in the molecular graph. Once the path graph
+    has totally collapsed, all the rings in the molecular graph have been perceived.
+
+    Returns
+
+
+    &#34;&#34;&#34;
+
+    # ####################################
+    def convert_perception_rings(vertex= {}):
+
+        # Copy the nodes from m-graph to p-graph
+        for v in self._graphdict.keys():
+            vertex[v] = []
+
+        # Copy the get_edges from m-graph to p-graph
+        for v in self._graphdict.keys():
+            for n in self._graphdict[v]:
+                if not [v,n] in vertex[v] and not [n,v] in vertex[v]:
+                    vertex[v].append([v,n])
+
+     # ####################################
+    def ordernodesbyconnections_perception_rings(vertex_dict):
+
+        &#34;&#34;&#34; Takes the dictionary of nodes in pgraph and it returns
+        a list [ (number_node, connectivity)]. The last element of the
+        list is the node with a small value for connectivity. This can be extracted
+        with list.pop()
+
+        Parameters
+        ----------
+        pgraph
+
+        Returns
+        -------
+
+        &#34;&#34;&#34;
+
+        ordered_nodes_by_connection = dict()
+
+        for key in vertex_dict:
+            ordered_nodes_by_connection[key] = len(vertex_dict[key])
+
+        nodes_ordered = sorted(ordered_nodes_by_connection.items(), key=lambda kv: kv[1])
+        nodes_ordered.reverse()
+
+
+        # print(ordered_nodes_by_connection)
+        # print(ordered_nodes_by_connection.items())
+        # print(sorted(ordered_nodes_by_connection.items()))
+        # print(nodes_ordered)
+        #
+        # sys.exit()
+
+        return nodes_ordered
+
+    # ####################################
+    def get_pairs_perception_rings(v, v_edges):
+
+        &#34;&#34;&#34;Get all pairs for the node v
+
+        &#34;&#34;&#34;
+
+        pairs = []
+        for item in v_edges[v]:
+                pairs.append(item)
+
+        return pairs
+
+    # ####################################
+    def intersection_perception_rings(l1, l2):
+
+        x = set(l1).intersection(l2)
+        return x
+
+
+    # ####################################
+    def remove_perception_rings(v, vertex_dict):
+
+        cycles = []
+        p = get_pairs_perception_rings(v, vertex_dict)
+
+        for i in range(len(p)):
+            # It is already a cycle
+            if p[i][0] == p[i][-1]: continue
+
+            for j in range(i+1, len(p)):
+                # pxy x pxz = {x}
+                if p[j][0] == p[j][-1]: continue
+                #if v in intersection_perception_rings(p[i], p[j]):
+                set_int = intersection_perception_rings(p[i], p[j])
+                if ({v} == set_int) or \
+                    ({p[i][0], p[i][-1]} == {p[j][0], p[j][-1]} and len(set_int) == 2 ):
+
+                    # Temporal variable for the nodes to be deleted
+                    tmp_p_i = copy.deepcopy(p[i])
+                    tmp_p_j = copy.deepcopy(p[j])
+
+                    # Concatenate the paths --&gt; pyz &lt;-- pxy + pxz
+                    if tmp_p_i[-1] != v: tmp_p_i.reverse()
+                    if tmp_p_j[0]  != v: tmp_p_j.reverse()
+                    tmp_p_i.extend(tmp_p_j[1:])
+
+                    # Update the vertex_dict (p-graph)
+                    s_node_in_path = tmp_p_i[0]
+                    e_node_in_path = tmp_p_i[-1]
+
+                    # Update the new path for each vertex
+                    vertex_dict[s_node_in_path].append(tmp_p_i)
+
+                    if s_node_in_path != e_node_in_path:
+                        vertex_dict[e_node_in_path].append(tmp_p_i)
+
+        for pxy in p:
+
+            fe = pxy[0]
+            le = pxy[-1]
+            if fe == le:
+                cycles.append(pxy)
+
+            if fe != v:
+                try:
+                    vertex_dict[fe].remove(pxy)
+                except ValueError:
+                    pxy.reverse()
+                    vertex_dict[fe].remove(pxy)
+
+            elif le != v:
+                try:
+                    vertex_dict[le].remove(pxy)
+                except ValueError:
+                    pxy.reverse()
+                    vertex_dict[le].remove(pxy)
+
+
+        del(vertex_dict[v])
+        return cycles
+
+    #  ==========  Main perception_rings Loop ================
+    # Start a new graph: The P-Graph
+    vertex_edges = {}
+    convert_perception_rings(vertex=vertex_edges)
+
+    # Sort nodes by connectivity
+    l_nodes = ordernodesbyconnections_perception_rings(vertex_edges)
+    # Proccess all nodes in order of connectivity
+    while l_nodes:
+
+        inode = l_nodes.pop()[0]
+        c = remove_perception_rings(inode, vertex_edges)
+
+        if len(c) != 0:
+            self._cycles.extend(c)
+
+        pass</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.MolecularGraph.MolecularGraph.remove_edge"><code class="name flex">
+<span>def <span class="ident">remove_edge</span></span>(<span>self, edge)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>It deletes an edge in the graph between two existing nodes.
+The parameter <strong>edge</strong> can be a set, a tuple or a list of two nodes;
+Between two vertices can be multiple edges.</p>
+<p>Both vertex must exist in the molecular graph. If any vertex is not in the
+molecular graph nothing is done</p>
+<h2 id="parameters">Parameters</h2>
+<p>edge: Set, tuple or list
+Vertices to create an edges (aka bond)</p>
+<h2 id="return">Return</h2>
+<p>None</p>
+<h2 id="examples">Examples</h2>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>g4.remove_edge([2,3])</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p><img alt="" src="../../figures/then_and_now_removeedges.png"></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def remove_edge(self, edge):
+
+    &#34;&#34;&#34;
+    It deletes an edge in the graph between two existing nodes.
+    The parameter **edge** can be a set, a tuple or a list of two nodes;
+    Between two vertices can be multiple edges.
+
+    Both vertex must exist in the molecular graph. If any vertex is not in the
+    molecular graph nothing is done
+
+    Parameters
+    ----------
+     edge: Set, tuple or list
+        Vertices to create an edges (aka bond)
+
+    Return
+    ------
+    None
+
+    Examples
+    --------
+
+    &gt;&gt;&gt;g4.remove_edge([2,3])
+
+    .. image:: ../../figures/then_and_now_removeedges.png
+
+    &#34;&#34;&#34;
+
+    edge = set(edge)
+    (vertex1, vertex2) = tuple(edge)
+    if (vertex1 and vertex2) in self._graphdict:
+        self._bonds.remove({vertex2, vertex1})
+        self._graphdict[vertex2].remove(vertex1)
+        if self._undirected: self._graphdict[vertex1].remove(vertex2)
+
+    self._set_forest()</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="polyanagro" href="index.html">polyanagro</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="polyanagro.MolecularGraph.MolecularGraph" href="#polyanagro.MolecularGraph.MolecularGraph">MolecularGraph</a></code></h4>
+<ul class="">
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.add_edge" href="#polyanagro.MolecularGraph.MolecularGraph.add_edge">add_edge</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.add_vertex" href="#polyanagro.MolecularGraph.MolecularGraph.add_vertex">add_vertex</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.bfs_iterative" href="#polyanagro.MolecularGraph.MolecularGraph.bfs_iterative">bfs_iterative</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.dfs_iterative" href="#polyanagro.MolecularGraph.MolecularGraph.dfs_iterative">dfs_iterative</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.draw_graph_forest_networkx" href="#polyanagro.MolecularGraph.MolecularGraph.draw_graph_forest_networkx">draw_graph_forest_networkx</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.draw_graph_forest_pygraphviz" href="#polyanagro.MolecularGraph.MolecularGraph.draw_graph_forest_pygraphviz">draw_graph_forest_pygraphviz</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.draw_graph_networkx" href="#polyanagro.MolecularGraph.MolecularGraph.draw_graph_networkx">draw_graph_networkx</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.draw_graph_pygraphviz" href="#polyanagro.MolecularGraph.MolecularGraph.draw_graph_pygraphviz">draw_graph_pygraphviz</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.find_all_paths" href="#polyanagro.MolecularGraph.MolecularGraph.find_all_paths">find_all_paths</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.find_all_paths_length" href="#polyanagro.MolecularGraph.MolecularGraph.find_all_paths_length">find_all_paths_length</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.find_isolated_vertices" href="#polyanagro.MolecularGraph.MolecularGraph.find_isolated_vertices">find_isolated_vertices</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.get_allbends" href="#polyanagro.MolecularGraph.MolecularGraph.get_allbends">get_allbends</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.get_allbonds" href="#polyanagro.MolecularGraph.MolecularGraph.get_allbonds">get_allbonds</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.get_alldihedrals" href="#polyanagro.MolecularGraph.MolecularGraph.get_alldihedrals">get_alldihedrals</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.get_allimpropers" href="#polyanagro.MolecularGraph.MolecularGraph.get_allimpropers">get_allimpropers</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.get_edges" href="#polyanagro.MolecularGraph.MolecularGraph.get_edges">get_edges</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.get_forest" href="#polyanagro.MolecularGraph.MolecularGraph.get_forest">get_forest</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.get_graph" href="#polyanagro.MolecularGraph.MolecularGraph.get_graph">get_graph</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.get_neighbours" href="#polyanagro.MolecularGraph.MolecularGraph.get_neighbours">get_neighbours</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.get_vertices" href="#polyanagro.MolecularGraph.MolecularGraph.get_vertices">get_vertices</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.is_connected" href="#polyanagro.MolecularGraph.MolecularGraph.is_connected">is_connected</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.iscyclic" href="#polyanagro.MolecularGraph.MolecularGraph.iscyclic">iscyclic</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.perception_rings" href="#polyanagro.MolecularGraph.MolecularGraph.perception_rings">perception_rings</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.remove_edge" href="#polyanagro.MolecularGraph.MolecularGraph.remove_edge">remove_edge</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.8.4</a>.</p>
+</footer>
+</body>
+</html>

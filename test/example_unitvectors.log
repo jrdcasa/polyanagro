@@ -1,0 +1,21 @@
+	*** Creating a trajectory from...
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/traj_comp.xtc
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/02-RESTART-1000-2000ns/traj_comp.part0002.xtc
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/03-RESTART-2000-3000ns/traj_comp.part0003.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 2.60816 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/00-GENERATE/namd_out.psf
+	Number of frames: 151
+	TIME(Adding topology): 0.74928 seconds
+	*** End Adding topology 
+	Number of frames: 151
+	TIME(Read_Trajectories): 3.357998 seconds
+	*** End Creating a trajectory 
+
+	*** Backbone atoms have been assigned to the topology.
+	Topology file: ../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/00-GENERATE/namd_out.psf

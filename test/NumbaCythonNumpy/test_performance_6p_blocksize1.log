@@ -1,0 +1,47 @@
+
+	Job Information
+	---------------
+
+	***************** START Numba-Cython-Python TEST *****************
+	Starting: 	 04-10-2020 21:52:26
+
+
+	================================ START TEST_02 ================================
+                 Multiprocessing by frame  
+
+	*** Creating a trajectory from...
+	/media/jramos/PEBranch/0100Ch-C500-009br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-0500ns/traj_comp.xtc
+	/media/jramos/PEBranch/0100Ch-C500-009br02/T-450K/06-NPT-100ns-Parrinello/02-RESTART-0500-1000ns/traj_comp.total.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 15.39016 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	/media/jramos/PEBranch/0100Ch-C500-009br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-0500ns/topol.tpr
+	Number of frames: 50001
+	TIME(Adding topology): 13.785525 seconds
+	*** End Adding topology 
+	Number of frames: 50001
+	TIME(Read_Trajectories): 29.17605 seconds
+	*** End Creating a trajectory 
+
+
+	@@@@@@@@ Time setup trajectory: 	 29.18 seconds
+
+
+	@@@@@@@@ Numba @@@@@@@@
+
+	IFRAME: 0 in 0.077953 seconds
+	IFRAME: 7500 in 309.17841 seconds
+	IFRAME: 15000 in 602.089333 seconds
+	IFRAME: 22500 in 891.978178 seconds
+	IFRAME: 30000 in 1182.354579 seconds
+	IFRAME: 37500 in 1473.020259 seconds
+	IFRAME: 45000 in 1763.001968 seconds
+	@@@@@@@@ Time Unwrap coordinates Numba: 	 1956.02 seconds
+
+
+	@@@@@@@@ Total time Test01: 	 1985.20 seconds
+	================================ END   TEST_02 ================================

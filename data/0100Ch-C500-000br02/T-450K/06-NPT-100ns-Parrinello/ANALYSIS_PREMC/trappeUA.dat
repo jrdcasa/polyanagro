@@ -1,0 +1,43 @@
+****** BONDING POTENTIAL ******
+1  			!Number of bond types (fixed), Fixed bond length
+1			!Analytic expresion : Fixed bond length
+1.54  452908      !BondLength in Angtroms and bond constant (K)
+****** BENDING POTENTIAL ******
+3  			!Number of bending types
+2			!Analytic expresion : Harmonic potential
+62500. 114.       !CHx-(CH2)-CHy (in K rad^-2; coeff/kB) (the0 in degrees)
+62500. 112.       !CHx-(CH )-CHy (in K rad^-2; coeff/kB) (the0 in degrees)
+62500. 109.47     !CHx-(C  )-CHy (in K rad^-2; coeff/kB) (the0 in degrees)
+****** TORSION POTENTIAL ******
+4					!Number of torsion types
+1					!Analytic expresion: OPLS form potential
+0.0 355.03 -68.19 791.32      !CHx-(CH2)-(CH2)-CHy (in K; coeff/kB) 
+-251.06 428.73 -111.85 441.27 !CHx-(CH2)-(CH )-CHy (in K; coeff/kB)
+0.0 0.0 0.0 461.29		!CHx-(CH2)-(C  )-CHy (in K; coeff/kB)
+-251.06 428.73 -111.85 441.27 !CHx-(CH )-(CH )-CHy (in K; coeff/kB)
+****** LJ POTENTIAL ******
+5		 !Number of atom types
+1		 !Analytic expresion: LJ 12-6 potential
+148.0 3.73 16.04246   C4 !CH4 (epsilon (in K; coeff/kB)and sigma(angstroms) and Mw
+98.0  3.75 15.03452   C3 !CH3 (epsilon (in K; coeff/kB)and sigma(angstroms) and Mw
+46.0  3.95 14.02658   C2 !CH2 (epsilon (in K; coeff/kB)and sigma(angstroms) and Mw
+10.0  4.68 13.01864   C1 !CH  (epsilon (in K; coeff/kB)and sigma(angstroms) and Mw
+0.5   6.40 12.01070    C !C   (epsilon (in K; coeff/kB)and sigma(angstroms) and Mw
+
+****Parameters from Martin MG, Siepmann JI JPhysChem B 1999, 103, 4508-4517
+****Parameters from Heine D, Wu DT, Curro JG, Grest GS J.Chem. Phys. 2003, 118(2), 914-924
+Remainder :
+  BONDING POTENTIAL (Analytic expresion)
+	1 -> Fixed length
+  BENDING POTENTIAL (Analytic expresion)
+	1 -> Fixed bend angle
+	2 -> Harmonic angle -> Ebend/kB = 1/2*kbend*(the-the0)^2 (kbend in K*rad^-2 and the in radians)
+  TORSION POTENTIAL (Analytic expresion)
+	1 -> OPLS form potential (expresion in Martin MG, Siepmann JI JPhysChem B 1999, 103, 4508-4517)
+	2 -> Toxvaerd's torsional potential (N=5) (in Karayiannis NC et al. JChemPhys 2002, 117, 5465-5479)
+	3 -> Toxvaerd's torsional potential (N=8) (in Karayiannis NC et al. JChemPhys 2002, 117, 5465-5479)
+  LJ POTENTIAL
+	1 -> LJ 12-6 potential
+
+
+

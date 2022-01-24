@@ -1,0 +1,54 @@
+
+	Job Information
+	---------------
+
+		***************** START Internal Coordinates TEST *****************
+		Starting: 	 15-10-2021 22:13:24
+
+	*** Creating a trajectory from...
+	../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 0.010458 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../data/0003Ch-C020-002br04/RUN-001/topol.tpr
+	Number of frames: 101
+	TIME(Adding topology): 0.005484 seconds
+	*** End Adding topology
+
+	Number of frames: 101
+	TIME(Read_Trajectories): 0.016198 seconds
+	*** End Creating a trajectory 
+
+
+	============== START TEST_07 ================================
+         Distance array. Serial, openmp, numba 
+
+	*** Creating a trajectory from...
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/traj_comp.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 3.466733 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/topol.tpr
+	Number of frames: 51
+	TIME(Adding topology): 1.317556 seconds
+	*** End Adding topology
+
+	Number of frames: 51
+	TIME(Read_Trajectories): 4.784616 seconds
+	*** End Creating a trajectory 
+
+	**** TIMES FOR 1 ITERATIONS, ARRAY 15000x15000 ****
+	Time for serial   run PUREPYTHON (distance_array_purepython)   : 439.585 seconds
+	Time for serial   run NUMPY      (distance_array_numpy)        : 9.988 seconds
+	Time for serial   run CYTHON-EXT (distance_array, openmp=False): 3.072 seconds
+	Time for parallel run CYTHON-EXT (distance_array, openmp=True ): 1.047 seconds (6 cpus)
+	Both openmp=False and openmp=True give the same results
+	============== END   TEST_07 ================================

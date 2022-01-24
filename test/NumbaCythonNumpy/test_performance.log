@@ -1,0 +1,38 @@
+
+	Job Information
+	---------------
+
+	***************** START Numba-Cython-Python TEST *****************
+	Starting: 	 14-12-2021 18:50:18
+
+
+	================================ START TEST_03 ================================
+                 Calculate distances from serial and openmp  
+
+	*** Creating a trajectory from...
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/traj_comp.xtc
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/02-RESTART-1000-2000ns/traj_comp.part0002.xtc
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/03-RESTART-2000-3000ns/traj_comp.part0003.xtc
+
+	*** Adding topology 
+	
+	Empty topology in trajectory
+	*** End Adding topology
+
+	TIME(Read_Trajectories): 0.000166 seconds
+	*** End Creating a trajectory 
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 26.934283 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/topol.tpr
+	Number of frames: 151
+	TIME(Adding topology): 1.478595 seconds
+	*** End Adding topology
+
+
+	@@@@@@@@ Total time Test03: 	 28.41 seconds
+	============== END   TEST_01 ================================

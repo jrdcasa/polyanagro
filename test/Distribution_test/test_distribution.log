@@ -1,0 +1,33 @@
+
+	Job Information
+	---------------
+
+		***************** START Distribution TEST *****************
+		Starting: 	 24-12-2021 12:18:45
+
+
+	============== START TEST_01 ================================
+              Create an empty BondedDistributions object  
+
+	Total time Test01: 	 0.00 seconds
+	============== END   TEST_01 ================================
+
+	============== START TEST_01 ================================
+              Calculate a bonded distribution       
+		 Reading topology (24-12-2021 12:18:45)
+
+	Building bonds from PSF topology... 
+	Setting bond orders: FALSE
+	*** Backbone atoms have been assigned to the topology.
+	Topology file: ./test_data_dist01/namd_out.psf
+	TIME(Building_bonds_from_PSF_topology): 32.497785 seconds
+		Finishing: 	 24-12-2021 12:19:18
+
+
+	Total time Test01: 	 32.50 seconds
+	============== END   TEST_01 ================================
+
+		Finishing at: 	 24-12-2021 12:19:18
+		Total time: 	 32.51 seconds
+		***************** END RDF TEST *****************
+

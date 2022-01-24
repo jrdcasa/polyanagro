@@ -1,0 +1,11 @@
+strict graph "" {
+	13	[color=blue];
+	14	[color=blue];
+	13 -- 14	[color=blue];
+	15	[color=blue];
+	14 -- 15	[color=blue];
+	17	[color=blue];
+	15 -- 17	[color=blue];
+	16	[color=blue];
+	15 -- 16	[color=blue];
+}

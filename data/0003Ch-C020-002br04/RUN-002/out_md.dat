@@ -1,0 +1,56 @@
+                      :-) GROMACS - gmx mdrun, 2018.3 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
+    Par Bjelkmar    Aldert van Buuren   Rudi van Drunen     Anton Feenstra  
+  Gerrit Groenhof    Aleksei Iupinov   Christoph Junghans   Anca Hamuraru   
+ Vincent Hindriksen Dimitrios Karkoulis    Peter Kasson        Jiri Kraus    
+  Carsten Kutzner      Per Larsson      Justin A. Lemkul    Viveca Lindahl  
+  Magnus Lundborg   Pieter Meulenhoff    Erik Marklund      Teemu Murtola   
+    Szilard Pall       Sander Pronk      Roland Schulz     Alexey Shvetsov  
+   Michael Shirts     Alfons Sijbers     Peter Tieleman    Teemu Virolainen 
+ Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2017, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx mdrun, version 2018.3
+Executable:   /opt/gromacs-2018.3/bin/gmx_mpi
+Data prefix:  /opt/gromacs-2018.3
+Working dir:  /home/jramos/PycharmProjects/polyanagro/data/0003Ch-C020-002br04/RUN-002
+Command line:
+  gmx_mpi mdrun -ntomp 4 -pin on -s topol.tpr -cpi ../RUN-001/state.cpt -noappend -v
+
+Reading file topol.tpr, VERSION 2018.3 (single precision)
+
+Reading checkpoint file ../RUN-001/state.cpt generated: Fri Dec  6 22:17:25 2019
+
+
+Changing nstlist from 10 to 100, rlist from 1 to 1.015
+
+Using 1 MPI process
+Using 4 OpenMP threads 
+
+starting mdrun 'Created by J.Ramos (Generator_v10)'
+10000 steps,     20.0 ps (continuing from step 5000,     10.0 ps).
+step 5000, will finish Sat Dec  7 21:53:25 2019step 5100, remaining wall clock time:     4 s          step 5200, remaining wall clock time:     2 s          step 5300, remaining wall clock time:     1 s          step 5400, remaining wall clock time:     1 s          step 5500, remaining wall clock time:     1 s          step 5600, remaining wall clock time:     1 s          step 5700, remaining wall clock time:     0 s          step 5800, remaining wall clock time:     0 s          step 5900, remaining wall clock time:     0 s          step 6000, remaining wall clock time:     0 s          step 6100, remaining wall clock time:     0 s          step 6200, remaining wall clock time:     0 s          step 6300, remaining wall clock time:     0 s          step 6400, remaining wall clock time:     0 s          step 6500, remaining wall clock time:     0 s          step 6600, remaining wall clock time:     0 s          step 6700, remaining wall clock time:     0 s          step 6800, remaining wall clock time:     0 s          step 6900, remaining wall clock time:     0 s          step 7000, remaining wall clock time:     0 s          step 7100, remaining wall clock time:     0 s          step 7200, remaining wall clock time:     0 s          step 7300, remaining wall clock time:     0 s          step 7400, remaining wall clock time:     0 s          step 7500, remaining wall clock time:     0 s          step 7600, remaining wall clock time:     0 s          step 7700, remaining wall clock time:     0 s          step 7800, remaining wall clock time:     0 s          step 7900, remaining wall clock time:     0 s          step 8000, remaining wall clock time:     0 s          step 8100, remaining wall clock time:     0 s          step 8200, remaining wall clock time:     0 s          step 8300, remaining wall clock time:     0 s          step 8400, remaining wall clock time:     0 s          step 8500, remaining wall clock time:     0 s          step 8600, remaining wall clock time:     0 s          step 8700, remaining wall clock time:     0 s          step 8800, remaining wall clock time:     0 s          step 8900, remaining wall clock time:     0 s          step 9000, remaining wall clock time:     0 s          step 9100, remaining wall clock time:     0 s          step 9200, remaining wall clock time:     0 s          step 9300, remaining wall clock time:     0 s          step 9400, remaining wall clock time:     0 s          step 9500, remaining wall clock time:     0 s          step 9600, remaining wall clock time:     0 s          step 9700, remaining wall clock time:     0 s          step 9800, remaining wall clock time:     0 s          step 9900, remaining wall clock time:     0 s          Checkpoint file is from part 1, new output files will be suffixed '.part0002'.
+
+Writing final coordinates.
+step 10000, remaining wall clock time:     0 s          
+               Core t (s)   Wall t (s)        (%)
+       Time:        6.826        1.706      400.0
+                 (ns/day)    (hour/ns)
+Performance:      506.421        0.047
+
+GROMACS reminds you: "I Snipe Like Wesley" (Urban Dance Squad)
+

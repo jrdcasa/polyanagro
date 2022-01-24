@@ -1,0 +1,32 @@
+REMARK   Materials Studio PDB file
+REMARK   Created:  Wed Oct 23 11:58:18 +0100 2019
+ATOM      1  C   MOL     1      -0.152   0.662  -0.001  1.00  0.00           C    
+ATOM      2  C   MOL     1       0.540  -0.550  -0.000  1.00  0.00           C    
+ATOM      3  C   MOL     1       1.931  -0.558   0.001  1.00  0.00           C    
+ATOM      4  C   MOL     1       2.602   0.662   0.002  1.00  0.00           C    
+ATOM      5  C   MOL     1       1.931   1.882   0.001  1.00  0.00           C    
+ATOM      6  C   MOL     1       0.540   1.874  -0.000  1.00  0.00           C    
+ATOM      7  H   MOL     1      -1.241   0.662  -0.001  1.00  0.00           H    
+ATOM      8  H   MOL     1      -0.004  -1.493  -0.000  1.00  0.00           H    
+ATOM      9  H   MOL     1       2.503  -1.482   0.001  1.00  0.00           H    
+ATOM     10  H   MOL     1       2.503   2.806   0.001  1.00  0.00           H    
+ATOM     11  H   MOL     1      -0.004   2.816  -0.000  1.00  0.00           H    
+ATOM     12  N1  MOL     1       4.079   0.662   0.004  1.00  0.00           N1+  
+ATOM     13  O2  MOL     1       4.652   1.759  -0.003  1.00  0.00           O    
+ATOM     14  O3  MOL     1       4.652  -0.435  -0.003  1.00  0.00           O    
+TER      15 
+CONECT    1    2    6    7
+CONECT    2    3    1    8
+CONECT    3    2    4    9
+CONECT    4    3    5   12
+CONECT    5    4    6   10
+CONECT    6    5    1   11
+CONECT    7    1
+CONECT    8    2
+CONECT    9    3
+CONECT   10    5
+CONECT   11    6
+CONECT   12   13   14    4
+CONECT   13   12
+CONECT   14   12
+END

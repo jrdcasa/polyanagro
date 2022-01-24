@@ -1,0 +1,36 @@
+	*** Creating a trajectory from...
+	../../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/traj_comp.xtc
+	../../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/02-RESTART-1000-2000ns/traj_comp.part0002.xtc
+	../../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/03-RESTART-2000-3000ns/traj_comp.part0003.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 29.322099 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/topol.tpr
+	Number of frames: 151
+	TIME(Adding topology): 1.47864 seconds
+	*** End Adding topology
+
+	Number of frames: 151
+	TIME(Read_Trajectories): 30.801159 seconds
+	*** End Creating a trajectory 
+
+	*** Molecular weigth...
+
+	Average Molecular Weight (g/mol) : 7017.00
+
+	*** Calculating Radius of gyration...
+
+	Radius of gyration to be written to ./Rg.dat 
+
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ./Ree.dat 
+
+	Unwrap PBC coordinates: True
+	IFRAME: 0 in 0.142686 seconds
+	IFRAME: 50 in 19.226058 seconds
+	IFRAME: 100 in 39.691692 seconds

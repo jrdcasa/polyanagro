@@ -1,0 +1,2410 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.8.4" />
+<title>polyanagro.BACKUCP.Segment API documentation</title>
+<meta name="description" content="Segment representing molecules" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>polyanagro.BACKUCP.Segment</code></h1>
+</header>
+<section id="section-intro">
+<p>Segment representing molecules</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+Segment representing molecules
+&#34;&#34;&#34;
+import os
+from copy import copy
+import openbabel
+import numpy as np
+import logging
+import polyanagro as pag
+
+class Segment(object):
+
+    __slots__ = [&#39;_filecoord&#39;, &#39;_filetop&#39;, &#39;_logger&#39;, &#39;_typeelements&#39;, &#39;_natoms&#39;, &#39;_coords&#39;, &#39;_elements&#39;,
+                 &#39;_dummy_head_atom&#39;, &#39;_dummy_tail_atom&#39;, &#39;_netcharge&#39;, &#39;_isBOassigned&#39;, &#39;_topology&#39;, &#39;_filetypeatoms&#39;]
+
+    # ***********************************************************************************
+    def __init__(cls, filecoord=None, filetop=None, filetypeatoms=None, natoms=0,
+                 xlist=[], ylist=[], zlist=[],
+                 elementlist=[], guesstopol=True, dummy_head = -1, dummy_tail = -1):
+
+        &#34;&#34;&#34;
+        Segment constructor
+
+        Parameters
+        ----------
+        filecoord: string, default=None
+            Name of the coordinates filecoord (Format: PDB, GRO, XYZ)
+        filetop: string, default=None
+            Name of the topology (Format: PDB)
+        filetypeatoms: string, default=None
+            Name of the file containing the matching between atoms and atomtypes. This is used mainly
+            to assign the reevaluated distances by Okuwaki et al. (Table 2)
+        natoms: int, default = 0
+            Number of atoms
+        xlist: list of floats, default=[]
+            x component of the coordinates (in angstroms)
+        ylist: list of floats, default=[]
+            y component of the coordinates (in angstroms)
+        zlist: list of floats, default=[]
+            z component of the coordinates (in angstroms)
+        elementlist: list of strings, default=[]
+            Element symbol
+        guesstopol: boolean, default=True
+            If True activate the guessing of topology based in a distance algorithm.
+        dummy_head: integer, default=-1
+            Index of the atom acting as dummy head atom to mimic polymer chain
+        dummy_tail: integer, default=-1
+            Index of the atom acting as dummy tail atom to mimic polymer chain
+
+        Attributes
+        ----------
+        * **cls._filecoord**: (str) Name of the coordinates filecoord (Format: PDB, GRO, XYZ)
+        * **cls._filetop**: (str) Name of the topology (Format: PDB)
+        * **cls._logger**: (Logger) Object to throw the output
+        * **cls._filetypeatoms**: (str) Name of the file containing the matching between atoms and atomtypes. This is used mainly
+            to assign the reevaluated distances by Okuwaki et al. (Table 2)
+        * **cls._natoms**: (int) Number of atoms
+        * **cls._coords**: (ndarray, [natoms, 3]) Coordinates of the atoms
+        * **cls._elements* -- (ndarray, [natoms]) Element Symbol
+        * **cls._dummy_head_atom**: (int) Index of the atom acting as dummy head atom to mimic polymer chain
+        * **cls._dummy_tail_atom**: (int) Index of the atom acting as dummy tail atom to mimic polymer chain
+        * **cls._netcharge**:(int) Net charge of the molecule
+        * **cls._isBOassigned**:(boolean). True if the bond order are assigned
+        * **cls._topology**: (Topology). Topology of the segment
+
+        Notes
+        -----
+        There are two ways to build a Segment object:
+            1. Segment(filecoord=&#39;ethylene.pdb&#39;)
+            2. Segment(natoms=2, xlist= [], ylist=[], zlist = [], elements = [])
+
+        If filecoord is present the other parameters are ignored. Otherwise, all parameters must be consistent.
+
+        if filetypeatoms is present, the types assignation is done.
+        The order of the atoms must be the same that the order in the coord and topology files.
+        The format of this file must be the following:
+
+        Data
+        ----
+            &lt;Number&gt; &lt;Atom&gt; &lt;type_of_atom&gt;
+            1 C c3
+            2 C c3
+            3 C c3
+            (...)
+            14 H hc
+
+        .. warning::
+            Be careful when use np.transpose function. This function seems to change the order of the array to
+            &#34;Fortran-type&#34; instead to C-Order. If use np.transpose you will use np.ascontiguousarray
+
+                Example:
+
+                a = np.tranpose(b) --&gt; a in Fortran order irrespective of the order of C
+
+                a = np.ascontiguousarray(np.transpose(b)) --&gt; a in C order
+
+                This issue is important when use mode=&#34;c&#34; in pyx files for Cython
+
+        .. warning::
+            For big molecules (&gt;1000 atoms) deactivate the guessing of topology (guesstopol=False)
+
+        &#34;&#34;&#34;
+        cls._filecoord = filecoord
+        cls._filetop = filetop
+        cls._logger = logging.getLogger(&#34;Output&#34;) #&#34;&#34;Segment&#34;, append=True, )
+        cls._typeelements = None
+
+        if filecoord is not None:
+            cls.load_from_disk(filecoord)
+        else:
+            cls._natoms = natoms
+            cls._coords = np.column_stack((np.asarray(xlist),
+                                            np.asarray(ylist),
+                                            np.asarray(zlist)))
+            cls._elements = np.asarray(elementlist, dtype=np.str)
+
+        cls.check_parameter_consistence()
+
+        cls._dummy_head_atom = dummy_head
+        cls._dummy_tail_atom = dummy_tail
+        cls._netcharge = 0
+        cls._isBOassigned = False
+
+        if guesstopol:
+            if filecoord is None and filetop is None:
+                #cls._topology = None
+                cls._topology = pag.Topology(natoms=cls._natoms)
+                if cls._natoms == 0:
+                    cls._topology = None
+                else:
+                    cls._topology.guess_bonds_topology(cls._coords, cls._elements)
+            elif filetop is None:
+                cls._topology = pag.Topology(natoms=cls._natoms)
+                cls._topology.guess_bonds_topology(cls._coords, cls._elements)
+            else:
+                cls.set_topology_from_disk(filetop)
+        else:
+            cls._topology = None
+
+        cls._filetypeatoms = filetypeatoms
+        if filetypeatoms is not None:
+            cls.set_typeatoms(filetypeatoms)
+
+    # ***********************************************************************************
+    def __str__(cls):
+
+        &#34;&#34;&#34; Returns the state of the attributtes of an instance&#34;&#34;&#34;
+
+        objstr = str(cls.__repr__())+&#34;\n&#34;
+        for key in cls.__dict__:
+            try:
+                value = getattr(cls,key)
+                objstr +=  str(key) +&#34;: &#34;+str(value) + &#34;\n&#34;
+            except AttributeError:
+                objstr += str(key) +&#34;: NOT SET&#34; + &#34;\n&#34;
+        return objstr
+
+    # ***********************************************************************************
+    def __copy__(cls):
+
+        s = Segment(guesstopol=False)
+
+        s._natoms = cls._natoms
+        s._topology = copy(cls._topology)
+        s._coords = cls._coords.copy()
+        s._elements = cls._elements.copy()
+        s._filecoord = cls._filecoord
+        s._filetop = cls._filetop
+        s._filetypeatoms  = cls._filetypeatoms
+        if cls._typeelements is not None:
+            s._typeelements = cls._typeelements.copy()
+
+        return s
+
+    # ***********************************************************************************
+    def __eq__(cls, other):
+
+        if other is None:
+            return None
+
+        res = True
+
+        keys = cls.__slots__
+
+        for key in keys:
+            if isinstance(getattr(cls,key), np.ndarray):
+                par = np.array_equal(getattr(cls,key), getattr(other,key))
+                res = res and par
+            elif isinstance(getattr(cls,key),pag.Topology):
+                par = getattr(cls,key) == getattr(other,key)
+                res = res and par
+            elif isinstance(getattr(cls,key),Segment):
+                par = cls.__dict__[key] == other.__dict__[key]
+                res = res and par
+            else:
+                par = getattr(cls,key) == getattr(other,key)
+                res = res and par
+
+        return res
+
+    # ***********************************************************************************
+    def check_parameter_consistence(cls):
+
+        &#34;&#34;&#34;Checks the length of the parameters passed through the constructor.
+
+        The length of the x, y, z and element arrays must be equal to the number ot atoms.
+        If there is not consistency raises a ValueError otherwise return True.
+
+        Returns:
+         | True if all parameters are consistent
+
+        &#34;&#34;&#34;
+
+        condition = (cls._coords.shape[0] == cls._natoms)
+
+        if not condition:
+            line = &#34;\n\t======== ERROR ==========\n&#34; \
+                   &#34;\tCoordinates arrays must have equal length and equal to number of atoms\n&#34; \
+                   &#34;\tLength coords: %d\n&#34; \
+                   &#34;\tLength Elements: %d\n&#34;\
+                   &#34;\tNumber of atoms: %d\n&#34; \
+                    &#34;\tCoordfile: %s\n&#34; \
+                    &#34;\tTopofile: %s\n&#34; \
+                   &#34;\t======== ERROR ==========\n&#34;%(cls._coords.shape[0] , len(cls._elements), cls._natoms, cls._filecoord, cls._filetop)
+
+            #print(line)
+            cls._logger.error(line)
+            raise ValueError (&#34;Coordinates arrays must have equal length and equal to number of atoms&#34;)
+
+        return None
+
+    # ***********************************************************************************
+    def load_from_disk(cls, path):
+
+        &#34;&#34;&#34;pychipar.Segment._load_from_disk
+
+        Args:
+            path: path to the file in the disk
+
+        Returns:
+            s : pysimm system object
+        &#34;&#34;&#34;
+
+        ext = os.path.splitext (path)[1]
+
+        if ext == &#34;.pdb&#34;:
+            cls.read_pdb_from_scratch(path)
+        elif ext == &#39;.xyz&#39;:
+            cls.read_xyz_from_scratch (path)
+        elif ext == &#39;.gro&#39;:
+            cls.read_gro_from_scratch(path)
+        # elif ext == &#34;.sdf&#34;:
+        #     cls.read_sdf_coordtopo_from_scratch(path)
+        else:
+            cls.printerror (&#34;Unkown molecular format for file: %s&#34; % path)
+            raise Exception(&#34;Unkown molecular format for file: %s&#34;%path)
+
+    # ***********************************************************************************
+    def set_topology_from_disk(cls, path):
+
+        ext = os.path.splitext (path)[1]
+
+        if ext == &#34;.pdb&#34;:
+            cls._topology = pag.Topology(natoms=cls._natoms)
+            cls.read_topology_from_pdb(path)
+        elif ext == &#34;.xyz&#34;:
+            cls._topology = pag.Topology(natoms=cls._natoms)
+            cls.read_topology_from_xyz(path)
+        elif ext == &#34;.sdf&#34;:
+            &#34;The topology is already set up in the &#34; \
+            &#34;read_sdf_coordtopo_from_scratch method&#34;
+            pass
+        else:
+            cls.printerror (&#34;Unkown topology format for file: %s&#34; % path)
+            raise Exception(&#34;Unkown topology format for file: %s&#34;%path)
+
+    # ***********************************************************************************
+    def read_pdb_from_scratch(cls, pdb_path):
+
+        if os.path.isfile(pdb_path):
+            f = open(pdb_path)
+        else:
+            cls.printerror(msg1=&#34;PDB file must exist\n {} does not exist&#34;.format(pdb_path))
+            raise Exception(&#39;chipar.segment.read_pdb_from_scratch requires an existing file as argument: {}&#39;.format(pdb_path))
+
+        cls._natoms = 0
+        xlist = []
+        ylist = []
+        zlist = []
+        elist = []
+        for line in f:
+            if line.startswith(&#39;ATOM&#39;) or line.startswith(&#39;HETATM&#39;):
+                #tag = int(line[6:11].strip())
+                name = line[12:16].strip()
+                #resname = line[17:20].strip()
+                #chainid = line[21]
+                #resid = line[22:26].strip()
+                x = float(line[30:38].strip())
+                y = float(line[38:46].strip())
+                z = float(line[46:54].strip())
+                elem = line[76:78].strip()
+                if elem == &#34;&#34;:
+                    elist.append(name.capitalize())
+                else:
+                    elist.append(elem.capitalize())
+                xlist.append(x)
+                ylist.append(y)
+                zlist.append(z)
+                cls._natoms += 1
+
+        cls._coords = np.column_stack((np.asarray(xlist),
+                                        np.asarray(ylist),
+                                        np.asarray(zlist)))
+
+        cls._elements = np.asarray(elist, dtype=np.str)
+
+        f.close()
+
+    # ***********************************************************************************
+    def read_xyz_from_scratch(cls, xyz_path):
+
+        if os.path.isfile(xyz_path):
+            f = open(xyz_path)
+        else:
+            cls.printerror(msg1=&#34;XYZ file must be provided&#34;)
+            raise Exception(&#39;chipar.segment.read_xyz_from_scratch requires an existing file as argument&#39;)
+
+        nparticles = int(f.readline().strip())
+
+        cls._natoms = 0
+        xlist = []
+        ylist = []
+        zlist = []
+        elist = []
+        f.readline().strip()
+        for _ in range(nparticles):
+            elem, x, y, z = f.readline().split()
+            xlist.append(float(x))
+            ylist.append(float(y))
+            zlist.append(float(z))
+            elist.append(elem.capitalize())
+            cls._natoms += 1
+
+        cls._coords = np.column_stack((np.asarray(xlist),
+                                        np.asarray(ylist),
+                                        np.asarray(zlist)))
+        cls._elements = np.asarray(elist, dtype=np.str)
+
+        assert int(nparticles == cls._natoms), \
+            &#34;Number of particles in the header is different to the read atoms in the xyz file&#34;
+        f.close()
+
+    # ***********************************************************************************
+    def read_gro_from_scratch(cls, gro_path):
+
+        if os.path.isfile(gro_path):
+            f = open(gro_path)
+        else:
+            cls.printerror(msg1=&#34;GRO file must be provided&#34;)
+            raise Exception(&#39;chipar.segment.read_gro_from_scratch requires an existing file as argument&#39;)
+
+        f.readline().strip()
+        cls._natoms = int(f.readline().strip())
+
+        iline = 1
+        #chainid = 1
+        xlist = []
+        ylist = []
+        zlist = []
+        elist = []
+        while iline &lt;= cls._natoms:
+            line = f.readline()
+            #resid = int(line[0:5].strip())
+            #resname = line[5:10].strip()
+            atomname = line[10:15] #force field name
+            #tag = int(line[15:20].strip())
+            xlist.append(float(line[20:28].strip())*10)
+            ylist.append(float(line[28:36].strip())*10)
+            zlist.append(float(line[36:44].strip())*10)
+            elist.append(atomname.strip())
+            iline += 1
+
+        cls._coords = np.column_stack((np.asarray(xlist),
+                                        np.asarray(ylist),
+                                        np.asarray(zlist)))
+        cls._elements = np.asarray(elist, dtype=np.str)
+
+        f.close()
+
+    # # ***********************************************************************************
+    # def read_sdf_coordtopo_from_scratch(cls, sdf_path):
+    #
+    #     if os.path.isfile(sdf_path):
+    #         f = open(sdf_path)
+    #     else:
+    #         cls.printerror(msg1=&#34;SDF file must be provided&#34;)
+    #         raise Exception(&#39;chipar.segment.read_sdf_coordtopo_from_scratch requires an existing file as argument&#39;)
+    #
+    #     try:
+    #         for n in range(3):
+    #             next(f)
+    #     except StopIteration:
+    #         raise PysimmError(&#39;pysimm.system.read_mol requires either &#39;
+    #                           &#39;file or string as argument&#39;)
+    #     version = None
+    #     line = next(f)
+    #     cls._natoms = int(line.split()[0])
+    #     nbonds = int(line.split()[1])
+    #     if len(line.split()) &gt;= 3:
+    #         version = line.split()[-1]
+    #
+    #     cls._topology = Topology(nvert=cls._natoms)
+    #
+    #     xlist = []
+    #     ylist = []
+    #     zlist = []
+    #     elist = []
+    #     if version == &#39;V2000&#39;:
+    #         for iatom in range(cls._natoms):
+    #             line = next(f)
+    #             x, y, z, elem, tmp, charge = line.split()[:6]
+    #             xlist.append(float(x))
+    #             ylist.append(float(y))
+    #             zlist.append(float(z))
+    #             elist.append(elem)
+    #
+    #         for n in range(nbonds):
+    #             line = next(f)
+    #             iatom, jatom, order = list(map(int, line.split()[:3]))
+    #             cls._topology.add_edge([iatom-1, jatom-1])
+    #             cls._topology._orderbonds[iatom-1, jatom-1] = order
+    #             cls._topology._orderbonds[jatom-1, iatom-1] = order
+    #
+    #     elif version == &#39;V3000&#39;:
+    #         next(f)
+    #         line = next(f)
+    #         cls._natoms = int(line.split()[0])
+    #         nbonds = int(line.split()[1])
+    #         next(f)
+    #         for iatom in range(cls._natoms):
+    #             line = next(f)
+    #             idf, elem, x, y, z, charge = line.split()[2:8]
+    #             xlist.append(x)
+    #             ylist.append(y)
+    #             zlist.append(z)
+    #             elist.append(elem)
+    #
+    #         next(f)
+    #         next(f)
+    #
+    #         for n in range(nbonds):
+    #             line = next(f)
+    #             idf, order, iatom, jatom = list(map(int, line.split()[2:6]))
+    #             cls.add_edge([iatom-1, jatom-1])
+    #             cls._orderbonds[iatom-1, jatom-1] = order
+    #             cls._orderbonds[jatom-1, iatom-1] = order
+    #
+    #     cls._coords = np.column_stack((np.asarray(xlist),
+    #                                     np.asarray(ylist),
+    #                                     np.asarray(zlist)))
+    #     cls._elements = np.asarray(elist, dtype=np.str)
+    #
+    #     f.close()
+
+    # ***********************************************************************************
+    def printerror(cls, msg1):
+
+        cls._logger.error(msg1)
+
+    # ***********************************************************************************
+    def read_topology_from_pdb(cls, path):
+
+        &#34;&#34;&#34;
+        Try to set up the topology reading a PDB file. The &#34;CONECT&#34; section is
+        used to yield the connectivity of the molecule, if present. Otherwise, the
+        bonds are guessed.
+
+        Attributes:
+            | ``path``: Path to the PDB file
+
+        &#34;&#34;&#34;
+
+        if os.path.isfile(path):
+            f = open(path)
+        else:
+            cls.printerror(msg1=&#34;PDB file for topology must be provided&#34;)
+            raise Exception(&#39;chipar.segment.read_topology_from_pdb requires an existing file as argument&#39;)
+
+        isthereconnect = False
+        for line in f:
+            if line.startswith(&#39;CONECT&#39;):
+                l = line.split()
+                i = int(l[1])
+                cls._topology.add_vertex(i-1)
+                for jj in l[2:]:
+                    j = int(jj)
+                    if j &lt; i: continue
+                    cls._topology.add_vertex(j-1)
+                    cls._topology.add_edge([i-1,j-1])
+                    isthereconnect = True
+
+        if not isthereconnect:
+            cls._topology.guess_bonds_topology(cls._coords, cls._elements)
+
+        f.close()
+
+        # DEBUG
+        # print (cls._topology)
+        # cls._topology.draw_graph(title=&#34;kk&#34;)
+
+    # ***********************************************************************************
+    def read_topology_from_xyz(cls, path):
+
+        &#34;&#34;&#34;
+        Try to set up the topology reading a PDB file. The &#34;CONECT&#34; section is
+        used to yield the connectivity of the molecule, if present. Otherwise, the
+        bonds are guessed.
+
+        Attributes:
+            | ``path``: Path to the PDB file
+
+        &#34;&#34;&#34;
+
+        if os.path.isfile(path):
+            f = open(path)
+        else:
+            cls.printerror(msg1=&#34;PDB file for topology must be provided&#34;)
+            raise Exception(&#39;chipar.segment.read_topology_from_pdb requires an existing file as argument&#39;)
+
+        isthereconnect = False
+
+        if not isthereconnect:
+               cls._topology.guess_bonds(cls._coords, cls._elements)
+
+        f.close()
+
+        # DEBUG
+        # print (cls._topology)
+        # cls._topology.draw_graph(title=&#34;kk&#34;)
+
+    # ***********************************************************************************
+    def get_coords(cls, atomlist = None):
+
+        if atomlist is None:
+            return cls._coords
+        else:
+            tmp_coords = np.zeros((len(atomlist),3))
+            i = 0
+            for item in atomlist:
+                tmp_coords[i] = cls._coords[item]
+                i += 1
+            return tmp_coords
+
+    # ***********************************************************************************
+    def center_of_mass(cls):
+
+        &#34;&#34;&#34;
+        Calculate the center of mass of the current coordinates
+
+        ``Parameters``:
+            * **None**
+
+        ``Return``:
+            *  **com**: (type: ndarray vector) Coordinates of the center of mass
+
+        &#34;&#34;&#34;
+
+        mtotal = 0.0
+        tmp = np.zeros(3)
+        c = cls.get_coords()
+        for iatom in range(cls._natoms):
+            m = pag.atomic_mass[cls._elements[iatom]]
+            mtotal += m
+            tmp += c[iatom,:]*m
+
+        com = tmp/mtotal
+        return com
+
+    # ***********************************************************************************
+    def center_of_geom(cls):
+
+        &#34;&#34;&#34;
+        Calculate the center of geometry of the current coordinates
+
+        ``Parameters``:
+            * **None**
+
+        ``Return``:
+            *  **cog**: (type: ndarray vector) Coordinates of the geometry center
+
+        &#34;&#34;&#34;
+
+        tmp = np.zeros(3)
+        c = cls.get_coords()
+        for iatom in range(cls._natoms):
+            tmp += c[iatom,:]
+
+        cog = tmp/cls._natoms
+        return cog
+
+    # ***********************************************************************************
+    def translate_vector(cls, v):
+
+        &#34;&#34;&#34;
+        Translate the segment along the vector v.
+        This function changes the coordinates of the segment
+
+        .. image:: translation.png
+
+        The vector p represents the coordinates of each atom.
+
+        ``Parameters``:
+            * **v**: (type: a list or (1,3)-ndarray)
+
+        ``Returns``:
+            * **None**
+
+        &#34;&#34;&#34;
+
+        c = cls.get_coords()
+        for iatom in range(cls._natoms):
+            c[iatom,:] += v
+
+        return None
+
+    # ***********************************************************************************
+    def euler_orientation(cls, iseed=None):
+        &#34;&#34;&#34;
+
+        New coordinates of the atoms accordingly to random Euler angles.
+        There are many definitions of the Euler angles
+        (see: https://en.wikipedia.org/wiki/Euler_angles)
+
+        The definition here used is that given in:
+
+        .. code-block::
+
+            MATHEMATICAL METHODS FOR PHYSICISTS
+            SEVENTH EDITION
+            George B. Arfken, Hans J. Weber, Frank E. Harris
+            pag: 140-142
+
+        .. image:: euler_book.png
+
+        ``Parameters``:
+            * **iseed**
+
+        ``Returns``:
+            * **euler**
+
+        &#34;&#34;&#34;
+
+        # Generate euler angles ========
+        if iseed is None:
+            euler = pag.generate_random_euler_angles()
+        else:
+            euler = pag.generate_random_euler_angles(seed=iseed)
+
+        # Create rotation matrix
+        S = pag.euler_rotation_matrix(euler)
+        # Take the transpose of the coordinates
+        C = np.ascontiguousarray(np.transpose(cls.get_coords()))
+        # Change the coordinates (R) dot-product (column vector of the coordinates)
+        #print(ref.flags)
+        cls._coords = np.ascontiguousarray(np.transpose(np.dot(S,C)))
+
+        return euler
+
+    # ***********************************************************************************
+    def calc_vdw_volume_VABC(cls):
+
+        &#34;&#34;&#34;
+        Calculation of the van der waals volume using the method reported by Zhao et al.
+        &#34;Fast Calculation of van der Waals Volume as a Sum of Atomic and
+        Bond Contributions and Its Application to Drug Compounds&#34;,  J. Org. Chem. 2003, 68, 7368-7373
+
+        The VdW radii and volume are taken from
+        element_vdw_vmd_radius_bondi and element_vdw_vmd_volume_bondi, respectively.
+
+        The formula (4) of the article will be used in this function:
+
+        .. image:: volume_vdw.png
+
+        ``Parameters``:
+            * **None**
+
+        ``Returns``:
+            * **volume_vdw**: Van der waals volume using equation 4 in (angstroms^3/molecule)
+            * **volume_tsar**: Van der waals volume using equation 6 in (angstroms^3/molecule)
+
+        &#34;&#34;&#34;
+
+        s1 = 0.0
+        for iatom in cls._elements:
+            s1 += pag.element_vdw_vmd_volume_bondi[iatom]
+
+        mol = openbabel.OBMol()
+
+        obConversion = openbabel.OBConversion()
+        obConversion.SetInAndOutFormats(&#34;pdb&#34;, &#34;fix&#34;)
+
+        obConversion.ReadFile(mol, cls._filecoord)
+
+        Rg = len(mol.GetSSSR())
+        RA = sum([ 1 for i in mol.GetSSSR() if i.IsAromatic() is True])
+        RNR = Rg - RA
+        NB = cls._natoms - 1 + Rg
+
+        volume_vdw = s1 - 5.92*NB -14.7*RA -3.8*RNR
+
+        volume_tsar = 0.801*volume_vdw + 0.18
+
+        return volume_vdw, volume_tsar
+
+    # ***********************************************************************************
+    def set_charge(cls, charge):
+
+        cls._charge = charge
+        return charge
+
+    # ***********************************************************************************
+    def set_typeatoms(cls, filetypeatoms):
+
+        typelist = []
+        with open(filetypeatoms, &#39;r&#39;) as f:
+            for line in f:
+                i, el, type = line.split()
+                typelist.append(type)
+
+        cls._typeelements = np.asarray(typelist, dtype=np.str)
+        return None
+
+    # # ***********************************************************************************
+    # def assign_bond_orders(cls):
+    #
+    #     &#34;&#34;&#34;
+    #     This function assigns bond orders to the bonds according to the algorithm reported in
+    #
+    #     &#34;Automated simultaneous assignment of bond orders and formal charges&#34;
+    #     Ivan D. Welsh and Jane R. Allison
+    #     J. Cheminform (2019) 11:18
+    #
+    #     https://doi.org/10.1186/s13321-019-0340-0
+    #
+    #     The function uses the external software indigo-bondorders (located in thirdparty/indigo-bondorder).
+    #     This code is compiled and installed in thirdparty/indigox
+    #
+    #     The structure to assign bonds needs to have all hydrogen bonds. That is united atom models do not work
+    #     with this function.
+    #
+    #     Returns
+    #     -------
+    #     None
+    #
+    #     ..warning:: This only works with all-atom models, for united-atoms the order bond is not assigned correctly.
+    #
+    #     &#34;&#34;&#34;
+    #
+    #     try:
+    #         import indigox as ix
+    #     except ModuleNotFoundError:
+    #         print(&#34;Bond orders cannot be calculated. The indigox module is not installed.&#34;)
+    #         return None
+    #
+    #     # Periodic Table data from indigox
+    #     PT = ix.PeriodicTable()
+    #     # Build a molecule in the indigox framework
+    #     mol = ix.Molecule()
+    #     mol.SetTotalCharge(cls._netcharge)
+    #
+    #     # Add all atoms in a dictionary and get the bonds in the
+    #     # framework of indigox program
+    #     all_atoms = dict()
+    #     bonds_topo = cls._topology.get_edges()
+    #     for i, j in bonds_topo:
+    #         if not i in all_atoms:
+    #             # Element of i
+    #             e = cls._elements[i]
+    #             all_atoms[i] = mol.NewAtom(PT[e])
+    #             index = all_atoms[i].SetIndex(i)
+    #             name = e+str(index)
+    #             all_atoms[i].SetName(name)
+    #         if not j in all_atoms:
+    #             # Element of j
+    #             e = cls._elements[j]
+    #             all_atoms[j] = mol.NewAtom(PT[e])
+    #             index = all_atoms[j].SetIndex(j)
+    #             name = e+str(index)
+    #             all_atoms[j].SetName(name)
+    #
+    #         mol.NewBond(all_atoms[i], all_atoms[j])
+    #
+    #     # Setup to use the FPT algorithm with single electrons without preplacing
+    #     # to calculate bond orders and formal charges
+    #     opts = ix.Options.AssignElectrons
+    #     opts.ALGORITHM = opts.Algorithm.FPT
+    #     opts.FPT.ADD_EDGES_TO_TD = False
+    #     opts.FPT.MINIMUM_PROPAGATION_DEPTH = 1
+    #     opts.USE_ELECTRON_PAIRS = False
+    #
+    #     # Calculate bond orders and formal charges.
+    #     # Count have the ttotal number of resonance structures
+    #     nresonances = mol.AssignElectrons()
+    #     #print(&#34;{} resonace structure(s) calculated with a score of {}.&#34;.format(nresonances, mol.GetMinimumElectronAssignmentScore()))
+    #
+    #     # Sum all order bonds for the resonace structures.
+    #     for iresonance in range(nresonances):
+    #         mol.ApplyElectronAssignment(iresonance)
+    #
+    #         for ibond in mol.GetBonds():
+    #             i = ibond.GetSourceAtom().GetIndex()
+    #             j = ibond.GetTargetAtom().GetIndex()
+    #             bo =  ibond.GetOrder()
+    #             if bo == bo.SINGLE_BOND:
+    #                 cls._topology._orderbonds[i,j] += 1.0
+    #                 cls._topology._orderbonds[j,i] += 1.0
+    #             elif bo == bo.DOUBLE_BOND:
+    #                 cls._topology._orderbonds[i,j] += 2.0
+    #                 cls._topology._orderbonds[j,i] += 2.0
+    #             elif bo == bo.TRIPLE_BOND:
+    #                 cls._topology._orderbonds[i,j] += 3.0
+    #                 cls._topology._orderbonds[j,i] += 3.0
+    #             else:
+    #                 print(&#34;=================================================&#34;)
+    #                 print(&#34;Warning!!!! -&gt; Bond order cannot be assigned &#34;
+    #                       &#34;between {} and {} atoms&#34;.format(i,j))
+    #                 print(bo)
+    #                 print(&#34;=================================================&#34;)
+    #                 cls._isBOassigned = False
+    #
+    #     # Correct for aromaticity
+    #     nrows = cls._topology._orderbonds.shape[0]
+    #     ncols = cls._topology._orderbonds.shape[1]
+    #     for i in range(nrows):
+    #         for j in range(i,ncols):
+    #             m = cls._topology._orderbonds[i,j] % nresonances
+    #             if m != 0:
+    #                 cls._topology._orderbonds[i,j] = 1.5
+    #                 cls._topology._orderbonds[j,i] = 1.5
+    #             else:
+    #                 cls._topology._orderbonds[i,j] /= nresonances
+    #                 cls._topology._orderbonds[j,i] /= nresonances
+    #
+    #     return None</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="polyanagro.BACKUCP.Segment.Segment"><code class="flex name class">
+<span>class <span class="ident">Segment</span></span>
+<span>(</span><span>filecoord=None, filetop=None, filetypeatoms=None, natoms=0, xlist=[], ylist=[], zlist=[], elementlist=[], guesstopol=True, dummy_head=-1, dummy_tail=-1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Segment constructor</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>filecoord</code></strong> :&ensp;<code>string</code>, default=<code>None</code></dt>
+<dd>Name of the coordinates filecoord (Format: PDB, GRO, XYZ)</dd>
+<dt><strong><code>filetop</code></strong> :&ensp;<code>string</code>, default=<code>None</code></dt>
+<dd>Name of the topology (Format: PDB)</dd>
+<dt><strong><code>filetypeatoms</code></strong> :&ensp;<code>string</code>, default=<code>None</code></dt>
+<dd>Name of the file containing the matching between atoms and atomtypes. This is used mainly
+to assign the reevaluated distances by Okuwaki et al. (Table 2)</dd>
+<dt><strong><code>natoms</code></strong> :&ensp;<code>int</code>, default <code>= 0</code></dt>
+<dd>Number of atoms</dd>
+<dt><strong><code>xlist</code></strong> :&ensp;<code>list</code> of <code>floats</code>, default=<code>[]</code></dt>
+<dd>x component of the coordinates (in angstroms)</dd>
+<dt><strong><code>ylist</code></strong> :&ensp;<code>list</code> of <code>floats</code>, default=<code>[]</code></dt>
+<dd>y component of the coordinates (in angstroms)</dd>
+<dt><strong><code>zlist</code></strong> :&ensp;<code>list</code> of <code>floats</code>, default=<code>[]</code></dt>
+<dd>z component of the coordinates (in angstroms)</dd>
+<dt><strong><code>elementlist</code></strong> :&ensp;<code>list</code> of <code>strings</code>, default=<code>[]</code></dt>
+<dd>Element symbol</dd>
+<dt><strong><code>guesstopol</code></strong> :&ensp;<code>boolean</code>, default=<code>True</code></dt>
+<dd>If True activate the guessing of topology based in a distance algorithm.</dd>
+<dt><strong><code>dummy_head</code></strong> :&ensp;<code>integer</code>, default=<code>-1</code></dt>
+<dd>Index of the atom acting as dummy head atom to mimic polymer chain</dd>
+<dt><strong><code>dummy_tail</code></strong> :&ensp;<code>integer</code>, default=<code>-1</code></dt>
+<dd>Index of the atom acting as dummy tail atom to mimic polymer chain</dd>
+</dl>
+<h2 id="attributes">Attributes</h2>
+<ul>
+<li><strong>cls._filecoord</strong>: (str) Name of the coordinates filecoord (Format: PDB, GRO, XYZ)</li>
+<li><strong>cls._filetop</strong>: (str) Name of the topology (Format: PDB)</li>
+<li><strong>cls._logger</strong>: (Logger) Object to throw the output</li>
+<li><strong>cls._filetypeatoms</strong>: (str) Name of the file containing the matching between atoms and atomtypes. This is used mainly
+to assign the reevaluated distances by Okuwaki et al. (Table 2)</li>
+<li><strong>cls._natoms</strong>: (int) Number of atoms</li>
+<li><strong>cls._coords</strong>: (ndarray, [natoms, 3]) Coordinates of the atoms</li>
+<li>*<em>cls._elements</em> &ndash; (ndarray, [natoms]) Element Symbol</li>
+<li><strong>cls._dummy_head_atom</strong>: (int) Index of the atom acting as dummy head atom to mimic polymer chain</li>
+<li><strong>cls._dummy_tail_atom</strong>: (int) Index of the atom acting as dummy tail atom to mimic polymer chain</li>
+<li><strong>cls._netcharge</strong>:(int) Net charge of the molecule</li>
+<li><strong>cls._isBOassigned</strong>:(boolean). True if the bond order are assigned</li>
+<li><strong>cls._topology</strong>: (Topology). Topology of the segment</li>
+</ul>
+<h2 id="notes">Notes</h2>
+<p>There are two ways to build a Segment object:
+1. Segment(filecoord='ethylene.pdb')
+2. Segment(natoms=2, xlist= [], ylist=[], zlist = [], elements = [])</p>
+<p>If filecoord is present the other parameters are ignored. Otherwise, all parameters must be consistent.</p>
+<p>if filetypeatoms is present, the types assignation is done.
+The order of the atoms must be the same that the order in the coord and topology files.
+The format of this file must be the following:</p>
+<h2 id="data">Data</h2>
+<pre><code>&lt;Number&gt; &lt;Atom&gt; &lt;type_of_atom&gt;
+1 C c3
+2 C c3
+3 C c3
+(...)
+14 H hc
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be careful when use np.transpose function. This function seems to change the order of the array to
+"Fortran-type" instead to C-Order. If use np.transpose you will use np.ascontiguousarray</p>
+<pre><code>Example:
+
+a = np.tranpose(b) --&gt; a in Fortran order irrespective of the order of C
+
+a = np.ascontiguousarray(np.transpose(b)) --&gt; a in C order
+
+This issue is important when use mode="c" in pyx files for Cython
+</code></pre>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For big molecules (&gt;1000 atoms) deactivate the guessing of topology (guesstopol=False)</p>
+</div></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Segment(object):
+
+    __slots__ = [&#39;_filecoord&#39;, &#39;_filetop&#39;, &#39;_logger&#39;, &#39;_typeelements&#39;, &#39;_natoms&#39;, &#39;_coords&#39;, &#39;_elements&#39;,
+                 &#39;_dummy_head_atom&#39;, &#39;_dummy_tail_atom&#39;, &#39;_netcharge&#39;, &#39;_isBOassigned&#39;, &#39;_topology&#39;, &#39;_filetypeatoms&#39;]
+
+    # ***********************************************************************************
+    def __init__(cls, filecoord=None, filetop=None, filetypeatoms=None, natoms=0,
+                 xlist=[], ylist=[], zlist=[],
+                 elementlist=[], guesstopol=True, dummy_head = -1, dummy_tail = -1):
+
+        &#34;&#34;&#34;
+        Segment constructor
+
+        Parameters
+        ----------
+        filecoord: string, default=None
+            Name of the coordinates filecoord (Format: PDB, GRO, XYZ)
+        filetop: string, default=None
+            Name of the topology (Format: PDB)
+        filetypeatoms: string, default=None
+            Name of the file containing the matching between atoms and atomtypes. This is used mainly
+            to assign the reevaluated distances by Okuwaki et al. (Table 2)
+        natoms: int, default = 0
+            Number of atoms
+        xlist: list of floats, default=[]
+            x component of the coordinates (in angstroms)
+        ylist: list of floats, default=[]
+            y component of the coordinates (in angstroms)
+        zlist: list of floats, default=[]
+            z component of the coordinates (in angstroms)
+        elementlist: list of strings, default=[]
+            Element symbol
+        guesstopol: boolean, default=True
+            If True activate the guessing of topology based in a distance algorithm.
+        dummy_head: integer, default=-1
+            Index of the atom acting as dummy head atom to mimic polymer chain
+        dummy_tail: integer, default=-1
+            Index of the atom acting as dummy tail atom to mimic polymer chain
+
+        Attributes
+        ----------
+        * **cls._filecoord**: (str) Name of the coordinates filecoord (Format: PDB, GRO, XYZ)
+        * **cls._filetop**: (str) Name of the topology (Format: PDB)
+        * **cls._logger**: (Logger) Object to throw the output
+        * **cls._filetypeatoms**: (str) Name of the file containing the matching between atoms and atomtypes. This is used mainly
+            to assign the reevaluated distances by Okuwaki et al. (Table 2)
+        * **cls._natoms**: (int) Number of atoms
+        * **cls._coords**: (ndarray, [natoms, 3]) Coordinates of the atoms
+        * **cls._elements* -- (ndarray, [natoms]) Element Symbol
+        * **cls._dummy_head_atom**: (int) Index of the atom acting as dummy head atom to mimic polymer chain
+        * **cls._dummy_tail_atom**: (int) Index of the atom acting as dummy tail atom to mimic polymer chain
+        * **cls._netcharge**:(int) Net charge of the molecule
+        * **cls._isBOassigned**:(boolean). True if the bond order are assigned
+        * **cls._topology**: (Topology). Topology of the segment
+
+        Notes
+        -----
+        There are two ways to build a Segment object:
+            1. Segment(filecoord=&#39;ethylene.pdb&#39;)
+            2. Segment(natoms=2, xlist= [], ylist=[], zlist = [], elements = [])
+
+        If filecoord is present the other parameters are ignored. Otherwise, all parameters must be consistent.
+
+        if filetypeatoms is present, the types assignation is done.
+        The order of the atoms must be the same that the order in the coord and topology files.
+        The format of this file must be the following:
+
+        Data
+        ----
+            &lt;Number&gt; &lt;Atom&gt; &lt;type_of_atom&gt;
+            1 C c3
+            2 C c3
+            3 C c3
+            (...)
+            14 H hc
+
+        .. warning::
+            Be careful when use np.transpose function. This function seems to change the order of the array to
+            &#34;Fortran-type&#34; instead to C-Order. If use np.transpose you will use np.ascontiguousarray
+
+                Example:
+
+                a = np.tranpose(b) --&gt; a in Fortran order irrespective of the order of C
+
+                a = np.ascontiguousarray(np.transpose(b)) --&gt; a in C order
+
+                This issue is important when use mode=&#34;c&#34; in pyx files for Cython
+
+        .. warning::
+            For big molecules (&gt;1000 atoms) deactivate the guessing of topology (guesstopol=False)
+
+        &#34;&#34;&#34;
+        cls._filecoord = filecoord
+        cls._filetop = filetop
+        cls._logger = logging.getLogger(&#34;Output&#34;) #&#34;&#34;Segment&#34;, append=True, )
+        cls._typeelements = None
+
+        if filecoord is not None:
+            cls.load_from_disk(filecoord)
+        else:
+            cls._natoms = natoms
+            cls._coords = np.column_stack((np.asarray(xlist),
+                                            np.asarray(ylist),
+                                            np.asarray(zlist)))
+            cls._elements = np.asarray(elementlist, dtype=np.str)
+
+        cls.check_parameter_consistence()
+
+        cls._dummy_head_atom = dummy_head
+        cls._dummy_tail_atom = dummy_tail
+        cls._netcharge = 0
+        cls._isBOassigned = False
+
+        if guesstopol:
+            if filecoord is None and filetop is None:
+                #cls._topology = None
+                cls._topology = pag.Topology(natoms=cls._natoms)
+                if cls._natoms == 0:
+                    cls._topology = None
+                else:
+                    cls._topology.guess_bonds_topology(cls._coords, cls._elements)
+            elif filetop is None:
+                cls._topology = pag.Topology(natoms=cls._natoms)
+                cls._topology.guess_bonds_topology(cls._coords, cls._elements)
+            else:
+                cls.set_topology_from_disk(filetop)
+        else:
+            cls._topology = None
+
+        cls._filetypeatoms = filetypeatoms
+        if filetypeatoms is not None:
+            cls.set_typeatoms(filetypeatoms)
+
+    # ***********************************************************************************
+    def __str__(cls):
+
+        &#34;&#34;&#34; Returns the state of the attributtes of an instance&#34;&#34;&#34;
+
+        objstr = str(cls.__repr__())+&#34;\n&#34;
+        for key in cls.__dict__:
+            try:
+                value = getattr(cls,key)
+                objstr +=  str(key) +&#34;: &#34;+str(value) + &#34;\n&#34;
+            except AttributeError:
+                objstr += str(key) +&#34;: NOT SET&#34; + &#34;\n&#34;
+        return objstr
+
+    # ***********************************************************************************
+    def __copy__(cls):
+
+        s = Segment(guesstopol=False)
+
+        s._natoms = cls._natoms
+        s._topology = copy(cls._topology)
+        s._coords = cls._coords.copy()
+        s._elements = cls._elements.copy()
+        s._filecoord = cls._filecoord
+        s._filetop = cls._filetop
+        s._filetypeatoms  = cls._filetypeatoms
+        if cls._typeelements is not None:
+            s._typeelements = cls._typeelements.copy()
+
+        return s
+
+    # ***********************************************************************************
+    def __eq__(cls, other):
+
+        if other is None:
+            return None
+
+        res = True
+
+        keys = cls.__slots__
+
+        for key in keys:
+            if isinstance(getattr(cls,key), np.ndarray):
+                par = np.array_equal(getattr(cls,key), getattr(other,key))
+                res = res and par
+            elif isinstance(getattr(cls,key),pag.Topology):
+                par = getattr(cls,key) == getattr(other,key)
+                res = res and par
+            elif isinstance(getattr(cls,key),Segment):
+                par = cls.__dict__[key] == other.__dict__[key]
+                res = res and par
+            else:
+                par = getattr(cls,key) == getattr(other,key)
+                res = res and par
+
+        return res
+
+    # ***********************************************************************************
+    def check_parameter_consistence(cls):
+
+        &#34;&#34;&#34;Checks the length of the parameters passed through the constructor.
+
+        The length of the x, y, z and element arrays must be equal to the number ot atoms.
+        If there is not consistency raises a ValueError otherwise return True.
+
+        Returns:
+         | True if all parameters are consistent
+
+        &#34;&#34;&#34;
+
+        condition = (cls._coords.shape[0] == cls._natoms)
+
+        if not condition:
+            line = &#34;\n\t======== ERROR ==========\n&#34; \
+                   &#34;\tCoordinates arrays must have equal length and equal to number of atoms\n&#34; \
+                   &#34;\tLength coords: %d\n&#34; \
+                   &#34;\tLength Elements: %d\n&#34;\
+                   &#34;\tNumber of atoms: %d\n&#34; \
+                    &#34;\tCoordfile: %s\n&#34; \
+                    &#34;\tTopofile: %s\n&#34; \
+                   &#34;\t======== ERROR ==========\n&#34;%(cls._coords.shape[0] , len(cls._elements), cls._natoms, cls._filecoord, cls._filetop)
+
+            #print(line)
+            cls._logger.error(line)
+            raise ValueError (&#34;Coordinates arrays must have equal length and equal to number of atoms&#34;)
+
+        return None
+
+    # ***********************************************************************************
+    def load_from_disk(cls, path):
+
+        &#34;&#34;&#34;pychipar.Segment._load_from_disk
+
+        Args:
+            path: path to the file in the disk
+
+        Returns:
+            s : pysimm system object
+        &#34;&#34;&#34;
+
+        ext = os.path.splitext (path)[1]
+
+        if ext == &#34;.pdb&#34;:
+            cls.read_pdb_from_scratch(path)
+        elif ext == &#39;.xyz&#39;:
+            cls.read_xyz_from_scratch (path)
+        elif ext == &#39;.gro&#39;:
+            cls.read_gro_from_scratch(path)
+        # elif ext == &#34;.sdf&#34;:
+        #     cls.read_sdf_coordtopo_from_scratch(path)
+        else:
+            cls.printerror (&#34;Unkown molecular format for file: %s&#34; % path)
+            raise Exception(&#34;Unkown molecular format for file: %s&#34;%path)
+
+    # ***********************************************************************************
+    def set_topology_from_disk(cls, path):
+
+        ext = os.path.splitext (path)[1]
+
+        if ext == &#34;.pdb&#34;:
+            cls._topology = pag.Topology(natoms=cls._natoms)
+            cls.read_topology_from_pdb(path)
+        elif ext == &#34;.xyz&#34;:
+            cls._topology = pag.Topology(natoms=cls._natoms)
+            cls.read_topology_from_xyz(path)
+        elif ext == &#34;.sdf&#34;:
+            &#34;The topology is already set up in the &#34; \
+            &#34;read_sdf_coordtopo_from_scratch method&#34;
+            pass
+        else:
+            cls.printerror (&#34;Unkown topology format for file: %s&#34; % path)
+            raise Exception(&#34;Unkown topology format for file: %s&#34;%path)
+
+    # ***********************************************************************************
+    def read_pdb_from_scratch(cls, pdb_path):
+
+        if os.path.isfile(pdb_path):
+            f = open(pdb_path)
+        else:
+            cls.printerror(msg1=&#34;PDB file must exist\n {} does not exist&#34;.format(pdb_path))
+            raise Exception(&#39;chipar.segment.read_pdb_from_scratch requires an existing file as argument: {}&#39;.format(pdb_path))
+
+        cls._natoms = 0
+        xlist = []
+        ylist = []
+        zlist = []
+        elist = []
+        for line in f:
+            if line.startswith(&#39;ATOM&#39;) or line.startswith(&#39;HETATM&#39;):
+                #tag = int(line[6:11].strip())
+                name = line[12:16].strip()
+                #resname = line[17:20].strip()
+                #chainid = line[21]
+                #resid = line[22:26].strip()
+                x = float(line[30:38].strip())
+                y = float(line[38:46].strip())
+                z = float(line[46:54].strip())
+                elem = line[76:78].strip()
+                if elem == &#34;&#34;:
+                    elist.append(name.capitalize())
+                else:
+                    elist.append(elem.capitalize())
+                xlist.append(x)
+                ylist.append(y)
+                zlist.append(z)
+                cls._natoms += 1
+
+        cls._coords = np.column_stack((np.asarray(xlist),
+                                        np.asarray(ylist),
+                                        np.asarray(zlist)))
+
+        cls._elements = np.asarray(elist, dtype=np.str)
+
+        f.close()
+
+    # ***********************************************************************************
+    def read_xyz_from_scratch(cls, xyz_path):
+
+        if os.path.isfile(xyz_path):
+            f = open(xyz_path)
+        else:
+            cls.printerror(msg1=&#34;XYZ file must be provided&#34;)
+            raise Exception(&#39;chipar.segment.read_xyz_from_scratch requires an existing file as argument&#39;)
+
+        nparticles = int(f.readline().strip())
+
+        cls._natoms = 0
+        xlist = []
+        ylist = []
+        zlist = []
+        elist = []
+        f.readline().strip()
+        for _ in range(nparticles):
+            elem, x, y, z = f.readline().split()
+            xlist.append(float(x))
+            ylist.append(float(y))
+            zlist.append(float(z))
+            elist.append(elem.capitalize())
+            cls._natoms += 1
+
+        cls._coords = np.column_stack((np.asarray(xlist),
+                                        np.asarray(ylist),
+                                        np.asarray(zlist)))
+        cls._elements = np.asarray(elist, dtype=np.str)
+
+        assert int(nparticles == cls._natoms), \
+            &#34;Number of particles in the header is different to the read atoms in the xyz file&#34;
+        f.close()
+
+    # ***********************************************************************************
+    def read_gro_from_scratch(cls, gro_path):
+
+        if os.path.isfile(gro_path):
+            f = open(gro_path)
+        else:
+            cls.printerror(msg1=&#34;GRO file must be provided&#34;)
+            raise Exception(&#39;chipar.segment.read_gro_from_scratch requires an existing file as argument&#39;)
+
+        f.readline().strip()
+        cls._natoms = int(f.readline().strip())
+
+        iline = 1
+        #chainid = 1
+        xlist = []
+        ylist = []
+        zlist = []
+        elist = []
+        while iline &lt;= cls._natoms:
+            line = f.readline()
+            #resid = int(line[0:5].strip())
+            #resname = line[5:10].strip()
+            atomname = line[10:15] #force field name
+            #tag = int(line[15:20].strip())
+            xlist.append(float(line[20:28].strip())*10)
+            ylist.append(float(line[28:36].strip())*10)
+            zlist.append(float(line[36:44].strip())*10)
+            elist.append(atomname.strip())
+            iline += 1
+
+        cls._coords = np.column_stack((np.asarray(xlist),
+                                        np.asarray(ylist),
+                                        np.asarray(zlist)))
+        cls._elements = np.asarray(elist, dtype=np.str)
+
+        f.close()
+
+    # # ***********************************************************************************
+    # def read_sdf_coordtopo_from_scratch(cls, sdf_path):
+    #
+    #     if os.path.isfile(sdf_path):
+    #         f = open(sdf_path)
+    #     else:
+    #         cls.printerror(msg1=&#34;SDF file must be provided&#34;)
+    #         raise Exception(&#39;chipar.segment.read_sdf_coordtopo_from_scratch requires an existing file as argument&#39;)
+    #
+    #     try:
+    #         for n in range(3):
+    #             next(f)
+    #     except StopIteration:
+    #         raise PysimmError(&#39;pysimm.system.read_mol requires either &#39;
+    #                           &#39;file or string as argument&#39;)
+    #     version = None
+    #     line = next(f)
+    #     cls._natoms = int(line.split()[0])
+    #     nbonds = int(line.split()[1])
+    #     if len(line.split()) &gt;= 3:
+    #         version = line.split()[-1]
+    #
+    #     cls._topology = Topology(nvert=cls._natoms)
+    #
+    #     xlist = []
+    #     ylist = []
+    #     zlist = []
+    #     elist = []
+    #     if version == &#39;V2000&#39;:
+    #         for iatom in range(cls._natoms):
+    #             line = next(f)
+    #             x, y, z, elem, tmp, charge = line.split()[:6]
+    #             xlist.append(float(x))
+    #             ylist.append(float(y))
+    #             zlist.append(float(z))
+    #             elist.append(elem)
+    #
+    #         for n in range(nbonds):
+    #             line = next(f)
+    #             iatom, jatom, order = list(map(int, line.split()[:3]))
+    #             cls._topology.add_edge([iatom-1, jatom-1])
+    #             cls._topology._orderbonds[iatom-1, jatom-1] = order
+    #             cls._topology._orderbonds[jatom-1, iatom-1] = order
+    #
+    #     elif version == &#39;V3000&#39;:
+    #         next(f)
+    #         line = next(f)
+    #         cls._natoms = int(line.split()[0])
+    #         nbonds = int(line.split()[1])
+    #         next(f)
+    #         for iatom in range(cls._natoms):
+    #             line = next(f)
+    #             idf, elem, x, y, z, charge = line.split()[2:8]
+    #             xlist.append(x)
+    #             ylist.append(y)
+    #             zlist.append(z)
+    #             elist.append(elem)
+    #
+    #         next(f)
+    #         next(f)
+    #
+    #         for n in range(nbonds):
+    #             line = next(f)
+    #             idf, order, iatom, jatom = list(map(int, line.split()[2:6]))
+    #             cls.add_edge([iatom-1, jatom-1])
+    #             cls._orderbonds[iatom-1, jatom-1] = order
+    #             cls._orderbonds[jatom-1, iatom-1] = order
+    #
+    #     cls._coords = np.column_stack((np.asarray(xlist),
+    #                                     np.asarray(ylist),
+    #                                     np.asarray(zlist)))
+    #     cls._elements = np.asarray(elist, dtype=np.str)
+    #
+    #     f.close()
+
+    # ***********************************************************************************
+    def printerror(cls, msg1):
+
+        cls._logger.error(msg1)
+
+    # ***********************************************************************************
+    def read_topology_from_pdb(cls, path):
+
+        &#34;&#34;&#34;
+        Try to set up the topology reading a PDB file. The &#34;CONECT&#34; section is
+        used to yield the connectivity of the molecule, if present. Otherwise, the
+        bonds are guessed.
+
+        Attributes:
+            | ``path``: Path to the PDB file
+
+        &#34;&#34;&#34;
+
+        if os.path.isfile(path):
+            f = open(path)
+        else:
+            cls.printerror(msg1=&#34;PDB file for topology must be provided&#34;)
+            raise Exception(&#39;chipar.segment.read_topology_from_pdb requires an existing file as argument&#39;)
+
+        isthereconnect = False
+        for line in f:
+            if line.startswith(&#39;CONECT&#39;):
+                l = line.split()
+                i = int(l[1])
+                cls._topology.add_vertex(i-1)
+                for jj in l[2:]:
+                    j = int(jj)
+                    if j &lt; i: continue
+                    cls._topology.add_vertex(j-1)
+                    cls._topology.add_edge([i-1,j-1])
+                    isthereconnect = True
+
+        if not isthereconnect:
+            cls._topology.guess_bonds_topology(cls._coords, cls._elements)
+
+        f.close()
+
+        # DEBUG
+        # print (cls._topology)
+        # cls._topology.draw_graph(title=&#34;kk&#34;)
+
+    # ***********************************************************************************
+    def read_topology_from_xyz(cls, path):
+
+        &#34;&#34;&#34;
+        Try to set up the topology reading a PDB file. The &#34;CONECT&#34; section is
+        used to yield the connectivity of the molecule, if present. Otherwise, the
+        bonds are guessed.
+
+        Attributes:
+            | ``path``: Path to the PDB file
+
+        &#34;&#34;&#34;
+
+        if os.path.isfile(path):
+            f = open(path)
+        else:
+            cls.printerror(msg1=&#34;PDB file for topology must be provided&#34;)
+            raise Exception(&#39;chipar.segment.read_topology_from_pdb requires an existing file as argument&#39;)
+
+        isthereconnect = False
+
+        if not isthereconnect:
+               cls._topology.guess_bonds(cls._coords, cls._elements)
+
+        f.close()
+
+        # DEBUG
+        # print (cls._topology)
+        # cls._topology.draw_graph(title=&#34;kk&#34;)
+
+    # ***********************************************************************************
+    def get_coords(cls, atomlist = None):
+
+        if atomlist is None:
+            return cls._coords
+        else:
+            tmp_coords = np.zeros((len(atomlist),3))
+            i = 0
+            for item in atomlist:
+                tmp_coords[i] = cls._coords[item]
+                i += 1
+            return tmp_coords
+
+    # ***********************************************************************************
+    def center_of_mass(cls):
+
+        &#34;&#34;&#34;
+        Calculate the center of mass of the current coordinates
+
+        ``Parameters``:
+            * **None**
+
+        ``Return``:
+            *  **com**: (type: ndarray vector) Coordinates of the center of mass
+
+        &#34;&#34;&#34;
+
+        mtotal = 0.0
+        tmp = np.zeros(3)
+        c = cls.get_coords()
+        for iatom in range(cls._natoms):
+            m = pag.atomic_mass[cls._elements[iatom]]
+            mtotal += m
+            tmp += c[iatom,:]*m
+
+        com = tmp/mtotal
+        return com
+
+    # ***********************************************************************************
+    def center_of_geom(cls):
+
+        &#34;&#34;&#34;
+        Calculate the center of geometry of the current coordinates
+
+        ``Parameters``:
+            * **None**
+
+        ``Return``:
+            *  **cog**: (type: ndarray vector) Coordinates of the geometry center
+
+        &#34;&#34;&#34;
+
+        tmp = np.zeros(3)
+        c = cls.get_coords()
+        for iatom in range(cls._natoms):
+            tmp += c[iatom,:]
+
+        cog = tmp/cls._natoms
+        return cog
+
+    # ***********************************************************************************
+    def translate_vector(cls, v):
+
+        &#34;&#34;&#34;
+        Translate the segment along the vector v.
+        This function changes the coordinates of the segment
+
+        .. image:: translation.png
+
+        The vector p represents the coordinates of each atom.
+
+        ``Parameters``:
+            * **v**: (type: a list or (1,3)-ndarray)
+
+        ``Returns``:
+            * **None**
+
+        &#34;&#34;&#34;
+
+        c = cls.get_coords()
+        for iatom in range(cls._natoms):
+            c[iatom,:] += v
+
+        return None
+
+    # ***********************************************************************************
+    def euler_orientation(cls, iseed=None):
+        &#34;&#34;&#34;
+
+        New coordinates of the atoms accordingly to random Euler angles.
+        There are many definitions of the Euler angles
+        (see: https://en.wikipedia.org/wiki/Euler_angles)
+
+        The definition here used is that given in:
+
+        .. code-block::
+
+            MATHEMATICAL METHODS FOR PHYSICISTS
+            SEVENTH EDITION
+            George B. Arfken, Hans J. Weber, Frank E. Harris
+            pag: 140-142
+
+        .. image:: euler_book.png
+
+        ``Parameters``:
+            * **iseed**
+
+        ``Returns``:
+            * **euler**
+
+        &#34;&#34;&#34;
+
+        # Generate euler angles ========
+        if iseed is None:
+            euler = pag.generate_random_euler_angles()
+        else:
+            euler = pag.generate_random_euler_angles(seed=iseed)
+
+        # Create rotation matrix
+        S = pag.euler_rotation_matrix(euler)
+        # Take the transpose of the coordinates
+        C = np.ascontiguousarray(np.transpose(cls.get_coords()))
+        # Change the coordinates (R) dot-product (column vector of the coordinates)
+        #print(ref.flags)
+        cls._coords = np.ascontiguousarray(np.transpose(np.dot(S,C)))
+
+        return euler
+
+    # ***********************************************************************************
+    def calc_vdw_volume_VABC(cls):
+
+        &#34;&#34;&#34;
+        Calculation of the van der waals volume using the method reported by Zhao et al.
+        &#34;Fast Calculation of van der Waals Volume as a Sum of Atomic and
+        Bond Contributions and Its Application to Drug Compounds&#34;,  J. Org. Chem. 2003, 68, 7368-7373
+
+        The VdW radii and volume are taken from
+        element_vdw_vmd_radius_bondi and element_vdw_vmd_volume_bondi, respectively.
+
+        The formula (4) of the article will be used in this function:
+
+        .. image:: volume_vdw.png
+
+        ``Parameters``:
+            * **None**
+
+        ``Returns``:
+            * **volume_vdw**: Van der waals volume using equation 4 in (angstroms^3/molecule)
+            * **volume_tsar**: Van der waals volume using equation 6 in (angstroms^3/molecule)
+
+        &#34;&#34;&#34;
+
+        s1 = 0.0
+        for iatom in cls._elements:
+            s1 += pag.element_vdw_vmd_volume_bondi[iatom]
+
+        mol = openbabel.OBMol()
+
+        obConversion = openbabel.OBConversion()
+        obConversion.SetInAndOutFormats(&#34;pdb&#34;, &#34;fix&#34;)
+
+        obConversion.ReadFile(mol, cls._filecoord)
+
+        Rg = len(mol.GetSSSR())
+        RA = sum([ 1 for i in mol.GetSSSR() if i.IsAromatic() is True])
+        RNR = Rg - RA
+        NB = cls._natoms - 1 + Rg
+
+        volume_vdw = s1 - 5.92*NB -14.7*RA -3.8*RNR
+
+        volume_tsar = 0.801*volume_vdw + 0.18
+
+        return volume_vdw, volume_tsar
+
+    # ***********************************************************************************
+    def set_charge(cls, charge):
+
+        cls._charge = charge
+        return charge
+
+    # ***********************************************************************************
+    def set_typeatoms(cls, filetypeatoms):
+
+        typelist = []
+        with open(filetypeatoms, &#39;r&#39;) as f:
+            for line in f:
+                i, el, type = line.split()
+                typelist.append(type)
+
+        cls._typeelements = np.asarray(typelist, dtype=np.str)
+        return None</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="polyanagro.BACKUCP.Segment.Segment.calc_vdw_volume_VABC"><code class="name flex">
+<span>def <span class="ident">calc_vdw_volume_VABC</span></span>(<span>cls)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculation of the van der waals volume using the method reported by Zhao et al.
+"Fast Calculation of van der Waals Volume as a Sum of Atomic and
+Bond Contributions and Its Application to Drug Compounds",
+J. Org. Chem. 2003, 68, 7368-7373</p>
+<p>The VdW radii and volume are taken from
+element_vdw_vmd_radius_bondi and element_vdw_vmd_volume_bondi, respectively.</p>
+<p>The formula (4) of the article will be used in this function:</p>
+<p><img alt="" src="volume_vdw.png"></p>
+<p><code>Parameters</code>:
+* <strong>None</strong></p>
+<p><code>Returns</code>:
+* <strong>volume_vdw</strong>: Van der waals volume using equation 4 in (angstroms^3/molecule)
+* <strong>volume_tsar</strong>: Van der waals volume using equation 6 in (angstroms^3/molecule)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def calc_vdw_volume_VABC(cls):
+
+    &#34;&#34;&#34;
+    Calculation of the van der waals volume using the method reported by Zhao et al.
+    &#34;Fast Calculation of van der Waals Volume as a Sum of Atomic and
+    Bond Contributions and Its Application to Drug Compounds&#34;,  J. Org. Chem. 2003, 68, 7368-7373
+
+    The VdW radii and volume are taken from
+    element_vdw_vmd_radius_bondi and element_vdw_vmd_volume_bondi, respectively.
+
+    The formula (4) of the article will be used in this function:
+
+    .. image:: volume_vdw.png
+
+    ``Parameters``:
+        * **None**
+
+    ``Returns``:
+        * **volume_vdw**: Van der waals volume using equation 4 in (angstroms^3/molecule)
+        * **volume_tsar**: Van der waals volume using equation 6 in (angstroms^3/molecule)
+
+    &#34;&#34;&#34;
+
+    s1 = 0.0
+    for iatom in cls._elements:
+        s1 += pag.element_vdw_vmd_volume_bondi[iatom]
+
+    mol = openbabel.OBMol()
+
+    obConversion = openbabel.OBConversion()
+    obConversion.SetInAndOutFormats(&#34;pdb&#34;, &#34;fix&#34;)
+
+    obConversion.ReadFile(mol, cls._filecoord)
+
+    Rg = len(mol.GetSSSR())
+    RA = sum([ 1 for i in mol.GetSSSR() if i.IsAromatic() is True])
+    RNR = Rg - RA
+    NB = cls._natoms - 1 + Rg
+
+    volume_vdw = s1 - 5.92*NB -14.7*RA -3.8*RNR
+
+    volume_tsar = 0.801*volume_vdw + 0.18
+
+    return volume_vdw, volume_tsar</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.BACKUCP.Segment.Segment.center_of_geom"><code class="name flex">
+<span>def <span class="ident">center_of_geom</span></span>(<span>cls)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculate the center of geometry of the current coordinates</p>
+<p><code>Parameters</code>:
+* <strong>None</strong></p>
+<p><code>Return</code>:
+*
+<strong>cog</strong>: (type: ndarray vector) Coordinates of the geometry center</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def center_of_geom(cls):
+
+    &#34;&#34;&#34;
+    Calculate the center of geometry of the current coordinates
+
+    ``Parameters``:
+        * **None**
+
+    ``Return``:
+        *  **cog**: (type: ndarray vector) Coordinates of the geometry center
+
+    &#34;&#34;&#34;
+
+    tmp = np.zeros(3)
+    c = cls.get_coords()
+    for iatom in range(cls._natoms):
+        tmp += c[iatom,:]
+
+    cog = tmp/cls._natoms
+    return cog</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.BACKUCP.Segment.Segment.center_of_mass"><code class="name flex">
+<span>def <span class="ident">center_of_mass</span></span>(<span>cls)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculate the center of mass of the current coordinates</p>
+<p><code>Parameters</code>:
+* <strong>None</strong></p>
+<p><code>Return</code>:
+*
+<strong>com</strong>: (type: ndarray vector) Coordinates of the center of mass</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def center_of_mass(cls):
+
+    &#34;&#34;&#34;
+    Calculate the center of mass of the current coordinates
+
+    ``Parameters``:
+        * **None**
+
+    ``Return``:
+        *  **com**: (type: ndarray vector) Coordinates of the center of mass
+
+    &#34;&#34;&#34;
+
+    mtotal = 0.0
+    tmp = np.zeros(3)
+    c = cls.get_coords()
+    for iatom in range(cls._natoms):
+        m = pag.atomic_mass[cls._elements[iatom]]
+        mtotal += m
+        tmp += c[iatom,:]*m
+
+    com = tmp/mtotal
+    return com</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.BACKUCP.Segment.Segment.check_parameter_consistence"><code class="name flex">
+<span>def <span class="ident">check_parameter_consistence</span></span>(<span>cls)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks the length of the parameters passed through the constructor.</p>
+<p>The length of the x, y, z and element arrays must be equal to the number ot atoms.
+If there is not consistency raises a ValueError otherwise return True.</p>
+<p>Returns:
+| True if all parameters are consistent</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_parameter_consistence(cls):
+
+    &#34;&#34;&#34;Checks the length of the parameters passed through the constructor.
+
+    The length of the x, y, z and element arrays must be equal to the number ot atoms.
+    If there is not consistency raises a ValueError otherwise return True.
+
+    Returns:
+     | True if all parameters are consistent
+
+    &#34;&#34;&#34;
+
+    condition = (cls._coords.shape[0] == cls._natoms)
+
+    if not condition:
+        line = &#34;\n\t======== ERROR ==========\n&#34; \
+               &#34;\tCoordinates arrays must have equal length and equal to number of atoms\n&#34; \
+               &#34;\tLength coords: %d\n&#34; \
+               &#34;\tLength Elements: %d\n&#34;\
+               &#34;\tNumber of atoms: %d\n&#34; \
+                &#34;\tCoordfile: %s\n&#34; \
+                &#34;\tTopofile: %s\n&#34; \
+               &#34;\t======== ERROR ==========\n&#34;%(cls._coords.shape[0] , len(cls._elements), cls._natoms, cls._filecoord, cls._filetop)
+
+        #print(line)
+        cls._logger.error(line)
+        raise ValueError (&#34;Coordinates arrays must have equal length and equal to number of atoms&#34;)
+
+    return None</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.BACKUCP.Segment.Segment.euler_orientation"><code class="name flex">
+<span>def <span class="ident">euler_orientation</span></span>(<span>cls, iseed=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>New coordinates of the atoms accordingly to random Euler angles.
+There are many definitions of the Euler angles
+(see: <a href="https://en.wikipedia.org/wiki/Euler_angles">https://en.wikipedia.org/wiki/Euler_angles</a>)</p>
+<p>The definition here used is that given in:</p>
+<p>.. code-block::</p>
+<pre><code>MATHEMATICAL METHODS FOR PHYSICISTS
+SEVENTH EDITION
+George B. Arfken, Hans J. Weber, Frank E. Harris
+pag: 140-142
+</code></pre>
+<p><img alt="" src="euler_book.png"></p>
+<p><code>Parameters</code>:
+* <strong>iseed</strong></p>
+<p><code>Returns</code>:
+* <strong>euler</strong></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def euler_orientation(cls, iseed=None):
+    &#34;&#34;&#34;
+
+    New coordinates of the atoms accordingly to random Euler angles.
+    There are many definitions of the Euler angles
+    (see: https://en.wikipedia.org/wiki/Euler_angles)
+
+    The definition here used is that given in:
+
+    .. code-block::
+
+        MATHEMATICAL METHODS FOR PHYSICISTS
+        SEVENTH EDITION
+        George B. Arfken, Hans J. Weber, Frank E. Harris
+        pag: 140-142
+
+    .. image:: euler_book.png
+
+    ``Parameters``:
+        * **iseed**
+
+    ``Returns``:
+        * **euler**
+
+    &#34;&#34;&#34;
+
+    # Generate euler angles ========
+    if iseed is None:
+        euler = pag.generate_random_euler_angles()
+    else:
+        euler = pag.generate_random_euler_angles(seed=iseed)
+
+    # Create rotation matrix
+    S = pag.euler_rotation_matrix(euler)
+    # Take the transpose of the coordinates
+    C = np.ascontiguousarray(np.transpose(cls.get_coords()))
+    # Change the coordinates (R) dot-product (column vector of the coordinates)
+    #print(ref.flags)
+    cls._coords = np.ascontiguousarray(np.transpose(np.dot(S,C)))
+
+    return euler</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.BACKUCP.Segment.Segment.get_coords"><code class="name flex">
+<span>def <span class="ident">get_coords</span></span>(<span>cls, atomlist=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_coords(cls, atomlist = None):
+
+    if atomlist is None:
+        return cls._coords
+    else:
+        tmp_coords = np.zeros((len(atomlist),3))
+        i = 0
+        for item in atomlist:
+            tmp_coords[i] = cls._coords[item]
+            i += 1
+        return tmp_coords</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.BACKUCP.Segment.Segment.load_from_disk"><code class="name flex">
+<span>def <span class="ident">load_from_disk</span></span>(<span>cls, path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>pychipar.Segment._load_from_disk</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>path</code></strong></dt>
+<dd>path to the file in the disk</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>s </code></dt>
+<dd>pysimm system object</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_from_disk(cls, path):
+
+    &#34;&#34;&#34;pychipar.Segment._load_from_disk
+
+    Args:
+        path: path to the file in the disk
+
+    Returns:
+        s : pysimm system object
+    &#34;&#34;&#34;
+
+    ext = os.path.splitext (path)[1]
+
+    if ext == &#34;.pdb&#34;:
+        cls.read_pdb_from_scratch(path)
+    elif ext == &#39;.xyz&#39;:
+        cls.read_xyz_from_scratch (path)
+    elif ext == &#39;.gro&#39;:
+        cls.read_gro_from_scratch(path)
+    # elif ext == &#34;.sdf&#34;:
+    #     cls.read_sdf_coordtopo_from_scratch(path)
+    else:
+        cls.printerror (&#34;Unkown molecular format for file: %s&#34; % path)
+        raise Exception(&#34;Unkown molecular format for file: %s&#34;%path)</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.BACKUCP.Segment.Segment.printerror"><code class="name flex">
+<span>def <span class="ident">printerror</span></span>(<span>cls, msg1)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def printerror(cls, msg1):
+
+    cls._logger.error(msg1)</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.BACKUCP.Segment.Segment.read_gro_from_scratch"><code class="name flex">
+<span>def <span class="ident">read_gro_from_scratch</span></span>(<span>cls, gro_path)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read_gro_from_scratch(cls, gro_path):
+
+    if os.path.isfile(gro_path):
+        f = open(gro_path)
+    else:
+        cls.printerror(msg1=&#34;GRO file must be provided&#34;)
+        raise Exception(&#39;chipar.segment.read_gro_from_scratch requires an existing file as argument&#39;)
+
+    f.readline().strip()
+    cls._natoms = int(f.readline().strip())
+
+    iline = 1
+    #chainid = 1
+    xlist = []
+    ylist = []
+    zlist = []
+    elist = []
+    while iline &lt;= cls._natoms:
+        line = f.readline()
+        #resid = int(line[0:5].strip())
+        #resname = line[5:10].strip()
+        atomname = line[10:15] #force field name
+        #tag = int(line[15:20].strip())
+        xlist.append(float(line[20:28].strip())*10)
+        ylist.append(float(line[28:36].strip())*10)
+        zlist.append(float(line[36:44].strip())*10)
+        elist.append(atomname.strip())
+        iline += 1
+
+    cls._coords = np.column_stack((np.asarray(xlist),
+                                    np.asarray(ylist),
+                                    np.asarray(zlist)))
+    cls._elements = np.asarray(elist, dtype=np.str)
+
+    f.close()</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.BACKUCP.Segment.Segment.read_pdb_from_scratch"><code class="name flex">
+<span>def <span class="ident">read_pdb_from_scratch</span></span>(<span>cls, pdb_path)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read_pdb_from_scratch(cls, pdb_path):
+
+    if os.path.isfile(pdb_path):
+        f = open(pdb_path)
+    else:
+        cls.printerror(msg1=&#34;PDB file must exist\n {} does not exist&#34;.format(pdb_path))
+        raise Exception(&#39;chipar.segment.read_pdb_from_scratch requires an existing file as argument: {}&#39;.format(pdb_path))
+
+    cls._natoms = 0
+    xlist = []
+    ylist = []
+    zlist = []
+    elist = []
+    for line in f:
+        if line.startswith(&#39;ATOM&#39;) or line.startswith(&#39;HETATM&#39;):
+            #tag = int(line[6:11].strip())
+            name = line[12:16].strip()
+            #resname = line[17:20].strip()
+            #chainid = line[21]
+            #resid = line[22:26].strip()
+            x = float(line[30:38].strip())
+            y = float(line[38:46].strip())
+            z = float(line[46:54].strip())
+            elem = line[76:78].strip()
+            if elem == &#34;&#34;:
+                elist.append(name.capitalize())
+            else:
+                elist.append(elem.capitalize())
+            xlist.append(x)
+            ylist.append(y)
+            zlist.append(z)
+            cls._natoms += 1
+
+    cls._coords = np.column_stack((np.asarray(xlist),
+                                    np.asarray(ylist),
+                                    np.asarray(zlist)))
+
+    cls._elements = np.asarray(elist, dtype=np.str)
+
+    f.close()</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.BACKUCP.Segment.Segment.read_topology_from_pdb"><code class="name flex">
+<span>def <span class="ident">read_topology_from_pdb</span></span>(<span>cls, path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Try to set up the topology reading a PDB file. The "CONECT" section is
+used to yield the connectivity of the molecule, if present. Otherwise, the
+bonds are guessed.</p>
+<h2 id="attributes">Attributes</h2>
+<p>| <code>path</code>: Path to the PDB file</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read_topology_from_pdb(cls, path):
+
+    &#34;&#34;&#34;
+    Try to set up the topology reading a PDB file. The &#34;CONECT&#34; section is
+    used to yield the connectivity of the molecule, if present. Otherwise, the
+    bonds are guessed.
+
+    Attributes:
+        | ``path``: Path to the PDB file
+
+    &#34;&#34;&#34;
+
+    if os.path.isfile(path):
+        f = open(path)
+    else:
+        cls.printerror(msg1=&#34;PDB file for topology must be provided&#34;)
+        raise Exception(&#39;chipar.segment.read_topology_from_pdb requires an existing file as argument&#39;)
+
+    isthereconnect = False
+    for line in f:
+        if line.startswith(&#39;CONECT&#39;):
+            l = line.split()
+            i = int(l[1])
+            cls._topology.add_vertex(i-1)
+            for jj in l[2:]:
+                j = int(jj)
+                if j &lt; i: continue
+                cls._topology.add_vertex(j-1)
+                cls._topology.add_edge([i-1,j-1])
+                isthereconnect = True
+
+    if not isthereconnect:
+        cls._topology.guess_bonds_topology(cls._coords, cls._elements)
+
+    f.close()</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.BACKUCP.Segment.Segment.read_topology_from_xyz"><code class="name flex">
+<span>def <span class="ident">read_topology_from_xyz</span></span>(<span>cls, path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Try to set up the topology reading a PDB file. The "CONECT" section is
+used to yield the connectivity of the molecule, if present. Otherwise, the
+bonds are guessed.</p>
+<h2 id="attributes">Attributes</h2>
+<p>| <code>path</code>: Path to the PDB file</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read_topology_from_xyz(cls, path):
+
+    &#34;&#34;&#34;
+    Try to set up the topology reading a PDB file. The &#34;CONECT&#34; section is
+    used to yield the connectivity of the molecule, if present. Otherwise, the
+    bonds are guessed.
+
+    Attributes:
+        | ``path``: Path to the PDB file
+
+    &#34;&#34;&#34;
+
+    if os.path.isfile(path):
+        f = open(path)
+    else:
+        cls.printerror(msg1=&#34;PDB file for topology must be provided&#34;)
+        raise Exception(&#39;chipar.segment.read_topology_from_pdb requires an existing file as argument&#39;)
+
+    isthereconnect = False
+
+    if not isthereconnect:
+           cls._topology.guess_bonds(cls._coords, cls._elements)
+
+    f.close()</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.BACKUCP.Segment.Segment.read_xyz_from_scratch"><code class="name flex">
+<span>def <span class="ident">read_xyz_from_scratch</span></span>(<span>cls, xyz_path)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read_xyz_from_scratch(cls, xyz_path):
+
+    if os.path.isfile(xyz_path):
+        f = open(xyz_path)
+    else:
+        cls.printerror(msg1=&#34;XYZ file must be provided&#34;)
+        raise Exception(&#39;chipar.segment.read_xyz_from_scratch requires an existing file as argument&#39;)
+
+    nparticles = int(f.readline().strip())
+
+    cls._natoms = 0
+    xlist = []
+    ylist = []
+    zlist = []
+    elist = []
+    f.readline().strip()
+    for _ in range(nparticles):
+        elem, x, y, z = f.readline().split()
+        xlist.append(float(x))
+        ylist.append(float(y))
+        zlist.append(float(z))
+        elist.append(elem.capitalize())
+        cls._natoms += 1
+
+    cls._coords = np.column_stack((np.asarray(xlist),
+                                    np.asarray(ylist),
+                                    np.asarray(zlist)))
+    cls._elements = np.asarray(elist, dtype=np.str)
+
+    assert int(nparticles == cls._natoms), \
+        &#34;Number of particles in the header is different to the read atoms in the xyz file&#34;
+    f.close()</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.BACKUCP.Segment.Segment.set_charge"><code class="name flex">
+<span>def <span class="ident">set_charge</span></span>(<span>cls, charge)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_charge(cls, charge):
+
+    cls._charge = charge
+    return charge</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.BACKUCP.Segment.Segment.set_topology_from_disk"><code class="name flex">
+<span>def <span class="ident">set_topology_from_disk</span></span>(<span>cls, path)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_topology_from_disk(cls, path):
+
+    ext = os.path.splitext (path)[1]
+
+    if ext == &#34;.pdb&#34;:
+        cls._topology = pag.Topology(natoms=cls._natoms)
+        cls.read_topology_from_pdb(path)
+    elif ext == &#34;.xyz&#34;:
+        cls._topology = pag.Topology(natoms=cls._natoms)
+        cls.read_topology_from_xyz(path)
+    elif ext == &#34;.sdf&#34;:
+        &#34;The topology is already set up in the &#34; \
+        &#34;read_sdf_coordtopo_from_scratch method&#34;
+        pass
+    else:
+        cls.printerror (&#34;Unkown topology format for file: %s&#34; % path)
+        raise Exception(&#34;Unkown topology format for file: %s&#34;%path)</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.BACKUCP.Segment.Segment.set_typeatoms"><code class="name flex">
+<span>def <span class="ident">set_typeatoms</span></span>(<span>cls, filetypeatoms)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_typeatoms(cls, filetypeatoms):
+
+    typelist = []
+    with open(filetypeatoms, &#39;r&#39;) as f:
+        for line in f:
+            i, el, type = line.split()
+            typelist.append(type)
+
+    cls._typeelements = np.asarray(typelist, dtype=np.str)
+    return None</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.BACKUCP.Segment.Segment.translate_vector"><code class="name flex">
+<span>def <span class="ident">translate_vector</span></span>(<span>cls, v)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Translate the segment along the vector v.
+This function changes the coordinates of the segment</p>
+<p><img alt="" src="translation.png"></p>
+<p>The vector p represents the coordinates of each atom.</p>
+<p><code>Parameters</code>:
+* <strong>v</strong>: (type: a list or (1,3)-ndarray)</p>
+<p><code>Returns</code>:
+* <strong>None</strong></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def translate_vector(cls, v):
+
+    &#34;&#34;&#34;
+    Translate the segment along the vector v.
+    This function changes the coordinates of the segment
+
+    .. image:: translation.png
+
+    The vector p represents the coordinates of each atom.
+
+    ``Parameters``:
+        * **v**: (type: a list or (1,3)-ndarray)
+
+    ``Returns``:
+        * **None**
+
+    &#34;&#34;&#34;
+
+    c = cls.get_coords()
+    for iatom in range(cls._natoms):
+        c[iatom,:] += v
+
+    return None</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="polyanagro.BACKUCP" href="index.html">polyanagro.BACKUCP</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="polyanagro.BACKUCP.Segment.Segment" href="#polyanagro.BACKUCP.Segment.Segment">Segment</a></code></h4>
+<ul class="">
+<li><code><a title="polyanagro.BACKUCP.Segment.Segment.calc_vdw_volume_VABC" href="#polyanagro.BACKUCP.Segment.Segment.calc_vdw_volume_VABC">calc_vdw_volume_VABC</a></code></li>
+<li><code><a title="polyanagro.BACKUCP.Segment.Segment.center_of_geom" href="#polyanagro.BACKUCP.Segment.Segment.center_of_geom">center_of_geom</a></code></li>
+<li><code><a title="polyanagro.BACKUCP.Segment.Segment.center_of_mass" href="#polyanagro.BACKUCP.Segment.Segment.center_of_mass">center_of_mass</a></code></li>
+<li><code><a title="polyanagro.BACKUCP.Segment.Segment.check_parameter_consistence" href="#polyanagro.BACKUCP.Segment.Segment.check_parameter_consistence">check_parameter_consistence</a></code></li>
+<li><code><a title="polyanagro.BACKUCP.Segment.Segment.euler_orientation" href="#polyanagro.BACKUCP.Segment.Segment.euler_orientation">euler_orientation</a></code></li>
+<li><code><a title="polyanagro.BACKUCP.Segment.Segment.get_coords" href="#polyanagro.BACKUCP.Segment.Segment.get_coords">get_coords</a></code></li>
+<li><code><a title="polyanagro.BACKUCP.Segment.Segment.load_from_disk" href="#polyanagro.BACKUCP.Segment.Segment.load_from_disk">load_from_disk</a></code></li>
+<li><code><a title="polyanagro.BACKUCP.Segment.Segment.printerror" href="#polyanagro.BACKUCP.Segment.Segment.printerror">printerror</a></code></li>
+<li><code><a title="polyanagro.BACKUCP.Segment.Segment.read_gro_from_scratch" href="#polyanagro.BACKUCP.Segment.Segment.read_gro_from_scratch">read_gro_from_scratch</a></code></li>
+<li><code><a title="polyanagro.BACKUCP.Segment.Segment.read_pdb_from_scratch" href="#polyanagro.BACKUCP.Segment.Segment.read_pdb_from_scratch">read_pdb_from_scratch</a></code></li>
+<li><code><a title="polyanagro.BACKUCP.Segment.Segment.read_topology_from_pdb" href="#polyanagro.BACKUCP.Segment.Segment.read_topology_from_pdb">read_topology_from_pdb</a></code></li>
+<li><code><a title="polyanagro.BACKUCP.Segment.Segment.read_topology_from_xyz" href="#polyanagro.BACKUCP.Segment.Segment.read_topology_from_xyz">read_topology_from_xyz</a></code></li>
+<li><code><a title="polyanagro.BACKUCP.Segment.Segment.read_xyz_from_scratch" href="#polyanagro.BACKUCP.Segment.Segment.read_xyz_from_scratch">read_xyz_from_scratch</a></code></li>
+<li><code><a title="polyanagro.BACKUCP.Segment.Segment.set_charge" href="#polyanagro.BACKUCP.Segment.Segment.set_charge">set_charge</a></code></li>
+<li><code><a title="polyanagro.BACKUCP.Segment.Segment.set_topology_from_disk" href="#polyanagro.BACKUCP.Segment.Segment.set_topology_from_disk">set_topology_from_disk</a></code></li>
+<li><code><a title="polyanagro.BACKUCP.Segment.Segment.set_typeatoms" href="#polyanagro.BACKUCP.Segment.Segment.set_typeatoms">set_typeatoms</a></code></li>
+<li><code><a title="polyanagro.BACKUCP.Segment.Segment.translate_vector" href="#polyanagro.BACKUCP.Segment.Segment.translate_vector">translate_vector</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.8.4</a>.</p>
+</footer>
+</body>
+</html>

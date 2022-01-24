@@ -1,0 +1,17 @@
+`polyanagro` analyzes polymer trajectories from MD or MC calculations
+
+Tutorial 01. Set up a trajectory and topology system
+----------------------------------------------------
+* Load a single trajectory file without topology file:
+
+.. code::
+
+    >>> import polyanagro as pag
+    ... xtc1 = "../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc"
+    ... trj  = pag.Trajectory([xtc1], topfile=filename_tpr, logger=cls.log)
+
+
+
+
+.. image:: ../figures/graph04.png
+	:height: 400

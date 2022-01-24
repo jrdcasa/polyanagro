@@ -1,0 +1,46 @@
+	*** Creating a trajectory from...
+	../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc
+	../data/0003Ch-C020-002br04/RUN-002/traj_comp.part0002.xtc
+	../data/0003Ch-C020-002br04/RUN-003/traj_comp.part0003.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	*** Backbone atoms have been assigned to the topology.
+	Topology file: ../data/0003Ch-C020-002br04/namd_out.psf
+	TIME(Building_bonds_from_topology): 0.010216 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../data/0003Ch-C020-002br04/namd_out.psf
+	Number of frames: 303
+	TIME(Adding topology): 0.00797 seconds
+	*** End Adding topology
+
+	Number of frames: 303
+	TIME(Read_Trajectories): 0.018527 seconds
+	*** End Creating a trajectory 
+
+	*** Backbone atoms have been assigned to the topology.
+	Topology file: ../data/0003Ch-C020-002br04/namd_out.psf
+	*** Creating a trajectory from...
+	../data/0003Ch-C191-001br04_crystal/traj.dcd
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	*** Backbone atoms have been assigned to the topology.
+	Topology file: ../data/0003Ch-C191-001br04_crystal/namd.psf
+	TIME(Building_bonds_from_topology): 0.030996 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../data/0003Ch-C191-001br04_crystal/namd.psf
+	Number of frames: 13
+	TIME(Adding topology): 0.009906 seconds
+	*** End Adding topology
+
+	Number of frames: 13
+	TIME(Read_Trajectories): 0.041243 seconds
+	*** End Creating a trajectory 
+
+	*** Backbone atoms have been assigned to the topology.
+	Topology file: ../data/0003Ch-C191-001br04_crystal/namd.psf
