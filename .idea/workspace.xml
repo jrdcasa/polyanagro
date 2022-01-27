@@ -99,7 +99,7 @@
       <recent name="$PROJECT_DIR$/test/numba" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.cmds polymer_size big">
+  <component name="RunManager" selected="Python.setup install">
     <configuration name="01-example_Rg" type="PythonConfigurationType" factoryName="Python">
       <module name="polyanagro" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -722,7 +722,7 @@
       <workItem from="1640532801357" duration="598000" />
       <workItem from="1640534713917" duration="2899000" />
       <workItem from="1642694199149" duration="41822000" />
-      <workItem from="1643101467381" duration="53125000" />
+      <workItem from="1643101467381" duration="54303000" />
     </task>
     <servers />
   </component>
@@ -1045,7 +1045,7 @@
     <SUITE FILE_PATH="coverage/polyanagro$test_topology.coverage" NAME="test_topology Coverage Results" MODIFIED="1639419955263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/topology/test/Test-Topology" />
     <SUITE FILE_PATH="coverage/polyanagro$test_molecular_graph.coverage" NAME="test_molecular_graph Coverage Results" MODIFIED="1640339662622" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/topology/test/Test-MolecularGraphs" />
     <SUITE FILE_PATH="coverage/polyanagro$test_radiusofgyration.coverage" NAME="test_radiusofgyration Coverage Results" MODIFIED="1642788153780" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/polyanagro$setup_install.coverage" NAME="setup install Coverage Results" MODIFIED="1643190832400" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/polyanagro$setup_install.coverage" NAME="setup install Coverage Results" MODIFIED="1643291582350" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/polyanagro$Unittests_for_test_mdtraj_library_MDTRAJTests_test_01_UApolTrappe.coverage" NAME="Unittests for test_mdtraj_library.MDTRAJTests.test_01_UApolTrappe Coverage Results" MODIFIED="1596123827007" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/polyanagro$04_test_odf.coverage" NAME="01-odf-250br Coverage Results" MODIFIED="1615979733567" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/media/jramos/PEBranch/0075Ch-C500-250br02_b/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_POLYANAGRO" />
     <SUITE FILE_PATH="coverage/polyanagro$test_stemgroup_test02.coverage" NAME="test_stemgroup_test02 Coverage Results" MODIFIED="1635181157406" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />

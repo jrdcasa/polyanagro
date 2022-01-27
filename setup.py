@@ -1,5 +1,4 @@
 import logging
-import numpy
 from datetime import datetime
 import os
 import shutil
@@ -215,6 +214,12 @@ if __name__ == '__main__':
     f1.setFormatter(CustomFormatter())
     logger.addHandler(f1)
 
+    # Check for swig (http://www.swig.org)
+    if os.system("which swig"):
+        m = "ERROR install SWIG in your system (http://www.swig.org)"
+        print(m) if logger is None else logger.info(m)
+        exit()
+
     # Print sys path ===================================
     m1 = "\t\t SYS PATH\n"
     for item in sys.path:
@@ -244,6 +249,7 @@ if __name__ == '__main__':
 
     # Setup POLYANAGRO ===========================================
     from Cython.Build import cythonize
+    import numpy
 
     # Extensions
     extensions = setup_external_extensions()

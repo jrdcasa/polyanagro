@@ -9,15 +9,15 @@
 /home/jramos/PycharmProjects/sandbox_polyanagro/lib/python3.8/site-packages/polyanagro-0.1-py3.8-linux-x86_64.egg
 /opt/pycharm-2020.1/plugins/python/helpers/pycharm_matplotlib_backend
 
-		 INSTALLING PIP PACKAGES (26/01/2022 10:53:52)
+		 INSTALLING PIP PACKAGES (27/01/2022 14:53:02)
 
-26/01/2022 10:53:53: ** POLYANAGRO: Installing GitPython==3.1.1
-26/01/2022 10:53:54: ** POLYANAGRO: Installing h5py
+27/01/2022 14:53:03: ** POLYANAGRO: Installing GitPython==3.1.1
+27/01/2022 14:53:05: ** POLYANAGRO: Installing h5py
 
 		 INSTALLING TOPOLOGY LIBRARY INTO THE PYTHON ENVIRONMENT FROM GITHUB
 
-26/01/2022 10:53:55: ** POLYANAGRO: topology library is already installed in your system. https://github.com/jrdcasa/topology.git
+27/01/2022 14:53:05: ** POLYANAGRO: topology library is already installed in your system. https://github.com/jrdcasa/topology.git
 
-		 RUNNING SETUP FROM SETUPTOOLS 26/01/2022 10:53:55
+		 RUNNING SETUP FROM SETUPTOOLS 27/01/2022 14:53:05
 
 
