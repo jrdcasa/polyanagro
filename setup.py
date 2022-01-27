@@ -1,4 +1,5 @@
 import logging
+import numpy
 from datetime import datetime
 import os
 import shutil
@@ -252,4 +253,6 @@ if __name__ == '__main__':
     print(os.getcwd())
     setup(
         ext_modules=cythonize(extensions,
-                              compiler_directives={'language_level': sys.version_info[0]}))
+                              compiler_directives={'language_level': sys.version_info[0]}),
+        include_dirs=[numpy.get_include()])
+
