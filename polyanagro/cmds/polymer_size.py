@@ -198,14 +198,16 @@ def print_header(version, logger_log=None):
     print(m) if logger_log is None else logger_log.info(m)
 
 # =============================================================================
-def main_app(version):
+def main_app():
+
+    import polyanagro as pag
 
     # Parse arguments
     args = parse_arguments()
     # Setup log
     log = utils.init_logger("Output", fileoutput=args.log, append=False, inscreen=False)
     # Write header and arguments
-    print_header(version, log)
+    print_header(pag.version.__version__, log)
     # Load trajectory
     trj = topology.ExtTrajectory(args.traj, topfile=args.topo, logger=log)
     # Create object to calculate
@@ -230,5 +232,4 @@ def main_app(version):
 # =============================================================================
 if __name__ == "__main__":
 
-    import polyanagro as pag
-    main_app(pag.version.__version__)
+    main_app()
