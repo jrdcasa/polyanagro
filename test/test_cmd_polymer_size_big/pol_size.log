@@ -1,3 +1,31 @@
+
+    ***********************************************************************
+                         Polymer size calculations 
+              ----------------------------------------------
+
+                                Version 0.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an 
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 27-01-2022 13:06:15 ============
+
+		Command line: 
+			python polymer_size.py -t ../../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/traj_comp.xtc ../../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/02-RESTART-1000-2000ns/traj_comp.part0002.xtc ../../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/03-RESTART-2000-3000ns/traj_comp.part0003.xtc --tpr ../../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/topol.tpr --e2e ../../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/listend2end.dat --c2n ../../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/backbone_idx.dat --e2acf --distributions --bondorientation
+			         or
+			polymer_size -t ../../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/traj_comp.xtc ../../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/02-RESTART-1000-2000ns/traj_comp.part0002.xtc ../../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/03-RESTART-2000-3000ns/traj_comp.part0003.xtc --tpr ../../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/topol.tpr --e2e ../../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/listend2end.dat --c2n ../../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/backbone_idx.dat --e2acf --distributions --bondorientation
+
 	*** Creating a trajectory from...
 	../../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/traj_comp.xtc
 	../../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/02-RESTART-1000-2000ns/traj_comp.part0002.xtc
@@ -5,17 +33,17 @@
 
 	*** Building bonds from topology... 
 	Setting bond orders: FALSE
-	TIME(Building_bonds_from_topology): 29.322099 seconds
+	TIME(Building_bonds_from_topology): 26.819843 seconds
 	*** End Building bonds from topology... 
 
 	*** Adding topology 
 	../../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/topol.tpr
 	Number of frames: 151
-	TIME(Adding topology): 1.47864 seconds
+	TIME(Adding topology): 1.511253 seconds
 	*** End Adding topology
 
 	Number of frames: 151
-	TIME(Read_Trajectories): 30.801159 seconds
+	TIME(Read_Trajectories): 28.331514 seconds
 	*** End Creating a trajectory 
 
 	*** Molecular weigth...
@@ -31,6 +59,27 @@
 	End to End distance to be written to ./Ree.dat 
 
 	Unwrap PBC coordinates: True
-	IFRAME: 0 in 0.142686 seconds
-	IFRAME: 50 in 19.226058 seconds
-	IFRAME: 100 in 39.691692 seconds
+	IFRAME: 0 in 0.140715 seconds
+	IFRAME: 50 in 21.992554 seconds
+	IFRAME: 100 in 39.609583 seconds
+	IFRAME: 150 in 58.093798 seconds
+
+	TIME(Chain dimensions): 58.483347 seconds
+	*** End Calculating Chain Dimensions.
+
+	*** Calculating End-to-End autocorrelation vector...
+	TIME(End-to-End autocorrelation vector): 0.006886 seconds
+	*** End Calculating End-to-End autocorrelation vector.
+
+	*** Calculating distributions...
+	TIME(Distributions): 0.003466 seconds
+	*** End distributions calculation.
+
+	*** Average values ***
+		 Rg_avg     =    1721.28 +-      82.10 (angstroms)
+		 Ree_avg    =   10575.22 +-     832.86 (angstroms)
+		 Ree^2/Rg^2 =       6.14 +-       0.30 (angstroms)
+		 Cn_avg     =       8.93 +-       0.70 
+
+		Job  Done at 27-01-2022 13:07:42 ============
+

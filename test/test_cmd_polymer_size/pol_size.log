@@ -1,0 +1,88 @@
+
+    ***********************************************************************
+                         Polymer size calculations 
+              ----------------------------------------------
+
+                                Version 0.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an 
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 27-01-2022 13:05:51 ============
+
+		Command line: 
+			python polymer_size.py -t ../../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc ../../data/0003Ch-C020-002br04/RUN-002/traj_comp.part0002.xtc ../../data/0003Ch-C020-002br04/RUN-003/traj_comp.part0003.xtc --tpr ../../data/0003Ch-C020-002br04/RUN-001/topol.tpr --e2e ../../data/0003Ch-C020-002br04/RUN-001/listend2end.dat --c2n ../../data/0003Ch-C020-002br04/RUN-001/backbone_idx.dat --e2acf --distributions --bondorientation
+			         or
+			polymer_size -t ../../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc ../../data/0003Ch-C020-002br04/RUN-002/traj_comp.part0002.xtc ../../data/0003Ch-C020-002br04/RUN-003/traj_comp.part0003.xtc --tpr ../../data/0003Ch-C020-002br04/RUN-001/topol.tpr --e2e ../../data/0003Ch-C020-002br04/RUN-001/listend2end.dat --c2n ../../data/0003Ch-C020-002br04/RUN-001/backbone_idx.dat --e2acf --distributions --bondorientation
+
+	*** Creating a trajectory from...
+	../../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc
+	../../data/0003Ch-C020-002br04/RUN-002/traj_comp.part0002.xtc
+	../../data/0003Ch-C020-002br04/RUN-003/traj_comp.part0003.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 0.010356 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../../data/0003Ch-C020-002br04/RUN-001/topol.tpr
+	Number of frames: 301
+	TIME(Adding topology): 0.009387 seconds
+	*** End Adding topology
+
+	Number of frames: 301
+	TIME(Read_Trajectories): 0.020001 seconds
+	*** End Creating a trajectory 
+
+	*** Molecular weigth...
+
+	Average Molecular Weight (g/mol) : 338.70
+
+	*** Calculating Radius of gyration...
+
+	Radius of gyration to be written to ./Rg.dat 
+
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ./Ree.dat 
+
+	Unwrap PBC coordinates: True
+	IFRAME: 0 in 0.001137 seconds
+	IFRAME: 50 in 0.114492 seconds
+	IFRAME: 100 in 0.235736 seconds
+	IFRAME: 150 in 0.350182 seconds
+	IFRAME: 200 in 0.460083 seconds
+	IFRAME: 250 in 0.614794 seconds
+	IFRAME: 300 in 0.7254 seconds
+
+	TIME(Chain dimensions): 0.728863 seconds
+	*** End Calculating Chain Dimensions.
+
+	*** Calculating End-to-End autocorrelation vector...
+	TIME(End-to-End autocorrelation vector): 0.006377 seconds
+	*** End Calculating End-to-End autocorrelation vector.
+
+	*** Calculating distributions...
+	TIME(Distributions): 0.001517 seconds
+	*** End distributions calculation.
+
+	*** Average values ***
+		 Rg_avg     =      25.76 +-       3.01 (angstroms)
+		 Ree_avg    =     164.34 +-      52.67 (angstroms)
+		 Ree^2/Rg^2 =       6.27 +-       1.47 (angstroms)
+		 Cn_avg     =       3.64 +-       1.16 
+
+		Job  Done at 27-01-2022 13:05:52 ============
+

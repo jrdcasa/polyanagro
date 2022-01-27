@@ -1,8 +1,10 @@
-import polyanagro as pag
 import argparse
-import topology
 import utils
 import os
+import sys
+import datetime
+import topology
+
 
 # =============================================================================
 def parse_arguments():
@@ -18,6 +20,12 @@ def parse_arguments():
 
     parser.add_argument("--stride", dest="stride",
                         help="Take a frame each stride frames, for example 10",
+                        action="store", required=False, default=1)
+
+    parser.add_argument("--fraction_trj_avg", dest="frac_avg",
+                        help="Fraction of the trajectory to calculate the averages. "
+                             "Example: 0.25 means that the 25% first frames are discarted "
+                             "in the average calculation.",
                         action="store", required=False, default=1)
 
     parser.add_argument("--e2e", dest="listee",
@@ -38,18 +46,25 @@ def parse_arguments():
                              i) a label [ mol01 ], ii) after a list of the backbone atoms in the mol01. 
                              You need as much labels as chains or molecules in your system """)
 
-    group2 = parser.add_mutually_exclusive_group(required=True)
+    parser.add_argument("--log", dest="log",
+                        help="Name of the file to write logs from this command",
+                        action="store", required=False, default="pol_size.log")
 
+    parser.add_argument("-d", "--distributions", dest="isdist",
+                        help="Calculate Ree and Rg distributions",
+                        action="store_true", required=False)
+
+    parser.add_argument("--bondorientation", dest="isbondorientation",
+                        help="Calculate intermolecular bond orientation",
+                        action="store_true", required=False)
+
+    group2 = parser.add_mutually_exclusive_group(required=True)
     group2.add_argument("--tpr", dest="topo",
                         help="A topology file in tpr format.",
                         action="store")
     group2.add_argument("--psf", dest="topo",
                         help="A topology file in psf format.",
                         action="store")
-
-    parser.add_argument("--log", dest="log",
-                        help="Name of the file to write logs from this command",
-                        action="store", required=False, default="pol_size.log")
 
     args = parser.parse_args()
 
@@ -68,6 +83,10 @@ def parse_arguments():
 
     if args.listbb and not os.path.isfile(args.listbb):
         print("\nERROR: File {} does not exist\n".format(args.listbb))
+        exit()
+
+    if args.frac_avg > 1:
+        print("\nERROR: Fraction must a number between 0 and 1\n".format(args.listbb))
         exit()
 
     return args
@@ -105,7 +124,6 @@ def get_listend(args):
 # =============================================================================
 def get_backbone_atoms(args, natoms):
 
-
     if args.listbb is None:
         iscn = False
         backbone_list_atoms = None
@@ -130,40 +148,87 @@ def get_backbone_atoms(args, natoms):
                             for item in n:
                                 backbone_list_atoms[ich].append(int(item))
                                 isbbatom[int(item)] = "True"
-
+        else:
+            print("TODO!!!! pdb FILE AS TEMPLATE")
 
 
     return iscn, backbone_list_atoms, isbbatom
 
+# =============================================================================
+def print_header(version, logger_log=None):
+
+    msg = """
+    ***********************************************************************
+                         Polymer size calculations 
+              ----------------------------------------------
+
+                                Version {}
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an 
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        """.format(version)
+
+    print(msg) if logger_log is None else logger_log.info(msg)
+
+    now = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+
+    m = "\t\tStart Job at {} ============".format(now)
+    print(m) if logger_log is None else logger_log.info(m)
+
+    m1 = ""
+    for item in sys.argv[1:]:
+        m1 += " {}".format(item)
+    m = "\n\t\tCommand line: \n"
+    m += "\t\t\tpython {}".format(os.path.split(sys.argv[0])[1])
+    m += m1 + "\n"
+    m += "\t\t\t         or\n"
+    m += "\t\t\tpolymer_size".format(os.path.split(sys.argv[0])[1])
+    m += m1 + "\n"
+    print(m) if logger_log is None else logger_log.info(m)
 
 # =============================================================================
-def main_app():
+def main_app(version):
 
     # Parse arguments
     args = parse_arguments()
     # Setup log
     log = utils.init_logger("Output", fileoutput=args.log, append=False, inscreen=False)
+    # Write header and arguments
+    print_header(version, log)
     # Load trajectory
     trj = topology.ExtTrajectory(args.traj, topfile=args.topo, logger=log)
     # Create object to calculate
     objcalc = pag.Chain_Statistics(trj, dt=trj.dt, stride=args.stride, log=log)
-    # Check end2end and the list
-    backbone_list_atoms = None
-    is_bb_atoms = None
-
+    # Check end2end and backbone lists
     isree, isreeacf, listend2end = get_listend(args)
     iscnn, backbone_list_atoms, isbbatom = get_backbone_atoms(args, trj.topology.natoms)
-
-    objcalc.calculate(listend2end, diroutput="./", isree=isree, isrg=True, iscn=True, acfE2E=isreeacf,
-                      distributions=False, molecularweight=True, calc_Cn_bonds_distances=True,
-                      single_Cn_unitvector=True, begin=0, unwrap_pbc=True,
-                      backbone_list_atoms=backbone_list_atoms,
+    # Calculate chain dimensions
+    objcalc.calculate(listend2end, diroutput="./", isree=isree, isrg=True, iscn=iscnn, acfE2E=isreeacf,
+                      distributions=args.isdist, molecularweight=True, calc_Cn_bonds_distances=True,
+                      single_Cn_unitvector=False, begin=0, unwrap_pbc=True,
+                      backbone_list_atoms=backbone_list_atoms, isbondorientation=args.isbondorientation,
                       isbbatom=isbbatom)
 
+    objcalc.statistics(args.frac_avg)
 
+    now = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+    m = "\t\tJob  Done at {} ============\n".format(now)
+    print(m) if log is None else log.info(m)
 
 
 # =============================================================================
 if __name__ == "__main__":
 
-    main_app()
+    import polyanagro as pag
+    main_app(pag.version.__version__)

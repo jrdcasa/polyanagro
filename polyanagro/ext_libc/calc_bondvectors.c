@@ -21,7 +21,7 @@ static void c_setup_odf_intra(int maxnbondsperch) {
 
     // Initialize arrays
 
-    // Number of bonds per chain. TODO: Test if it works with different lenght chains
+    // Number of bonds per chain. TODO: Test if it works with different length chains
     int nbondsperchain = maxnbondsperch; //nbin
 
     if ( ((N  = (int*)  malloc(sizeof(int)      * (nbondsperchain+1)) ) == NULL) ||
@@ -92,7 +92,7 @@ static float c_unit_bond_vectors(int natoms, int nchains, int nbonds, int maxnbo
 {
 
     /*
-        Calculate the unit vectors
+        Calculate the unit vectors. Calculate Cn and data for persistence of lenth (bond-bond correlation decay)
 
     natoms [int]         --> Total number of atoms in the system
     nchains [int]        --> Total number of chains in the system
@@ -113,6 +113,9 @@ static float c_unit_bond_vectors(int natoms, int nchains, int nbonds, int maxnbo
         2) s = sum(i=0, maxnbondsperch-2])corr[i]
         3) Cn using the formula from (2.9) to (2.11) in Polymer Physics (M.Rubinstein-RH Colby)
            A similar formula (Eq.8) can be found in C.A. Helfer, W.L. Mattice / Polymer 46 (2005) 4361–4367
+           I have check that both formulas give the same results
+           I have implemented the second one.
+
     */
 
     int dim1 = 2;
@@ -122,7 +125,10 @@ static float c_unit_bond_vectors(int natoms, int nchains, int nbonds, int maxnbo
     float c1[3], c2[3];
     int ilocalbond = -1;
     int ich_prev;
-    float s, cn;
+    float cn[nchains];
+    float cn_avg;
+    float corr;
+    float tmp;
 
     // Bonds =============== Calculate the uux, uuy and uuz vectors
     ich_prev = 0;
@@ -163,41 +169,29 @@ static float c_unit_bond_vectors(int natoms, int nchains, int nbonds, int maxnbo
 //        printf("============\n");
     }
 
-    // Correlation Factor <ui*uj>
-    //  corr[j-i] =
-    float corr[maxnbondsperch-1];
-    int nel[maxnbondsperch-1];
-
-    for (int i=0; i<maxnbondsperch; i++) {
-        corr[i] = 0.0;
-        nel[i] = 0;
-    }
-
+    // Cn calculation
+    //  corr[j-i] = ui*uj
+    cn_avg = 0.0;
     for (int ich=0; ich<nchains; ich++) {
+        corr = 0.0;
         for (int i=0; i<maxnbondsperch-1; i++) {
             for (int j=i+1; j<maxnbondsperch; j++) {
-                corr[j-i-1] += uux[ich*maxnbondsperch+i]*uux[ich*maxnbondsperch+j]+
-                               uuy[ich*maxnbondsperch+i]*uuy[ich*maxnbondsperch+j]+
-                               uuz[ich*maxnbondsperch+i]*uuz[ich*maxnbondsperch+j];
-                nel[j-i-1] += 1;
-            }
+                tmp =  uux[ich*maxnbondsperch+i]*uux[ich*maxnbondsperch+j]+
+                       uuy[ich*maxnbondsperch+i]*uuy[ich*maxnbondsperch+j]+
+                       uuz[ich*maxnbondsperch+i]*uuz[ich*maxnbondsperch+j];
+                corr += tmp;
 
+            }
         }
 
+        cn[ich] = 1. +  2./maxnbondsperch*corr;
+        //printf("%d %f %f\n",ich, corr, cn[ich]);
+        cn_avg += cn[ich];
     }
 
-    s = 0.0;
-    for (int i=0; i<maxnbondsperch-1; i++) {
-        corr[i] /= nel[i];
-        s+=corr[i];
-        //printf("%d %d %f %d\n", i, i+1, corr[i], nel[i]);
+    cn_avg = cn_avg/nchains;
 
-    }
-
-    cn = 1+2*s;
-    //printf("SSSSSSSS: %f Cn: %f\n",s, 1+2*s);
-
-    return cn;
+    return cn_avg;
 
 }
 
@@ -392,6 +386,103 @@ void c_avg_write_odf_intra(int nframes, int maxnbondsperch, char* filename) {
     }
 
     fclose(fp);
+
+}
+
+static void c_bond_bond_orientation(int natoms, int nchains, int nbonds,
+                                     int maxnbondsperch, int* bonds, float* coords,
+                                     int* iatch, float *cbb)
+{
+
+    /*
+        Calculate the unit vectors. Calculate Cn and data for persistence of lenth (bond-bond correlation decay)
+
+    natoms [int]         --> Total number of atoms in the system
+    nchains [int]        --> Total number of chains in the system
+    nbonds [int]         --> Number of backbone bonds
+    maxnbondsperch [int] --> Maximum number of backbone bonds in a chain
+    bonds [nbonds,2]     --> Each row is a bond. Example bonds[2,0] = 2 and bonds[2,1] =3 means a bond 2-3
+    coords[natoms,3]     --> Coordinates of the ith-atom
+    iatch[natoms]        --> iatch[i]=j --> The i-th atom is in the j-ch chain
+
+    Calculate several things:
+
+        1) The bond-bond correlation decay is calculates using the formula (3) in
+            Salerno et al. J. Chem. Theory Comput. 2018, 14, 2219-2229
+            cbb(m) = <bi*bi+m/|bi||bi+m|> = <ui*ui+m>
+    */
+
+    int dim1 = 2;
+    int dim2 = 3;
+    int at1, at2, ich1, ich2;
+    float uu_vector[4]; //= malloc(4*sizeof(float));
+    float c1[3], c2[3];
+    int ilocalbond = -1;
+    int ich_prev;
+    int m;
+    float tmp;
+    float uux[nchains*maxnbondsperch];
+    float uuy[nchains*maxnbondsperch];
+    float uuz[nchains*maxnbondsperch];
+    float cbb_nelem[maxnbondsperch-1];
+
+    // Bonds =============== Calculate the uux, uuy and uuz vectors
+    ich_prev = 0;
+    for (int ibond=0; ibond<nbonds; ibond++) {
+        at1 = bonds[ibond*dim1+0];
+        at2 = bonds[ibond*dim1+1];
+        ich1 = iatch[at1];
+        ich2 = iatch[at2];
+
+        if (ich1 != ich2) {
+            printf("Something is wrong in c_unit_bond_vectors()!!!!\n");
+            printf("Expected %d and %d be in the same chains", at1, at2);
+            printf("Chains %d and %d", ich1, ich2);
+            continue;
+        }
+
+        if (ich1 != ich_prev) {
+            ilocalbond=0;
+            ich_prev = ich1;
+        } else {
+            ilocalbond+=1;
+        }
+
+        for (int i=0; i<dim2; i++) {
+            c1[i] = coords[at1*dim2+i];
+            c2[i] = coords[at2*dim2+i];
+        }
+        unit_vector(c1, c2, uu_vector);
+
+        uux[ich1*maxnbondsperch+ilocalbond] = uu_vector[1];
+        uuy[ich1*maxnbondsperch+ilocalbond] = uu_vector[2];
+        uuz[ich1*maxnbondsperch+ilocalbond] = uu_vector[3];
+
+    }
+
+    // Bond-to-bond correlation
+    for (int ibond=0; ibond<maxnbondsperch-1; ibond++) {
+        cbb[ibond] = 0.0;
+        cbb_nelem[ibond] = 0;
+    }
+
+    for (int ich=0; ich<nchains; ich++) {
+        for (int i=0; i<maxnbondsperch-1; i++) {
+            for (int j=i+1; j<maxnbondsperch; j++) {
+                tmp =  uux[ich*maxnbondsperch+i]*uux[ich*maxnbondsperch+j]+
+                       uuy[ich*maxnbondsperch+i]*uuy[ich*maxnbondsperch+j]+
+                       uuz[ich*maxnbondsperch+i]*uuz[ich*maxnbondsperch+j];
+                m = j-i;
+                cbb[m] += tmp;
+                cbb_nelem[m] += 1;
+            }
+        }
+    }
+
+    for (int m=1; m<maxnbondsperch-1; m++) {
+//        printf("%d %f %f\n", m, cbb[m], cbb_nelem[m] );
+        cbb[m] = cbb[m]/cbb_nelem[m];
+    }
 
 }
 

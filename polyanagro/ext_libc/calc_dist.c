@@ -328,7 +328,6 @@ void add_vectors(double* a, double* b, double* c)
 }
 
 
-
 /* ********************************************************************************************/
 int c_bondDist(int natoms, int nbonds,int dim2, int* bl, double* x, double* y, double* z, int* bondhist)
 {
@@ -557,8 +556,6 @@ int c_dihDist(int natoms, int ndih,int dim3, int* dl, double* x, double* y, doub
 
 }
 
-
-
 /* ********************************************************************************************/
 int c_dihDistFlory(int natoms, int ndih,int dim3, int* dl, double* x, double* y, double* z, int* dihhist)
 {
@@ -705,7 +702,6 @@ int c_dihDistFlory(int natoms, int ndih,int dim3, int* dl, double* x, double* y,
 
 
 }
-
 
 /* ********************************************************************************************/
 int c_tacticity(int natoms, int ndih,int dim3, int* dl, double* x, double* y, double* z, int* dihhist) {

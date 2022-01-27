@@ -1,11 +1,13 @@
 import numpy as np
 import datetime
 import os
+import math
 import sys
 import h5py
 import polyanagro as pag
 import topology as top
 from collections import defaultdict
+import matplotlib.pyplot as plt
 
 
 # ===============================================================
@@ -13,7 +15,8 @@ class Chain_Statistics(pag.Calculations):
 
     __slots__ = ["_removetmpfiles_ee", "_removetmpfiles_rg", "_rg2_frame", "_ree2_frame", "_ree2rg2_frame",
                  "_uree_frame", "_rEE_ACF", "_log", "_ree_max", "_ree_min", "_rg_max", "_rg_min",
-                 "_molecularweigth_avg", "_all_bonds"]
+                 "_molecularweigth_avg", "_all_bonds", "_fdist_h5py", "_nbonds_bb_max", "_all_bb_bonds",
+                 "_iatch", "_cbb_avg"]
     # #########################################################################
     def __init__(self, trj, dt=1, stride=1,removetmpfiles_ee=True,
                  removetmpfiles_rg=True, log=None):
@@ -50,17 +53,24 @@ class Chain_Statistics(pag.Calculations):
         self._molecularweigth_avg = 1.0
         self._uree_frame = None
         self._rEE_ACF = None
+
         self._all_bonds = None
+        self._nbonds_bb_max = None
+        self._all_bb_bonds = None
+        self._iatch = None
+        self._cbb_avg = None
 
         self._ree_max = sys.float_info.min
         self._ree_min = sys.float_info.max
         self._rg_max = sys.float_info.min
         self._rg_min = sys.float_info.max
 
+        self._fdist_h5py = None  #File in format h5py to store data to calculate distributions.
+
     # #########################################################################
     def calculate(self, listendtoend, isree=True, isrg=True, iscn=True, begin=0,
                   molecularweight=True, unwrap_pbc=True, diroutput="./",
-                  acfE2E=False, distributions=False,
+                  acfE2E=False, distributions=False, isbondorientation=False,
                   backbone_list_atoms=None, isbbatom=None, calc_Cn_bonds_distances=False,
                   single_Cn_unitvector=False):
 
@@ -135,16 +145,34 @@ class Chain_Statistics(pag.Calculations):
         m = "\tUnwrap PBC coordinates: {}".format(unwrap_pbc)
         print(m) if self._logger is None else self._logger.info(m)
 
-        # Check if Cn with unit vectors can be used
-        # if self._trajectory.topology._topologyfile.split(".")[-1] != "psf":
-        #     m = "\tCalculation of Cn with unit vectors have been required but\n"
-        #     m += "\ttopology is not psf.\n"
-        #     print(m) if self._logger is None else self._logger.info(m)
-        #     single_Cn_unitvector = False
-
         # For all frames
-        if iscn:
+        if iscn or isbondorientation:
             self._all_bonds = self._trajectory.topology.get_allbonds()
+            nbonds_bb_perch = defaultdict(int)
+            all_bb_bonds = []
+            for item in self._all_bonds:
+                at1 = item[0]
+                at2 = item[1]
+                ich1 = self._trajectory.topology._iatch[at1]
+                ich2 = self._trajectory.topology._iatch[at2]
+                if not isbbatom[at1]: continue
+                if not isbbatom[at2]: continue
+                nbonds_bb_perch[ich1] += 1
+                all_bb_bonds.append([at1, at2])
+            self._all_bb_bonds = np.array(all_bb_bonds, dtype=np.int32)
+            self._iatch = self._trajectory.topology._iatch
+            self._nbonds_bb_max = max(nbonds_bb_perch.values())
+            self._cbb_avg = np.zeros([nframes, self._nbonds_bb_max])
+
+        # Delete temporal files for distributions if they exist and create new datasets
+        if distributions:
+            try:
+                   os.remove(".tmp_distributions.hdf5")
+            except FileNotFoundError:
+                pass
+            self._fdist_h5py = h5py.File('.tmp_distributions.hdf5', 'w')
+            self._fdist_h5py.create_dataset("rg", (nframes, nchains))
+            self._fdist_h5py.create_dataset("ree", (nframes, nchains))
 
         for iframe in range(ini, nframes, self._stride):
 
@@ -162,18 +190,28 @@ class Chain_Statistics(pag.Calculations):
                 self._coords_unwrap = self._trajectory.universe.trajectory[iframe].positions
 
             if isrg:
-                self._single_rg(iframe, filename=diroutput+"Rg.dat", tmpfileindividualchain=distributions)
+                fname = os.path.join(diroutput, "Rg.dat")
+                self._single_rg(iframe, filename=fname, tmpfileindividualchain=distributions)
             if isree:
-                self._single_ree(iframe, filename=diroutput+"Ree.dat",
-                             listendtoend=listendtoend,tmpfileindiviualchain=distributions)
+                fname = os.path.join(diroutput, "Ree.dat")
+                self._single_ree(iframe, filename=fname,
+                             listendtoend=listendtoend,tmpfileindividualchain=distributions)
             if isrg and isree:
-                self._single_ree2rg2(iframe, filename=diroutput + "Ree2Rg2.dat")
+                fname = os.path.join(diroutput, "Ree2Rg2.dat")
+                self._single_ree2rg2(iframe, filename=fname)
             if iscn:
+                fname = os.path.join(diroutput, "Cn.dat")
                 self._single_Cn(iframe, backbone_list_atoms, isbbatom,
-                            filename=diroutput + "Cn.dat", calc_distances=calc_Cn_bonds_distances,
+                            filename=fname, calc_distances=calc_Cn_bonds_distances,
                             single_Cn_unitvector=single_Cn_unitvector)
 
+            if isbondorientation:
+                self._single_bond_orientation(iframe, backbone_list_atoms, isbbatom)
+
             iframe += self._stride
+
+        if isbondorientation:
+            self._write_bond_orientation()
 
          # Write final messages and time
         end_time = datetime.datetime.now()
@@ -190,8 +228,7 @@ class Chain_Statistics(pag.Calculations):
 
             # Write messages
             start_time = datetime.datetime.now()
-
-            m = "\tCalculating End-to-End autocorrelation vector..."
+            m = "\t*** Calculating End-to-End autocorrelation vector..."
             print(m) if self._logger is None else self._logger.info(m)
 
             self._acf_e2e(filename=diroutput+"rEE_ACF.dat")
@@ -203,19 +240,58 @@ class Chain_Statistics(pag.Calculations):
             m += "\t*** End Calculating End-to-End autocorrelation vector.\n"
             print(m) if self._logger is None else self._logger.info(m)
 
+        if distributions:
+            start_time = datetime.datetime.now()
+            m = "\t*** Calculating distributions..."
+            print(m) if self._logger is None else self._logger.info(m)
 
-    #     if distributions:
-    #         with open(".tmp_rg_distances.dat", 'a') as f:
-    #             f.writelines("Rg_min_max: {0:.4f} {1:.4f}\n".format(self._rg_min, self._rg_max))
-    #         if not listendtoend is None:
-    #             with open(".tmp_ree_distances.dat", 'a') as f:
-    #                 f.writelines("Ree_min_max: {0:.4f} {1:.4f}\n".format(self._ree_min, self._ree_max))
-    #
-    #         self._distribution(".tmp_ree_distances.dat")
-    #         self._distribution(".tmp_rg_distances.dat")
-    #
-    #         print("Calculate distributions TO BE DONE!!!!!!")
-    #
+            self._distribution(".tmp_distributions.hdf5", binsize=1, plothistogram=False)
+            os.remove(".tmp_distributions.hdf5")
+
+            end_time = datetime.datetime.now()
+            elapsed_time = end_time - start_time
+            m = "\tTIME(Distributions): {0:s} seconds\n".format(str(elapsed_time.total_seconds()))
+            m += "\t*** End distributions calculation.\n"
+            print(m) if self._logger is None else self._logger.info(m)
+
+    # #########################################################################
+    def statistics(self, fraction_trj, diroutput="./"):
+
+        # Rg avg =========================================
+        fname = os.path.join(diroutput, "Rg.dat")
+        data_array = self._extract_data_for_avg(fname, cols=[0, 2, 3])
+        Rg_avg, Rg_std, Rg_avgstd = self._calc_avg(data_array, fraction_trj)
+
+        # Ree avg =========================================
+        fname = os.path.join(diroutput, "Ree.dat")
+        data_array = self._extract_data_for_avg(fname, cols=[0, 2, 3])
+        Ree_avg, Ree_std, Ree_avgstd = self._calc_avg(data_array, fraction_trj)
+
+        # Ree avg =========================================
+        fname = os.path.join(diroutput, "Ree2Rg2.dat")
+        data_array = self._extract_data_for_avg(fname, cols=[0, 2, 3])
+        ReeRg_avg, ReeRg_std, ReeRg_avgstd = self._calc_avg(data_array, fraction_trj)
+
+        # Cn avg =========================================
+        fname = os.path.join(diroutput, "Cn.dat")
+        data_array = self._extract_data_for_avg(fname, cols=[0, 2, None])
+        Cn_avg, Cn_std, Cn_avgstd = self._calc_avg(data_array, fraction_trj)
+
+        m = "\t*** Average values ***\n"
+        m += "\t\t Rg_avg     = {0:10.2f} +- {1:10.2f} (angstroms)\n".format(Rg_avg, Rg_avgstd)
+        m += "\t\t Ree_avg    = {0:10.2f} +- {1:10.2f} (angstroms)\n".format(Ree_avg, Ree_avgstd)
+        m += "\t\t Ree^2/Rg^2 = {0:10.2f} +- {1:10.2f} (angstroms)\n".format(ReeRg_avg, ReeRg_avgstd)
+        m += "\t\t Cn_avg     = {0:10.2f} +- {1:10.2f} \n".format(Cn_avg, Cn_avgstd)
+        print(m) if self._logger is None else self._logger.info(m)
+
+        # Template plots
+        dict_avg = defaultdict()
+        dict_avg["Rg"] = [Rg_avg, Rg_avgstd]
+        dict_avg["Ree"] = [Ree_avg, Ree_avgstd]
+        dict_avg["Ree2Rg2"] = [ReeRg_avg, ReeRg_avgstd]
+        dict_avg["Cn"] = [Cn_avg, Cn_avgstd]
+        fnamegnu = os.path.join(diroutput, "dimension_plot.gnu")
+        self._gnuplot_template_dimensions(fnamegnu, dict_avg)
 
 
     # #########################################################################
@@ -246,21 +322,12 @@ class Chain_Statistics(pag.Calculations):
         # Each line corresponds to all chains in the current frame
         # This is useful to calculate the radius of gyration distribution
         if tmpfileindividualchain:
-            try:
-                if self._removetmpfiles_rg:
-                    os.remove(".tmp_rg_distances.dat")
-            except FileNotFoundError:
-                pass
-            with open(".tmp_rg_distances.dat",'a') as f:
-                self._removetmpfiles_rg = False
-                line = "{} ".format(iframe)
-                for ich in range(nchains):
-                    rg = rgsq_ich_iframe[ich,3]**0.5
-                    line += " {0:.4f} ".format(rg)
-                    self._rg_max = rg if rg > self._rg_max else self._rg_max
-                    self._rg_min = rg if rg < self._rg_min else self._rg_min
-                line += "\n"
-                f.writelines(line)
+            for ich in range(nchains):
+                rg = rgsq_ich_iframe[ich, 3] ** 0.5
+                self._fdist_h5py['rg'][iframe,ich] = rg
+                self._rg_max = rg if rg > self._rg_max else self._rg_max
+                self._rg_min = rg if rg < self._rg_min else self._rg_min
+
 
         # ====== DATA FOR Rg =======
         if write_result:
@@ -287,7 +354,7 @@ class Chain_Statistics(pag.Calculations):
 
     # #########################################################################
     def _single_ree(self, iframe, filename="Ree.dat", write_result=True,
-                    listendtoend=None, tmpfileindiviualchain=False):
+                    listendtoend=None, tmpfileindividualchain=False):
 
         nchains = len(self._nmols_array)
         reesq_ich_iframe = np.zeros([nchains, 4], dtype=np.float32)
@@ -303,6 +370,10 @@ class Chain_Statistics(pag.Calculations):
             ref_head[ich,:] = self._coords_unwrap[ihead,:]
             conf_tail[ich,:] = self._coords_unwrap[itail,:]
 
+        # dij [nchains] --> End-to-end distance in this frame
+        # reex[nchains] --> X-coordinate of the end-to-end distance vector
+        # reey[nchains] --> Y-coordinate of the end-to-end distance vector
+        # reez[nchains] --> Z-coordinate of the end-to-end distance vector
         dij, reex, reey, reez = top.distance_diagonal_array(ref_head, conf_tail, openmp=True)
 
         # Calculate the average
@@ -323,27 +394,9 @@ class Chain_Statistics(pag.Calculations):
         # Write a tmp file containing all end-to-end distances for each chain.
         # Each line corresponds to all chains in the current frame
         # This is useful to calculate the end-to-end distribution
-        if tmpfileindiviualchain:
-            try:
-                if self._removetmpfiles_ee:
-                    os.remove(".tmp_ree_distances.hdf5")
-            except FileNotFoundError:
-                pass
-            # with open(".tmp_ree_distances.dat",'a') as f:
-            #     self._removetmpfiles_ee = False
-            #     line = "{} ".format(iframe_total)
-            #     for ich_ee in dij:
-            #         line += " {0:.4f} ".format(ich_ee)
-            #         self._ree_max = ich_ee if ich_ee > self._ree_max else self._ree_max
-            #         self._ree_min = ich_ee if ich_ee < self._ree_min else self._ree_min
-            #     line += "\n"
-            #     f.writelines(line)
-            with h5py.File(".tmp_ree_distances.hdf5",'a') as f:
-                self._removetmpfiles_ee = False
-                arr = np.zeros(nchains)
-                for ich in range(nchains):
-                    arr[ich] = dij[ich]
-                dset = f.create_dataset('Frame_{0:07d}'.format(iframe), data=arr)
+        if tmpfileindividualchain:
+            for ich in range(nchains):
+                self._fdist_h5py['ree'][iframe,ich] = dij[ich]
 
 
         # ====== DATA FOR Ree =======
@@ -442,24 +495,11 @@ class Chain_Statistics(pag.Calculations):
             lavg2 = lavg*lavg
 
         if single_Cn_unitvector:
-            nbonds_bb_perch = defaultdict(int)
-            all_bb_bonds = []
-            for item in self._all_bonds:
-                at1 = item[0]
-                at2 = item[1]
-                ich1 = self._trajectory.topology._iatch[at1]
-                ich2 = self._trajectory.topology._iatch[at2]
-                if not  is_bb_atoms[at1]: continue
-                if not  is_bb_atoms[at2]: continue
-                nbonds_bb_perch[ich1] += 1
-                all_bb_bonds.append([at1, at2])
-            all_bb_bonds = np.array(all_bb_bonds, dtype=np.int32)
-            iatch = self._trajectory.topology._iatch
-            nbonds_bb_max = max(nbonds_bb_perch.values())
-            uux = np.zeros((nchains, nbonds_bb_max), dtype=np.float32)
-            uuy = np.zeros((nchains, nbonds_bb_max), dtype=np.float32)
-            uuz = np.zeros((nchains, nbonds_bb_max), dtype=np.float32)
-            cn_uu = pag.unit_bond_vectors(nchains, all_bb_bonds, self._coords_unwrap, iatch, uux, uuy, uuz)
+            uux = np.zeros((nchains, self._nbonds_bb_max), dtype=np.float32)
+            uuy = np.zeros((nchains, self._nbonds_bb_max), dtype=np.float32)
+            uuz = np.zeros((nchains, self._nbonds_bb_max), dtype=np.float32)
+            cn_uu = pag.unit_bond_vectors(nchains, self._all_bb_bonds, self._coords_unwrap,
+                                          self._iatch, uux, uuy, uuz)
         else:
             cn_uu = 0.0
 
@@ -549,12 +589,92 @@ class Chain_Statistics(pag.Calculations):
                         f.writelines("{0:>10.2f}     {1:<10.8f} \n".format(i,
                                                         self._rEE_ACF[iframe_total]))
 
-    # # #########################################################################
-    # def _distribution(self, filename):
-    #
-    #     print(filename)
-    #     with open(filename, 'r') as f:
-    #         print(f)
-    #
+    # #########################################################################
+    def _distribution(self, filename, binsize=1, plothistogram=False):
+
+        # End to end distributions
+        with h5py.File(".tmp_distributions.hdf5", 'r') as f:
+            data = np.array(f['ree']).flatten()
+            max_value = math.ceil(data.max())
+            min_value = math.floor(data.min())
+            range_data = max_value-min_value
+            nbins = int(range_data/binsize)
+            hist_ree, bins = np.histogram(data, bins=nbins, range=(min_value, max_value), density=True)
+            newbins_ree = np.zeros(nbins)
+            for ibin in range(1, len(bins)):
+                newbins_ree[ibin-1] = (bins[ibin]-bins[ibin-1])/2.0+bins[ibin-1]
+            # Write data to file
+            with open("Ree_distribution,dat", "w") as f:
+                f.writelines("# ibin(Angstroms) PDF(A-1)\n")
+                f.writelines("#=========================\n")
+                for ibin in range(0, len(newbins_ree)):
+                    f.writelines("{0:10.4f} {1:10.4f}\n".format(newbins_ree[ibin], hist_ree[ibin]))
+
+        # Radius of gyration distributions
+        with h5py.File(".tmp_distributions.hdf5", 'r') as f:
+            data = np.array(f['rg']).flatten()
+            max_value = math.ceil(data.max())
+            min_value = math.floor(data.min())
+            range_data = max_value-min_value
+            nbins = int(range_data/binsize)
+            hist_rg, bins = np.histogram(data, bins=nbins, range=(min_value, max_value), density=True)
+            newbins_rg = np.zeros(nbins)
+            for ibin in range(1, len(bins)):
+                newbins_rg[ibin-1] = (bins[ibin]-bins[ibin-1])/2.0+bins[ibin-1]
+            # Write data to file
+            with open("Rg_distribution,dat", "w") as f:
+                f.writelines("# ibin(Angstroms) PDF(A-1)\n")
+                f.writelines("#=========================\n")
+                for ibin in range(0, len(newbins_rg)):
+                    f.writelines("{0:10.4f} {1:10.4f}\n".format(newbins_rg[ibin], hist_rg[ibin]))
+
+        if plothistogram:
+            fig, (ax1, ax2) = plt.subplots(1, 2)
+            ax1.set_title('Ree distribution')
+            ax1.set_xlabel(r'$R_{EE}$ ($\mathring{A}$)')
+            ax1.set_ylabel(r'PDF')
+            ax1.plot(newbins_ree, hist_ree)
+
+            ax2.set_title('Rg distribution')
+            ax2.set_xlabel(r'$R_g$ ($\mathring{A}$)')
+            ax2.set_ylabel(r'PDF')
+            ax2.plot(newbins_rg, hist_rg)
+            plt.show()
+
+    # #########################################################################
+    def _single_bond_orientation(self, iframe,  backbone_atoms, is_bb_atoms):
+
+        nchains = len(self._nmols_array)
+        cbb = np.zeros((self._nbonds_bb_max), dtype=np.float32)
+        pag.bond_bond_correlation(nchains, self._nbonds_bb_max,
+                                  self._all_bb_bonds, self._coords_unwrap, self._iatch, cbb)
+
+        self._cbb_avg[iframe, :] = cbb
+        pass
+
+    # #########################################################################
+    def _write_bond_orientation(self):
+
+        nframes = self._cbb_avg.shape[0]
+        m = self._cbb_avg.shape[1]
+        filename = "bond-bond-correlation.dat"
+
+        with open(filename, 'w') as f:
+            f.writelines("#  Number of bonds cbb  std_cbb\n")
+            f.writelines("#  ============================\n")
+
+        # Average over all frames each m value (m = j - i)
+        for idx in range(1, m):
+            avg = np.mean(self._cbb_avg[:,idx])
+            std = np.std(self._cbb_avg[:,idx])
+            with open(filename, 'a') as f:
+                f.writelines("{0:8d} {1:10.4f} {2:10.4f}\n".format(idx, avg, std))
+
+
+
+
+
+
+
 
 

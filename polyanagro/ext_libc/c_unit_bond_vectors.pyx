@@ -11,6 +11,9 @@ cdef extern from "calc_bondvectors.c":
                              int maxnbondsperch, int* bonds,
                              float* coords, int* iatch, float* uux,
                              float* uuy, float* uuz)
+    float c_bond_bond_orientation(int natoms, int nchains, int nbonds,
+                                  int maxnbondsperch, int* bonds,
+                                  float* coords, int* iatch, float* cb)
     float c_odf_intra(int iframe, int natoms, int nchains, int nbonds,
                       int maxnbondsperch, int* bonds,
                       float* coords, int* iatch, float* uux,
@@ -43,6 +46,26 @@ def unit_bond_vectors(nchains,
                              &uux[0,0], &uuy[0,0], &uuz[0,0])
 
     return cn
+
+# ========================================================================================
+def bond_bond_correlation(nchains,
+                          maxnbondsperch,
+                          np.ndarray[int, ndim=2, mode="c"] all_bonds,
+                          np.ndarray[float, ndim=2, mode="c"] coords,
+                          np.ndarray[int, ndim=1, mode="c"] iatch,
+                          np.ndarray[float, ndim=1, mode="c"] cbb):
+
+    nbonds = all_bonds.shape[0]
+    natoms = coords.shape[0]
+
+    if iatch.shape[0] != natoms:
+        print("ERROR ---> iatch does not have the correct dimension")
+        print("ERROR ---> Expected: {} Given: {} ".format(natoms,iatch.shape[0]))
+        return None
+
+    c_bond_bond_orientation(natoms, nchains, nbonds, maxnbondsperch,
+                            &all_bonds[0,0], &coords[0,0], &iatch[0], &cbb[0])
+
 
 # ========================================================================================
 def setup_odf_intra(int maxnbondsperch):
