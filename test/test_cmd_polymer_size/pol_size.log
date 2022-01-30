@@ -19,12 +19,12 @@
 
     ***********************************************************************
         
-		Start Job at 27-01-2022 13:05:51 ============
+		Start Job at 28-01-2022 11:04:11 ============
 
 		Command line: 
-			python polymer_size.py -t ../../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc ../../data/0003Ch-C020-002br04/RUN-002/traj_comp.part0002.xtc ../../data/0003Ch-C020-002br04/RUN-003/traj_comp.part0003.xtc --tpr ../../data/0003Ch-C020-002br04/RUN-001/topol.tpr --e2e ../../data/0003Ch-C020-002br04/RUN-001/listend2end.dat --c2n ../../data/0003Ch-C020-002br04/RUN-001/backbone_idx.dat --e2acf --distributions --bondorientation
+			python polymer_size.py -t ../../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc ../../data/0003Ch-C020-002br04/RUN-002/traj_comp.part0002.xtc ../../data/0003Ch-C020-002br04/RUN-003/traj_comp.part0003.xtc --tpr ../../data/0003Ch-C020-002br04/RUN-001/topol.tpr --e2e ../../data/0003Ch-C020-002br04/RUN-001/listend2end.dat --c2n ../../data/0003Ch-C020-002br04/RUN-001/backbone_idx.dat --e2acf --distributions --bondorientation --fraction_trj_avg 0.25
 			         or
-			polymer_size -t ../../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc ../../data/0003Ch-C020-002br04/RUN-002/traj_comp.part0002.xtc ../../data/0003Ch-C020-002br04/RUN-003/traj_comp.part0003.xtc --tpr ../../data/0003Ch-C020-002br04/RUN-001/topol.tpr --e2e ../../data/0003Ch-C020-002br04/RUN-001/listend2end.dat --c2n ../../data/0003Ch-C020-002br04/RUN-001/backbone_idx.dat --e2acf --distributions --bondorientation
+			polymer_size -t ../../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc ../../data/0003Ch-C020-002br04/RUN-002/traj_comp.part0002.xtc ../../data/0003Ch-C020-002br04/RUN-003/traj_comp.part0003.xtc --tpr ../../data/0003Ch-C020-002br04/RUN-001/topol.tpr --e2e ../../data/0003Ch-C020-002br04/RUN-001/listend2end.dat --c2n ../../data/0003Ch-C020-002br04/RUN-001/backbone_idx.dat --e2acf --distributions --bondorientation --fraction_trj_avg 0.25
 
 	*** Creating a trajectory from...
 	../../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc
@@ -33,17 +33,17 @@
 
 	*** Building bonds from topology... 
 	Setting bond orders: FALSE
-	TIME(Building_bonds_from_topology): 0.010356 seconds
+	TIME(Building_bonds_from_topology): 0.010342 seconds
 	*** End Building bonds from topology... 
 
 	*** Adding topology 
 	../../data/0003Ch-C020-002br04/RUN-001/topol.tpr
 	Number of frames: 301
-	TIME(Adding topology): 0.009387 seconds
+	TIME(Adding topology): 0.009808 seconds
 	*** End Adding topology
 
 	Number of frames: 301
-	TIME(Read_Trajectories): 0.020001 seconds
+	TIME(Read_Trajectories): 0.020422 seconds
 	*** End Creating a trajectory 
 
 	*** Molecular weigth...
@@ -59,30 +59,30 @@
 	End to End distance to be written to ./Ree.dat 
 
 	Unwrap PBC coordinates: True
-	IFRAME: 0 in 0.001137 seconds
-	IFRAME: 50 in 0.114492 seconds
-	IFRAME: 100 in 0.235736 seconds
-	IFRAME: 150 in 0.350182 seconds
-	IFRAME: 200 in 0.460083 seconds
-	IFRAME: 250 in 0.614794 seconds
-	IFRAME: 300 in 0.7254 seconds
+	IFRAME: 0 in 0.001222 seconds
+	IFRAME: 50 in 0.165396 seconds
+	IFRAME: 100 in 0.30571 seconds
+	IFRAME: 150 in 0.414545 seconds
+	IFRAME: 200 in 0.524173 seconds
+	IFRAME: 250 in 0.686126 seconds
+	IFRAME: 300 in 0.793753 seconds
 
-	TIME(Chain dimensions): 0.728863 seconds
+	TIME(Chain dimensions): 0.797321 seconds
 	*** End Calculating Chain Dimensions.
 
 	*** Calculating End-to-End autocorrelation vector...
-	TIME(End-to-End autocorrelation vector): 0.006377 seconds
+	TIME(End-to-End autocorrelation vector): 0.006573 seconds
 	*** End Calculating End-to-End autocorrelation vector.
 
 	*** Calculating distributions...
-	TIME(Distributions): 0.001517 seconds
+	TIME(Distributions): 0.001554 seconds
 	*** End distributions calculation.
 
 	*** Average values ***
-		 Rg_avg     =      25.76 +-       3.01 (angstroms)
-		 Ree_avg    =     164.34 +-      52.67 (angstroms)
-		 Ree^2/Rg^2 =       6.27 +-       1.47 (angstroms)
-		 Cn_avg     =       3.64 +-       1.16 
+		 Rg_avg     =      25.68 +-       2.19 (angstroms)
+		 Ree_avg    =     152.47 +-      39.58 (angstroms)
+		 Ree^2/Rg^2 =       5.86 +-       1.13 (angstroms)
+		 Cn_avg     =       3.38 +-       0.87 
 
-		Job  Done at 27-01-2022 13:05:52 ============
+		Job  Done at 28-01-2022 11:04:12 ============
 

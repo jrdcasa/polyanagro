@@ -78,9 +78,8 @@ class Calculations(object):
         total_frames = int(last_frame - first_frame + 1)
         delta = int(total_frames / data.shape[0])
 
-        iframe_begin_avg = (1 - fraction_trj) * total_frames
+        iframe_begin_avg = int((1. - fraction_trj) * total_frames)
         frames_avg = (total_frames - iframe_begin_avg + 1)
-
         avg = np.mean(data[iframe_begin_avg:total_frames:delta,1])
         std_avg = np.std(data[iframe_begin_avg:total_frames:delta, 1])
 

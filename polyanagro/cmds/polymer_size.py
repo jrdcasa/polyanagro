@@ -22,7 +22,7 @@ def parse_arguments():
                         help="Take a frame each stride frames, for example 10",
                         action="store", required=False, default=1)
 
-    parser.add_argument("--fraction_trj_avg", dest="frac_avg",
+    parser.add_argument("--fraction_trj_avg", dest="frac_avg", type=float,
                         help="Fraction of the trajectory to calculate the averages. "
                              "Example: 0.25 means that the 25% first frames are discarted "
                              "in the average calculation.",

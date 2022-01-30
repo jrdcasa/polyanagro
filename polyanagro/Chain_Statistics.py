@@ -146,23 +146,41 @@ class Chain_Statistics(pag.Calculations):
         print(m) if self._logger is None else self._logger.info(m)
 
         # For all frames
-        if iscn or isbondorientation:
-            self._all_bonds = self._trajectory.topology.get_allbonds()
+        if (iscn or isbondorientation) and isree:
+
             nbonds_bb_perch = defaultdict(int)
             all_bb_bonds = []
-            for item in self._all_bonds:
-                at1 = item[0]
-                at2 = item[1]
-                ich1 = self._trajectory.topology._iatch[at1]
-                ich2 = self._trajectory.topology._iatch[at2]
-                if not isbbatom[at1]: continue
-                if not isbbatom[at2]: continue
-                nbonds_bb_perch[ich1] += 1
-                all_bb_bonds.append([at1, at2])
+            # For each chain walk from the head to end of
+            # the chain through the backbone atoms.
+            # Bonds in the backbon have to be ordered from head to tail
+            isvisited = [False]*self._trajectory.topology.natoms
+            for item in listendtoend:
+                ich = item[0]
+                ihead = item[1]
+                queue = [ihead]
+                while queue:
+                    iat = queue.pop()
+                    isvisited[iat] = True
+                    neigh = self._trajectory.topology.get_neighbours(iat)
+                    for jat in neigh:
+                        if isbbatom[jat] and not isvisited[jat]:
+                            ich1 = self._trajectory.topology._iatch[iat]
+                            ich2 = self._trajectory.topology._iatch[jat]
+                            nbonds_bb_perch[ich1] += 1
+                            all_bb_bonds.append([iat, jat])
+                            iat = jat
+                            queue.append(iat)
+                            break
             self._all_bb_bonds = np.array(all_bb_bonds, dtype=np.int32)
             self._iatch = self._trajectory.topology._iatch
             self._nbonds_bb_max = max(nbonds_bb_perch.values())
             self._cbb_avg = np.zeros([nframes, self._nbonds_bb_max])
+
+        else:
+            m = "\tCn and bond orientation calculations are deactivated, either not info about branch or backbone\n"
+            print(m) if self._logger is None else self._logger.info(m)
+            iscn = False
+            isbondorientation = False
 
         # Delete temporal files for distributions if they exist and create new datasets
         if distributions:
@@ -173,6 +191,9 @@ class Chain_Statistics(pag.Calculations):
             self._fdist_h5py = h5py.File('.tmp_distributions.hdf5', 'w')
             self._fdist_h5py.create_dataset("rg", (nframes, nchains))
             self._fdist_h5py.create_dataset("ree", (nframes, nchains))
+
+        if acfE2E:
+            self._uree_frame = np.zeros([3, nchains, nframes], dtype=np.float32)
 
         for iframe in range(ini, nframes, self._stride):
 
@@ -223,7 +244,7 @@ class Chain_Statistics(pag.Calculations):
 
         if acfE2E:
             # Start ndarray to store the end to end vectors for autocorrelation function
-            self._uree_frame = np.zeros([3, nchains, nframes], dtype=np.float32)
+
             self._rEE_ACF = np.zeros([nframes], dtype=np.float32)
 
             # Write messages
