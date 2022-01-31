@@ -137,7 +137,7 @@ def hasfunction(cc, funcname, include=None, extra_postargs=None):
 
 # Does this compiler support OpenMP parallelization?""" ==============================================================
 def detect_openmp():
-    print("TOPOLOGY: Attempting to autodetect OpenMP support... ", end="")
+    print("POLYANAGRO: Attempting to autodetect OpenMP support... ", end="")
     compiler = new_compiler()
     customize_compiler(compiler)
     compiler.add_library('gomp')
@@ -197,9 +197,6 @@ def setup_external_extensions(debug_cflags=False, use_openmp=True):
 
     return extensions_install
 
-
-
-
 # Main setup
 if __name__ == '__main__':
 
@@ -214,9 +211,18 @@ if __name__ == '__main__':
     f1.setFormatter(CustomFormatter())
     logger.addHandler(f1)
 
+    # SWIG and pygraphviz are needed for topology
     # Check for swig (http://www.swig.org)
     if os.system("which swig"):
-        m = "ERROR install SWIG in your system (http://www.swig.org)"
+        m = "ERROR. Please install SWIG in your system (http://www.swig.org)"
+        print(m) if logger is None else logger.info(m)
+        exit()
+
+    # Check for pygraphviz
+    try:
+        import pygraphviz as pag
+    except ImportError:
+        m = "ERROR. Please install PYGRAPHVIZ in your system"
         print(m) if logger is None else logger.info(m)
         exit()
 
