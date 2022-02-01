@@ -18,15 +18,22 @@ def parse_arguments():
                         help="A list of trajectories from MD simulations.",
                         action="store", required=True, default=None)
 
+    group2 = parser.add_mutually_exclusive_group(required=True)
+    group2.add_argument("--tpr", dest="topo",
+                        help="A topology file in tpr format.",
+                        action="store")
+    group2.add_argument("--psf", dest="topo",
+                        help="A topology file in psf format.",
+                        action="store")
+
     parser.add_argument("--stride", dest="stride",
                         help="Take a frame each stride frames, for example 10",
                         action="store", required=False, default=1)
 
     parser.add_argument("--fraction_trj_avg", dest="frac_avg", type=float,
-                        help="Fraction of the trajectory to calculate the averages. "
-                             "Example: 0.25 means that the 25% first frames are discarted "
-                             "in the average calculation.",
-                        action="store", required=False, default=1)
+                        help="""Fraction of the trajectory to calculate the averages. 
+                        Example: 0.25 means that the 25%% first frames are discarted in the average calculation.""",
+                        action="store", required=False, default=1.0)
 
     parser.add_argument("--e2e", dest="listee",
                         help="Calculate the end to end distances using the heads and tails of the chains."
@@ -39,11 +46,11 @@ def parse_arguments():
                         action="store_true", required=False, default=False)
 
     parser.add_argument("--c2n", dest="listbb",
-                        help="""Data to calculate the Cn of a polymer. 
-                             The parameter listbb can be either a pdb file template 
-                             (using the beta field 1:for backbone 
-                             and 0 for a branch atom) or a file with the following format: 
-                             i) a label [ mol01 ], ii) after a list of the backbone atoms in the mol01. 
+                        help="""Data to calculate the Cn of a polymer.
+                             The parameter listbb can be either a pdb file template
+                             (using the beta field 1:for backbone
+                             and 0 for a branch atom) or a file with the following format:
+                             i) a label [ mol01 ], ii) after a list of the backbone atoms in the mol01.
                              You need as much labels as chains or molecules in your system """)
 
     parser.add_argument("--log", dest="log",
@@ -58,13 +65,7 @@ def parse_arguments():
                         help="Calculate intermolecular bond orientation",
                         action="store_true", required=False)
 
-    group2 = parser.add_mutually_exclusive_group(required=True)
-    group2.add_argument("--tpr", dest="topo",
-                        help="A topology file in tpr format.",
-                        action="store")
-    group2.add_argument("--psf", dest="topo",
-                        help="A topology file in psf format.",
-                        action="store")
+
 
     args = parser.parse_args()
 
