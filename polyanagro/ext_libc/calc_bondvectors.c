@@ -452,7 +452,7 @@ static void c_bond_bond_orientation(int natoms, int nchains, int nbonds,
             c1[i] = coords[at1*dim2+i];
             c2[i] = coords[at2*dim2+i];
         }
-        unit_vector(c1, c2, uu_vector);
+        unit_vector(c2, c1, uu_vector);
 
         uux[ich1*maxnbondsperch+ilocalbond] = uu_vector[1];
         uuy[ich1*maxnbondsperch+ilocalbond] = uu_vector[2];
