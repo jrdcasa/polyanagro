@@ -197,6 +197,33 @@ def setup_external_extensions(debug_cflags=False, use_openmp=True):
 
     return extensions_install
 
+
+# Requeriments to be manually installed  ===========================================================================
+def check_requirements_outside():
+    # Check for swig (http://www.swig.org)
+    if os.system("which swig"):
+        m = "ERROR. Please install SWIG in your system (http://www.swig.org)\n"
+        m += "ERROR. Ubuntu: apt get install swig"
+        print(m) if logger is None else logger.info(m)
+        exit()
+
+    # Check for cmake
+    if os.system("which cmake"):
+        m = "ERROR. Please install CMAKE in your system\n"
+        m += "ERROR. Ubuntu: apt get install cmake"
+        print(m) if logger is None else logger.info(m)
+        exit()
+
+    # Check for pygraphviz
+    try:
+        import pygraphviz as pag
+    except ImportError:
+        m = "ERROR. Please install PYGRAPHVIZ in your system"
+
+        print(m) if logger is None else logger.info(m)
+        exit()
+
+
 # Main setup
 if __name__ == '__main__':
 
@@ -211,20 +238,8 @@ if __name__ == '__main__':
     f1.setFormatter(CustomFormatter())
     logger.addHandler(f1)
 
-    # SWIG and pygraphviz are needed for topology
-    # Check for swig (http://www.swig.org)
-    if os.system("which swig"):
-        m = "ERROR. Please install SWIG in your system (http://www.swig.org)"
-        print(m) if logger is None else logger.info(m)
-        exit()
-
-    # Check for pygraphviz
-    try:
-        import pygraphviz as pag
-    except ImportError:
-        m = "ERROR. Please install PYGRAPHVIZ in your system"
-        print(m) if logger is None else logger.info(m)
-        exit()
+    # SWIG, cmake and pygraphviz are needed for topology library
+    check_requirements_outside()
 
     # Print sys path ===================================
     m1 = "\t\t SYS PATH\n"
@@ -252,6 +267,14 @@ if __name__ == '__main__':
 
     # Install Topology library from github =======================================
     install_topology_library(log=logger)
+    # Check for topology installation
+    try:
+        import topology
+    except ImportError:
+        m = "ERROR. Topology library is not correctly installed\n"
+        m +="ERROR. Please check ./topology/install.log"
+        print(m) if logger is None else logger.info(m)
+        exit()
 
     # Setup POLYANAGRO ===========================================
     from Cython.Build import cythonize
