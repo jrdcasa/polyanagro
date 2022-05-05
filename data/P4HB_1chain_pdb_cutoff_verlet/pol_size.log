@@ -1,0 +1,72 @@
+
+    ***********************************************************************
+                         Polymer size calculations 
+              ----------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an 
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 05-05-2022 17:33:02 ============
+
+		Command line: 
+			python polymer_size.py -t ./1_4HB_100_box.gro --tpr ./topol.tpr --e2e ./e2e.dat --c2n ./backbond.ndx
+			         or
+			polymer_size -t ./1_4HB_100_box.gro --tpr ./topol.tpr --e2e ./e2e.dat --c2n ./backbond.ndx
+
+	*** Creating a trajectory from...
+	./1_4HB_100_box.gro
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 0.487662 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	./topol.tpr
+	Number of frames: 1
+	TIME(Adding topology): 0.45201 seconds
+	*** End Adding topology
+
+	Number of frames: 1
+	TIME(Read_Trajectories): 0.939952 seconds
+	*** End Creating a trajectory 
+
+	*** Molecular weigth...
+
+	Average Molecular Weight (g/mol) : 8626.05
+
+	*** Calculating Radius of gyration...
+
+	Radius of gyration to be written to ./Rg.dat 
+
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ./Ree.dat 
+
+	Unwrap PBC coordinates: True
+	IFRAME: 0 in 0.001856 seconds
+
+	TIME(Chain dimensions): 0.005072 seconds
+	*** End Calculating Chain Dimensions.
+
+	*** Average values ***
+		 Rg^2_avg     =     579.84 +-       0.00 (angstroms)
+		 Ree^2_avg    =     412.41 +-       0.00 (angstroms)
+		 Ree^2/Rg^2   =       0.71 +-       0.00 (angstroms)
+		 Cn_avg       =       0.38 +-       0.00 
+
+		Job  Done at 05-05-2022 17:33:03 ============
+

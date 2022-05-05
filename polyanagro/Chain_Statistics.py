@@ -146,7 +146,7 @@ class Chain_Statistics(pag.Calculations):
         print(m) if self._logger is None else self._logger.info(m)
 
         # For all frames
-        if (iscn or isbondorientation) and isree:
+        if (iscn or isbondorientation) and isree and len(listendtoend) != 0:
 
             nbonds_bb_perch = defaultdict(int)
             all_bb_bonds = []
@@ -285,24 +285,33 @@ class Chain_Statistics(pag.Calculations):
 
         # Ree avg =========================================
         fname = os.path.join(diroutput, "Ree.dat")
-        data_array = self._extract_data_for_avg(fname, cols=[0, 2, 3])
-        Ree_avg, Ree_std, Ree_avgstd = self._calc_avg(data_array, fraction_trj)
-
-        # Ree avg =========================================
-        fname = os.path.join(diroutput, "Ree2Rg2.dat")
-        data_array = self._extract_data_for_avg(fname, cols=[0, 2, 3])
-        ReeRg_avg, ReeRg_std, ReeRg_avgstd = self._calc_avg(data_array, fraction_trj)
+        if os.path.isfile(fname):
+            data_array = self._extract_data_for_avg(fname, cols=[0, 2, 3])
+            Ree_avg, Ree_std, Ree_avgstd = self._calc_avg(data_array, fraction_trj)
+            # Ree2Rg avg =========================================
+            fname = os.path.join(diroutput, "Ree2Rg2.dat")
+            data_array = self._extract_data_for_avg(fname, cols=[0, 2, 3])
+            ReeRg_avg, ReeRg_std, ReeRg_avgstd = self._calc_avg(data_array, fraction_trj)
+        else:
+            Ree_avg = -999999.99
+            Ree_avgstd = -999999.99
+            ReeRg_avg = -999999.99
+            ReeRg_avgstd = -999999.99
 
         # Cn avg =========================================
         fname = os.path.join(diroutput, "Cn.dat")
-        data_array = self._extract_data_for_avg(fname, cols=[0, 2, None])
-        Cn_avg, Cn_std, Cn_avgstd = self._calc_avg(data_array, fraction_trj)
+        if os.path.isfile(fname):
+            data_array = self._extract_data_for_avg(fname, cols=[0, 2, None])
+            Cn_avg, Cn_std, Cn_avgstd = self._calc_avg(data_array, fraction_trj)
+        else:
+            Cn_avg = -999999.99
+            Cn_avgstd = -999999.99
 
         m = "\t*** Average values ***\n"
-        m += "\t\t Rg_avg     = {0:10.2f} +- {1:10.2f} (angstroms)\n".format(Rg_avg, Rg_avgstd)
-        m += "\t\t Ree_avg    = {0:10.2f} +- {1:10.2f} (angstroms)\n".format(Ree_avg, Ree_avgstd)
-        m += "\t\t Ree^2/Rg^2 = {0:10.2f} +- {1:10.2f} (angstroms)\n".format(ReeRg_avg, ReeRg_avgstd)
-        m += "\t\t Cn_avg     = {0:10.2f} +- {1:10.2f} \n".format(Cn_avg, Cn_avgstd)
+        m += "\t\t Rg^2_avg     = {0:10.2f} +- {1:10.2f} (angstroms)\n".format(Rg_avg, Rg_avgstd)
+        m += "\t\t Ree^2_avg    = {0:10.2f} +- {1:10.2f} (angstroms)\n".format(Ree_avg, Ree_avgstd)
+        m += "\t\t Ree^2/Rg^2   = {0:10.2f} +- {1:10.2f} (angstroms)\n".format(ReeRg_avg, ReeRg_avgstd)
+        m += "\t\t Cn_avg       = {0:10.2f} +- {1:10.2f} \n".format(Cn_avg, Cn_avgstd)
         print(m) if self._logger is None else self._logger.info(m)
 
         # Template plots
@@ -528,7 +537,7 @@ class Chain_Statistics(pag.Calculations):
         i = iframe * self._dt
         if iframe == 0:
             with open(filename, 'w') as f:
-                f.writelines("#  Number of bacbkone atoms:{}, calc_distances:{}, lavg :{}\n".
+                f.writelines("#  Number of backbone atoms:{}, calc_distances:{}, lavg :{}\n".
                              format(natbb_avg, calc_distances, lavg))
                 f.writelines("#  iFrame          Time(ps)     <Ree^2>/nl^2     6.0*<Rg^2>/nl^2      Cn_formula\n")
                 f.writelines("#===============================================================================\n")
@@ -666,7 +675,7 @@ class Chain_Statistics(pag.Calculations):
     def _single_bond_orientation(self, iframe,  backbone_atoms, is_bb_atoms):
 
         nchains = len(self._nmols_array)
-        cbb = np.zeros((self._nbonds_bb_max), dtype=np.float32)
+        cbb = np.zeros(self._nbonds_bb_max, dtype=np.float32)
         pag.bond_bond_correlation(nchains, self._nbonds_bb_max,
                                   self._all_bb_bonds, self._coords_unwrap, self._iatch, cbb)
 

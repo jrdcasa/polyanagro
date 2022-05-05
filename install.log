@@ -1,21 +1,22 @@
 		 SYS PATH
 /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro
-/opt/pycharm-2020.1/plugins/python/helpers/pycharm_display
 /usr/lib/python38.zip
 /usr/lib/python3.8
 /usr/lib/python3.8/lib-dynload
 /home/jramos/Programacion/sandboxes/sandbox_polyanagro/lib/python3.8/site-packages
-/opt/pycharm-2020.1/plugins/python/helpers/pycharm_matplotlib_backend
 
-		 INSTALLING PIP PACKAGES (05/05/2022 10:44:54)
+		 INSTALLING PIP PACKAGES (05/05/2022 12:42:15)
 
-05/05/2022 10:44:56: ** POLYANAGRO: Installing GitPython==3.1.1
-05/05/2022 10:44:58: ** POLYANAGRO: Installing h5py
+05/05/2022 12:42:17: ** None: Installing GitPython==3.1.1
+05/05/2022 12:42:19: ** None: Installing cython==0.29.24
+05/05/2022 12:42:21: ** None: Installing h5py
 
 		 INSTALLING TOPOLOGY LIBRARY INTO THE PYTHON ENVIRONMENT FROM GITHUB
 
-05/05/2022 10:45:00: ** POLYANAGRO: topology library is already installed in your system. https://github.com/jrdcasa/topology.git
+05/05/2022 12:42:23: ** None: topology library is not installed in your system
+05/05/2022 12:42:23: ** None: Installing from git... https://github.com/jrdcasa/topology.git
 
-		 RUNNING SETUP FROM SETUPTOOLS 05/05/2022 10:45:00
+
+		 RUNNING SETUP FROM SETUPTOOLS 05/05/2022 12:47:29
 
 

@@ -438,6 +438,34 @@ class RadiusofGyrationTests (unittest.TestCase):
                               isbbatom=None, calc_Cn_bonds_distances=False,
                               single_Cn_unitvector=False)
 
+    # # #########################################################################
+    def test_05_chainstatistics_onesinglechain_nopbc(self):
+
+        # print("test_04_chainstatistics_big revisar!!!!!!!!!!!!!!!!!!")
+        # return
+
+        start_t01 = datetime.datetime.now()
+        m = "\n\t============== START TEST_05 ================================\n" + \
+            "         Test one single chain without PBC conditions \n"
+        print(m) if self.log is None else self.log.info(m)
+
+        gro1 = "../data/P4HB_1chain_nopdb_cutoff_verlet/1_4HB_100_box.gro"
+        filename_tpr = "../data/P4HB_1chain_nopdb_cutoff_verlet/topol.tpr"
+
+        trj_tpr = topology.ExtTrajectory([gro1], topfile=filename_tpr, logger=self.log)
+        objcalc = pag.Chain_Statistics(trj_tpr, dt=10, stride=1, log=self.log)
+
+        objcalc.calculate([], diroutput="./", isree=True, isrg=True, iscn=True, acfE2E=False,
+                          distributions=False, molecularweight=True, calc_Cn_bonds_distances=True,
+                          single_Cn_unitvector=False, begin=0, unwrap_pbc=True,
+                          backbone_list_atoms=[], isbondorientation=[],
+                          isbbatom=[])
+
+
+
+
+
+
     # ##################################################################################################################
     @classmethod
     def tearDownClass(cls):

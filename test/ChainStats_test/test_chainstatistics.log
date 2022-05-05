@@ -4,55 +4,43 @@
 
 		***************** START RadiusofGyration TEST *****************
 			Estimated time to run the test is 2-3 minutes.
-		Starting: 	 21-01-2022 19:02:35
+		Starting: 	 05-05-2022 16:21:10
 
 
-	============== START TEST_01 ================================
-                  Small Trajectory Rg2 and Ree2 
+	============== START TEST_05 ================================
+         Test one single chain without PBC conditions 
 
-		 Trajectory XTC and TOPOLOGY TPR
-		-----------------------------------
 	*** Creating a trajectory from...
-	../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc
-	../data/0003Ch-C020-002br04/RUN-002/traj_comp.part0002.xtc
-	../data/0003Ch-C020-002br04/RUN-003/traj_comp.part0003.xtc
+	../data/P4HB_1chain_nopdb_cutoff_verlet/1_4HB_100_box.gro
 
 	*** Building bonds from topology... 
 	Setting bond orders: FALSE
-	TIME(Building_bonds_from_topology): 0.03322 seconds
+	TIME(Building_bonds_from_topology): 2.157419 seconds
 	*** End Building bonds from topology... 
 
 	*** Adding topology 
-	../data/0003Ch-C020-002br04/RUN-001/topol.tpr
-	Number of frames: 301
-	TIME(Adding topology): 0.025765 seconds
+	../data/P4HB_1chain_nopdb_cutoff_verlet/topol.tpr
+	Number of frames: 1
+	TIME(Adding topology): 2.014186 seconds
 	*** End Adding topology
 
-	Number of frames: 301
-	TIME(Read_Trajectories): 0.059553 seconds
+	Number of frames: 1
+	TIME(Read_Trajectories): 4.172245 seconds
 	*** End Creating a trajectory 
 
-		 Trajectory XTC and TOPOLOGY PSF
-		-----------------------------------
-	*** Creating a trajectory from...
-	../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc
-	../data/0003Ch-C020-002br04/RUN-002/traj_comp.part0002.xtc
-	../data/0003Ch-C020-002br04/RUN-003/traj_comp.part0003.xtc
+	*** Molecular weigth...
 
-	*** Building bonds from topology... 
-	Setting bond orders: FALSE
-	*** Backbone atoms have been assigned to the topology.
-	Topology file: ../data/0003Ch-C020-002br04/namd_out.psf
-	TIME(Building_bonds_from_topology): 0.016774 seconds
-	*** End Building bonds from topology... 
+	Average Molecular Weight (g/mol) : 8626.05
 
-	*** Adding topology 
-	../data/0003Ch-C020-002br04/namd_out.psf
-	Number of frames: 301
-	TIME(Adding topology): 0.019557 seconds
-	*** End Adding topology
+	*** Calculating Radius of gyration...
 
-	Number of frames: 301
-	TIME(Read_Trajectories): 0.036827 seconds
-	*** End Creating a trajectory 
+	Radius of gyration to be written to ./Rg.dat 
 
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ./Ree.dat 
+
+	Unwrap PBC coordinates: True
+	Cn and bond orientation calculations are deactivated, either not info about branch or backbone
+
+	IFRAME: 0 in 0.005706 seconds

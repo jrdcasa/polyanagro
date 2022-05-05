@@ -9,6 +9,16 @@ import topology
 # =============================================================================
 def parse_arguments():
 
+    def str2bool(v):
+        if isinstance(v, bool):
+            return v
+        if v.lower() in ('yes', 'true', 't', 'y', '1'):
+            return True
+        elif v.lower() in ('no', 'false', 'f', 'n', '0'):
+            return False
+        else:
+            raise argparse.ArgumentTypeError('Boolean value expected.')
+
     desc = """Calculate the polymer size (Rg, Ree, ...) from a MD trajectory.
     This is part of the polyanagro library"""
 
@@ -39,7 +49,7 @@ def parse_arguments():
                         help="Calculate the end to end distances using the heads and tails of the chains."
                              "The format of the files must be a line for chain: ich ihead itail."
                              "The index must start in zero.",
-                        action="store", metavar="FILE_WITH_DATA", required=False, default=None)
+                        action="store", metavar="FILE_WITH_DATA_End2EndAtoms", required=False, default=None)
 
     parser.add_argument("--e2acf", dest="e2acf",
                         help="Calculate the end to end autocorrelation function.",
@@ -64,6 +74,10 @@ def parse_arguments():
     parser.add_argument("--bondorientation", dest="isbondorientation",
                         help="Calculate intermolecular bond orientation",
                         action="store_true", required=False)
+
+    parser.add_argument("--unwrap", dest="isunwrap", type=str2bool,
+                        help="If True the coordinates are unwrapped",
+                        required=True, metavar="True or False, 1 or 0")
 
 
 
@@ -216,10 +230,12 @@ def main_app():
     # Check end2end and backbone lists
     isree, isreeacf, listend2end = get_listend(args)
     iscnn, backbone_list_atoms, isbbatom = get_backbone_atoms(args, trj.topology.natoms)
+    # Uwrap or not coordinates
+    isunwrap = args.isunwrap
     # Calculate chain dimensions
     objcalc.calculate(listend2end, diroutput="./", isree=isree, isrg=True, iscn=iscnn, acfE2E=isreeacf,
                       distributions=args.isdist, molecularweight=True, calc_Cn_bonds_distances=True,
-                      single_Cn_unitvector=False, begin=0, unwrap_pbc=True,
+                      single_Cn_unitvector=False, begin=0, unwrap_pbc=isunwrap,
                       backbone_list_atoms=backbone_list_atoms, isbondorientation=args.isbondorientation,
                       isbbatom=isbbatom)
 

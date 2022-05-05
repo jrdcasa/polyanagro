@@ -23,15 +23,58 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad1397b9-ba54-446b-9246-9f1da47e52d0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/docs/00-release_notes.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/01-downloads.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/02-installation.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/version.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/0003Ch-C020-002br04/RUN-001/.traj_comp.xtc_offsets.npz" beforeDir="false" afterPath="$PROJECT_DIR$/data/0003Ch-C020-002br04/RUN-001/.traj_comp.xtc_offsets.npz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/0003Ch-C020-002br04/RUN-002/.traj_comp.part0002.xtc_offsets.npz" beforeDir="false" afterPath="$PROJECT_DIR$/data/0003Ch-C020-002br04/RUN-002/.traj_comp.part0002.xtc_offsets.npz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/0003Ch-C020-002br04/RUN-003/.traj_comp.part0003.xtc_offsets.npz" beforeDir="false" afterPath="$PROJECT_DIR$/data/0003Ch-C020-002br04/RUN-003/.traj_comp.part0003.xtc_offsets.npz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/.traj_comp.xtc_offsets.npz" beforeDir="false" afterPath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/.traj_comp.xtc_offsets.npz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/02-RESTART-1000-2000ns/.traj_comp.part0002.xtc_offsets.npz" beforeDir="false" afterPath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/02-RESTART-1000-2000ns/.traj_comp.part0002.xtc_offsets.npz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/03-RESTART-2000-3000ns/.traj_comp.part0003.xtc_offsets.npz" beforeDir="false" afterPath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/03-RESTART-2000-3000ns/.traj_comp.part0003.xtc_offsets.npz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/02-installation.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/02-installation.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/install.log" beforeDir="false" afterPath="$PROJECT_DIR$/install.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polyanagro/Calculations.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/Calculations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polyanagro/Chain_Statistics.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/Chain_Statistics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polyanagro/cmds/polymer_size.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/cmds/polymer_size.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/c_acf_openmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/c_acf_openmp.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/c_distC.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/c_distC.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/c_rdf_openmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/c_rdf_openmp.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/c_rg_openmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/c_rg_openmp.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/c_unit_bond_vectors.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/c_unit_bond_vectors.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test01/Cn_withoutdist_unitvectors.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test/ChainStats_test/test01/Cn_withoutdist_unitvectors.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test02/Cn_withoutdist_unitvectors.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test/ChainStats_test/test02/Cn_withoutdist_unitvectors.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test02/Rg.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test/ChainStats_test/test02/Rg.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test03/Rg.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test/ChainStats_test/test03/Rg.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test_chainstatistics.log" beforeDir="false" afterPath="$PROJECT_DIR$/test/ChainStats_test/test_chainstatistics.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Distribution_test/test_distribution.log" beforeDir="false" afterPath="$PROJECT_DIR$/test/Distribution_test/test_distribution.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/RDF_test/test_RDF.log" beforeDir="false" afterPath="$PROJECT_DIR$/test/RDF_test/test_RDF.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_radiusofgyration.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_radiusofgyration.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topology/install.log" beforeDir="false" afterPath="$PROJECT_DIR$/topology/install.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/g2dvsg2u.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/g2dvsg2u.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/g3_03_nx.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/g3_03_nx.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph04.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph04.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph04_after_test23.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph04_after_test23.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph04_f000.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph04_f000.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph04_f001.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph04_f001.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph04_f002.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph04_f002.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph06_test12.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph06_test12.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph07.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph07.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph07_f000.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph07_f000.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph07_f001.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph07_f001.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph07_nx.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph07_nx.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph11_nx.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph11_nx.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/test_02.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/test_02.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/test_03.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/test_03.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/test_25_2_before.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/test_25_2_before.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/test_25_after.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/test_25_after.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/test_25_before.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/test_25_before.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topology/test/Test-Topology/graphs/test12_topo01.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-Topology/graphs/test12_topo01.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topology/test/Test-Topology/graphs/test13_topo01.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-Topology/graphs/test13_topo01.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topology/test/Test-Topology/psf/test_18.psf" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-Topology/psf/test_18.psf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topology/test/Test-Topology/psf/test_19.psf" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-Topology/psf/test_19.psf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topology/test/Test-Topology/test_topology.log" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-Topology/test_topology.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topology/test/data/0003Ch-C020-002br04/RUN-001/.traj_comp.xtc_offsets.npz" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/data/0003Ch-C020-002br04/RUN-001/.traj_comp.xtc_offsets.npz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topology/test/data/0003Ch-C020-002br04/RUN-002/.traj_comp.part0002.xtc_offsets.npz" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/data/0003Ch-C020-002br04/RUN-002/.traj_comp.part0002.xtc_offsets.npz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topology/test/data/0003Ch-C020-002br04/RUN-003/.traj_comp.part0003.xtc_offsets.npz" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/data/0003Ch-C020-002br04/RUN-003/.traj_comp.part0003.xtc_offsets.npz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topology/topology/ext_libc/c_distances.c" beforeDir="false" afterPath="$PROJECT_DIR$/topology/topology/ext_libc/c_distances.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topology/topology/ext_libc/c_distances_openmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/topology/topology/ext_libc/c_distances_openmp.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topology/topology/ext_libc/c_unwrap_openmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/topology/topology/ext_libc/c_unwrap_openmp.c" afterDir="false" />
@@ -62,12 +105,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/topology" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/example/01-Example_Rg/01-example_Rg.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/polyanagro/Chain_Statistics.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/polyanagro/RDF.py" root0="SKIP_INSPECTION" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JupyterTrust" id="b5c282ee-4e98-416d-9cc5-3136b5c4da67" />
   <component name="ProjectId" id="1f8BwyWLCGNsNAvoQdq2FWK4VMZ" />
@@ -83,7 +121,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/data/P4HB_1chain_nopdb_cutoff_group" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -105,7 +143,7 @@
       <recent name="$PROJECT_DIR$/test/numba" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.test_topology">
+  <component name="RunManager" selected="Python.cmds polymer_size p4hb one chain nopbc">
     <configuration name="01-example_Rg" type="PythonConfigurationType" factoryName="Python">
       <module name="polyanagro" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -438,6 +476,52 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="cmds polymer_size p4hb one chain nopbc" type="PythonConfigurationType" factoryName="Python">
+      <module name="polyanagro" />
+      <option name="INTERPRETER_OPTIONS" value="-W ignore" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name=" PYTHONWARNINGS" value="&quot;ignore::DeprecationWarning&quot; " />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data/P4HB_1chain_nopdb_cutoff_group" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/polyanagro/cmds/polymer_size.py" />
+      <option name="PARAMETERS" value="-t ./1_4HB_100_exc_0.xtc --tpr ./1_4HB_100_exc_0.tpr --e2e ./e2e.dat --c2n ./backbond.ndx --unwrap False" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="cmds polymer_size p4hb one chain" type="PythonConfigurationType" factoryName="Python">
+      <module name="polyanagro" />
+      <option name="INTERPRETER_OPTIONS" value="-W ignore" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name=" PYTHONWARNINGS" value="&quot;ignore::DeprecationWarning&quot; " />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data/P4HB_1chain_nopdb_cutoff_verlet" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/polyanagro/cmds/polymer_size.py" />
+      <option name="PARAMETERS" value="-t ./1_4HB_100_box.gro --tpr ./topol.tpr --e2e ./e2e.dat --c2n ./backbond.ndx" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="cmds polymer_size p4hb" type="PythonConfigurationType" factoryName="Python">
       <module name="polyanagro" />
       <option name="INTERPRETER_OPTIONS" value="-W ignore" />
@@ -583,6 +667,21 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;test_internalcoordinates.InternalCoordinatesTests.test_07_distancearray_benchmark&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for test_radiusofgyration.RadiusofGyrationTests.test_05_chainstatistics_onesinglechain_nopbc" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="polyanagro" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_radiusofgyration.RadiusofGyrationTests.test_05_chainstatistics_onesinglechain_nopbc&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -736,6 +835,8 @@
       <item itemvalue="Python.cmds polymer_size -h" />
       <item itemvalue="Python.cmds polymer_size big" />
       <item itemvalue="Python.cmds polymer_size p4hb" />
+      <item itemvalue="Python.cmds polymer_size p4hb one chain" />
+      <item itemvalue="Python.cmds polymer_size p4hb one chain nopbc" />
       <item itemvalue="Python.cmds polymer_size p3hb" />
       <item itemvalue="Python.cmds polymer_size help" />
       <item itemvalue="Python.02-example_bigtrjunwrap" />
@@ -762,9 +863,11 @@
       <item itemvalue="Python tests.test_internalcoordinates" />
       <item itemvalue="Python tests.test_stemgroup_test02" />
       <item itemvalue="Python tests.Unittests for test_internalcoordinates.InternalCoordinatesTests.test_07_distancearray_benchmark" />
+      <item itemvalue="Python tests.Unittests for test_radiusofgyration.RadiusofGyrationTests.test_05_chainstatistics_onesinglechain_nopbc" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Unittests for test_radiusofgyration.RadiusofGyrationTests.test_05_chainstatistics_onesinglechain_nopbc" />
         <item itemvalue="Python tests.Unittests for test_internalcoordinates.InternalCoordinatesTests.test_07_distancearray_benchmark" />
         <item itemvalue="Python.01-odf-250br_450K" />
         <item itemvalue="Python.Chain_Statistics" />
@@ -828,7 +931,7 @@
       <workItem from="1648558194852" duration="15000" />
       <workItem from="1650880952883" duration="1966000" />
       <workItem from="1650971940412" duration="648000" />
-      <workItem from="1651739807721" duration="1953000" />
+      <workItem from="1651739807721" duration="11398000" />
     </task>
     <servers />
   </component>
@@ -851,7 +954,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2756" y="222" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1651739896294">
+    <state x="2193" y="127" width="1647" height="575" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1651766953766">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="424" y="171" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/2318.0.1920.1080@0.0.1920.1040" timestamp="1643705256321" />
@@ -859,12 +962,12 @@
     <state x="275" y="160" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1044/2318.0.1920.1080@0.0.1920.1044" timestamp="1643318686485" />
     <state x="134" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1643744176952" />
     <state x="2531" y="214" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.4238.1040@0.0.4238.1040" timestamp="1643799171307" />
-    <state x="2756" y="222" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651739896294" />
+    <state x="2193" y="127" width="1647" height="575" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651766953766" />
     <state x="2775" y="230" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1643190464344">
       <screen x="2318" y="0" width="1920" height="1080" />
     </state>
     <state x="2775" y="230" key="#com.intellij.ide.macro.MacrosDialog/0.0.1920.1040/2318.0.1920.1080@2318.0.1920.1080" timestamp="1643190464344" />
-    <state x="1920" y="0" width="870" height="1042" key="FileChooserDialogImpl" timestamp="1651740032003">
+    <state x="1920" y="0" width="870" height="1042" key="FileChooserDialogImpl" timestamp="1651766228073">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="0" y="0" key="FileChooserDialogImpl/0.0.1920.1040/2318.0.1920.1080@0.0.1920.1040" timestamp="1643705253212" />
@@ -872,8 +975,8 @@
     <state x="0" y="0" width="1920" height="1044" key="FileChooserDialogImpl/0.0.1920.1044/2318.0.1920.1080@0.0.1920.1044" timestamp="1643318676858" />
     <state x="0" y="0" width="1920" height="1044" key="FileChooserDialogImpl/0.0.1920.1044@0.0.1920.1044" timestamp="1643742934266" />
     <state x="0" y="0" width="1920" height="1040" key="FileChooserDialogImpl/0.0.4238.1040@0.0.4238.1040" timestamp="1644334309079" />
-    <state x="1920" y="0" width="870" height="1042" key="FileChooserDialogImpl/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651740032003" />
-    <state width="1874" height="272" key="GridCell.Tab.0.bottom" timestamp="1651740371531">
+    <state x="1920" y="0" width="870" height="1042" key="FileChooserDialogImpl/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651766228073" />
+    <state width="1874" height="336" key="GridCell.Tab.0.bottom" timestamp="1651767952679">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1874" height="228" key="GridCell.Tab.0.bottom/0.0.1920.1040/2318.0.1920.1080@0.0.1920.1040" timestamp="1643705284564" />
@@ -881,8 +984,8 @@
     <state width="1874" height="228" key="GridCell.Tab.0.bottom/0.0.1920.1044/2318.0.1920.1080@0.0.1920.1044" timestamp="1643483353050" />
     <state width="1874" height="184" key="GridCell.Tab.0.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1643810964451" />
     <state width="1874" height="278" key="GridCell.Tab.0.bottom/0.0.4238.1040@0.0.4238.1040" timestamp="1644334756558" />
-    <state width="1874" height="272" key="GridCell.Tab.0.bottom/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651740371531" />
-    <state width="1874" height="272" key="GridCell.Tab.0.center" timestamp="1651740371531">
+    <state width="1874" height="336" key="GridCell.Tab.0.bottom/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651767952679" />
+    <state width="1874" height="336" key="GridCell.Tab.0.center" timestamp="1651767952679">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1874" height="228" key="GridCell.Tab.0.center/0.0.1920.1040/2318.0.1920.1080@0.0.1920.1040" timestamp="1643705284564" />
@@ -890,8 +993,8 @@
     <state width="1874" height="228" key="GridCell.Tab.0.center/0.0.1920.1044/2318.0.1920.1080@0.0.1920.1044" timestamp="1643483353050" />
     <state width="1874" height="184" key="GridCell.Tab.0.center/0.0.1920.1044@0.0.1920.1044" timestamp="1643810964450" />
     <state width="1874" height="278" key="GridCell.Tab.0.center/0.0.4238.1040@0.0.4238.1040" timestamp="1644334756557" />
-    <state width="1874" height="272" key="GridCell.Tab.0.center/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651740371531" />
-    <state width="1874" height="272" key="GridCell.Tab.0.left" timestamp="1651740371531">
+    <state width="1874" height="336" key="GridCell.Tab.0.center/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651767952679" />
+    <state width="1874" height="336" key="GridCell.Tab.0.left" timestamp="1651767952679">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1874" height="228" key="GridCell.Tab.0.left/0.0.1920.1040/2318.0.1920.1080@0.0.1920.1040" timestamp="1643705284564" />
@@ -899,8 +1002,8 @@
     <state width="1874" height="228" key="GridCell.Tab.0.left/0.0.1920.1044/2318.0.1920.1080@0.0.1920.1044" timestamp="1643483353050" />
     <state width="1874" height="184" key="GridCell.Tab.0.left/0.0.1920.1044@0.0.1920.1044" timestamp="1643810964450" />
     <state width="1874" height="278" key="GridCell.Tab.0.left/0.0.4238.1040@0.0.4238.1040" timestamp="1644334756557" />
-    <state width="1874" height="272" key="GridCell.Tab.0.left/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651740371531" />
-    <state width="1874" height="272" key="GridCell.Tab.0.right" timestamp="1651740371531">
+    <state width="1874" height="336" key="GridCell.Tab.0.left/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651767952679" />
+    <state width="1874" height="336" key="GridCell.Tab.0.right" timestamp="1651767952679">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1874" height="228" key="GridCell.Tab.0.right/0.0.1920.1040/2318.0.1920.1080@0.0.1920.1040" timestamp="1643705284564" />
@@ -908,43 +1011,47 @@
     <state width="1874" height="228" key="GridCell.Tab.0.right/0.0.1920.1044/2318.0.1920.1080@0.0.1920.1044" timestamp="1643483353050" />
     <state width="1874" height="184" key="GridCell.Tab.0.right/0.0.1920.1044@0.0.1920.1044" timestamp="1643810964450" />
     <state width="1874" height="278" key="GridCell.Tab.0.right/0.0.4238.1040@0.0.4238.1040" timestamp="1644334756557" />
-    <state width="1874" height="272" key="GridCell.Tab.0.right/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651740371531" />
-    <state width="1874" height="278" key="GridCell.Tab.1.bottom" timestamp="1644334756559">
-      <screen x="0" y="0" width="4238" height="1040" />
+    <state width="1874" height="336" key="GridCell.Tab.0.right/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651767952679" />
+    <state width="1874" height="336" key="GridCell.Tab.1.bottom" timestamp="1651767952679">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1874" height="228" key="GridCell.Tab.1.bottom/0.0.1920.1040/2318.0.1920.1080@0.0.1920.1040" timestamp="1643705296571" />
     <state width="1874" height="170" key="GridCell.Tab.1.bottom/0.0.1920.1040/2318.0.1920.1080@2318.0.1920.1080" timestamp="1643734633083" />
     <state width="1874" height="228" key="GridCell.Tab.1.bottom/0.0.1920.1044/2318.0.1920.1080@0.0.1920.1044" timestamp="1643483353051" />
     <state width="1874" height="278" key="GridCell.Tab.1.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1643810941593" />
     <state width="1874" height="278" key="GridCell.Tab.1.bottom/0.0.4238.1040@0.0.4238.1040" timestamp="1644334756559" />
-    <state width="1874" height="278" key="GridCell.Tab.1.center" timestamp="1644334756558">
-      <screen x="0" y="0" width="4238" height="1040" />
+    <state width="1874" height="336" key="GridCell.Tab.1.bottom/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651767952679" />
+    <state width="1874" height="336" key="GridCell.Tab.1.center" timestamp="1651767952679">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1874" height="228" key="GridCell.Tab.1.center/0.0.1920.1040/2318.0.1920.1080@0.0.1920.1040" timestamp="1643705296571" />
     <state width="1874" height="170" key="GridCell.Tab.1.center/0.0.1920.1040/2318.0.1920.1080@2318.0.1920.1080" timestamp="1643734633083" />
     <state width="1874" height="228" key="GridCell.Tab.1.center/0.0.1920.1044/2318.0.1920.1080@0.0.1920.1044" timestamp="1643483353051" />
     <state width="1874" height="278" key="GridCell.Tab.1.center/0.0.1920.1044@0.0.1920.1044" timestamp="1643810941593" />
     <state width="1874" height="278" key="GridCell.Tab.1.center/0.0.4238.1040@0.0.4238.1040" timestamp="1644334756558" />
-    <state width="1874" height="278" key="GridCell.Tab.1.left" timestamp="1644334756558">
-      <screen x="0" y="0" width="4238" height="1040" />
+    <state width="1874" height="336" key="GridCell.Tab.1.center/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651767952679" />
+    <state width="1874" height="336" key="GridCell.Tab.1.left" timestamp="1651767952679">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1874" height="228" key="GridCell.Tab.1.left/0.0.1920.1040/2318.0.1920.1080@0.0.1920.1040" timestamp="1643705296571" />
     <state width="1874" height="170" key="GridCell.Tab.1.left/0.0.1920.1040/2318.0.1920.1080@2318.0.1920.1080" timestamp="1643734633083" />
     <state width="1874" height="228" key="GridCell.Tab.1.left/0.0.1920.1044/2318.0.1920.1080@0.0.1920.1044" timestamp="1643483353051" />
     <state width="1874" height="278" key="GridCell.Tab.1.left/0.0.1920.1044@0.0.1920.1044" timestamp="1643810941593" />
     <state width="1874" height="278" key="GridCell.Tab.1.left/0.0.4238.1040@0.0.4238.1040" timestamp="1644334756558" />
-    <state width="1874" height="278" key="GridCell.Tab.1.right" timestamp="1644334756559">
-      <screen x="0" y="0" width="4238" height="1040" />
+    <state width="1874" height="336" key="GridCell.Tab.1.left/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651767952679" />
+    <state width="1874" height="336" key="GridCell.Tab.1.right" timestamp="1651767952679">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1874" height="228" key="GridCell.Tab.1.right/0.0.1920.1040/2318.0.1920.1080@0.0.1920.1040" timestamp="1643705296571" />
     <state width="1874" height="170" key="GridCell.Tab.1.right/0.0.1920.1040/2318.0.1920.1080@2318.0.1920.1080" timestamp="1643734633083" />
     <state width="1874" height="228" key="GridCell.Tab.1.right/0.0.1920.1044/2318.0.1920.1080@0.0.1920.1044" timestamp="1643483353051" />
     <state width="1874" height="278" key="GridCell.Tab.1.right/0.0.1920.1044@0.0.1920.1044" timestamp="1643810941593" />
     <state width="1874" height="278" key="GridCell.Tab.1.right/0.0.4238.1040@0.0.4238.1040" timestamp="1644334756559" />
-    <state x="2369" y="156" width="1022" height="737" key="SettingsEditor" timestamp="1651740045528">
+    <state width="1874" height="336" key="GridCell.Tab.1.right/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651767952679" />
+    <state x="2369" y="156" width="1022" height="737" key="SettingsEditor" timestamp="1651753699090">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2369" y="156" width="1022" height="737" key="SettingsEditor/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651740045528" />
+    <state x="2369" y="156" width="1022" height="737" key="SettingsEditor/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651753699090" />
     <state width="960" height="520" key="XDebugger.FullValuePopup" timestamp="1643714471059">
       <screen x="2318" y="0" width="1920" height="1080" />
     </state>
@@ -1102,6 +1209,26 @@
           <line>178</line>
           <option name="timeStamp" value="700" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/polyanagro/cmds/polymer_size.py</url>
+          <line>235</line>
+          <option name="timeStamp" value="703" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/polyanagro/Chain_Statistics.py</url>
+          <line>303</line>
+          <option name="timeStamp" value="706" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/polyanagro/Chain_Statistics.py</url>
+          <line>224</line>
+          <option name="timeStamp" value="707" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/polyanagro/Chain_Statistics.py</url>
+          <line>537</line>
+          <option name="timeStamp" value="708" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
@@ -1110,9 +1237,15 @@
         <watch expression="t" language="Python" />
         <watch expression="topology" language="Python" />
         <watch expression="self.trjpath" />
+        <watch expression="nbonds_bb_perch" />
+        <watch expression="self._ree2_frame[iframe][1]" />
+        <watch expression="self._ree2_frame[iframe][0]" />
+        <watch expression="self._rg2_frame[iframe]" />
+        <watch expression="self._rg2_frame[iframe]" />
       </configuration>
       <configuration name="PythonConfigurationType">
         <watch expression="args.sets" />
+        <watch expression="backbone_list_atoms[0]" language="Python" />
       </configuration>
     </watches-manager>
   </component>
@@ -1124,26 +1257,29 @@
     <SUITE FILE_PATH="coverage/polyanagro$test_numba_01.coverage" NAME="test_numba_01 Coverage Results" MODIFIED="1601546557833" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/numba" />
     <SUITE FILE_PATH="coverage/polyanagro$example_unit_vectors.coverage" NAME="example_unit_vectors Coverage Results" MODIFIED="1596812813288" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/polyanagro$01_example_Rg.coverage" NAME="01-example_Rg Coverage Results" MODIFIED="1615457495788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/example/01-Example_Rg" />
-    <SUITE FILE_PATH="coverage/polyanagro$test_RDF.coverage" NAME="test_RDF Coverage Results" MODIFIED="1640339835953" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/polyanagro$test_RDF.coverage" NAME="test_RDF Coverage Results" MODIFIED="1651753718055" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/polyanagro$Chain_Statistics.coverage" NAME="Chain_Statistics Coverage Results" MODIFIED="1596649519337" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/polyanagro" />
     <SUITE FILE_PATH="coverage/polyanagro$test_internalcoordinates.coverage" NAME="test_internalcoordinates Coverage Results" MODIFIED="1634545910089" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/polyanagro$test_distributions.coverage" NAME="test_distributions Coverage Results" MODIFIED="1642695744809" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/polyanagro$cmds_polymer_size__h.coverage" NAME="cmds polymer_size -h Coverage Results" MODIFIED="1643713510696" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/test_cmd_polymer_size" />
+    <SUITE FILE_PATH="coverage/polyanagro$test_distributions.coverage" NAME="test_distributions Coverage Results" MODIFIED="1651753729415" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/polyanagro$setup_build_install.coverage" NAME="setup install Coverage Results" MODIFIED="1596469601138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/polyanagro$cmds_polymer_size_p4hb_one_chain.coverage" NAME="cmds polymer_size p4hb one chain Coverage Results" MODIFIED="1651764782326" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data/P4HB_1chain_nopdb_cutoff_verlet" />
     <SUITE FILE_PATH="coverage/polyanagro$example_unit_vectors_big.coverage" NAME="example_unit_vectors_big Coverage Results" MODIFIED="1596814029164" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/polyanagro$05_test_rdf_intra.coverage" NAME="05-test_rdf_intra Coverage Results" MODIFIED="1615906516450" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/example/05-Example-RDF_intra" />
     <SUITE FILE_PATH="coverage/polyanagro$05_odf_000br_450K.coverage" NAME="05-odf-000br_450K Coverage Results" MODIFIED="1616010080042" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/media/jramos/PEBranch/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_POLYANAGRO" />
     <SUITE FILE_PATH="coverage/polyanagro$04_odf_250br_600K.coverage" NAME="04-odf-250br_600K Coverage Results" MODIFIED="1615994142440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/media/jramos/PEBranch/0075Ch-C500-250br02_b/T-600K/06-NPT-100ns-Parrinello/ANALYSIS_POLYANAGRO" />
     <SUITE FILE_PATH="coverage/polyanagro$test_numbacythonnumpy.coverage" NAME="test_numbacythonnumpy Coverage Results" MODIFIED="1639419964237" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/polyanagro$cmds_polymer_size_p4hb_one_chain_nopbc.coverage" NAME="cmds polymer_size p4hb one chain nopbc Coverage Results" MODIFIED="1651766954993" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data/P4HB_1chain_nopdb_cutoff_group" />
     <SUITE FILE_PATH="coverage/polyanagro$cmds_polymer_size.coverage" NAME="cmds polymer_size Coverage Results" MODIFIED="1643713249462" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/test_cmd_polymer_size" />
     <SUITE FILE_PATH="coverage/polyanagro$cmds_pair_distribution.coverage" NAME="cmds pair_distribution Coverage Results" MODIFIED="1643824450817" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/test_cmd_pair_distribution" />
     <SUITE FILE_PATH="coverage/polyanagro$test_segment.coverage" NAME="test_segment Coverage Results" MODIFIED="1639474240542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/polyanagro$Unittests_for_test_internalcoordinates_InternalCoordinatesTests_test_07_distancearray_benchmark.coverage" NAME="Unittests for test_internalcoordinates.InternalCoordinatesTests.test_07_distancearray_benchmark Coverage Results" MODIFIED="1635155991895" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/polyanagro$Unittests_for_test_radiusofgyration_RadiusofGyrationTests_test_05_chainstatistics_onesinglechain_nopbc.coverage" NAME="Unittests for test_radiusofgyration.RadiusofGyrationTests.test_05_chainstatistics_onesinglechain_nopbc Coverage Results" MODIFIED="1651760469866" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/polyanagro$03_odf_250br_550K.coverage" NAME="03-odf-250br_550K Coverage Results" MODIFIED="1615981737728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/media/jramos/PEBranch/0075Ch-C500-250br02_b/T-550K/06-NPT-100ns-Parrinello/ANALYSIS_POLYANAGRO" />
     <SUITE FILE_PATH="coverage/polyanagro$test_stemgroup.coverage" NAME="test_stemgroup_test02 Coverage Results" MODIFIED="1635157929509" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/polyanagro$test_molecular_graph.coverage" NAME="test_molecular_graph Coverage Results" MODIFIED="1640339662622" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/topology/test/Test-MolecularGraphs" />
-    <SUITE FILE_PATH="coverage/polyanagro$test_radiusofgyration.coverage" NAME="test_radiusofgyration Coverage Results" MODIFIED="1642788153780" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/polyanagro$test_topology.coverage" NAME="test_topology Coverage Results" MODIFIED="1651740371455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/topology/test/Test-Topology" />
+    <SUITE FILE_PATH="coverage/polyanagro$test_topology.coverage" NAME="test_topology Coverage Results" MODIFIED="1651753701827" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/topology/test/Test-Topology" />
+    <SUITE FILE_PATH="coverage/polyanagro$test_molecular_graph.coverage" NAME="test_molecular_graph Coverage Results" MODIFIED="1651753710767" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/topology/test/Test-MolecularGraphs" />
+    <SUITE FILE_PATH="coverage/polyanagro$test_radiusofgyration.coverage" NAME="test_radiusofgyration Coverage Results" MODIFIED="1651755367647" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/polyanagro$setup_install.coverage" NAME="setup install Coverage Results" MODIFIED="1651740293922" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/polyanagro$Unittests_for_test_mdtraj_library_MDTRAJTests_test_01_UApolTrappe.coverage" NAME="Unittests for test_mdtraj_library.MDTRAJTests.test_01_UApolTrappe Coverage Results" MODIFIED="1596123827007" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/polyanagro$cmds_polymer_size_p4hb.coverage" NAME="cmds polymer_size p4hb Coverage Results" MODIFIED="1643392610758" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/TMPS/TMP9_BB/07-NPT_CRescale_200ns_700K/ANALYSIS" />

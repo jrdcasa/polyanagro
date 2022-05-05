@@ -100,6 +100,7 @@ class Calculations(object):
         icol2 = cols[1]
         icol3 = cols[2]
 
+
         with open(filename, "r") as f:
             lines = []
             while True:

@@ -63,8 +63,8 @@ Note that the python environment is activated, (sandbox_polyanagro) before the l
 With the python virtual environment activated, clone and install requested python libraries
 
 ```bash
-git clone https://github.com/jrdcasa/topology.git
-cd topology
+git clone https://github.com/jrdcasa/polyanagro.git
+cd polyanagro
 python -m pip install wheel
 python -m pip install pygraphviz
 python setup.py install 
