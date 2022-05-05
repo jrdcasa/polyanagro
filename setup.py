@@ -27,7 +27,7 @@ class CustomFormatter(logging.Formatter):
         return formatter.format(record)
 
 # Install packages from pip ==============================================================
-def install_with_pip(pack, vers=None, log=None):
+def install_with_pip(pack, vers=None, log=None, namepkg=None):
 
     # Update pip
     p = subprocess.Popen([sys.executable, "-m", "pip", "install", "--upgrade", "pip"],
@@ -37,22 +37,23 @@ def install_with_pip(pack, vers=None, log=None):
     # sys.executable gives the path of the python interpreter
     now = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
     if vers is None:
-        m = "{}: ** POLYANAGRO: Installing {}".format(now, pack)
+        m = "{}: ** {}: Installing {}".format(now, namepkg, pack)
         print(m) if log is None else log.info(m)
         # subprocess.call([sys.executable, "-m", "pip", "install", "{0}".format(pack)])
         p = subprocess.Popen([sys.executable, "-m", "pip", "install", "{0}".format(pack)],
                              stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         p.communicate()
     else:
-        m = "{}: ** POLYANAGRO: Installing {}=={}".format(now, pack, vers)
+        m = "{}: ** {}: Installing {}=={}".format(now, namepkg, pack, vers)
         print(m) if log is None else log.info(m)
         # subprocess.call([sys.executable, "-m", "pip", "install", "{0}=={1}".format(pack, vers), " &>install.log"])
         p = subprocess.Popen([sys.executable, "-m", "pip", "install", "{0}=={1}".format(pack, vers)],
                              stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         p.communicate()
 
+
 # ================================================================================================
-def install_topology_library(log=None):
+def install_topology_library(log=None, namepkg=None):
     """
     Installing the python topology library if is not present in the python environment.
     """
@@ -67,11 +68,11 @@ def install_topology_library(log=None):
     m = "\n\t\t INSTALLING TOPOLOGY LIBRARY INTO THE PYTHON ENVIRONMENT FROM GITHUB\n\n"
 
     if os.path.isdir(os.path.join(os.getcwd(), install_dir)):
-        m += "{}: ** POLYANAGRO: topology library is already installed in your system. {}".format(now, giturl)
+        m += "{}: ** {}: topology library is already installed in your system. {}".format(now, namepkg, giturl)
         print(m) if log is None else log.info(m)
     else:
-        m += "{}: ** POLYANAGRO: topology library is not installed in your system\n".format(now)
-        m += "{}: ** POLYANAGRO: Installing from git... {}\n".format(now, giturl)
+        m += "{}: ** {}: topology library is not installed in your system\n".format(now, namepkg)
+        m += "{}: ** {}: Installing from git... {}\n".format(now, namepkg, giturl)
         print(m) if log is None else log.info(m)
 
         fullpath_install = os.path.abspath(install_dir)
@@ -85,11 +86,11 @@ def install_topology_library(log=None):
             git.Repo.clone_from(giturl, fullpath_install)
         except git.GitCommandError as e:
             m = "================= ERROR INSTALL ================\n"
-            m += "** POLYANAGRO: The github repository for topology is not valid or not exists.!!!\n"
-            m += "** POLYANAGRO: giturl     : {}\n".format(giturl)
-            m += "** POLYANAGRO: install_dir: {}\n".format(fullpath_install)
-            m += "** POLYANAGRO: Topology library cannot be installed\n"
-            m += "** POLYANAGRO: The installation is aborted\n"
+            m += "** {}: The github repository for topology is not valid or not exists.!!!\n".format(namepkg)
+            m += "** {}: giturl     : {}\n".format(namepkg, giturl)
+            m += "** {}: install_dir: {}\n".format(namepkg, fullpath_install)
+            m += "** {}: Topology library cannot be installed\n".format(namepkg)
+            m += "** {}: The installation is aborted\n".format(namepkg)
             m += "** Error: {}\n".format(e.stderr)
             m += "\n================= ERROR INSTALL ================"
             print(m) if log is None else log.info(m)

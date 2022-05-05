@@ -24,18 +24,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ad1397b9-ba54-446b-9246-9f1da47e52d0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/install.log" beforeDir="false" afterPath="$PROJECT_DIR$/install.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/Chain_Statistics.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/Chain_Statistics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/RDF.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/RDF.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/c_acf_openmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/c_acf_openmp.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/c_distC.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/c_distC.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/c_rdf_openmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/c_rdf_openmp.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/c_rdf_openmp.pyx" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/c_rdf_openmp.pyx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/c_rg_openmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/c_rg_openmp.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/c_unit_bond_vectors.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/c_unit_bond_vectors.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/calc_rdf.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/calc_rdf.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/setup.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polyanagro/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/version.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topology/install.log" beforeDir="false" afterPath="$PROJECT_DIR$/topology/install.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topology/topology/ext_libc/c_distances.c" beforeDir="false" afterPath="$PROJECT_DIR$/topology/topology/ext_libc/c_distances.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topology/topology/ext_libc/c_distances_openmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/topology/topology/ext_libc/c_distances_openmp.c" afterDir="false" />
@@ -833,7 +823,7 @@
       <workItem from="1648558194852" duration="15000" />
       <workItem from="1650880952883" duration="1966000" />
       <workItem from="1650971940412" duration="648000" />
-      <workItem from="1651739807721" duration="590000" />
+      <workItem from="1651739807721" duration="1643000" />
     </task>
     <servers />
   </component>

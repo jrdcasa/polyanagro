@@ -1,7 +1,7 @@
 GitPython>=3.1.1
+cython>=0.29.24
 h5py
 #networkx
-#cython==0.28.5
 #GitPython
 #matplotlib
 #tables
