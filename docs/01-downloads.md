@@ -3,6 +3,6 @@ Downloads
 
 The source code and examples are located in a github repository.
 
-To download Topology library:
+To download Polyanagro program:
 
-``git clone https://github.com/jrdcasa/topology.git``
+``git clone https://github.com/jrdcasa/polyanagro.git``

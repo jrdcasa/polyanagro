@@ -23,9 +23,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad1397b9-ba54-446b-9246-9f1da47e52d0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/docs/00-release_notes.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/01-downloads.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/02-installation.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/polyanagro/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/version.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topology/install.log" beforeDir="false" afterPath="$PROJECT_DIR$/topology/install.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topology/topology/ext_libc/c_distances.c" beforeDir="false" afterPath="$PROJECT_DIR$/topology/topology/ext_libc/c_distances.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topology/topology/ext_libc/c_distances_openmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/topology/topology/ext_libc/c_distances_openmp.c" afterDir="false" />
@@ -823,7 +828,7 @@
       <workItem from="1648558194852" duration="15000" />
       <workItem from="1650880952883" duration="1966000" />
       <workItem from="1650971940412" duration="648000" />
-      <workItem from="1651739807721" duration="1643000" />
+      <workItem from="1651739807721" duration="1953000" />
     </task>
     <servers />
   </component>
