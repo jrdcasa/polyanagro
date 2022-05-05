@@ -1,12 +1,29 @@
 import polyanagro as pag
 import numpy as np
+import math
 
 # ===============================================================
 class RDF(pag.Calculations):
 
     # #########################################################################
     def __init__(self, trj, iniframe=0, endframe=None, dt=1, stride=1,
-                 setA_label="Full", setB_label="Full", onlybackbone=True, logger=None):
+                 setA=None, setB=None, onlybackbone=True, delta_r = 0.02,
+                 logger=None):
+
+        """
+
+        Args:
+            trj:
+            iniframe:
+            endframe:
+            dt:
+            stride:
+            setA:
+            setB:
+            onlybackbone:
+            delta_r: Delta r for the histogram in ansgtroms
+            logger:
+        """
 
         super().__init__(trj, dt=dt, stride=stride, logger=logger)
 
@@ -19,12 +36,12 @@ class RDF(pag.Calculations):
         self._isok = True
 
         # Sets
-        self._setA = None
-        self._setB = None
+        self._setA = setA
+        self._setB = setB
         self._onlybackbone = onlybackbone
 
         # Define the sets to calculate the RDF
-        self._isok = self._defineSets(setA_label, setB_label)
+        #self._isok = self._defineSets(setA_label, setB_label)
 
         # Frames
         self._iniframe = iniframe
@@ -42,29 +59,45 @@ class RDF(pag.Calculations):
             if m > self._max_box:
                 self._max_box = m
 
+        self._delta_r = delta_r
+
+        # Number of bins
+        maxDist = self._max_box * 0.5   # Half Box
+        self._nbins = int(math.ceil((maxDist + 1.0) / (2.0 * self._delta_r)) + 1)
+        print(self._nbins)
+
     # #########################################################################
     def rdf_calc_cython(self):
 
         # Initialize the RDF arrays
-        pag.setup_rdf_init(self._max_box)
+        total_rdf = np.zeros((self._nbins), dtype=np.float32)
+        hist_rdf = np.zeros((self._nbins), dtype=np.int32)
 
-        nat_A = self._setA.n_atoms
-        nat_B = self._setB.n_atoms
-        # atindex_A = np.array(self._setA.indices, dtype=np.int32)
-        # b = np.array(self._setB.indices, dtype=np.int32)
-
+        # Setup sets
+        nat_A = len(self._setA)
+        nat_B = len(self._setB)
+        setA = np.array(self._setA, dtype=np.int32)
+        setB = np.array(self._setB, dtype=np.int32)
 
         # Accumulate histograms
         for iframe in range(self._iniframe, self._endframe, self._stride):
             coords_t0_wrapped = self._trajectory.universe.trajectory[iframe].positions
             box_dimensions = self._trajectory.universe.trajectory[iframe].dimensions[0:3]
 
+            isok = pag.rdf_hist(nat_A, nat_B,
+                                self._nbins, self._delta_r,
+                                setA, setB,
+                                coords_t0_wrapped,
+                                box_dimensions, hist_rdf)
 
-            isok = pag.rdf_calc(nat_A, nat_B, self._setA.indices, self._setB.indices,
-                                self._setA.positions, self._setB.positions,
-                                box_dimensions)
+            print(hist_rdf)
 
-            print("isOK: {}", isok)
+            exit()
+        # Get gr and normalizate
+        isok = pag.rdf_gr()
+
+        print(hist_rdf)
+        print("isOK: {}", isok)
 
     # #########################################################################
     def _defineSets(self, setA_label, setB_label):

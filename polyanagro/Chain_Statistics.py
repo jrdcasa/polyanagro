@@ -625,7 +625,7 @@ class Chain_Statistics(pag.Calculations):
             for ibin in range(1, len(bins)):
                 newbins_ree[ibin-1] = (bins[ibin]-bins[ibin-1])/2.0+bins[ibin-1]
             # Write data to file
-            with open("Ree_distribution,dat", "w") as f:
+            with open("Ree_distribution.dat", "w") as f:
                 f.writelines("# ibin(Angstroms) PDF(A-1)\n")
                 f.writelines("#=========================\n")
                 for ibin in range(0, len(newbins_ree)):
@@ -643,7 +643,7 @@ class Chain_Statistics(pag.Calculations):
             for ibin in range(1, len(bins)):
                 newbins_rg[ibin-1] = (bins[ibin]-bins[ibin-1])/2.0+bins[ibin-1]
             # Write data to file
-            with open("Rg_distribution,dat", "w") as f:
+            with open("Rg_distribution.dat", "w") as f:
                 f.writelines("# ibin(Angstroms) PDF(A-1)\n")
                 f.writelines("#=========================\n")
                 for ibin in range(0, len(newbins_rg)):

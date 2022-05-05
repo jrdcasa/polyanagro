@@ -6,61 +6,60 @@ from libc.stdlib cimport malloc, free
 
 # declare the interface to the C code
 cdef extern from "calc_rdf.c":
-    void c_setup_rdf(float, float )
-    void c_calc_rdf_equal(int, long*, float*, float*)
+    void c_setup_rdf(int, float* )
+    void c_rdf_hist(int, int, int, int, float, int*, int*, float*, float*, int*)
+    void c_rdf_gr()
 
 
 # ========================================================================================
-def setup_rdf_init(max_box, delta_r = 0.02):
+def setup_rdf_init(nbins,
+                   np.ndarray[float, ndim=1, mode="c"] total_rdf):
 
     """
 
-    :param max_box: Maximum box distance in angstroms
-    :param delta_r: Bin width in angstroms (default = 0.02A)
+    :param nbins: Number of bins in the histogram
+    :param total_rdf: Total RDF historgram (dim: nbins)
 
     """
 
-    cdef float c_max_box = max_box
-    cdef float c_delta_r = delta_r
+    cdef int c_nbins = nbins
 
-    c_setup_rdf(c_max_box, c_delta_r)
+    c_setup_rdf(c_nbins, &total_rdf[0])
 
 # ========================================================================================
-def rdf_calc(nat_A, nat_B,
-             np.ndarray[long  , ndim=1, mode="c"] atindex_A,
-             np.ndarray[long  , ndim=1, mode="c"] atindex_B,
-             np.ndarray[float, ndim=2, mode="c"] coords_A,
-             np.ndarray[float, ndim=2, mode="c"] coords_B,
-             np.ndarray[float, ndim=1, mode="c"] box):
+def rdf_hist(nat_A, nat_B, nbins, delta_r,
+             np.ndarray[int, ndim=1, mode="c"] atindex_A,
+             np.ndarray[int, ndim=1, mode="c"] atindex_B,
+             np.ndarray[float, ndim=2, mode="c"] wrapped_coords,
+             np.ndarray[float, ndim=1, mode="c"] box,
+             np.ndarray[int, ndim=1, mode="c"] hist_rdf):
 
     """
 
     :param nat_A: Number of atoms of the set A
     :param nat_B: Number of atoms of the set B
-    :param coords_A: Wrapped coordinates of the set A [nat_A,3] (in angstroms)
-    :param coords_B: Wrapped coordinates of the set B [nat_B,3] (in angstroms)
+    :param nbins
+    :param delta_r
+    :param atindex_A: Atom index of the first set
+    :param atindex_B: Atom index of the second set
+    :param wrapped_coords: Wrapped coordinates of all atoms [nat,3] (in angstroms)
     :param box: Simulation box (in angstroms)
+    :param total_rdf: Total RDF historgram (dim: nbins)
 
     :return:
     """
 
     cdef int c_nat_A = nat_A
     cdef int c_nat_B = nat_B
-    cdef int dim1 = coords_A.shape[0]
-    cdef int dim2 = coords_B.shape[0]
+    cdef int c_natoms = wrapped_coords.shape[0]
 
-    if dim1 != nat_A or dim2 !=nat_B:
-        return False
-    if dim1 != atindex_A.shape[0] or dim2 != atindex_B.shape[0]:
-        return False
-
-    if np.array_equal(atindex_A, atindex_B):
-        c_calc_rdf_equal(c_nat_A, &atindex_A[0],
-                         &coords_A[0,0], &box[0])
-    else:
-        print("J")
-    #
-    # c_calc_rdf_equal(c_nat_A, c_nat_B, &atindex_A[0], &atindex_B[0],
-    #                  &coords_A[0,0], &coords_B[0,0], &box[0])
+    c_rdf_hist(c_natoms, c_nat_A, c_nat_B, nbins, delta_r,
+               &atindex_A[0], &atindex_B[0],
+               &wrapped_coords[0,0], &box[0], &hist_rdf[0])
 
     return True
+
+# ========================================================================================
+def rdf_gr():
+
+    print("Pass")

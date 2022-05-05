@@ -13,7 +13,7 @@ from topology.atomic_data import element_cov_radius, maximal_valences, \
 
 from ext_libc.c_rg_openmp import calc_rg_openmp_massweigth, calc_rg_openmp
 from ext_libc.c_unit_bond_vectors import unit_bond_vectors, bond_bond_correlation
-from ext_libc.c_rdf_openmp import setup_rdf_init, rdf_calc
+from ext_libc.c_rdf_openmp import setup_rdf_init, rdf_hist, rdf_gr
 from ext_libc.c_distC import setup_hist_bondC, setup_hist_angleC, setup_hist_dihC, bondDistC
 from ext_libc.c_acf_openmp import calc_acf_ete
 

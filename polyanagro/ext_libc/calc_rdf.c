@@ -16,117 +16,106 @@
 float maxDist;
 // Number of bins in the RDF histograms
 int nbins;
-// Array to store the total RDF
-float *gr;
 
-void c_setup_rdf(float max_box, float delta_r)  {
+void c_setup_rdf(int nbins, float* total_rdf)  {
 
-    // Setup some variables for the histogram
-    maxDist = max_box/2.0;
-    nbins = (int) ceil((maxDist+1.0)/(2.0*delta_r)) + 1;
+    // float* total_rdf array to store the total RDF
 
     // Allocate arrays
-    if ( ((gr  = (float*)  malloc(sizeof(float)      * (nbins)) ) == NULL) ) {
+    if ( ((total_rdf  = (float*)  malloc(sizeof(float)      * (nbins)) ) == NULL) ) {
         fprintf(stderr, "c_setup_rdf: out of memory\n");
         exit(0);
     }
 
     // Initialize arrays
     for (int ibin=0; ibin<nbins; ibin++) {
-        gr[ibin] = 0.0;
+        total_rdf[ibin] = 0.0;
     }
 
-    printf("%f %d\n", maxDist, nbins);
 }
 
-//void c_calc_rdf_equal(int nat_A, int nat_B, int* index_A, int *index_B, float* coords_A, float* coords_B, float* box)  {
-//    for (int iat=0; iat<nat_A; iat++) {
-//        for (int jat=iat+1; jat<nat_B; jat++) {
-//
-//        printf("%d %d\n", index_A[iat], index_B[jat]);
-//
-//    }}
-//
-//
-//
-//
-//    printf("%d %d\n", nat_A, nat_B);
-//    for (int iat=0; iat<nat_A; iat++) {
-//        printf("%d %f %f %f\n", iat, coords_A[iat+0], coords_A[iat+1], coords_A[iat+2]);
-//    }
-//    printf("*****\n");
-//
-//    for (int iat=0; iat<nat_B; iat++) {
-//        printf("%d %f %f %f\n", iat, coords_B[iat+0], coords_B[iat+1], coords_B[iat+2]);
-//    }
-//
-//    printf("*****\n");
-//
-//    printf("%f %f %f\n", box[0], box[1], box[2]);
-//    printf("=============================================\n");
+float distance_minimum_image(float x1, float y1, float z1, float x2, float y2, float z2, float* box) {
 
+    float delx, dely, delz;
+    float rsq, r;
 
-void c_calc_rdf_equal(int nat_A, long* index_A, float* coords_A, float* box)  {
+    delx = x1 - x2;
+    dely = y1 - y2;
+    delz = z1 - z2;
 
-     // If sets A and B contain the same number of atoms, only the half of interactions
-     // have to be calculated
-     //
-     //  nat_A (int)      : Number of atoms in set A (and B)
-     //  index_A (long)   : Array of Atom indices in the set,  index_A[nat_A]
-     //  coords_A (float) : Coordinates in the set,  coords_A[nat_A,3]
-     //  box (float)      : Box dimension,  box[3]
+    //delx = delx - box[0]*round(delx/box[0]);
+    //dely = dely - box[1]*round(dely/box[1]);
+    //delz = delz - box[2]*round(delz/box[2]);
 
+    delx = delx - round(delx);
+    dely = dely - round(dely);
+    delz = delz - round(delz);
 
-    float* xyz;
-    float hbox[3];
-    float tmp;
-    float* rij;
+    rsq = delx*delx+dely*dely+delz*delz;
+    r = sqrt(rsq);
 
-    // Allocate arrays
-    if ( ((rij  = (float*)  malloc(sizeof(float)      * (nat_A*nat_A)) ) == NULL) ||
-         ((xyz  = (float*)  malloc(sizeof(float)      * (3)) ) == NULL))  {
-        fprintf(stderr, "c_calc_rdf_equal: out of memory\n");
-        exit(0);
+    return r;
+
+}
+
+void c_rdf_hist(int natoms, int nat_A, int nat_B, int nbins, float delta_r,
+                int* atindexA, int* atindexB,
+                float* coords, float* box, int* hist_rdf) {
+
+    /*
+    Accumulate the histograms for each step
+    */
+
+    float dij;
+    int dim2 = 3;
+    float xA, yA, zA;
+    float xB, yB, zB;
+    int k;
+    int iat;
+    int jat;
+    float blmax = -1.0;
+    float dr_reduced;
+
+    for (int i = 0; i<dim2; i++) {
+        if (box[i] > blmax) blmax = box[i];
     }
+    dr_reduced = delta_r/blmax;
 
-    // Half box
-    hbox[0] = box[0]/2.0;
-    hbox[1] = box[1]/2.0;
-    hbox[2] = box[2]/2.0;
-    xyz[0] = 0.0;
-    xyz[1] = 0.0;
-    xyz[2] = 0.0;
+    // Atoms in setA. Coordinates are converted to box=1 units
+    for (int idx=0; idx<nat_A; idx++) {
+          iat = atindexA[idx];
+          xA = coords[iat*dim2+0]/box[0];
+          yA = coords[iat*dim2+1]/box[1];
+          zA = coords[iat*dim2+2]/box[2];
+        // Atoms in setB
+        for (int jdx=0; jdx<nat_B; jdx++) {
+            jat = atindexB[jdx];
+            if (iat == jat) continue;
+            xB = coords[jat*dim2+0]/box[0];
+            yB = coords[jat*dim2+1]/box[1];
+            zB = coords[jat*dim2+2]/box[2];
+            dij = distance_minimum_image(xA, yA, zA, xB, yB, zB, box);
 
-    // Main loop for distances
-    for (int iat=0; iat<nat_A; iat++) {
-        for (int jat=iat+1; jat<nat_A; jat++) {
-            for (int k=0; k<3; k++){
-                xyz[k]  = coords_A[iat+k]-coords_A[jat+k];
-                if (fabs(tmp) > hbox[k]) {
-                    if(tmp>0.0) {
-                        xyz[k] = tmp - box[k];
-                    } else {
-                        xyz[k] = tmp + box[k];
-                    }
-                }
-            }
-            rij[iat*nat_A+jat] = sqrt(xyz[0]*xyz[0]+xyz[1]*xyz[1]+xyz[2]*xyz[2]);
+            k = floor(dij / dr_reduced) + 1;
+            printf("%d %d %f %d %f\n",iat, jat, dij, k, dr_reduced);
+            if (k<=nbins) hist_rdf[k] = hist_rdf[k] + 1;
         }
     }
 
+}
 
+void c_rdf_gr() {
 
+    float prefact, cons, vol;
+    float pi = 3.14159265359;
 
-//    for (int iat=0; iat<nat_A; iat++) {
-//        printf("%d %f %f %f\n", iat, coords_A[iat+0], coords_A[iat+1], coords_A[iat+2]);
-//    }
-//    printf("*****\n");
-//
-//    printf("*****\n");
-//
-//    printf("%f %f %f\n", box[0], box[1], box[2]);
-//    printf("=============================================\n");
+    cons = 4.0 * pi / 3.0;
+    vol = 1.0;
 
+    // Calculate gr for an ideal gas of the same density
+    prefact = cons / vol;
+
+    printf("HJKKKJJJJ\n");
 }
 
 #endif
