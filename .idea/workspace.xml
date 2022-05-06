@@ -24,30 +24,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ad1397b9-ba54-446b-9246-9f1da47e52d0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/0003Ch-C020-002br04/RUN-001/.traj_comp.xtc_offsets.npz" beforeDir="false" afterPath="$PROJECT_DIR$/data/0003Ch-C020-002br04/RUN-001/.traj_comp.xtc_offsets.npz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/0003Ch-C020-002br04/RUN-002/.traj_comp.part0002.xtc_offsets.npz" beforeDir="false" afterPath="$PROJECT_DIR$/data/0003Ch-C020-002br04/RUN-002/.traj_comp.part0002.xtc_offsets.npz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/0003Ch-C020-002br04/RUN-003/.traj_comp.part0003.xtc_offsets.npz" beforeDir="false" afterPath="$PROJECT_DIR$/data/0003Ch-C020-002br04/RUN-003/.traj_comp.part0003.xtc_offsets.npz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/.traj_comp.xtc_offsets.npz" beforeDir="false" afterPath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/.traj_comp.xtc_offsets.npz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/02-RESTART-1000-2000ns/.traj_comp.part0002.xtc_offsets.npz" beforeDir="false" afterPath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/02-RESTART-1000-2000ns/.traj_comp.part0002.xtc_offsets.npz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/03-RESTART-2000-3000ns/.traj_comp.part0003.xtc_offsets.npz" beforeDir="false" afterPath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/03-RESTART-2000-3000ns/.traj_comp.part0003.xtc_offsets.npz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/02-installation.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/02-installation.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/install.log" beforeDir="false" afterPath="$PROJECT_DIR$/install.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/Calculations.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/Calculations.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/Chain_Statistics.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/Chain_Statistics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/cmds/polymer_size.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/cmds/polymer_size.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/c_acf_openmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/c_acf_openmp.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/c_distC.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/c_distC.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/c_rdf_openmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/c_rdf_openmp.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/c_rg_openmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/c_rg_openmp.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/c_unit_bond_vectors.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/c_unit_bond_vectors.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test01/Cn_withoutdist_unitvectors.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test/ChainStats_test/test01/Cn_withoutdist_unitvectors.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test02/Cn_withoutdist_unitvectors.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test/ChainStats_test/test02/Cn_withoutdist_unitvectors.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test02/Rg.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test/ChainStats_test/test02/Rg.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test03/Rg.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test/ChainStats_test/test03/Rg.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test_chainstatistics.log" beforeDir="false" afterPath="$PROJECT_DIR$/test/ChainStats_test/test_chainstatistics.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Distribution_test/test_distribution.log" beforeDir="false" afterPath="$PROJECT_DIR$/test/Distribution_test/test_distribution.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/RDF_test/test_RDF.log" beforeDir="false" afterPath="$PROJECT_DIR$/test/RDF_test/test_RDF.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test_radiusofgyration.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_radiusofgyration.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topology/install.log" beforeDir="false" afterPath="$PROJECT_DIR$/topology/install.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/g2dvsg2u.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/g2dvsg2u.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/g3_03_nx.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/g3_03_nx.png" afterDir="false" />
@@ -932,6 +908,8 @@
       <workItem from="1650880952883" duration="1966000" />
       <workItem from="1650971940412" duration="648000" />
       <workItem from="1651739807721" duration="11398000" />
+      <workItem from="1651768160523" duration="603000" />
+      <workItem from="1651782669204" duration="12000" />
     </task>
     <servers />
   </component>
@@ -954,14 +932,15 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2193" y="127" width="1647" height="575" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1651766953766">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state x="273" y="127" width="1647" height="575" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1651780261184">
+      <screen x="0" y="27" width="1920" height="1015" />
     </state>
     <state x="424" y="171" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/2318.0.1920.1080@0.0.1920.1040" timestamp="1643705256321" />
     <state x="2452" y="180" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/2318.0.1920.1080@2318.0.1920.1080" timestamp="1643713082135" />
     <state x="275" y="160" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1044/2318.0.1920.1080@0.0.1920.1044" timestamp="1643318686485" />
     <state x="134" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1643744176952" />
     <state x="2531" y="214" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.4238.1040@0.0.4238.1040" timestamp="1643799171307" />
+    <state x="273" y="127" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1015/1920.0.1920.1080@0.27.1920.1015" timestamp="1651780261184" />
     <state x="2193" y="127" width="1647" height="575" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651766953766" />
     <state x="2775" y="230" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1643190464344">
       <screen x="2318" y="0" width="1920" height="1080" />
@@ -971,7 +950,6 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="0" y="0" key="FileChooserDialogImpl/0.0.1920.1040/2318.0.1920.1080@0.0.1920.1040" timestamp="1643705253212" />
-    <state x="3065" y="278" width="424" height="483" key="FileChooserDialogImpl/0.0.1920.1040/2318.0.1920.1080@2318.0.1920.1080" timestamp="1643101668257" />
     <state x="0" y="0" width="1920" height="1044" key="FileChooserDialogImpl/0.0.1920.1044/2318.0.1920.1080@0.0.1920.1044" timestamp="1643318676858" />
     <state x="0" y="0" width="1920" height="1044" key="FileChooserDialogImpl/0.0.1920.1044@0.0.1920.1044" timestamp="1643742934266" />
     <state x="0" y="0" width="1920" height="1040" key="FileChooserDialogImpl/0.0.4238.1040@0.0.4238.1040" timestamp="1644334309079" />
