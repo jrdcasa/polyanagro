@@ -24,33 +24,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ad1397b9-ba54-446b-9246-9f1da47e52d0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/install.log" beforeDir="false" afterPath="$PROJECT_DIR$/install.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topology/install.log" beforeDir="false" afterPath="$PROJECT_DIR$/topology/install.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/g2dvsg2u.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/g2dvsg2u.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/g3_03_nx.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/g3_03_nx.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph04.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph04.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph04_after_test23.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph04_after_test23.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph04_f000.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph04_f000.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph04_f001.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph04_f001.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph04_f002.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph04_f002.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph06_test12.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph06_test12.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph07.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph07.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph07_f000.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph07_f000.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph07_f001.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph07_f001.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph07_nx.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph07_nx.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph11_nx.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/graph11_nx.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/test_02.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/test_02.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/test_03.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/test_03.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/test_25_2_before.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/test_25_2_before.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/test_25_after.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/test_25_after.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/test_25_before.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-MolecularGraphs/graphs/test_25_before.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology/test/Test-Topology/graphs/test12_topo01.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-Topology/graphs/test12_topo01.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology/test/Test-Topology/graphs/test13_topo01.png" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-Topology/graphs/test13_topo01.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology/test/Test-Topology/psf/test_18.psf" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-Topology/psf/test_18.psf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology/test/Test-Topology/psf/test_19.psf" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-Topology/psf/test_19.psf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology/test/Test-Topology/test_topology.log" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/Test-Topology/test_topology.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology/test/data/0003Ch-C020-002br04/RUN-001/.traj_comp.xtc_offsets.npz" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/data/0003Ch-C020-002br04/RUN-001/.traj_comp.xtc_offsets.npz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology/test/data/0003Ch-C020-002br04/RUN-002/.traj_comp.part0002.xtc_offsets.npz" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/data/0003Ch-C020-002br04/RUN-002/.traj_comp.part0002.xtc_offsets.npz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology/test/data/0003Ch-C020-002br04/RUN-003/.traj_comp.part0003.xtc_offsets.npz" beforeDir="false" afterPath="$PROJECT_DIR$/topology/test/data/0003Ch-C020-002br04/RUN-003/.traj_comp.part0003.xtc_offsets.npz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topology/topology/ext_libc/c_distances.c" beforeDir="false" afterPath="$PROJECT_DIR$/topology/topology/ext_libc/c_distances.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topology/topology/ext_libc/c_distances_openmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/topology/topology/ext_libc/c_distances_openmp.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topology/topology/ext_libc/c_unwrap_openmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/topology/topology/ext_libc/c_unwrap_openmp.c" afterDir="false" />
@@ -83,7 +58,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="JupyterTrust" id="b5c282ee-4e98-416d-9cc5-3136b5c4da67" />
+  <component name="JupyterTrust" id="9e7deb4b-d547-4198-a22c-ef6addc4ee35" />
   <component name="ProjectId" id="1f8BwyWLCGNsNAvoQdq2FWK4VMZ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -97,7 +72,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/data/P4HB_1chain_nopdb_cutoff_group" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -119,7 +94,7 @@
       <recent name="$PROJECT_DIR$/test/numba" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.cmds polymer_size p4hb one chain nopbc">
+  <component name="RunManager" selected="Python.cmds polymer_size p3hb one chain nopbc ">
     <configuration name="01-example_Rg" type="PythonConfigurationType" factoryName="Python">
       <module name="polyanagro" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -422,6 +397,29 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/polyanagro/cmds/polymer_size.py" />
       <option name="PARAMETERS" value="-h" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="cmds polymer_size p3hb one chain nopbc " type="PythonConfigurationType" factoryName="Python">
+      <module name="polyanagro" />
+      <option name="INTERPRETER_OPTIONS" value="-W ignore" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name=" PYTHONWARNINGS" value="&quot;ignore::DeprecationWarning&quot; " />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/TMP/chain_1" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/polyanagro/cmds/polymer_size.py" />
+      <option name="PARAMETERS" value="-t ./1_3HB_100_exc_0.xtc --tpr ./1_3HB_100_exc_0.tpr --e2e ./e2e.dat --c2n ./backbond.ndx --unwrap False" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -813,6 +811,7 @@
       <item itemvalue="Python.cmds polymer_size p4hb" />
       <item itemvalue="Python.cmds polymer_size p4hb one chain" />
       <item itemvalue="Python.cmds polymer_size p4hb one chain nopbc" />
+      <item itemvalue="Python.cmds polymer_size p3hb one chain nopbc " />
       <item itemvalue="Python.cmds polymer_size p3hb" />
       <item itemvalue="Python.cmds polymer_size help" />
       <item itemvalue="Python.02-example_bigtrjunwrap" />
@@ -910,6 +909,12 @@
       <workItem from="1651739807721" duration="11398000" />
       <workItem from="1651768160523" duration="603000" />
       <workItem from="1651782669204" duration="12000" />
+      <workItem from="1651834275967" duration="910000" />
+      <workItem from="1652178589030" duration="85000" />
+      <workItem from="1653575208521" duration="35000" />
+      <workItem from="1653577000716" duration="262000" />
+      <workItem from="1653582504422" duration="2995000" />
+      <workItem from="1654202482005" duration="4211000" />
     </task>
     <servers />
   </component>
@@ -932,112 +937,71 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="273" y="127" width="1647" height="575" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1651780261184">
-      <screen x="0" y="27" width="1920" height="1015" />
+    <state x="1920" y="127" width="1920" height="575" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1651834383965">
+      <screen x="0" y="27" width="3840" height="1015" />
     </state>
-    <state x="424" y="171" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/2318.0.1920.1080@0.0.1920.1040" timestamp="1643705256321" />
-    <state x="2452" y="180" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/2318.0.1920.1080@2318.0.1920.1080" timestamp="1643713082135" />
-    <state x="275" y="160" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1044/2318.0.1920.1080@0.0.1920.1044" timestamp="1643318686485" />
-    <state x="134" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1643744176952" />
-    <state x="2531" y="214" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.4238.1040@0.0.4238.1040" timestamp="1643799171307" />
     <state x="273" y="127" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1015/1920.0.1920.1080@0.27.1920.1015" timestamp="1651780261184" />
     <state x="2193" y="127" width="1647" height="575" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651766953766" />
-    <state x="2775" y="230" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1643190464344">
-      <screen x="2318" y="0" width="1920" height="1080" />
+    <state x="1920" y="127" width="1920" height="575" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.3840.1015@0.27.3840.1015" timestamp="1651834383965" />
+    <state x="0" y="27" width="435" height="1015" key="FileChooserDialogImpl" timestamp="1654300597078">
+      <screen x="0" y="27" width="1920" height="1015" />
     </state>
-    <state x="2775" y="230" key="#com.intellij.ide.macro.MacrosDialog/0.0.1920.1040/2318.0.1920.1080@2318.0.1920.1080" timestamp="1643190464344" />
-    <state x="1920" y="0" width="870" height="1042" key="FileChooserDialogImpl" timestamp="1651766228073">
-      <screen x="1920" y="0" width="1920" height="1080" />
-    </state>
-    <state x="0" y="0" key="FileChooserDialogImpl/0.0.1920.1040/2318.0.1920.1080@0.0.1920.1040" timestamp="1643705253212" />
-    <state x="0" y="0" width="1920" height="1044" key="FileChooserDialogImpl/0.0.1920.1044/2318.0.1920.1080@0.0.1920.1044" timestamp="1643318676858" />
-    <state x="0" y="0" width="1920" height="1044" key="FileChooserDialogImpl/0.0.1920.1044@0.0.1920.1044" timestamp="1643742934266" />
-    <state x="0" y="0" width="1920" height="1040" key="FileChooserDialogImpl/0.0.4238.1040@0.0.4238.1040" timestamp="1644334309079" />
+    <state x="0" y="27" key="FileChooserDialogImpl/0.27.1920.1015/1920.0.1360.768@0.27.1920.1015" timestamp="1654300597078" />
     <state x="1920" y="0" width="870" height="1042" key="FileChooserDialogImpl/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651766228073" />
-    <state width="1874" height="336" key="GridCell.Tab.0.bottom" timestamp="1651767952679">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state x="0" y="27" width="435" height="1015" key="FileChooserDialogImpl/0.27.1920.1015@0.27.1920.1015" timestamp="1652178644475" />
+    <state x="0" y="27" key="FileChooserDialogImpl/0.27.3840.1015@0.27.3840.1015" timestamp="1651834366656" />
+    <state width="1874" height="336" key="GridCell.Tab.0.bottom" timestamp="1651942380736">
+      <screen x="0" y="27" width="1920" height="1015" />
     </state>
-    <state width="1874" height="228" key="GridCell.Tab.0.bottom/0.0.1920.1040/2318.0.1920.1080@0.0.1920.1040" timestamp="1643705284564" />
-    <state width="1874" height="184" key="GridCell.Tab.0.bottom/0.0.1920.1040/2318.0.1920.1080@2318.0.1920.1080" timestamp="1643734633087" />
-    <state width="1874" height="228" key="GridCell.Tab.0.bottom/0.0.1920.1044/2318.0.1920.1080@0.0.1920.1044" timestamp="1643483353050" />
-    <state width="1874" height="184" key="GridCell.Tab.0.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1643810964451" />
-    <state width="1874" height="278" key="GridCell.Tab.0.bottom/0.0.4238.1040@0.0.4238.1040" timestamp="1644334756558" />
     <state width="1874" height="336" key="GridCell.Tab.0.bottom/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651767952679" />
-    <state width="1874" height="336" key="GridCell.Tab.0.center" timestamp="1651767952679">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state width="1874" height="336" key="GridCell.Tab.0.bottom/0.27.1920.1015@0.27.1920.1015" timestamp="1651942380736" />
+    <state width="1874" height="336" key="GridCell.Tab.0.bottom/0.27.3840.1015@0.27.3840.1015" timestamp="1651834496204" />
+    <state width="1874" height="336" key="GridCell.Tab.0.center" timestamp="1651942380736">
+      <screen x="0" y="27" width="1920" height="1015" />
     </state>
-    <state width="1874" height="228" key="GridCell.Tab.0.center/0.0.1920.1040/2318.0.1920.1080@0.0.1920.1040" timestamp="1643705284564" />
-    <state width="1874" height="184" key="GridCell.Tab.0.center/0.0.1920.1040/2318.0.1920.1080@2318.0.1920.1080" timestamp="1643734633087" />
-    <state width="1874" height="228" key="GridCell.Tab.0.center/0.0.1920.1044/2318.0.1920.1080@0.0.1920.1044" timestamp="1643483353050" />
-    <state width="1874" height="184" key="GridCell.Tab.0.center/0.0.1920.1044@0.0.1920.1044" timestamp="1643810964450" />
-    <state width="1874" height="278" key="GridCell.Tab.0.center/0.0.4238.1040@0.0.4238.1040" timestamp="1644334756557" />
     <state width="1874" height="336" key="GridCell.Tab.0.center/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651767952679" />
-    <state width="1874" height="336" key="GridCell.Tab.0.left" timestamp="1651767952679">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state width="1874" height="336" key="GridCell.Tab.0.center/0.27.1920.1015@0.27.1920.1015" timestamp="1651942380736" />
+    <state width="1874" height="336" key="GridCell.Tab.0.center/0.27.3840.1015@0.27.3840.1015" timestamp="1651834496203" />
+    <state width="1874" height="336" key="GridCell.Tab.0.left" timestamp="1651942380736">
+      <screen x="0" y="27" width="1920" height="1015" />
     </state>
-    <state width="1874" height="228" key="GridCell.Tab.0.left/0.0.1920.1040/2318.0.1920.1080@0.0.1920.1040" timestamp="1643705284564" />
-    <state width="1874" height="184" key="GridCell.Tab.0.left/0.0.1920.1040/2318.0.1920.1080@2318.0.1920.1080" timestamp="1643734633087" />
-    <state width="1874" height="228" key="GridCell.Tab.0.left/0.0.1920.1044/2318.0.1920.1080@0.0.1920.1044" timestamp="1643483353050" />
-    <state width="1874" height="184" key="GridCell.Tab.0.left/0.0.1920.1044@0.0.1920.1044" timestamp="1643810964450" />
-    <state width="1874" height="278" key="GridCell.Tab.0.left/0.0.4238.1040@0.0.4238.1040" timestamp="1644334756557" />
     <state width="1874" height="336" key="GridCell.Tab.0.left/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651767952679" />
-    <state width="1874" height="336" key="GridCell.Tab.0.right" timestamp="1651767952679">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state width="1874" height="336" key="GridCell.Tab.0.left/0.27.1920.1015@0.27.1920.1015" timestamp="1651942380736" />
+    <state width="1874" height="336" key="GridCell.Tab.0.left/0.27.3840.1015@0.27.3840.1015" timestamp="1651834496203" />
+    <state width="1874" height="336" key="GridCell.Tab.0.right" timestamp="1651942380736">
+      <screen x="0" y="27" width="1920" height="1015" />
     </state>
-    <state width="1874" height="228" key="GridCell.Tab.0.right/0.0.1920.1040/2318.0.1920.1080@0.0.1920.1040" timestamp="1643705284564" />
-    <state width="1874" height="184" key="GridCell.Tab.0.right/0.0.1920.1040/2318.0.1920.1080@2318.0.1920.1080" timestamp="1643734633087" />
-    <state width="1874" height="228" key="GridCell.Tab.0.right/0.0.1920.1044/2318.0.1920.1080@0.0.1920.1044" timestamp="1643483353050" />
-    <state width="1874" height="184" key="GridCell.Tab.0.right/0.0.1920.1044@0.0.1920.1044" timestamp="1643810964450" />
-    <state width="1874" height="278" key="GridCell.Tab.0.right/0.0.4238.1040@0.0.4238.1040" timestamp="1644334756557" />
     <state width="1874" height="336" key="GridCell.Tab.0.right/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651767952679" />
-    <state width="1874" height="336" key="GridCell.Tab.1.bottom" timestamp="1651767952679">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state width="1874" height="336" key="GridCell.Tab.0.right/0.27.1920.1015@0.27.1920.1015" timestamp="1651942380736" />
+    <state width="1874" height="336" key="GridCell.Tab.0.right/0.27.3840.1015@0.27.3840.1015" timestamp="1651834496204" />
+    <state width="1874" height="336" key="GridCell.Tab.1.bottom" timestamp="1651942380736">
+      <screen x="0" y="27" width="1920" height="1015" />
     </state>
-    <state width="1874" height="228" key="GridCell.Tab.1.bottom/0.0.1920.1040/2318.0.1920.1080@0.0.1920.1040" timestamp="1643705296571" />
-    <state width="1874" height="170" key="GridCell.Tab.1.bottom/0.0.1920.1040/2318.0.1920.1080@2318.0.1920.1080" timestamp="1643734633083" />
-    <state width="1874" height="228" key="GridCell.Tab.1.bottom/0.0.1920.1044/2318.0.1920.1080@0.0.1920.1044" timestamp="1643483353051" />
-    <state width="1874" height="278" key="GridCell.Tab.1.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1643810941593" />
-    <state width="1874" height="278" key="GridCell.Tab.1.bottom/0.0.4238.1040@0.0.4238.1040" timestamp="1644334756559" />
     <state width="1874" height="336" key="GridCell.Tab.1.bottom/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651767952679" />
-    <state width="1874" height="336" key="GridCell.Tab.1.center" timestamp="1651767952679">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state width="1874" height="336" key="GridCell.Tab.1.bottom/0.27.1920.1015@0.27.1920.1015" timestamp="1651942380736" />
+    <state width="1874" height="336" key="GridCell.Tab.1.bottom/0.27.3840.1015@0.27.3840.1015" timestamp="1651834501457" />
+    <state width="1874" height="336" key="GridCell.Tab.1.center" timestamp="1651942380736">
+      <screen x="0" y="27" width="1920" height="1015" />
     </state>
-    <state width="1874" height="228" key="GridCell.Tab.1.center/0.0.1920.1040/2318.0.1920.1080@0.0.1920.1040" timestamp="1643705296571" />
-    <state width="1874" height="170" key="GridCell.Tab.1.center/0.0.1920.1040/2318.0.1920.1080@2318.0.1920.1080" timestamp="1643734633083" />
-    <state width="1874" height="228" key="GridCell.Tab.1.center/0.0.1920.1044/2318.0.1920.1080@0.0.1920.1044" timestamp="1643483353051" />
-    <state width="1874" height="278" key="GridCell.Tab.1.center/0.0.1920.1044@0.0.1920.1044" timestamp="1643810941593" />
-    <state width="1874" height="278" key="GridCell.Tab.1.center/0.0.4238.1040@0.0.4238.1040" timestamp="1644334756558" />
     <state width="1874" height="336" key="GridCell.Tab.1.center/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651767952679" />
-    <state width="1874" height="336" key="GridCell.Tab.1.left" timestamp="1651767952679">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state width="1874" height="336" key="GridCell.Tab.1.center/0.27.1920.1015@0.27.1920.1015" timestamp="1651942380736" />
+    <state width="1874" height="336" key="GridCell.Tab.1.center/0.27.3840.1015@0.27.3840.1015" timestamp="1651834501457" />
+    <state width="1874" height="336" key="GridCell.Tab.1.left" timestamp="1651942380736">
+      <screen x="0" y="27" width="1920" height="1015" />
     </state>
-    <state width="1874" height="228" key="GridCell.Tab.1.left/0.0.1920.1040/2318.0.1920.1080@0.0.1920.1040" timestamp="1643705296571" />
-    <state width="1874" height="170" key="GridCell.Tab.1.left/0.0.1920.1040/2318.0.1920.1080@2318.0.1920.1080" timestamp="1643734633083" />
-    <state width="1874" height="228" key="GridCell.Tab.1.left/0.0.1920.1044/2318.0.1920.1080@0.0.1920.1044" timestamp="1643483353051" />
-    <state width="1874" height="278" key="GridCell.Tab.1.left/0.0.1920.1044@0.0.1920.1044" timestamp="1643810941593" />
-    <state width="1874" height="278" key="GridCell.Tab.1.left/0.0.4238.1040@0.0.4238.1040" timestamp="1644334756558" />
     <state width="1874" height="336" key="GridCell.Tab.1.left/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651767952679" />
-    <state width="1874" height="336" key="GridCell.Tab.1.right" timestamp="1651767952679">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state width="1874" height="336" key="GridCell.Tab.1.left/0.27.1920.1015@0.27.1920.1015" timestamp="1651942380736" />
+    <state width="1874" height="336" key="GridCell.Tab.1.left/0.27.3840.1015@0.27.3840.1015" timestamp="1651834501457" />
+    <state width="1874" height="336" key="GridCell.Tab.1.right" timestamp="1651942380736">
+      <screen x="0" y="27" width="1920" height="1015" />
     </state>
-    <state width="1874" height="228" key="GridCell.Tab.1.right/0.0.1920.1040/2318.0.1920.1080@0.0.1920.1040" timestamp="1643705296571" />
-    <state width="1874" height="170" key="GridCell.Tab.1.right/0.0.1920.1040/2318.0.1920.1080@2318.0.1920.1080" timestamp="1643734633083" />
-    <state width="1874" height="228" key="GridCell.Tab.1.right/0.0.1920.1044/2318.0.1920.1080@0.0.1920.1044" timestamp="1643483353051" />
-    <state width="1874" height="278" key="GridCell.Tab.1.right/0.0.1920.1044@0.0.1920.1044" timestamp="1643810941593" />
-    <state width="1874" height="278" key="GridCell.Tab.1.right/0.0.4238.1040@0.0.4238.1040" timestamp="1644334756559" />
     <state width="1874" height="336" key="GridCell.Tab.1.right/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651767952679" />
+    <state width="1874" height="336" key="GridCell.Tab.1.right/0.27.1920.1015@0.27.1920.1015" timestamp="1651942380736" />
+    <state width="1874" height="336" key="GridCell.Tab.1.right/0.27.3840.1015@0.27.3840.1015" timestamp="1651834501457" />
     <state x="2369" y="156" width="1022" height="737" key="SettingsEditor" timestamp="1651753699090">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2369" y="156" width="1022" height="737" key="SettingsEditor/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651753699090" />
-    <state width="960" height="520" key="XDebugger.FullValuePopup" timestamp="1643714471059">
-      <screen x="2318" y="0" width="1920" height="1080" />
-    </state>
-    <state width="960" height="520" key="XDebugger.FullValuePopup/0.0.1920.1040/2318.0.1920.1080@2318.0.1920.1080" timestamp="1643714471059" />
-    <state x="2941" y="238" width="672" height="702" key="search.everywhere.popup" timestamp="1643129023539">
-      <screen x="2318" y="0" width="1920" height="1080" />
-    </state>
-    <state x="2941" y="238" width="672" height="702" key="search.everywhere.popup/0.0.1920.1040/2318.0.1920.1080@2318.0.1920.1080" timestamp="1643129023539" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1169,11 +1133,6 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/polyanagro/Chain_Statistics.py</url>
-          <line>173</line>
-          <option name="timeStamp" value="697" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/polyanagro/Chain_Statistics.py</url>
           <line>229</line>
           <option name="timeStamp" value="698" />
         </line-breakpoint>
@@ -1207,6 +1166,16 @@
           <line>537</line>
           <option name="timeStamp" value="708" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/polyanagro/Chain_Statistics.py</url>
+          <line>173</line>
+          <option name="timeStamp" value="709" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/polyanagro/Chain_Statistics.py</url>
+          <line>160</line>
+          <option name="timeStamp" value="710" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
@@ -1224,11 +1193,14 @@
       <configuration name="PythonConfigurationType">
         <watch expression="args.sets" />
         <watch expression="backbone_list_atoms[0]" language="Python" />
+        <watch expression="self._trajectory.topology" />
+        <watch expression="isbbatom" />
       </configuration>
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/polyanagro$cmds_polymer_size_help.coverage" NAME="cmds polymer_size help Coverage Results" MODIFIED="1642782564448" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/test_cmd_polymer_size" />
+    <SUITE FILE_PATH="coverage/polyanagro$cmds_polymer_size_p3hb_one_chain_nopbc_.coverage" NAME="cmds polymer_size p3hb one chain nopbc  Coverage Results" MODIFIED="1651834496083" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/TMP/chain_1" />
     <SUITE FILE_PATH="coverage/polyanagro$test_mdtraj_library.coverage" NAME="test_mdtraj_library Coverage Results" MODIFIED="1639479338066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/polyanagro$cmds_polymer_size_p3hb.coverage" NAME="cmds polymer_size p3hb Coverage Results" MODIFIED="1643714958861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/TMPS/TMP9_BB/2022-P3HB_20Mon_100Ch_Tg/07-NPT_CRescale_500ns_700K/ANALYSIS" />
     <SUITE FILE_PATH="coverage/polyanagro$test_numba.coverage" NAME="test_numba Coverage Results" MODIFIED="1601538292407" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />

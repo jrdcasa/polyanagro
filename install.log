@@ -4,19 +4,20 @@
 /usr/lib/python3.8
 /usr/lib/python3.8/lib-dynload
 /home/jramos/Programacion/sandboxes/sandbox_polyanagro/lib/python3.8/site-packages
+/home/jramos/Programacion/sandboxes/sandbox_polyanagro/lib/python3.8/site-packages/polyanagro-1.1-py3.8-linux-x86_64.egg
 
-		 INSTALLING PIP PACKAGES (05/05/2022 12:42:15)
+		 INSTALLING PIP PACKAGES (06/05/2022 12:31:08)
 
-05/05/2022 12:42:17: ** None: Installing GitPython==3.1.1
-05/05/2022 12:42:19: ** None: Installing cython==0.29.24
-05/05/2022 12:42:21: ** None: Installing h5py
+06/05/2022 12:31:09: ** None: Installing GitPython==3.1.1
+06/05/2022 12:31:10: ** None: Installing cython==0.29.24
+06/05/2022 12:31:10: ** None: Installing h5py
 
 		 INSTALLING TOPOLOGY LIBRARY INTO THE PYTHON ENVIRONMENT FROM GITHUB
 
-05/05/2022 12:42:23: ** None: topology library is not installed in your system
-05/05/2022 12:42:23: ** None: Installing from git... https://github.com/jrdcasa/topology.git
+06/05/2022 12:31:11: ** None: topology library is not installed in your system
+06/05/2022 12:31:11: ** None: Installing from git... https://github.com/jrdcasa/topology.git
 
 
-		 RUNNING SETUP FROM SETUPTOOLS 05/05/2022 12:47:29
+		 RUNNING SETUP FROM SETUPTOOLS 06/05/2022 12:37:14
 
 
