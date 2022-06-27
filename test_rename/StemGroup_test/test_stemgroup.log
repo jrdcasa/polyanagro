@@ -1,0 +1,35 @@
+
+	Job Information
+	---------------
+
+		***************** START Stem Group TEST *****************
+		Starting: 	 16-06-2022 18:36:41
+
+
+	============== START TEST_02 ================================
+              Test StemGroup with a branch polymer
+
+	*** Creating a trajectory from...
+	../data/0003Ch-C191-001br04_crystal/traj.dcd
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 0.09462 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../data/0003Ch-C191-001br04_crystal/namd.psf
+	Number of frames: 13
+	TIME(Adding topology): 0.007339 seconds
+	*** End Adding topology
+
+	Number of frames: 13
+	TIME(Read_Trajectories): 0.102211 seconds
+	*** End Creating a trajectory 
+
+	============== END   TEST_02 ================================
+
+		Finishing at: 	 16-06-2022 18:36:41
+		Total time: 	 0.10 seconds
+		***************** END StemGroup TEST *****************
+

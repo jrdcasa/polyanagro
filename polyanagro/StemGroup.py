@@ -30,7 +30,7 @@ class StemGroup(object):
         # TODO
         self._exttrj = extrj
         # TODO
-        self._numAtoms =  self._exttrj.numAtoms()
+        self._numAtoms =  self._exttrj.num_atoms()
         # TODO
         self._grandlList = []
         # TODO

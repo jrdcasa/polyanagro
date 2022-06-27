@@ -194,6 +194,11 @@ def setup_external_extensions(debug_cflags=False, use_openmp=True):
                   define_macros=define_macros + parallel_macros,
                   extra_compile_args=parallel_args + extra_compile_args,
                   extra_link_args=['-lgomp']),
+        Extension("ext_libc.c_internal_distances", ["polyanagro/ext_libc/c_internal_distances.pyx"],
+                  libraries=mathlib + parallel_libraries,
+                  define_macros=define_macros + parallel_macros,
+                  extra_compile_args=parallel_args + extra_compile_args,
+                  ),
     ]
 
     return extensions_install
@@ -249,35 +254,35 @@ if __name__ == '__main__':
     nowm = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
     m1 += "\n\t\t INSTALLING PIP PACKAGES ({})\n".format(nowm)
     print(m1) if logger is None else logger.info(m1)
-    # Install requirements ===================================
-    with open('requirements.txt') as f:
-        required = f.read().splitlines()
-    for ipack in required:
-        try:
-            pkg, version = ipack.split(">=")[0:2]
-            if pkg[0] == "#":
-                continue
-            install_with_pip(pkg, vers=version, log=logger)
-        except ValueError:
-            pkg = ipack
-            if pkg[0] == "#" or len(pkg)<2:
-                continue
-            install_with_pip(pkg, log=logger)
-        finally:
-            pass
-
-    # Install Topology library from github =======================================
-    install_topology_library(log=logger)
-    # Check for topology installation
-    try:
-        import topology
-    except ImportError:
-        m = "ERROR. Topology library is not correctly installed\n"
-        m +="ERROR. Please check ./topology/install.log"
-        print(m) if logger is None else logger.info(m)
-        exit()
-
-    # Setup POLYANAGRO ===========================================
+    # # Install requirements ===================================
+    # with open('requirements.txt') as f:
+    #     required = f.read().splitlines()
+    # for ipack in required:
+    #     try:
+    #         pkg, version = ipack.split(">=")[0:2]
+    #         if pkg[0] == "#":
+    #             continue
+    #         install_with_pip(pkg, vers=version, log=logger)
+    #     except ValueError:
+    #         pkg = ipack
+    #         if pkg[0] == "#" or len(pkg)<2:
+    #             continue
+    #         install_with_pip(pkg, log=logger)
+    #     finally:
+    #         pass
+    #
+    # # Install Topology library from github =======================================
+    # install_topology_library(log=logger)
+    # # Check for topology installation
+    # try:
+    #     import topology
+    # except ImportError:
+    #     m = "ERROR. Topology library is not correctly installed\n"
+    #     m +="ERROR. Please check ./topology/install.log"
+    #     print(m) if logger is None else logger.info(m)
+    #     exit()
+    #
+    # # Setup POLYANAGRO ===========================================
     from Cython.Build import cythonize
     import numpy
 

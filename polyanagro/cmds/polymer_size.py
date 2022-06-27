@@ -237,7 +237,7 @@ def main_app():
                       distributions=args.isdist, molecularweight=True, calc_Cn_bonds_distances=True,
                       single_Cn_unitvector=False, begin=0, unwrap_pbc=isunwrap,
                       backbone_list_atoms=backbone_list_atoms, isbondorientation=args.isbondorientation,
-                      isbbatom=isbbatom)
+                      isbbatom=isbbatom, isinternalchaindist=iscnn)
 
     objcalc.statistics(args.frac_avg)
 

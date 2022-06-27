@@ -1,0 +1,34 @@
+
+	Job Information
+	---------------
+
+		***************** START Internal Coordinates TEST *****************
+		Starting: 	 21-06-2022 12:38:23
+
+	*** Creating a trajectory from...
+	../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 0.077476 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../data/0003Ch-C020-002br04/RUN-001/topol.tpr
+	Number of frames: 101
+	TIME(Adding topology): 0.003991 seconds
+	*** End Adding topology
+
+	Number of frames: 101
+	TIME(Read_Trajectories): 0.081706 seconds
+	*** End Creating a trajectory 
+
+
+	============== START TEST_07 ================================
+         Distance array. Serial, openmp, numba 
+
+	*** Creating a trajectory from...
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/traj_comp.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE

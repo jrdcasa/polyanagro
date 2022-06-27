@@ -2,13 +2,10 @@ import unittest
 import datetime
 import io
 import os
-import numpy as np
 import topology
 import utils
 import polyanagro as pag
-# from polyanagro.Trajectory import Trajectory
-# from polyanagro.Chain_Statistics import Chain_Statistics
-# from polyanagro.Topology import Topology
+
 
 class RadiusofGyrationTests (unittest.TestCase):
 
@@ -17,7 +14,7 @@ class RadiusofGyrationTests (unittest.TestCase):
     def setUpClass(cls):
 
         # Initialize log
-        cls.log = utils.init_logger("Output", fileoutput="ChainStats_test/test_chainstatistics.log",
+        cls.log = utils.init_logger("Output", fileoutput="test_radiusofgyration/test_chainstatistics.log",
                                    append=False, inscreen=False)
         cls.log.info("\n\tJob Information\n\t---------------")
         m = "\n\t\t***************** START RadiusofGyration TEST *****************\n"
@@ -139,6 +136,52 @@ class RadiusofGyrationTests (unittest.TestCase):
         success = True
         return success
 
+    # #########################################################################
+    def aux_compareinternaldistances(self, diroutput, fileref, delta=0.01):
+
+        if diroutput[-1] != "/":
+            diroutput = diroutput+"/"
+        success = False
+
+        # Rg2 ---- Check the results with reference data obtained from other program (PreMCParallel)
+        f1 = io.open(diroutput+"cn_internal_distances.dat")
+        f2 = io.open(diroutput+fileref)
+        Ree_n_1 = []
+        Ree_n_2 = []
+        for item in f1:
+            if item[0] == "#": continue
+            Ree_n_1.append(float(item.split()[1]))
+        for item in f2:
+            if item[0] == "#": continue
+            Ree_n_2.append(float(item.split()[2]))
+
+        Rg1Rg2 = list(zip(Ree_n_1, Ree_n_2))
+        with open(diroutput+"Ree_internal_compare.dat", 'w') as f:
+            f.writelines("# iframe    <Ree>/n(A2)>this   <Ree>/n(A2)>PreMC   Diff(A2)\n")
+            f.writelines("=====================================================\n")
+            iframe = 0
+            for item in Rg1Rg2:
+                a = float(item[0])
+                b = float(item[1])
+                l = "{0:10d}   {1:>10.2f}   {2:>10.2f}   {3:>10.2f}\n".format(iframe, a, b, a - b)
+                try:
+                    self.assertAlmostEqual(a, b, delta=delta)
+                except AssertionError as e:
+                    m = "\t{}".format(e)
+                    print(m) if self.log is None else self.log.info(m)
+                    f1.close()
+                    f2.close()
+                    return success
+                f.writelines(l)
+                iframe += 1
+
+        f1.close()
+        f2.close()
+
+        success = True
+        return success
+
+
     # # #########################################################################
     def test_01_chainstatistics_small(self):
 
@@ -178,64 +221,77 @@ class RadiusofGyrationTests (unittest.TestCase):
                 is_bb_atoms[ibb] = True
             backbone_list_atoms.append(l)
 
-        # Calculations Cn not calc_distances
+        # Calculations Cn not calc_distances                          ----> Test 01a ==========
         start_t01a = datetime.datetime.now()
         objcalc = pag.Chain_Statistics(self.trj_small, dt=0.1,
                                        stride=self.stride, log=self.log)
-        objcalc.calculate(listend2end, diroutput="ChainStats_test/test01/",
+        objcalc.calculate(listend2end, diroutput="test_radiusofgyration/test01/",
                           acfE2E=True, backbone_list_atoms=backbone_list_atoms,
                           isbbatom=is_bb_atoms, calc_Cn_bonds_distances=False)
         e1 = datetime.datetime.now()-start_t01a
         m =  "\tTotal time Test01a (Cn without calc_distances): \t {0:.2f} seconds\n".\
             format(float(e1.total_seconds()))
-        print(m) if self.log is None else self.log.info(m)
-        os.rename("ChainStats_test/test01/Cn.dat", "ChainStats_test/test01/Cn_withoutdist.dat")
+        m1 = "\t"+len(m)*":"+"\n"
+        print(m1+m+m1) if self.log is None else self.log.info(m1+m+m1)
+        os.rename("test_radiusofgyration/test01/Cn.dat", "test_radiusofgyration/test01/Cn_withoutdist.dat")
 
-        # Calculations Cn calc_distances
-        start_t01b = datetime.datetime.now()
-        objcalc = pag.Chain_Statistics(self.trj_small, dt=0.1,
-                                       stride=self.stride, log=self.log)
-        objcalc.calculate(listend2end,diroutput="ChainStats_test/test01/",
-                          acfE2E=True, backbone_list_atoms=backbone_list_atoms,
-                          isbbatom=is_bb_atoms, calc_Cn_bonds_distances=True)
-        e2 = datetime.datetime.now()-start_t01b
-        m =  "\tTotal time Test01b (Cn with    calc_distances): \t {0:.2f} seconds\n".\
-            format(float(e2.total_seconds()))
-        print(m) if self.log is None else self.log.info(m)
-        os.rename("ChainStats_test/test01/Cn.dat", "ChainStats_test/test01/Cn_withdist.dat")
+        # # Calculations Cn calc_distances                            ----> Test 01b ==========
+        # start_t01b = datetime.datetime.now()
+        # objcalc = pag.Chain_Statistics(self.trj_small, dt=0.1,
+        #                                stride=self.stride, log=self.log)
+        # objcalc.calculate(listend2end,diroutput="test_radiusofgyration/test01/",
+        #                   acfE2E=True, backbone_list_atoms=backbone_list_atoms,
+        #                   isbbatom=is_bb_atoms, calc_Cn_bonds_distances=True)
+        # e2 = datetime.datetime.now()-start_t01b
+        # m =  "\tTotal time Test01b (Cn with    calc_distances): \t {0:.2f} seconds\n".\
+        #     format(float(e2.total_seconds()))
+        # m1 = "\t"+len(m)*":"+"\n"
+        # print(m1+m+m1) if self.log is None else self.log.info(m1+m+m1)
+        # os.rename("test_radiusofgyration/test01/Cn.dat", "test_radiusofgyration/test01/Cn_withdist.dat")
+        #
+        # # Calculations Cn not calc_distances and Cn with unitvectors ----> Test 01c ==========
+        # objcalc_psf = pag.Chain_Statistics(self.trj_small_psf, dt=0.1,
+        #                                stride=self.stride, log=self.log)
+        # start_t01c = datetime.datetime.now()
+        # objcalc = pag.Chain_Statistics(self.trj_small_psf, dt=0.1,
+        #                                stride=self.stride, log=self.log)
+        # objcalc.calculate(listend2end, diroutput="test_radiusofgyration/test01/",
+        #                   acfE2E=True, backbone_list_atoms=backbone_list_atoms,
+        #                   isbbatom=is_bb_atoms, calc_Cn_bonds_distances=False,
+        #                   single_Cn_unitvector=True)
+        # e1 = datetime.datetime.now()-start_t01c
+        # m =  "\tTotal time Test01c (Cn without calc_distances and unitvectors): \t {0:.2f} seconds\n".\
+        #     format(float(e1.total_seconds()))
+        # m1 = "\t"+len(m)*":"+"\n"
+        # print(m1+m+m1) if self.log is None else self.log.info(m1+m+m1)
+        # os.rename("test_radiusofgyration/test01/Cn.dat", "test_radiusofgyration/test01/Cn_withoutdist_unitvectors.dat")
+        #
+        # success = self.aux_comparedimensions("test_radiusofgyration/test01/", "RgRee_test01_reference.dat")
+        # if success:
+        #     m =  "\tComparing Chain dimensions: {}\n".format(success)
+        #     m += "\tCalculated values and reference data are equals\n"
+        # else:
+        #     m = "\tComparing Chain dimensions: {}\n".format(success)
+        #     m += "\tWARNING: Calculated vaules and reference data are different\n"
+        # print(m) if self.log is None else self.log.info(m)
+        #
+        # success2 = self.aux_compareinternaldistances("test_radiusofgyration/test01/", "R_kremer_reference.dat")
+        # if success2:
+        #     m =  "\tComparing Internal chain dimensions: {}\n".format(success2)
+        #     m += "\tCalculated values and reference data are equals\n"
+        # else:
+        #     m = "\tComparing Internal chain dimensions: {}\n".format(success2)
+        #     m += "\tWARNING: Calculated vaules and reference data are different\n"
+        # print(m) if self.log is None else self.log.info(m)
+        #
+        # end_t01 = datetime.datetime.now()
+        # e = end_t01 - start_t01
+        # m =  "\tTotal time Test01: \t {0:.2f} seconds\n".format(float(e.total_seconds()))
+        # m1 = "\t"+len(m)*"$"+"\n"
+        # m2 = "\t============== END   TEST_01 ================================"
+        # print(m1+m+m1+m2) if self.log is None else self.log.info(m1+m+m1+m2)
 
-        # Calculations Cn not calc_distances and Cn with unitvectors
-        objcalc_psf = pag.Chain_Statistics(self.trj_small_psf, dt=0.1,
-                                       stride=self.stride, log=self.log)
-        start_t01c = datetime.datetime.now()
-        objcalc = pag.Chain_Statistics(self.trj_small_psf, dt=0.1,
-                                       stride=self.stride, log=self.log)
-        objcalc.calculate(listend2end, diroutput="ChainStats_test/test01/",
-                          acfE2E=True, backbone_list_atoms=backbone_list_atoms,
-                          isbbatom=is_bb_atoms, calc_Cn_bonds_distances=False,
-                          single_Cn_unitvector=True)
-        e1 = datetime.datetime.now()-start_t01c
-        m =  "\tTotal time Test01c (Cn without calc_distances and unitvectors): \t {0:.2f} seconds\n".\
-            format(float(e1.total_seconds()))
-        print(m) if self.log is None else self.log.info(m)
-        os.rename("ChainStats_test/test01/Cn.dat", "ChainStats_test/test01/Cn_withoutdist_unitvectors.dat")
-
-        success = self.aux_comparedimensions("ChainStats_test/test01/", "RgRee_test01_reference.dat")
-        if success:
-            m =  "\tComparing Chain dimensions: {}\n".format(success)
-            m += "\tCalculated vaules and reference data are equals\n"
-        else:
-            m = "\tComparing Chain dimensions: {}\n".format(success)
-            m += "\tWARNING: Calculated vaules and reference data are different\n"
-        print(m) if self.log is None else self.log.info(m)
-
-        end_t01 = datetime.datetime.now()
-        e = end_t01 -start_t01
-        m =  "\n\tTotal time Test01: \t {0:.2f} seconds\n".format(float(e.total_seconds()))
-        m += "\t============== END   TEST_01 ================================"
-        print(m) if self.log is None else self.log.info(m)
-
-    ########################################################################
+    # ########################################################################
     def test_02_chainstatistics_big(self):
 
         """
@@ -251,6 +307,10 @@ class RadiusofGyrationTests (unittest.TestCase):
         xtc1 = "../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/traj_comp.xtc"
         xtc2 = "../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/02-RESTART-1000-2000ns/traj_comp.part0002.xtc"
         xtc3 = "../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/03-RESTART-2000-3000ns/traj_comp.part0003.xtc"
+        # xtc1 = "../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/trajout.xtc"
+        # xtc2 = "../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/02-RESTART-1000-2000ns/trajout.xtc"
+        # xtc3 = "../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/03-RESTART-2000-3000ns/trajout.xtc"
+
         filename_tpr = "../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/topol.tpr"
         filename_psf = "../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/00-GENERATE/namd_out.psf"
         stride = 1
@@ -292,27 +352,29 @@ class RadiusofGyrationTests (unittest.TestCase):
         start_t01a = datetime.datetime.now()
         objcalc = pag.Chain_Statistics(trj, dt=20000,
                                        stride=stride, log=self.log)
-        objcalc.calculate(diroutput="ChainStats_test/test02/",
+        objcalc.calculate(diroutput="test_radiusofgyration/test02/",
                           listendtoend=listend2end, acfE2E=True, backbone_list_atoms=backbone_list_atoms,
                           isbbatom=is_bb_atoms, calc_Cn_bonds_distances=False)
         e1 = datetime.datetime.now()-start_t01a
-        m =  "\n\tTotal time Test02a (Cn without calc_distances): \t {0:.2f} seconds\n".\
+        m =  "\tTotal time Test02a (Cn without calc_distances): \t {0:.2f} seconds\n".\
             format(float(e1.total_seconds()))
-        print(m) if self.log is None else self.log.info(m)
-        os.rename("ChainStats_test/test02/Cn.dat", "ChainStats_test/test02/Cn_withoutdist.dat")
+        m1 = "\t"+len(m)*":"+"\n"
+        print(m1+m+m1) if self.log is None else self.log.info(m1+m+m1)
+        os.rename("test_radiusofgyration/test02/Cn.dat", "test_radiusofgyration/test02/Cn_withoutdist.dat")
 
         # Calculations Cn calc_distances
         start_t01b = datetime.datetime.now()
         objcalc = pag.Chain_Statistics(trj, dt=20000,
                                        stride=stride, log=self.log)
-        objcalc.calculate(diroutput="ChainStats_test/test02/",
+        objcalc.calculate(diroutput="test_radiusofgyration/test02/",
                           listendtoend=listend2end, acfE2E=True, backbone_list_atoms=backbone_list_atoms,
                           isbbatom=is_bb_atoms, calc_Cn_bonds_distances=True)
         e2 = datetime.datetime.now()-start_t01b
         m =  "\n\tTotal time Test02b (Cn with    calc_distances): \t {0:.2f} seconds\n".\
             format(float(e2.total_seconds()))
-        print(m) if self.log is None else self.log.info(m)
-        os.rename("ChainStats_test/test02/Cn.dat", "ChainStats_test/test02/Cn_withdist.dat")
+        m1 = "\t"+len(m)*":"+"\n"
+        print(m1+m+m1) if self.log is None else self.log.info(m1+m+m1)
+        os.rename("test_radiusofgyration/test02/Cn.dat", "test_radiusofgyration/test02/Cn_withdist.dat")
 
         # Calculations Cn not calc_distances and Cn with unitvectors
         objcalc_psf = pag.Chain_Statistics(trj_psf, dt=20000,
@@ -320,28 +382,34 @@ class RadiusofGyrationTests (unittest.TestCase):
         start_t01c = datetime.datetime.now()
         objcalc = pag.Chain_Statistics(trj_psf, dt=20000,
                                        stride=stride, log=self.log)
-        objcalc.calculate(listend2end, diroutput="ChainStats_test/test02/",
+        objcalc.calculate(listend2end, diroutput="test_radiusofgyration/test02/",
                           acfE2E=True, backbone_list_atoms=backbone_list_atoms,
                           isbbatom=is_bb_atoms, calc_Cn_bonds_distances=False,
                           single_Cn_unitvector=True)
         e1 = datetime.datetime.now()-start_t01c
         m =  "\n\tTotal time Test02c (Cn without calc_distances and unitvectors): \t {0:.2f} seconds\n".\
             format(float(e1.total_seconds()))
-        print(m) if self.log is None else self.log.info(m)
-        os.rename("ChainStats_test/test02/Cn.dat", "ChainStats_test/test02/Cn_withoutdist_unitvectors.dat")
+        m1 = "\t"+len(m)*":"+"\n"
+        print(m1+m+m1) if self.log is None else self.log.info(m1+m+m1)
+        os.rename("test_radiusofgyration/test02/Cn.dat", "test_radiusofgyration/test02/Cn_withoutdist_unitvectors.dat")
 
-        success = False
-        success = self.aux_comparedimensions("ChainStats_test/test02/",
+        success = self.aux_comparedimensions("test_radiusofgyration/test02/",
                                              "RgRee_test02_reference.dat", delta=0.1)
-
-        m =  "\tComparing Chain dimensions: {}\n".format(success)
+        if success:
+            m =  "\tComparing Chain dimensions: {}\n".format(success)
+            m += "\tCalculated values and reference data are equals\n"
+        else:
+            m = "\tComparing Chain dimensions: {}\n".format(success)
+            m += "\tWARNING: Calculated values and reference data are different\n"
         print(m) if self.log is None else self.log.info(m)
 
         end_t02 = datetime.datetime.now()
         e = end_t02 - start_t02
-        m =  "\n\tTotal time Test02: \t {0:.2f} seconds\n".format(float(e.total_seconds()))
-        m += "\t============== END   TEST_02 ================================"
-        print(m) if self.log is None else self.log.info(m)
+        m =  "\tTotal time Test02: \t {0:.2f} seconds\n".format(float(e.total_seconds()))
+        m1 = "\t"+len(m)*"$"+"\n"
+        m2 = "\t============== END   TEST_02 ================================"
+        print(m1+m+m1+m2) if self.log is None else self.log.info(m1+m+m1+m2)
+
 
     # # #########################################################################
     def test_03_chainstatistics_Ree_openmp_single(self):
@@ -390,7 +458,7 @@ class RadiusofGyrationTests (unittest.TestCase):
 
         for _ in range(10):
             objcalc.calculate(listend2end, isree=True, isrg=False,
-                              molecularweight=True, diroutput="ChainStats_test/test03/",
+                              molecularweight=True, diroutput="test_radiusofgyration/test03/",
                               unwrap_pbc=True, acfE2E=False, backbone_list_atoms=None,
                               isbbatom=None, calc_Cn_bonds_distances=False,
                               single_Cn_unitvector=False)
@@ -433,7 +501,7 @@ class RadiusofGyrationTests (unittest.TestCase):
         objcalc = pag.Chain_Statistics(trj, dt=20000,
                                        stride=stride, log=self.log)
         for _ in range(10):
-            objcalc.calculate(None, molecularweight=True, diroutput="ChainStats_test/test03/",
+            objcalc.calculate(None, molecularweight=True, diroutput="test_radiusofgyration/test04/",
                               unwrap_pbc=True, acfE2E=False, backbone_list_atoms=None,
                               isbbatom=None, calc_Cn_bonds_distances=False,
                               single_Cn_unitvector=False)
@@ -441,16 +509,13 @@ class RadiusofGyrationTests (unittest.TestCase):
     # # #########################################################################
     def test_05_chainstatistics_onesinglechain_nopbc(self):
 
-        # print("test_04_chainstatistics_big revisar!!!!!!!!!!!!!!!!!!")
-        # return
-
         start_t01 = datetime.datetime.now()
         m = "\n\t============== START TEST_05 ================================\n" + \
             "         Test one single chain without PBC conditions \n"
         print(m) if self.log is None else self.log.info(m)
 
-        gro1 = "../data/P4HB_1chain_nopdb_cutoff_verlet/1_4HB_100_box.gro"
-        filename_tpr = "../data/P4HB_1chain_nopdb_cutoff_verlet/topol.tpr"
+        gro1 = "../data/P4HB_1chain_pdb_cutoff_verlet/1_4HB_100_box.gro"
+        filename_tpr = "../data/P4HB_1chain_pdb_cutoff_verlet/topol.tpr"
 
         trj_tpr = topology.ExtTrajectory([gro1], topfile=filename_tpr, logger=self.log)
         objcalc = pag.Chain_Statistics(trj_tpr, dt=10, stride=1, log=self.log)
@@ -461,20 +526,15 @@ class RadiusofGyrationTests (unittest.TestCase):
                           backbone_list_atoms=[], isbondorientation=[],
                           isbbatom=[])
 
-
-
-
-
-
     # ##################################################################################################################
     @classmethod
     def tearDownClass(cls):
 
         now = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
-        cls.log.info("\n\t\tFinishing at: \t {}".format(now))
+        cls.log.info("\n\tFinishing at: \t {}".format(now))
         ellapse =  datetime.datetime.now() - cls.start
-        cls.log.info("\t\tTotal time: \t {0:.2f} seconds".format(float(ellapse.total_seconds())))
-        m ="\t\t***************** END RadiusofGyration TEST *****************\n"
+        cls.log.info("\tTotal time: \t {0:.2f} seconds".format(float(ellapse.total_seconds())))
+        m ="\t***************** END RadiusofGyration TEST *****************\n"
         print(m) if cls.log is None else cls.log.info(m)
         utils.close_logger(cls.log)
 

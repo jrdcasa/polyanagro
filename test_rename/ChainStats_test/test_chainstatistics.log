@@ -1,0 +1,1003 @@
+
+	Job Information
+	---------------
+
+		***************** START RadiusofGyration TEST *****************
+			Estimated time to run the test is 2-3 minutes.
+		Starting: 	 21-06-2022 17:50:50
+
+
+	============== START TEST_01 ================================
+                  Small Trajectory Rg2 and Ree2 
+
+		 Trajectory XTC and TOPOLOGY TPR
+		-----------------------------------
+	*** Creating a trajectory from...
+	../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc
+	../data/0003Ch-C020-002br04/RUN-002/traj_comp.part0002.xtc
+	../data/0003Ch-C020-002br04/RUN-003/traj_comp.part0003.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 0.078477 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../data/0003Ch-C020-002br04/RUN-001/topol.tpr
+	Number of frames: 301
+	TIME(Adding topology): 0.007001 seconds
+	*** End Adding topology
+
+	Number of frames: 301
+	TIME(Read_Trajectories): 0.085712 seconds
+	*** End Creating a trajectory 
+
+		 Trajectory XTC and TOPOLOGY PSF
+		-----------------------------------
+	*** Creating a trajectory from...
+	../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc
+	../data/0003Ch-C020-002br04/RUN-002/traj_comp.part0002.xtc
+	../data/0003Ch-C020-002br04/RUN-003/traj_comp.part0003.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	*** Backbone atoms have been assigned to the topology.
+	Topology file: ../data/0003Ch-C020-002br04/namd_out.psf
+	TIME(Building_bonds_from_topology): 0.004856 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../data/0003Ch-C020-002br04/namd_out.psf
+	Number of frames: 301
+	TIME(Adding topology): 0.00587 seconds
+	*** End Adding topology
+
+	Number of frames: 301
+	TIME(Read_Trajectories): 0.010886 seconds
+	*** End Creating a trajectory 
+
+	*** Molecular weigth...
+
+	Average Molecular Weight (g/mol) : 338.70
+
+	*** Calculating Radius of gyration...
+
+	Radius of gyration to be written to ChainStats_test/test01/Rg.dat 
+
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ChainStats_test/test01/Ree.dat 
+
+	Unwrap PBC coordinates: True
+	IFRAME: 0 in 0.000714 seconds
+	IFRAME: 50 in 0.025514 seconds
+	IFRAME: 100 in 0.06319 seconds
+	IFRAME: 150 in 0.081727 seconds
+	IFRAME: 200 in 0.108862 seconds
+	IFRAME: 250 in 0.12783 seconds
+	IFRAME: 300 in 0.14724 seconds
+
+	TIME(Chain dimensions): 0.147863 seconds
+	*** End Calculating Chain Dimensions.
+
+	*** Calculating End-to-End autocorrelation vector...
+	TIME(End-to-End autocorrelation vector): 0.003714 seconds
+	*** End Calculating End-to-End autocorrelation vector.
+
+	Total time Test01a (Cn without calc_distances): 	 0.15 seconds
+
+	*** Molecular weigth...
+
+	Average Molecular Weight (g/mol) : 338.70
+
+	*** Calculating Radius of gyration...
+
+	Radius of gyration to be written to ChainStats_test/test01/Rg.dat 
+
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ChainStats_test/test01/Ree.dat 
+
+	Unwrap PBC coordinates: True
+	IFRAME: 0 in 0.000695 seconds
+	IFRAME: 50 in 0.040449 seconds
+	IFRAME: 100 in 0.079127 seconds
+	IFRAME: 150 in 0.116063 seconds
+	IFRAME: 200 in 0.155171 seconds
+	IFRAME: 250 in 0.191858 seconds
+	IFRAME: 300 in 0.229797 seconds
+
+	TIME(Chain dimensions): 0.230689 seconds
+	*** End Calculating Chain Dimensions.
+
+	*** Calculating End-to-End autocorrelation vector...
+	TIME(End-to-End autocorrelation vector): 0.003586 seconds
+	*** End Calculating End-to-End autocorrelation vector.
+
+	Total time Test01b (Cn with    calc_distances): 	 0.23 seconds
+
+	*** Molecular weigth...
+
+	Average Molecular Weight (g/mol) : 338.70
+
+	*** Calculating Radius of gyration...
+
+	Radius of gyration to be written to ChainStats_test/test01/Rg.dat 
+
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ChainStats_test/test01/Ree.dat 
+
+	Unwrap PBC coordinates: True
+	IFRAME: 0 in 0.000694 seconds
+	IFRAME: 50 in 0.021465 seconds
+	IFRAME: 100 in 0.044068 seconds
+	IFRAME: 150 in 0.067398 seconds
+	IFRAME: 200 in 0.087809 seconds
+	IFRAME: 250 in 0.106528 seconds
+	IFRAME: 300 in 0.169468 seconds
+
+	TIME(Chain dimensions): 0.170173 seconds
+	*** End Calculating Chain Dimensions.
+
+	*** Calculating End-to-End autocorrelation vector...
+	TIME(End-to-End autocorrelation vector): 0.003624 seconds
+	*** End Calculating End-to-End autocorrelation vector.
+
+	Total time Test01c (Cn without calc_distances and unitvectors): 	 0.17 seconds
+
+	Comparing Chain dimensions: True
+	Calculated vaules and reference data are equals
+
+
+	Total time Test01: 	 0.66 seconds
+	============== END   TEST_01 ================================
+
+	============== START TEST_02 ================================
+                  Big Trajectory Rg2 and Ree2 
+
+	*** Creating a trajectory from...
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/traj_comp.xtc
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/02-RESTART-1000-2000ns/traj_comp.part0002.xtc
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/03-RESTART-2000-3000ns/traj_comp.part0003.xtc
+
+	*** Adding topology 
+	
+	Empty topology in trajectory
+	*** End Adding topology
+
+	TIME(Read_Trajectories): 0.00011 seconds
+	*** End Creating a trajectory 
+
+	*** Creating a trajectory from...
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/traj_comp.xtc
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/02-RESTART-1000-2000ns/traj_comp.part0002.xtc
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/03-RESTART-2000-3000ns/traj_comp.part0003.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	*** Backbone atoms have been assigned to the topology.
+	Topology file: ../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/00-GENERATE/namd_out.psf
+	TIME(Building_bonds_from_topology): 23.657622 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/00-GENERATE/namd_out.psf
+	Number of frames: 151
+	TIME(Adding topology): 0.53972 seconds
+	*** End Adding topology
+
+	Number of frames: 151
+	TIME(Read_Trajectories): 24.197588 seconds
+	*** End Creating a trajectory 
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 24.190821 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/topol.tpr
+	Number of frames: 151
+	TIME(Adding topology): 1.158073 seconds
+	*** End Adding topology
+
+	*** Molecular weigth...
+
+	Average Molecular Weight (g/mol) : 7017.00
+
+	*** Calculating Radius of gyration...
+
+	Radius of gyration to be written to ChainStats_test/test02/Rg.dat 
+
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ChainStats_test/test02/Ree.dat 
+
+	Unwrap PBC coordinates: True
+	IFRAME: 0 in 177.438882 seconds
+	IFRAME: 50 in 179.417988 seconds
+	IFRAME: 100 in 181.108138 seconds
+	IFRAME: 150 in 182.918637 seconds
+
+	TIME(Chain dimensions): 182.953779 seconds
+	*** End Calculating Chain Dimensions.
+
+	*** Calculating End-to-End autocorrelation vector...
+	TIME(End-to-End autocorrelation vector): 0.00402 seconds
+	*** End Calculating End-to-End autocorrelation vector.
+
+
+	Total time Test02a (Cn without calc_distances): 	 182.99 seconds
+
+	*** Molecular weigth...
+
+	Average Molecular Weight (g/mol) : 7017.00
+
+	*** Calculating Radius of gyration...
+
+	Radius of gyration to be written to ChainStats_test/test02/Rg.dat 
+
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ChainStats_test/test02/Ree.dat 
+
+	Unwrap PBC coordinates: True
+	IFRAME: 0 in 177.220537 seconds
+	IFRAME: 50 in 190.448805 seconds
+	IFRAME: 100 in 204.364724 seconds
+	IFRAME: 150 in 217.713826 seconds
+
+	TIME(Chain dimensions): 217.972876 seconds
+	*** End Calculating Chain Dimensions.
+
+	*** Calculating End-to-End autocorrelation vector...
+	TIME(End-to-End autocorrelation vector): 0.00393 seconds
+	*** End Calculating End-to-End autocorrelation vector.
+
+
+	Total time Test02b (Cn with    calc_distances): 	 218.01 seconds
+
+	*** Molecular weigth...
+
+	Average Molecular Weight (g/mol) : 7017.00
+
+	*** Calculating Radius of gyration...
+
+	Radius of gyration to be written to ChainStats_test/test02/Rg.dat 
+
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ChainStats_test/test02/Ree.dat 
+
+	Unwrap PBC coordinates: True
+	IFRAME: 0 in 176.78235 seconds
+	IFRAME: 50 in 179.756831 seconds
+	IFRAME: 100 in 182.760671 seconds
+	IFRAME: 150 in 185.704042 seconds
+
+	TIME(Chain dimensions): 185.765177 seconds
+	*** End Calculating Chain Dimensions.
+
+	*** Calculating End-to-End autocorrelation vector...
+	TIME(End-to-End autocorrelation vector): 0.004062 seconds
+	*** End Calculating End-to-End autocorrelation vector.
+
+
+	Total time Test02c (Cn without calc_distances and unitvectors): 	 185.80 seconds
+
+	Comparing Chain dimensions: True
+
+
+	Total time Test02: 	 636.43 seconds
+	============== END   TEST_02 ================================
+
+	============== START TEST_03 ================================
+                  OpenMP vs serial C funcitons Ree 
+
+	*** Creating a trajectory from...
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/traj_comp.xtc
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/02-RESTART-1000-2000ns/traj_comp.part0002.xtc
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/03-RESTART-2000-3000ns/traj_comp.part0003.xtc
+
+	*** Adding topology 
+	
+	Empty topology in trajectory
+	*** End Adding topology
+
+	TIME(Read_Trajectories): 0.000116 seconds
+	*** End Creating a trajectory 
+
+	*** Creating a trajectory from...
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/traj_comp.xtc
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/02-RESTART-1000-2000ns/traj_comp.part0002.xtc
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/03-RESTART-2000-3000ns/traj_comp.part0003.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	*** Backbone atoms have been assigned to the topology.
+	Topology file: ../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/00-GENERATE/namd_out.psf
+	TIME(Building_bonds_from_topology): 25.616312 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/00-GENERATE/namd_out.psf
+	Number of frames: 151
+	TIME(Adding topology): 0.606413 seconds
+	*** End Adding topology
+
+	Number of frames: 151
+	TIME(Read_Trajectories): 26.222972 seconds
+	*** End Creating a trajectory 
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 25.165312 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/topol.tpr
+	Number of frames: 151
+	TIME(Adding topology): 1.2 seconds
+	*** End Adding topology
+
+	Cn calculation is deactivated, either not info about branch or backbone
+
+	Internal chain distances are deactivated, not info about backbone
+
+	*** Molecular weigth...
+
+	Average Molecular Weight (g/mol) : 7017.00
+
+	*** Calculating Radius of gyration...
+
+	Radius of gyration to be written to ChainStats_test/test03/Rg.dat 
+
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ChainStats_test/test03/Ree.dat 
+
+	Unwrap PBC coordinates: True
+	Cn, bond orientation and internal distances calculations are deactivated, either not info about branch or backbone
+
+	IFRAME: 0 in 0.005295 seconds
+	IFRAME: 50 in 0.186108 seconds
+	IFRAME: 100 in 0.399379 seconds
+	IFRAME: 150 in 0.579648 seconds
+
+	TIME(Chain dimensions): 0.583214 seconds
+	*** End Calculating Chain Dimensions.
+
+	Cn calculation is deactivated, either not info about branch or backbone
+
+	Internal chain distances are deactivated, not info about backbone
+
+	*** Molecular weigth...
+
+	Average Molecular Weight (g/mol) : 7017.00
+
+	*** Calculating Radius of gyration...
+
+	Radius of gyration to be written to ChainStats_test/test03/Rg.dat 
+
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ChainStats_test/test03/Ree.dat 
+
+	Unwrap PBC coordinates: True
+	Cn, bond orientation and internal distances calculations are deactivated, either not info about branch or backbone
+
+	IFRAME: 0 in 0.005515 seconds
+	IFRAME: 50 in 0.187719 seconds
+	IFRAME: 100 in 0.4416 seconds
+	IFRAME: 150 in 0.624124 seconds
+
+	TIME(Chain dimensions): 0.627716 seconds
+	*** End Calculating Chain Dimensions.
+
+	Cn calculation is deactivated, either not info about branch or backbone
+
+	Internal chain distances are deactivated, not info about backbone
+
+	*** Molecular weigth...
+
+	Average Molecular Weight (g/mol) : 7017.00
+
+	*** Calculating Radius of gyration...
+
+	Radius of gyration to be written to ChainStats_test/test03/Rg.dat 
+
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ChainStats_test/test03/Ree.dat 
+
+	Unwrap PBC coordinates: True
+	Cn, bond orientation and internal distances calculations are deactivated, either not info about branch or backbone
+
+	IFRAME: 0 in 0.005262 seconds
+	IFRAME: 50 in 0.198434 seconds
+	IFRAME: 100 in 0.382451 seconds
+	IFRAME: 150 in 0.573411 seconds
+
+	TIME(Chain dimensions): 0.577188 seconds
+	*** End Calculating Chain Dimensions.
+
+	Cn calculation is deactivated, either not info about branch or backbone
+
+	Internal chain distances are deactivated, not info about backbone
+
+	*** Molecular weigth...
+
+	Average Molecular Weight (g/mol) : 7017.00
+
+	*** Calculating Radius of gyration...
+
+	Radius of gyration to be written to ChainStats_test/test03/Rg.dat 
+
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ChainStats_test/test03/Ree.dat 
+
+	Unwrap PBC coordinates: True
+	Cn, bond orientation and internal distances calculations are deactivated, either not info about branch or backbone
+
+	IFRAME: 0 in 0.006499 seconds
+	IFRAME: 50 in 0.242174 seconds
+	IFRAME: 100 in 0.432793 seconds
+	IFRAME: 150 in 0.646159 seconds
+
+	TIME(Chain dimensions): 0.650215 seconds
+	*** End Calculating Chain Dimensions.
+
+	Cn calculation is deactivated, either not info about branch or backbone
+
+	Internal chain distances are deactivated, not info about backbone
+
+	*** Molecular weigth...
+
+	Average Molecular Weight (g/mol) : 7017.00
+
+	*** Calculating Radius of gyration...
+
+	Radius of gyration to be written to ChainStats_test/test03/Rg.dat 
+
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ChainStats_test/test03/Ree.dat 
+
+	Unwrap PBC coordinates: True
+	Cn, bond orientation and internal distances calculations are deactivated, either not info about branch or backbone
+
+	IFRAME: 0 in 0.005773 seconds
+	IFRAME: 50 in 0.20261 seconds
+	IFRAME: 100 in 0.448872 seconds
+	IFRAME: 150 in 0.657194 seconds
+
+	TIME(Chain dimensions): 0.661049 seconds
+	*** End Calculating Chain Dimensions.
+
+	Cn calculation is deactivated, either not info about branch or backbone
+
+	Internal chain distances are deactivated, not info about backbone
+
+	*** Molecular weigth...
+
+	Average Molecular Weight (g/mol) : 7017.00
+
+	*** Calculating Radius of gyration...
+
+	Radius of gyration to be written to ChainStats_test/test03/Rg.dat 
+
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ChainStats_test/test03/Ree.dat 
+
+	Unwrap PBC coordinates: True
+	Cn, bond orientation and internal distances calculations are deactivated, either not info about branch or backbone
+
+	IFRAME: 0 in 0.006515 seconds
+	IFRAME: 50 in 0.23591 seconds
+	IFRAME: 100 in 0.552528 seconds
+	IFRAME: 150 in 0.804325 seconds
+
+	TIME(Chain dimensions): 0.808698 seconds
+	*** End Calculating Chain Dimensions.
+
+	Cn calculation is deactivated, either not info about branch or backbone
+
+	Internal chain distances are deactivated, not info about backbone
+
+	*** Molecular weigth...
+
+	Average Molecular Weight (g/mol) : 7017.00
+
+	*** Calculating Radius of gyration...
+
+	Radius of gyration to be written to ChainStats_test/test03/Rg.dat 
+
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ChainStats_test/test03/Ree.dat 
+
+	Unwrap PBC coordinates: True
+	Cn, bond orientation and internal distances calculations are deactivated, either not info about branch or backbone
+
+	IFRAME: 0 in 0.006016 seconds
+	IFRAME: 50 in 0.21974 seconds
+	IFRAME: 100 in 0.420988 seconds
+	IFRAME: 150 in 0.674208 seconds
+
+	TIME(Chain dimensions): 0.678048 seconds
+	*** End Calculating Chain Dimensions.
+
+	Cn calculation is deactivated, either not info about branch or backbone
+
+	Internal chain distances are deactivated, not info about backbone
+
+	*** Molecular weigth...
+
+	Average Molecular Weight (g/mol) : 7017.00
+
+	*** Calculating Radius of gyration...
+
+	Radius of gyration to be written to ChainStats_test/test03/Rg.dat 
+
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ChainStats_test/test03/Ree.dat 
+
+	Unwrap PBC coordinates: True
+	Cn, bond orientation and internal distances calculations are deactivated, either not info about branch or backbone
+
+	IFRAME: 0 in 0.006308 seconds
+	IFRAME: 50 in 0.20273 seconds
+	IFRAME: 100 in 0.53588 seconds
+	IFRAME: 150 in 0.8392 seconds
+
+	TIME(Chain dimensions): 0.844242 seconds
+	*** End Calculating Chain Dimensions.
+
+	Cn calculation is deactivated, either not info about branch or backbone
+
+	Internal chain distances are deactivated, not info about backbone
+
+	*** Molecular weigth...
+
+	Average Molecular Weight (g/mol) : 7017.00
+
+	*** Calculating Radius of gyration...
+
+	Radius of gyration to be written to ChainStats_test/test03/Rg.dat 
+
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ChainStats_test/test03/Ree.dat 
+
+	Unwrap PBC coordinates: True
+	Cn, bond orientation and internal distances calculations are deactivated, either not info about branch or backbone
+
+	IFRAME: 0 in 0.006178 seconds
+	IFRAME: 50 in 0.269546 seconds
+	IFRAME: 100 in 0.583546 seconds
+	IFRAME: 150 in 0.896458 seconds
+
+	TIME(Chain dimensions): 0.900402 seconds
+	*** End Calculating Chain Dimensions.
+
+	Cn calculation is deactivated, either not info about branch or backbone
+
+	Internal chain distances are deactivated, not info about backbone
+
+	*** Molecular weigth...
+
+	Average Molecular Weight (g/mol) : 7017.00
+
+	*** Calculating Radius of gyration...
+
+	Radius of gyration to be written to ChainStats_test/test03/Rg.dat 
+
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ChainStats_test/test03/Ree.dat 
+
+	Unwrap PBC coordinates: True
+	Cn, bond orientation and internal distances calculations are deactivated, either not info about branch or backbone
+
+	IFRAME: 0 in 0.006626 seconds
+	IFRAME: 50 in 0.316109 seconds
+	IFRAME: 100 in 0.679239 seconds
+	IFRAME: 150 in 0.941923 seconds
+
+	TIME(Chain dimensions): 0.945826 seconds
+	*** End Calculating Chain Dimensions.
+
+
+	Total time Test03: 	 59.93 seconds
+	============== END   TEST_03 ================================
+
+	============== START TEST_04 ================================
+                  OpenMP vs serial C functions 
+
+	*** Creating a trajectory from...
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/traj_comp.xtc
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/02-RESTART-1000-2000ns/traj_comp.part0002.xtc
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/03-RESTART-2000-3000ns/traj_comp.part0003.xtc
+
+	*** Adding topology 
+	
+	Empty topology in trajectory
+	*** End Adding topology
+
+	TIME(Read_Trajectories): 0.000119 seconds
+	*** End Creating a trajectory 
+
+	*** Creating a trajectory from...
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/traj_comp.xtc
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/02-RESTART-1000-2000ns/traj_comp.part0002.xtc
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/03-RESTART-2000-3000ns/traj_comp.part0003.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	*** Backbone atoms have been assigned to the topology.
+	Topology file: ../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/00-GENERATE/namd_out.psf
+	TIME(Building_bonds_from_topology): 23.746478 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/00-GENERATE/namd_out.psf
+	Number of frames: 151
+	TIME(Adding topology): 0.54024 seconds
+	*** End Adding topology
+
+	Number of frames: 151
+	TIME(Read_Trajectories): 24.286989 seconds
+	*** End Creating a trajectory 
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 25.196553 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/topol.tpr
+	Number of frames: 151
+	TIME(Adding topology): 1.182045 seconds
+	*** End Adding topology
+
+	End to end calculation is deactivated, listendtoend is None
+
+	Cn calculation is deactivated, either not info about branch or backbone
+
+	Internal chain distances are deactivated, not info about backbone
+
+	*** Molecular weigth...
+
+	Average Molecular Weight (g/mol) : 7017.00
+
+	*** Calculating Radius of gyration...
+
+	Radius of gyration to be written to ChainStats_test/test03/Rg.dat 
+
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ChainStats_test/test03/Ree.dat 
+
+	Unwrap PBC coordinates: True
+	Cn, bond orientation and internal distances calculations are deactivated, either not info about branch or backbone
+
+	IFRAME: 0 in 0.005747 seconds
+	IFRAME: 50 in 0.350138 seconds
+	IFRAME: 100 in 0.662849 seconds
+	IFRAME: 150 in 0.993903 seconds
+
+	TIME(Chain dimensions): 0.999683 seconds
+	*** End Calculating Chain Dimensions.
+
+	End to end calculation is deactivated, listendtoend is None
+
+	Cn calculation is deactivated, either not info about branch or backbone
+
+	Internal chain distances are deactivated, not info about backbone
+
+	*** Molecular weigth...
+
+	Average Molecular Weight (g/mol) : 7017.00
+
+	*** Calculating Radius of gyration...
+
+	Radius of gyration to be written to ChainStats_test/test03/Rg.dat 
+
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ChainStats_test/test03/Ree.dat 
+
+	Unwrap PBC coordinates: True
+	Cn, bond orientation and internal distances calculations are deactivated, either not info about branch or backbone
+
+	IFRAME: 0 in 0.005656 seconds
+	IFRAME: 50 in 0.30402 seconds
+	IFRAME: 100 in 0.608166 seconds
+	IFRAME: 150 in 0.946085 seconds
+
+	TIME(Chain dimensions): 0.95275 seconds
+	*** End Calculating Chain Dimensions.
+
+	End to end calculation is deactivated, listendtoend is None
+
+	Cn calculation is deactivated, either not info about branch or backbone
+
+	Internal chain distances are deactivated, not info about backbone
+
+	*** Molecular weigth...
+
+	Average Molecular Weight (g/mol) : 7017.00
+
+	*** Calculating Radius of gyration...
+
+	Radius of gyration to be written to ChainStats_test/test03/Rg.dat 
+
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ChainStats_test/test03/Ree.dat 
+
+	Unwrap PBC coordinates: True
+	Cn, bond orientation and internal distances calculations are deactivated, either not info about branch or backbone
+
+	IFRAME: 0 in 0.00573 seconds
+	IFRAME: 50 in 0.298666 seconds
+	IFRAME: 100 in 0.603209 seconds
+	IFRAME: 150 in 0.900084 seconds
+
+	TIME(Chain dimensions): 0.915677 seconds
+	*** End Calculating Chain Dimensions.
+
+	End to end calculation is deactivated, listendtoend is None
+
+	Cn calculation is deactivated, either not info about branch or backbone
+
+	Internal chain distances are deactivated, not info about backbone
+
+	*** Molecular weigth...
+
+	Average Molecular Weight (g/mol) : 7017.00
+
+	*** Calculating Radius of gyration...
+
+	Radius of gyration to be written to ChainStats_test/test03/Rg.dat 
+
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ChainStats_test/test03/Ree.dat 
+
+	Unwrap PBC coordinates: True
+	Cn, bond orientation and internal distances calculations are deactivated, either not info about branch or backbone
+
+	IFRAME: 0 in 0.010905 seconds
+	IFRAME: 50 in 0.320758 seconds
+	IFRAME: 100 in 0.62783 seconds
+	IFRAME: 150 in 0.920768 seconds
+
+	TIME(Chain dimensions): 0.926548 seconds
+	*** End Calculating Chain Dimensions.
+
+	End to end calculation is deactivated, listendtoend is None
+
+	Cn calculation is deactivated, either not info about branch or backbone
+
+	Internal chain distances are deactivated, not info about backbone
+
+	*** Molecular weigth...
+
+	Average Molecular Weight (g/mol) : 7017.00
+
+	*** Calculating Radius of gyration...
+
+	Radius of gyration to be written to ChainStats_test/test03/Rg.dat 
+
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ChainStats_test/test03/Ree.dat 
+
+	Unwrap PBC coordinates: True
+	Cn, bond orientation and internal distances calculations are deactivated, either not info about branch or backbone
+
+	IFRAME: 0 in 0.005819 seconds
+	IFRAME: 50 in 0.349917 seconds
+	IFRAME: 100 in 0.729823 seconds
+	IFRAME: 150 in 1.165163 seconds
+
+	TIME(Chain dimensions): 1.171725 seconds
+	*** End Calculating Chain Dimensions.
+
+	End to end calculation is deactivated, listendtoend is None
+
+	Cn calculation is deactivated, either not info about branch or backbone
+
+	Internal chain distances are deactivated, not info about backbone
+
+	*** Molecular weigth...
+
+	Average Molecular Weight (g/mol) : 7017.00
+
+	*** Calculating Radius of gyration...
+
+	Radius of gyration to be written to ChainStats_test/test03/Rg.dat 
+
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ChainStats_test/test03/Ree.dat 
+
+	Unwrap PBC coordinates: True
+	Cn, bond orientation and internal distances calculations are deactivated, either not info about branch or backbone
+
+	IFRAME: 0 in 0.00696 seconds
+	IFRAME: 50 in 0.379796 seconds
+	IFRAME: 100 in 0.722114 seconds
+	IFRAME: 150 in 1.085339 seconds
+
+	TIME(Chain dimensions): 1.091549 seconds
+	*** End Calculating Chain Dimensions.
+
+	End to end calculation is deactivated, listendtoend is None
+
+	Cn calculation is deactivated, either not info about branch or backbone
+
+	Internal chain distances are deactivated, not info about backbone
+
+	*** Molecular weigth...
+
+	Average Molecular Weight (g/mol) : 7017.00
+
+	*** Calculating Radius of gyration...
+
+	Radius of gyration to be written to ChainStats_test/test03/Rg.dat 
+
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ChainStats_test/test03/Ree.dat 
+
+	Unwrap PBC coordinates: True
+	Cn, bond orientation and internal distances calculations are deactivated, either not info about branch or backbone
+
+	IFRAME: 0 in 0.006173 seconds
+	IFRAME: 50 in 0.34311 seconds
+	IFRAME: 100 in 0.687347 seconds
+	IFRAME: 150 in 1.042213 seconds
+
+	TIME(Chain dimensions): 1.050514 seconds
+	*** End Calculating Chain Dimensions.
+
+	End to end calculation is deactivated, listendtoend is None
+
+	Cn calculation is deactivated, either not info about branch or backbone
+
+	Internal chain distances are deactivated, not info about backbone
+
+	*** Molecular weigth...
+
+	Average Molecular Weight (g/mol) : 7017.00
+
+	*** Calculating Radius of gyration...
+
+	Radius of gyration to be written to ChainStats_test/test03/Rg.dat 
+
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ChainStats_test/test03/Ree.dat 
+
+	Unwrap PBC coordinates: True
+	Cn, bond orientation and internal distances calculations are deactivated, either not info about branch or backbone
+
+	IFRAME: 0 in 0.006365 seconds
+	IFRAME: 50 in 0.349275 seconds
+	IFRAME: 100 in 0.676953 seconds
+	IFRAME: 150 in 1.033286 seconds
+
+	TIME(Chain dimensions): 1.03947 seconds
+	*** End Calculating Chain Dimensions.
+
+	End to end calculation is deactivated, listendtoend is None
+
+	Cn calculation is deactivated, either not info about branch or backbone
+
+	Internal chain distances are deactivated, not info about backbone
+
+	*** Molecular weigth...
+
+	Average Molecular Weight (g/mol) : 7017.00
+
+	*** Calculating Radius of gyration...
+
+	Radius of gyration to be written to ChainStats_test/test03/Rg.dat 
+
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ChainStats_test/test03/Ree.dat 
+
+	Unwrap PBC coordinates: True
+	Cn, bond orientation and internal distances calculations are deactivated, either not info about branch or backbone
+
+	IFRAME: 0 in 0.006445 seconds
+	IFRAME: 50 in 0.359329 seconds
+	IFRAME: 100 in 0.732747 seconds
+	IFRAME: 150 in 1.08956 seconds
+
+	TIME(Chain dimensions): 1.099769 seconds
+	*** End Calculating Chain Dimensions.
+
+	End to end calculation is deactivated, listendtoend is None
+
+	Cn calculation is deactivated, either not info about branch or backbone
+
+	Internal chain distances are deactivated, not info about backbone
+
+	*** Molecular weigth...
+
+	Average Molecular Weight (g/mol) : 7017.00
+
+	*** Calculating Radius of gyration...
+
+	Radius of gyration to be written to ChainStats_test/test03/Rg.dat 
+
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ChainStats_test/test03/Ree.dat 
+
+	Unwrap PBC coordinates: True
+	Cn, bond orientation and internal distances calculations are deactivated, either not info about branch or backbone
+
+	IFRAME: 0 in 0.006597 seconds
+	IFRAME: 50 in 0.360782 seconds
+	IFRAME: 100 in 0.767913 seconds
+	IFRAME: 150 in 1.985145 seconds
+
+	TIME(Chain dimensions): 2.008188 seconds
+	*** End Calculating Chain Dimensions.
+
+
+	============== START TEST_05 ================================
+         Test one single chain without PBC conditions 
+
+	*** Creating a trajectory from...
+	../data/P4HB_1chain_pdb_cutoff_verlet/1_4HB_100_box.gro
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 0.568442 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../data/P4HB_1chain_pdb_cutoff_verlet/topol.tpr
+	Number of frames: 1
+	TIME(Adding topology): 0.465081 seconds
+	*** End Adding topology
+
+	Number of frames: 1
+	TIME(Read_Trajectories): 1.0339 seconds
+	*** End Creating a trajectory 
+
+	*** Molecular weigth...
+
+	Average Molecular Weight (g/mol) : 8626.05
+
+	*** Calculating Radius of gyration...
+
+	Radius of gyration to be written to ./Rg.dat 
+
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ./Ree.dat 
+
+	Unwrap PBC coordinates: True
+	Cn, bond orientation and internal distances calculations are deactivated, either not info about branch or backbone
+
+	IFRAME: 0 in 0.000375 seconds
+
+	TIME(Chain dimensions): 0.001187 seconds
+	*** End Calculating Chain Dimensions.
+
+
+		Finishing at: 	 21-06-2022 18:03:30
+		Total time: 	 760.08 seconds
+		***************** END RadiusofGyration TEST *****************
+

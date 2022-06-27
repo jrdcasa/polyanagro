@@ -23,12 +23,218 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad1397b9-ba54-446b-9246-9f1da47e52d0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/test_rename/ChainStats_test/test_chainstatistics.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_rename/IC_test/test_internalcoordinates.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/polyanagro.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/polyanagro.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/0003Ch-C020-002br04/RUN-001/.traj_comp.xtc_offsets.npz" beforeDir="false" afterPath="$PROJECT_DIR$/data/0003Ch-C020-002br04/RUN-001/.traj_comp.xtc_offsets.npz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/0003Ch-C020-002br04/RUN-002/.traj_comp.part0002.xtc_offsets.npz" beforeDir="false" afterPath="$PROJECT_DIR$/data/0003Ch-C020-002br04/RUN-002/.traj_comp.part0002.xtc_offsets.npz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/0003Ch-C020-002br04/RUN-003/.traj_comp.part0003.xtc_offsets.npz" beforeDir="false" afterPath="$PROJECT_DIR$/data/0003Ch-C020-002br04/RUN-003/.traj_comp.part0003.xtc_offsets.npz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/.traj_comp.xtc_offsets.npz" beforeDir="false" afterPath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/01-RESTART-0000-1000ns/.traj_comp.xtc_offsets.npz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/02-RESTART-1000-2000ns/.traj_comp.part0002.xtc_offsets.npz" beforeDir="false" afterPath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/02-RESTART-1000-2000ns/.traj_comp.part0002.xtc_offsets.npz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/03-RESTART-2000-3000ns/.traj_comp.part0003.xtc_offsets.npz" beforeDir="false" afterPath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/03-RESTART-2000-3000ns/.traj_comp.part0003.xtc_offsets.npz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_PREMC_B/PreMCparallel.dat" beforeDir="false" afterPath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_PREMC_B/PreMCparallel.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_PREMC_B/R_kremer.dat" beforeDir="false" afterPath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_PREMC_B/R_kremer.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_PREMC_B/R_kremer_log.dat" beforeDir="false" afterPath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_PREMC_B/R_kremer_log.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_PREMC_B/Rg.dat" beforeDir="false" afterPath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_PREMC_B/Rg.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_PREMC_B/RgRee.dat" beforeDir="false" afterPath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_PREMC_B/RgRee.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_PREMC_B/Rg_avgstep.dat" beforeDir="false" afterPath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_PREMC_B/Rg_avgstep.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_PREMC_B/bond_dist.dat" beforeDir="false" afterPath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_PREMC_B/bond_dist.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_PREMC_B/rEE_ACF.dat" beforeDir="false" afterPath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_PREMC_B/rEE_ACF.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_PREMC_B/th_dist.dat" beforeDir="false" afterPath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_PREMC_B/th_dist.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_PREMC_B/tor_dist_bb.dat" beforeDir="false" afterPath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_PREMC_B/tor_dist_bb.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_PREMC_B/tor_dist_br.dat" beforeDir="false" afterPath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_PREMC_B/tor_dist_br.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_PREMC_B/tor_dist_tot.dat" beforeDir="false" afterPath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_PREMC_B/tor_dist_tot.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_PREMC_B/tor_dist_xbr.dat" beforeDir="false" afterPath="$PROJECT_DIR$/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_PREMC_B/tor_dist_xbr.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/01-Example_Rg/.tmp_ree_distances.dat" beforeDir="false" afterPath="$PROJECT_DIR$/example_backup/01-Example_Rg/.tmp_ree_distances.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/01-Example_Rg/.tmp_ree_distances.hdf5" beforeDir="false" afterPath="$PROJECT_DIR$/example_backup/01-Example_Rg/.tmp_ree_distances.hdf5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/01-Example_Rg/.tmp_rg_distances.dat" beforeDir="false" afterPath="$PROJECT_DIR$/example_backup/01-Example_Rg/.tmp_rg_distances.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/01-Example_Rg/01-example_Rg.py" beforeDir="false" afterPath="$PROJECT_DIR$/example_backup/01-Example_Rg/01-example_Rg.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/01-Example_Rg/Ree.dat" beforeDir="false" afterPath="$PROJECT_DIR$/example_backup/01-Example_Rg/Ree.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/01-Example_Rg/Rg.dat" beforeDir="false" afterPath="$PROJECT_DIR$/example_backup/01-Example_Rg/Rg.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/01-Example_Rg/movie_unwrap_000000.xyz" beforeDir="false" afterPath="$PROJECT_DIR$/example_backup/01-Example_Rg/movie_unwrap_000000.xyz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/01-Example_Rg/rEE_ACF.dat" beforeDir="false" afterPath="$PROJECT_DIR$/example_backup/01-Example_Rg/rEE_ACF.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/02-Example_Unwrap_BigTrjs/02-example_bigtrjunwrap.py" beforeDir="false" afterPath="$PROJECT_DIR$/example_backup/02-Example_Unwrap_BigTrjs/02-example_bigtrjunwrap.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/03-Example-Gromacs_wrapper/#dist.xvg.1#" beforeDir="false" afterPath="$PROJECT_DIR$/example_backup/03-Example-Gromacs_wrapper/#dist.xvg.1#" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/03-Example-Gromacs_wrapper/03-test_gromacs_wrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/example_backup/03-Example-Gromacs_wrapper/03-test_gromacs_wrapper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/03-Example-Gromacs_wrapper/alldist.xvg" beforeDir="false" afterPath="$PROJECT_DIR$/example_backup/03-Example-Gromacs_wrapper/alldist.xvg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/03-Example-Gromacs_wrapper/dist.xvg" beforeDir="false" afterPath="$PROJECT_DIR$/example_backup/03-Example-Gromacs_wrapper/dist.xvg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/04-Example-ODF/04-test_odf.py" beforeDir="false" afterPath="$PROJECT_DIR$/example_backup/04-Example-ODF/04-test_odf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/04-Example-ODF/READFILE" beforeDir="false" afterPath="$PROJECT_DIR$/example_backup/04-Example-ODF/READFILE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/04-Example-ODF/intra_fake.inp" beforeDir="false" afterPath="$PROJECT_DIR$/example_backup/04-Example-ODF/intra_fake.inp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/04-Example-ODF/odf_intra.dat" beforeDir="false" afterPath="$PROJECT_DIR$/example_backup/04-Example-ODF/odf_intra.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/04-Example-ODF/test_odf.log" beforeDir="false" afterPath="$PROJECT_DIR$/example_backup/04-Example-ODF/test_odf.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/05-Example-RDF_intra/05-test_rdf_intra.py" beforeDir="false" afterPath="$PROJECT_DIR$/example_backup/05-Example-RDF_intra/05-test_rdf_intra.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/05-Example-RDF_intra/test_odf.log" beforeDir="false" afterPath="$PROJECT_DIR$/example_backup/05-Example-RDF_intra/test_odf.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/install.log" beforeDir="false" afterPath="$PROJECT_DIR$/install.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology/install.log" beforeDir="false" afterPath="$PROJECT_DIR$/topology/install.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology/topology/ext_libc/c_distances.c" beforeDir="false" afterPath="$PROJECT_DIR$/topology/topology/ext_libc/c_distances.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology/topology/ext_libc/c_distances_openmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/topology/topology/ext_libc/c_distances_openmp.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology/topology/ext_libc/c_unwrap_openmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/topology/topology/ext_libc/c_unwrap_openmp.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polyanagro/Chain_Statistics.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/Chain_Statistics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polyanagro/StemGroup.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/StemGroup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polyanagro/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polyanagro/cmds/polymer_size.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/cmds/polymer_size.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Angle_Dist.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/Angle_Dist.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Bond_Dist.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/Bond_Dist.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/serial_test_chainstatistics.log" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/ChainStats_test/serial_test_chainstatistics.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test01/Cn_withdist.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/ChainStats_test/test01/Cn_withdist.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test01/Cn_withoutdist.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/ChainStats_test/test01/Cn_withoutdist.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test01/Cn_withoutdist_unitvectors.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/ChainStats_test/test01/Cn_withoutdist_unitvectors.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test01/Ree.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/ChainStats_test/test01/Ree.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test01/Ree2Rg2.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/ChainStats_test/test01/Ree2Rg2.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test01/Ree2_compare.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/ChainStats_test/test01/Ree2_compare.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test01/Rg.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/ChainStats_test/test01/Rg.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test01/Rg2_compare.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/ChainStats_test/test01/Rg2_compare.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test01/RgRee_test01_reference.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/ChainStats_test/test01/RgRee_test01_reference.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test01/rEE_ACF.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/ChainStats_test/test01/rEE_ACF.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test02/Cn_withdist.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/ChainStats_test/test02/Cn_withdist.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test02/Cn_withoutdist.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/ChainStats_test/test02/Cn_withoutdist.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test02/Cn_withoutdist_unitvectors.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/ChainStats_test/test02/Cn_withoutdist_unitvectors.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test02/Ree.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/ChainStats_test/test02/Ree.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test02/Ree2Rg2.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/ChainStats_test/test02/Ree2Rg2.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test02/Ree2_compare.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/ChainStats_test/test02/Ree2_compare.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test02/Rg.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/ChainStats_test/test02/Rg.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test02/Rg2_compare.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/ChainStats_test/test02/Rg2_compare.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test02/RgRee_test02_reference.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/ChainStats_test/test02/RgRee_test02_reference.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test02/rEE_ACF.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/ChainStats_test/test02/rEE_ACF.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test03/Ree.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/ChainStats_test/test03/Ree.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test03/Rg.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/ChainStats_test/test03/Rg.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ChainStats_test/test_chainstatistics.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Dih_Dist.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/Dih_Dist.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Dih_Dist_Flory.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/Dih_Dist_Flory.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Distribution_test/test_distribution.log" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/Distribution_test/test_distribution.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/IC_test/test_internalcoordinates.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/IC_test/test_internalcoordinates_big.log" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/IC_test/test_internalcoordinates_big.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Imp_Dist.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/Imp_Dist.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/NumbaCythonNumpy/test_performance.log" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/NumbaCythonNumpy/test_performance.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/NumbaCythonNumpy/test_performance_12p_blocksize1.log" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/NumbaCythonNumpy/test_performance_12p_blocksize1.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/NumbaCythonNumpy/test_performance_6p_blocksize1.log" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/NumbaCythonNumpy/test_performance_6p_blocksize1.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/NumbaCythonNumpy/test_performance_bigtrj.log" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/NumbaCythonNumpy/test_performance_bigtrj.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/RDF_test/test_RDF.log" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/RDF_test/test_RDF.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Ree.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/Ree.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Ree2Rg2.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/Ree2Rg2.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Rg.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/Rg.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/StemGroup_test/test_stemgroup.log" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/StemGroup_test/test_stemgroup.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/example_unit_vectors.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/example_unit_vectors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/example_unit_vectors_big.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/example_unit_vectors_big.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/example_unitvectors.log" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/example_unitvectors.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/g2dvsg2u.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/g2dvsg2u.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/g3_03_nx.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/g3_03_nx.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/graph04.dot" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/graph04.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/graph04.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/graph04.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/graph04_after_test23.dot" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/graph04_after_test23.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/graph04_after_test23.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/graph04_after_test23.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/graph04_after_test23_nx.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/graph04_after_test23_nx.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/graph04_f000.dot" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/graph04_f000.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/graph04_f000.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/graph04_f000.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/graph04_f001.dot" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/graph04_f001.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/graph04_f001.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/graph04_f001.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/graph04_f002.dot" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/graph04_f002.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/graph04_f002.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/graph04_f002.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/graph04_nx.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/graph04_nx.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/graph06_test12.dot" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/graph06_test12.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/graph06_test12.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/graph06_test12.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/graph06_test12_nx.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/graph06_test12_nx.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/graph07.dot" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/graph07.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/graph07.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/graph07.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/graph07_f000.dot" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/graph07_f000.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/graph07_f000.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/graph07_f000.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/graph07_f001.dot" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/graph07_f001.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/graph07_f001.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/graph07_f001.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/graph07_nx.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/graph07_nx.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/graph11_nx.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/graph11_nx.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/test_02.dot" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/test_02.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/test_02.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/test_02.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/test_02_nx.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/test_02_nx.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/test_03.dot" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/test_03.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/test_03.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/test_03.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/test_03_nx.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/test_03_nx.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/test_10a_assignbonds.dot" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/test_10a_assignbonds.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/test_10a_assignbonds.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/test_10a_assignbonds.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/test_10a_assignbonds_nx.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/test_10a_assignbonds_nx.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/test_10b_assignbonds.dot" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/test_10b_assignbonds.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/test_10b_assignbonds.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/test_10b_assignbonds.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/test_10b_assignbonds_nx.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/test_10b_assignbonds_nx.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/test_10c_assignbonds.dot" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/test_10c_assignbonds.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/test_10c_assignbonds.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/test_10c_assignbonds.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/test_10c_assignbonds_nx.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/test_10c_assignbonds_nx.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/test_25_2_before.dot" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/test_25_2_before.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/test_25_2_before.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/test_25_2_before.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/test_25_after.dot" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/test_25_after.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/test_25_after.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/test_25_after.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/test_25_before.dot" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/test_25_before.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/test_25_before.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/test_25_before.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/topo01_test06.dot" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/topo01_test06.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/topo01_test06.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/topo01_test06.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/topo01_test08.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/topo01_test08.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/topo01_test09.dot" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/topo01_test09.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/topo01_test09.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/topo01_test09.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/topo02_test06.dot" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/topo02_test06.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/graphs/topo02_test06.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/graphs/topo02_test06.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/numba/test_numba_01.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/numba/test_numba_01.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_StemGroup.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_StemGroup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_cmd_pair_distribution/pol_rdf.log" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_cmd_pair_distribution/pol_rdf.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_cmd_polymer_size/Cn.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_cmd_polymer_size/Cn.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_cmd_polymer_size/Ree.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_cmd_polymer_size/Ree.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_cmd_polymer_size/Ree2Rg2.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_cmd_polymer_size/Ree2Rg2.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_cmd_polymer_size/Ree_distribution,dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_cmd_polymer_size/Ree_distribution,dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_cmd_polymer_size/Rg.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_cmd_polymer_size/Rg.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_cmd_polymer_size/Rg_distribution,dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_cmd_polymer_size/Rg_distribution,dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_cmd_polymer_size/bond-bond-correlation.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_cmd_polymer_size/bond-bond-correlation.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_cmd_polymer_size/dimension_plot.gnu" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_cmd_polymer_size/dimension_plot.gnu" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_cmd_polymer_size/pol_size.log" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_cmd_polymer_size/pol_size.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_cmd_polymer_size/rEE_ACF.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_cmd_polymer_size/rEE_ACF.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_cmd_polymer_size_big/Cn.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_cmd_polymer_size_big/Cn.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_cmd_polymer_size_big/Cn_orig.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_cmd_polymer_size_big/Cn_orig.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_cmd_polymer_size_big/Ree.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_cmd_polymer_size_big/Ree.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_cmd_polymer_size_big/Ree2Rg2.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_cmd_polymer_size_big/Ree2Rg2.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_cmd_polymer_size_big/Ree2Rg2_orig.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_cmd_polymer_size_big/Ree2Rg2_orig.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_cmd_polymer_size_big/Ree_distribution,dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_cmd_polymer_size_big/Ree_distribution,dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_cmd_polymer_size_big/Ree_orig.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_cmd_polymer_size_big/Ree_orig.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_cmd_polymer_size_big/Rg.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_cmd_polymer_size_big/Rg.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_cmd_polymer_size_big/Rg_distribution,dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_cmd_polymer_size_big/Rg_distribution,dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_cmd_polymer_size_big/Rg_orig.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_cmd_polymer_size_big/Rg_orig.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_cmd_polymer_size_big/bond-bond-correlation.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_cmd_polymer_size_big/bond-bond-correlation.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_cmd_polymer_size_big/dimension_plot.gnu" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_cmd_polymer_size_big/dimension_plot.gnu" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_cmd_polymer_size_big/pol_size.log" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_cmd_polymer_size_big/pol_size.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_cmd_polymer_size_big/rEE_ACF.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_cmd_polymer_size_big/rEE_ACF.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_cmd_polymer_size_big/rEE_ACF_orig.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_cmd_polymer_size_big/rEE_ACF_orig.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_data/Ree.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_data/Ree.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_data/Ree_test01_reference.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_data/Ree_test01_reference.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_data/Rg.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_data/Rg.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_data/Rg_test01_reference.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_data/Rg_test01_reference.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_data/rEE_ACF.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_data/rEE_ACF.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_data2/Ree.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_data2/Ree.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_data2/Rg.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_data2/Rg.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_data2/rEE_ACF.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_data2/rEE_ACF.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_data_dist01/namd_out.psf" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_data_dist01/namd_out.psf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_distributions.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_distributions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_internalcoordinates.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_internalcoordinates.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_mdtraj_library.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_mdtraj_library.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_numba_cython_numpy.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_numba_cython_numpy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_radiusofgyration.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_radiusofgyration.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_rdf_calc.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/test_rdf_calc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/topo_test/topo_test_10.log" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/topo_test/topo_test_10.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/topo_test/topo_test_11.log" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/topo_test/topo_test_11.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/trj_test/a.xyz" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/trj_test/a.xyz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/trj_test/b.xyz" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/trj_test/b.xyz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/trj_test/c.xyz" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/trj_test/c.xyz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/trj_test/test_01_000000.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/trj_test/test_01_000000.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/trj_test/test_01_000001.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/trj_test/test_01_000001.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/trj_test/test_01_000002.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/trj_test/test_01_000002.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/trj_test/test_02_000000.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/trj_test/test_02_000000.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/trj_test/test_02_000001.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/trj_test/test_02_000001.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/trj_test/test_02_000002.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/trj_test/test_02_000002.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/trj_test/test_04000000.png" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/trj_test/test_04000000.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/trj_test/test_mdtraj_library.log" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/trj_test/test_mdtraj_library.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/trj_test/traj_test05_jump_w.xtc" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/trj_test/traj_test05_jump_w.xtc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/trj_test/traj_test05_nojump_w.dcd.dcd" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/trj_test/traj_test05_nojump_w.dcd.dcd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/trj_test/traj_test05_nojump_w.xtc" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/trj_test/traj_test05_nojump_w.xtc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/trj_test/traj_test05_unwrap_w.dcd.dcd" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/trj_test/traj_test05_unwrap_w.dcd.dcd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/trj_test/trajtopo_test06_nojump_w.xtc" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/trj_test/trajtopo_test06_nojump_w.xtc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/trj_test/trajtopo_test06_w.xtc" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/trj_test/trajtopo_test06_w.xtc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/trj_test/trjfull_out_big.xtc" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/trj_test/trjfull_out_big.xtc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/trj_test/trjfull_out_big_unwrap.xtc" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/trj_test/trjfull_out_big_unwrap.xtc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/trj_test/trjfull_out_big_unwrap_nojump.xtc" beforeDir="false" afterPath="$PROJECT_DIR$/test_rename/trj_test/trjfull_out_big_unwrap_nojump.xtc" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,20 +278,13 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/TMP/GROMACS_VISUAL/02-500PE_1Ch_LANGEVIN_N2/01_RUN_2.0" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/test/test_data_dist01" />
-      <recent name="$PROJECT_DIR$/polyanagro/ext_libc" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/data/0003Ch-C191-001br04_crystal" />
-      <recent name="$PROJECT_DIR$/test" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/polyanagro" />
       <recent name="$PROJECT_DIR$/data/0003Ch-C191-000br00_crystal" />
@@ -93,8 +292,37 @@
       <recent name="$PROJECT_DIR$/data" />
       <recent name="$PROJECT_DIR$/test/numba" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/test/test_radiusofgyration/test02" />
+      <recent name="$PROJECT_DIR$/test/test_radiusofgyration" />
+      <recent name="$PROJECT_DIR$/test/test_radiusofgyration/test01" />
+      <recent name="$PROJECT_DIR$/test" />
+      <recent name="$PROJECT_DIR$/polyanagro/ext_libc" />
+    </key>
   </component>
-  <component name="RunManager" selected="Python.cmds polymer_size p3hb one chain nopbc ">
+  <component name="RunManager" selected="Python.example langevin">
+    <configuration name="01-Example_SC_PE01" type="PythonConfigurationType" factoryName="Python">
+      <module name="polyanagro" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/../../sandboxes/sandbox_common/bin/python3" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/example/01-Example_SC_PE01" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/polyanagro/cmds/polymer_size.py" />
+      <option name="PARAMETERS" value="-t traj_nojump.xtc --tpr new_topo.tpr --e2e listend2end.dat --c2n backbone_idx.dat --e2acf --distributions --bondorientation --unwrap 1" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="01-example_Rg" type="PythonConfigurationType" factoryName="Python">
       <module name="polyanagro" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -109,28 +337,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/example/01-Example_Rg/01-example_Rg.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="01-odf-250br_450K" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="polyanagro" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="/media/jramos/PEBranch/0075Ch-C500-250br02_b/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_POLYANAGRO" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="/media/jramos/PEBranch/0075Ch-C500-250br02_b/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_POLYANAGRO/01-odf.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -271,7 +477,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Calculations" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Example01" type="PythonConfigurationType" factoryName="Python">
       <module name="polyanagro" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -279,35 +485,13 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/polyanagro" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/TMP/GROMACS_VISUAL/02_EXCLUSIONS" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/polyanagro/Calculations.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Chain_Statistics" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="polyanagro" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/polyanagro" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/polyanagro/Chain_Statistics.py" />
-      <option name="PARAMETERS" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/polyanagro/cmds/polymer_size.py" />
+      <option name="PARAMETERS" value="-t traj_comp.xtc --tpr new_topo.tpr --e2e listend2end.dat --c2n backbone_idx.dat --e2acf --distributions --bondorientation --fraction_trj_avg 0.25 --unwrap 1" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -541,6 +725,29 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="example langevin" type="PythonConfigurationType" factoryName="Python">
+      <module name="polyanagro" />
+      <option name="INTERPRETER_OPTIONS" value="-W ignore" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name=" PYTHONWARNINGS" value="&quot;ignore::DeprecationWarning&quot; " />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/TMP/GROMACS_VISUAL/02-500PE_1Ch_LANGEVIN_N2/01_RUN_2.0" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/polyanagro/cmds/polymer_size.py" />
+      <option name="PARAMETERS" value="-t ./traj_comp.part0001.xtc --e2e listend2end.dat --e2acf --c2n backbone_idx.dat -d --bondorientation --tpr ./new_topo.tpr --unwrap 1" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="example_unit_vectors" type="PythonConfigurationType" factoryName="Python">
       <module name="polyanagro" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -629,139 +836,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for test_internalcoordinates.InternalCoordinatesTests.test_07_distancearray_benchmark" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="01-test_radiusofgyration.py" type="tests" factoryName="Unittests">
       <module name="polyanagro" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="$PROJECT_DIR$/../../sandboxes/sandbox_common/bin/python3" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_internalcoordinates.InternalCoordinatesTests.test_07_distancearray_benchmark&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Unittests for test_radiusofgyration.RadiusofGyrationTests.test_05_chainstatistics_onesinglechain_nopbc" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="polyanagro" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_radiusofgyration.RadiusofGyrationTests.test_05_chainstatistics_onesinglechain_nopbc&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test_RDF" type="tests" factoryName="Unittests">
-      <module name="polyanagro" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_pattern" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/test/test_rdf_calc.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test_distributions" type="tests" factoryName="Unittests">
-      <module name="polyanagro" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_pattern" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/test/test_distributions.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test_internalcoordinates" type="tests" factoryName="Unittests">
-      <module name="polyanagro" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_pattern" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/test/test_internalcoordinates.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test_mdtraj_library" type="tests" factoryName="Unittests">
-      <module name="polyanagro" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_pattern" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/test/test_mdtraj_library.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test_molecular_graph" type="tests" factoryName="Unittests">
-      <module name="polyanagro" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/topology/test/Test-MolecularGraphs" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_pattern" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/topology/test/Test-MolecularGraphs/test_molecular_graph.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test_numbacythonnumpy" type="tests" factoryName="Unittests">
-      <module name="polyanagro" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="false" />
-      <option name="ADD_SOURCE_ROOTS" value="false" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_pattern" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/test/test_numba_cython_numpy.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test_radiusofgyration" type="tests" factoryName="Unittests">
-      <module name="polyanagro" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
@@ -771,7 +852,7 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="test_stemgroup_test02" type="tests" factoryName="Unittests">
+    <configuration name="Unittests for test_radiusofgyration.RadiusofGyrationTests.test_01_chainstatistics_small" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="polyanagro" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -781,30 +862,30 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_pattern" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_StemGroup.StemGroupTests.test_02_stemgroup_branch&quot;" />
+      <option name="_new_target" value="&quot;test_radiusofgyration.RadiusofGyrationTests.test_01_chainstatistics_small&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="test_topology" type="tests" factoryName="Unittests">
+    <configuration name="Unittests for test_radiusofgyration.RadiusofGyrationTests.test_02_chainstatistics_big" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="polyanagro" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/topology/test/Test-Topology" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
       <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="false" />
-      <option name="ADD_SOURCE_ROOTS" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_pattern" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/topology/test/Test-Topology/test_topology.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <option name="_new_target" value="&quot;test_radiusofgyration.RadiusofGyrationTests.test_02_chainstatistics_big&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.01-Example_SC_PE01" />
       <item itemvalue="Python.cmds polymer_size" />
+      <item itemvalue="Python.Example01" />
       <item itemvalue="Python.cmds pair_distribution" />
       <item itemvalue="Python.cmds polymer_size -h" />
       <item itemvalue="Python.cmds polymer_size big" />
@@ -813,6 +894,7 @@
       <item itemvalue="Python.cmds polymer_size p4hb one chain nopbc" />
       <item itemvalue="Python.cmds polymer_size p3hb one chain nopbc " />
       <item itemvalue="Python.cmds polymer_size p3hb" />
+      <item itemvalue="Python.example langevin" />
       <item itemvalue="Python.cmds polymer_size help" />
       <item itemvalue="Python.02-example_bigtrjunwrap" />
       <item itemvalue="Python.setup install" />
@@ -825,28 +907,14 @@
       <item itemvalue="Python.03-odf-250br_550K" />
       <item itemvalue="Python.04-odf-250br_600K" />
       <item itemvalue="Python.05-odf-000br_450K" />
-      <item itemvalue="Python.Calculations" />
-      <item itemvalue="Python.Chain_Statistics" />
-      <item itemvalue="Python.01-odf-250br_450K" />
-      <item itemvalue="Python tests.test_molecular_graph" />
-      <item itemvalue="Python tests.test_topology" />
-      <item itemvalue="Python tests.test_numbacythonnumpy" />
-      <item itemvalue="Python tests.test_radiusofgyration" />
-      <item itemvalue="Python tests.test_RDF" />
-      <item itemvalue="Python tests.test_distributions" />
-      <item itemvalue="Python tests.test_mdtraj_library" />
-      <item itemvalue="Python tests.test_internalcoordinates" />
-      <item itemvalue="Python tests.test_stemgroup_test02" />
-      <item itemvalue="Python tests.Unittests for test_internalcoordinates.InternalCoordinatesTests.test_07_distancearray_benchmark" />
-      <item itemvalue="Python tests.Unittests for test_radiusofgyration.RadiusofGyrationTests.test_05_chainstatistics_onesinglechain_nopbc" />
+      <item itemvalue="Python tests.01-test_radiusofgyration.py" />
+      <item itemvalue="Python tests.Unittests for test_radiusofgyration.RadiusofGyrationTests.test_01_chainstatistics_small" />
+      <item itemvalue="Python tests.Unittests for test_radiusofgyration.RadiusofGyrationTests.test_02_chainstatistics_big" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Unittests for test_radiusofgyration.RadiusofGyrationTests.test_05_chainstatistics_onesinglechain_nopbc" />
-        <item itemvalue="Python tests.Unittests for test_internalcoordinates.InternalCoordinatesTests.test_07_distancearray_benchmark" />
-        <item itemvalue="Python.01-odf-250br_450K" />
-        <item itemvalue="Python.Chain_Statistics" />
-        <item itemvalue="Python.Calculations" />
+        <item itemvalue="Python tests.Unittests for test_radiusofgyration.RadiusofGyrationTests.test_02_chainstatistics_big" />
+        <item itemvalue="Python tests.Unittests for test_radiusofgyration.RadiusofGyrationTests.test_01_chainstatistics_small" />
       </list>
     </recent_temporary>
   </component>
@@ -915,6 +983,11 @@
       <workItem from="1653577000716" duration="262000" />
       <workItem from="1653582504422" duration="2995000" />
       <workItem from="1654202482005" duration="4211000" />
+      <workItem from="1655392497867" duration="3789000" />
+      <workItem from="1655659863507" duration="25000" />
+      <workItem from="1655728669624" duration="75425000" />
+      <workItem from="1655996782751" duration="20000" />
+      <workItem from="1656103367370" duration="1636000" />
     </task>
     <servers />
   </component>
@@ -937,71 +1010,114 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1920" y="127" width="1920" height="575" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1651834383965">
-      <screen x="0" y="27" width="3840" height="1015" />
+    <state x="352" y="147" width="1328" height="785" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1656103551233">
+      <screen x="0" y="27" width="1920" height="1015" />
     </state>
+    <state x="352" y="147" width="1328" height="785" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1015/1920.0.1360.768@0.27.1920.1015" timestamp="1656103551233" />
     <state x="273" y="127" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1015/1920.0.1920.1080@0.27.1920.1015" timestamp="1651780261184" />
     <state x="2193" y="127" width="1647" height="575" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651766953766" />
+    <state x="960" y="96" width="960" height="529" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.703/1920.0.1360.768@0.27.1920.703" timestamp="1655393576176" />
+    <state x="371" y="167" width="1360" height="563" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.3280.703@0.27.3280.703" timestamp="1655993158914" />
     <state x="1920" y="127" width="1920" height="575" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.3840.1015@0.27.3840.1015" timestamp="1651834383965" />
-    <state x="0" y="27" width="435" height="1015" key="FileChooserDialogImpl" timestamp="1654300597078">
+    <state x="659" y="327" width="595" height="403" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1655890137494">
+      <screen x="0" y="27" width="3280" height="703" />
+    </state>
+    <state x="659" y="327" width="595" height="403" key="#com.intellij.fileTypes.FileTypeChooser/0.27.3280.703@0.27.3280.703" timestamp="1655890137494" />
+    <state x="2332" y="169" width="525" height="423" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1655824184066">
+      <screen x="0" y="27" width="3280" height="703" />
+    </state>
+    <state x="2332" y="169" width="525" height="423" key="#com.intellij.ide.util.TreeClassChooserDialog/0.27.3280.703@0.27.3280.703" timestamp="1655824184066" />
+    <state x="0" y="27" width="424" height="491" key="FileChooserDialogImpl" timestamp="1656103444940">
       <screen x="0" y="27" width="1920" height="1015" />
     </state>
-    <state x="0" y="27" key="FileChooserDialogImpl/0.27.1920.1015/1920.0.1360.768@0.27.1920.1015" timestamp="1654300597078" />
+    <state x="0" y="27" width="424" height="491" key="FileChooserDialogImpl/0.27.1920.1015/1920.0.1360.768@0.27.1920.1015" timestamp="1656103444940" />
     <state x="1920" y="0" width="870" height="1042" key="FileChooserDialogImpl/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651766228073" />
     <state x="0" y="27" width="435" height="1015" key="FileChooserDialogImpl/0.27.1920.1015@0.27.1920.1015" timestamp="1652178644475" />
+    <state x="0" y="27" key="FileChooserDialogImpl/0.27.1920.703/1920.0.1360.768@0.27.1920.703" timestamp="1655392555467" />
+    <state x="0" y="27" width="744" height="703" key="FileChooserDialogImpl/0.27.3280.703@0.27.3280.703" timestamp="1655993150603" />
     <state x="0" y="27" key="FileChooserDialogImpl/0.27.3840.1015@0.27.3840.1015" timestamp="1651834366656" />
-    <state width="1874" height="336" key="GridCell.Tab.0.bottom" timestamp="1651942380736">
+    <state width="1874" height="185" key="GridCell.Tab.0.bottom" timestamp="1656273597761">
       <screen x="0" y="27" width="1920" height="1015" />
     </state>
+    <state width="1874" height="185" key="GridCell.Tab.0.bottom/0.27.1920.1015/1920.0.1360.768@0.27.1920.1015" timestamp="1656273597761" />
     <state width="1874" height="336" key="GridCell.Tab.0.bottom/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651767952679" />
-    <state width="1874" height="336" key="GridCell.Tab.0.bottom/0.27.1920.1015@0.27.1920.1015" timestamp="1651942380736" />
+    <state width="1874" height="209" key="GridCell.Tab.0.bottom/0.27.1920.1015@0.27.1920.1015" timestamp="1655924826130" />
+    <state width="1874" height="263" key="GridCell.Tab.0.bottom/0.27.1920.703/1920.0.1360.768@0.27.1920.703" timestamp="1655465594078" />
+    <state width="1874" height="209" key="GridCell.Tab.0.bottom/0.27.3280.703@0.27.3280.703" timestamp="1655993812683" />
     <state width="1874" height="336" key="GridCell.Tab.0.bottom/0.27.3840.1015@0.27.3840.1015" timestamp="1651834496204" />
-    <state width="1874" height="336" key="GridCell.Tab.0.center" timestamp="1651942380736">
+    <state width="1874" height="185" key="GridCell.Tab.0.center" timestamp="1656273597761">
       <screen x="0" y="27" width="1920" height="1015" />
     </state>
+    <state width="1874" height="185" key="GridCell.Tab.0.center/0.27.1920.1015/1920.0.1360.768@0.27.1920.1015" timestamp="1656273597761" />
     <state width="1874" height="336" key="GridCell.Tab.0.center/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651767952679" />
-    <state width="1874" height="336" key="GridCell.Tab.0.center/0.27.1920.1015@0.27.1920.1015" timestamp="1651942380736" />
+    <state width="1874" height="209" key="GridCell.Tab.0.center/0.27.1920.1015@0.27.1920.1015" timestamp="1655924826130" />
+    <state width="1874" height="263" key="GridCell.Tab.0.center/0.27.1920.703/1920.0.1360.768@0.27.1920.703" timestamp="1655465594078" />
+    <state width="1874" height="209" key="GridCell.Tab.0.center/0.27.3280.703@0.27.3280.703" timestamp="1655993812683" />
     <state width="1874" height="336" key="GridCell.Tab.0.center/0.27.3840.1015@0.27.3840.1015" timestamp="1651834496203" />
-    <state width="1874" height="336" key="GridCell.Tab.0.left" timestamp="1651942380736">
+    <state width="1874" height="185" key="GridCell.Tab.0.left" timestamp="1656273597761">
       <screen x="0" y="27" width="1920" height="1015" />
     </state>
+    <state width="1874" height="185" key="GridCell.Tab.0.left/0.27.1920.1015/1920.0.1360.768@0.27.1920.1015" timestamp="1656273597761" />
     <state width="1874" height="336" key="GridCell.Tab.0.left/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651767952679" />
-    <state width="1874" height="336" key="GridCell.Tab.0.left/0.27.1920.1015@0.27.1920.1015" timestamp="1651942380736" />
+    <state width="1874" height="209" key="GridCell.Tab.0.left/0.27.1920.1015@0.27.1920.1015" timestamp="1655924826130" />
+    <state width="1874" height="263" key="GridCell.Tab.0.left/0.27.1920.703/1920.0.1360.768@0.27.1920.703" timestamp="1655465594078" />
+    <state width="1874" height="209" key="GridCell.Tab.0.left/0.27.3280.703@0.27.3280.703" timestamp="1655993812683" />
     <state width="1874" height="336" key="GridCell.Tab.0.left/0.27.3840.1015@0.27.3840.1015" timestamp="1651834496203" />
-    <state width="1874" height="336" key="GridCell.Tab.0.right" timestamp="1651942380736">
+    <state width="1874" height="185" key="GridCell.Tab.0.right" timestamp="1656273597761">
       <screen x="0" y="27" width="1920" height="1015" />
     </state>
+    <state width="1874" height="185" key="GridCell.Tab.0.right/0.27.1920.1015/1920.0.1360.768@0.27.1920.1015" timestamp="1656273597761" />
     <state width="1874" height="336" key="GridCell.Tab.0.right/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651767952679" />
-    <state width="1874" height="336" key="GridCell.Tab.0.right/0.27.1920.1015@0.27.1920.1015" timestamp="1651942380736" />
+    <state width="1874" height="209" key="GridCell.Tab.0.right/0.27.1920.1015@0.27.1920.1015" timestamp="1655924826130" />
+    <state width="1874" height="263" key="GridCell.Tab.0.right/0.27.1920.703/1920.0.1360.768@0.27.1920.703" timestamp="1655465594078" />
+    <state width="1874" height="209" key="GridCell.Tab.0.right/0.27.3280.703@0.27.3280.703" timestamp="1655993812683" />
     <state width="1874" height="336" key="GridCell.Tab.0.right/0.27.3840.1015@0.27.3840.1015" timestamp="1651834496204" />
-    <state width="1874" height="336" key="GridCell.Tab.1.bottom" timestamp="1651942380736">
+    <state width="1874" height="185" key="GridCell.Tab.1.bottom" timestamp="1656273597761">
       <screen x="0" y="27" width="1920" height="1015" />
     </state>
+    <state width="1874" height="185" key="GridCell.Tab.1.bottom/0.27.1920.1015/1920.0.1360.768@0.27.1920.1015" timestamp="1656273597761" />
     <state width="1874" height="336" key="GridCell.Tab.1.bottom/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651767952679" />
-    <state width="1874" height="336" key="GridCell.Tab.1.bottom/0.27.1920.1015@0.27.1920.1015" timestamp="1651942380736" />
+    <state width="1874" height="185" key="GridCell.Tab.1.bottom/0.27.1920.1015@0.27.1920.1015" timestamp="1655924567357" />
+    <state width="1874" height="198" key="GridCell.Tab.1.bottom/0.27.3280.703@0.27.3280.703" timestamp="1655993812680" />
     <state width="1874" height="336" key="GridCell.Tab.1.bottom/0.27.3840.1015@0.27.3840.1015" timestamp="1651834501457" />
-    <state width="1874" height="336" key="GridCell.Tab.1.center" timestamp="1651942380736">
+    <state width="1874" height="185" key="GridCell.Tab.1.center" timestamp="1656273597761">
       <screen x="0" y="27" width="1920" height="1015" />
     </state>
+    <state width="1874" height="185" key="GridCell.Tab.1.center/0.27.1920.1015/1920.0.1360.768@0.27.1920.1015" timestamp="1656273597761" />
     <state width="1874" height="336" key="GridCell.Tab.1.center/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651767952679" />
-    <state width="1874" height="336" key="GridCell.Tab.1.center/0.27.1920.1015@0.27.1920.1015" timestamp="1651942380736" />
+    <state width="1874" height="185" key="GridCell.Tab.1.center/0.27.1920.1015@0.27.1920.1015" timestamp="1655924567357" />
+    <state width="1874" height="198" key="GridCell.Tab.1.center/0.27.3280.703@0.27.3280.703" timestamp="1655993812679" />
     <state width="1874" height="336" key="GridCell.Tab.1.center/0.27.3840.1015@0.27.3840.1015" timestamp="1651834501457" />
-    <state width="1874" height="336" key="GridCell.Tab.1.left" timestamp="1651942380736">
+    <state width="1874" height="185" key="GridCell.Tab.1.left" timestamp="1656273597761">
       <screen x="0" y="27" width="1920" height="1015" />
     </state>
+    <state width="1874" height="185" key="GridCell.Tab.1.left/0.27.1920.1015/1920.0.1360.768@0.27.1920.1015" timestamp="1656273597761" />
     <state width="1874" height="336" key="GridCell.Tab.1.left/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651767952679" />
-    <state width="1874" height="336" key="GridCell.Tab.1.left/0.27.1920.1015@0.27.1920.1015" timestamp="1651942380736" />
+    <state width="1874" height="185" key="GridCell.Tab.1.left/0.27.1920.1015@0.27.1920.1015" timestamp="1655924567357" />
+    <state width="1874" height="198" key="GridCell.Tab.1.left/0.27.3280.703@0.27.3280.703" timestamp="1655993812679" />
     <state width="1874" height="336" key="GridCell.Tab.1.left/0.27.3840.1015@0.27.3840.1015" timestamp="1651834501457" />
-    <state width="1874" height="336" key="GridCell.Tab.1.right" timestamp="1651942380736">
+    <state width="1874" height="185" key="GridCell.Tab.1.right" timestamp="1656273597761">
       <screen x="0" y="27" width="1920" height="1015" />
     </state>
+    <state width="1874" height="185" key="GridCell.Tab.1.right/0.27.1920.1015/1920.0.1360.768@0.27.1920.1015" timestamp="1656273597761" />
     <state width="1874" height="336" key="GridCell.Tab.1.right/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651767952679" />
-    <state width="1874" height="336" key="GridCell.Tab.1.right/0.27.1920.1015@0.27.1920.1015" timestamp="1651942380736" />
+    <state width="1874" height="185" key="GridCell.Tab.1.right/0.27.1920.1015@0.27.1920.1015" timestamp="1655924567357" />
+    <state width="1874" height="198" key="GridCell.Tab.1.right/0.27.3280.703@0.27.3280.703" timestamp="1655993812680" />
     <state width="1874" height="336" key="GridCell.Tab.1.right/0.27.3840.1015@0.27.3840.1015" timestamp="1651834501457" />
-    <state x="2369" y="156" width="1022" height="737" key="SettingsEditor" timestamp="1651753699090">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state x="174" y="27" width="1022" height="703" key="SettingsEditor" timestamp="1655729913022">
+      <screen x="0" y="27" width="3280" height="703" />
     </state>
     <state x="2369" y="156" width="1022" height="737" key="SettingsEditor/0.27.1920.1015/1920.0.1920.1080@1920.0.1920.1080" timestamp="1651753699090" />
+    <state x="449" y="27" width="1022" height="703" key="SettingsEditor/0.27.1920.703/1920.0.1360.768@0.27.1920.703" timestamp="1655392561965" />
+    <state x="174" y="27" key="SettingsEditor/0.27.3280.703@0.27.3280.703" timestamp="1655729913022" />
+    <state width="960" height="507" key="XDebugger.FullValuePopup" timestamp="1655882219706">
+      <screen x="0" y="27" width="3280" height="703" />
+    </state>
+    <state width="960" height="507" key="XDebugger.FullValuePopup/0.27.3280.703@0.27.3280.703" timestamp="1655882219706" />
+    <state x="623" y="51" width="672" height="678" key="search.everywhere.popup" timestamp="1655804075167">
+      <screen x="0" y="27" width="3280" height="703" />
+    </state>
+    <state x="623" y="51" width="672" height="678" key="search.everywhere.popup/0.27.3280.703@0.27.3280.703" timestamp="1655804075167" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1022,7 +1138,7 @@
           <option name="timeStamp" value="136" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test/test_mdtraj_library.py</url>
+          <url>file://$PROJECT_DIR$/test_rename/test_mdtraj_library.py</url>
           <line>262</line>
           <option name="timeStamp" value="291" />
         </line-breakpoint>
@@ -1032,43 +1148,43 @@
           <option name="timeStamp" value="347" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test/numba/test_numba_01.py</url>
+          <url>file://$PROJECT_DIR$/test_rename/numba/test_numba_01.py</url>
           <line>95</line>
           <option name="timeStamp" value="466" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test/test_numba_cython_numpy.py</url>
+          <url>file://$PROJECT_DIR$/test_rename/test_numba_cython_numpy.py</url>
           <line>321</line>
           <option name="timeStamp" value="472" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test/test_numba_cython_numpy.py</url>
+          <url>file://$PROJECT_DIR$/test_rename/test_numba_cython_numpy.py</url>
           <line>24</line>
           <option name="timeStamp" value="474" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test/test_numba_cython_numpy.py</url>
+          <url>file://$PROJECT_DIR$/test_rename/test_numba_cython_numpy.py</url>
           <line>425</line>
           <option name="timeStamp" value="477" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test/test_numba_cython_numpy.py</url>
+          <url>file://$PROJECT_DIR$/test_rename/test_numba_cython_numpy.py</url>
           <line>155</line>
           <option name="timeStamp" value="478" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/example/04-Example-ODF/04-test_odf.py</url>
+          <url>file://$PROJECT_DIR$/example_backup/04-Example-ODF/04-test_odf.py</url>
           <line>22</line>
           <option name="timeStamp" value="502" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/example/05-Example-RDF_intra/05-test_rdf_intra.py</url>
+          <url>file://$PROJECT_DIR$/example_backup/05-Example-RDF_intra/05-test_rdf_intra.py</url>
           <line>18</line>
           <option name="timeStamp" value="515" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test/test_internalcoordinates.py</url>
-          <line>419</line>
+          <url>file://$PROJECT_DIR$/test_rename/test_internalcoordinates.py</url>
+          <line>421</line>
           <option name="timeStamp" value="603" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -1077,8 +1193,8 @@
           <option name="timeStamp" value="613" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test/test_StemGroup.py</url>
-          <line>45</line>
+          <url>file://$PROJECT_DIR$/test_rename/test_StemGroup.py</url>
+          <line>48</line>
           <option name="timeStamp" value="614" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -1092,24 +1208,9 @@
           <option name="timeStamp" value="637" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test/test_radiusofgyration.py</url>
-          <line>223</line>
-          <option name="timeStamp" value="640" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test/test_radiusofgyration.py</url>
-          <line>231</line>
-          <option name="timeStamp" value="641" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test/test_distributions.py</url>
+          <url>file://$PROJECT_DIR$/test_rename/test_distributions.py</url>
           <line>82</line>
           <option name="timeStamp" value="642" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test/test_radiusofgyration.py</url>
-          <line>181</line>
-          <option name="timeStamp" value="656" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/topology/build/lib.linux-x86_64-3.8/topology/Topology.py</url>
@@ -1118,23 +1219,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/polyanagro/Chain_Statistics.py</url>
-          <line>595</line>
-          <option name="timeStamp" value="669" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/polyanagro/Chain_Statistics.py</url>
-          <line>377</line>
-          <option name="timeStamp" value="684" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/polyanagro/Chain_Statistics.py</url>
-          <line>669</line>
+          <line>724</line>
           <option name="timeStamp" value="693" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/polyanagro/Chain_Statistics.py</url>
-          <line>229</line>
-          <option name="timeStamp" value="698" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/polyanagro/RDF.py</url>
@@ -1142,53 +1228,38 @@
           <option name="timeStamp" value="699" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/polyanagro/Chain_Statistics.py</url>
-          <line>178</line>
-          <option name="timeStamp" value="700" />
+          <url>file://$PROJECT_DIR$/test/test_radiusofgyration.py</url>
+          <line>169</line>
+          <option name="timeStamp" value="734" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/polyanagro/cmds/polymer_size.py</url>
-          <line>235</line>
-          <option name="timeStamp" value="703" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/polyanagro/Chain_Statistics.py</url>
-          <line>303</line>
-          <option name="timeStamp" value="706" />
+          <url>file://$PROJECT_DIR$/test/test_radiusofgyration.py</url>
+          <line>395</line>
+          <option name="timeStamp" value="739" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/polyanagro/Chain_Statistics.py</url>
-          <line>224</line>
-          <option name="timeStamp" value="707" />
+          <line>760</line>
+          <option name="timeStamp" value="750" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/polyanagro/Chain_Statistics.py</url>
-          <line>537</line>
-          <option name="timeStamp" value="708" />
+          <line>797</line>
+          <option name="timeStamp" value="758" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/polyanagro/Chain_Statistics.py</url>
-          <line>173</line>
-          <option name="timeStamp" value="709" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/polyanagro/Chain_Statistics.py</url>
-          <line>160</line>
-          <option name="timeStamp" value="710" />
+          <line>276</line>
+          <option name="timeStamp" value="766" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="tests">
-        <watch expression="self.trj_small" />
-        <watch expression="t" language="Python" />
-        <watch expression="topology" language="Python" />
-        <watch expression="self.trjpath" />
-        <watch expression="nbonds_bb_perch" />
-        <watch expression="self._ree2_frame[iframe][1]" />
-        <watch expression="self._ree2_frame[iframe][0]" />
-        <watch expression="self._rg2_frame[iframe]" />
-        <watch expression="self._rg2_frame[iframe]" />
+        <watch expression="type(r[0])" language="Python" />
+        <watch expression="type(self._coords_unwrap[iatom_l, 0])" language="Python" />
+        <watch expression="type(self._rsq_intdist[0])" language="Python" />
+        <watch expression="type(rsq)" language="Python" />
       </configuration>
       <configuration name="PythonConfigurationType">
         <watch expression="args.sets" />
@@ -1201,40 +1272,47 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/polyanagro$cmds_polymer_size_help.coverage" NAME="cmds polymer_size help Coverage Results" MODIFIED="1642782564448" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/test_cmd_polymer_size" />
     <SUITE FILE_PATH="coverage/polyanagro$cmds_polymer_size_p3hb_one_chain_nopbc_.coverage" NAME="cmds polymer_size p3hb one chain nopbc  Coverage Results" MODIFIED="1651834496083" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/TMP/chain_1" />
-    <SUITE FILE_PATH="coverage/polyanagro$test_mdtraj_library.coverage" NAME="test_mdtraj_library Coverage Results" MODIFIED="1639479338066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/polyanagro$cmds_polymer_size_p3hb.coverage" NAME="cmds polymer_size p3hb Coverage Results" MODIFIED="1643714958861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/TMPS/TMP9_BB/2022-P3HB_20Mon_100Ch_Tg/07-NPT_CRescale_500ns_700K/ANALYSIS" />
+    <SUITE FILE_PATH="coverage/polyanagro$test_mdtraj_library.coverage" NAME="test_mdtraj_library Coverage Results" MODIFIED="1655393560116" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/polyanagro$test_numba.coverage" NAME="test_numba Coverage Results" MODIFIED="1601538292407" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/polyanagro$test_numba_01.coverage" NAME="test_numba_01 Coverage Results" MODIFIED="1601546557833" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/numba" />
+    <SUITE FILE_PATH="coverage/polyanagro$example_langevin.coverage" NAME="example langevin Coverage Results" MODIFIED="1656103788433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/TMP/GROMACS_VISUAL/02-500PE_1Ch_LANGEVIN_N2/01_RUN_2.0" />
     <SUITE FILE_PATH="coverage/polyanagro$example_unit_vectors.coverage" NAME="example_unit_vectors Coverage Results" MODIFIED="1596812813288" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/polyanagro$01_example_Rg.coverage" NAME="01-example_Rg Coverage Results" MODIFIED="1615457495788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/example/01-Example_Rg" />
-    <SUITE FILE_PATH="coverage/polyanagro$test_RDF.coverage" NAME="test_RDF Coverage Results" MODIFIED="1651753718055" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/polyanagro$Chain_Statistics.coverage" NAME="Chain_Statistics Coverage Results" MODIFIED="1596649519337" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/polyanagro" />
-    <SUITE FILE_PATH="coverage/polyanagro$test_internalcoordinates.coverage" NAME="test_internalcoordinates Coverage Results" MODIFIED="1634545910089" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/polyanagro$01_example_Rg.coverage" NAME="01-example_Rg Coverage Results" MODIFIED="1655755202926" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/example/01-Example_Rg" />
+    <SUITE FILE_PATH="coverage/polyanagro$test_RDF.coverage" NAME="test_RDF Coverage Results" MODIFIED="1655393509672" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/polyanagro$01_Example_SC_PE01.coverage" NAME="01-Example_SC_PE01 Coverage Results" MODIFIED="1655993739657" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/example/01-Example_SC_PE01" />
+    <SUITE FILE_PATH="coverage/polyanagro$Chain_Statistics.coverage" NAME="Chain_Statistics Coverage Results" MODIFIED="1655755047573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/polyanagro" />
+    <SUITE FILE_PATH="coverage/polyanagro$test_internalcoordinates.coverage" NAME="test_internalcoordinates Coverage Results" MODIFIED="1655401383864" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/polyanagro$cmds_polymer_size__h.coverage" NAME="cmds polymer_size -h Coverage Results" MODIFIED="1643713510696" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/test_cmd_polymer_size" />
-    <SUITE FILE_PATH="coverage/polyanagro$test_distributions.coverage" NAME="test_distributions Coverage Results" MODIFIED="1651753729415" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/polyanagro$test_distributions.coverage" NAME="test_distributions Coverage Results" MODIFIED="1655393521056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/polyanagro$Unittests_for_test_radiusofgyration_RadiusofGyrationTests_test_02_chainstatistics_big.coverage" NAME="Unittests for test_radiusofgyration.RadiusofGyrationTests.test_02_chainstatistics_big Coverage Results" MODIFIED="1655924826120" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/polyanagro$setup_build_install.coverage" NAME="setup install Coverage Results" MODIFIED="1596469601138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/polyanagro$cmds_polymer_size_p4hb_one_chain.coverage" NAME="cmds polymer_size p4hb one chain Coverage Results" MODIFIED="1651764782326" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data/P4HB_1chain_nopdb_cutoff_verlet" />
     <SUITE FILE_PATH="coverage/polyanagro$example_unit_vectors_big.coverage" NAME="example_unit_vectors_big Coverage Results" MODIFIED="1596814029164" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/polyanagro$05_test_rdf_intra.coverage" NAME="05-test_rdf_intra Coverage Results" MODIFIED="1615906516450" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/example/05-Example-RDF_intra" />
     <SUITE FILE_PATH="coverage/polyanagro$05_odf_000br_450K.coverage" NAME="05-odf-000br_450K Coverage Results" MODIFIED="1616010080042" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/media/jramos/PEBranch/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_POLYANAGRO" />
     <SUITE FILE_PATH="coverage/polyanagro$04_odf_250br_600K.coverage" NAME="04-odf-250br_600K Coverage Results" MODIFIED="1615994142440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/media/jramos/PEBranch/0075Ch-C500-250br02_b/T-600K/06-NPT-100ns-Parrinello/ANALYSIS_POLYANAGRO" />
-    <SUITE FILE_PATH="coverage/polyanagro$test_numbacythonnumpy.coverage" NAME="test_numbacythonnumpy Coverage Results" MODIFIED="1639419964237" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/polyanagro$cmds_polymer_size_p4hb_one_chain_nopbc.coverage" NAME="cmds polymer_size p4hb one chain nopbc Coverage Results" MODIFIED="1651766954993" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data/P4HB_1chain_nopdb_cutoff_group" />
+    <SUITE FILE_PATH="coverage/polyanagro$test_numbacythonnumpy.coverage" NAME="test_numbacythonnumpy Coverage Results" MODIFIED="1655392752264" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/polyanagro$cmds_polymer_size.coverage" NAME="cmds polymer_size Coverage Results" MODIFIED="1643713249462" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/test_cmd_polymer_size" />
     <SUITE FILE_PATH="coverage/polyanagro$cmds_pair_distribution.coverage" NAME="cmds pair_distribution Coverage Results" MODIFIED="1643824450817" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/test_cmd_pair_distribution" />
+    <SUITE FILE_PATH="coverage/polyanagro$Calculations.coverage" NAME="Calculations Coverage Results" MODIFIED="1655890790510" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/polyanagro" />
     <SUITE FILE_PATH="coverage/polyanagro$test_segment.coverage" NAME="test_segment Coverage Results" MODIFIED="1639474240542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/polyanagro$Unittests_for_test_internalcoordinates_InternalCoordinatesTests_test_07_distancearray_benchmark.coverage" NAME="Unittests for test_internalcoordinates.InternalCoordinatesTests.test_07_distancearray_benchmark Coverage Results" MODIFIED="1635155991895" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/polyanagro$Unittests_for_test_radiusofgyration_RadiusofGyrationTests_test_05_chainstatistics_onesinglechain_nopbc.coverage" NAME="Unittests for test_radiusofgyration.RadiusofGyrationTests.test_05_chainstatistics_onesinglechain_nopbc Coverage Results" MODIFIED="1651760469866" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/polyanagro$Unittests_for_test_internalcoordinates_InternalCoordinatesTests_test_07_distancearray_benchmark.coverage" NAME="Unittests for test_internalcoordinates.InternalCoordinatesTests.test_07_distancearray_benchmark Coverage Results" MODIFIED="1655816570607" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/polyanagro$Unittests_for_test_radiusofgyration_RadiusofGyrationTests_test_05_chainstatistics_onesinglechain_nopbc.coverage" NAME="Unittests for test_radiusofgyration.RadiusofGyrationTests.test_05_chainstatistics_onesinglechain_nopbc Coverage Results" MODIFIED="1655393490805" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/polyanagro$03_odf_250br_550K.coverage" NAME="03-odf-250br_550K Coverage Results" MODIFIED="1615981737728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/media/jramos/PEBranch/0075Ch-C500-250br02_b/T-550K/06-NPT-100ns-Parrinello/ANALYSIS_POLYANAGRO" />
     <SUITE FILE_PATH="coverage/polyanagro$test_stemgroup.coverage" NAME="test_stemgroup_test02 Coverage Results" MODIFIED="1635157929509" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/polyanagro$test_topology.coverage" NAME="test_topology Coverage Results" MODIFIED="1651753701827" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/topology/test/Test-Topology" />
-    <SUITE FILE_PATH="coverage/polyanagro$test_molecular_graph.coverage" NAME="test_molecular_graph Coverage Results" MODIFIED="1651753710767" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/topology/test/Test-MolecularGraphs" />
-    <SUITE FILE_PATH="coverage/polyanagro$test_radiusofgyration.coverage" NAME="test_radiusofgyration Coverage Results" MODIFIED="1651755367647" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/polyanagro$setup_install.coverage" NAME="setup install Coverage Results" MODIFIED="1651740293922" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/polyanagro$test_molecular_graph.coverage" NAME="test_molecular_graph Coverage Results" MODIFIED="1655392738996" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/topology/test/Test-MolecularGraphs" />
+    <SUITE FILE_PATH="coverage/polyanagro$test_topology.coverage" NAME="test_topology Coverage Results" MODIFIED="1655392745543" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/topology/test/Test-Topology" />
+    <SUITE FILE_PATH="coverage/polyanagro$test_radiusofgyration.coverage" NAME="test_radiusofgyration Coverage Results" MODIFIED="1655823049845" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/polyanagro$setup_install.coverage" NAME="setup install Coverage Results" MODIFIED="1656103776331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/polyanagro$Unittests_for_test_mdtraj_library_MDTRAJTests_test_01_UApolTrappe.coverage" NAME="Unittests for test_mdtraj_library.MDTRAJTests.test_01_UApolTrappe Coverage Results" MODIFIED="1596123827007" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/polyanagro$cmds_polymer_size_p4hb.coverage" NAME="cmds polymer_size p4hb Coverage Results" MODIFIED="1643392610758" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/TMPS/TMP9_BB/07-NPT_CRescale_200ns_700K/ANALYSIS" />
+    <SUITE FILE_PATH="coverage/polyanagro$Example01.coverage" NAME="Example01 Coverage Results" MODIFIED="1655754958835" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/TMP/GROMACS_VISUAL/02_EXCLUSIONS" />
     <SUITE FILE_PATH="coverage/polyanagro$04_test_odf.coverage" NAME="01-odf-250br Coverage Results" MODIFIED="1615979733567" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/media/jramos/PEBranch/0075Ch-C500-250br02_b/T-450K/06-NPT-100ns-Parrinello/ANALYSIS_POLYANAGRO" />
-    <SUITE FILE_PATH="coverage/polyanagro$test_stemgroup_test02.coverage" NAME="test_stemgroup_test02 Coverage Results" MODIFIED="1635181157406" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/polyanagro$cmds_polymer_size_big.coverage" NAME="cmds polymer_size big Coverage Results" MODIFIED="1643285174656" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/test_cmd_polymer_size_big" />
+    <SUITE FILE_PATH="coverage/polyanagro$test_stemgroup_test02.coverage" NAME="test_stemgroup_test02 Coverage Results" MODIFIED="1655393801128" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/polyanagro$01_test_radiusofgyration_py.coverage" NAME="01-test_radiusofgyration.py Coverage Results" MODIFIED="1655970038281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/polyanagro$Unittests_for_test_radiusofgyration_RadiusofGyrationTests_test_01_chainstatistics_small.coverage" NAME="Unittests for test_radiusofgyration.RadiusofGyrationTests.test_01_chainstatistics_small Coverage Results" MODIFIED="1655919338897" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
   </component>
 </project>

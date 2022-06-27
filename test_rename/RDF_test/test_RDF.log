@@ -1,0 +1,166 @@
+
+	Job Information
+	---------------
+
+		***************** START RDF TEST *****************
+		Starting: 	 16-06-2022 18:31:50
+
+
+	============== START TEST_01 ================================
+         Small Trajectory RDF with defaults and tpr topology 
+         RDF cannot be performed because bb atoms cannot be setup
+	*** Creating a trajectory from...
+	../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc
+	../data/0003Ch-C020-002br04/RUN-002/traj_comp.part0002.xtc
+	../data/0003Ch-C020-002br04/RUN-003/traj_comp.part0003.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 0.079578 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../data/0003Ch-C020-002br04/RUN-001/topol.tpr
+	Number of frames: 301
+	TIME(Adding topology): 0.006973 seconds
+	*** End Adding topology
+
+	Number of frames: 301
+	TIME(Read_Trajectories): 0.086791 seconds
+	*** End Creating a trajectory 
+
+
+	============== START TEST_02 ================================
+         Small Trajectory RDF with defaults and psf topology 
+
+	*** Creating a trajectory from...
+	../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc
+	../data/0003Ch-C020-002br04/RUN-002/traj_comp.part0002.xtc
+	../data/0003Ch-C020-002br04/RUN-003/traj_comp.part0003.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	*** Backbone atoms have been assigned to the topology.
+	Topology file: ../data/0003Ch-C020-002br04/namd_out.psf
+	TIME(Building_bonds_from_topology): 0.005287 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../data/0003Ch-C020-002br04/namd_out.psf
+	Number of frames: 301
+	TIME(Adding topology): 0.006442 seconds
+	*** End Adding topology
+
+	Number of frames: 301
+	TIME(Read_Trajectories): 0.01191 seconds
+	*** End Creating a trajectory 
+
+
+	============== START TEST_03 ================================
+         Small Trajectory RDF. All atoms and psf topology 
+
+	*** Creating a trajectory from...
+	../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc
+	../data/0003Ch-C020-002br04/RUN-002/traj_comp.part0002.xtc
+	../data/0003Ch-C020-002br04/RUN-003/traj_comp.part0003.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	*** Backbone atoms have been assigned to the topology.
+	Topology file: ../data/0003Ch-C020-002br04/namd_out.psf
+	TIME(Building_bonds_from_topology): 0.005615 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../data/0003Ch-C020-002br04/namd_out.psf
+	Number of frames: 301
+	TIME(Adding topology): 0.006107 seconds
+	*** End Adding topology
+
+	Number of frames: 301
+	TIME(Read_Trajectories): 0.011905 seconds
+	*** End Creating a trajectory 
+
+
+	============== START TEST_04 ================================
+         Small Trajectory RDF. All atoms and psf topology 
+
+	*** Creating a trajectory from...
+	../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc
+	../data/0003Ch-C020-002br04/RUN-002/traj_comp.part0002.xtc
+	../data/0003Ch-C020-002br04/RUN-003/traj_comp.part0003.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	*** Backbone atoms have been assigned to the topology.
+	Topology file: ../data/0003Ch-C020-002br04/namd_out.psf
+	TIME(Building_bonds_from_topology): 0.005591 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../data/0003Ch-C020-002br04/namd_out.psf
+	Number of frames: 301
+	TIME(Adding topology): 0.006853 seconds
+	*** End Adding topology
+
+	Number of frames: 301
+	TIME(Read_Trajectories): 0.012628 seconds
+	*** End Creating a trajectory 
+
+
+	============== START TEST_05 ================================
+         Small Trajectory RDF. All atoms and psf topology 
+
+	*** Creating a trajectory from...
+	../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc
+	../data/0003Ch-C020-002br04/RUN-002/traj_comp.part0002.xtc
+	../data/0003Ch-C020-002br04/RUN-003/traj_comp.part0003.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	*** Backbone atoms have been assigned to the topology.
+	Topology file: ../data/0003Ch-C020-002br04/namd_out.psf
+	TIME(Building_bonds_from_topology): 0.004977 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../data/0003Ch-C020-002br04/namd_out.psf
+	Number of frames: 301
+	TIME(Adding topology): 0.00642 seconds
+	*** End Adding topology
+
+	Number of frames: 301
+	TIME(Read_Trajectories): 0.011579 seconds
+	*** End Creating a trajectory 
+
+
+	============== START TEST_06 ================================
+         Small Trajectory RDF. All atoms and psf topology 
+                    calculate the RDF function
+	*** Creating a trajectory from...
+	../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc
+	../data/0003Ch-C020-002br04/RUN-002/traj_comp.part0002.xtc
+	../data/0003Ch-C020-002br04/RUN-003/traj_comp.part0003.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	*** Backbone atoms have been assigned to the topology.
+	Topology file: ../data/0003Ch-C020-002br04/namd_out.psf
+	TIME(Building_bonds_from_topology): 0.005093 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../data/0003Ch-C020-002br04/namd_out.psf
+	Number of frames: 301
+	TIME(Adding topology): 0.006213 seconds
+	*** End Adding topology
+
+	Number of frames: 301
+	TIME(Read_Trajectories): 0.011476 seconds
+	*** End Creating a trajectory 
+
+
+		Finishing at: 	 16-06-2022 18:31:50
+		Total time: 	 0.21 seconds
+		***************** END RDF TEST *****************
+
