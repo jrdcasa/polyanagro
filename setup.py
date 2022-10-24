@@ -138,7 +138,7 @@ def hasfunction(cc, funcname, include=None, extra_postargs=None):
 
 # Does this compiler support OpenMP parallelization?""" ==============================================================
 def detect_openmp():
-    print("POLYANAGRO: Attempting to autodetect OpenMP support... ", end="")
+    print("POLYANAGRO: Attempting to autodetect OpenMP support... ")
     compiler = new_compiler()
     customize_compiler(compiler)
     compiler.add_library('gomp')
@@ -254,34 +254,32 @@ if __name__ == '__main__':
     nowm = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
     m1 += "\n\t\t INSTALLING PIP PACKAGES ({})\n".format(nowm)
     print(m1) if logger is None else logger.info(m1)
-    # # Install requirements ===================================
-    # with open('requirements.txt') as f:
-    #     required = f.read().splitlines()
-    # for ipack in required:
-    #     try:
-    #         pkg, version = ipack.split(">=")[0:2]
-    #         if pkg[0] == "#":
-    #             continue
-    #         install_with_pip(pkg, vers=version, log=logger)
-    #     except ValueError:
-    #         pkg = ipack
-    #         if pkg[0] == "#" or len(pkg)<2:
-    #             continue
-    #         install_with_pip(pkg, log=logger)
-    #     finally:
-    #         pass
-    #
-    # # Install Topology library from github =======================================
-    # install_topology_library(log=logger)
-    # # Check for topology installation
-    # try:
-    #     import topology
-    # except ImportError:
-    #     m = "ERROR. Topology library is not correctly installed\n"
-    #     m +="ERROR. Please check ./topology/install.log"
-    #     print(m) if logger is None else logger.info(m)
-    #     exit()
-    #
+    # Install requirements ===================================
+    with open('requirements.txt') as f:
+        required = f.read().splitlines()
+    for ipack in required:
+        try:
+            pkg, version = ipack.split(">=")[0:2]
+            if pkg[0] == "#":
+                continue
+            install_with_pip(pkg, vers=version, log=logger)
+        except ValueError:
+            pkg = ipack
+            if pkg[0] == "#" or len(pkg)<2:
+                continue
+            install_with_pip(pkg, log=logger)
+        finally:
+            pass
+
+    # Check for topology installation
+    try:
+        import topology
+    except ImportError:
+        m = "ERROR. Topology library is not correctly installed\n"
+        m +="ERROR. Please check ./topology/install.log"
+        print(m) if logger is None else logger.info(m)
+        exit()
+
     # # Setup POLYANAGRO ===========================================
     from Cython.Build import cythonize
     import numpy

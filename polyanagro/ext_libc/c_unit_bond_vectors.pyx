@@ -81,6 +81,15 @@ def odf_intra(iframe, nchains,
               np.ndarray[float, ndim=2, mode="c"] uuy,
               np.ndarray[float, ndim=2, mode="c"] uuz):
 
+    """
+        Calculate intra chain orientation correlation (for persistence length)
+
+        Calculate orientational correlation functions
+        for intra-chain vectors as function of chemical distance.
+        It also calculates components and 4th moments.
+        The input is supposed to contain a multiple of nvec vectors.
+    """
+
     nbonds = all_bonds.shape[0]
     natoms = coords.shape[0]
     nchains = uux.shape[0]

@@ -28,8 +28,11 @@ def setup_hist_bondC(double deltaB, int maxBinB, np.ndarray[double,ndim=1] bdist
   return None
 
 ####################################################################################
-def bondDistC(np.ndarray[int,ndim=2, mode="c"] bl, np.ndarray[double,ndim=1] x,\
-              np.ndarray[double,ndim=1] y, np.ndarray[double,ndim=1] z, np.ndarray[int,ndim=1] bhist ):
+def bondDistC(np.ndarray[int,ndim=2, mode="c"] bl,
+              np.ndarray[double,ndim=1] x,\
+              np.ndarray[double,ndim=1] y,\
+              np.ndarray[double,ndim=1] z,\
+              np.ndarray[int,ndim=1] bhist ):
 
   cdef int nbonds = len(bl)
   cdef int natoms = len(x)
@@ -38,9 +41,9 @@ def bondDistC(np.ndarray[int,ndim=2, mode="c"] bl, np.ndarray[double,ndim=1] x,\
   
   #The return value is 1 if the calculation is done without problems. If any problem is
   #detected the return value is 0.
-  
+
   iserror = c_bondDist(natoms, nbonds, dim2, &bl[0,0], &x[0], &y[0], &z[0], &bhist[0])
-  
+
   return iserror
 
 ####################################################################################  

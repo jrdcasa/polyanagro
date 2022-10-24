@@ -1,0 +1,87 @@
+
+    ***********************************************************************
+                         Polymer size calculations 
+              ----------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an 
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 29-08-2022 23:51:24 ============
+
+		Command line: 
+			python polymer_size.py -t ./01-RESTART-0000-1000ns/traj_comp.xtc ./02-RESTART-1000-2000ns/traj_comp.part0002.xtc ./03-RESTART-2000-3000ns/traj_comp.part0003.xtc --topo ./01-RESTART-0000-1000ns/topol.tpr --unwrap 1 --rg_massw --e2e listend2end.dat --stride 50 --e2acf --c2n backbone_idx.dat --distributions --isodf
+			         or
+			polymer_size -t ./01-RESTART-0000-1000ns/traj_comp.xtc ./02-RESTART-1000-2000ns/traj_comp.part0002.xtc ./03-RESTART-2000-3000ns/traj_comp.part0003.xtc --topo ./01-RESTART-0000-1000ns/topol.tpr --unwrap 1 --rg_massw --e2e listend2end.dat --stride 50 --e2acf --c2n backbone_idx.dat --distributions --isodf
+
+	*** Creating a trajectory from...
+	./01-RESTART-0000-1000ns/traj_comp.xtc
+	./02-RESTART-1000-2000ns/traj_comp.part0002.xtc
+	./03-RESTART-2000-3000ns/traj_comp.part0003.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 34.171308 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	./01-RESTART-0000-1000ns/topol.tpr
+	Number of frames: 151
+	TIME(Adding topology): 2.805401 seconds
+	*** End Adding topology
+
+	Number of frames: 151
+	TIME(Read_Trajectories): 36.977241 seconds
+	*** End Creating a trajectory 
+
+	 Num of frames to analyse: 4
+	*** Molecular weigth...
+
+	Average Molecular Weigth (g/mol) : 7017.00
+
+	*** Calculating Radius of gyration...
+	Radius of gyration to be written to ./Rg.dat 
+
+	*** Calculating End to End distance...
+	End to End distance to be written to ./Ree.dat 
+
+	Unwrap PBC coordinates: True
+	Preparing backbone information in      0.469 seconds
+	Preparing distribution information in      0.001 seconds
+	Preparing internal chain distances information in      0.000 seconds
+	IFRAME: 0 in 5e-06 seconds
+	IFRAME: 50 in 3.055927 seconds
+	IFRAME: 100 in 6.105874 seconds
+	IFRAME: 150 in 9.183301 seconds
+
+	TIME(Chain dimensions): 12.419952 seconds
+	*** End Calculating Chain Dimensions.
+
+	*** Calculating End-to-End autocorrelation vector... (2022-08-29 23:52:13.701583)
+	TIME(End-to-End autocorrelation vector): 0.000265 seconds
+	*** End Calculating End-to-End autocorrelation vector.
+
+	*** Calculating distributions...
+	TIME(Distributions): 0.002847 seconds
+	*** End distributions calculation.
+
+	*** Average values ***
+		 Rg^2_avg     =    1608.00 +-     219.73 (angstroms)
+		 Ree^2_avg    =    9781.12 +-    1328.19 (angstroms)
+		 Ree^2/Rg^2   =       6.09 +-       0.26 (angstroms)
+		 Cn_avg       =       8.26 +-       1.12 
+
+		Job  Done at 29-08-2022 23:52:13 ============
+

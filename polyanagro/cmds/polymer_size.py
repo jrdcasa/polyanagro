@@ -29,14 +29,12 @@ def parse_arguments():
                         action="store", required=True, default=None)
 
     group2 = parser.add_mutually_exclusive_group(required=True)
-    group2.add_argument("--tpr", dest="topo",
-                        help="A topology file in tpr format.",
-                        action="store")
-    group2.add_argument("--psf", dest="topo",
-                        help="A topology file in psf format.",
-                        action="store")
+    group2.add_argument("--topo", dest="topo",
+                        help="A topology file in tpr, data or pdb format.\n"
+                             "tpr --> GROMACS, dat --> LAMMPS, pdb --> OTHERS",
+                        action="store", metavar="TPR|DATA|PDB")
 
-    parser.add_argument("--stride", dest="stride",
+    parser.add_argument("--stride", dest="stride", type=int,
                         help="Take a frame each stride frames, for example 10",
                         action="store", required=False, default=1)
 
@@ -79,7 +77,14 @@ def parse_arguments():
                         help="If True the coordinates are unwrapped",
                         required=True, metavar="True or False, 1 or 0")
 
+    parser.add_argument("--rg_massw", dest="isrgmass",
+                        help="Calculate the mass weighted radius of gyration",
+                        action="store_true", required=False)
 
+    parser.add_argument("--isodf", dest="isodf",
+                        help="Calculate 1st and 2nd Legendre polynomials for\n "
+                             "the correlation between bonds in a polymer chain",
+                        action="store_true", required=False)
 
     args = parser.parse_args()
 
@@ -220,7 +225,7 @@ def main_app():
     # Parse arguments
     args = parse_arguments()
     # Setup log
-    log = utils.init_logger("Output", fileoutput=args.log, append=False, inscreen=False)
+    log = utils.init_logger("Output", fileoutput=args.log, append=False, inscreen=True)
     # Write header and arguments
     print_header(pag.version.__version__, log)
     # Load trajectory
@@ -237,7 +242,7 @@ def main_app():
                       distributions=args.isdist, molecularweight=True, calc_Cn_bonds_distances=True,
                       single_Cn_unitvector=False, begin=0, unwrap_pbc=isunwrap,
                       backbone_list_atoms=backbone_list_atoms, isbondorientation=args.isbondorientation,
-                      isbbatom=isbbatom, isinternalchaindist=iscnn)
+                      isbbatom=isbbatom, isinternalchaindist=iscnn, isrgmass=args.isrgmass, isodf=args.isodf)
 
     objcalc.statistics(args.frac_avg)
 

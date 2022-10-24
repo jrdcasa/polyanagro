@@ -1,0 +1,30 @@
+# Created on Fri Sep 23 13:56:28 EEST 2022 by jramos@totem2
+# called from resample_target.sh, version 2023-dev gitid: 3134d8079
+# settings file: '/home/jramos/Documentos/___MIS_PETICIONES_PROYECTOS___/2021-MovilidadExtranjero/08-Results/05-CG/01-PE-CG3-ibi_big/03-INITIAL_POTENTIALS_GROUP/settings_map.xml'
+# working directory: /home/jramos/Documentos/___MIS_PETICIONES_PROYECTOS___/2021-MovilidadExtranjero/08-Results/05-CG/01-PE-CG3-ibi_big/03-INITIAL_POTENTIALS_GROUP
+0.1 0 i
+0.12 0 i
+0.14 0 i
+0.16 0 i
+0.18 0 i
+0.2 0 i
+0.22 0 i
+0.24 0.0001142524431 i
+0.26 0.04032795627 i
+0.28 0.5706653886 i
+0.3 3.051907157 i
+0.32 8.17446973 i
+0.34 15.01191098 i
+0.36 12.83963085 i
+0.38 8.448830876 i
+0.4 1.860764524 i
+0.42 0.00137828845 i
+0.44 0 i
+0.46 0 i
+0.48 0 i
+0.5 0 i
+0.52 0 i
+0.54 0 i
+0.56 0 i
+0.58 0 i
+0.6 0 i

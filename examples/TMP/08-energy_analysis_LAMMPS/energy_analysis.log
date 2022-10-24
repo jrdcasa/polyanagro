@@ -1,0 +1,75 @@
+
+    ***********************************************************************
+                                Energy Analysis 
+              ----------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an 
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 24-08-2022 16:14:02 ============
+
+		Command line: 
+			python energy_analysis.py calc -e ../../data/energy/LAMMPS_log/output.log --tbegin 100.0 --tend 5000.0 --avg --groupterms
+			         or
+			energy_analysis calc -e ../../data/energy/LAMMPS_log/output.log --tbegin 100.0 --tend 5000.0 --avg --groupterms
+
+		Reading energy data from /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/data/energy/LAMMPS_log/output.log
+
+		**** ENERGY INFO ****
+		  Number of points in energy files   : 501
+		  Original trajectory from 0.0 (ps) to 5000.0 (ps).
+		  Analyzed trajectory from 100.0 (ps) to 5000.0 (ps).
+		  Timestep 10.0 (ps).
+		**** End ENERGY INFO ****
+
+	WARNING: Step is not found in the energy file
+	WARNING: CPU is not found in the energy file
+		 Individual energy plots have been saved in:
+		  /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/examples/08-energy_analysis_LAMMPS/individual_energy
+
+		 Grouped density plots have been saved in:
+		  /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/examples/08-energy_analysis_LAMMPS/grouped_density
+
+	WARNING: Step is not found in the energy file
+	WARNING: CPU is not found in the energy file
+		**** ENERGY AVG INFO ****
+
+     Name     N       Mean           Std          Min           Max          Drift     Units 
+0      Time  491    2550.00000    1418.83755    100.00000    5000.00000    4900.00000      ps
+1      Step  491 2550000.00000 1418837.55236 100000.00000 5000000.00000 4900000.00851        
+2       CPU  491    6287.83384    3497.82146    243.42084   12318.70500   12079.82605        
+3    E_bond  491   26940.35191     304.80243  26029.01336   27823.36570      54.26904  kJ/mol
+4   E_angle  491   42376.06955     373.92282  40837.31486   43593.19642     -20.14479  kJ/mol
+5   E_dihed  491   10314.49139     163.11349   9860.01858   10892.38628     -33.43969  kJ/mol
+6   E_impro  491       0.00000       0.00000      0.00000       0.00000       0.00000  kJ/mol
+7    E_pair  491   -6667.29592     255.86388  -7551.21458   -5927.10252       1.62566  kJ/mol
+8    E_vdwl  491  -10644.49044     234.96758 -11399.81092   -9932.70429      -3.97922  kJ/mol
+9    E_coul  491   14689.41078      98.72474  14415.84690   14975.24770       5.64599  kJ/mol
+10   E_long  491  -10712.21628       0.20913 -10712.75084  -10711.53455      -0.04107  kJ/mol
+11   E_tail  491   -1135.93427       9.24640  -1163.39948   -1103.42925      -0.34068  kJ/mol
+12   PotEng  491   72963.61700     507.70562  71473.01264   74522.27837       2.31046  kJ/mol
+13     Temp  491     500.15141       2.89182    492.69144     509.29896      -0.05688       K
+14    Press  491     -20.59121     607.59557  -1837.70478    2437.64139     -86.08962     bar
+15       Lx  491       5.11473       0.01388      5.07409       5.16440      -0.00052      nm
+16       Ly  491       5.11473       0.01388      5.07409       5.16440      -0.00052      nm
+17       Lz  491       5.11473       0.01388      5.07409       5.16440      -0.00052      nm
+18  Density  491     711.25642       5.78956    690.90365     728.45356       0.21331  kg/m^3
+
+
+		**** END ENERGY AVG INFO ****
+
+		Job  Done at 24-08-2022 16:14:04 ============
+

@@ -69,12 +69,13 @@ class Chain_Statistics(pag.Calculations):
 
         self._fdist_h5py = None  #File in format h5py to store data to calculate distributions.
 
+
     # #########################################################################
     def calculate(self, listendtoend, isree=True, isrg=True, iscn=True, begin=0,
                   molecularweight=True, unwrap_pbc=True, diroutput="./",
                   acfE2E=False, distributions=False, isbondorientation=False,
                   backbone_list_atoms=None, isbbatom=None, calc_Cn_bonds_distances=False,
-                  single_Cn_unitvector=False, isinternalchaindist=True):
+                  single_Cn_unitvector=False, isinternalchaindist=True, isrgmass=False, isodf=False):
 
         """
         Calculate dimensions of the polymer chains or molecules
@@ -97,18 +98,32 @@ class Chain_Statistics(pag.Calculations):
 
         nchains = len(self._nmols_array)
         nframes = self._trajectory.get_numframes()
+        if self._stride == 1:
+            nframes_analysed = nframes
+        else:
+            nframes_analysed = int(((nframes - begin) / self._stride)) + 1
+        m = "\t Num of frames to analyse: {}".format(nframes_analysed)
+        print(m) if self._logger is None else self._logger.info(m)
 
         # End to end cannot be calculated without listendtoend
         if isree and listendtoend is None:
             m = "\tEnd to end calculation is deactivated, listendtoend is None\n"
             print(m) if self._logger is None else self._logger.info(m)
             isree = False
+
         # Cn cannot be calculated without branch and backbone information
         if (iscn and isbbatom is None) or\
-            (iscn and backbone_list_atoms is None):
+           (iscn and backbone_list_atoms is None):
             m = "\tCn calculation is deactivated, either not info about branch or backbone\n"
             print(m) if self._logger is None else self._logger.info(m)
             iscn = False
+
+        # ODF cannot be calculated without branch and backbone information
+        if (isodf and isbbatom is None) or\
+           (isodf and backbone_list_atoms is None):
+            m = "\tODF calculation is deactivated, either not info about branch or backbone\n"
+            print(m) if self._logger is None else self._logger.info(m)
+            isodf = False
 
         # Internal chain distances cannot be calculated without branch and backbone information
         if isinternalchaindist and backbone_list_atoms is None:
@@ -154,7 +169,7 @@ class Chain_Statistics(pag.Calculations):
         print(m) if self._logger is None else self._logger.info(m)
 
         # For all frames
-        if (iscn or isbondorientation or isinternalchaindist) and isree and len(listendtoend) != 0:
+        if (iscn or isbondorientation or isinternalchaindist or isodf) and isree and len(listendtoend) != 0:
 
             s = datetime.datetime.now()
             nbonds_bb_perch = defaultdict(int)
@@ -186,19 +201,21 @@ class Chain_Statistics(pag.Calculations):
             self._all_bb_bonds = np.array(all_bb_bonds, dtype=np.int32)
             self._iatch = self._trajectory.topology._iatch
             self._nbonds_bb_max = max(nbonds_bb_perch.values())
-            self._cbb_avg = np.zeros([nframes, self._nbonds_bb_max])
+            #cJ self._cbb_avg = np.zeros([nframes, self._nbonds_bb_max])
+            self._cbb_avg = np.zeros([nframes_analysed, self._nbonds_bb_max])
 
             elapsed_time = datetime.datetime.now() - start_time
             m = "\tPreparing backbone information in {0:10.3f} seconds".format(elapsed_time.total_seconds())
             print(m) if self._logger is None else self._logger.info(m)
 
         else:
-            m = "\tCn, bond orientation and internal distances calculations " \
+            m = "\tCn, bond orientation, odf and internal distances calculations " \
                 "are deactivated, either not info about branch or backbone\n"
             print(m) if self._logger is None else self._logger.info(m)
             iscn = False
             isbondorientation = False
             isinternalchaindist = False
+            isodf = False
 
         # Delete temporal files for distributions if they exist and create new datasets
         if distributions:
@@ -208,8 +225,11 @@ class Chain_Statistics(pag.Calculations):
             except FileNotFoundError:
                 pass
             self._fdist_h5py = h5py.File('.tmp_distributions.hdf5', 'w')
-            self._fdist_h5py.create_dataset("rg", (nframes, nchains))
-            self._fdist_h5py.create_dataset("ree", (nframes, nchains))
+            #cJ self._fdist_h5py.create_dataset("rg", (nframes, nchains))
+            #cJ self._fdist_h5py.create_dataset("ree", (nframes, nchains))
+            self._fdist_h5py.create_dataset("rg", (nframes_analysed, nchains))
+            self._fdist_h5py.create_dataset("ree", (nframes_analysed, nchains))
+
 
             elapsed_time = datetime.datetime.now() - s
             m = "\tPreparing distribution information in {0:10.3f} seconds".format(elapsed_time.total_seconds())
@@ -217,7 +237,14 @@ class Chain_Statistics(pag.Calculations):
 
 
         if acfE2E:
-            self._uree_frame = np.zeros([3, nchains, nframes], dtype=np.float32)
+            #cJ self._uree_frame = np.zeros([3, nchains, nframes], dtype=np.float32)
+            self._uree_frame = np.zeros([3, nchains, nframes_analysed], dtype=np.float32)
+
+        if isodf:
+            pag.setup_odf_intra(self._nbonds_bb_max)
+            uux = np.zeros((nchains, self._nbonds_bb_max), dtype=np.float32)
+            uuy = np.zeros((nchains, self._nbonds_bb_max), dtype=np.float32)
+            uuz = np.zeros((nchains, self._nbonds_bb_max), dtype=np.float32)
 
         if isinternalchaindist:
 
@@ -239,7 +266,19 @@ class Chain_Statistics(pag.Calculations):
 
         # Main loop of frames ====================================================
         s = datetime.datetime.now()
+        idx_f = 0
         for iframe in range(ini, nframes, self._stride):
+
+            # Estimated time (Use the 10 first frames to estimate the time)
+            if idx_f == 0:
+                f = datetime.datetime.now()
+            if idx_f == 10:
+                elapsed_time = datetime.datetime.now() - f
+                k = int(((nframes - ini)/self._stride))/10
+                estimated_time = k*elapsed_time.total_seconds()
+                m = "\tESTIMATED TIME using {0:d} frames ({1:s} seconds): {2:.2f} seconds".format \
+                    (10, str(elapsed_time.total_seconds()), estimated_time)
+                print(m) if self._logger is None else self._logger.info(m)
 
             # Write info
             if iframe%self._freq == 0:
@@ -256,14 +295,19 @@ class Chain_Statistics(pag.Calculations):
 
             if isrg:
                 fname = os.path.join(diroutput, "Rg.dat")
-                self._single_rg(iframe, filename=fname, tmpfileindividualchain=distributions)
+                self._single_rg(iframe, idx_f, filename=fname, tmpfileindividualchain=distributions)
+
+            if isrgmass:
+                self._single_rg(iframe, idx_f, filename="Rg_mass.dat", ismassweight=True)
+
             if isree:
                 fname = os.path.join(diroutput, "Ree.dat")
-                self._single_ree(iframe, filename=fname,
+                self._single_ree(iframe, idx_f, filename=fname,
                              listendtoend=listendtoend,tmpfileindividualchain=distributions)
             if isrg and isree:
                 fname = os.path.join(diroutput, "Ree2Rg2.dat")
                 self._single_ree2rg2(iframe, filename=fname)
+
             if iscn:
                 fname = os.path.join(diroutput, "Cn.dat")
                 self._single_Cn(iframe, backbone_list_atoms, isbbatom,
@@ -271,21 +315,23 @@ class Chain_Statistics(pag.Calculations):
                             single_Cn_unitvector=single_Cn_unitvector)
             if isbondorientation:
                 self._single_bond_orientation(iframe, backbone_list_atoms, isbbatom)
+
             if isinternalchaindist:
                 #self._insternalchaindist(iframe, head_array, ichatbb)
                 #self._insternalchaindist_python(iframe, head_array, ichatbb)
                 pag.insternalchaindist_cython(nchains, self._coords_unwrap, head_array, ichatbb, self._rsq_intdist,
                                               self._rsqcount_intdist)
-
+            if isodf:
+                pag.odf_intra(iframe, nchains, self._all_bb_bonds, self._coords_unwrap, self._iatch, uux, uuy, uuz)
 
             iframe += self._stride
+            idx_f += 1
 
         if isbondorientation:
             self._write_bond_orientation()
 
         if isinternalchaindist:
             self._write_isinternalchaindist(os.path.join(diroutput,"cn_internal_distances.dat"))
-
 
         # Write final messages and time
         end_time = datetime.datetime.now()
@@ -298,11 +344,12 @@ class Chain_Statistics(pag.Calculations):
         if acfE2E:
             # Start ndarray to store the end to end vectors for autocorrelation function
 
-            self._rEE_ACF = np.zeros([nframes], dtype=np.float32)
+            #cJ self._rEE_ACF = np.zeros([nframes], dtype=np.float32)
+            self._rEE_ACF = np.zeros([nframes_analysed], dtype=np.float32)
 
             # Write messages
             start_time = datetime.datetime.now()
-            m = "\t*** Calculating End-to-End autocorrelation vector..."
+            m = "\t*** Calculating End-to-End autocorrelation vector... ({})".format(start_time)
             print(m) if self._logger is None else self._logger.info(m)
 
             self._acf_e2e(filename=diroutput+"rEE_ACF.dat")
@@ -327,6 +374,11 @@ class Chain_Statistics(pag.Calculations):
             m = "\tTIME(Distributions): {0:s} seconds\n".format(str(elapsed_time.total_seconds()))
             m += "\t*** End distributions calculation.\n"
             print(m) if self._logger is None else self._logger.info(m)
+
+        if isodf:
+            fname = os.path.join(diroutput, "odf_intra.dat")
+            #pag.avg_write_odf_intra(nframes, self._nbonds_bb_max, fname)
+            pag.avg_write_odf_intra(nframes_analysed, self._nbonds_bb_max, fname)
 
     # #########################################################################
     def statistics(self, fraction_trj, diroutput="./"):
@@ -367,18 +419,25 @@ class Chain_Statistics(pag.Calculations):
         m += "\t\t Cn_avg       = {0:10.2f} +- {1:10.2f} \n".format(Cn_avg, Cn_avgstd)
         print(m) if self._logger is None else self._logger.info(m)
 
-        # Template plots
+        # Template plots dimensions
         dict_avg = defaultdict()
         dict_avg["Rg"] = [Rg_avg, Rg_avgstd]
         dict_avg["Ree"] = [Ree_avg, Ree_avgstd]
         dict_avg["Ree2Rg2"] = [ReeRg_avg, ReeRg_avgstd]
         dict_avg["Cn"] = [Cn_avg, Cn_avgstd]
-        fnamegnu = os.path.join(diroutput, "dimension_plot.gnu")
+        fnamegnu = os.path.join(diroutput, "gnuplot_dimensions.gnu")
         self._gnuplot_template_dimensions(fnamegnu, dict_avg)
 
+        # Template plots distributions
+        fnamegnu = os.path.join(diroutput, "gnuplot_distributions.gnu")
+        self._gnuplot_template_distributions(fnamegnu, dict_avg)
+
+        # Template plots characteristic ratio
+        fnamegnu = os.path.join(diroutput, "gnuplot_charratio.gnu")
+        self._gnuplot_template_charratio(fnamegnu, dict_avg)
 
     # #########################################################################
-    def _single_rg(self, iframe, filename="Rg.dat", write_result=True,
+    def _single_rg(self, iframe, idx_fr, filename="Rg.dat", write_result=True,
                    ismassweight=False, tmpfileindividualchain=False):
 
         mass = np.array(self._trajectory.topology.mass, dtype=np.float32)
@@ -407,7 +466,7 @@ class Chain_Statistics(pag.Calculations):
         if tmpfileindividualchain:
             for ich in range(nchains):
                 rg = rgsq_ich_iframe[ich, 3] ** 0.5
-                self._fdist_h5py['rg'][iframe,ich] = rg
+                self._fdist_h5py['rg'][idx_fr, ich] = rg
                 self._rg_max = rg if rg > self._rg_max else self._rg_max
                 self._rg_min = rg if rg < self._rg_min else self._rg_min
 
@@ -436,7 +495,7 @@ class Chain_Statistics(pag.Calculations):
         return rg2_avg, rg2_std
 
     # #########################################################################
-    def _single_ree(self, iframe, filename="Ree.dat", write_result=True,
+    def _single_ree(self, iframe, idx_fr, filename="Ree.dat", write_result=True,
                     listendtoend=None, tmpfileindividualchain=False):
 
         nchains = len(self._nmols_array)
@@ -467,9 +526,12 @@ class Chain_Statistics(pag.Calculations):
 
         for ich in range(nchains):
             if not self._uree_frame is None:
-                self._uree_frame[0, ich, iframe] = reex[ich] / dij[ich]
-                self._uree_frame[1, ich, iframe] = reey[ich] / dij[ich]
-                self._uree_frame[2, ich, iframe] = reez[ich] / dij[ich]
+                #cJ self._uree_frame[0, ich, iframe] = reex[ich] / dij[ich]
+                #cJ self._uree_frame[1, ich, iframe] = reey[ich] / dij[ich]
+                #cJ self._uree_frame[2, ich, iframe] = reez[ich] / dij[ich]
+                self._uree_frame[0, ich, idx_fr] = reex[ich] / dij[ich]
+                self._uree_frame[1, ich, idx_fr] = reey[ich] / dij[ich]
+                self._uree_frame[2, ich, idx_fr] = reez[ich] / dij[ich]
 
         self._ree2_frame[iframe] = [ree2_avg, ree2_std]
 
@@ -479,8 +541,8 @@ class Chain_Statistics(pag.Calculations):
         # This is useful to calculate the end-to-end distribution
         if tmpfileindividualchain:
             for ich in range(nchains):
-                self._fdist_h5py['ree'][iframe,ich] = dij[ich]
-
+                #cJ self._fdist_h5py['ree'][iframe,ich] = dij[ich]
+                self._fdist_h5py['ree'][idx_fr ,ich] = dij[ich]
         # ====== DATA FOR Ree =======
         if write_result:
             i = iframe * self._dt
@@ -505,7 +567,7 @@ class Chain_Statistics(pag.Calculations):
         return ree2_avg, ree2_std
 
     # #########################################################################
-    def _single_ree2rg2(self, iframe, filename="Rg2Ree2.dat"):
+    def _single_ree2rg2(self, iframe, filename="Rg2Ree2.dat", tmpfileindividualchain=False):
 
         mass = np.array(self._trajectory.topology.mass, dtype=np.float32)
         nchains = len(self._nmols_array)
@@ -609,48 +671,48 @@ class Chain_Statistics(pag.Calculations):
                     6.0 * self._rg2_frame[iframe][0] / (natbb_bonds_avg * lavg2),
                     cn_uu))
 
-    # #########################################################################
-    def odf_intra_cython(self, initframe=0, endframe=None, stride=1, filename="odf_intra.dat"):
-
-        """
-        Calculate intra chain orientation correlation (for persistence length)
-
-        Calculate orientational correlation functions
-        for intra-chain vectors as function of chemical distance.
-        It also calculates components and 4th moments.
-        The input is supposed to contain a multiple of nvec vectors.
-
-        """
-
-        nmols_array, neigbors = self._trajectory.topology.get_array_mols_neigh()
-        nchains = len(nmols_array)
-        all_bb_bonds, nbonds_bb_perch = self._trajectory.topology.get_all_bb_bonds()
-        try:
-            nbonds_bb_max = max(nbonds_bb_perch.values())
-        except:
-            nbonds_bb_max = 1
-        coords_t0_wrapped = self._trajectory.universe.trajectory[0].positions
-        box_dimensions = self._trajectory.universe.trajectory[0].dimensions[0:3]
-        iatch = self._trajectory.topology._iatch
-        nframes = self._trajectory.get_numframes()
-        if endframe is None:
-            endframe = nframes
-
-        pag.setup_odf_intra(nbonds_bb_max)
-        uux = np.zeros((nchains, nbonds_bb_max), dtype=np.float32)
-        uuy = np.zeros((nchains, nbonds_bb_max), dtype=np.float32)
-        uuz = np.zeros((nchains, nbonds_bb_max), dtype=np.float32)
-        for iframe in range(initframe ,endframe, stride):
-            if iframe %100 == 0:
-                print("{} of {}".format(iframe, nframes ))
-            coords_t0_wrapped = self._trajectory.universe.trajectory[iframe].positions
-            box_dimensions = self._trajectory.universe.trajectory[iframe].dimensions[0:3]
-            coords_unwrap = pag.unwrap(coords_t0_wrapped, nmols_array, neigbors,
-                                       box_dimensions, iframe=iframe)
-
-            pag.odf_intra(iframe, nchains, all_bb_bonds, coords_unwrap, iatch, uux, uuy, uuz)
-
-        pag.avg_write_odf_intra(nframes, nbonds_bb_max, filename)
+    # # #########################################################################
+    # def odf_intra_cython(self, initframe=0, endframe=None, stride=1, filename="odf_intra.dat"):
+    #
+    #     """
+    #     Calculate intra chain orientation correlation (for persistence length)
+    #
+    #     Calculate orientational correlation functions
+    #     for intra-chain vectors as function of chemical distance.
+    #     It also calculates components and 4th moments.
+    #     The input is supposed to contain a multiple of nvec vectors.
+    #
+    #     """
+    #
+    #     nmols_array, neigbors = self._trajectory.topology.get_array_mols_neigh()
+    #     nchains = len(nmols_array)
+    #     all_bb_bonds, nbonds_bb_perch = self._trajectory.topology.get_all_bb_bonds()
+    #     try:
+    #         nbonds_bb_max = max(nbonds_bb_perch.values())
+    #     except:
+    #         nbonds_bb_max = 1
+    #     coords_t0_wrapped = self._trajectory.universe.trajectory[0].positions
+    #     box_dimensions = self._trajectory.universe.trajectory[0].dimensions[0:3]
+    #     iatch = self._trajectory.topology._iatch
+    #     nframes = self._trajectory.get_numframes()
+    #     if endframe is None:
+    #         endframe = nframes
+    #
+    #     pag.setup_odf_intra(nbonds_bb_max)
+    #     uux = np.zeros((nchains, nbonds_bb_max), dtype=np.float32)
+    #     uuy = np.zeros((nchains, nbonds_bb_max), dtype=np.float32)
+    #     uuz = np.zeros((nchains, nbonds_bb_max), dtype=np.float32)
+    #     for iframe in range(initframe ,endframe, stride):
+    #         if iframe %100 == 0:
+    #             print("{} of {}".format(iframe, nframes ))
+    #         coords_t0_wrapped = self._trajectory.universe.trajectory[iframe].positions
+    #         box_dimensions = self._trajectory.universe.trajectory[iframe].dimensions[0:3]
+    #         coords_unwrap = pag.unwrap(coords_t0_wrapped, nmols_array, neigbors,
+    #                                    box_dimensions, iframe=iframe)
+    #
+    #         pag.odf_intra(iframe, nchains, all_bb_bonds, coords_unwrap, iatch, uux, uuy, uuz)
+    #
+    #     pag.avg_write_odf_intra(nframes, nbonds_bb_max, filename)
 
     # # #########################################################################
     def _acf_e2e(self, filename="rEE_ACF.dat", write_result=True):
@@ -658,19 +720,18 @@ class Chain_Statistics(pag.Calculations):
         ndumps = self._uree_frame.shape[2]
         pag.calc_acf_ete(self._uree_frame, self._rEE_ACF)
 
-        self._dt = 1.0
         if write_result:
             for iframe_total in range(0, self._rEE_ACF.shape[0]):
-                i = iframe_total*self._dt
+                i = iframe_total*self._dt*self._stride
                 if iframe_total == 0:
                     with open(filename,'w') as f:
-                        f.writelines("#   Time(ps)     rEE_ACF\n")
+                        f.writelines("#   iFrame     Time(ps)     rEE_ACF\n")
                         f.writelines("#===================================\n")
-                        f.writelines("{0:>10.2f}     {1:<10.8f}   \n".format(i,
+                        f.writelines("{0:10d}     {1:>10.2f}     {2:<10.8f}   \n".format(iframe_total, i,
                                                         self._rEE_ACF[iframe_total]))
                 else:
                     with open(filename,'a') as f:
-                        f.writelines("{0:>10.2f}     {1:<10.8f} \n".format(i,
+                        f.writelines("{0:10d}     {1:>10.2f}     {2:<10.8f}   \n".format(iframe_total, i,
                                                         self._rEE_ACF[iframe_total]))
 
     # #########################################################################
@@ -679,12 +740,12 @@ class Chain_Statistics(pag.Calculations):
 
         # End to end distributions
         with h5py.File(".tmp_distributions.hdf5", 'r') as f:
-            data = np.array(f['ree']).flatten()
-            max_value = math.ceil(data.max())
-            min_value = math.floor(data.min())
+            data_ree = np.array(f['ree']).flatten()
+            max_value = math.ceil(data_ree.max())
+            min_value = math.floor(data_ree.min())
             range_data = max_value-min_value
-            nbins = int(range_data/binsize)
-            hist_ree, bins = np.histogram(data, bins=nbins, range=(min_value, max_value), density=True)
+            nbins = int(range_data/binsize*0.5)
+            hist_ree, bins = np.histogram(data_ree, bins=nbins, range=(min_value, max_value), density=True)
             newbins_ree = np.zeros(nbins)
             for ibin in range(1, len(bins)):
                 newbins_ree[ibin-1] = (bins[ibin]-bins[ibin-1])/2.0+bins[ibin-1]
@@ -697,12 +758,12 @@ class Chain_Statistics(pag.Calculations):
 
         # Radius of gyration distributions
         with h5py.File(".tmp_distributions.hdf5", 'r') as f:
-            data = np.array(f['rg']).flatten()
-            max_value = math.ceil(data.max())
-            min_value = math.floor(data.min())
+            data_rg = np.array(f['rg']).flatten()
+            max_value = math.ceil(data_rg.max())
+            min_value = math.floor(data_rg.min())
             range_data = max_value-min_value
             nbins = int(range_data/binsize)
-            hist_rg, bins = np.histogram(data, bins=nbins, range=(min_value, max_value), density=True)
+            hist_rg, bins = np.histogram(data_rg, bins=nbins, range=(min_value, max_value), density=True)
             newbins_rg = np.zeros(nbins)
             for ibin in range(1, len(bins)):
                 newbins_rg[ibin-1] = (bins[ibin]-bins[ibin-1])/2.0+bins[ibin-1]
@@ -712,6 +773,23 @@ class Chain_Statistics(pag.Calculations):
                 f.writelines("#=========================\n")
                 for ibin in range(0, len(newbins_rg)):
                     f.writelines("{0:10.4f} {1:10.4f}\n".format(newbins_rg[ibin], hist_rg[ibin]))
+
+        # Radius of end-to-end^2 /Radius of gyration^2 distributions
+        data_ree2rg2 = (data_ree*data_ree) / (data_rg*data_rg)
+        max_value = math.ceil(data_ree2rg2.max())
+        min_value = math.floor(data_ree2rg2.min())
+        range_data = max_value-min_value
+        nbins = int(range_data/binsize)
+        hist_ree2rg2, bins = np.histogram(data_ree2rg2, bins=nbins, range=(min_value, max_value), density=True)
+        newbins_ree2rg2 = np.zeros(nbins)
+        for ibin in range(1, len(bins)):
+            newbins_ree2rg2[ibin-1] = (bins[ibin]-bins[ibin-1])/2.0+bins[ibin-1]
+        # Write data to file
+        with open("Ree2Rg2_distribution.dat", "w") as f:
+            f.writelines("# ibin(Angstroms) PDF(A-1)\n")
+            f.writelines("#=========================\n")
+            for ibin in range(0, len(newbins_ree2rg2)):
+                f.writelines("{0:10.4f} {1:10.4f}\n".format(newbins_ree2rg2[ibin], hist_ree2rg2[ibin]))
 
         if plothistogram:
             fig, (ax1, ax2) = plt.subplots(1, 2)
@@ -790,7 +868,6 @@ class Chain_Statistics(pag.Calculations):
                     break
                 iatom_o = ichatbb[iatom_o]
                 iatom_l = ichatbb[iatom_o]
-
 
    # #########################################################################
     def _write_isinternalchaindist(self, filename):

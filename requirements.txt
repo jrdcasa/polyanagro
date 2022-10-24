@@ -1,6 +1,8 @@
 GitPython>=3.1.1
 cython>=0.29.24
 h5py
+panedr
+statsmodels
 #networkx
 #GitPython
 #matplotlib

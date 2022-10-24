@@ -1,0 +1,59 @@
+
+    ***********************************************************************
+                                Info Trajectory 
+              ----------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an 
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 27-08-2022 00:50:54 ============
+
+		Command line: 
+			python info_trj -t /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/data/PE_OPLS_40Ch_102C_LAMMPS_1ns/dump.dcd --topo /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/data/PE_OPLS_40Ch_102C_LAMMPS_1ns/PE102_40Ch_residues_replicate.pdb
+			         or
+			info_trj -t /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/data/PE_OPLS_40Ch_102C_LAMMPS_1ns/dump.dcd --topo /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/data/PE_OPLS_40Ch_102C_LAMMPS_1ns/PE102_40Ch_residues_replicate.pdb
+
+	*** Creating a trajectory from...
+	/home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/data/PE_OPLS_40Ch_102C_LAMMPS_1ns/dump.dcd
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 1.630214 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	/home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/data/PE_OPLS_40Ch_102C_LAMMPS_1ns/PE102_40Ch_residues_replicate.pdb
+	*** Adding topology 
+	/home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/data/PE_OPLS_40Ch_102C_LAMMPS_1ns/PE102_40Ch_residues_replicate.pdb
+	Number of frames: 51
+	TIME(Adding topology): 0.280072 seconds
+	*** End Adding topology
+
+	Number of frames: 51
+	TIME(Read_Trajectories): 1.910677 seconds
+	*** End Creating a trajectory 
+
+	**** TRAJECTORY INFO ****
+	  Number of trj files        : 1
+	  Number of atoms            : 12320
+	  Number of molecules/chains : 40
+	  Average of atoms per mol   : 308.0
+	  Number of frames           : 51
+	  Time step (ps)             : 20000.0
+	  Total time (ps)            : 1000000
+	**** End TRAJECTORY INFO ****
+		Job  Done at 27-08-2022 00:50:56 ============
+

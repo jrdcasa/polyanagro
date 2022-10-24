@@ -1,0 +1,79 @@
+
+    ***********************************************************************
+            Bonded Distributions (bond, angle, dihedral, improper)
+        -------------------------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 30-09-2022 19:27:31 ============
+
+		Command line: 
+			python bonded_distribution.py generate -t ../04-Melt_100ChPE500_TrappeUA/01-RESTART-0000-1000ns/traj_comp.xtc ../04-Melt_100ChPE500_TrappeUA/02-RESTART-1000-2000ns/traj_comp.part0002.xtc ../04-Melt_100ChPE500_TrappeUA/03-RESTART-2000-3000ns/traj_comp.part0003.xtc --topo ../04-Melt_100ChPE500_TrappeUA/01-RESTART-0000-1000ns/topol.tpr --listbb ../04-Melt_100ChPE500_TrappeUA/backbone_idx.dat
+			         or
+			bonded_distribution generate -t ../04-Melt_100ChPE500_TrappeUA/01-RESTART-0000-1000ns/traj_comp.xtc ../04-Melt_100ChPE500_TrappeUA/02-RESTART-1000-2000ns/traj_comp.part0002.xtc ../04-Melt_100ChPE500_TrappeUA/03-RESTART-2000-3000ns/traj_comp.part0003.xtc --topo ../04-Melt_100ChPE500_TrappeUA/01-RESTART-0000-1000ns/topol.tpr --listbb ../04-Melt_100ChPE500_TrappeUA/backbone_idx.dat
+
+	*** Creating a trajectory from...
+	../04-Melt_100ChPE500_TrappeUA/01-RESTART-0000-1000ns/traj_comp.xtc
+	../04-Melt_100ChPE500_TrappeUA/02-RESTART-1000-2000ns/traj_comp.part0002.xtc
+	../04-Melt_100ChPE500_TrappeUA/03-RESTART-2000-3000ns/traj_comp.part0003.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 23.829924 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../04-Melt_100ChPE500_TrappeUA/01-RESTART-0000-1000ns/topol.tpr
+	Number of frames: 151
+	TIME(Adding topology): 1.208964 seconds
+	*** End Adding topology
+
+	Number of frames: 151
+	TIME(Read_Trajectories): 25.039262 seconds
+	*** End Creating a trajectory 
+
+
+ Generating the data to calculate bonded distributions (2022-09-30 19:27:56.841256)
+	  * Bond types
+	  ------------
+	   C3-C2_bb 
+	   C2-C2_bb 
+	   allbbbonds 
+	   allbrbonds 
+	   allbonds 
+	  ------------
+
+	  * Angles types
+	  -------------
+	   C3-C2-C2_bb 
+	   C2-C2-C2_bb 
+	   allbbangles 
+	   allbrangles 
+	   allangles 
+	  -------------
+
+	  * Dihedrals types
+	  ----------------
+	   C3-C2-C2-C2_bb 
+	   C2-C2-C2-C2_bb 
+	   allbbdihedrals 
+	   allbrdihedrals 
+	   alldihedrals 
+	  ----------------
+
+		Job  Done at 30-09-2022 19:28:02 ============
+

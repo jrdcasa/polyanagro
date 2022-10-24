@@ -76,16 +76,20 @@ class Calculations(object):
         first_frame = int(data[0][0])
         last_frame = int(data[-1][0])
         total_frames = int(last_frame - first_frame + 1)
-        delta = int(total_frames / data.shape[0])
+        delta = int(total_frames / data.shape[0]) + 1
 
-        iframe_begin_avg = int((1. - fraction_trj) * total_frames)
-        frames_avg = (total_frames - iframe_begin_avg + 1)
-        avg = np.mean(data[iframe_begin_avg:total_frames:delta,1])
-        std_avg = np.std(data[iframe_begin_avg:total_frames:delta, 1])
+
+        iframe_begin_avg = int((1. - fraction_trj) * data.shape[0])
+        #cJ frames_avg = (total_frames - iframe_begin_avg + 1)
+        #cJ avg = np.mean(data[iframe_begin_avg:total_frames:delta,1])
+        #cJ std_avg = np.std(data[iframe_begin_avg:total_frames:delta, 1])
+        avg = np.mean(data[iframe_begin_avg:,1])
+        std_avg = np.std(data[iframe_begin_avg:, 1])
 
         std = 0.0
         N = 0
-        for i in range(iframe_begin_avg, total_frames, delta):
+        #cJ for i in range(iframe_begin_avg, total_frames, delta):
+        for i in range(data.shape[0]):
             std += data[i,2]**2
             N += 1
         std = np.sqrt(std/N)
@@ -189,3 +193,140 @@ class Calculations(object):
         with open(filenamegnu, "w") as f:
             f.writelines(line)
 
+    # #########################################################################
+    @staticmethod
+    def _gnuplot_template_distributions(filenamegnu, dict_avg):
+
+        basedir, file = os.path.split(filenamegnu)
+        if basedir == "":
+            basedir = "./"
+
+        # Defaults ===========================
+        ps=[1.4, 1.0]
+        lw=[2.0, 1.0]
+        colors=["black", "blue", "red", "orange"]
+        dt=[1, 2, 3, 4]
+        pt_empty=[4, 6, 8, 12]
+        pt_full = [5, 7, 9, 13]
+        # Defaults ===========================
+
+        d = defaultdict()
+        d["Ree_distribution"] = {"fname":os.path.join(basedir,"Ree_distribution.dat"), "cols":[1, 2],
+                                 "labels": ["Ree (angstroms)", "P(Ree) (angstroms)^-1"]}
+        d["Rg_distribution"] = {"fname":os.path.join(basedir,"Rg_distribution.dat"), "cols":[1, 2],
+                                 "labels": ["Rg (angstroms)", "P(Rg) (angstroms)^-1"]}
+        d["Ree2Rg2_distribution"] = {"fname":os.path.join(basedir,"Ree2Rg2_distribution.dat"), "cols":[1, 2],
+                                 "labels": ["Ree^2/Rg^2", "P(Ree^2/Rg^2) "]}
+
+        nfiles = len(d)
+        if nfiles == 1:
+            dim_plot = [600, 400, 1, 1]
+        elif nfiles == 2:
+            dim_plot = [1000, 600, 1, 2]
+        else:
+            dim_plot = [1200, 1200, 2, 2]
+
+        line = 'reset\n'
+        line += 'set term wxt 1 enhanced dashed size {},{} font "Arial,10"\n'.format(dim_plot[0], dim_plot[1])
+        line += 'set multiplot layout {},{}\n'.format(dim_plot[2], dim_plot[3])
+
+        str_gauss = "gauss(x) = (4*pi*(x**2)*(3./(2.*pi*{0}))**(3./2.))*exp(-3.*x**2./(2.*{0}))".\
+            format(dict_avg["Ree"][0])
+
+        idx = 1
+        for ikey, value in d.items():
+
+            line += 'set xlabel "{}"\n'.format(d[ikey]["labels"][0])
+            line += 'set ylabel "{}"\n'.format(d[ikey]["labels"][1])
+            line += 'set grid\n'
+            line += 'set style fill transparent solid 0.5 noborder\n\n'
+            if ikey == "Rg_distribution":
+                title = "Radius of gyration distribution"
+            elif ikey == "Ree_distribution":
+                title = "End-to-End distance distribution"
+            elif ikey == "Ree2Rg2_distribution":
+                title = "<R_{ee}^2>/<R_g^2> distribution"
+            line += 'set title "{}"\n'.format(title)
+            if ikey == "Ree_distribution":
+                line += "{}\n".format(str_gauss)
+                line += 'p "{}" u {}:{} w p notitle lc "{}" lw {} dt {}, gauss(x) w l lw 4\n'.\
+                    format(d[ikey]["fname"], d[ikey]["cols"][0], d[ikey]["cols"][1],
+                           colors[idx-1], lw[0], dt[0], str_gauss)
+            else:
+                line += 'p "{}" u {}:{} w p notitle lc "{}" lw {} dt {},\\\n'.\
+                    format(d[ikey]["fname"], d[ikey]["cols"][0], d[ikey]["cols"][1],
+                           colors[idx-1], lw[0], dt[0] )
+            line += "\n"
+            idx += 1
+        line += "\nunset multiplot"
+
+        with open(filenamegnu, "w") as f:
+            f.writelines(line)
+
+    # #########################################################################
+    @staticmethod
+    def _gnuplot_template_charratio(filenamegnu, dict_avg):
+
+        basedir, file = os.path.split(filenamegnu)
+        if basedir == "":
+            basedir = "./"
+
+        # Defaults ===========================
+        ps=[1.4, 1.0]
+        lw=[2.0, 1.0]
+        colors=["black", "blue", "red", "orange"]
+        dt=[1, 2, 3, 4]
+        pt_empty=[4, 6, 8, 12]
+        pt_full = [5, 7, 9, 13]
+        # Defaults ===========================
+
+        d = defaultdict()
+        d["Cn"] = {"fname":os.path.join(basedir,"Cn.dat"), "cols":[2, 3],
+                                 "labels": ["t (ps)", "C(n)"]}
+        d["Cn_int"] = {"fname":os.path.join(basedir,"cn_internal_distances.dat"), "cols":[1, 3],
+                                 "labels": ["n", "C(n)"]}
+        d["asymCn"] = {"fname":os.path.join(basedir,"cn_internal_distances.dat"), "cols":[1, 3],
+                                 "labels": ["1/n", "C(n)"]}
+        nfiles = len(d)
+        if nfiles == 1:
+            dim_plot = [600, 400, 1, 1]
+        elif nfiles == 2:
+            dim_plot = [1000, 600, 1, 2]
+        else:
+            dim_plot = [1200, 1200, 2, 2]
+
+        line = 'reset\n'
+        line += 'set term wxt 1 enhanced dashed size {},{} font "Arial,10"\n'.format(dim_plot[0], dim_plot[1])
+        line += 'set multiplot layout {},{}\n'.format(dim_plot[2], dim_plot[3])
+
+        str_lineal = "linear(x) = a*x+b"
+
+        idx = 1
+        for ikey, value in d.items():
+
+            line += 'set xlabel "{}"\n'.format(d[ikey]["labels"][0])
+            line += 'set ylabel "{}"\n'.format(d[ikey]["labels"][1])
+            line += 'set grid\n'
+            line += 'set style fill transparent solid 0.5 noborder\n\n'
+            if ikey == "Cn":
+                title = "Cn vs t"
+            elif ikey == "asymCn":
+                title = "Asymptotic Cn vs 1/n"
+            line += 'set title "{}"\n'.format(title)
+            if ikey == "asymCn":
+                line += "{}\n".format(str_lineal)
+                line += "set xrange[0.0001:0.10]\n"
+                line += 'p "{}" u (1/${}):{} w p notitle lc "{}" lw {} dt {}\n'.\
+                    format(d[ikey]["fname"], d[ikey]["cols"][0], d[ikey]["cols"][1],
+                           colors[idx-1], lw[0], dt[0])
+            else:
+                line += "unset xrange\n"
+                line += 'p "{}" u {}:{} w l notitle lc "{}" lw {} dt {}\n'.\
+                    format(d[ikey]["fname"], d[ikey]["cols"][0], d[ikey]["cols"][1],
+                           colors[idx-1], lw[0], dt[0])
+            line += "\n"
+            idx += 1
+        line += "\nunset multiplot"
+
+        with open(filenamegnu, "w") as f:
+            f.writelines(line)

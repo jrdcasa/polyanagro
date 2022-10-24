@@ -1,0 +1,104 @@
+
+    ***********************************************************************
+            Bonded Distributions (bond, angle, dihedral, improper)
+        -------------------------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 03-10-2022 12:01:07 ============
+
+		Command line: 
+			python bonded_distribution.py calculate -t ../../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc ../../data/0003Ch-C020-002br04/RUN-002/traj_comp.part0002.xtc ../../data/0003Ch-C020-002br04/RUN-003/traj_comp.part0003.xtc --topo ../../data/0003Ch-C020-002br04/RUN-001/topol.tpr --unwrap 1 --bonddist C2-C2_bb C3-C2_br --angdist C2-C2-C2_bb C2-C1-C2_bb --dihdist C2-C2-C2-C2_bb --imprdist allimpropers
+			         or
+			bonded_distribution calculate -t ../../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc ../../data/0003Ch-C020-002br04/RUN-002/traj_comp.part0002.xtc ../../data/0003Ch-C020-002br04/RUN-003/traj_comp.part0003.xtc --topo ../../data/0003Ch-C020-002br04/RUN-001/topol.tpr --unwrap 1 --bonddist C2-C2_bb C3-C2_br --angdist C2-C2-C2_bb C2-C1-C2_bb --dihdist C2-C2-C2-C2_bb --imprdist allimpropers
+
+	*** Creating a trajectory from...
+	../../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc
+	../../data/0003Ch-C020-002br04/RUN-002/traj_comp.part0002.xtc
+	../../data/0003Ch-C020-002br04/RUN-003/traj_comp.part0003.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 0.109137 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../../data/0003Ch-C020-002br04/RUN-001/topol.tpr
+	Number of frames: 301
+	TIME(Adding topology): 0.006962 seconds
+	*** End Adding topology
+
+	Number of frames: 301
+	TIME(Read_Trajectories): 0.116378 seconds
+	*** End Creating a trajectory 
+
+	Unwrap PBC coordinates: True
+	IFRAME: 0 in 5e-06 seconds
+	ESTIMATED TIME using 10 frames (0.003504 seconds): 0.11 seconds
+	IFRAME: 50 in 0.016016 seconds
+	IFRAME: 100 in 0.036014 seconds
+	IFRAME: 150 in 0.078549 seconds
+	IFRAME: 200 in 0.109464 seconds
+	IFRAME: 250 in 0.140378 seconds
+	IFRAME: 300 in 0.161698 seconds
+	Unwrap PBC coordinates: True
+	IFRAME: 0 in 8e-06 seconds
+	ESTIMATED TIME using 10 frames (0.005531 seconds): 0.17 seconds
+	IFRAME: 50 in 0.020529 seconds
+	IFRAME: 100 in 0.034419 seconds
+	IFRAME: 150 in 0.053349 seconds
+	IFRAME: 200 in 0.067434 seconds
+	IFRAME: 250 in 0.092416 seconds
+	IFRAME: 300 in 0.108942 seconds
+	Unwrap PBC coordinates: True
+	IFRAME: 0 in 9e-06 seconds
+	ESTIMATED TIME using 10 frames (0.003209 seconds): 0.10 seconds
+	IFRAME: 50 in 0.020512 seconds
+	IFRAME: 100 in 0.040504 seconds
+	IFRAME: 150 in 0.063606 seconds
+	IFRAME: 200 in 0.084972 seconds
+	IFRAME: 250 in 0.102905 seconds
+	IFRAME: 300 in 0.1409 seconds
+	Unwrap PBC coordinates: True
+	IFRAME: 0 in 7e-06 seconds
+	ESTIMATED TIME using 10 frames (0.003036 seconds): 0.09 seconds
+	IFRAME: 50 in 0.021473 seconds
+	IFRAME: 100 in 0.039241 seconds
+	IFRAME: 150 in 0.064649 seconds
+	IFRAME: 200 in 0.09538 seconds
+	IFRAME: 250 in 0.12794 seconds
+	IFRAME: 300 in 0.155932 seconds
+	Unwrap PBC coordinates: True
+	IFRAME: 0 in 6e-06 seconds
+	ESTIMATED TIME using 10 frames (0.003019 seconds): 0.09 seconds
+	IFRAME: 50 in 0.02618 seconds
+	IFRAME: 100 in 0.057236 seconds
+	IFRAME: 150 in 0.085258 seconds
+	IFRAME: 200 in 0.104426 seconds
+	IFRAME: 250 in 0.12917 seconds
+	IFRAME: 300 in 0.147495 seconds
+	Unwrap PBC coordinates: True
+	IFRAME: 0 in 7e-06 seconds
+	ESTIMATED TIME using 10 frames (0.001975 seconds): 0.06 seconds
+	IFRAME: 50 in 0.011494 seconds
+	IFRAME: 100 in 0.023967 seconds
+	IFRAME: 150 in 0.034583 seconds
+	IFRAME: 200 in 0.04282 seconds
+	IFRAME: 250 in 0.055262 seconds
+	IFRAME: 300 in 0.074004 seconds
+		Job  Done at 03-10-2022 12:01:08 ============
+

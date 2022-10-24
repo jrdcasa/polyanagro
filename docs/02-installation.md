@@ -1,7 +1,5 @@
 # Installation guide
 
-==============
-
 **``Polyanagro``** program is implemented in Python with some parts in C. This library have some dependencies from other python packages . The full list of dependencies can be followed from both **[requirements.txt](../requirements.txt)** and **[setup.py](../setup.py)** files.
 
 These dependencies are handled by the **setup.py** script and they should be installed automatically following these steps. Anyway, few software need to be installed manually (see Pre-installation section)
@@ -22,7 +20,7 @@ Previous to install the program  some software need to be installed in your syst
 
 -------------------
 
-## Create a virtualenv environment 
+## Create a virtualenv environment
 
 -------------------
 It is highly recommended to create a virtual environment. This is a Python environment such that the Python interpreter, libraries and scripts installed into it are isolated from those installed in other virtual environments, and (by default) any libraries installed in a “system” Python.
@@ -30,8 +28,8 @@ It is highly recommended to create a virtual environment. This is a Python envir
 First, we create an isolated Python environment to install the required packages (see dependencies below). Then, activate the virtual environment.
 
 ```bash
-$ python3 -m venv <name_of_env>
-$ source <name_of_env>/bin/activate
+python3 -m venv <name_of_env>
+source <name_of_env>/bin/activate
 ```
 
 **``WARNING:``** This virtual environment **must** be activate in order to use the program.
@@ -71,7 +69,8 @@ python setup.py install
 ```
 
 If installation is correct you shouldubuntuu see the following message:
-```
+
+```test
 
 (...)
 Installed /home/ubuntu/Desktop/sandbox_polyangro/lib/python3.8/site-packages/topology-1.1-py3.8-linux-x86_64.egg
@@ -87,8 +86,8 @@ An **install.log** file has been generated with information about the installati
 ## Check topology
 
 -------------------
-```
 
+```text
 (sandbox_topology) ubuntu@ubuntu2004:~/Desktop/topology$ vi install.log 
 (sandbox_topology) ubuntu@ubuntu2004:~/Desktop/topology$ 
 (sandbox_topology) ubuntu@ubuntu2004:~/Desktop/topology$ python

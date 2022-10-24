@@ -1,0 +1,48 @@
+
+    ***********************************************************************
+             Find and extract all neighbor molecules in a sphere 
+             ---------------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an 
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 05-09-2022 12:22:34 ============
+
+		Command line: 
+			python neighbor_sphere.py -c ./00-PREPARE/EVOH_residues.pdb
+			         or
+			polymer_size -c ./00-PREPARE/EVOH_residues.pdb
+
+	*** Creating a trajectory from...
+	./00-PREPARE/EVOH_residues.pdb
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 0.124159 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	./00-PREPARE/EVOH_residues.pdb
+	Number of frames: 1
+	TIME(Adding topology): 0.008202 seconds
+	*** End Adding topology
+
+	Number of frames: 1
+	TIME(Read_Trajectories): 0.132687 seconds
+	*** End Creating a trajectory 
+
+		Job  Done at 05-09-2022 12:22:35 ============
+

@@ -343,7 +343,7 @@ int c_bondDist(int natoms, int nbonds,int dim2, int* bl, double* x, double* y, d
     atom1 = bl[index];
     atom2 = bl[index+1];
     index += 2;
-    d = distance(x[atom1-1],y[atom1-1],z[atom1-1], x[atom2-1], y[atom2-1], z[atom2-1]);
+    d = distance(x[atom1],y[atom1],z[atom1], x[atom2], y[atom2], z[atom2]);
     ibin = d/delta_bond;
     
     //printf("%6.3f %6.3f %d\n",d,delta_bond,ibin);
@@ -353,23 +353,25 @@ int c_bondDist(int natoms, int nbonds,int dim2, int* bl, double* x, double* y, d
         printf ("      Problem with BOND DISTRIBUTION. Increase maxbinBond\n");
         printf ("      ibin: %d numbin_bond: %d distance: %6.3f\n",ibin,numbin_bond,d);
         printf ("      atom1: %d atom2: %d \n",atom1,atom2);
+        printf ("      Coordinates at1: %f %f %f\n", x[atom1],y[atom1],z[atom1]);
+        printf ("      Coordinates at2: %f %f %f\n", x[atom2],y[atom2],z[atom2]);
         printf (" ==============================PROBLEM==========================\n\n\n ");
         //return 0;
         continue;
     }
-    
+
     bondhist[ibin] += 1;
-    
+
   }
- 
+
     return 1;
-   
+
 }
 
 /* ********************************************************************************************/
 int c_angleDist(int natoms, int nangles,int dim2, int* al, double* x, double* y, double* z, int* anglehist)
 {
-    
+
   int iangle;
   int ibin;
   int atom1;
@@ -377,24 +379,24 @@ int c_angleDist(int natoms, int nangles,int dim2, int* al, double* x, double* y,
   int atom3;
   int index;
   double a;
- 
+
   index = 0;
- 
+
   for (iangle=0; iangle < nangles; iangle++) {
-    
+
     atom1 = al[index+0];
     atom2 = al[index+1];
-    atom3 = al[index+2];    
+    atom3 = al[index+2];
     index += 3;
-    
-    a = angle(x[atom1-1], y[atom1-1], z[atom1-1],\
-              x[atom2-1], y[atom2-1], z[atom2-1],\
-              x[atom3-1], y[atom3-1], z[atom3-1]);
+
+    a = angle(x[atom1], y[atom1], z[atom1],\
+              x[atom2], y[atom2], z[atom2],\
+              x[atom3], y[atom3], z[atom3]);
     ibin = a/delta_angle;
-    
+
     //printf("%6.3f %6.3f %d\n",a,delta_angle,ibin);
     //printf("%d %d %d\n",atom1,atom2,atom3);
-    
+
     if (ibin>=numbin_angle) {
         printf ("\n\n\n ==============================PROBLEM==========================\n ");
         printf ("      Problem with ANGLE DISTRIBUTION. Increase maxbinBond\n");
@@ -404,11 +406,11 @@ int c_angleDist(int natoms, int nangles,int dim2, int* al, double* x, double* y,
         //return 0;
         continue;
     }
-    
+
     anglehist[ibin] += 1;
-    
+
   }
-   
+
     return 1;
 
 }
@@ -416,9 +418,9 @@ int c_angleDist(int natoms, int nangles,int dim2, int* al, double* x, double* y,
 /* ********************************************************************************************/
 int c_angleDist_omp(int natoms, int nangles,int dim2, int* al, double* x, double* y, double* z, int* anglehist)
 {
-    
+
   //export OMP_NUM_THREADS=2 --> The best results from 5.7 to 4.2 s
-    
+
   int iangle;
   int ibin;
   int atom1;
@@ -429,59 +431,59 @@ int c_angleDist_omp(int natoms, int nangles,int dim2, int* al, double* x, double
   double a;
   int i,j;
   int local_anglehist[4][numbin_angle];
-  
+
   int angleArray[nangles][3];
- 
+
   for (i = 0; i<4; i++) {
         for (j=0; j<numbin_angle; j++) {
-          local_anglehist[i][j] = 0;    
+          local_anglehist[i][j] = 0;
         }
   }
- 
+
   //Atoms from angles
   index = 0;
   for (iangle=0; iangle < nangles; iangle++) {
-    
+
     atom1 = al[index+0];
     atom2 = al[index+1];
-    atom3 = al[index+2];    
+    atom3 = al[index+2];
     index += 3;
-    
+
     angleArray[iangle][0] = atom1;
     angleArray[iangle][1] = atom2;
     angleArray[iangle][2] = atom3;
   }
-  
+
   #pragma omp parallel
   {
-    
+
     tid = omp_get_thread_num();
-  
-    #pragma omp for nowait private(atom1,atom2,atom3,a,ibin, iangle,tid)  
+
+    #pragma omp for nowait private(atom1,atom2,atom3,a,ibin, iangle,tid)
     for (iangle=0; iangle < nangles; iangle++) {
-    
+
       atom1 = angleArray[iangle][0];
       atom2 = angleArray[iangle][1];
       atom3 = angleArray[iangle][2];
-    
-      a = angle(x[atom1-1], y[atom1-1], z[atom1-1],\
-                x[atom2-1], y[atom2-1], z[atom2-1],\
-                x[atom3-1], y[atom3-1], z[atom3-1]);
+
+      a = angle(x[atom1], y[atom1], z[atom1],\
+                x[atom2], y[atom2], z[atom2],\
+                x[atom3], y[atom3], z[atom3]);
       int ibin = a/delta_angle;
-    
+
       local_anglehist[tid][ibin]++;
 
     }
-    
-    
+
+
   }
-  
+
    for (i=0; i<4 ;i++) {
      for (ibin=0; ibin < numbin_angle; ibin++) {
         anglehist[ibin] += local_anglehist[i][ibin];
      }
     }
-   
+
     return 1;
 
 }
@@ -489,7 +491,7 @@ int c_angleDist_omp(int natoms, int nangles,int dim2, int* al, double* x, double
 /* ********************************************************************************************/
 int c_dihDist(int natoms, int ndih,int dim3, int* dl, double* x, double* y, double* z, int* dihhist)
 {
-    
+
    int atom1, atom2, atom3, atom4;
    int index;
    int idih;
@@ -497,25 +499,25 @@ int c_dihDist(int natoms, int ndih,int dim3, int* dl, double* x, double* y, doub
    double ad = 0.0;
 
    index = 0;
- 
+
    for (idih=0; idih < ndih; idih++) {
-    
+
      atom1 = dl[index+0];
      atom2 = dl[index+1];
      atom3 = dl[index+2];
      atom4 = dl[index+3];
      index += 4;
 
-     ad = dihedral(x[atom1-1], y[atom1-1], z[atom1-1],\
-                   x[atom2-1], y[atom2-1], z[atom2-1],\
-                   x[atom3-1], y[atom3-1], z[atom3-1],\
-                   x[atom4-1], y[atom4-1], z[atom4-1]);
-     //if ( atom1 == 50 && atom4 == 501) {
-     //   printf("%d %d %d %d %f\n", atom1, atom2, atom3, atom4, ad);
-     //   exit(0);
-     //}
+     ad = dihedral(x[atom1], y[atom1], z[atom1],\
+                   x[atom2], y[atom2], z[atom2],\
+                   x[atom3], y[atom3], z[atom3],\
+                   x[atom4], y[atom4], z[atom4]);
+//     if ( atom1 == 9 && atom4 == 20) {
+//        printf("%d %d %d %d %f\n", atom1, atom2, atom3, atom4, ad);
+//        exit(0);
+//     }
      //Dihedral from 0 to 360, with 180 representing the trans conformation
-    
+
      //if ( atom1 == 13 && atom2 == 12 && atom3 == 11 && atom4 == 6) {
      //   printf("%d %d %d %d\n",atom1,atom2,atom3,atom4);
      //   printf("%6.3f\n",ad);
@@ -524,8 +526,8 @@ int c_dihDist(int natoms, int ndih,int dim3, int* dl, double* x, double* y, doub
     //printf("%6.3f %6.3f %d\n",ad,delta_dih,ibin);
     //printf("%d %d %d %d\n",atom1,atom2,atom3,atom4);
     //printf("******\n");
-     
-     if (ad < 0) { ad += 360.0; }     
+
+     if (ad < 0) { ad += 360.0; }
      ibin = ad/delta_dih;
 
      // Torsional time autocorrelation
@@ -545,12 +547,12 @@ int c_dihDist(int natoms, int ndih,int dim3, int* dl, double* x, double* y, doub
         printf (" ==============================PROBLEM==========================\n\n\n ");
         //return 0;
         continue;
-     }    
+     }
 
-     dihhist[ibin] += 1;    
+     dihhist[ibin] += 1;
 
    }
-   
+
    return 1;
 
 
@@ -591,30 +593,30 @@ int c_dihDistFlory(int natoms, int ndih,int dim3, int* dl, double* x, double* y,
      index += 6;
 
 
-     phi1  = dihedral2(x[ip1-1], y[ip1-1], z[ip1-1],\
-                      x[i-1]  , y[i-1]  , z[i-1]  ,\
-                      x[im1-1], y[im1-1], z[im1-1],\
-                      x[im2-1], y[im2-1], z[im2-1]);
+     phi1  = dihedral2(x[ip1], y[ip1], z[ip1],\
+                      x[i]  , y[i]  , z[i]  ,\
+                      x[im1], y[im1], z[im1],\
+                      x[im2], y[im2], z[im2]);
 
-     phi1p = dihedral2(x[im1-1], y[im1-1], z[im1-1],\
-                      x[i-1]  , y[i-1]  , z[i-1]  ,\
-                      x[ip1-1], y[ip1-1], z[ip1-1],\
-                      x[ip2-1], y[ip2-1], z[ip2-1]);
+     phi1p = dihedral2(x[im1-1], y[im1-1], z[im1],\
+                      x[i]  , y[i]  , z[i]  ,\
+                      x[ip1], y[ip1], z[ip1],\
+                      x[ip2], y[ip2], z[ip2]);
 
-     phi1p_b = dihedral2(x[ip2-1], y[ip2-1], z[ip2-1],\
-                      x[ip1-1]  , y[ip1-1]  , z[ip1-1]  ,\
-                      x[i-1], y[i-1], z[i-1],\
-                      x[im1-1], y[im1-1], z[im1-1]);
+     phi1p_b = dihedral2(x[ip2], y[ip2], z[ip2],\
+                      x[ip1]  , y[ip1]  , z[ip1]  ,\
+                      x[i], y[i], z[i],\
+                      x[im1], y[im1], z[im1]);
 
-     psi1 =  dihedral2(x[i-1]    , y[i-1]    , z[i-1]  ,\
-                       x[ip1-1]  , y[ip1-1]  , z[ip1-1],\
-                       x[im1-1]  , y[im1-1]  , z[im1-1],\
-                       x[j-1]    , y[j-1]    , z[j-1]);
+     psi1 =  dihedral2(x[i]    , y[i]    , z[i]  ,\
+                       x[ip1]  , y[ip1]  , z[ip1],\
+                       x[im1]  , y[im1]  , z[im1],\
+                       x[j]    , y[j]    , z[j]);
 
-     psi1p=  dihedral2(x[i-1]    , y[i-1]    , z[i-1]  ,\
-                       x[im1-1]  , y[im1-1]  , z[im1-1],\
-                       x[ip1-1]  , y[ip1-1]  , z[ip1-1],\
-                       x[j-1]    , y[j-1]    , z[j-1]);
+     psi1p=  dihedral2(x[i]    , y[i]    , z[i]  ,\
+                       x[im1]  , y[im1]  , z[im1],\
+                       x[ip1]  , y[ip1]  , z[ip1],\
+                       x[j]    , y[j]    , z[j]);
 
      //printf("=========================================\n");
      //printf("phi1: %d %d %d %d %.3f\n",ip1-1, i-1, im1-1, im2-1, phi1);
@@ -741,25 +743,25 @@ int c_tacticity(int natoms, int ndih,int dim3, int* dl, double* x, double* y, do
         iat7 = dl[index+6];
         index += 7;
 
-        imp = dihedral(x[iat1-1],y[iat1-1], z[iat1-1],\
-                       x[iat2-1],y[iat2-1], z[iat2-1],\
-                       x[iat3-1],y[iat3-1], z[iat3-1],\
-                       x[iat4-1],y[iat4-1], z[iat4-1]);
+        imp = dihedral(x[iat1],y[iat1], z[iat1],\
+                       x[iat2],y[iat2], z[iat2],\
+                       x[iat3],y[iat3], z[iat3],\
+                       x[iat4],y[iat4], z[iat4]);
 
-        d1 = dihedral(x[iat3-1],y[iat3-1], z[iat3-1],\
-                      x[iat1-1],y[iat1-1], z[iat1-1],\
-                      x[iat2-1],y[iat2-1], z[iat2-1],\
-                      x[iat5-1],y[iat5-1], z[iat5-1]);
+        d1 = dihedral(x[iat3],y[iat3], z[iat3],\
+                      x[iat1],y[iat1], z[iat1],\
+                      x[iat2],y[iat2], z[iat2],\
+                      x[iat5],y[iat5], z[iat5]);
 
-        d2 = dihedral(x[iat1-1],y[iat1-1], z[iat1-1],\
-                      x[iat2-1],y[iat2-1], z[iat2-1],\
-                      x[iat5-1],y[iat5-1], z[iat5-1],\
-                      x[iat7-1],y[iat7-1], z[iat7-1]);
+        d2 = dihedral(x[iat1],y[iat1], z[iat1],\
+                      x[iat2],y[iat2], z[iat2],\
+                      x[iat5],y[iat5], z[iat5],\
+                      x[iat7],y[iat7], z[iat7]);
 
-        d3 = dihedral(x[iat6-1],y[iat6-1], z[iat6-1],\
-                      x[iat3-1],y[iat3-1], z[iat3-1],\
-                      x[iat1-1],y[iat1-1], z[iat1-1],\
-                      x[iat2-1],y[iat2-1], z[iat2-1]);
+        d3 = dihedral(x[iat6],y[iat6], z[iat6],\
+                      x[iat3],y[iat3], z[iat3],\
+                      x[iat1],y[iat1], z[iat1],\
+                      x[iat2],y[iat2], z[iat2]);
 
         if (d1 < 0) { d1 += 360.0; }
         if (d2 < 0) { d2 += 360.0; }
