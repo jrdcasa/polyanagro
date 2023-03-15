@@ -1,4 +1,7 @@
 import datetime
+
+
+import MDAnalysis as mda
 import numpy as np
 import re
 import polyanagro as pag
@@ -12,7 +15,7 @@ class BondedDistributions(pag.Calculations):
                  "_adist", "_ddist", "_ddistFlory", "_idist", "_tacticitydist",
                  "_bondHist", "_angleHist", "_dihHist", "_dihHistFlory", "_impHist",
                  "_tactHist", "_filenameBondDist", "_fileAngleDist", "_fileDihDist",
-                 "_fileImpDist", "_fileDihDistFlory", "_bond2DArray", "_angle2DArray",
+                 "_fileImpDist", "_fileDihDistFlory", "_bond2DArray", "_angle2DList",
                  "_filenameAngleDist", "_dihedral2DArray", "_filenameDihedralDist",
                  "_improper2DArray", "_filenameImproperDist"]
 
@@ -56,7 +59,7 @@ class BondedDistributions(pag.Calculations):
         self._tactHist = np.zeros([self._maxbinDih],dtype=np.int32)
 
         self._bond2DArray = None
-        self._angle2DArray = None
+        self._angle2DList = None
         self._dihedral2DArray = None
         self._improper2DArray = None
 
@@ -116,7 +119,6 @@ class BondedDistributions(pag.Calculations):
                 print(m) if self._logger is None else self._logger.info(m)
         except FileNotFoundError:
             pass
-
 
         # Print labels in the log file
         try:
@@ -391,6 +393,8 @@ class BondedDistributions(pag.Calculations):
                     for ival in ivalues:
                         fangle.writelines("{} {} {}\n".format(ival[0] + 1, ival[1] + 1, ival[2] + 1))
 
+        self._angle2DList = angle2DList
+
         return angle2DList, typeangle_dict
 
     # #######################################################################
@@ -474,6 +478,43 @@ class BondedDistributions(pag.Calculations):
             dihedral2DList.append([at1, at2, at3, at4])
 
         # Save a file for each type of bond
+        dihedral_dict_tmp = defaultdict(list)
+        if issave and len(typedihedral_dict) > 0:
+            with open("dihedral_data_dist.ndx", 'w') as fdih:
+                fdih.writelines("# Index start at 1 (GROMACS). Dihedral types: {}\n".format(len(typedihedral_dict)))
+                # Compile the bb and br atoms
+                for ikey, ivalues in typedihedral_dict.items():
+                    for ival in ivalues:
+                        a = self._trajectory.topology._isbackbone[ival[0]]
+                        b = self._trajectory.topology._isbackbone[ival[1]]
+                        c = self._trajectory.topology._isbackbone[ival[2]]
+                        d = self._trajectory.topology._isbackbone[ival[3]]
+                        if a and b and c and d:
+                            nkey = ikey + "_bb"
+                        else:
+                            nkey = ikey + "_br"
+                        dihedral_dict_tmp[nkey].append(ival)
+
+                # Write index angle file
+                for ikey, ivalues in dihedral_dict_tmp.items():
+                    fdih.writelines("[ {} ]\n".format(ikey))
+                    for ival in ivalues:
+                        fdih.writelines("{} {} {} {}\n".format(ival[0] + 1, ival[1] + 1, ival[2] + 1, ival[3] + 1))
+                fdih.writelines("[ allbbangles ]\n")
+                for ikey, ivalues in dihedral_dict_tmp.items():
+                    if ikey.find("bb") != -1:
+                        for ival in ivalues:
+                            fdih.writelines("{} {} {} {}\n".format(ival[0] + 1, ival[1] + 1, ival[2] + 1, ival[3] + 1))
+                fdih.writelines("[ allbrangles ]\n")
+                for ikey, ivalues in dihedral_dict_tmp.items():
+                    if ikey.find("br") != -1:
+                        for ival in ivalues:
+                            fdih.writelines("{} {} {} {}\n".format(ival[0] + 1, ival[1] + 1, ival[2] + 1, ival[3] + 1))
+                fdih.writelines("[ allangles ]\n")
+                for ikey, ivalues in dihedral_dict_tmp.items():
+                    for ival in ivalues:
+                        fdih.writelines("{} {} {} {}\n".format(ival[0] + 1, ival[1] + 1, ival[2] + 1, ival[3] + 1))
+
 
         return dihedral2DList, typedihedral_dict
 
@@ -540,6 +581,32 @@ class BondedDistributions(pag.Calculations):
             strtype = itype1 + "-" + itype2 + "-" + itype3 + "-" + itype4
             typeimproper_dict[strtype].append([at1, at2, at3, at4])
             improper2DList.append([at1, at2, at3, at4])
+
+        if len(typeimproper_dict) == 0:
+            angles_bb = []
+            for iangle in self._trajectory.universe.angles:
+                at1 = iangle.indices[0]
+                at2 = iangle.indices[1]
+                at3 = iangle.indices[2]
+                a = self._trajectory.topology._isbackbone[at1]
+                b = self._trajectory.topology._isbackbone[at2]
+                c = self._trajectory.topology._isbackbone[at3]
+                if a and b and c :
+                    angles_bb.append(iangle)
+            ll = mda.topology.guessers.guess_improper_dihedrals(angles_bb)
+            for iimpr in ll:
+                at1 = iimpr[0]
+                at2 = iimpr[1]
+                at3 = iimpr[2]
+                at4 = iimpr[3]
+                itype1 = self._trajectory.universe.atoms[at1].type
+                itype2 = self._trajectory.universe.atoms[at2].type
+                itype3 = self._trajectory.universe.atoms[at3].type
+                itype4 = self._trajectory.universe.atoms[at4].type
+
+                strtype = itype1 + "-" + itype2 + "-" + itype3 + "-" + itype4
+                typeimproper_dict[strtype].append([at1, at2, at3, at4])
+                improper2DList.append([at1, at2, at3, at4])
 
         # Save a file for each type of bond
         improper_dict_tmp = defaultdict(list)

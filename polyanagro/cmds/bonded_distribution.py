@@ -4,6 +4,7 @@ import os
 import sys
 import datetime
 import topology
+import MDAnalysis as mda
 from collections import defaultdict
 
 # =============================================================================
@@ -59,7 +60,7 @@ def parse_arguments():
     calc.add_argument("--topo", dest="topo",
                         help="A topology file in tpr, data or pdb format.\n"
                              "tpr --> GROMACS, dat --> LAMMPS, pdb --> OTHERS",
-                        action="store", metavar="TPR|DATA|PDB")
+                        action="store", metavar="TPR|DATA|PDB", required=True)
 
     calc.add_argument("-b", "--bonddist", dest="bonddistlist", nargs="+",
                       help="A list of labels contained in the file bonds_data_dist.ndx",
@@ -131,7 +132,7 @@ def get_backbone_atoms(args, nmols, natoms, iatch, logger=None):
         fnamepath = args.listbb
         ext = os.path.splitext(fnamepath)
         ich = -1
-        if ext != ".pdb":
+        if ext[1] == ".dat":
             try:
                 with open(fnamepath, "r") as f:
                     lines = f.readlines()
@@ -149,8 +150,38 @@ def get_backbone_atoms(args, nmols, natoms, iatch, logger=None):
                 m = "ERROR!!: File {} does not exist. Aborting ...".format(fnamepath)
                 print(m) if logger is None else logger.info(m)
                 exit()
-        else:
-            print("TODO!!!! pdb FILE AS TEMPLATE")
+        elif ext[1] == ".ndx":
+            with open(fnamepath, "r") as f:
+                lines = f.readlines()
+                for iline in lines:
+                    if iline.find("[") != -1:
+                        ich += 1
+                        backbone_list_atoms.append([])
+                    else:
+                        ll = iline.split()
+                        for item in ll:
+                            backbone_list_atoms[ich].append(int(item)-1)
+                            isbbatom[int(item)-1] = "True"
+        else:   # PDB File
+            for imol in range(0, nmols):
+                backbone_list_atoms.append([])
+            isbbatom = natoms * [False]
+            fnamepath = args.listbb
+            try:
+                with open(fnamepath, "r") as f:
+                    lines = f.readlines()
+                    for iline in lines:
+                        if iline.find("ATOM") != -1 or iline.find("HETATM") != -1 :
+                            item = int(float(iline[62:67]))   # Beta field in the PDB
+                            iat = int(iline[6:11])-1
+                            ich = iatch[iat]
+                            if item == 0:
+                                backbone_list_atoms[ich].append(iat)
+                                isbbatom[iat] = "True"
+            except FileNotFoundError:
+                m = "ERROR!!: File {} does not exist. Aborting ...".format(fnamepath)
+                print(m) if logger is None else logger.info(m)
+                exit()
 
     return backbone_list_atoms, isbbatom
 
@@ -233,40 +264,44 @@ def main_app():
         isunwrap = args.isunwrap
         bonddistlist = args.bonddistlist
         # Bond distribution =========
-        for item in bonddistlist:
-            ndxfilename = "bonds_data_dist.ndx"
-            objdist = pag.BondedDistributions(trj, dt=trj.dt, log=log)
-            objdist.calculate(begin=0, type="bond", unwrap_pbc=isunwrap,
-                              ndx_filename = ndxfilename,
-                              dist_label=item)
-            del objdist
+        if bonddistlist is not None:
+            for item in bonddistlist:
+                ndxfilename = "bonds_data_dist.ndx"
+                objdist = pag.BondedDistributions(trj, dt=trj.dt, log=log)
+                objdist.calculate(begin=0, type="bond", unwrap_pbc=isunwrap,
+                                  ndx_filename = ndxfilename,
+                                  dist_label=item)
+                del objdist
         # Angle distribution =========
         angdistlist = args.angdistlist
-        for item in angdistlist:
-            ndxfilename = "angle_data_dist.ndx"
-            objdist = pag.BondedDistributions(trj, dt=trj.dt, log=log)
-            objdist.calculate(begin=0, type="angle", unwrap_pbc=isunwrap,
-                              ndx_filename = ndxfilename,
-                              dist_label=item)
-            del objdist
+        if angdistlist is not None:
+            for item in angdistlist:
+                ndxfilename = "angle_data_dist.ndx"
+                objdist = pag.BondedDistributions(trj, dt=trj.dt, log=log)
+                objdist.calculate(begin=0, type="angle", unwrap_pbc=isunwrap,
+                                  ndx_filename = ndxfilename,
+                                  dist_label=item)
+                del objdist
         # Dihedral distribution =========
         dihdistlist = args.dihdistlist
-        for item in dihdistlist:
-            ndxfilename = "dihedral_data_dist.ndx"
-            objdist = pag.BondedDistributions(trj, dt=trj.dt, log=log)
-            objdist.calculate(begin=0, type="dihedral", unwrap_pbc=isunwrap,
-                              ndx_filename = ndxfilename,
-                              dist_label=item)
-            del objdist
+        if dihdistlist is not None:
+            for item in dihdistlist:
+                ndxfilename = "dihedral_data_dist.ndx"
+                objdist = pag.BondedDistributions(trj, dt=trj.dt, log=log)
+                objdist.calculate(begin=0, type="dihedral", unwrap_pbc=isunwrap,
+                                  ndx_filename = ndxfilename,
+                                  dist_label=item)
+                del objdist
         # Improper distribution ==========
         impdistlist = args.impdistlist
-        for item in impdistlist:
-            ndxfilename = "improper_data_dist.ndx"
-            objdist = pag.BondedDistributions(trj, dt=trj.dt, log=log)
-            objdist.calculate(begin=0, type="improper", unwrap_pbc=isunwrap,
-                              ndx_filename = ndxfilename,
-                              dist_label=item)
-            del objdist
+        if impdistlist is not None:
+            for item in impdistlist:
+                ndxfilename = "improper_data_dist.ndx"
+                objdist = pag.BondedDistributions(trj, dt=trj.dt, log=log)
+                objdist.calculate(begin=0, type="improper", unwrap_pbc=isunwrap,
+                                  ndx_filename = ndxfilename,
+                                  dist_label=item)
+                del objdist
 
 
     else:

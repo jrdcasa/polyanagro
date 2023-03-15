@@ -19,7 +19,7 @@
 
     ***********************************************************************
         
-		Start Job at 03-10-2022 09:44:39 ============
+		Start Job at 07-03-2023 11:48:55 ============
 
 		Command line: 
 			python bonded_distribution.py generate -t ../../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc ../../data/0003Ch-C020-002br04/RUN-002/traj_comp.part0002.xtc ../../data/0003Ch-C020-002br04/RUN-003/traj_comp.part0003.xtc --topo ../../data/0003Ch-C020-002br04/RUN-001/topol.tpr --listbb backbone_idx.dat
@@ -33,66 +33,16 @@
 
 	*** Building bonds from topology... 
 	Setting bond orders: FALSE
-	TIME(Building_bonds_from_topology): 0.115093 seconds
+	TIME(Building_bonds_from_topology): 0.245265 seconds
 	*** End Building bonds from topology... 
 
 	*** Adding topology 
 	../../data/0003Ch-C020-002br04/RUN-001/topol.tpr
 	Number of frames: 301
-	TIME(Adding topology): 0.008441 seconds
+	TIME(Adding topology): 0.027391 seconds
 	*** End Adding topology
 
 	Number of frames: 301
-	TIME(Read_Trajectories): 0.12384 seconds
+	TIME(Read_Trajectories): 0.274299 seconds
 	*** End Creating a trajectory 
-
-
- Generating the data to calculate bonded distributions (2022-10-03 09:44:39.193035)
-	  * Bond types
-	  ------------
-	   C3-C2_bb 
-	   C3-C2_br 
-	   C2-C2_bb 
-	   C2-C1_bb 
-	   C2-C1_br 
-	   allbbbonds 
-	   allbrbonds 
-	   allbonds 
-	  ------------
-
-	  * Angles types
-	  -------------
-	   C3-C2-C2_bb 
-	   C2-C2-C2_bb 
-	   C2-C2-C1_bb 
-	   C2-C1-C2_bb 
-	   C2-C1-C2_br 
-	   C3-C2-C1_br 
-	   allbbangles 
-	   allbrangles 
-	   allangles 
-	  -------------
-
-	  * Dihedrals types
-	  ----------------
-	   C3-C2-C2-C2_bb 
-	   C2-C2-C2-C2_bb 
-	   C2-C2-C2-C1_bb 
-	   C2-C2-C1-C2_bb 
-	   C2-C2-C1-C2_br 
-	   C3-C2-C1-C2_br 
-	   allbbdihedrals 
-	   allbrdihedrals 
-	   alldihedrals 
-	  ----------------
-
-	  * Improper types
-	  ---------------
-	   C1-C2-C2-C2 
-	   allbbimpropers 
-	   allbrimpropers 
-	   allimpropers 
-	  ---------------
-
-		Job  Done at 03-10-2022 09:44:39 ============
 

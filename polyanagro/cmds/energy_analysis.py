@@ -75,7 +75,7 @@ def parse_arguments():
     This is part of the polyanagro library"""
 
     parser = argparse.ArgumentParser(description=desc)
-    subparser = parser.add_subparsers(dest='command')
+    subparser = parser.add_subparsers(dest='command', required=True)
 
     info = subparser.add_parser('info')
     calc = subparser.add_parser('calc')

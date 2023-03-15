@@ -9,14 +9,14 @@
 /home/jramos/Programacion/sandboxes/sandbox_common/lib/python3.8/site-packages/polyanagro-1.1-py3.8-linux-x86_64.egg
 /home/jramos/Programacion/sandboxes/sandbox_common/lib/python3.8/site-packages/pyCGMapPol-0.0.0-py3.8.egg
 
-		 INSTALLING PIP PACKAGES (23/10/2022 19:54:14)
+		 INSTALLING PIP PACKAGES (15/03/2023 10:29:51)
 
-23/10/2022 19:54:15: ** None: Installing GitPython==3.1.1
-23/10/2022 19:54:17: ** None: Installing cython==0.29.24
-23/10/2022 19:54:18: ** None: Installing h5py
-23/10/2022 19:54:20: ** None: Installing panedr
-23/10/2022 19:54:22: ** None: Installing statsmodels
+15/03/2023 10:29:52: ** None: Installing GitPython==3.1.1
+15/03/2023 10:29:53: ** None: Installing cython==0.29.24
+15/03/2023 10:29:54: ** None: Installing h5py
+15/03/2023 10:29:55: ** None: Installing panedr
+15/03/2023 10:29:56: ** None: Installing statsmodels
 
-		 RUNNING SETUP FROM SETUPTOOLS 23/10/2022 19:54:23
+		 RUNNING SETUP FROM SETUPTOOLS 15/03/2023 10:29:57
 
 

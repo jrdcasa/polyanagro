@@ -153,9 +153,10 @@ def get_backbone_atoms(args, natoms):
         isbbatom = natoms*[False]
         iscn = True
         fnamepath = args.listbb
-        ext = os.path.splitext(fnamepath)
+        ext = os.path.splitext(fnamepath)[-1]
         ich = -1
-        if ext != ".pdb":
+        # dat files from REPLICATE_POLYMER starts at 0
+        if ext == ".dat":
             with open(fnamepath, "r") as f:
                 lines = f.readlines()
                 for iline in lines:
@@ -168,6 +169,19 @@ def get_backbone_atoms(args, natoms):
                             for item in n:
                                 backbone_list_atoms[ich].append(int(item))
                                 isbbatom[int(item)] = "True"
+        # ndx files from GROMACS start at 1
+        elif ext == ".ndx":
+            with open(fnamepath, "r") as f:
+                lines = f.readlines()
+                for iline in lines:
+                    if iline.find("[") != -1:
+                        ich += 1
+                        backbone_list_atoms.append([])
+                    else:
+                        ll = iline.split()
+                        for item in ll:
+                            backbone_list_atoms[ich].append(int(item)-1)
+                            isbbatom[int(item)-1] = "True"
         else:
             print("TODO!!!! pdb FILE AS TEMPLATE")
 
