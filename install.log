@@ -1,22 +1,15 @@
 		 SYS PATH
 /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro
-/usr/lib/python38.zip
-/usr/lib/python3.8
-/usr/lib/python3.8/lib-dynload
-/home/jramos/Programacion/sandboxes/sandbox_common/lib/python3.8/site-packages
-/home/jramos/Programacion/sandboxes/sandbox_common/lib/python3.8/site-packages/topology-1.0.0-py3.8-linux-x86_64.egg
-/home/jramos/Programacion/sandboxes/sandbox_common/lib/python3.8/site-packages/replicate_polymer-0.0.0-py3.8-linux-x86_64.egg
-/home/jramos/Programacion/sandboxes/sandbox_common/lib/python3.8/site-packages/polyanagro-1.1-py3.8-linux-x86_64.egg
-/home/jramos/Programacion/sandboxes/sandbox_common/lib/python3.8/site-packages/pyCGMapPol-0.0.0-py3.8.egg
+/home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro
+/opt/JetBrains/pycharm-2022.2/plugins/python/helpers/pycharm_display
+/usr/lib/python310.zip
+/usr/lib/python3.10
+/usr/lib/python3.10/lib-dynload
+/home/jramos/Programacion/sandboxes/sandbox_common/lib/python3.10/site-packages
+/home/jramos/Programacion/sandboxes/sandbox_common/lib/python3.10/site-packages/topology-1.0.0-py3.10-linux-x86_64.egg
+/home/jramos/Programacion/sandboxes/sandbox_common/lib/python3.10/site-packages/replicate_polymer-0.0.0-py3.10-linux-x86_64.egg
+/home/jramos/Programacion/sandboxes/sandbox_common/lib/python3.10/site-packages/polyanagro-1.1-py3.10-linux-x86_64.egg
+/opt/JetBrains/pycharm-2022.2/plugins/python/helpers/pycharm_matplotlib_backend
 
-		 INSTALLING PIP PACKAGES (15/03/2023 10:29:51)
-
-15/03/2023 10:29:52: ** None: Installing GitPython==3.1.1
-15/03/2023 10:29:53: ** None: Installing cython==0.29.24
-15/03/2023 10:29:54: ** None: Installing h5py
-15/03/2023 10:29:55: ** None: Installing panedr
-15/03/2023 10:29:56: ** None: Installing statsmodels
-
-		 RUNNING SETUP FROM SETUPTOOLS 15/03/2023 10:29:57
-
+		 INSTALLING PIP PACKAGES (20/11/2023 21:37:59)
 
