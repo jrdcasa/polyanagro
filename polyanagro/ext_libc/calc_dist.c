@@ -18,82 +18,82 @@ int* dihhist;
 
 /* ********************************************************************************************/
 void c_setup_hist_bond(double delta, int maxbin, double* bdist) {
-    
+
     int ibin;
-    
+
     delta_bond = delta;
     numbin_bond = maxbin;
-    
+
     //Initialize arrays
     bondhist     = malloc(sizeof(int)*maxbin);
-    
+
     for (ibin=0; ibin<maxbin ; ibin++) {
-       bdist[ibin] = (double) ibin * delta_bond;    
+       bdist[ibin] = (double) ibin * delta_bond;
        bondhist[ibin] = 0;
     }
-    
+
 }
 
 /* ********************************************************************************************/
 void c_setup_hist_angle(double delta, int maxbin, double* adist) {
-    
+
     int ibin;
-    
+
     delta_angle = delta;
     numbin_angle = maxbin;
-    
+
     //Initialize arrays
     anglehist     = malloc(sizeof(double)*numbin_angle);
-    
+
     for (ibin=0; ibin<maxbin ; ibin++) {
        adist[ibin] = (double) ibin * delta_angle ;
        anglehist[ibin] = 0;
     }
-    
+
 }
 
 /* ********************************************************************************************/
 void c_setup_hist_dih(double delta, int maxbin, double* ddist) {
-    
+
     int ibin;
-    
+
     delta_dih = delta;
     numbin_dih = maxbin;
-    
+
     //Initialize arrays for histogram
     dihhist     = malloc(sizeof(double)*numbin_dih);
-    
+
     for (ibin=0; ibin<maxbin ; ibin++) {
        ddist[ibin] = (double) ibin * delta_dih ;
        dihhist[ibin] = 0;
     }
-    
+
 }
 
 /* ********************************************************************************************/
 
 /* ********************************************************************************************/
 double distance(double x1, double y1, double z1, double x2, double y2, double z2) {
-    
+
     double delx, dely, delz;
     double rsq, r;
-    
+
     delx = x1 - x2;
     dely = y1 - y2;
     delz = z1 - z2;
-    
+
     rsq = delx*delx+dely*dely+delz*delz;
     r = sqrt(rsq);
-    
+
     return r;
-    
+
 }
 
 /* ********************************************************************************************/
 double angle(double x1, double y1, double z1,\
              double x2, double y2, double z2,\
              double x3, double y3, double z3) {
-    
+
     double delx1, dely1, delz1;
     double delx2, dely2, delz2;
     double rsq1, rsq2, r1, r2;
@@ -103,7 +103,7 @@ double angle(double x1, double y1, double z1,\
     delx1 = x1 - x2;
     dely1 = y1 - y2;
     delz1 = z1 - z2;
-    
+
     rsq1 = delx1*delx1+dely1*dely1+delz1*delz1;
     r1 = sqrt(rsq1);
 
@@ -114,16 +114,16 @@ double angle(double x1, double y1, double z1,\
 
     rsq2 = delx2*delx2+dely2*dely2+delz2*delz2;
     r2 = sqrt(rsq2);
-    
+
     //angle
     c = delx1*delx2+dely1*dely2+delz1*delz2;
     c /= r1*r2;
-    
+
     if (c>1.0) c = 1.0;
     if (c<-1.0) c = -1.0;
-    
+
     a = acos(c)*180.0/MY_PI;
-    
+
     return a;
 }
 
@@ -134,7 +134,7 @@ double dihedral(double x1, double y1, double z1,\
                 double x4, double y4, double z4)
 {
     //Dihedral angle between -180 to 180 with 0 being the cis conformation
-    
+
     // Variables
     double delx1, delx2, delx3, delx2m;
     double dely1, dely2, dely3, dely2m;
@@ -157,12 +157,12 @@ double dihedral(double x1, double y1, double z1,\
     delx1 = x1 - x2;
     dely1 = y1 - y2;
     delz1 = z1 - z2;
-    
+
     //2nd bond
     delx2 = x3 - x2;
     dely2 = y3 - y2;
     delz2 = z3 - z2;
-    
+
     delx2m = -delx2;
     dely2m = -dely2;
     delz2m = -delz2;
@@ -171,7 +171,7 @@ double dihedral(double x1, double y1, double z1,\
     delx3 = x4 - x3;
     dely3 = y4 - y3;
     delz3 = z4 - z3;
-    
+
     //c,s calculation
     ax = dely1*delz2m - delz1*dely2m;
     ay = delz1*delx2m - delx1*delz2m;
@@ -179,12 +179,12 @@ double dihedral(double x1, double y1, double z1,\
     bx = dely3*delz2m - delz3*dely2m;
     by = delz3*delx2m - delx3*delz2m;
     bz = delx3*dely2m - dely3*delx2m;
-    
+
     rasq = ax*ax + ay*ay + az*az;
-    rbsq = bx*bx + by*by + bz*bz;    
+    rbsq = bx*bx + by*by + bz*bz;
     rgsq = delx2m*delx2m + dely2m*dely2m + delz2m*delz2m;
     rg = sqrt(rgsq);
- 
+
     rginv = ra2inv = rb2inv = 0.0;
     if (rg > 0) rginv = 1.0/rg;
     if (rasq > 0) ra2inv = 1.0/rasq;
@@ -193,13 +193,13 @@ double dihedral(double x1, double y1, double z1,\
 
     c = (ax*bx + ay*by + az*bz)*rabinv;
     s = rg*rabinv*(ax*delx3+ay*dely3+az*delz3);
-    
+
     if (c > 1.0) c = 1.0;
     if (c < -1.0) c = -1.0;
-    
+
     ad = factor * atan2(s,c);
-    
-    return ad;   
+
+    return ad;
 }
 
 /* ********************************************************************************************/
@@ -312,7 +312,7 @@ double dihedral3(double x1, double y1, double z1,\
 /* ********************************************************************************************/
 void substract_vectors(double* a, double* b, double* c)
 {
-    
+
     a[0] = b[0] - c[0];
     a[1] = b[1] - c[1];
     a[2] = b[2] - c[2];
@@ -321,7 +321,7 @@ void substract_vectors(double* a, double* b, double* c)
 /* ********************************************************************************************/
 void add_vectors(double* a, double* b, double* c)
 {
-    
+
     a[0] = b[0] + c[0];
     a[1] = b[1] + c[1];
     a[2] = b[2] + c[2];
@@ -331,23 +331,23 @@ void add_vectors(double* a, double* b, double* c)
 /* ********************************************************************************************/
 int c_bondDist(int natoms, int nbonds,int dim2, int* bl, double* x, double* y, double* z, int* bondhist)
 {
-   
+
   int ibond;
   int atom1 = -1;
   int atom2 = -1;
   int index = 0;
   int ibin = 0;
   double d = 0.0;
-   
+
   for (ibond=0; ibond < nbonds; ibond++) {
     atom1 = bl[index];
     atom2 = bl[index+1];
     index += 2;
     d = distance(x[atom1],y[atom1],z[atom1], x[atom2], y[atom2], z[atom2]);
     ibin = d/delta_bond;
-    
+
     //printf("%6.3f %6.3f %d\n",d,delta_bond,ibin);
-    
+
     if (ibin>=numbin_bond) {
         printf ("\n\n\n ==============================PROBLEM==========================\n ");
         printf ("      Problem with BOND DISTRIBUTION. Increase maxbinBond\n");
@@ -555,6 +555,79 @@ int c_dihDist(int natoms, int ndih,int dim3, int* dl, double* x, double* y, doub
 
    return 1;
 
+
+}
+
+/* ********************************************************************************************/
+int c_dihDistNeigh(int natoms, int ndih,int dim3, int* dl, double* x, double* y, double* z,
+                   double* dihvalues, int* dihlabel)
+{
+
+   int atom1, atom2, atom3, atom4;
+   int index;
+   int idih;
+   int ibin;
+   double ad = 0.0;
+
+   index = 0;
+
+   for (idih=0; idih < ndih; idih++) {
+
+     atom1 = dl[index+0];
+     atom2 = dl[index+1];
+     atom3 = dl[index+2];
+     atom4 = dl[index+3];
+     index += 4;
+
+     ad = dihedral(x[atom1], y[atom1], z[atom1],\
+                   x[atom2], y[atom2], z[atom2],\
+                   x[atom3], y[atom3], z[atom3],\
+                   x[atom4], y[atom4], z[atom4]);
+//     if ( atom1 == 9 && atom4 == 20) {
+//        printf("%d %d %d %d %f\n", atom1, atom2, atom3, atom4, ad);
+//        exit(0);
+//     }
+     //Dihedral from 0 to 360, with 180 representing the trans conformation
+
+     //if ( atom1 == 13 && atom2 == 12 && atom3 == 11 && atom4 == 6) {
+     //   printf("%d %d %d %d\n",atom1,atom2,atom3,atom4);
+     //   printf("%6.3f\n",ad);
+     //}
+
+    //printf("%6.3f %6.3f %d\n",ad,delta_dih,ibin);
+    //printf("%d %d %d %d\n",atom1,atom2,atom3,atom4);
+    //printf("******\n");
+
+     if (ad < 0) { ad += 360.0; }
+
+     // Torsional time autocorrelation
+     //ad_d = ad*MY_PI/180.0;
+     //cosa = cos(ad_d);
+
+    //printf("%6.3f %6.3f %d\n",ad,delta_dih,ibin);
+    //printf("%6.3f %6.3f %6.3f\n",ad,ad_d);
+    //printf("%d %d %d %d\n",atom1,atom2,atom3,atom4);
+    //printf("******\n");
+
+     dihvalues[idih] = ad;
+
+     // Label the dihedral angles
+     // dihlabel[idih] = 1 --> gauche
+     // dihlabel[idih] = 2 --> trans
+     // dihlabel[idih] = 3 --> gauche-
+     if ((ad > 0) && (ad < 120)) {
+         dihlabel[idih] = 1;   //gauche
+     }
+     else if ((ad > 120) && (ad < 240.0)) {
+         dihlabel[idih] = 2;    //trans
+     }
+     else {
+         dihlabel[idih] = 3;    //gauche-
+     }
+
+   }
+
+   return 1;
 
 }
 

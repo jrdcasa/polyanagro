@@ -17,7 +17,10 @@ class BondedDistributions(pag.Calculations):
                  "_tactHist", "_filenameBondDist", "_fileAngleDist", "_fileDihDist",
                  "_fileImpDist", "_fileDihDistFlory", "_bond2DArray", "_angle2DList",
                  "_filenameAngleDist", "_dihedral2DArray", "_filenameDihedralDist",
-                 "_improper2DArray", "_filenameImproperDist"]
+                 "_improper2DArray", "_filenameImproperDist", "_dihvalues1DArray",
+                 "_dihlabels1DArray", "_nmaxtList", "_nmaxgList", "_nmaxuList", "_keysUnits",
+                 "_keysDyads", "_keysTryads", "_unitsDict", "_dyadsDict", "_tryadsDict", "_filenameDyadsDist",
+                 "_dihedral2DExtendedArray", "_dihedral2DAllbb"]
 
     # #######################################################################
     def __init__(self, trj, dt=1, stride=1, log=None):
@@ -62,9 +65,74 @@ class BondedDistributions(pag.Calculations):
         self._angle2DList = None
         self._dihedral2DArray = None
         self._improper2DArray = None
+        self._dihedral2DAllbb = None
+        self._dihedral2DExtendedArray = None  # Take into account the next-neighbours
+
+        self._dihvalues1DArray = None
+        self._dihlabels1DArray = None
 
         #Setup histograms
         self._setupHistograms()
+
+        self._nmaxtList = list()
+        self._nmaxgList = list()
+        self._nmaxuList = list()
+        self._unitsDict = defaultdict(int)
+        self._dyadsDict = defaultdict(int)
+        self._tryadsDict = defaultdict(int)
+
+        self._keysUnits = defaultdict()
+        self._keysUnits['1'] = 'g'
+        self._keysUnits['2'] = 't'
+        self._keysUnits['3'] = 'u'
+
+        self._keysDyads = defaultdict()
+        self._keysDyads['11'] = 'gg'
+        self._keysDyads['12'] = 'gt'
+        self._keysDyads['13'] = 'gu'
+        self._keysDyads['21'] = 'tg'
+        self._keysDyads['22'] = 'tt'
+        self._keysDyads['23'] = 'tu'
+        self._keysDyads['31'] = 'ug'
+        self._keysDyads['32'] = 'ut'
+        self._keysDyads['33'] = 'uu'
+
+        self._keysTryads = defaultdict()
+        self._keysTryads['111'] = 'ggg'
+        self._keysTryads['112'] = 'ggt'
+        self._keysTryads['113'] = 'ggu'
+
+        self._keysTryads['121'] = 'gtg'
+        self._keysTryads['122'] = 'gtt'
+        self._keysTryads['123'] = 'gtu'
+
+        self._keysTryads['131'] = 'gug'
+        self._keysTryads['132'] = 'gut'
+        self._keysTryads['133'] = 'guu'
+
+        self._keysTryads['211'] = 'tgg'
+        self._keysTryads['212'] = 'tgt'
+        self._keysTryads['213'] = 'tgu'
+
+        self._keysTryads['221'] = 'ttg'
+        self._keysTryads['222'] = 'ttt'
+        self._keysTryads['223'] = 'ttu'
+
+        self._keysTryads['231'] = 'tug'
+        self._keysTryads['232'] = 'tut'
+        self._keysTryads['233'] = 'tuu'
+
+        self._keysTryads['311'] = 'ugg'
+        self._keysTryads['312'] = 'ugt'
+        self._keysTryads['313'] = 'ugu'
+
+        self._keysTryads['321'] = 'utg'
+        self._keysTryads['322'] = 'utt'
+        self._keysTryads['323'] = 'utu'
+
+        self._keysTryads['331'] = 'uug'
+        self._keysTryads['332'] = 'uut'
+        self._keysTryads['333'] = 'uuu'
 
 
     # #######################################################################
@@ -151,7 +219,8 @@ class BondedDistributions(pag.Calculations):
             pass
 
     # #######################################################################
-    def calculate(self, begin=0, unwrap_pbc=True, type=None, ndx_filename=None, dist_label=None):
+    def calculate(self, begin=0, unwrap_pbc=True, typelabel=None,
+                  ndx_filename=None, dist_name=None, dihdistneigh=False):
 
         """
          Calculate bonded distributions
@@ -206,18 +275,21 @@ class BondedDistributions(pag.Calculations):
             Y1[:] = self._coords_unwrap[:, 1]
             Z1[:] = self._coords_unwrap[:, 2]
 
-            if type == "bond":
-                self._calculate_bond_dist_frame(ndx_filename, dist_label, X1, Y1, Z1)
-            elif type == "angle":
-                self._calculate_angle_dist_frame(ndx_filename, dist_label, X1, Y1, Z1)
-            elif type == "dihedral":
-                self._calculate_dihedral_dist_frame(ndx_filename, dist_label, X1, Y1, Z1)
-            elif type =="improper":
-                self._calculate_improper_dist_frame(ndx_filename, dist_label, X1, Y1, Z1)
+            if typelabel == "bond":
+                self._calculate_bond_dist_frame(ndx_filename, dist_name, X1, Y1, Z1)
+            elif typelabel == "angle":
+                self._calculate_angle_dist_frame(ndx_filename, dist_name, X1, Y1, Z1)
+            elif typelabel == "dihedral":
+                self._calculate_dihedral_dist_frame(ndx_filename, dist_name, X1, Y1, Z1, dihdistneigh=dihdistneigh)
+            elif typelabel == "improper":
+                self._calculate_improper_dist_frame(ndx_filename, dist_name, X1, Y1, Z1)
+            elif typelabel == "dihneigh":
+                self._calculate_dihneigh_dist_frame(ndx_filename, dist_name, X1, Y1, Z1)
             iframe += self._stride
             idx_f += 1
 
-        self.writeDist(type=type, ikey=dist_label)
+        self.writeDist(type=typelabel, ikey=dist_name)
+        self._write_classify_torsions(dist_name)
 
         return True
 
@@ -515,11 +587,10 @@ class BondedDistributions(pag.Calculations):
                     for ival in ivalues:
                         fdih.writelines("{} {} {} {}\n".format(ival[0] + 1, ival[1] + 1, ival[2] + 1, ival[3] + 1))
 
-
         return dihedral2DList, typedihedral_dict
 
     # #######################################################################
-    def _calculate_dihedral_dist_frame(self, ndx_filename, dihdist_label, X1, Y1, Z1):
+    def _calculate_dihedral_dist_frame(self, ndx_filename, dihdist_label, X1, Y1, Z1, dihdistneigh=False):
 
         idx = -1
         if dihdist_label:
@@ -550,7 +621,81 @@ class BondedDistributions(pag.Calculations):
                         print(m) if self._logger is None else self._logger.error(m)
                         exit()
 
-                iserror3 = self.dihDist(self._dihedral2DArray, X1, Y1, Z1)
+                iserror3 = self.dihDist(self._dihedral2DArray, X1, Y1, Z1, self._dihHist)
+
+        # Get an aaray with all dihedral in the backbone serted by the first column
+        idx = -1
+        if dihdistneigh:
+            # Read allbbdihedrals:
+            dihdist_label = "allbbangles"
+            with open(ndx_filename, 'r') as fdih:
+                fdih.seek(0)
+                contents = fdih.readlines()
+                fdih.seek(0)
+                for num, line in enumerate(fdih, 1):
+                    if re.match(r'.*' + dihdist_label + ' ]$', line):
+                        idx = num
+
+                # Only calculate the first frame
+                if self._dihedral2DAllbb is None:
+                    self._dihedral2DAllbb = []
+                    if idx != -1:
+                        while True:
+                            try:
+                                tmp = [int(i) - 1 for i in contents[idx].split()]
+                                self._dihedral2DAllbb.append(tmp)
+                                idx += 1
+                            except ValueError:
+                                break
+                            except IndexError:
+                                m = "\t\t{} not label in {} index file".format(dihdist_label, ndx_filename)
+                                print(m) if self._logger is None else self._logger.error(m)
+                                exit()
+                        self._dihedral2DAllbb = \
+                            np.array(self._dihedral2DAllbb, dtype=np.int32)
+                    else:
+                        m = "\t\t{} not label in {} index file".format(dihdist_label, ndx_filename)
+                        print(m) if self._logger is None else self._logger.error(m)
+                        exit()
+
+                    # Order the dihedrals using the first column
+                    self._dihedral2DAllbb = self._dihedral2DAllbb[self._dihedral2DAllbb[:,0].argsort()]
+
+            # # Loop over all dihedrals and look for the next neighbours
+            # if self._dihedral2DExtendedArray is None:
+            #     self._dihedral2DExtendedArray = []
+            #     for item in self._dihedral2DArray:
+            #
+            #         idx_left_dihedral = np.where((self._dihedral2DAllbb[:, 1] == item[0]) &
+            #                                      (self._dihedral2DAllbb[:, 2] == item[1]) &
+            #                                      (self._dihedral2DAllbb[:, 3] == item[2]))[0]
+            #         try:
+            #             left_dihedral = self._dihedral2DAllbb[idx_left_dihedral, :][0]
+            #             self._dihedral2DExtendedArray.append(left_dihedral)
+            #
+            #         except IndexError:
+            #             left_dihedral = None
+            #
+            #         idx_right_dihedral = np.where((self._dihedral2DAllbb[:, 0] == item[1]) &
+            #                                       (self._dihedral2DAllbb[:, 1] == item[2]) &
+            #                                       (self._dihedral2DAllbb[:, 2] == item[3]))[0]
+            #         try:
+            #             right_dihedral = self._dihedral2DAllbb[idx_right_dihedral, :][0]
+            #             self._dihedral2DExtendedArray.append(right_dihedral)
+            #         except IndexError:
+            #             right_dihedral = None
+            #
+            #         self._dihedral2DExtendedArray.append(item)
+            #
+            # self._dihedral2DExtendedArray = np.array(self._dihedral2DExtendedArray, dtype=np.int32)
+            # self._dihvalues1DArray = np.zeros(len(self._dihedral2DExtendedArray), dtype=np.float64)
+            # self._dihlabels1DArray = np.zeros(len(self._dihedral2DExtendedArray), dtype=np.int32)
+            self._dihedral2DAllbb = np.array(self._dihedral2DAllbb, dtype=np.int32)
+            self._dihvalues1DArray = np.zeros(len(self._dihedral2DAllbb), dtype=np.float64)
+            self._dihlabels1DArray = np.zeros(len(self._dihedral2DAllbb), dtype=np.int32)
+            iserror3 = self.dihDistNeigh(self._dihedral2DAllbb, X1, Y1, Z1,
+                                         self._dihvalues1DArray, self._dihlabels1DArray)
+            self._classify_torsions(self._dihedral2DAllbb, self._dihlabels1DArray)
 
     # #######################################################################
     def _generate_improper_data(self, issave=True):
@@ -700,15 +845,153 @@ class BondedDistributions(pag.Calculations):
            iserror = pag.angleDistC(angle2DArray, X1, Y1, Z1, self._angleHist)
         return iserror
 
+
     ########################################################################
-    def dihDist(self,dih2DArray,X1,Y1,Z1):
+    @staticmethod
+    def dihDist(dih2DArray, X1, Y1, Z1, dihHist):
 
         iserror = 1
         if len(dih2DArray) != 0:
-            iserror = pag.dihDistC(dih2DArray, X1, Y1, Z1, self._dihHist)
+            iserror = pag.dihDistC(dih2DArray, X1, Y1, Z1, dihHist)
         return iserror
 
-# ########################################################################
+
+    ########################################################################
+    @staticmethod
+    def dihDistNeigh(dih2DArray, X1, Y1, Z1, dihvalues1DArray, dihlabels1DAray):
+
+        iserror = 1
+        if len(dih2DArray) != 0:
+            iserror = pag.dihDistCNeigh(dih2DArray, X1, Y1, Z1, dihvalues1DArray, dihlabels1DAray)
+        return iserror
+
+    ########################################################################
+    def _classify_torsions(self, dihedralArray, dihlabelsArray):
+
+        dictLabelTorsions = defaultdict(list)
+        ind = 0
+
+        for item in dihedralArray:
+
+            ich1 = self._trajectory.topology._iatch[int(item[0])]
+            ich2 = self._trajectory.topology._iatch[int(item[1])]
+            ich3 = self._trajectory.topology._iatch[int(item[2])]
+            ich4 = self._trajectory.topology._iatch[int(item[3])]
+            l = [ich1, ich2, ich3, ich4]
+            if l.count(l[0]) != len(l):
+                m = "\n\t\t Dihedral {0} {1} {2}\n".format(item, l(l[0]), len(l))
+                m += "\t\t Error. Atoms in dihedral not in the same chain"
+                print(m) if self._logger is None else self._logger.error(m)
+                exit()
+            dictLabelTorsions[l[0]].append(str(dihlabelsArray[ind]))
+            ind += 1
+
+        # Dyads and triads
+        for key in dictLabelTorsions.keys():
+            dictLabelTorsions[key] = ''.join(dictLabelTorsions[key])
+            try:
+                self._nmaxtList.append(len(max(re.findall("2*2", dictLabelTorsions[key]))))
+            except ValueError:
+                self._nmaxtList.append(0)
+            try:
+                self._nmaxgList.append(len(max(re.findall("1*1", dictLabelTorsions[key]))))
+            except ValueError:
+                self._nmaxgList.append(0)
+            try:
+                self._nmaxuList.append(len(max(re.findall("3*3", dictLabelTorsions[key]))))
+            except ValueError:
+                self._nmaxuList.append(0)
+
+            for i in range(0, len(dictLabelTorsions[key])):
+                pair = dictLabelTorsions[key][i]
+                label = self._keysUnits[pair]
+                self._unitsDict[label] += 1
+
+            for i in range(1, len(dictLabelTorsions[key])):
+                pair = dictLabelTorsions[key][i - 1:i + 1]
+                label = self._keysDyads[pair]
+                self._dyadsDict[label] += 1
+
+            for i in range(2, len(dictLabelTorsions[key])):
+                pair = dictLabelTorsions[key][i - 2:i + 1]
+                label = self._keysTryads[pair]
+                self._tryadsDict[label] += 1
+
+    #######################################################################
+    def _write_classify_torsions(self, name):
+
+        self._filenameDyadsDist = "Summary_Dyads_{}.dat".format(name)
+        with open(self._filenameDyadsDist, "w") as fout:
+            l1 = "<nmax>-trans  : {0:.2f} +- {1:.2f} max: {2:d} min: {3:d}\n". \
+                format(np.mean(self._nmaxtList), np.std(self._nmaxtList), np.max(self._nmaxtList),
+                       np.min(self._nmaxtList))
+            l2 = "<nmax>-gauche : {0:.2f} +- {1:.2f} max: {2:d} min: {3:d}\n". \
+                format(np.mean(self._nmaxgList), np.std(self._nmaxgList), np.max(self._nmaxgList),
+                       np.min(self._nmaxgList))
+            l3 = "<nmax>-gauche-: {0:.2f} +- {1:.2f} max: {2:d} min: {3:d}\n". \
+                format(np.mean(self._nmaxuList), np.std(self._nmaxgList), np.max(self._nmaxuList),
+                       np.min(self._nmaxuList))
+            fout.writelines(l1)
+            fout.writelines(l2)
+            fout.writelines(l3)
+            fout.writelines("\n\n")
+
+            nt = 0
+            for item in self._unitsDict:
+                nt += self._unitsDict[item]
+
+            fout.writelines("========= Units =============\n")
+            for item in self._unitsDict:
+                l = "{0:s}: {1:.1f} % \n".format(item, float(self._unitsDict[item]) / float(nt) * 100.)
+                fout.writelines(l)
+
+            fout.writelines("\n\n")
+
+            nt = 0
+            for item in self._dyadsDict:
+                nt += self._dyadsDict[item]
+
+            fout.writelines("========= Dyads =============\n")
+            for item in self._dyadsDict:
+                l = "{0:s}: {1:.1f} % \n".format(item, float(self._dyadsDict[item]) / float(nt) * 100.)
+                fout.writelines(l)
+
+            fout.writelines("\n\n")
+
+            nt = 0
+            for item in self._tryadsDict:
+                nt += self._tryadsDict[item]
+            fout.writelines("========= Tryads =============\n")
+            for item in self._tryadsDict:
+                l = "{0:s}: {1:.1f} % \n".format(item, float(self._tryadsDict[item]) / float(nt) * 100.)
+                fout.writelines(l)
+
+
+        totaldiah = sum([item for key, item in self._dyadsDict.items()])
+        list_labels = ["tt", "gg", "uu", "tg", "tu"]
+        line = ""
+        idx = 0
+        with open("Dist_Dyads_{}.dat".format(name), "w") as f:
+            print("F")
+            line = "0 tt {0:d} {1:7.5f}\n". \
+                format(self._dyadsDict["tt"], float(self._dyadsDict["tt"] / float(totaldiah)))
+            line += "1 gg {0:d} {1:7.5f}\n". \
+                format(self._dyadsDict["gg"], float(self._dyadsDict["gg"] / float(totaldiah)))
+            line += "2 uu {0:d} {1:7.5f}\n". \
+                format(self._dyadsDict["uu"], float(self._dyadsDict["uu"] / float(totaldiah)))
+            line += "3 tg {0:d} {1:7.5f}\n". \
+                format(self._dyadsDict["tg"], float(self._dyadsDict["tg"] / float(totaldiah)))
+
+
+            # line += ("3 tg %d %7.5f\n" % (self._dyadsDict('tg\n') + self._dyadsDict('gt\n'),
+            #                              float(self._dyadsDict('tg\n') + self._dyadsDict('gt\n')) / float(totaldiah)))
+            # line = ("4 tu %d %7.5f\n" % (self._dyadsDict('tu\n') + self._dyadsDict('ut\n'),
+            #                              float(self._dyadsDict('tu\n') + self._dyadsDict('ut\n')) / float(totaldiah)))
+            f.writelines(line)
+            # line = ("5 gu %d %7.5f\n" % (self._dyadsDict('gu\n') + self._dyadsDict('ug\n'),
+            #                              float(self._dyadsDict('gu\n') + self._dyadsDict('ug\n')) / float(totaldiah)))
+
+    # ########################################################################
 #     def dihDistFlory(self,dih2DArray,X1,Y1,Z1):
 #
 #         iserror = 1

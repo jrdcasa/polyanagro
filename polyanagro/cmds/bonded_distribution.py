@@ -268,9 +268,9 @@ def main_app():
             for item in bonddistlist:
                 ndxfilename = "bonds_data_dist.ndx"
                 objdist = pag.BondedDistributions(trj, dt=trj.dt, log=log)
-                objdist.calculate(begin=0, type="bond", unwrap_pbc=isunwrap,
+                objdist.calculate(begin=0, typelabel="bond", unwrap_pbc=isunwrap,
                                   ndx_filename = ndxfilename,
-                                  dist_label=item)
+                                  dist_name=item)
                 del objdist
         # Angle distribution =========
         angdistlist = args.angdistlist
@@ -278,29 +278,34 @@ def main_app():
             for item in angdistlist:
                 ndxfilename = "angle_data_dist.ndx"
                 objdist = pag.BondedDistributions(trj, dt=trj.dt, log=log)
-                objdist.calculate(begin=0, type="angle", unwrap_pbc=isunwrap,
+                objdist.calculate(begin=0, typelabel="angle", unwrap_pbc=isunwrap,
                                   ndx_filename = ndxfilename,
-                                  dist_label=item)
+                                  dist_name=item)
                 del objdist
         # Dihedral distribution =========
         dihdistlist = args.dihdistlist
+        dihdistneigh = True
         if dihdistlist is not None:
             for item in dihdistlist:
                 ndxfilename = "dihedral_data_dist.ndx"
                 objdist = pag.BondedDistributions(trj, dt=trj.dt, log=log)
-                objdist.calculate(begin=0, type="dihedral", unwrap_pbc=isunwrap,
+                objdist.calculate(begin=0, typelabel="dihedral", unwrap_pbc=isunwrap,
                                   ndx_filename = ndxfilename,
-                                  dist_label=item)
+                                  dist_name=item, dihdistneigh=dihdistneigh)
+
+                print("S")
+
                 del objdist
+
         # Improper distribution ==========
         impdistlist = args.impdistlist
         if impdistlist is not None:
             for item in impdistlist:
                 ndxfilename = "improper_data_dist.ndx"
                 objdist = pag.BondedDistributions(trj, dt=trj.dt, log=log)
-                objdist.calculate(begin=0, type="improper", unwrap_pbc=isunwrap,
+                objdist.calculate(begin=0, typelabel="improper", unwrap_pbc=isunwrap,
                                   ndx_filename = ndxfilename,
-                                  dist_label=item)
+                                  dist_name=item)
                 del objdist
 
 
