@@ -1,0 +1,11 @@
+[ atomtypes ]
+; full atom descriptions are available in ffoplsaa.atp
+; name  bond_type    mass    charge   ptype          sigma      epsilon
+opls_185p       HC  1       1.01000     0.02560      A   2.50000e-01   1.25520e-01
+opls_182p       CT  6      12.01000     0.11300      A   3.50000e-01   2.76144e-01
+opls_180p       OS  8      16.00000    -0.32840      A   2.90000e-01   5.85760e-01
+opls_999p       HC  1       1.01000     0.04320      A   2.50000e-01   1.25520e-01
+opls_202p        S 16      32.07000    -0.27290      A   3.60000e-01   1.48532e+00
+opls_210p       CT  6      12.01000     0.05010      A   3.50000e-01   2.76144e-01
+opls_135p       CT  6      12.01000    -0.08730      A   3.50000e-01   2.76144e-01
+opls_140p       HC  1       1.01000     0.02910      A   2.50000e-01   1.25520e-01

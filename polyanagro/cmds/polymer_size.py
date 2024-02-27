@@ -74,7 +74,7 @@ def parse_arguments():
                         action="store_true", required=False)
 
     parser.add_argument("--unwrap", dest="isunwrap", type=str2bool,
-                        help="If True the coordinates are unwrapped",
+                        help="If True the coordinates provided are unwrapped",
                         required=True, metavar="True or False, 1 or 0")
 
     parser.add_argument("--rg_massw", dest="isrgmass",

@@ -45,8 +45,13 @@ def parse_arguments():
                         action="store", required=False, default=1)
 
     parser.add_argument("--unwrap", dest="isunwrap", type=str2bool,
-                        help="If True the coordinates are unwrapped",
+                        help="If True the coordinates provided are unwrapped",
                         required=True, metavar="True or False, 1 or 0")
+
+    parser.add_argument("--half_dihedral", dest="half_dihedral",
+                        help="If True the range of dihedrals is [-180..180] "
+                             "otherwise is [0..360]",
+                        required=False, action="store_true")
 
     args = parser.parse_args()
 
@@ -134,7 +139,7 @@ def main_app():
 
     objmap = pag.Map_Density(trj, pairdihlist, log=log)
     objmap.calculate(begin=0, unwrap_pbc=isunwrap,
-                     ndx_filename = ndxfilename)
+                     ndx_filename = ndxfilename, half_dihedral=args.half_dihedral)
 
     now = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
     m = "\n\t\tJob  Done at {} ============\n".format(now)

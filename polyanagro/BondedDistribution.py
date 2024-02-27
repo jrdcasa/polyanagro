@@ -230,6 +230,12 @@ class BondedDistributions(pag.Calculations):
         """
 
         nframes = self._trajectory.get_numframes()
+        if self._stride == 1:
+            nframes_analysed = nframes
+        else:
+            nframes_analysed = int(((nframes - begin) / self._stride)) + 1
+        m = "\t Num of frames to analyse: {}".format(nframes_analysed)
+        print(m) if self._logger is None else self._logger.info(m)
         natoms = self._trajectory.natoms
 
         # Start calculations for each frame
@@ -247,22 +253,22 @@ class BondedDistributions(pag.Calculations):
 
         for iframe in range(ini, nframes, self._stride):
 
-            # Estimated time (Use the 10 first frames to estimate the time)
+            # Estimated time (Use the 100 first frames to estimate the time)
             if idx_f == 0:
                 f = datetime.datetime.now()
             if idx_f == 10:
                 elapsed_time = datetime.datetime.now() - f
-                k = int(((nframes - ini)/self._stride))/10
+                k = int(((nframes - ini)/self._stride))/100
                 estimated_time = k*elapsed_time.total_seconds()
                 m = "\tESTIMATED TIME using {0:d} frames ({1:s} seconds): {2:.2f} seconds".format \
-                    (10, str(elapsed_time.total_seconds()), estimated_time)
+                    (100, str(elapsed_time.total_seconds()), estimated_time)
                 print(m) if self._logger is None else self._logger.info(m)
 
             # Write info
             if iframe%self._freq == 0:
                 elapsed_time = datetime.datetime.now() - s
-                m = "\tIFRAME: {0:d} in {1:s} seconds".format \
-                    (iframe, str(elapsed_time.total_seconds()))
+                m = "\tIFRAME: {1:d} of {0:d} in {2:s} seconds".format \
+                    (nframes_analysed, iframe, str(elapsed_time.total_seconds()))
                 print(m) if self._logger is None else self._logger.info(m)
 
             # If pbc is false it is assumed that the trajectory is unwrapped
@@ -623,7 +629,7 @@ class BondedDistributions(pag.Calculations):
 
                 iserror3 = self.dihDist(self._dihedral2DArray, X1, Y1, Z1, self._dihHist)
 
-        # Get an aaray with all dihedral in the backbone serted by the first column
+        # Get an aaray with all dihedral in the backbone sorted by the first column
         idx = -1
         if dihdistneigh:
             # Read allbbdihedrals:
@@ -648,9 +654,12 @@ class BondedDistributions(pag.Calculations):
                             except ValueError:
                                 break
                             except IndexError:
-                                m = "\t\t{} not label in {} index file".format(dihdist_label, ndx_filename)
-                                print(m) if self._logger is None else self._logger.error(m)
-                                exit()
+                                if idx == len(contents):
+                                    break
+                                else:
+                                    m = "\t\t{} not label in {} index file".format(dihdist_label, ndx_filename)
+                                    print(m) if self._logger is None else self._logger.error(m)
+                                    exit()
                         self._dihedral2DAllbb = \
                             np.array(self._dihedral2DAllbb, dtype=np.int32)
                     else:
@@ -695,6 +704,7 @@ class BondedDistributions(pag.Calculations):
             self._dihlabels1DArray = np.zeros(len(self._dihedral2DAllbb), dtype=np.int32)
             iserror3 = self.dihDistNeigh(self._dihedral2DAllbb, X1, Y1, Z1,
                                          self._dihvalues1DArray, self._dihlabels1DArray)
+
             self._classify_torsions(self._dihedral2DAllbb, self._dihlabels1DArray)
 
     # #######################################################################
@@ -972,7 +982,6 @@ class BondedDistributions(pag.Calculations):
         line = ""
         idx = 0
         with open("Dist_Dyads_{}.dat".format(name), "w") as f:
-            print("F")
             line = "0 tt {0:d} {1:7.5f}\n". \
                 format(self._dyadsDict["tt"], float(self._dyadsDict["tt"] / float(totaldiah)))
             line += "1 gg {0:d} {1:7.5f}\n". \
@@ -1157,11 +1166,20 @@ class BondedDistributions(pag.Calculations):
                                  str(self._angleHist[i]*(1.0/np.sum(self._angleHist))*(1.0/self._deltaAngle))+"\n")
         if type == "dihedral":
             self._filenameDihedralDist = "Dist_Dihedral_{}.dat".format(ikey)
+            ddist_range = list()
+            for i in self._ddist:
+                if i >= 180:
+                    ddist_range.append(int(i-360))
+                else:
+                    ddist_range.append(int(i))
+
             with open(self._filenameDihedralDist, 'w') as f:
                 for i in range(0,self._maxbinDih):
                     if np.sum(self._dihHist) != 0:
-                        f.writelines(str(self._ddist[i])+" "+str(self._dihHist[i])+" "+\
-                                     str(self._dihHist[i]*(1.0/np.sum(self._dihHist))*(1.0/self._deltaDih))+"\n")
+                        line = "{0:>4d}  {1:>4d}  {2:>10d}  {3:>.3e}\n".\
+                            format(int(self._ddist[i]), ddist_range[i], self._dihHist[i],
+                                   self._dihHist[i]*(1.0/np.sum(self._dihHist))*(1.0/self._deltaDih) )
+                        f.writelines(line)
         if type == "improper":
             self._filenameImproperDist = "Dist_Improper_{}.dat".format(ikey)
             with open(self._filenameImproperDist, 'w') as f:
@@ -1174,11 +1192,3 @@ class BondedDistributions(pag.Calculations):
         #     if np.sum(self._dihHistFlory) != 0:
         #         self._fileDihDistFlory.writelines(str(self._ddistFlory[i])+" "+str(self._dihHistFlory[i])+" "+\
         #                                           str(self._dihHistFlory[i]*(1.0/np.sum(self._dihHistFlory))*(1.0/self._deltaDih))+"\n")
-
-
-
-        # self._fileBondDist.close()
-        # self._fileAngleDist.close()
-        # self._fileDihDist.close()
-        # self._fileDihDistFlory.close()
-        # self._fileImpDist.close()

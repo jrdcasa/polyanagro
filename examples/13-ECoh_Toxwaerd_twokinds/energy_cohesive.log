@@ -1,0 +1,98 @@
+
+    ***********************************************************************
+                  Calculate the cohesive energy using GROMACS
+        -------------------------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 30-12-2023 11:50:14 ============
+
+		Command line: 
+			python energy_cohesive.py --traj traj.trr --gmxfullpath /usr/bin/gmx --tpr topol.tpr --topo Toxwaerd_twokinds_residues_replicate.top --fraction_trj_avg 0.25
+			         or
+			energy_cohesive.py --traj traj.trr --gmxfullpath /usr/bin/gmx --tpr topol.tpr --topo Toxwaerd_twokinds_residues_replicate.top --fraction_trj_avg 0.25
+
+		Starting at 30-12-2023 11:50:14 ============
+
+		 Working directory: /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/examples/13-ECoh_Toxwaerd_twokinds
+
+	*** Creating a trajectory from...
+	traj.trr
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 0.132727 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	topol.tpr
+	Number of frames: 49
+	TIME(Adding topology): 0.009506 seconds
+	*** End Adding topology
+
+	Number of frames: 49
+	TIME(Read_Trajectories): 0.142553 seconds
+	*** End Creating a trajectory 
+
+	*** Molecular weigth...
+
+	Average Molecular Weigth (g/mol) : 170.38
+	Total Molecular Mass (g/mol) : 4089.12
+
+		 Reading the tpr file (topol.tpr)
+
+		 Number of different kind of molecules: defaultdict(None, {'"system1"': 44, '"system2"': 32})
+
+		 Creating index file (index.ndx)
+
+		 Calculating intramolecular potential energy of the isolated chains. (30-12-2023 11:50:14)
+			 Join trajectories to trj_full.xtc. (30-12-2023 11:50:14)
+			 Calculating energy for molecule 1 of 24. (30-12-2023 11:50:14)
+			 Calculating energy for molecule 2 of 24. (30-12-2023 11:50:15)
+			 Calculating energy for molecule 3 of 24. (30-12-2023 11:50:15)
+			 Calculating energy for molecule 4 of 24. (30-12-2023 11:50:16)
+			 Calculating energy for molecule 5 of 24. (30-12-2023 11:50:16)
+			 Calculating energy for molecule 6 of 24. (30-12-2023 11:50:17)
+			 Calculating energy for molecule 7 of 24. (30-12-2023 11:50:18)
+			 Calculating energy for molecule 8 of 24. (30-12-2023 11:50:18)
+			 Calculating energy for molecule 9 of 24. (30-12-2023 11:50:19)
+			 Calculating energy for molecule 10 of 24. (30-12-2023 11:50:20)
+			 Calculating energy for molecule 11 of 24. (30-12-2023 11:50:21)
+			 Calculating energy for molecule 12 of 24. (30-12-2023 11:50:22)
+			 Calculating energy for molecule 13 of 24. (30-12-2023 11:50:23)
+			 Calculating energy for molecule 14 of 24. (30-12-2023 11:50:25)
+			 Calculating energy for molecule 15 of 24. (30-12-2023 11:50:27)
+			 Calculating energy for molecule 16 of 24. (30-12-2023 11:50:28)
+			 Calculating energy for molecule 17 of 24. (30-12-2023 11:50:29)
+			 Calculating energy for molecule 18 of 24. (30-12-2023 11:50:29)
+			 Calculating energy for molecule 19 of 24. (30-12-2023 11:50:30)
+			 Calculating energy for molecule 20 of 24. (30-12-2023 11:50:30)
+			 Calculating energy for molecule 21 of 24. (30-12-2023 11:50:31)
+			 Calculating energy for molecule 22 of 24. (30-12-2023 11:50:31)
+			 Calculating energy for molecule 23 of 24. (30-12-2023 11:50:32)
+			 Calculating energy for molecule 24 of 24. (30-12-2023 11:50:32)
+		 Calculating potential energy of the full system. (30-12-2023 11:50:33)
+
+	*** Average values ***
+		 Potential Energy     (kJ/mol)     =     567.82 +-       4.10 (kJ/mol)
+		 Energy cohesive      (kJ/mol)     =     307.79 +-       1.91 (kJ/mol)
+		 Molar volume         (cm^3/mol)   =   87948.38 +-       0.00 (cm^3/mol)
+		 CED                  (J/cm^3)     =       3.50 +-       0.02 (J/cm^3)
+		 Solubility parameter (J/cm^3)^0.5 =       1.87 +-       0.01 (J/cm^3)^0.5
+
+		Job  Done at 30-12-2023 11:50:34 ============
+

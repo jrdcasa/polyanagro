@@ -41,7 +41,10 @@ class Custom_Plots(Figure):
             if ymin == ymax:
                 return None
             self._ax.set_ylim((ymin, ymax))
-            self._ax.plot(xdata[begin:], ydata[begin:])
+            xdata_np = xdata.to_numpy()
+            ydata_np = ydata.to_numpy()
+            idx_begin = np.int(np.where(xdata_np == begin)[0])
+            self._ax.plot(xdata_np[idx_begin:], ydata_np[idx_begin:])
             filename = os.path.join(path_to_save, '{}.png'.format(ylabel.split()[0]))
             self._fig.savefig(filename, dpi=self._fig.dpi)
             plt.close()

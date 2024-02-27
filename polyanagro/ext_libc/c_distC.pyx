@@ -19,6 +19,8 @@ cdef extern from "calc_dist.c":
     int c_tacticity(int natoms, int ndih, int dim4, int * dl, double * x, double * y, double * z, int * dihhist)
     double dihedral(double x1, double y1, double z1, double x2, double y2, double z2, double x3, double y3, double z3,
                     double x4, double y4, double z4)
+    int c_test_dihedrals(int natoms, int ndih, int dim4, int * dl, double * x, double * y, double * z,
+                       double * dihvalues, int * dihlabels)
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
@@ -95,11 +97,13 @@ def dihDistC(np.ndarray[int, ndim=2, mode="c"] dl, np.ndarray[double, ndim=1] x,
 
     return iserror
 
+
 ####################################################################################
 def dihDistCNeigh(np.ndarray[int,ndim=2, mode="c"] dl, np.ndarray[double,ndim=1] x,\
                   np.ndarray[double,ndim=1] y, np.ndarray[double,ndim=1] z, \
                   np.ndarray[double,ndim=1] dihvalues, np.ndarray[int,ndim=1] dihlabels):
 
+  # Dihedral range [0..360]
   cdef int ndih = len(dl)
   cdef int natoms = len(x)
   cdef int dim4 = 3
@@ -136,6 +140,7 @@ def dihedralC(double x1, double y1, double z1,
 ####################################################################################
 def tactDistC(np.ndarray[int, ndim=2, mode='c'] dl, np.ndarray[double, ndim=1] x, \
               np.ndarray[double, ndim=1] y, np.ndarray[double, ndim=1] z, np.ndarray[int, ndim=1] dhist):
+
     cdef int ndih = len(dl)
     cdef int natoms = len(x)
     cdef int dim4 = 3
@@ -144,3 +149,20 @@ def tactDistC(np.ndarray[int, ndim=2, mode='c'] dl, np.ndarray[double, ndim=1] x
     iserror = c_tacticity(natoms, ndih, dim4, &dl[0, 0], &x[0], &y[0], &z[0], &dhist[0])
 
     return iserror
+
+####################################################################################
+def test_dihedrals(np.ndarray[int,ndim=2, mode="c"] dl, np.ndarray[double,ndim=1] x,\
+                   np.ndarray[double,ndim=1] y, np.ndarray[double,ndim=1] z, \
+                   np.ndarray[double,ndim=1] dihvalues, np.ndarray[int,ndim=1] dihlabels):
+
+  cdef int ndih = len(dl)
+  cdef int natoms = len(x)
+  cdef int dim4 = 3
+  cdef int iserror
+
+  iserror = c_test_dihedrals(natoms, ndih, dim4, &dl[0,0], &x[0], &y[0], &z[0],
+                             &dihvalues[0], &dihlabels[0])
+
+  return iserror
+
+

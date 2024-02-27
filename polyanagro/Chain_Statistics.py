@@ -269,22 +269,22 @@ class Chain_Statistics(pag.Calculations):
         idx_f = 0
         for iframe in range(ini, nframes, self._stride):
 
-            # Estimated time (Use the 10 first frames to estimate the time)
+            # Estimated time (Use the 100 first frames to estimate the time)
             if idx_f == 0:
                 f = datetime.datetime.now()
-            if idx_f == 10:
+            if idx_f == 100:
                 elapsed_time = datetime.datetime.now() - f
-                k = int(((nframes - ini)/self._stride))/10
+                k = int(((nframes - ini)/self._stride))/100
                 estimated_time = k*elapsed_time.total_seconds()
                 m = "\tESTIMATED TIME using {0:d} frames ({1:s} seconds): {2:.2f} seconds".format \
-                    (10, str(elapsed_time.total_seconds()), estimated_time)
+                    (100, str(elapsed_time.total_seconds()), estimated_time)
                 print(m) if self._logger is None else self._logger.info(m)
 
             # Write info
             if iframe%self._freq == 0:
                 elapsed_time = datetime.datetime.now() - s
-                m = "\tIFRAME: {0:d} in {1:s} seconds".format \
-                    (iframe, str(elapsed_time.total_seconds()))
+                m = "\tIFRAME: {1:d} of {0:d} in {2:s} seconds".format \
+                    (nframes_analysed, iframe, str(elapsed_time.total_seconds()))
                 print(m) if self._logger is None else self._logger.info(m)
 
             # If pbc is false it is assumed that the trajectory is unwrapped
@@ -655,21 +655,21 @@ class Chain_Statistics(pag.Calculations):
             with open(filename, 'w') as f:
                 f.writelines("#  Number of backbone atoms:{}, calc_distances:{}, lavg :{}\n".
                              format(natbb_avg, calc_distances, lavg))
-                f.writelines("#  iFrame          Time(ps)     <Ree^2>/nl^2     6.0*<Rg^2>/nl^2      Cn_formula\n")
-                f.writelines("#===============================================================================\n")
+                f.writelines("#  iFrame          Time(ps)     <Ree^2>/nl^2     6.0*<Rg^2>/nl^2      Cn_formula    n    l^2(A)\n")
+                f.writelines("#==============================================================================================\n")
 
-                f.writelines("{0:10d}   {1:>12.3f}   {2:>10.2f}   {3:>10.2f}    {4:>10.2f}\n".format(
+                f.writelines("{0:10d}   {1:>12.3f}   {2:>10.2f}   {3:>10.2f}    {4:>10.2f}   {5:>10.1f}    {6:>6.3f}\n".format(
                     iframe, i,
                     self._ree2_frame[iframe][0] / (natbb_bonds_avg * lavg2),
                     6.0 * self._rg2_frame[iframe][0] / (natbb_bonds_avg * lavg2),
-                    cn_uu))
+                    cn_uu, natbb_bonds_avg, lavg2))
         else:
             with open(filename, 'a') as f:
-                f.writelines("{0:10d}   {1:>12.3f}   {2:>10.2f}   {3:>10.2f}    {4:>10.2f}\n".format(
+                f.writelines("{0:10d}   {1:>12.3f}   {2:>10.2f}   {3:>10.2f}    {4:>10.2f}   {5:>10.1f}    {6:>6.3f}\n".format(
                     iframe, i,
                     self._ree2_frame[iframe][0] / (natbb_bonds_avg * lavg2),
                     6.0 * self._rg2_frame[iframe][0] / (natbb_bonds_avg * lavg2),
-                    cn_uu))
+                    cn_uu, natbb_bonds_avg, lavg2))
 
     # # #########################################################################
     # def odf_intra_cython(self, initframe=0, endframe=None, stride=1, filename="odf_intra.dat"):

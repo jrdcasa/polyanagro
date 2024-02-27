@@ -134,6 +134,12 @@ double dihedral(double x1, double y1, double z1,\
                 double x4, double y4, double z4)
 {
     //Dihedral angle between -180 to 180 with 0 being the cis conformation
+    //                 R
+    //                 |
+    //           (center-bond)        clockwise from 180 --> Positive
+    //                 |          anticlockwise from 180 --> Negative
+    //                 R' (180º)
+    // The same results than dihedral2 and dihedral3 functions.
 
     // Variables
     double delx1, delx2, delx3, delx2m;
@@ -143,7 +149,8 @@ double dihedral(double x1, double y1, double z1,\
     double ax, ay, az;
     double bx, by, bz;
     double rasq, rbsq,rgsq, rg;
-    double rginv, ra2inv, rb2inv, rabinv;
+    //double rginv, ra2inv, rb2inv, rabinv;
+    double ra2inv, rb2inv, rabinv;
     double c,s;
 
     //printf("# =======================================\n");
@@ -185,8 +192,9 @@ double dihedral(double x1, double y1, double z1,\
     rgsq = delx2m*delx2m + dely2m*dely2m + delz2m*delz2m;
     rg = sqrt(rgsq);
 
-    rginv = ra2inv = rb2inv = 0.0;
-    if (rg > 0) rginv = 1.0/rg;
+    //rginv = ra2inv = rb2inv = 0.0;
+    //if (rg > 0) rginv = 1.0/rg;
+    ra2inv = rb2inv = 0.0;
     if (rasq > 0) ra2inv = 1.0/rasq;
     if (rbsq > 0) rb2inv = 1.0/rbsq;
     rabinv = sqrt(ra2inv*rb2inv);
@@ -219,6 +227,12 @@ double dihedral2(double x1, double y1, double z1,\
                  double x4, double y4, double z4)
 {
     //Dihedral angle between -180 to 180 with 0 being the cis conformation
+    //                 R
+    //                 |
+    //           (center-bond)        clockwise from 180 --> Positive
+    //                 |          anticlockwise from 180 --> Negative
+    //                 R' (180º)
+    // The same results than dihedral and dihedral3 functions.
 
     // Variables
     double del1[3], del2[3], del3[3];
@@ -266,6 +280,12 @@ double dihedral3(double x1, double y1, double z1,\
                  double x4, double y4, double z4)
 {
     //Dihedral angle between -180 to 180 with 0 being the cis conformation
+    //                 R
+    //                 |
+    //           (center-bond)        clockwise from 180 --> Positive
+    //                 |          anticlockwise from 180 --> Negative
+    //                 R' (180º)
+    // The same results than dihedral and dihedral2 functions.
 
     // Variables
     double del1[3], del2[3], del3[3];
@@ -307,6 +327,54 @@ double dihedral3(double x1, double y1, double z1,\
 }
 
 /* ********************************************************************************************/
+int c_test_dihedrals(int natoms, int ndih,int dim3, int* dl, double* x, double* y, double* z,
+                      double* dihvalues, int* dihlabel)
+{
+
+   int atom1, atom2, atom3, atom4;
+   int index;
+   int idih;
+   double ad1 = 0.0;
+   double ad2 = 0.0;
+   double ad3 = 0.0;
+
+   index = 0;
+
+   // Calculate the dihedral angles using the three implemented functions
+   // and print them on the screen
+   for (idih=0; idih < ndih; idih++) {
+
+     atom1 = dl[index+0];
+     atom2 = dl[index+1];
+     atom3 = dl[index+2];
+     atom4 = dl[index+3];
+     index += 4;
+
+     ad1 = dihedral(x[atom1], y[atom1], z[atom1],\
+                   x[atom2], y[atom2], z[atom2],\
+                   x[atom3], y[atom3], z[atom3],\
+                   x[atom4], y[atom4], z[atom4]);
+
+     ad2 = dihedral2(x[atom1], y[atom1], z[atom1],\
+                   x[atom2], y[atom2], z[atom2],\
+                   x[atom3], y[atom3], z[atom3],\
+                   x[atom4], y[atom4], z[atom4]);
+
+     ad3 = dihedral3(x[atom1], y[atom1], z[atom1],\
+                   x[atom2], y[atom2], z[atom2],\
+                   x[atom3], y[atom3], z[atom3],\
+                   x[atom4], y[atom4], z[atom4]);
+
+     printf("%d %d %d %d\n",atom1,atom2,atom3,atom4);
+     printf("%6.3f, %6.3f, %6.3f\n",ad1, ad2, ad3);
+
+   }
+
+   printf("******\n");
+
+   return 1;
+
+}
 
 
 /* ********************************************************************************************/
@@ -329,7 +397,8 @@ void add_vectors(double* a, double* b, double* c)
 
 
 /* ********************************************************************************************/
-int c_bondDist(int natoms, int nbonds,int dim2, int* bl, double* x, double* y, double* z, int* bondhist)
+int c_bondDist(int natoms, int nbonds,int dim2, int* bl, double* x, double* y,
+               double* z, int* bondhist)
 {
 
   int ibond;
@@ -427,12 +496,14 @@ int c_angleDist_omp(int natoms, int nangles,int dim2, int* al, double* x, double
   int atom2;
   int atom3;
   int index;
-  int tid = 0;
+  int tid;
   double a;
   int i,j;
   int local_anglehist[4][numbin_angle];
 
   int angleArray[nangles][3];
+
+  tid = 0;
 
   for (i = 0; i<4; i++) {
         for (j=0; j<numbin_angle; j++) {
@@ -460,6 +531,7 @@ int c_angleDist_omp(int natoms, int nangles,int dim2, int* al, double* x, double
     tid = omp_get_thread_num();
 
     #pragma omp for nowait private(atom1,atom2,atom3,a,ibin, iangle,tid)
+
     for (iangle=0; iangle < nangles; iangle++) {
 
       atom1 = angleArray[iangle][0];
@@ -474,7 +546,6 @@ int c_angleDist_omp(int natoms, int nangles,int dim2, int* al, double* x, double
       local_anglehist[tid][ibin]++;
 
     }
-
 
   }
 
@@ -491,6 +562,8 @@ int c_angleDist_omp(int natoms, int nangles,int dim2, int* al, double* x, double
 /* ********************************************************************************************/
 int c_dihDist(int natoms, int ndih,int dim3, int* dl, double* x, double* y, double* z, int* dihhist)
 {
+
+   // Dihedral range [0..360]
 
    int atom1, atom2, atom3, atom4;
    int index;
@@ -563,10 +636,11 @@ int c_dihDistNeigh(int natoms, int ndih,int dim3, int* dl, double* x, double* y,
                    double* dihvalues, int* dihlabel)
 {
 
+   // Dihedral range [0..360]
+
    int atom1, atom2, atom3, atom4;
    int index;
    int idih;
-   int ibin;
    double ad = 0.0;
 
    index = 0;
@@ -631,6 +705,7 @@ int c_dihDistNeigh(int natoms, int ndih,int dim3, int* dl, double* x, double* y,
 
 }
 
+
 /* ********************************************************************************************/
 int c_dihDistFlory(int natoms, int ndih,int dim3, int* dl, double* x, double* y, double* z, int* dihhist)
 {
@@ -640,7 +715,7 @@ int c_dihDistFlory(int natoms, int ndih,int dim3, int* dl, double* x, double* y,
    int idih;
    double phi1  = 0.0;
    double phi1p = 0.0;
-   double phi1p_b = 0.0;
+   /*double phi1p_b = 0.0;*/
    double phi1_n  = 0.0;
    double phi1p_n = 0.0;
    double psi1  = 0.0;
@@ -676,10 +751,10 @@ int c_dihDistFlory(int natoms, int ndih,int dim3, int* dl, double* x, double* y,
                       x[ip1], y[ip1], z[ip1],\
                       x[ip2], y[ip2], z[ip2]);
 
-     phi1p_b = dihedral2(x[ip2], y[ip2], z[ip2],\
+   /*  phi1p_b = dihedral2(x[ip2], y[ip2], z[ip2],\
                       x[ip1]  , y[ip1]  , z[ip1]  ,\
                       x[i], y[i], z[i],\
-                      x[im1], y[im1], z[im1]);
+                      x[im1], y[im1], z[im1]);*/
 
      psi1 =  dihedral2(x[i]    , y[i]    , z[i]  ,\
                        x[ip1]  , y[ip1]  , z[ip1],\

@@ -104,7 +104,7 @@ class Map_Density(pag.Calculations):
         self._dihedral_psi_2DArray = np.array(self._dihedral_psi_2DArray, dtype=np.int32)
 
     # #######################################################################
-    def calculate(self, begin=0, unwrap_pbc=True, ndx_filename=None):
+    def calculate(self, begin=0, unwrap_pbc=True, ndx_filename=None, half_dihedral=False):
 
         """
          Calculate a 2D Map of distributions
@@ -114,6 +114,12 @@ class Map_Density(pag.Calculations):
         """
 
         nframes = self._trajectory.get_numframes()
+        if self._stride == 1:
+            nframes_analysed = nframes
+        else:
+            nframes_analysed = int(((nframes - begin) / self._stride)) + 1
+        m = "\t Num of frames to analyse: {}".format(nframes_analysed)
+        print(m) if self._logger is None else self._logger.info(m)
         natoms = self._trajectory.natoms
 
         # Start calculations for each frame
@@ -133,22 +139,22 @@ class Map_Density(pag.Calculations):
 
         for iframe in range(ini, nframes, self._stride):
 
-            # Estimated time (Use the 10 first frames to estimate the time)
+            # Estimated time (Use the 100 first frames to estimate the time)
             if idx_f == 0:
                 f = datetime.datetime.now()
-            if idx_f == 10:
+            if idx_f == 100:
                 elapsed_time = datetime.datetime.now() - f
-                k = int(((nframes - ini)/self._stride))/10
+                k = int(((nframes - ini)/self._stride))/100
                 estimated_time = k*elapsed_time.total_seconds()
                 m = "\tESTIMATED TIME using {0:d} frames ({1:s} seconds): {2:.2f} seconds".format \
-                    (10, str(elapsed_time.total_seconds()), estimated_time)
+                    (100, str(elapsed_time.total_seconds()), estimated_time)
                 print(m) if self._logger is None else self._logger.info(m)
 
             # Write info
             if iframe%self._freq == 0:
                 elapsed_time = datetime.datetime.now() - s
-                m = "\tIFRAME: {0:d} in {1:s} seconds".format \
-                    (iframe, str(elapsed_time.total_seconds()))
+                m = "\tIFRAME: {1:d} of {0:d} in {2:s} seconds".format \
+                    (nframes_analysed, iframe, str(elapsed_time.total_seconds()))
                 print(m) if self._logger is None else self._logger.info(m)
 
             # If pbc is false it is assumed that the trajectory is unwrapped
@@ -174,9 +180,34 @@ class Map_Density(pag.Calculations):
             for i in range(0, isize):
                 self._dihedralgrid.append([self._dihvalues1DArray[i], dihvaluespsi1DArray[i]])
 
-        stat, x_edge, y_edge = self._write2DHist()
-        self._writeMultiHist(stat, x_edge, y_edge)
         self._writeDyadStatistics()
+        # ================== Half dihedral ==================
+        # Range [-180..180]
+
+        if half_dihedral:
+            xse = [-180.0, 180.0]
+            yse = [-180.0, 180.0]
+            ddist_range_tmp = list()
+            for idih in self._dihedralgrid:
+                l_tmp = []
+                for j in range(0, 2):
+                    if idih[j] >= 180.:
+                        l_tmp.append(idih[j] - 360.)
+                    else:
+                        l_tmp.append(idih[j])
+                ddist_range_tmp.append(l_tmp)
+            self._dihedralgrid = ddist_range_tmp
+            stat, density, x_edge, y_edge, xrandom_elements, yrandom_elements = \
+                self._write2DHist(xse=xse, yse=yse)
+            self._writeMultiHist(stat, x_edge, y_edge, xse=xse, yse=yse)
+        else:
+            xse = [0.0, 360.0]
+            yse = [0.0, 360.0]
+            stat, density, x_edge, y_edge, xrandom_elements, yrandom_elements = \
+                self._write2DHist(xse=xse, yse=yse)
+            self._writeMultiHist(stat, x_edge, y_edge, xse=xse, yse=yse)
+
+        self._writeGNUPlot(stat, density, x_edge, y_edge, xrandom_elements, yrandom_elements, xse=xse, yse=yse)
 
     ########################################################################
     @staticmethod
@@ -188,7 +219,7 @@ class Map_Density(pag.Calculations):
         return iserror
 
     ########################################################################
-    def _write2DHist(self, nxplots=2, nyplots=3):
+    def _write2DHist(self, nxplots=2, nyplots=3, xse=[0.0, 360.0], yse=[0.0, 360.0]):
 
         starttime = datetime.datetime.now()
 
@@ -196,10 +227,10 @@ class Map_Density(pag.Calculations):
         x = [i[0] for i in self._dihedralgrid]
         y = [i[1] for i in self._dihedralgrid]
         # This is a dirty trick to include the limits in the map
-        x.append(0)
-        x.append(360.0)
-        y.append(0)
-        y.append(360.0)
+        x.append(xse[0])
+        x.append(xse[1])
+        y.append(yse[0])
+        y.append(yse[1])
 
         fig, axs = plt.subplots(nxplots, nyplots, figsize=(26, 16))
 
@@ -216,25 +247,30 @@ class Map_Density(pag.Calculations):
         density = stat / total_points
 
         # Add labels and titles
-        xticks_labels = np.linspace(0, 360, 7)
+        xticks_labels = np.linspace(xse[0], xse[1], 7)
+        yticks_labels = np.linspace(yse[0], yse[1], 7)
         for i in range(0, nxplots):
             for j in range(0, nyplots):
                 axs[i, j].set_xlabel(r'$\phi$ (º)')
                 axs[i, j].set_ylabel(r'$\psi$ (º)')
-                axs[i, j].set_xlim(0, 360)
+                axs[i, j].set_xlim(xse[0], xse[1])
                 axs[i, j].set_xticks(xticks_labels)
-                axs[i, j].set_yticks(xticks_labels)
-                axs[i, j].set_ylim(0, 360)
+                axs[i, j].set_yticks(yticks_labels)
+                axs[i, j].set_ylim(yse[0], yse[1])
 
         # Plots
-        if len(x) < 5000:
+        npoints = 15000
+        step_size = len(x) // npoints
+        npoints_real = len(list(range(0, len(x), step_size)))
+        if len(x) <= npoints_real:
             c0 = axs[0,0].scatter(x, y, 2, marker='o', color='black')
-            axs[0, 0].set_title('All points')
+            axs[0, 0].set_title('All points ({})'.format(npoints_real))
+            xrandom_elements = x
+            yrandom_elements = y
         else:
-            # xrandom_elements = random.sample(x, 5000)
+            # xrandom_elements = random.sample(x, 15000)
             # random_indices = [x.index(element) for element in xrandom_elements]
             # yrandom_elements = [y[idx] for idx in random_indices]
-            step_size = len(x) // 5000
             indices = list(range(0, len(x), step_size))
             xrandom_elements = []
             yrandom_elements = []
@@ -242,7 +278,7 @@ class Map_Density(pag.Calculations):
                 xrandom_elements.append(x[i])
                 yrandom_elements.append(y[i])
             c0 = axs[0,0].scatter(xrandom_elements, yrandom_elements, 2, marker='o', color='black')
-            axs[0, 0].set_title('Only 5000 points randomly sampled')
+            axs[0, 0].set_title('Only {} points randomly sampled'.format(npoints_real))
         c1 = axs[0,1].pcolormesh(x_center, y_center, stat.T, cmap='twilight', shading='auto')
         c2 = axs[0,2].pcolormesh(x_center, y_center, density.T, cmap='twilight', shading='auto')
         levels = np.linspace(0, np.max(stat.T), 10)
@@ -269,7 +305,7 @@ class Map_Density(pag.Calculations):
         # Calculate the total number of points
         total_points = len(x)
         # Normalize the counts to get the density
-        density = hist / total_points
+        density_b = hist / total_points
 
         # Construct arrays for the anchor positions of the bars.
         xpos, ypos = np.meshgrid(xedges[:-1] + 0.25, yedges[:-1] + 0.25, indexing="ij")
@@ -279,16 +315,16 @@ class Map_Density(pag.Calculations):
 
         # Construct arrays with the dimensions for the bars.
         dx = dy = 0.5 * np.ones_like(zpos)
-        dz = density.ravel()
+        dz = density_b.ravel()
         axs[1,1].remove()
         axs[1,1] = fig.add_subplot(235, projection="3d")
         axs[1, 1].set_xlabel(r'$\phi$ (º)')
         axs[1, 1].set_ylabel(r'$\psi$ (º)')
         axs[1, 1].set_ylabel(r'Density')
-        axs[1, 1].set_xlim(0, 360)
+        axs[1, 1].set_xlim(xse[0], xse[1])
         axs[1, 1].set_xticks(xticks_labels)
         axs[1, 1].set_yticks(xticks_labels)
-        axs[1, 1].set_ylim(0, 360)
+        axs[1, 1].set_ylim(yse[0], yse[1])
 
         axs[1,1].bar3d(xpos, ypos, zpos, dx, dy, dz, zsort='average')
         axs[1,2].remove()
@@ -303,10 +339,10 @@ class Map_Density(pag.Calculations):
         m = "\t\tTime: {0:.2f} seconds".format((endtime-starttime).total_seconds())
         print(m) if self._logger is None else self._logger.info(m)
 
-        return stat, x_edge, y_edge
+        return stat, density, x_edge, y_edge, xrandom_elements, yrandom_elements
 
     ########################################################################
-    def _writeMultiHist(self, stat, x_edge, y_edge):
+    def _writeMultiHist(self, stat, x_edge, y_edge, xse=[0.0, 360.0], yse=[0.0, 360.0]):
 
         starttime = datetime.datetime.now()
 
@@ -314,10 +350,10 @@ class Map_Density(pag.Calculations):
         x = [i[0] for i in self._dihedralgrid]
         y = [i[1] for i in self._dihedralgrid]
         # This is a dirty trick to include the limits in the map
-        x.append(0)
-        x.append(360.0)
-        y.append(0)
-        y.append(360.0)
+        x.append(xse[0])
+        x.append(xse[1])
+        y.append(yse[0])
+        y.append(yse[1])
 
         # Start with a square Figure.
         fig = plt.figure(figsize=(8, 8))
@@ -331,9 +367,9 @@ class Map_Density(pag.Calculations):
                               left=0.1, right=0.9, bottom=0.1, top=0.9,
                               wspace=0.20, hspace=0.20)
 
-
         # Create the Axes.
-        ax = fig.add_subplot(gs[1, 0], xlim=(0, 360), ylim=(0, 360), xlabel=r'$\phi$ (º)', ylabel=r'$\psi$ (º)')
+        ax = fig.add_subplot(gs[1, 0], xlim=(xse[0], xse[1]), ylim=(yse[0], yse[1]),
+                             xlabel=r'$\phi$ (º)', ylabel=r'$\psi$ (º)')
         ax.pcolormesh(x_edge, y_edge, stat.T, cmap='twilight', shading='auto')
 
         ax_histx = fig.add_subplot(gs[0, 0], sharex=ax, ylabel=r'PDF')
@@ -355,7 +391,6 @@ class Map_Density(pag.Calculations):
         ax_histx.bar(binx[:-1], histx, width=(binx[1] - binx[0]), color="black")
         ax_histy.barh(biny[:-1], histy, height=(bins[1] - bins[0]), color="black")
 
-
 #        ax_histx.hist(x, bins=bins, , color="black", )
 #        ax_histy.hist(y, bins=bins, orientation='horizontal', density=True, color="black")
 
@@ -370,6 +405,8 @@ class Map_Density(pag.Calculations):
 
     ########################################################################
     def _writeDyadStatistics(self):
+
+        label_dyads = ["ug", "tg", "ut", "uu", "gg", "gt", "tt", "tu", "gu"]
 
         # Classify the angles
         for item in self._dihedralgrid:
@@ -386,6 +423,10 @@ class Map_Density(pag.Calculations):
                 self._dyadsDict[label] += 1
             else:
                 self._dyadsDict[label] = 1
+
+        for ilabel in label_dyads:
+            if ilabel not in self._dyadsDict.keys():
+                self._dyadsDict[ilabel] = 0
 
         # Write the data
         totaldiah = sum([item for key, item in self._dyadsDict.items()])
@@ -420,3 +461,107 @@ class Map_Density(pag.Calculations):
                        float(self._dyadsDict["ug"] / float(totaldiah))*100)
             f.writelines(line)
 
+    ########################################################################
+    def _writeGNUPlot(self, stat, density, xedge, yedge, xr, yr, xse=[0.0, 360.0], yse=[0.0, 360.0]):
+
+        # Real data from trajectory
+        x = [i[0] for i in self._dihedralgrid]
+        y = [i[1] for i in self._dihedralgrid]
+
+        # Write data of the random points generated =================
+        filename_random = 'gnuplot_{}_vs_{}_random.dat'.format(self._phi_name, self._psi_name)
+        with open(filename_random, 'w') as fname:
+            for idx in range(0, len(xr)):
+                line = "{0:1f} {1:1f}\n".format(xr[idx], yr[idx])
+                fname.writelines(line)
+
+        # Write data 2D histogram frequency map =====================
+        filename = 'gnuplot_{}_vs_{}_xedges.dat'.format(self._phi_name, self._psi_name)
+        with open(filename, "w") as fname:
+            for idx in range(0, len(xedge)):
+                line = "{0:1f}\n".format(xedge[idx])
+                fname.writelines(line)
+
+        filename = 'gnuplot_{}_vs_{}_yedges.dat'.format(self._phi_name, self._psi_name)
+        with open(filename, "w") as fname:
+            for idx in range(0, len(yedge)):
+                line = "{0:1f}\n".format(yedge[idx])
+                fname.writelines(line)
+
+        filename_binned = 'gnuplot_{}_vs_{}_binned.dat'.format(self._phi_name, self._psi_name)
+        np.savetxt(filename_binned, np.transpose(stat))
+
+        filename_density = 'gnuplot_{}_vs_{}_density.dat'.format(self._phi_name, self._psi_name)
+        np.savetxt(filename_density, np.transpose(density))
+
+        # Data for contour ==================================
+        xlen, ylen = np.shape(stat)
+        filename_data = 'gnuplot_{}_vs_{}_data.dat'.format(self._phi_name, self._psi_name)
+        with open(filename_data, "w") as ff:
+            for ix in range(0, xlen):
+                for iy in range(0, ylen):
+                    if stat[ix,iy] == 0: continue
+                    line = "{} {} {}\n".format(xedge[ix], yedge[iy], stat[ix, iy])
+                    ff.writelines(line)
+            ff.writelines("\n")
+
+         # Write gnuplot template
+        line = 'reset\n'
+        line += 'set style line 1 lt 1 ps 0.4 lc rgb "black"  pt 6 lw 0.2\n'
+        line += 'set style line 2 lt 1 ps 0.4 lc rgb "red"    pt 4 lw 2.0\n'
+        line += 'set style line 3 lt 2 ps 0.4 lc rgb "blue"   pt 4 lw 2.0\n'
+        line += 'set style line 4 lt 1 ps 0.4 lc rgb "green"  pt 4 lw 2.0\n'
+        line += 'set style line 5 lt 2 ps 0.4 lc rgb "yellow" pt 4 lw 2.0\n'
+        line += 'set style line 6 lt 2 ps 0.4 lc rgb "orange" pt 4 lw 2.0\n'
+        line += '\n'
+        line += '########################################################\n'
+        line += 'set encoding utf8\n'
+        line += 'set term qt 1 enhanced dashed size 600,600 font "Arial,14"\n'
+        line += '\n'
+        line += 'set xlabel "{/Symbol f} (º)"\n'
+        line += 'set ylabel "{/Symbol y} (º)"\n'
+        line += 'set format x "%.0f"\n'
+        line += 'set format y "%.0f"\n'
+        line += 'set xrange[{0:d}:{1:d}]\n'.format(int(xse[0]), int(xse[1]))
+        line += 'set yrange[{0:d}:{1:d}]\n'.format(int(yse[0]), int(yse[1]))
+        line += 'set xtics 60\n'
+        line += 'set mxtics 6\n'
+        line += 'set ytics 60\n'
+        line += 'set mytics 6\n'
+        line += 'set grid\n'
+        line += '\n'
+        line += 'set title "{}"\n'.format("Points randomly sampled")
+        line += 'p "{}" u 1:2 w p ls 1 notitle\n'.format(filename_random)
+        line += '\n'
+        line += 'set term qt 2 enhanced dashed size 600,600 font "Arial,14"\n'
+        line += 'reset\n'
+        line += 'stats "gnuplot_phi_vs_psi_binned.dat" matrix name "STATS"\n'
+        line += 'max_frequency=STATS_max\n'
+        line += 'set view map\n'
+        line += 'set palette rgbformulae 22,13,-31\n'
+        line += 'set size ratio -1\n'
+        line += 'set xlabel "{/Symbol f} (º)"\n'
+        line += 'set ylabel "{/Symbol y} (º)"\n'
+        line += 'set format x "%.0f"\n'
+        line += 'set format y "%.0f"\n'
+        line += 'set xrange[{0:d}:{1:d}]\n'.format(int(xse[0]), int(xse[1]))
+        line += 'set yrange[{0:d}:{1:d}]\n'.format(int(yse[0]), int(yse[1]))
+        line += 'set xtics 60\n'
+        line += 'set mxtics 6\n'
+        line += 'set ytics 60\n'
+        line += 'set mytics 6\n'
+        line += 'set cbrange[1:max_frequency]\n'
+        line += 'set title "{}"\n'.format("Heat map plot")
+        line += 'splot "{}" using 1:2:3 w p pt 5 ps 0.5 palette linewidth 0 notitle\n'.format(filename_data)
+        line += '\n'
+        line += 'set term qt 3 enhanced dashed size 600,600 font "Arial,14"\n'
+        line += 'unset view\n'
+        line += 'unset title \n'
+        line += 'set hidden3d\n'
+        line += 'set zlabel "Frequency" rotate by 90\n'
+        line += 'set dgrid3d 50,50 exp\n'
+        line += 'splot "{}" with lines notitle\n'.format(filename_data)
+        line += 'pause -1\n'
+
+        with open("phi_vs_psi.gnu", 'w') as fgnu:
+            fgnu.writelines(line)

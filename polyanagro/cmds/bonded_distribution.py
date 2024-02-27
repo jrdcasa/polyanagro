@@ -87,7 +87,7 @@ def parse_arguments():
                         action="store", required=False, default="pol_bonddist_gen.log")
 
     calc.add_argument("--unwrap", dest="isunwrap", type=str2bool,
-                        help="If True the coordinates are unwrapped",
+                        help="If True the coordinates provided are unwrapped",
                         required=True, metavar="True or False, 1 or 0")
 
     args = parser.parse_args()
@@ -292,8 +292,6 @@ def main_app():
                 objdist.calculate(begin=0, typelabel="dihedral", unwrap_pbc=isunwrap,
                                   ndx_filename = ndxfilename,
                                   dist_name=item, dihdistneigh=dihdistneigh)
-
-                print("S")
 
                 del objdist
 

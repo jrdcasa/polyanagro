@@ -1,15 +1,16 @@
 import math
 import numpy as np
+import polyanagro as pag
 
-class MSD(object):
+class MSD(pag.Calculations):
 
     r"""Class to calculate the mean square displacement"""
 
     # =============================================================================================
-    def __init__(self, universe, list_atoms = None,
+    def __init__(self, trj, isnotjump, list_atoms = None,
                  shift_atoms_from_center= None, method="multiple_window",
                  number_of_block_elements = 10,
-                 number_of_blocks = 10):
+                 number_of_blocks = 10, logger=None):
 
         r"""Constructor of the msd object
 
@@ -34,8 +35,10 @@ class MSD(object):
 
         implemented_methods = ["multiple_window", "classical"]
 
-        self.universe = universe
-        self.dt = universe.trajectory.dt #in ps
+        self._trajectory = trj
+        self.dt = self._trajectory.universe.trajectory.dt #in ps
+        self._isnotjump = isnotjump
+        self._logger = logger
 
         if list_atoms is not None:
             print("list_atoms")
@@ -45,8 +48,12 @@ class MSD(object):
             self.s_atoms = None
         else:
             print("All atoms are considered")
-            self.s_atoms = universe.select_atoms("index 0")
+            self.s_atoms = self._trajectory.universe.select_atoms("index 0")
         print("msd internal ****")
+
+        if not self._isnotjump:
+            m = "\t\t The trajectory must be unwrapped and without jumps."
+            print(m) if self._logger is None else self._logger.info(m)
 
         # ====================== MULTIPLE WINDOW METHOD ===================
         if method == "multiple_window":
@@ -93,7 +100,7 @@ class MSD(object):
         """
 
         # Sampling MSD along the trajectory
-        for ts in self.universe.trajectory:
+        for ts in self._trajectory.universe.trajectory:
 
             iframe = ts.frame
 

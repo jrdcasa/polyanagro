@@ -1,0 +1,42 @@
+
+    ***********************************************************************
+                  Calculate the cohesive energy using GROMACS
+        -------------------------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 23-12-2023 23:46:15 ============
+
+		Command line: 
+			python energy_cohesive.py --gmxfullpath /usr/bin/gmx --tpr topol.tpr
+			         or
+			energy_cohesive.py --gmxfullpath /usr/bin/gmx --tpr topol.tpr
+
+		Starting at 23-12-2023 23:46:15 ============
+
+		 Working directory: /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/examples/12-ECoh_twokindmols
+
+		 Reading the tpr file (topol.tpr)
+
+		 Number of different kind of molecules: 2
+		   Molecule kind 0: 8 molecules with 14 atoms each.
+		   Molecule kind 1: 8 molecules with 13 atoms each.
+
+		 Creating index file (index.ndx)
+
+		Job  Done at 23-12-2023 23:46:15 ============
+
