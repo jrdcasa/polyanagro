@@ -24,20 +24,16 @@
   <component name="ChangeListManager">
     <list default="true" id="ad1397b9-ba54-446b-9246-9f1da47e52d0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/15-2Bond_map_sugar/pol_2DMap.log" beforeDir="false" afterPath="$PROJECT_DIR$/examples/15-2Bond_map_sugar/pol_2DMap.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/install.log" beforeDir="false" afterPath="$PROJECT_DIR$/install.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/BondedDistribution.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/BondedDistribution.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/Chain_Statistics.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/Chain_Statistics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/Custom_Plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/Custom_Plots.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/MSD.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/MSD.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/Map_Density.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/Map_Density.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/cmds/2D_torsion_density_maps.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/cmds/2D_torsion_density_maps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/cmds/bonded_distribution.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/cmds/bonded_distribution.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/polyanagro/cmds/polymer_size.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/cmds/polymer_size.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/c_acf_openmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/c_acf_openmp.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/c_distC.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/c_distC.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/c_distC.pyx" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/c_distC.pyx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/calc_dist.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/calc_dist.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/setup.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/c_internal_distances.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/c_internal_distances.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/c_rdf_openmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/c_rdf_openmp.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/c_rg_openmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/c_rg_openmp.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/c_unit_bond_vectors.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/c_unit_bond_vectors.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,16 +75,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/examples/15-2Bond_map_sugar",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/examples/15-2Bond_map_sugar&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/examples/07-Small_branchsystem_dist" />
@@ -105,7 +101,7 @@
       <recent name="$PROJECT_DIR$/data" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.bond 2d map">
+  <component name="RunManager" selected="Python.99-TEST_PDB_2">
     <configuration name="00-INSTALL" type="PythonConfigurationType" factoryName="Python">
       <module name="polyanagro" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -802,7 +798,73 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/polyanagro/cmds/polymer_size.py" />
-      <option name="PARAMETERS" value="-t ../../2022-PE_102C_040Ch_LOPLS/06-NPT_CRes_200ns_450K/traj_comp.part0001.xtc --topo ../../2022-PE_102C_040Ch_LOPLS/06-NPT_CRes_200ns_450K/new_topo.tpr --e2e ../../../01-PREPARE/listend2end.dat --c2n ../../../01-PREPARE/backbone_idx.dat --e2acf  --unwrap 1 --isodf --stride 1000" />
+      <option name="PARAMETERS" value="-t ../../2022-PE_102C_040Ch_LOPLS/06-NPT_CRes_200ns_450K/traj_comp.part0001.xtc --topo ../../2022-PE_102C_040Ch_LOPLS/06-NPT_CRes_200ns_450K/new_topo.tpr --e2e ../../../01-PREPARE/listend2end.dat --c2n ../../../01-PREPARE/backbone_idx.dat --e2acf --unwrap 1 --isodf --stride 1000" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="99-TEST_PDB" type="PythonConfigurationType" factoryName="Python">
+      <module name="polyanagro" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/../../sandboxes/sandbox_common/bin/python3" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../replicate_polymer_topology/examples/44-PDBs_as_backbone" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/polyanagro/cmds/polymer_size.py" />
+      <option name="PARAMETERS" value="-t traj_comp.part0001.xtc --topo new_topo.tpr --e2e listendtoend_replicate.dat --c2n iPP_51mon_40Ch_residues_noH_replicate.pdb --e2acf --unwrap 1 --isodf --stride 1000" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="99-TEST_PDB_2" type="PythonConfigurationType" factoryName="Python">
+      <module name="polyanagro" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/../../sandboxes/sandbox_common/bin/python3" />
+      <option name="WORKING_DIRECTORY" value="/opt/2024-MULTILAYER/iPP_cJ/04-NPT_20ns/POL_SIZE" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/polyanagro/cmds/polymer_size.py" />
+      <option name="PARAMETERS" value="-t ../traj_comp.part0001_start18ns.xtc --topo ../new_topo.tpr --c2n ../../01-INSERT_MOLECULES/iPP_initial_nocon_noH.pdb --bondorientation -d --unwrap 0 --isodf --e2e ../iPP_headtail.dat" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="99-TEST_PDB_bondlist" type="PythonConfigurationType" factoryName="Python">
+      <module name="polyanagro" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/../../sandboxes/sandbox_common/bin/python3" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../replicate_polymer_topology/examples/44-PDBs_as_backbone" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/polyanagro/cmds/polymer_size.py" />
+      <option name="PARAMETERS" value="-t traj_comp.part0001.xtc --topo new_topo.tpr --e2e listendtoend_replicate.dat --c2n backbone_idx_replicate.dat --e2acf --unwrap 1 --isodf --stride 1000" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -1195,6 +1257,9 @@
       <item itemvalue="Python.07-Small_branch_system help" />
       <item itemvalue="Python.08-neigh_sphere" />
       <item itemvalue="Python.99-TEST" />
+      <item itemvalue="Python.99-TEST_PDB" />
+      <item itemvalue="Python.99-TEST_PDB_2" />
+      <item itemvalue="Python.99-TEST_PDB_bondlist" />
       <item itemvalue="Python.01-Example_SC_PE01" />
       <item itemvalue="Python.99-VICTOR-P3HB" />
       <item itemvalue="Python.ERROR" />
@@ -1364,6 +1429,8 @@
       <workItem from="1707231375846" duration="1602000" />
       <workItem from="1708077293053" duration="2485000" />
       <workItem from="1708288297285" duration="44390000" />
+      <workItem from="1715011131216" duration="3660000" />
+      <workItem from="1715015220040" duration="1086000" />
     </task>
     <servers />
   </component>
@@ -1619,21 +1686,6 @@
           <option name="timeStamp" value="1249" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/polyanagro/cmds/polymer_size.py</url>
-          <line>254</line>
-          <option name="timeStamp" value="1250" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/polyanagro/cmds/polymer_size.py</url>
-          <line>250</line>
-          <option name="timeStamp" value="1251" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/polyanagro/cmds/polymer_size.py</url>
-          <line>245</line>
-          <option name="timeStamp" value="1252" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/polyanagro/BondedDistribution.py</url>
           <line>1175</line>
           <option name="timeStamp" value="1276" />
@@ -1647,6 +1699,16 @@
           <url>file://$PROJECT_DIR$/polyanagro/Map_Density.py</url>
           <line>471</line>
           <option name="timeStamp" value="1304" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/polyanagro/Chain_Statistics.py</url>
+          <line>202</line>
+          <option name="timeStamp" value="1309" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/polyanagro/Chain_Statistics.py</url>
+          <line>192</line>
+          <option name="timeStamp" value="1311" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="cython-line">
           <url>file://$PROJECT_DIR$/polyanagro/ext_libc/c_internal_distances.pyx</url>
@@ -1667,16 +1729,14 @@
         <watch expression="e" language="Python" />
       </configuration>
       <configuration name="PythonConfigurationType">
-        <watch expression="stat" language="Python" />
-        <watch expression="binnumber" />
-        <watch expression=" len(x)" />
-        <watch expression="stat.ravel()" language="Python" />
-        <watch expression="dx" />
-        <watch expression="dy" />
-        <watch expression="dz" />
-        <watch expression="sorted(ltmp)" />
-        <watch expression="ltmp.items()" />
-        <watch expression="xr" />
+        <watch expression="neigh" language="Python" />
+        <watch expression="iat" language="Python" />
+        <watch expression="jat" language="Python" />
+        <watch expression="queue" />
+        <watch expression="isbbatom[jat]" />
+        <watch expression="not isvisited[jat]" />
+        <watch expression="isbbatom[jat] and not isvisited[jat]" />
+        <watch expression="isbbatom" />
       </configuration>
     </watches-manager>
   </component>
@@ -1711,7 +1771,8 @@
     <SUITE FILE_PATH="coverage/polyanagro$07_Small_branch_system_gendist__1_.coverage" NAME="07-Small_branch_system gendist (1) Coverage Results" MODIFIED="1661755443292" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/07-Small_branchsystem_dist" />
     <SUITE FILE_PATH="coverage/polyanagro$test_stemgroup.coverage" NAME="test_stemgroup_test02 Coverage Results" MODIFIED="1635157929509" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/polyanagro$06_Melt_dist_generate.coverage" NAME="06-Melt dist generate Coverage Results" MODIFIED="1664555251137" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/06-Melt_100ChPE500_TrappeUA_dist" />
-    <SUITE FILE_PATH="coverage/polyanagro$bond_2d_map.coverage" NAME="bond 2d map Coverage Results" MODIFIED="1708621725531" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/15-2Bond_map_sugar" />
+    <SUITE FILE_PATH="coverage/polyanagro$bond_2d_map.coverage" NAME="bond 2d map Coverage Results" MODIFIED="1715011308425" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/15-2Bond_map_sugar" />
+    <SUITE FILE_PATH="coverage/polyanagro$99_TEST_PDB.coverage" NAME="99-TEST_PDB Coverage Results" MODIFIED="1715014278710" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../replicate_polymer_topology/examples/44-PDBs_as_backbone" />
     <SUITE FILE_PATH="coverage/polyanagro$07_Small_branch_system_calculate.coverage" NAME="07-Small_branch_system calculate Coverage Results" MODIFIED="1664787666773" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/07-Small_branchsystem_dist" />
     <SUITE FILE_PATH="coverage/polyanagro$cmds_polymer_size_big.coverage" NAME="cmds polymer_size big Coverage Results" MODIFIED="1643285174656" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/test_cmd_polymer_size_big" />
     <SUITE FILE_PATH="coverage/polyanagro$06_energy_analysis_calc_DVE_TEST.coverage" NAME="06-energy_analysis calc DVE TEST Coverage Results" MODIFIED="1704186151264" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/TMP/PP/99-MDs/99-ANALYSIS/06-DENSITY/00-TEST" />
@@ -1754,6 +1815,7 @@
     <SUITE FILE_PATH="coverage/polyanagro$cmds_polymer_size_help.coverage" NAME="cmds polymer_size help Coverage Results" MODIFIED="1642782564448" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/test_cmd_polymer_size" />
     <SUITE FILE_PATH="coverage/polyanagro$bond_dist_sugar.coverage" NAME="bond dist sugar Coverage Results" MODIFIED="1708517451366" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/opt/2024-CB_Granada/02-24MLG/03-GROMACS/99-ANALYSIS/02-BOND_DISTRIBUTION" />
     <SUITE FILE_PATH="coverage/polyanagro$bond_dist_calculate__PEO_1dih.coverage" NAME="maps calculate PEO 1Ch Coverage Results" MODIFIED="1702468513806" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Documentos/___MIS_CHARLAS___/2022-2023-Master_Polimeros_Simulacion/99-Practica02/PRACTICA_04_PEO/00-water/04-SIMULACION_charmm-gui-7873898617/04-NPT" />
+    <SUITE FILE_PATH="coverage/polyanagro$99_TEST_PDB_2.coverage" NAME="99-TEST_PDB_2 Coverage Results" MODIFIED="1715015311549" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/opt/2024-MULTILAYER/iPP_cJ/04-NPT_20ns/POL_SIZE" />
     <SUITE FILE_PATH="coverage/polyanagro$08_energy_analysis_lammps_calc.coverage" NAME="08-energy_analysis_lammps calc Coverage Results" MODIFIED="1661346841931" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/08-energy_analysis_LAMMPS" />
     <SUITE FILE_PATH="coverage/polyanagro$99_Ecoh_twokindmols.coverage" NAME="99-Ecoh_twokindmols Coverage Results" MODIFIED="1703885036920" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/12-ECoh_twokindmols" />
     <SUITE FILE_PATH="coverage/polyanagro$example_langevin.coverage" NAME="example langevin Coverage Results" MODIFIED="1656103788433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/TMP/GROMACS_VISUAL/02-500PE_1Ch_LANGEVIN_N2/01_RUN_2.0" />
@@ -1768,6 +1830,7 @@
     <SUITE FILE_PATH="coverage/polyanagro$99_Ecoh_DVE.coverage" NAME="99-Ecoh_DVE Coverage Results" MODIFIED="1705354318210" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/11-ECoh_DVE" />
     <SUITE FILE_PATH="coverage/polyanagro$06_Melt_dist.coverage" NAME="06-Melt dist generate Coverage Results" MODIFIED="1661622248259" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/06-Melt_100ChPE500_TrappeUA_dist" />
     <SUITE FILE_PATH="coverage/polyanagro$07_Small_branch_system_help.coverage" NAME="07-Small_branch_system help Coverage Results" MODIFIED="1664466248613" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/07-Small_branchsystem_dist" />
+    <SUITE FILE_PATH="coverage/polyanagro$99_TEST_PDB_bondlist.coverage" NAME="99-TEST_PDB_bondlist Coverage Results" MODIFIED="1715014249191" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../replicate_polymer_topology/examples/44-PDBs_as_backbone" />
     <SUITE FILE_PATH="coverage/polyanagro$Unittests_for_test_mdtraj_library_MDTRAJTests_test_01_UApolTrappe.coverage" NAME="Unittests for test_mdtraj_library.MDTRAJTests.test_01_UApolTrappe Coverage Results" MODIFIED="1596123827007" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/polyanagro$01_info_trj.coverage" NAME="01-info_trj gromacs Coverage Results" MODIFIED="1661428610329" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/polyanagro/cmds" />
     <SUITE FILE_PATH="coverage/polyanagro$08_neigh_sphere.coverage" NAME="08-neigh_sphere Coverage Results" MODIFIED="1662369754110" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/08-ExtractMolecules" />

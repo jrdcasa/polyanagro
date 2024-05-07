@@ -74,7 +74,7 @@ def parse_arguments():
                         action="store_true", required=False)
 
     parser.add_argument("--unwrap", dest="isunwrap", type=str2bool,
-                        help="If True the coordinates provided are unwrapped",
+                        help="If 1 the coordinates provided are wrapped in the trajectory",
                         required=True, metavar="True or False, 1 or 0")
 
     parser.add_argument("--rg_massw", dest="isrgmass",
@@ -142,7 +142,7 @@ def get_listend(args):
     return isree, isreeacf, listend2end
 
 # =============================================================================
-def get_backbone_atoms(args, natoms):
+def get_backbone_atoms(args, natoms, iatch):
 
     if args.listbb is None:
         iscn = False
@@ -168,7 +168,7 @@ def get_backbone_atoms(args, natoms):
                             n = iline.split()
                             for item in n:
                                 backbone_list_atoms[ich].append(int(item))
-                                isbbatom[int(item)] = "True"
+                                isbbatom[int(item)] = True
         # ndx files from GROMACS start at 1
         elif ext == ".ndx":
             with open(fnamepath, "r") as f:
@@ -181,10 +181,28 @@ def get_backbone_atoms(args, natoms):
                         ll = iline.split()
                         for item in ll:
                             backbone_list_atoms[ich].append(int(item)-1)
-                            isbbatom[int(item)-1] = "True"
+                            isbbatom[int(item)-1] = True
+        elif ext == ".pdb":
+            with open(fnamepath, "r") as f:
+                lines = f.readlines()
+                for iline in lines:
+                    if iline.find("ATOM") != -1 or iline.find("HETATM") != -1 :
+                        iatom = int(iline[6:11])
+                        occupancy = float(iline[54:60])
+                        tempfactor = float(iline[60:66])
+                        if tempfactor > 0.0:
+                            isbbatom[int(iatom)-1] = False
+                        else:
+                            ich = iatch[int(iatom)-1]
+                            isbbatom[int(iatom)-1] = True
+                            try:
+                                backbone_list_atoms[ich].append(int(iatom) - 1)
+                            except IndexError:
+                                backbone_list_atoms.append([])
+                                backbone_list_atoms[ich].append(int(iatom) - 1)
         else:
-            print("TODO!!!! pdb FILE AS TEMPLATE")
-
+            print("ERROR: ext {} is unknown in polymer_size.py (get_backbone_atoms())".format(ext))
+            exit()
 
     return iscn, backbone_list_atoms, isbbatom
 
@@ -248,7 +266,7 @@ def main_app():
     objcalc = pag.Chain_Statistics(trj, dt=trj.dt, stride=args.stride, log=log)
     # Check end2end and backbone lists
     isree, isreeacf, listend2end = get_listend(args)
-    iscnn, backbone_list_atoms, isbbatom = get_backbone_atoms(args, trj.topology.natoms)
+    iscnn, backbone_list_atoms, isbbatom = get_backbone_atoms(args, trj.topology.natoms, trj.topology._iatch)
     # Uwrap or not coordinates
     isunwrap = args.isunwrap
     # Calculate chain dimensions

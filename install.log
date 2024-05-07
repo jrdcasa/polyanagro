@@ -5,17 +5,18 @@
 /usr/lib/python3.10/lib-dynload
 /home/jramos/Programacion/sandboxes/sandbox_common/lib/python3.10/site-packages
 /home/jramos/Programacion/sandboxes/sandbox_common/lib/python3.10/site-packages/topology-1.0.0-py3.10-linux-x86_64.egg
-/home/jramos/Programacion/sandboxes/sandbox_common/lib/python3.10/site-packages/replicate_polymer-0.0.0-py3.10-linux-x86_64.egg
 /home/jramos/Programacion/sandboxes/sandbox_common/lib/python3.10/site-packages/polyanagro-1.1-py3.10-linux-x86_64.egg
+/home/jramos/Programacion/sandboxes/sandbox_common/lib/python3.10/site-packages/replicate_polymer-0.0.0-py3.10-linux-x86_64.egg
 
-		 INSTALLING PIP PACKAGES (22/02/2024 18:11:35)
+		 INSTALLING PIP PACKAGES (06/05/2024 19:34:59)
 
-22/02/2024 18:11:35: ** None: Installing GitPython==3.1.1
-22/02/2024 18:11:37: ** None: Installing cython==0.29.24
-22/02/2024 18:11:38: ** None: Installing h5py
-22/02/2024 18:11:40: ** None: Installing panedr
-22/02/2024 18:11:41: ** None: Installing statsmodels
+06/05/2024 19:35:00: ** None: Installing GitPython==3.1.1
+06/05/2024 19:35:01: ** None: Installing cython==0.29.24
+06/05/2024 19:35:03: ** None: Installing h5py
+06/05/2024 19:35:04: ** None: Installing panedr
+06/05/2024 19:35:05: ** None: Installing statsmodels
+06/05/2024 19:35:07: ** None: Installing MDAnalysis
 
-		 RUNNING SETUP FROM SETUPTOOLS 22/02/2024 18:11:43
+		 RUNNING SETUP FROM SETUPTOOLS 06/05/2024 19:35:08
 
 
