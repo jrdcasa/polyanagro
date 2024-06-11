@@ -24,16 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ad1397b9-ba54-446b-9246-9f1da47e52d0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/15-2Bond_map_sugar/pol_2DMap.log" beforeDir="false" afterPath="$PROJECT_DIR$/examples/15-2Bond_map_sugar/pol_2DMap.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/install.log" beforeDir="false" afterPath="$PROJECT_DIR$/install.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/cmds/polymer_size.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/cmds/polymer_size.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/c_acf_openmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/c_acf_openmp.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/c_distC.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/c_distC.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/c_internal_distances.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/c_internal_distances.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/c_rdf_openmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/c_rdf_openmp.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/c_rg_openmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/c_rg_openmp.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/c_unit_bond_vectors.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/c_unit_bond_vectors.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polyanagro/Custom_Plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/Custom_Plots.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1431,6 +1422,9 @@
       <workItem from="1708288297285" duration="44390000" />
       <workItem from="1715011131216" duration="3660000" />
       <workItem from="1715015220040" duration="1086000" />
+      <workItem from="1715277653516" duration="9000" />
+      <workItem from="1715278779597" duration="6706000" />
+      <workItem from="1718042189752" duration="496000" />
     </task>
     <servers />
   </component>
@@ -1617,7 +1611,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/polyanagro/Custom_Plots.py</url>
-          <line>129</line>
+          <line>130</line>
           <option name="timeStamp" value="1054" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">

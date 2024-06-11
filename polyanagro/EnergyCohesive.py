@@ -199,7 +199,7 @@ class EnergyCohesive:
                     exit()
 
                 # Run grompp to mdrun rerun
-                cmd04 = "gmx grompp -f {0:s} -c SC_traj_ch_{1:04d}.gro -p {2:s} -o SC_traj_ch_{1:04d}.tpr".\
+                cmd04 = "gmx grompp -f {0:s} -c SC_traj_ch_{1:04d}.gro -p {2:s} -o SC_traj_ch_{1:04d}.tpr -maxwarn 5".\
                     format("rerun.mdp", imol_global, fullpath_sctopo)
                 rs = self.call_subprocess(cmd04, cwd=workdir)
                 if len(rs[0]) == 0:
@@ -218,7 +218,7 @@ class EnergyCohesive:
                     .format(imol_global)
                 rs = self.call_subprocess(cmd06, cwd=workdir)
 
-                self._clean_files(imol_global)
+                #self._clean_files(imol_global)
 
                 if imol_global == 0:
                     # Initialize the Dataframe
@@ -360,7 +360,7 @@ class EnergyCohesive:
 
         nrows = self._dfPotential_full.shape[0]
 
-        nrows_to_avg = np.int(nrows * self._fraction_trj_avg)
+        nrows_to_avg = int(nrows * self._fraction_trj_avg)
 
         m = "\n\t\t Number of rows to average: from {0:d} to {1:d}\n".format(nrows_to_avg, nrows)
         tstart = self._dfPotential_full.iloc[nrows_to_avg, 0]
@@ -448,11 +448,11 @@ class EnergyCohesive:
 
 
     # ==================================================================================
-    def _mdp_rerun(self):
+    def _mdp_rerun(self, dt=0.001):
 
         line = "; RUN CONTROL PARAMETERS\n"
         line += "integrator               = md\n"
-        line += "dt                       = 0.002\n"
+        line += "dt                       = {}\n".format(dt)
         line += "nsteps                   = 0\n"
         line += "tinit                    = 0\n"
         line += "init-step                = 0\n"
@@ -510,6 +510,19 @@ class EnergyCohesive:
         line += ";gen_temp                 = 473\n"
         line += ";gen_seed                 = 173529\n"
         line += "continuation = yes\n"
+        if dt > 0.001:
+            line += '; OPTIONS FOR BONDS\n'
+            line += '; -----------------------------------------------------------------------------------------\n'
+            line += 'constraints              = h-bonds    ; [1] water is done via shake\n'
+            line += '; Type of constraint algorithm\n'
+            line += 'constraint-algorithm     = Lincs      ; default\n'
+            line += 'Shake-SOR                = no         ; default\n'
+            line += 'shake-tol                = 0.0001     ; default also same as in [1]\n'
+            line += 'lincs-order              = 4          ; default\n'
+            line += 'lincs-iter               = 1          ; default\n'
+            line += 'lincs-warnangle          = 90         ; default\n'
+            line += 'morse                    = no         ; default\n'
+
 
         with open("rerun.mdp", 'w') as fmdp:
             fmdp.writelines(line)

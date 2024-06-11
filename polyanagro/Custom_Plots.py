@@ -43,7 +43,8 @@ class Custom_Plots(Figure):
             self._ax.set_ylim((ymin, ymax))
             xdata_np = xdata.to_numpy()
             ydata_np = ydata.to_numpy()
-            idx_begin = np.int(np.where(xdata_np == begin)[0])
+            #idx_begin = np.int(np.where(xdata_np == begin)[0])
+            idx_begin = int(np.where(xdata_np == begin)[0])
             self._ax.plot(xdata_np[idx_begin:], ydata_np[idx_begin:])
             filename = os.path.join(path_to_save, '{}.png'.format(ylabel.split()[0]))
             self._fig.savefig(filename, dpi=self._fig.dpi)
@@ -95,8 +96,8 @@ class Custom_Plots(Figure):
                     self._ax[irow, icol].set_xlabel(xlabel, fontsize=fontsize)
                     self._ax[irow, icol].set_ylabel(ylabel, fontsize=fontsize)
                     self._ax[irow, icol].tick_params(axis='both', which='major', labelsize=fontsize-4)
-                    self._ax[irow, icol].plot(data_df[column_names[0]][begin:],
-                                              data_df[column_names[igroup]][begin:], 'k-')
+                    self._ax[irow, icol].plot(np.array(data_df[column_names[0]][begin:]),
+                                              np.array(data_df[column_names[igroup]][begin:]), 'k-')
                     self._ax[irow, icol].grid()
                 except IndexError:
                     self._ax[irow].set_ylim((ymin, ymax))
@@ -104,8 +105,8 @@ class Custom_Plots(Figure):
                     self._ax[irow].set_xlabel(xlabel, fontsize=fontsize)
                     self._ax[irow].set_ylabel(ylabel, fontsize=fontsize)
                     self._ax[irow].tick_params(axis='both', which='major', labelsize=fontsize-4)
-                    self._ax[irow].plot(data_df[column_names[0]][begin:],
-                                        data_df[column_names[igroup]][begin:], 'k-')
+                    self._ax[irow].plot(np.array(data_df[column_names[0]][begin:]),
+                                        np.array(data_df[column_names[igroup]][begin:]), 'k-')
                     self._ax[irow].grid()
 
         self._fig.tight_layout()
