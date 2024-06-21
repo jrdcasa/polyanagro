@@ -8,15 +8,15 @@
 /home/jramos/Programacion/sandboxes/sandbox_common/lib/python3.10/site-packages/polyanagro-1.1-py3.10-linux-x86_64.egg
 /home/jramos/Programacion/sandboxes/sandbox_common/lib/python3.10/site-packages/replicate_polymer-0.0.0-py3.10-linux-x86_64.egg
 
-		 INSTALLING PIP PACKAGES (11/06/2024 20:38:33)
+		 INSTALLING PIP PACKAGES (21/06/2024 09:54:13)
 
-11/06/2024 20:38:34: ** None: Installing GitPython==3.1.1
-11/06/2024 20:38:36: ** None: Installing cython==0.29.24
-11/06/2024 20:38:38: ** None: Installing h5py
-11/06/2024 20:38:40: ** None: Installing panedr
-11/06/2024 20:38:43: ** None: Installing statsmodels
-11/06/2024 20:38:45: ** None: Installing MDAnalysis
+21/06/2024 09:54:15: ** None: Installing GitPython==3.1.1
+21/06/2024 09:54:16: ** None: Installing cython==0.29.24
+21/06/2024 09:54:17: ** None: Installing h5py
+21/06/2024 09:54:19: ** None: Installing panedr
+21/06/2024 09:54:20: ** None: Installing statsmodels
+21/06/2024 09:54:21: ** None: Installing MDAnalysis
 
-		 RUNNING SETUP FROM SETUPTOOLS 11/06/2024 20:38:48
+		 RUNNING SETUP FROM SETUPTOOLS 21/06/2024 09:54:23
 
 
