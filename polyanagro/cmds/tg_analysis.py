@@ -1,4 +1,5 @@
 import argparse
+import glob
 import os
 import numpy as np
 from scipy.optimize import least_squares
@@ -77,30 +78,56 @@ def parse_arguments():
     This is part of the polyanagro library"""
 
     parser = argparse.ArgumentParser(description=desc)
+    subparser = parser.add_subparsers(dest='command', required=True)
 
-    parser.add_argument("-e", "--energy", dest="energy_list", nargs="+",
+    annealing = subparser.add_parser('annealing')
+    stepwise = subparser.add_parser('stepwise')
+
+    # Annealing
+    annealing.add_argument("-e", "--energy", dest="energy_list", nargs="+",
                          help="Energy file from MD package.\n "
                              "The package is detected by the extension of the file",
                          action="store", required=True, default=None)
 
-    parser.add_argument("--bin", dest="bin_temp", type=float,
+    annealing.add_argument("--bin", dest="bin_temp", type=float,
                         help="Bin width for the temperature.\n ",
                         action="store", required=False, default=1)
-    #
-    parser.add_argument("--log", dest="log",
+
+    annealing.add_argument("--log", dest="log",
                          help="Name of the file to write logs from this command",
-                         action="store", required=False, default="tg_analysis_info.log")
+                         action="store", required=False, default="tg_analysis_anneal_info.log")
+    # Stepwise
+    stepwise.add_argument("-d", "--direnergy", dest="energy_list", nargs="+",
+                         help="Energy file from MD package.\n "
+                             "The package is detected by the extension of the file",
+                         action="store", required=True, default=None)
+
+    stepwise.add_argument("--log", dest="log",
+                         help="Name of the file to write logs from this command",
+                         action="store", required=False, default="tg_analysis_stepwise_info.log")
+
+    stepwise.add_argument("--bin", dest="bin_temp", type=float,
+                          help="Bin width for the temperature.\n ",
+                          action="store", required=False, default=1)
 
     args = parser.parse_args()
 
     # Check the extension of the energy files
     ext_list = []
+    list_edrs = []
     for iener in args.energy_list:
-        ext_list.append(os.path.splitext(iener)[1])
-        if not os.path.isfile(iener):
-            print("\nERROR: File {} does not exist\n".format(iener))
-            exit()
-    ext_set = set(ext_list)
+        # Is a file?
+        if os.path.isfile(iener):
+            ext_list.append(os.path.splitext(iener)[1])
+            list_edrs.append(iener)
+        else:  # Is a dir?
+            if os.path.isdir(iener):
+                ext_list.append(".edr")
+                path = os.path.join(iener, "*.edr")
+                list_edrs = sorted(glob.glob(path), reverse=True)
+            else:
+                print("\nERROR: File or directory {} does not exist\n".format(iener))
+                exit()
     if ext_list[0] == ".edr":
         mdpackage = "GROMACS"
     elif ext_list[0] == ".log":
@@ -116,7 +143,7 @@ def parse_arguments():
     else:
         args.energy = args.energy_list[0]
 
-    return args
+    return args, list_edrs
 
 # =============================================================================
 def print_header(version, logger_log=None):
@@ -572,7 +599,7 @@ def main_app():
     import polyanagro as pag
 
     # Parse arguments
-    args = parse_arguments()
+    args, list_edrs = parse_arguments()
     # Setup log
     log = utils.init_logger("Output", fileoutput=args.log, append=False, inscreen=True)
     # Write header and arguments
@@ -581,7 +608,7 @@ def main_app():
     # # All data in edr file is represented in a png file. The files
     # # are stored in ./test01_a_figures
     file_energy = os.path.abspath(args.energy)
-    e = energy_analysis(file_energy, logger=log)
+    e = energy_analysis(list_edrs, logger=log)
     e.read_energy()
 
     start_time, end_time = energy_info_function(e, args, log)

@@ -12,9 +12,9 @@ import re
 class EnergyLammps(Energy):
 
     # =============================================================================
-    def __init__(self, energy_filename, logger=None):
+    def __init__(self, energy_list_filenames, logger=None):
 
-        Energy.__init__(self, energy_filename=energy_filename, logger=logger)
+        Energy.__init__(self, energy_list_filenames=energy_list_filenames, logger=logger)
 
         self._energylabels = ["E_bond", "E_angle", "E_dihed", "E_impro", "E_pair", "E_vdwl",
                               "E_coul", "E_long", "E_tail", "PotEng"]
@@ -39,7 +39,7 @@ class EnergyLammps(Energy):
         Class to handle energy files from GROMACS.
         """
 
-        m = "\t\tReading energy data from {}\n".format(self._energy_filename)
+        m = "\t\tReading energy data from {}\n".format(self._energy_list_filenames)
         print(m) if self._logger is None else self._logger.info(m)
 
         # Read the LOG file from LAMMPS
@@ -61,7 +61,7 @@ class EnergyLammps(Energy):
         # Starting the dictionaty with the default labels
         dict_df = defaultdict()
         dict_idx_label = defaultdict()
-        with open(self._energy_filename, 'r') as flog:
+        with open(self._energy_list_filenames, 'r') as flog:
             lines = flog.readlines()
             flog.seek(0)
             for num, iline in enumerate(flog, 1):

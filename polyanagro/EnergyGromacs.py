@@ -2,16 +2,15 @@ import panedr
 from polyanagro.Energy import Energy
 from polyanagro.Custom_Plots import Custom_Plots
 import pandas as pd
-import numpy as np
 
 
 # =============================================================================
 class EnergyGromacs(Energy):
 
     # =============================================================================
-    def __init__(self, energy_filename, logger=None):
+    def __init__(self, energy_list_filenames, logger=None):
 
-        Energy.__init__(self, energy_filename=energy_filename, logger=logger)
+        Energy.__init__(self, energy_list_filenames=energy_list_filenames, logger=logger)
 
         self._energylabels = ["Bond", "Angle", "Ryckaert-Bell.", "LJ-14", "Coulomb-14", "LJ (SR)",
                               "Disper. corr.", "Coulomb (SR)", "Coul. recip.", "Potential", "Kinetic En.",
@@ -32,19 +31,36 @@ class EnergyGromacs(Energy):
         self._nounits = ['Constr. rmsd', "Lamb-System"]
 
     # =========================================================================
-    def read_energy(self):
+    def read_energy(self, skip_lines=10):
 
         """
         Class to handle energy files from GROMACS.
 
         """
 
-        m = "\t\tReading energy data from {}\n".format(self._energy_filename)
+        m = "\t\tReading energy data from: \n"
+        for iedr in self._energy_list_filenames:
+            m += "\t\t\t{}\n".format(iedr)
         print(m) if self._logger is None else self._logger.info(m)
 
         # Read the EDR file
-        self._df = panedr.edr_to_df(self._energy_filename)
-        self._properties = self._df.columns.tolist()
+        # Annealing
+        if len(self._energy_list_filenames) == 1:
+            self._df = panedr.edr_to_df(iedr)
+            self._properties = self._df.columns.tolist()
+        # Stepwise
+        else:
+            mean_values_list = []
+            for iedr in self._energy_list_filenames:
+                tmp_df = panedr.edr_to_df(iedr)
+                # Discard the first 10 points to calculate the average
+                tmp_df_discart_first_lines = tmp_df.iloc[skip_lines:]
+                mean_values_list.append(pd.DataFrame(tmp_df_discart_first_lines.mean()).transpose())
+
+            self._df = pd.concat(mean_values_list, ignore_index=True)
+            self._properties = self._df.columns.tolist()
+
+
 
     # =========================================================================
     def plot_energy_group(self, skip_data=0, path_to_save="."):

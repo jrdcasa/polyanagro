@@ -1,0 +1,61 @@
+
+    ***********************************************************************
+                    Glass Transtion Temperature Analysis 
+              ----------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an 
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 02-07-2024 09:56:55 ============
+
+		Command line: 
+			python tg_analysis.py -e EDRs
+			         or
+			energy_analysis -e EDRs
+
+		Reading energy data from: 
+			EDRs/00005_000.part0001.edr
+			EDRs/00005_001.part0001.edr
+			EDRs/00005_002.part0001.edr
+			EDRs/00005_003.part0001.edr
+			EDRs/00005_004.part0001.edr
+			EDRs/00005_005.part0001.edr
+			EDRs/00005_006.part0001.edr
+			EDRs/00005_007.part0001.edr
+			EDRs/00005_008.part0001.edr
+			EDRs/00005_009.part0001.edr
+			EDRs/00005_010.part0001.edr
+			EDRs/00005_011.part0001.edr
+			EDRs/00005_012.part0001.edr
+			EDRs/00005_013.part0001.edr
+			EDRs/00005_014.part0001.edr
+			EDRs/00005_015.part0001.edr
+			EDRs/00005_016.part0001.edr
+			EDRs/00005_017.part0001.edr
+			EDRs/00005_018.part0001.edr
+			EDRs/00005_019.part0001.edr
+			EDRs/00005_020.part0001.edr
+			EDRs/00005_021.part0001.edr
+			EDRs/00005_022.part0001.edr
+			EDRs/00005_023.part0001.edr
+			EDRs/00005_024.part0001.edr
+			EDRs/00005_025.part0001.edr
+			EDRs/00005_026.part0001.edr
+			EDRs/00005_027.part0001.edr
+			EDRs/00005_028.part0001.edr
+			EDRs/00005_029.part0001.edr
+			EDRs/00005_030.part0001.edr
+

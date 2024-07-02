@@ -19,12 +19,12 @@
 
     ***********************************************************************
         
-		Start Job at 02-07-2024 09:53:04 ============
+		Start Job at 02-07-2024 14:10:43 ============
 
 		Command line: 
-			python tg_analysis.py -e 1.part0001.edr --bin 10
+			python tg_analysis.py annealing -e 1.part0001.edr --bin 10
 			         or
-			energy_analysis -e 1.part0001.edr --bin 10
+			energy_analysis annealing -e 1.part0001.edr --bin 10
 
 		Reading energy data from: 
 			1.part0001.edr
@@ -47,9 +47,9 @@
 		Convergence parameter set to: 90.0%
 		Dataset not rejected
 		Estimated Tg (in K): 405.80
-		Standard Error:  3.16
+		Standard Error:  3.28
 		Rejected: 0
 		**** END GLASS TRANSITION FITTING INFO ****
 
-		Job  Done at 02-07-2024 09:53:16 ============
+		Job  Done at 02-07-2024 14:11:01 ============
 

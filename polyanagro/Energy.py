@@ -12,16 +12,16 @@ from scipy.optimize import curve_fit
 class Energy(metaclass=ABCMeta):
 
     # =========================================================================
-    def __init__(self, energy_filename, logger=None):
+    def __init__(self, energy_list_filenames, logger=None):
 
         """
         Class to handle energy files from MD packages.
 
         Args:
-            energy_filename (str): Name of the file to be analyzed.
+            energy_list_filenames (str): Name of the file to be analyzed.
         """
 
-        self._energy_filename = energy_filename
+        self._energy_list_filenames = energy_list_filenames
         self._logger = logger
         self._mdpackage = None
         self._df = None
@@ -29,7 +29,7 @@ class Energy(metaclass=ABCMeta):
         self._properties = None
 
         # Get extension file
-        ext = os.path.splitext(energy_filename)[1]
+        ext = os.path.splitext(energy_list_filenames[0])[1]
 
         if ext == ".edr":
             self._mdpackage = "GROMACS"
@@ -160,18 +160,21 @@ class Energy(metaclass=ABCMeta):
 
 
 # =============================================================================
-def energy_analysis(energy_filename, logger=None) -> Energy:
+def energy_analysis(energy_filenames, logger=None) -> Energy:
 
     from polyanagro.EnergyGromacs import EnergyGromacs
     from polyanagro.EnergyLAMMPS import EnergyLammps
 
-    # Get extension file
-    ext = os.path.splitext(energy_filename)[1]
+    # Get extension file examining the first item in the list
+    if os.path.isdir(energy_filenames[0]):
+        ext = os.path.splitext(energy_filenames[0])[1]
+    else:
+        ext = os.path.splitext(energy_filenames[0])[1]
 
     if ext == ".edr":
-        e = EnergyGromacs(energy_filename=energy_filename, logger=logger)
+        e = EnergyGromacs(energy_list_filenames=energy_filenames, logger=logger)
     elif ext == ".log":
-        e = EnergyLammps(energy_filename=energy_filename, logger=logger)
+        e = EnergyLammps(energy_list_filenames=energy_filenames, logger=logger)
     else:
         e = None
         m = "\t\tExtension '{}' for energy is unkwown.\n".format(ext)
