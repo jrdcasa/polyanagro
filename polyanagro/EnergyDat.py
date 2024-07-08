@@ -1,40 +1,26 @@
+import logging
+
 import panedr
 from polyanagro.Energy import Energy
 from polyanagro.Custom_Plots import Custom_Plots
 import pandas as pd
 
 # =============================================================================
-class EnergyGromacs(Energy):
+class EnergyDat(Energy):
 
     # =============================================================================
     def __init__(self, energy_list_filenames, logger=None):
 
         Energy.__init__(self, energy_list_filenames=energy_list_filenames, logger=logger)
 
-        self._energylabels = ["Bond", "Angle", "Ryckaert-Bell.", "LJ-14", "Coulomb-14", "LJ (SR)",
-                              "Disper. corr.", "Coulomb (SR)", "Coul. recip.", "Potential", "Kinetic En.",
-                              "Total Energy", "Conserved En.", "Proper-Dih.", "Improper-Dih.", "Improper Dih.",
-                              "pV", "Enthalpy"]
-        self._timelabels = ["Time"]
-        self._temperaturelabels = ["Temperature", "T-System"]
-        self._pressurelabels = ["Pres. DC", "Pressure", "#Surf*SurfTen"]
-        self._virialcomplabels = ["Vir-XX", "Vir-XY", "Vir-XZ",
-                                  "Vir-YX", "Vir-YY", "Vir-YZ",
-                                  "Vir-ZX", "Vir-ZY", "Vir-ZZ"]
-        self._pressurecomplabels = ["Pres-XX", "Pres-XY", "Pres-XZ",
-                                    "Pres-YX", "Pres-YY", "Pres-YZ",
-                                    "Pres-ZX", "Pres-ZY", "Pres-ZZ"]
-        self._dimensionlabels = ['Box-X', 'Box-Y', 'Box-Z']
-        self._volumelabels = ['Volume']
+        self._temperaturelabels = ["Temperature"]
         self._densitylabels = ['Density']
-        self._nounits = ['Constr. rmsd', "Lamb-System"]
 
     # =========================================================================
     def read_energy(self, skip_lines=10):
 
         """
         Class to handle energy files from GROMACS.
-
         """
 
         m = "\t\tReading energy data from: \n"
@@ -42,22 +28,22 @@ class EnergyGromacs(Energy):
             m += "\t\t\t{}\n".format(iedr)
         print(m) if self._logger is None else self._logger.info(m)
 
-        # Read the EDR file
-        # Annealing
+        # Read the DAT/CSV file
         if len(self._energy_list_filenames) == 1:
-            self._df = panedr.edr_to_df(iedr)
+            self._df = pd.read_csv(iedr, header=None, skiprows=1)
+            try:
+                self._df.columns = ["Time", "Temperature", "Density"]
+            except ValueError:
+                self._df.columns = ["Time", "Temperature", "Density", "stdDensity"]
+            self._df['Density'] = self._df['Density'] * 1000
+            self._df["mean"] = self._df["Density"]
+            self._df["idx"] = self._df["Temperature"]
+            self._df.set_index('idx', inplace=True)
             self._properties = self._df.columns.tolist()
-        # Stepwise
         else:
-            mean_values_list = []
-            for iedr in self._energy_list_filenames:
-                tmp_df = panedr.edr_to_df(iedr)
-                # Discard the first 10 points to calculate the average
-                tmp_df_discart_first_lines = tmp_df.iloc[skip_lines:]
-                mean_values_list.append(pd.DataFrame(tmp_df_discart_first_lines.mean()).transpose())
-            self._df = pd.concat(mean_values_list, ignore_index=True)
-            self._properties = self._df.columns.tolist()
-
+            m = "\n\t\t ERROR: The refit calculation uses just 1 file to make refitting."
+            print(m) if self._logger is None else self._logger.error(m)
+            exit()
 
 
     # =========================================================================

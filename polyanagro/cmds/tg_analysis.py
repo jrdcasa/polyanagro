@@ -43,36 +43,6 @@ def parse_arguments():
         else:
             raise argparse.ArgumentTypeError('Boolean value expected.')
 
-    # ************************************
-    def join_energy_files():
-
-        # Check that all files have the same extensions
-        if len(ext_set) > 1:
-            print("\nERROR: All energy files must have the same extension:")
-            for item in args.energy_list:
-                print("\t"+item)
-            exit()
-        # For list of edrs we need the path to gromacs
-        if mdpackage == "GROMACS" and args.joinpath is None:
-            print("A list of energy files requires to kwown the PATH to GROMACS in your system.")
-            print("Use the option --joinpath <PATH_TO_GROMACS_GMX>")
-            print("Example: --joinpath /usr/bin/gmx")
-            exit()
-        else:
-            workdir = os.getcwd()
-            outTpr = os.path.join(workdir, 'united_edr.edr')
-            if os.path.isfile(outTpr):
-                cmd = ["rm", outTpr]
-                call_subprocess(cmd, cwd=workdir)
-            cmd = [args.joinpath, "eneconv", "-f"]
-            for item in args.energy_list:
-                cmd.append(item)
-            cmd.append('-o')
-            cmd.append(outTpr)
-            call_subprocess(cmd, cwd=workdir)
-
-        return outTpr
-
     # ****** MAIN ARG PARSER ******
     desc = """Tg fitting.
     This is part of the polyanagro library"""
@@ -82,6 +52,7 @@ def parse_arguments():
 
     annealing = subparser.add_parser('annealing')
     stepwise = subparser.add_parser('stepwise')
+    refit = subparser.add_parser('refit')
 
     # Annealing
     annealing.add_argument("-e", "--energy", dest="energy_list", nargs="+",
@@ -96,6 +67,10 @@ def parse_arguments():
     annealing.add_argument("--log", dest="log",
                          help="Name of the file to write logs from this command",
                          action="store", required=False, default="tg_analysis_anneal_info.log")
+
+    annealing.add_argument("--range", dest="range", nargs=2,
+                          help="Range to refit the data",
+                          action="store", required=True)
     # Stepwise
     stepwise.add_argument("-d", "--direnergy", dest="energy_list", nargs="+",
                          help="Energy file from MD package.\n "
@@ -109,39 +84,60 @@ def parse_arguments():
     stepwise.add_argument("--bin", dest="bin_temp", type=float,
                           help="Bin width for the temperature.\n ",
                           action="store", required=False, default=1)
+    stepwise.add_argument("--range", dest="range", nargs=2,
+                          help="Range to refit the data",
+                          action="store", required=True)
+
+
+    # Refit
+    refit.add_argument("--data", dest="data_refit",
+                       help="Density versus Tg to refit",
+                       action="store", required=True, default=None)
+    refit.add_argument("--log", dest="log",
+                       help="Name of the file to write logs from this command",
+                       action="store", required=False, default="tg_analysis_refit_info.log")
+    refit.add_argument("--range", dest="range", nargs=2,
+                          help="Range to refit the data",
+                          action="store", required=True)
 
     args = parser.parse_args()
 
-    # Check the extension of the energy files
     ext_list = []
     list_edrs = []
-    for iener in args.energy_list:
-        # Is a file?
-        if os.path.isfile(iener):
-            ext_list.append(os.path.splitext(iener)[1])
-            list_edrs.append(iener)
-        else:  # Is a dir?
-            if os.path.isdir(iener):
-                ext_list.append(".edr")
-                path = os.path.join(iener, "*.edr")
-                list_edrs = sorted(glob.glob(path), reverse=True)
-            else:
-                print("\nERROR: File or directory {} does not exist\n".format(iener))
-                exit()
-    if ext_list[0] == ".edr":
-        mdpackage = "GROMACS"
-    elif ext_list[0] == ".log":
-        mdpackage = "LAMMPS"
-    else:
-        mdpackage = None
-        m = "\nERROR: Extension '{}' for energy files is unkwown.\n".format(ext_list[0])
-        print(m)
-        exit()
+    if args.command != "refit":
+        # Check the extension of the energy files
+        for iener in args.energy_list:
+            # Is a file?
+            if os.path.isfile(iener):
+                ext_list.append(os.path.splitext(iener)[1])
+                list_edrs.append(iener)
+            else:  # Is a dir?
+                if os.path.isdir(iener):
+                    ext_list.append(".edr")
+                    path = os.path.join(iener, "*.edr")
+                    list_edrs = sorted(glob.glob(path), reverse=True)
+                else:
+                    print("\nERROR: File or directory {} does not exist\n".format(iener))
+                    exit()
+        if ext_list[0] == ".edr":
+            mdpackage = "GROMACS"
+        elif ext_list[0] == ".log":
+            mdpackage = "LAMMPS"
+        else:
+            mdpackage = None
+            m = "\nERROR: Extension '{}' for energy files is unkwown.\n".format(ext_list[0])
+            print(m)
+            exit()
 
-    if len(args.energy_list) > 1:
-        args.energy = join_energy_files()
-    else:
-        args.energy = args.energy_list[0]
+    if args.command == "refit":
+        if not os.path.isfile(args.data_refit):
+            print("\nERROR: File or directory {} does not exist\n".format(args.data_refit))
+            exit()
+
+    if float(args.range[1]) < float(args.range[0]):
+            print("\nERROR: First value in the range must be lower than the second 1st: {} 2nd: {}\n".
+                  format(args.range[0], args.range[1]))
+            exit()
 
     return args, list_edrs
 
@@ -249,11 +245,13 @@ def extract_data_function(e, temp_group_value=1.0):
     group.fillna(0, inplace=True)
 
     # Write the selected columns to a file with specific formatting
-    lines = "#Temp(K) Density(g/cm3) Std(g/cm3)\n"
+    lines = "#Index Temp(K) Density(g/cm3) Std(g/cm3)\n"
     with open('density_temperature_{0:03d}K.csv'.format(int(temp_group_value)), 'w') as fraw:
         # Write data rows
+        idx = 0
         for index, row in group.iterrows():
-            lines += '{0:8.1f},{1:8.4f},{2:8.4f}\n'.format(index, row['mean']/1000, row['std']/1000)
+            lines += '{0:04d}, {1:8.1f},{2:8.4f},{3:8.4f}\n'.format(idx, index, row['mean']/1000, row['std']/1000)
+            idx += 1
         fraw.writelines(lines)
 
     return group
@@ -607,16 +605,22 @@ def main_app():
 
     # # All data in edr file is represented in a png file. The files
     # # are stored in ./test01_a_figures
-    file_energy = os.path.abspath(args.energy)
+    if args.command == "refit":
+        list_edrs = [args.data_refit]
     e = energy_analysis(list_edrs, logger=log)
     e.read_energy()
-
     start_time, end_time = energy_info_function(e, args, log)
     # Extract data
-    d_vs_T_df = extract_data_function(e, temp_group_value=args.bin_temp)
+    if args.command == "refit":
+        d_vs_T_df = e._df
+    else:
+        d_vs_T_df = extract_data_function(e, temp_group_value=args.bin_temp)
     # Perform fitting analysis
     # http://dx.doi.org/10.1016/j.polymer.2016.01.074
-    uncertainty_quantification_hyperbola(d_vs_T_df, logger=log)
+    min_value = float(args.range[0])
+    max_value = float(args.range[1])
+    filtered_df = d_vs_T_df[(d_vs_T_df.index >= min_value) & (d_vs_T_df.index <= max_value)]
+    uncertainty_quantification_hyperbola(filtered_df, logger=log)
 
     now = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
     m = "\n\t\tJob  Done at {} ============\n".format(now)

@@ -19,7 +19,7 @@
 
     ***********************************************************************
         
-		Start Job at 02-07-2024 14:33:50 ============
+		Start Job at 04-07-2024 17:25:47 ============
 
 		Command line: 
 			python tg_analysis.py stepwise -d EDRs
@@ -77,9 +77,9 @@
 		Convergence parameter set to: 90.0%
 		Dataset not rejected
 		Estimated Tg (in K): 327.87
-		Standard Error:  1.90
+		Standard Error:  2.06
 		Rejected: 0
 		**** END GLASS TRANSITION FITTING INFO ****
 
-		Job  Done at 02-07-2024 14:33:54 ============
+		Job  Done at 04-07-2024 17:25:50 ============
 

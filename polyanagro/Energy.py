@@ -35,6 +35,8 @@ class Energy(metaclass=ABCMeta):
             self._mdpackage = "GROMACS"
         elif ext == ".log":
             self._mdpackage = "LAMMPS"
+        elif ext == ".dat" or ext == ".csv":
+            self._mdpackage = "REFIT"
         else:
             m = "\t\tMD package '{}' is not implemented\n".format(self._mdpackage)
             print(m) if self._logger is None else self._logger.error(m)
@@ -164,6 +166,7 @@ def energy_analysis(energy_filenames, logger=None) -> Energy:
 
     from polyanagro.EnergyGromacs import EnergyGromacs
     from polyanagro.EnergyLAMMPS import EnergyLammps
+    from polyanagro.EnergyDat import EnergyDat
 
     # Get extension file examining the first item in the list
     if os.path.isdir(energy_filenames[0]):
@@ -175,6 +178,8 @@ def energy_analysis(energy_filenames, logger=None) -> Energy:
         e = EnergyGromacs(energy_list_filenames=energy_filenames, logger=logger)
     elif ext == ".log":
         e = EnergyLammps(energy_list_filenames=energy_filenames, logger=logger)
+    elif ext == ".dat" or ext == ".csv":
+        e = EnergyDat(energy_list_filenames=energy_filenames, logger=logger)
     else:
         e = None
         m = "\t\tExtension '{}' for energy is unkwown.\n".format(ext)

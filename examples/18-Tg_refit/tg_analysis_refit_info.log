@@ -19,20 +19,20 @@
 
     ***********************************************************************
         
-		Start Job at 08-07-2024 09:35:25 ============
+		Start Job at 05-07-2024 09:40:40 ============
 
 		Command line: 
-			python tg_analysis.py annealing -e 1.part0001.edr --bin 10 --range 0 1000
+			python tg_analysis.py refit --data density_temperature_010K_f.csv
 			         or
-			energy_analysis annealing -e 1.part0001.edr --bin 10 --range 0 1000
+			energy_analysis refit --data density_temperature_010K_f.csv
 
 		Reading energy data from: 
-			1.part0001.edr
+			density_temperature_010K_f.csv
 
 		**** ENERGY INFO ****
-		  Number of points in energy files   : 150001
-		  Original trajectory from 0.0 (ps) to 600000.0 (ps).
-		  Timestep 4.0 (ps).
+		  Number of points in energy files   : 49
+		  Original trajectory from 5 (ps) to 53 (ps).
+		  Timestep 1 (ps).
 		**** End ENERGY INFO ****
 
 		**** TERMS DENSITY and TEMPERATURE PRESENT IN THE ENERGY FILE ****
@@ -42,14 +42,14 @@
 
 		**** GLASS TRANSITION FITTING INFO ****
 		Starting analysis for current dataset.
-		Tg from initial fit (in K): 405.8
-		Normed residual (smaller is better):   0.000294
+		Tg from initial fit (in K): 339.4
+		Normed residual (smaller is better):   0.000617
 		Convergence parameter set to: 90.0%
-		Dataset not rejected
-		Estimated Tg (in K): 405.80
-		Standard Error:  3.58
-		Rejected: 0
+		Data does not satisfy requirements for extracting Tg
+		Estimated Tg (in K): 339.39
+		Standard Error: 17.80
+		Rejected: 1
 		**** END GLASS TRANSITION FITTING INFO ****
 
-		Job  Done at 08-07-2024 09:35:36 ============
+		Job  Done at 05-07-2024 09:40:44 ============
 
