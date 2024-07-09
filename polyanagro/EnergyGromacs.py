@@ -58,8 +58,6 @@ class EnergyGromacs(Energy):
             self._df = pd.concat(mean_values_list, ignore_index=True)
             self._properties = self._df.columns.tolist()
 
-
-
     # =========================================================================
     def plot_energy_group(self, skip_data=0, path_to_save="."):
 

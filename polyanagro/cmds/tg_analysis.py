@@ -404,7 +404,7 @@ def tg_bootstrap(densities, temperatures, num_synthetic_sets, rejection=0, showf
             plt.legend(['Simulated data', 'Best-fit hyperbola', 'Non-asymptotic regimes', 'Hyperbola Center', 'Asymptotes'])
             plt.plot([popt[0] * scaleparam, 500], [popt[1], popt[1] - (popt[2] + popt[3]) * (500 / scaleparam - popt[0])], 'k')
             plt.savefig('figure1.png')
-            plt.show()
+            # plt.show()
         create_gnu_template(temperatures, densities, popt, tempouts, scaleparam, lowerbound, upperbound)
 
         if lowerbound < min(temperatures) or upperbound > max(temperatures):
@@ -433,7 +433,7 @@ def tg_bootstrap(densities, temperatures, num_synthetic_sets, rejection=0, showf
         plt.ylabel('Density (g/cm^3)')
         plt.title('Best fit hyperbola using all simulated data')
         plt.savefig('figure2.png')
-        plt.show()
+        # plt.show()
 
         plt.figure(3)
         plt.plot(temperatures, resids, 'x')
@@ -441,7 +441,7 @@ def tg_bootstrap(densities, temperatures, num_synthetic_sets, rejection=0, showf
         plt.ylabel('Density residuals (g/cm^3)')
         plt.title('Residuals from best fit hyperbola')
         plt.savefig('figure3.png')
-        plt.show()
+        # plt.show()
 
         plt.figure(4)
         plt.plot(temperatures, resids / (temperatures ** tempscale), 'x')
@@ -449,7 +449,7 @@ def tg_bootstrap(densities, temperatures, num_synthetic_sets, rejection=0, showf
         plt.ylabel('Scaled residuals in units of Density/Temperature^{3/2} [g/(K^{3/2} \times cm^3)]')
         plt.title('Scaled residuals')
         plt.savefig('figure4.png')
-        plt.show()
+        # plt.show()
 
         plt.figure(5)
         plt.plot(temperatures, trialnoise[0, :], 'x')
@@ -457,7 +457,7 @@ def tg_bootstrap(densities, temperatures, num_synthetic_sets, rejection=0, showf
         plt.ylabel('Synthetic residuals based on noise model (g/cm^3)')
         plt.title('Example of synthetic residuals of best fit hyperbola')
         plt.savefig('figure5.png')
-        plt.show()
+        # plt.show()
 
         plt.figure(6)
         plt.plot(temperatures, synthetic_densities, 'bx')
@@ -465,7 +465,7 @@ def tg_bootstrap(densities, temperatures, num_synthetic_sets, rejection=0, showf
         plt.ylabel('Synthetic Density (g/cm^3)')
         plt.title('Example of Synthetic Density vs Temperature curve')
         plt.plot(testtemps, hyperbolafun_2(popt, testtemps / scaleparam), 'r')
-        plt.show()
+        # plt.show()
         plt.savefig('figure6.png')
 
     trial_center_tgs = np.zeros(num_synthetic_sets)
@@ -483,7 +483,7 @@ def tg_bootstrap(densities, temperatures, num_synthetic_sets, rejection=0, showf
         plt.ylabel('Number of synthetic sets')
         plt.title('T_g values from hyperbola center (entirely synthetic data)')
         plt.savefig('figure7.png')
-        plt.show()
+        #plt.show()
 
     x = savedouts[0] * scaleparam
     y = trial_center_tgs
@@ -522,14 +522,14 @@ def create_gnu_template(temperatures, densities, popt, tempouts, scaleparam, low
 
     # Write data to produce gnuplots
     with open("hyperbola_fit_a.dat", 'w') as f1:
-        line = "#Temperature(K) Density(g/cm3)"
+        line = "#Temperature(K) Density(g/cm3)\n"
         for i in range(len(temperatures)):
             line += "{0:4.1f} {1:6.4f}\n".format(temperatures[i], densities[i])
         f1.writelines(line)
 
     # Write data to produce gnuplots
     with open("hyperbola_fit_b.dat", 'w') as f1:
-        line = "#Tempouts(K) Hyperbolafun(g/cm3)"
+        line = "#Tempouts(K) Hyperbolafun(g/cm3)\n"
         set2 = hyperbolafun_2(popt, tempouts / scaleparam)
         for i in range(len(tempouts)):
             line += "{0:4.1f} {1:6.4f}\n".format(tempouts[i], set2[i])
