@@ -71,6 +71,17 @@ def parse_arguments():
     annealing.add_argument("--range", dest="range", nargs=2,
                           help="Range to refit the data",
                           action="store", required=True)
+
+    annealing.add_argument("--tgguess", dest="tgguess", type=float,
+                          help="Guess value for Tg in Kelvin",
+                          action="store", required=True)
+
+    annealing.add_argument("--scaleparam", dest="scaleparam", type=float,
+                          help="This rescales the temperatures so that the characteristic domain "
+                               "of the hyperbola is in a box with unit sides. This is needed to ensure that "
+                               "the fit is agnostic to the actual temperature range, thereby facilitating fitting",
+                          action="store", required=True)
+
     # Stepwise
     stepwise.add_argument("-d", "--direnergy", dest="energy_list", nargs="+",
                          help="Energy file from MD package.\n "
@@ -88,6 +99,14 @@ def parse_arguments():
                           help="Range to refit the data",
                           action="store", required=True)
 
+    stepwise.add_argument("--tgguess", dest="tgguess", type=float,
+                          help="Guess value for Tg in Kelvin",
+                          action="store", required=True)
+    stepwise.add_argument("--scaleparam", dest="scaleparam", type=float,
+                          help="This rescales the temperatures so that the characteristic domain "
+                               "of the hyperbola is in a box with unit sides. This is needed to ensure that "
+                               "the fit is agnostic to the actual temperature range, thereby facilitating fitting",
+                          action="store", required=True)
 
     # Refit
     refit.add_argument("--data", dest="data_refit",
@@ -99,6 +118,15 @@ def parse_arguments():
     refit.add_argument("--range", dest="range", nargs=2,
                           help="Range to refit the data",
                           action="store", required=True)
+    refit.add_argument("--tgguess", dest="tgguess", type=float,
+                          help="Guess value for Tg in Kelvin",
+                          action="store", required=True)
+    refit.add_argument("--scaleparam", dest="scaleparam", type=float,
+                          help="This rescales the temperatures so that the characteristic domain "
+                               "of the hyperbola is in a box with unit sides. This is needed to ensure that "
+                               "the fit is agnostic to the actual temperature range, thereby facilitating fitting",
+                          action="store", required=True)
+
 
     args = parser.parse_args()
 
@@ -301,7 +329,7 @@ def residuals(params, x, y, scalepower):
         return (hyperbolafun_2(params, x) / (x ** scalepower)) - (y / (x ** scalepower))
 
 # =============================================================================
-def tg_bootstrap(densities, temperatures, num_synthetic_sets, rejection=0, showfigs=0, logger=None):
+def tg_bootstrap(densities, temperatures, num_synthetic_sets, tgguess_0=300, scaleparam_0=300, rejection=0, showfigs=0, logger=None):
 
     """
     Performs a bootstrap analysis to evaluate the uncertainty in the glass transition temperature Tg.
@@ -332,12 +360,12 @@ def tg_bootstrap(densities, temperatures, num_synthetic_sets, rejection=0, showf
     % where Tg is (or perhaps slightly below).
     """
     # Guess value for Tg in Kelvin
-    tgguess = 300
+    tgguess = tgguess_0
     # This rescales the temperatures so that the characteristic domain of
     # the hyperbola is in a box with unit sides.
     # This is needed to ensure that the fit is agnostic to the actual temperature range, thereby
     # facilitating fitting
-    scaleparam = 300
+    scaleparam = scaleparam_0
     # If greater than zero, terms in the least squares fit will be scaled by (i.e. divided by) temperature 
     # to this power. Setting this to anything besides zero performs a weighted least squares
     scalepower = 1.25
@@ -500,7 +528,7 @@ def tg_bootstrap(densities, temperatures, num_synthetic_sets, rejection=0, showf
     return x, y, ste, rejected
 
 # =============================================================================
-def uncertainty_quantification_hyperbola(df, logger=None):
+def uncertainty_quantification_hyperbola(df, tgguess_0=300, scaleparam_0=300, logger=None):
 
     # How many synthetic sets to generate
     numsyntheticsets=240
@@ -512,7 +540,8 @@ def uncertainty_quantification_hyperbola(df, logger=None):
     density_mean = df['mean'].to_numpy()/1000 # g/cm^3
     temperature = df.index.to_numpy()  # K
 
-    tg_bootstrap(density_mean, temperature, numsyntheticsets, rejection=testreject,
+    tg_bootstrap(density_mean, temperature, numsyntheticsets, tgguess_0=tgguess_0, scaleparam_0=scaleparam_0,
+                 rejection=testreject,
                  showfigs=showfigs, logger=logger)
 
     return None
@@ -620,7 +649,8 @@ def main_app():
     min_value = float(args.range[0])
     max_value = float(args.range[1])
     filtered_df = d_vs_T_df[(d_vs_T_df.index >= min_value) & (d_vs_T_df.index <= max_value)]
-    uncertainty_quantification_hyperbola(filtered_df, logger=log)
+    uncertainty_quantification_hyperbola(filtered_df, tgguess_0=args.tgguess,
+                                         scaleparam_0=args.scaleparam, logger=log)
 
     now = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
     m = "\n\t\tJob  Done at {} ============\n".format(now)

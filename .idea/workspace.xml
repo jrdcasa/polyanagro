@@ -22,11 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad1397b9-ba54-446b-9246-9f1da47e52d0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/install.log" beforeDir="false" afterPath="$PROJECT_DIR$/install.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/EnergyGromacs.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/EnergyGromacs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyanagro/cmds/tg_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/cmds/tg_analysis.py" afterDir="false" />
-    </list>
+    <list default="true" id="ad1397b9-ba54-446b-9246-9f1da47e52d0" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -1592,6 +1588,7 @@
       <workItem from="1718874169891" duration="36009000" />
       <workItem from="1720108405546" duration="3442000" />
       <workItem from="1720385807134" duration="6709000" />
+      <workItem from="1722872280568" duration="3547000" />
     </task>
     <servers />
   </component>
