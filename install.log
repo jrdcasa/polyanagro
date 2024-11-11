@@ -1,22 +1,21 @@
 		 SYS PATH
 /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro
-/usr/lib/python310.zip
-/usr/lib/python3.10
-/usr/lib/python3.10/lib-dynload
-/home/jramos/Programacion/sandboxes/sandbox_common/lib/python3.10/site-packages
-/home/jramos/Programacion/sandboxes/sandbox_common/lib/python3.10/site-packages/topology-1.0.0-py3.10-linux-x86_64.egg
-/home/jramos/Programacion/sandboxes/sandbox_common/lib/python3.10/site-packages/polyanagro-1.1-py3.10-linux-x86_64.egg
-/home/jramos/Programacion/sandboxes/sandbox_common/lib/python3.10/site-packages/replicate_polymer-0.0.0-py3.10-linux-x86_64.egg
+/home/jramos/Programacion/MAMBA/lib/python310.zip
+/home/jramos/Programacion/MAMBA/lib/python3.10
+/home/jramos/Programacion/MAMBA/lib/python3.10/lib-dynload
+/home/jramos/Programacion/MAMBA/lib/python3.10/site-packages
+/home/jramos/Programacion/MAMBA/lib/python3.10/site-packages/topology-1.0.0-py3.10-linux-x86_64.egg
+/home/jramos/Programacion/MAMBA/lib/python3.10/site-packages/replicate_polymer-0.0.0-py3.10-linux-x86_64.egg
 
-		 INSTALLING PIP PACKAGES (09/07/2024 11:17:44)
+		 INSTALLING PIP PACKAGES (14/09/2024 12:58:14)
 
-09/07/2024 11:17:46: ** None: Installing GitPython==3.1.1
-09/07/2024 11:17:48: ** None: Installing cython==0.29.24
-09/07/2024 11:17:51: ** None: Installing h5py
-09/07/2024 11:17:53: ** None: Installing panedr
-09/07/2024 11:17:56: ** None: Installing statsmodels
-09/07/2024 11:17:58: ** None: Installing MDAnalysis
+14/09/2024 12:58:15: ** None: Installing GitPython==3.1.1
+14/09/2024 12:58:17: ** None: Installing cython==0.29.24
+14/09/2024 12:58:19: ** None: Installing h5py
+14/09/2024 12:58:22: ** None: Installing panedr
+14/09/2024 12:58:24: ** None: Installing statsmodels
+14/09/2024 12:58:29: ** None: Installing MDAnalysis
 
-		 RUNNING SETUP FROM SETUPTOOLS 09/07/2024 11:18:01
+		 RUNNING SETUP FROM SETUPTOOLS 14/09/2024 12:58:31
 
 

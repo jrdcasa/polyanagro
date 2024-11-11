@@ -303,7 +303,7 @@ class EnergyCohesive:
 
         # Initialize the Dataframe
         skip_rows = 0
-        cname = "Full Potential (kJ/mol)"
+        cname = "Full_Potential (kJ/mol)"
         fn = "SC_energy_full.xvg"
         with open(fn, 'r') as f:
             for line in f:
@@ -321,29 +321,37 @@ class EnergyCohesive:
         self._clean_files(None)
 
     # ==========================================================================
-    def calc_energycoh(self, totalmass):
+    def calc_energycoh(self, totalmass, nmols):
 
         self._dfPotential_isolated["Sum isolated (kJ/mol)"] = self._dfPotential_isolated.iloc[:,1:].sum(axis=1)
-
+        self._dfPotential_full["Sum_Isolated_Potential (kJ/mol)"] = self._dfPotential_isolated["Sum isolated (kJ/mol)"]
         self._dfPotential_full["Energy_cohesive (kJ/mol)"] = self._dfPotential_isolated["Sum isolated (kJ/mol)"] - \
-                                                             self._dfPotential_full["Full Potential (kJ/mol)"]
+                                                             self._dfPotential_full["Full_Potential (kJ/mol)"]
+        self._dfPotential_full["Molar_volume (cm3/mol)"] = totalmass / (self._dfDensity_full.iloc[:,1]/1000)
 
-        self._dfPotential_full["Molar volume (cm3/mol)"] = totalmass / (self._dfDensity_full.iloc[:,1]/1000)
+
+        self._dfPotential_full["Sum_Isolated_Potential (kJ/mol)"] /= nmols
+        self._dfPotential_full["Full_Potential (kJ/mol)"] /= nmols
+        self._dfPotential_full["Energy_cohesive (kJ/mol)"] = self._dfPotential_full["Sum_Isolated_Potential (kJ/mol)"] - \
+                                                             self._dfPotential_full["Full_Potential (kJ/mol)"]
+        self._dfPotential_full["Molar_volume (cm3/mol)"] = (totalmass/nmols) / (self._dfDensity_full.iloc[:,1]/1000)
+
 
         self._dfPotential_full["CED (J/cm3)"] = \
                   1000*self._dfPotential_full["Energy_cohesive (kJ/mol)"] \
-                  /    self._dfPotential_full["Molar volume (cm3/mol)"]
+                  /    self._dfPotential_full["Molar_volume (cm3/mol)"]
 
         self._dfPotential_full["Solubility_parameter (J/cm3)^0.5"] = \
                   np.sqrt(1000*self._dfPotential_full["Energy_cohesive (kJ/mol)"] /
-                               self._dfPotential_full["Molar volume (cm3/mol)"])
+                               self._dfPotential_full["Molar_volume (cm3/mol)"])
 
         self._statistics()
 
         format_mapping = {'#timestep(ps)': '{:10.2f}',
-                          'Full Potential (kJ/mol)': '{:10.1f}',
+                          'Full_Potential (kJ/mol)': '{:10.1f}',
+                          'Sum_Isolated_Potential (kJ/mol)': '{:10.1f}',
                           'Energy_cohesive (kJ/mol)': '{:10.1f}',
-                          'Molar volume (cm3/mol)': '{:10.1f}',
+                          'Molar_volume (cm3/mol)': '{:10.1f}',
                           'CED (J/cm3)': '{:10.1f}',
                           'Solubility_parameter (J/cm3)^0.5': '{:10.2f}'}
 
@@ -371,17 +379,23 @@ class EnergyCohesive:
         if nrows_to_avg >= 0:
             Pot_avg = self._dfPotential_full.iloc[nrows_to_avg:,1].mean()
             Pot_avgstd = self._dfPotential_full.iloc[nrows_to_avg:, 1].std()
-            Ecoh_avg = self._dfPotential_full.iloc[nrows_to_avg:,2].mean()
-            Ecoh_avgstd = self._dfPotential_full.iloc[nrows_to_avg:, 2].std()
-            Molvol_avg = self._dfPotential_full.iloc[nrows_to_avg:,3].mean()
-            Molvol_avgstd = self._dfPotential_full.iloc[nrows_to_avg:, 3].std()
-            CED_avg = self._dfPotential_full.iloc[nrows_to_avg:,4].mean()
-            CED_avgstd = self._dfPotential_full.iloc[nrows_to_avg:, 4].std()
-            Solpar_avg = self._dfPotential_full.iloc[nrows_to_avg:,5].mean()
-            Solpar_avgstd = self._dfPotential_full.iloc[nrows_to_avg:, 5].std()
+            IsoPot_avg = self._dfPotential_full.iloc[nrows_to_avg:,2].mean()
+            IsoPot_avgstd = self._dfPotential_full.iloc[nrows_to_avg:, 2].std()
+            Ecoh_avg = self._dfPotential_full.iloc[nrows_to_avg:,3].mean()
+            Ecoh_avgstd = self._dfPotential_full.iloc[nrows_to_avg:, 3].std()
+            Molvol_avg = self._dfPotential_full.iloc[nrows_to_avg:,4].mean()
+            Molvol_avgstd = self._dfPotential_full.iloc[nrows_to_avg:, 4].std()
+            CED_avg = self._dfPotential_full.iloc[nrows_to_avg:,5].mean()
+            CED_avgstd = self._dfPotential_full.iloc[nrows_to_avg:, 5].std()
+            Solpar_avg = self._dfPotential_full.iloc[nrows_to_avg:,6].mean()
+            Solpar_avgstd = self._dfPotential_full.iloc[nrows_to_avg:, 6].std()
+            Density_avg = (self._dfDensity_full.iloc[:,1]/1000).mean()
+            Density_avgstd = (self._dfDensity_full.iloc[:,1]/1000).std()
         else:
             Pot_avg = 999999.9
             Pot_avgstd = 0.0
+            IsoPot_avg = 999999.9
+            IsoPot_avgstd = 0.0
             Ecoh_avg = 999999.9
             Ecoh_avgstd = 0.0
             Molvol_avg = 999999.9
@@ -390,18 +404,25 @@ class EnergyCohesive:
             CED_avgstd = 0.0
             Solpar_avg = 999999.9
             Solpar_avgstd = 0.0
+            Density_avg = 999999.9
+            Density_avgstd = 0.0
 
-        m = "\n\t*** Average values ***\n"
-        m += "\t\t Potential Energy     (kJ/mol)     = {0:10.2f} +- {1:10.2f} (kJ/mol)\n".\
+        m = "\n\t*** Average values per chain***\n"
+        m += "\t\t Full Potential Energy      (kJ/mol)     = {0:10.2f} +- {1:10.2f} (kJ/mol)\n".\
             format(Pot_avg, Pot_avgstd)
-        m += "\t\t Energy cohesive      (kJ/mol)     = {0:10.2f} +- {1:10.2f} (kJ/mol)\n".\
+        m += "\t\t Isolated Potential Energy  (kJ/mol)     = {0:10.2f} +- {1:10.2f} (kJ/mol)\n".\
+            format(IsoPot_avg, IsoPot_avgstd)
+        m += "\t\t Energy cohesive            (kJ/mol)     = {0:10.2f} +- {1:10.2f} (kJ/mol)\n".\
             format(Ecoh_avg, Ecoh_avgstd)
-        m += "\t\t Molar volume         (cm^3/mol)   = {0:10.2f} +- {1:10.2f} (cm^3/mol)\n".\
+        m += "\t\t Molar volume               (cm^3/mol)   = {0:10.2f} +- {1:10.2f} (cm^3/mol)\n".\
             format(Molvol_avg, Molvol_avgstd)
-        m += "\t\t CED                  (J/cm^3)     = {0:10.2f} +- {1:10.2f} (J/cm^3)\n".\
+        m += "\t\t CED                        (J/cm^3)     = {0:10.2f} +- {1:10.2f} (J/cm^3)\n".\
             format(CED_avg, CED_avgstd)
-        m += "\t\t Solubility parameter (J/cm^3)^0.5 = {0:10.2f} +- {1:10.2f} (J/cm^3)^0.5\n".\
+        m += "\t\t Solubility parameter       (J/cm^3)^0.5 = {0:10.2f} +- {1:10.2f} (J/cm^3)^0.5\n".\
             format(Solpar_avg, Solpar_avgstd)
+        m += "\t\t\t 1 (J/cm^3)^0.5 = 1 (MPa)^0.5\n"
+        m += "\t\t Density                    (g/cm^3)     = {0:10.3f} +- {1:10.3f} (g/cm^3)\n".\
+            format(Density_avg, Density_avgstd)
         print(m) if self._logger is None else self._logger.info(m)
 
         # Template plots dimensions

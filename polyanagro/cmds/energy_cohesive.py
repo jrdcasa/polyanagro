@@ -52,12 +52,12 @@ def parse_arguments():
                         help="""Filename of the ndx file for molecules.""",
                         action="store", required=False, default="index.ndx")
     parser.add_argument("--cutoffs", dest="cutoffs", nargs=3,
-                        help="[<Dispersion_Correction 1 or 0> <rvdw cutoff(in nm)> <rcoulomb cutoff(in nm)>",
+                        help="[<rvdw cutoff(in nm)> <rcoulomb cutoff(in nm)> <Dispersion_Correction 1 or 0>",
                         action="store", required=False, default=None)
 
     parser.add_argument("--fraction_trj_avg", dest="frac_avg", type=float,
                         help="""Fraction of the trajectory discarted to calculate the averages. 
-                        Example: 0.25 means that the 25%% first frames are discarted in the average calculation.
+                        Example: 0.25 means that the 25% first frames are discarted in the average calculation.
                                  0.00 means that the full trajectory is considered in the average""",
                         action="store", required=False, default=0.0)
 
@@ -72,7 +72,8 @@ def parse_arguments():
         exit()
 
     if args.cutoffs is None:
-        args.cutoffs = [1, 1.2, 1.2]
+        # rvdw, rcoulomb, dispersioncorrect
+        args.cutoffs = [1.0, 1.0, 1]
 
     return args
 
@@ -169,14 +170,13 @@ def main_app():
         m += "\tTotal Molecular Mass (g/mol) : {0:.2f}\n".format(total_mass)
         print(m) if log is None else log.info(m)
 
-
     obj = pag.EnergyCohesive(gmxexepath, tpr, trjlist, topo,
                              fraction_trj_avg, logger=log)
     obj.create_molindex_ndx(args.ndx)
 
     obj.get_isolatedmol_energy(rvdw=rvdw, rcoulomb=rcoulomb, dispersioncorrect=dispersioncorrect)
     obj.get_full_energy(rvdw=rvdw, rcoulomb=rcoulomb, dispersioncorrect=dispersioncorrect)
-    obj.calc_energycoh(total_mass)
+    obj.calc_energycoh(total_mass, nmols)
 
 
     now = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
