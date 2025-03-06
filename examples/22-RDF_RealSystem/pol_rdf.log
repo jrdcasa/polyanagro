@@ -1,0 +1,48 @@
+
+    ***********************************************************************
+                         Pair distribution calculations 
+              ----------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an 
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 15-02-2025 19:48:06 ============
+
+		Command line: 
+			python pair_distribution.py -t 01-PVL4_C0_LOPLS_trj.pdb --psf confout_unwrap_labeled.psf
+			         or
+			polymer_size -t 01-PVL4_C0_LOPLS_trj.pdb --psf confout_unwrap_labeled.psf
+
+	*** Creating a trajectory from...
+	01-PVL4_C0_LOPLS_trj.pdb
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	*** Backbone atoms have been assigned to the topology.
+	Topology file: confout_unwrap_labeled.psf
+	TIME(Building_bonds_from_topology): 5.237487 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	confout_unwrap_labeled.psf
+	Number of frames: 51
+	TIME(Adding topology): 1.977667 seconds
+	*** End Adding topology
+
+	Number of frames: 51
+	TIME(Read_Trajectories): 7.215764 seconds
+	*** End Creating a trajectory 
+

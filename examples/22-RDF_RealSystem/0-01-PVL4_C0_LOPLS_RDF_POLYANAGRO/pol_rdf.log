@@ -1,0 +1,61 @@
+		Starting at 20-02-2025 21:03:36 ============
+
+
+    ***********************************************************************
+                         Pair distribution calculations 
+              ----------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an 
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 20-02-2025 21:03:36 ============
+
+		Command line: 
+			python pair_distribution.py -t 01-PVL4_C0_LOPLS_trj.pdb --psf confout_unwrap_labeled.psf --nbins 100 --cutoff 20.0 --index index_bb.ndx --excl 4
+			         or
+			pair_distribution -t 01-PVL4_C0_LOPLS_trj.pdb --psf confout_unwrap_labeled.psf --nbins 100 --cutoff 20.0 --index index_bb.ndx --excl 4
+
+	*** Creating a trajectory from...
+	01-PVL4_C0_LOPLS_trj.pdb
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	*** Backbone atoms have been assigned to the topology.
+	Topology file: confout_unwrap_labeled.psf
+	TIME(Building_bonds_from_topology): 1.877123 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	confout_unwrap_labeled.psf
+	Number of frames: 51
+	TIME(Adding topology): 0.406618 seconds
+	*** End Adding topology
+
+	Number of frames: 51
+	TIME(Read_Trajectories): 2.283999 seconds
+	*** End Creating a trajectory 
+
+		Starting at 20-02-2025 21:03:38 ============
+
+		*********   RDF INFO   *********
+		  Number of bins = 100
+		  Cutoff for RDF = 20.00 angstroms
+		  Bin width      = 0.20 angstroms
+		  Intramolecular = 1
+		********* END RDF INFO *********
+
+		Starting at 20-02-2025 21:03:58 ============
+

@@ -1643,6 +1643,7 @@ int __pyx_module_is_main_ext_libc__c_acf_openmp = 0;
 /* Implementation of 'ext_libc.c_acf_openmp' */
 static PyObject *__pyx_builtin_ImportError;
 static const char __pyx_k_np[] = "np";
+static const char __pyx_k_ree[] = "ree";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "__name__";
 static const char __pyx_k_ndim[] = "ndim";
@@ -1653,8 +1654,10 @@ static const char __pyx_k_import[] = "__import__";
 static const char __pyx_k_ndumps[] = "ndumps";
 static const char __pyx_k_nchains[] = "nchains";
 static const char __pyx_k_rEE_acf[] = "rEE_acf";
+static const char __pyx_k_rEE2_acf[] = "rEE2_acf";
 static const char __pyx_k_ImportError[] = "ImportError";
 static const char __pyx_k_calc_acf_ete[] = "calc_acf_ete";
+static const char __pyx_k_calc_acf2_ete[] = "calc_acf2_ete";
 static const char __pyx_k_OPENMP_ENABLED[] = "OPENMP_ENABLED";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_ext_libc_c_acf_openmp[] = "ext_libc.c_acf_openmp";
@@ -1663,6 +1666,7 @@ static const char __pyx_k_numpy_core_umath_failed_to_impor[] = "numpy.core.umath
 static const char __pyx_k_polyanagro_ext_libc_c_acf_openmp[] = "polyanagro/ext_libc/c_acf_openmp.pyx";
 static PyObject *__pyx_n_s_ImportError;
 static PyObject *__pyx_n_s_OPENMP_ENABLED;
+static PyObject *__pyx_n_s_calc_acf2_ete;
 static PyObject *__pyx_n_s_calc_acf_ete;
 static PyObject *__pyx_n_s_cline_in_traceback;
 static PyObject *__pyx_n_s_ext_libc_c_acf_openmp;
@@ -1677,17 +1681,22 @@ static PyObject *__pyx_n_s_numpy;
 static PyObject *__pyx_kp_u_numpy_core_multiarray_failed_to;
 static PyObject *__pyx_kp_u_numpy_core_umath_failed_to_impor;
 static PyObject *__pyx_kp_s_polyanagro_ext_libc_c_acf_openmp;
+static PyObject *__pyx_n_s_rEE2_acf;
 static PyObject *__pyx_n_s_rEE_acf;
+static PyObject *__pyx_n_s_ree;
 static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_n_s_uree;
 static PyObject *__pyx_pf_8ext_libc_12c_acf_openmp_calc_acf_ete(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_uree, PyArrayObject *__pyx_v_rEE_acf); /* proto */
+static PyObject *__pyx_pf_8ext_libc_12c_acf_openmp_2calc_acf2_ete(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_ree, PyArrayObject *__pyx_v_rEE2_acf); /* proto */
 static PyObject *__pyx_tuple_;
 static PyObject *__pyx_tuple__2;
 static PyObject *__pyx_tuple__3;
+static PyObject *__pyx_tuple__5;
 static PyObject *__pyx_codeobj__4;
+static PyObject *__pyx_codeobj__6;
 /* Late includes */
 
-/* "ext_libc/c_acf_openmp.pyx":17
+/* "ext_libc/c_acf_openmp.pyx":18
  * 
  * # ========================================================================================
  * def calc_acf_ete(np.ndarray[np.float32_t, ndim=3, mode="c"] uree,             # <<<<<<<<<<<<<<
@@ -1730,11 +1739,11 @@ static PyObject *__pyx_pw_8ext_libc_12c_acf_openmp_1calc_acf_ete(PyObject *__pyx
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_rEE_acf)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calc_acf_ete", 1, 2, 2, 1); __PYX_ERR(0, 17, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calc_acf_ete", 1, 2, 2, 1); __PYX_ERR(0, 18, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "calc_acf_ete") < 0)) __PYX_ERR(0, 17, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "calc_acf_ete") < 0)) __PYX_ERR(0, 18, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -1747,14 +1756,14 @@ static PyObject *__pyx_pw_8ext_libc_12c_acf_openmp_1calc_acf_ete(PyObject *__pyx
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("calc_acf_ete", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 17, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("calc_acf_ete", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 18, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("ext_libc.c_acf_openmp.calc_acf_ete", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_uree), __pyx_ptype_5numpy_ndarray, 1, "uree", 0))) __PYX_ERR(0, 17, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_rEE_acf), __pyx_ptype_5numpy_ndarray, 1, "rEE_acf", 0))) __PYX_ERR(0, 18, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_uree), __pyx_ptype_5numpy_ndarray, 1, "uree", 0))) __PYX_ERR(0, 18, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_rEE_acf), __pyx_ptype_5numpy_ndarray, 1, "rEE_acf", 0))) __PYX_ERR(0, 19, __pyx_L1_error)
   __pyx_r = __pyx_pf_8ext_libc_12c_acf_openmp_calc_acf_ete(__pyx_self, __pyx_v_uree, __pyx_v_rEE_acf);
 
   /* function exit code */
@@ -1795,16 +1804,16 @@ static PyObject *__pyx_pf_8ext_libc_12c_acf_openmp_calc_acf_ete(CYTHON_UNUSED Py
   __pyx_pybuffernd_rEE_acf.rcbuffer = &__pyx_pybuffer_rEE_acf;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_uree.rcbuffer->pybuffer, (PyObject*)__pyx_v_uree, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float32_t, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 3, 0, __pyx_stack) == -1)) __PYX_ERR(0, 17, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_uree.rcbuffer->pybuffer, (PyObject*)__pyx_v_uree, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float32_t, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 3, 0, __pyx_stack) == -1)) __PYX_ERR(0, 18, __pyx_L1_error)
   }
   __pyx_pybuffernd_uree.diminfo[0].strides = __pyx_pybuffernd_uree.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_uree.diminfo[0].shape = __pyx_pybuffernd_uree.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_uree.diminfo[1].strides = __pyx_pybuffernd_uree.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_uree.diminfo[1].shape = __pyx_pybuffernd_uree.rcbuffer->pybuffer.shape[1]; __pyx_pybuffernd_uree.diminfo[2].strides = __pyx_pybuffernd_uree.rcbuffer->pybuffer.strides[2]; __pyx_pybuffernd_uree.diminfo[2].shape = __pyx_pybuffernd_uree.rcbuffer->pybuffer.shape[2];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_rEE_acf.rcbuffer->pybuffer, (PyObject*)__pyx_v_rEE_acf, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float32_t, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 17, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_rEE_acf.rcbuffer->pybuffer, (PyObject*)__pyx_v_rEE_acf, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float32_t, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 18, __pyx_L1_error)
   }
   __pyx_pybuffernd_rEE_acf.diminfo[0].strides = __pyx_pybuffernd_rEE_acf.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_rEE_acf.diminfo[0].shape = __pyx_pybuffernd_rEE_acf.rcbuffer->pybuffer.shape[0];
 
-  /* "ext_libc/c_acf_openmp.pyx":32
+  /* "ext_libc/c_acf_openmp.pyx":33
  *     # print("idump:2, ich:2",uree[:,2,2])
  * 
  *     cdef int ndim = uree.shape[0]             # <<<<<<<<<<<<<<
@@ -1813,7 +1822,7 @@ static PyObject *__pyx_pf_8ext_libc_12c_acf_openmp_calc_acf_ete(CYTHON_UNUSED Py
  */
   __pyx_v_ndim = (__pyx_v_uree->dimensions[0]);
 
-  /* "ext_libc/c_acf_openmp.pyx":33
+  /* "ext_libc/c_acf_openmp.pyx":34
  * 
  *     cdef int ndim = uree.shape[0]
  *     cdef int nchains = uree.shape[1]             # <<<<<<<<<<<<<<
@@ -1822,7 +1831,7 @@ static PyObject *__pyx_pf_8ext_libc_12c_acf_openmp_calc_acf_ete(CYTHON_UNUSED Py
  */
   __pyx_v_nchains = (__pyx_v_uree->dimensions[1]);
 
-  /* "ext_libc/c_acf_openmp.pyx":34
+  /* "ext_libc/c_acf_openmp.pyx":35
  *     cdef int ndim = uree.shape[0]
  *     cdef int nchains = uree.shape[1]
  *     cdef int ndumps = uree.shape[2]             # <<<<<<<<<<<<<<
@@ -1831,7 +1840,7 @@ static PyObject *__pyx_pf_8ext_libc_12c_acf_openmp_calc_acf_ete(CYTHON_UNUSED Py
  */
   __pyx_v_ndumps = (__pyx_v_uree->dimensions[2]);
 
-  /* "ext_libc/c_acf_openmp.pyx":36
+  /* "ext_libc/c_acf_openmp.pyx":37
  *     cdef int ndumps = uree.shape[2]
  * 
  *     c_acf_e2e(ndim, nchains, ndumps, &uree[0,0,0], &rEE_acf[0])             # <<<<<<<<<<<<<<
@@ -1856,7 +1865,7 @@ static PyObject *__pyx_pf_8ext_libc_12c_acf_openmp_calc_acf_ete(CYTHON_UNUSED Py
   } else if (unlikely(__pyx_t_3 >= __pyx_pybuffernd_uree.diminfo[2].shape)) __pyx_t_4 = 2;
   if (unlikely(__pyx_t_4 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_4);
-    __PYX_ERR(0, 36, __pyx_L1_error)
+    __PYX_ERR(0, 37, __pyx_L1_error)
   }
   __pyx_t_5 = 0;
   __pyx_t_4 = -1;
@@ -1866,22 +1875,22 @@ static PyObject *__pyx_pf_8ext_libc_12c_acf_openmp_calc_acf_ete(CYTHON_UNUSED Py
   } else if (unlikely(__pyx_t_5 >= __pyx_pybuffernd_rEE_acf.diminfo[0].shape)) __pyx_t_4 = 0;
   if (unlikely(__pyx_t_4 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_4);
-    __PYX_ERR(0, 36, __pyx_L1_error)
+    __PYX_ERR(0, 37, __pyx_L1_error)
   }
   c_acf_e2e(__pyx_v_ndim, __pyx_v_nchains, __pyx_v_ndumps, (&(*__Pyx_BufPtrCContig3d(__pyx_t_5numpy_float32_t *, __pyx_pybuffernd_uree.rcbuffer->pybuffer.buf, __pyx_t_1, __pyx_pybuffernd_uree.diminfo[0].strides, __pyx_t_2, __pyx_pybuffernd_uree.diminfo[1].strides, __pyx_t_3, __pyx_pybuffernd_uree.diminfo[2].strides))), (&(*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_float32_t *, __pyx_pybuffernd_rEE_acf.rcbuffer->pybuffer.buf, __pyx_t_5, __pyx_pybuffernd_rEE_acf.diminfo[0].strides))));
 
-  /* "ext_libc/c_acf_openmp.pyx":38
+  /* "ext_libc/c_acf_openmp.pyx":39
  *     c_acf_e2e(ndim, nchains, ndumps, &uree[0,0,0], &rEE_acf[0])
  * 
  *     return None             # <<<<<<<<<<<<<<
  * 
- * 
+ * # ========================================================================================
  */
   __Pyx_XDECREF(__pyx_r);
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
 
-  /* "ext_libc/c_acf_openmp.pyx":17
+  /* "ext_libc/c_acf_openmp.pyx":18
  * 
  * # ========================================================================================
  * def calc_acf_ete(np.ndarray[np.float32_t, ndim=3, mode="c"] uree,             # <<<<<<<<<<<<<<
@@ -1904,6 +1913,226 @@ static PyObject *__pyx_pf_8ext_libc_12c_acf_openmp_calc_acf_ete(CYTHON_UNUSED Py
   __pyx_L0:;
   __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_rEE_acf.rcbuffer->pybuffer);
   __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_uree.rcbuffer->pybuffer);
+  __pyx_L2:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "ext_libc/c_acf_openmp.pyx":42
+ * 
+ * # ========================================================================================
+ * def calc_acf2_ete(np.ndarray[np.float32_t, ndim=3, mode="c"] ree,             # <<<<<<<<<<<<<<
+ *                   np.ndarray[np.float32_t, ndim=1, mode="c"] rEE2_acf):
+ * 
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_8ext_libc_12c_acf_openmp_3calc_acf2_ete(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_8ext_libc_12c_acf_openmp_3calc_acf2_ete = {"calc_acf2_ete", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_8ext_libc_12c_acf_openmp_3calc_acf2_ete, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_8ext_libc_12c_acf_openmp_3calc_acf2_ete(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyArrayObject *__pyx_v_ree = 0;
+  PyArrayObject *__pyx_v_rEE2_acf = 0;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("calc_acf2_ete (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_ree,&__pyx_n_s_rEE2_acf,0};
+    PyObject* values[2] = {0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_ree)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_rEE2_acf)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("calc_acf2_ete", 1, 2, 2, 1); __PYX_ERR(0, 42, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "calc_acf2_ete") < 0)) __PYX_ERR(0, 42, __pyx_L3_error)
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+    }
+    __pyx_v_ree = ((PyArrayObject *)values[0]);
+    __pyx_v_rEE2_acf = ((PyArrayObject *)values[1]);
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("calc_acf2_ete", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 42, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("ext_libc.c_acf_openmp.calc_acf2_ete", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ree), __pyx_ptype_5numpy_ndarray, 1, "ree", 0))) __PYX_ERR(0, 42, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_rEE2_acf), __pyx_ptype_5numpy_ndarray, 1, "rEE2_acf", 0))) __PYX_ERR(0, 43, __pyx_L1_error)
+  __pyx_r = __pyx_pf_8ext_libc_12c_acf_openmp_2calc_acf2_ete(__pyx_self, __pyx_v_ree, __pyx_v_rEE2_acf);
+
+  /* function exit code */
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_8ext_libc_12c_acf_openmp_2calc_acf2_ete(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_ree, PyArrayObject *__pyx_v_rEE2_acf) {
+  int __pyx_v_ndim;
+  int __pyx_v_nchains;
+  int __pyx_v_ndumps;
+  __Pyx_LocalBuf_ND __pyx_pybuffernd_rEE2_acf;
+  __Pyx_Buffer __pyx_pybuffer_rEE2_acf;
+  __Pyx_LocalBuf_ND __pyx_pybuffernd_ree;
+  __Pyx_Buffer __pyx_pybuffer_ree;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  Py_ssize_t __pyx_t_1;
+  Py_ssize_t __pyx_t_2;
+  Py_ssize_t __pyx_t_3;
+  int __pyx_t_4;
+  Py_ssize_t __pyx_t_5;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("calc_acf2_ete", 0);
+  __pyx_pybuffer_ree.pybuffer.buf = NULL;
+  __pyx_pybuffer_ree.refcount = 0;
+  __pyx_pybuffernd_ree.data = NULL;
+  __pyx_pybuffernd_ree.rcbuffer = &__pyx_pybuffer_ree;
+  __pyx_pybuffer_rEE2_acf.pybuffer.buf = NULL;
+  __pyx_pybuffer_rEE2_acf.refcount = 0;
+  __pyx_pybuffernd_rEE2_acf.data = NULL;
+  __pyx_pybuffernd_rEE2_acf.rcbuffer = &__pyx_pybuffer_rEE2_acf;
+  {
+    __Pyx_BufFmt_StackElem __pyx_stack[1];
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_ree.rcbuffer->pybuffer, (PyObject*)__pyx_v_ree, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float32_t, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 3, 0, __pyx_stack) == -1)) __PYX_ERR(0, 42, __pyx_L1_error)
+  }
+  __pyx_pybuffernd_ree.diminfo[0].strides = __pyx_pybuffernd_ree.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_ree.diminfo[0].shape = __pyx_pybuffernd_ree.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_ree.diminfo[1].strides = __pyx_pybuffernd_ree.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_ree.diminfo[1].shape = __pyx_pybuffernd_ree.rcbuffer->pybuffer.shape[1]; __pyx_pybuffernd_ree.diminfo[2].strides = __pyx_pybuffernd_ree.rcbuffer->pybuffer.strides[2]; __pyx_pybuffernd_ree.diminfo[2].shape = __pyx_pybuffernd_ree.rcbuffer->pybuffer.shape[2];
+  {
+    __Pyx_BufFmt_StackElem __pyx_stack[1];
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_rEE2_acf.rcbuffer->pybuffer, (PyObject*)__pyx_v_rEE2_acf, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float32_t, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 42, __pyx_L1_error)
+  }
+  __pyx_pybuffernd_rEE2_acf.diminfo[0].strides = __pyx_pybuffernd_rEE2_acf.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_rEE2_acf.diminfo[0].shape = __pyx_pybuffernd_rEE2_acf.rcbuffer->pybuffer.shape[0];
+
+  /* "ext_libc/c_acf_openmp.pyx":57
+ *     # print("idump:2, ich:2",ree[:,2,2])
+ * 
+ *     cdef int ndim = ree.shape[0]             # <<<<<<<<<<<<<<
+ *     cdef int nchains = ree.shape[1]
+ *     cdef int ndumps = ree.shape[2]
+ */
+  __pyx_v_ndim = (__pyx_v_ree->dimensions[0]);
+
+  /* "ext_libc/c_acf_openmp.pyx":58
+ * 
+ *     cdef int ndim = ree.shape[0]
+ *     cdef int nchains = ree.shape[1]             # <<<<<<<<<<<<<<
+ *     cdef int ndumps = ree.shape[2]
+ * 
+ */
+  __pyx_v_nchains = (__pyx_v_ree->dimensions[1]);
+
+  /* "ext_libc/c_acf_openmp.pyx":59
+ *     cdef int ndim = ree.shape[0]
+ *     cdef int nchains = ree.shape[1]
+ *     cdef int ndumps = ree.shape[2]             # <<<<<<<<<<<<<<
+ * 
+ *     c_acf2_e2e(ndim, nchains, ndumps, &ree[0,0,0], &rEE2_acf[0])
+ */
+  __pyx_v_ndumps = (__pyx_v_ree->dimensions[2]);
+
+  /* "ext_libc/c_acf_openmp.pyx":61
+ *     cdef int ndumps = ree.shape[2]
+ * 
+ *     c_acf2_e2e(ndim, nchains, ndumps, &ree[0,0,0], &rEE2_acf[0])             # <<<<<<<<<<<<<<
+ *     return None
+ */
+  __pyx_t_1 = 0;
+  __pyx_t_2 = 0;
+  __pyx_t_3 = 0;
+  __pyx_t_4 = -1;
+  if (__pyx_t_1 < 0) {
+    __pyx_t_1 += __pyx_pybuffernd_ree.diminfo[0].shape;
+    if (unlikely(__pyx_t_1 < 0)) __pyx_t_4 = 0;
+  } else if (unlikely(__pyx_t_1 >= __pyx_pybuffernd_ree.diminfo[0].shape)) __pyx_t_4 = 0;
+  if (__pyx_t_2 < 0) {
+    __pyx_t_2 += __pyx_pybuffernd_ree.diminfo[1].shape;
+    if (unlikely(__pyx_t_2 < 0)) __pyx_t_4 = 1;
+  } else if (unlikely(__pyx_t_2 >= __pyx_pybuffernd_ree.diminfo[1].shape)) __pyx_t_4 = 1;
+  if (__pyx_t_3 < 0) {
+    __pyx_t_3 += __pyx_pybuffernd_ree.diminfo[2].shape;
+    if (unlikely(__pyx_t_3 < 0)) __pyx_t_4 = 2;
+  } else if (unlikely(__pyx_t_3 >= __pyx_pybuffernd_ree.diminfo[2].shape)) __pyx_t_4 = 2;
+  if (unlikely(__pyx_t_4 != -1)) {
+    __Pyx_RaiseBufferIndexError(__pyx_t_4);
+    __PYX_ERR(0, 61, __pyx_L1_error)
+  }
+  __pyx_t_5 = 0;
+  __pyx_t_4 = -1;
+  if (__pyx_t_5 < 0) {
+    __pyx_t_5 += __pyx_pybuffernd_rEE2_acf.diminfo[0].shape;
+    if (unlikely(__pyx_t_5 < 0)) __pyx_t_4 = 0;
+  } else if (unlikely(__pyx_t_5 >= __pyx_pybuffernd_rEE2_acf.diminfo[0].shape)) __pyx_t_4 = 0;
+  if (unlikely(__pyx_t_4 != -1)) {
+    __Pyx_RaiseBufferIndexError(__pyx_t_4);
+    __PYX_ERR(0, 61, __pyx_L1_error)
+  }
+  c_acf2_e2e(__pyx_v_ndim, __pyx_v_nchains, __pyx_v_ndumps, (&(*__Pyx_BufPtrCContig3d(__pyx_t_5numpy_float32_t *, __pyx_pybuffernd_ree.rcbuffer->pybuffer.buf, __pyx_t_1, __pyx_pybuffernd_ree.diminfo[0].strides, __pyx_t_2, __pyx_pybuffernd_ree.diminfo[1].strides, __pyx_t_3, __pyx_pybuffernd_ree.diminfo[2].strides))), (&(*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_float32_t *, __pyx_pybuffernd_rEE2_acf.rcbuffer->pybuffer.buf, __pyx_t_5, __pyx_pybuffernd_rEE2_acf.diminfo[0].strides))));
+
+  /* "ext_libc/c_acf_openmp.pyx":62
+ * 
+ *     c_acf2_e2e(ndim, nchains, ndumps, &ree[0,0,0], &rEE2_acf[0])
+ *     return None             # <<<<<<<<<<<<<<
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
+
+  /* "ext_libc/c_acf_openmp.pyx":42
+ * 
+ * # ========================================================================================
+ * def calc_acf2_ete(np.ndarray[np.float32_t, ndim=3, mode="c"] ree,             # <<<<<<<<<<<<<<
+ *                   np.ndarray[np.float32_t, ndim=1, mode="c"] rEE2_acf):
+ * 
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  { PyObject *__pyx_type, *__pyx_value, *__pyx_tb;
+    __Pyx_PyThreadState_declare
+    __Pyx_PyThreadState_assign
+    __Pyx_ErrFetch(&__pyx_type, &__pyx_value, &__pyx_tb);
+    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_rEE2_acf.rcbuffer->pybuffer);
+    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_ree.rcbuffer->pybuffer);
+  __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
+  __Pyx_AddTraceback("ext_libc.c_acf_openmp.calc_acf2_ete", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  goto __pyx_L2;
+  __pyx_L0:;
+  __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_rEE2_acf.rcbuffer->pybuffer);
+  __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_ree.rcbuffer->pybuffer);
   __pyx_L2:;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
@@ -2983,6 +3212,7 @@ static struct PyModuleDef __pyx_moduledef = {
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_ImportError, __pyx_k_ImportError, sizeof(__pyx_k_ImportError), 0, 0, 1, 1},
   {&__pyx_n_s_OPENMP_ENABLED, __pyx_k_OPENMP_ENABLED, sizeof(__pyx_k_OPENMP_ENABLED), 0, 0, 1, 1},
+  {&__pyx_n_s_calc_acf2_ete, __pyx_k_calc_acf2_ete, sizeof(__pyx_k_calc_acf2_ete), 0, 0, 1, 1},
   {&__pyx_n_s_calc_acf_ete, __pyx_k_calc_acf_ete, sizeof(__pyx_k_calc_acf_ete), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
   {&__pyx_n_s_ext_libc_c_acf_openmp, __pyx_k_ext_libc_c_acf_openmp, sizeof(__pyx_k_ext_libc_c_acf_openmp), 0, 0, 1, 1},
@@ -2997,7 +3227,9 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_u_numpy_core_multiarray_failed_to, __pyx_k_numpy_core_multiarray_failed_to, sizeof(__pyx_k_numpy_core_multiarray_failed_to), 0, 1, 0, 0},
   {&__pyx_kp_u_numpy_core_umath_failed_to_impor, __pyx_k_numpy_core_umath_failed_to_impor, sizeof(__pyx_k_numpy_core_umath_failed_to_impor), 0, 1, 0, 0},
   {&__pyx_kp_s_polyanagro_ext_libc_c_acf_openmp, __pyx_k_polyanagro_ext_libc_c_acf_openmp, sizeof(__pyx_k_polyanagro_ext_libc_c_acf_openmp), 0, 0, 1, 0},
+  {&__pyx_n_s_rEE2_acf, __pyx_k_rEE2_acf, sizeof(__pyx_k_rEE2_acf), 0, 0, 1, 1},
   {&__pyx_n_s_rEE_acf, __pyx_k_rEE_acf, sizeof(__pyx_k_rEE_acf), 0, 0, 1, 1},
+  {&__pyx_n_s_ree, __pyx_k_ree, sizeof(__pyx_k_ree), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
   {&__pyx_n_s_uree, __pyx_k_uree, sizeof(__pyx_k_uree), 0, 0, 1, 1},
   {0, 0, 0, 0, 0, 0, 0}
@@ -3035,17 +3267,29 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
 
-  /* "ext_libc/c_acf_openmp.pyx":17
+  /* "ext_libc/c_acf_openmp.pyx":18
  * 
  * # ========================================================================================
  * def calc_acf_ete(np.ndarray[np.float32_t, ndim=3, mode="c"] uree,             # <<<<<<<<<<<<<<
  *                  np.ndarray[np.float32_t, ndim=1, mode="c"] rEE_acf):
  * 
  */
-  __pyx_tuple__3 = PyTuple_Pack(5, __pyx_n_s_uree, __pyx_n_s_rEE_acf, __pyx_n_s_ndim, __pyx_n_s_nchains, __pyx_n_s_ndumps); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_tuple__3 = PyTuple_Pack(5, __pyx_n_s_uree, __pyx_n_s_rEE_acf, __pyx_n_s_ndim, __pyx_n_s_nchains, __pyx_n_s_ndumps); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
-  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(2, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_polyanagro_ext_libc_c_acf_openmp, __pyx_n_s_calc_acf_ete, 17, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(2, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_polyanagro_ext_libc_c_acf_openmp, __pyx_n_s_calc_acf_ete, 18, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 18, __pyx_L1_error)
+
+  /* "ext_libc/c_acf_openmp.pyx":42
+ * 
+ * # ========================================================================================
+ * def calc_acf2_ete(np.ndarray[np.float32_t, ndim=3, mode="c"] ree,             # <<<<<<<<<<<<<<
+ *                   np.ndarray[np.float32_t, ndim=1, mode="c"] rEE2_acf):
+ * 
+ */
+  __pyx_tuple__5 = PyTuple_Pack(5, __pyx_n_s_ree, __pyx_n_s_rEE2_acf, __pyx_n_s_ndim, __pyx_n_s_nchains, __pyx_n_s_ndumps); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 42, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__5);
+  __Pyx_GIVEREF(__pyx_tuple__5);
+  __pyx_codeobj__6 = (PyObject*)__Pyx_PyCode_New(2, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__5, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_polyanagro_ext_libc_c_acf_openmp, __pyx_n_s_calc_acf2_ete, 42, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__6)) __PYX_ERR(0, 42, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -3388,8 +3632,8 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "ext_libc/c_acf_openmp.pyx":14
- * 
+  /* "ext_libc/c_acf_openmp.pyx":15
+ *                      float* ree, float* rEE_acf)
  * 
  * OPENMP_ENABLED = True if USED_OPENMP else False             # <<<<<<<<<<<<<<
  * 
@@ -3402,19 +3646,31 @@ if (!__Pyx_RefNanny) {
     __Pyx_INCREF(Py_False);
     __pyx_t_1 = Py_False;
   }
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_OPENMP_ENABLED, __pyx_t_1) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_OPENMP_ENABLED, __pyx_t_1) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "ext_libc/c_acf_openmp.pyx":17
+  /* "ext_libc/c_acf_openmp.pyx":18
  * 
  * # ========================================================================================
  * def calc_acf_ete(np.ndarray[np.float32_t, ndim=3, mode="c"] uree,             # <<<<<<<<<<<<<<
  *                  np.ndarray[np.float32_t, ndim=1, mode="c"] rEE_acf):
  * 
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_8ext_libc_12c_acf_openmp_1calc_acf_ete, NULL, __pyx_n_s_ext_libc_c_acf_openmp); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_8ext_libc_12c_acf_openmp_1calc_acf_ete, NULL, __pyx_n_s_ext_libc_c_acf_openmp); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_calc_acf_ete, __pyx_t_1) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_calc_acf_ete, __pyx_t_1) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "ext_libc/c_acf_openmp.pyx":42
+ * 
+ * # ========================================================================================
+ * def calc_acf2_ete(np.ndarray[np.float32_t, ndim=3, mode="c"] ree,             # <<<<<<<<<<<<<<
+ *                   np.ndarray[np.float32_t, ndim=1, mode="c"] rEE2_acf):
+ * 
+ */
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_8ext_libc_12c_acf_openmp_3calc_acf2_ete, NULL, __pyx_n_s_ext_libc_c_acf_openmp); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 42, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_calc_acf2_ete, __pyx_t_1) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "ext_libc/c_acf_openmp.pyx":1

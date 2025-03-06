@@ -1,12 +1,10 @@
 import MDAnalysis as mda
 import MDAnalysis.transformations as trans
-import numpy as np
 import datetime
 import argparse
 import os
 import utils
 import sys
-import topology
 
 
 # =============================================================================

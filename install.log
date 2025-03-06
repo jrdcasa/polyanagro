@@ -6,16 +6,11 @@
 /home/jramos/Programacion/MAMBA/lib/python3.10/site-packages
 /home/jramos/Programacion/MAMBA/lib/python3.10/site-packages/topology-1.0.0-py3.10-linux-x86_64.egg
 /home/jramos/Programacion/MAMBA/lib/python3.10/site-packages/replicate_polymer-0.0.0-py3.10-linux-x86_64.egg
+/home/jramos/Programacion/MAMBA/lib/python3.10/site-packages/polyanagro-1.1-py3.10-linux-x86_64.egg
 
-		 INSTALLING PIP PACKAGES (14/09/2024 12:58:14)
+		 INSTALLING PIP PACKAGES (06/03/2025 16:04:11)
 
-14/09/2024 12:58:15: ** None: Installing GitPython==3.1.1
-14/09/2024 12:58:17: ** None: Installing cython==0.29.24
-14/09/2024 12:58:19: ** None: Installing h5py
-14/09/2024 12:58:22: ** None: Installing panedr
-14/09/2024 12:58:24: ** None: Installing statsmodels
-14/09/2024 12:58:29: ** None: Installing MDAnalysis
 
-		 RUNNING SETUP FROM SETUPTOOLS 14/09/2024 12:58:31
+		 RUNNING SETUP FROM SETUPTOOLS 06/03/2025 16:04:12
 
 

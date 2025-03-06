@@ -6,3 +6,4 @@ build/
 topology/
 data/trj_gro
 test/test_data_dist01/trj.dcd
+ORIGINALS/

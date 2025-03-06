@@ -181,9 +181,10 @@ def setup_external_extensions(debug_cflags=False, use_openmp=True):
                   extra_compile_args=parallel_args + extra_compile_args,
                   extra_link_args=parallel_args),
         Extension("ext_libc.c_rdf_openmp", ["polyanagro/ext_libc/c_rdf_openmp.pyx"],
-                  libraries=mathlib,
-                  define_macros=define_macros,
-                  extra_compile_args=extra_compile_args, ),
+                  libraries=mathlib + parallel_libraries,
+                  define_macros=define_macros + parallel_macros,
+                  extra_compile_args=parallel_args + extra_compile_args,
+                  extra_link_args=['-lgomp']),
         Extension("ext_libc.c_distC", ["polyanagro/ext_libc/c_distC.pyx"],
                   libraries=mathlib + parallel_libraries,
                   define_macros=define_macros + parallel_macros,
@@ -255,21 +256,21 @@ if __name__ == '__main__':
     m1 += "\n\t\t INSTALLING PIP PACKAGES ({})\n".format(nowm)
     print(m1) if logger is None else logger.info(m1)
     # Install requirements ===================================
-    with open('requirements.txt') as f:
-        required = f.read().splitlines()
-    for ipack in required:
-        try:
-            pkg, version = ipack.split(">=")[0:2]
-            if pkg[0] == "#":
-                continue
-            install_with_pip(pkg, vers=version, log=logger)
-        except ValueError:
-            pkg = ipack
-            if pkg[0] == "#" or len(pkg)<2:
-                continue
-            install_with_pip(pkg, log=logger)
-        finally:
-            pass
+    # with open('requirements.txt') as f:
+    #     required = f.read().splitlines()
+    # for ipack in required:
+    #     try:
+    #         pkg, version = ipack.split(">=")[0:2]
+    #         if pkg[0] == "#":
+    #             continue
+    #         install_with_pip(pkg, vers=version, log=logger)
+    #     except ValueError:
+    #         pkg = ipack
+    #         if pkg[0] == "#" or len(pkg)<2:
+    #             continue
+    #         install_with_pip(pkg, log=logger)
+    #     finally:
+    #         pass
 
     # Check for topology installation
     try:
@@ -291,7 +292,7 @@ if __name__ == '__main__':
     print(m1) if logger is None else logger.info(m1)
     print(os.getcwd())
     setup(
-        ext_modules=cythonize(extensions,
-                              compiler_directives={'language_level': sys.version_info[0]}),
-        include_dirs=[numpy.get_include()])
+        ext_modules=cythonize(extensions, compiler_directives={'language_level': sys.version_info[0]}),
+        include_dirs=[numpy.get_include()],
+        )
 

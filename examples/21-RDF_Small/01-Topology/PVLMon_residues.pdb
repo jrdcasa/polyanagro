@@ -1,0 +1,349 @@
+REMARK     Renumbered with topology (J.Ramos)
+REMARK     Backbone atoms --> Beta field == 0.00
+REMARK     Branch   atoms --> Beta field >= 1.00
+REMARK     Head     atoms --> Occupanccy field == 1.00
+REMARK     Tail     atoms --> Occupanccy field == 2.00
+REMARK     Middle   atoms --> Occupanccy field == 0.00
+CRYST1   16.185   16.185   16.185  90.00  90.00  90.00 P -1          1
+MODEL 1
+ATOM      1 H    PVA A   1      13.009   2.413  10.435  1.00  0.00           H
+ATOM      2 O    PVA A   1      12.757   2.911  11.256  0.00  0.00           O
+ATOM      3 C    PVA A   1      13.200   4.225  11.066  0.00  0.00           C
+ATOM      4 H    PVA A   1      12.734   4.643  10.144  0.00  1.00           H
+ATOM      5 H    PVA A   1      14.303   4.225  10.946  0.00  1.00           H
+ATOM      6 C    PVA A   1      12.805   5.073  12.276  0.00  0.00           C
+ATOM      7 H    PVA A   1      11.711   4.968  12.431  0.00  1.00           H
+ATOM      8 H    PVA A   1      13.308   4.688  13.190  0.00  1.00           H
+ATOM      9 C    PVA A   1      13.125   6.563  12.081  0.00  0.00           C
+ATOM     10 H    PVA A   1      12.749   6.899  11.088  0.00  1.00           H
+ATOM     11 H    PVA A   1      12.575   7.136  12.860  0.00  1.00           H
+ATOM     12 C    PVA A   1      14.628   6.867  12.210  0.00  0.00           C
+ATOM     13 H    PVA A   1      15.204   6.301  11.449  0.00  1.00           H
+ATOM     14 H    PVA A   1      14.981   6.555  13.214  0.00  1.00           H
+ATOM     15 C    PVA A   1      14.951   8.327  12.032  0.00  0.00           C
+ATOM     16 O    PVA A   1      14.089   9.145  11.760  0.00  1.00           O
+ATOM     17 H    PVA A   1      15.976   8.659  12.146  2.00  0.00           H
+ATOM     18 H    PVA A   2       6.983   4.841  12.115  1.00  0.00           H
+ATOM     19 O    PVA A   2       6.351   4.214  12.552  0.00  0.00           O
+ATOM     20 C    PVA A   2       6.521   2.980  11.913  0.00  0.00           C
+ATOM     21 H    PVA A   2       7.540   2.591  12.125  0.00  1.00           H
+ATOM     22 H    PVA A   2       6.404   3.105  10.815  0.00  1.00           H
+ATOM     23 C    PVA A   2       5.471   1.992  12.424  0.00  0.00           C
+ATOM     24 H    PVA A   2       5.507   1.957  13.536  0.00  1.00           H
+ATOM     25 H    PVA A   2       4.463   2.348  12.115  0.00  1.00           H
+ATOM     26 C    PVA A   2       5.717   0.586  11.864  0.00  0.00           C
+ATOM     27 H    PVA A   2       5.713   0.627  10.752  0.00  1.00           H
+ATOM     28 H    PVA A   2       6.712   0.226  12.204  0.00  1.00           H
+ATOM     29 C    PVA A   2       4.640  -0.393  12.341  0.00  0.00           C
+ATOM     30 H    PVA A   2       3.649  -0.049  11.992  0.00  1.00           H
+ATOM     31 H    PVA A   2       4.628  -0.433  13.450  0.00  1.00           H
+ATOM     32 C    PVA A   2       4.881  -1.771  11.806  0.00  0.00           C
+ATOM     33 O    PVA A   2       4.104  -2.673  12.076  0.00  1.00           O
+ATOM     34 H    PVA A   2       5.741  -1.981  11.178  2.00  0.00           H
+ATOM     35 H    PVA A   3       3.893   5.235   7.153  1.00  0.00           H
+ATOM     36 O    PVA A   3       4.715   4.981   6.658  0.00  0.00           O
+ATOM     37 C    PVA A   3       5.627   4.525   7.617  0.00  0.00           C
+ATOM     38 H    PVA A   3       5.166   3.702   8.210  0.00  1.00           H
+ATOM     39 H    PVA A   3       5.887   5.363   8.299  0.00  1.00           H
+ATOM     40 C    PVA A   3       6.886   4.008   6.913  0.00  0.00           C
+ATOM     41 H    PVA A   3       6.578   3.239   6.175  0.00  1.00           H
+ATOM     42 H    PVA A   3       7.372   4.834   6.347  0.00  1.00           H
+ATOM     43 C    PVA A   3       7.892   3.369   7.883  0.00  0.00           C
+ATOM     44 H    PVA A   3       7.372   2.629   8.533  0.00  1.00           H
+ATOM     45 H    PVA A   3       8.650   2.818   7.281  0.00  1.00           H
+ATOM     46 C    PVA A   3       8.617   4.412   8.745  0.00  0.00           C
+ATOM     47 H    PVA A   3       7.890   4.943   9.399  0.00  1.00           H
+ATOM     48 H    PVA A   3       9.117   5.159   8.094  0.00  1.00           H
+ATOM     49 C    PVA A   3       9.665   3.755   9.592  0.00  0.00           C
+ATOM     50 O    PVA A   3       9.669   3.918  10.800  0.00  1.00           O
+ATOM     51 H    PVA A   3      10.431   3.137   9.131  2.00  0.00           H
+ATOM     52 H    PVA A   4       4.913  -0.686   6.192  1.00  0.00           H
+ATOM     53 O    PVA A   4       5.066  -0.109   5.401  0.00  0.00           O
+ATOM     54 C    PVA A   4       6.449   0.087   5.321  0.00  0.00           C
+ATOM     55 H    PVA A   4       6.959  -0.893   5.196  0.00  1.00           H
+ATOM     56 H    PVA A   4       6.811   0.568   6.258  0.00  1.00           H
+ATOM     57 C    PVA A   4       6.769   0.981   4.124  0.00  0.00           C
+ATOM     58 H    PVA A   4       6.449   0.464   3.193  0.00  1.00           H
+ATOM     59 H    PVA A   4       6.184   1.919   4.210  0.00  1.00           H
+ATOM     60 C    PVA A   4       8.271   1.296   4.052  0.00  0.00           C
+ATOM     61 H    PVA A   4       8.609   1.775   4.995  0.00  1.00           H
+ATOM     62 H    PVA A   4       8.830   0.342   3.941  0.00  1.00           H
+ATOM     63 C    PVA A   4       8.620   2.198   2.861  0.00  0.00           C
+ATOM     64 H    PVA A   4       8.156   1.805   1.932  0.00  1.00           H
+ATOM     65 H    PVA A   4       9.723   2.181   2.715  0.00  1.00           H
+ATOM     66 C    PVA A   4       8.166   3.613   3.085  0.00  0.00           C
+ATOM     67 O    PVA A   4       8.978   4.523   3.115  0.00  1.00           O
+ATOM     68 H    PVA A   4       7.111   3.840   3.202  2.00  0.00           H
+ATOM     69 H    PVA A   5       9.772  15.252  14.395  1.00  0.00           H
+ATOM     70 O    PVA A   5      10.146  16.039  13.923  0.00  0.00           O
+ATOM     71 C    PVA A   5       9.578  17.166  14.528  0.00  0.00           C
+ATOM     72 H    PVA A   5       9.821  17.165  15.613  0.00  1.00           H
+ATOM     73 H    PVA A   5       8.472  17.132  14.402  0.00  1.00           H
+ATOM     74 C    PVA A   5      10.132  18.428  13.867  0.00  0.00           C
+ATOM     75 H    PVA A   5      11.237  18.464  13.988  0.00  1.00           H
+ATOM     76 H    PVA A   5       9.927  18.364  12.777  0.00  1.00           H
+ATOM     77 C    PVA A   5       9.484  19.715  14.413  0.00  0.00           C
+ATOM     78 H    PVA A   5       9.675  20.547  13.699  0.00  1.00           H
+ATOM     79 H    PVA A   5       8.382  19.585  14.466  0.00  1.00           H
+ATOM     80 C    PVA A   5      10.006  20.120  15.798  0.00  0.00           C
+ATOM     81 H    PVA A   5       9.871  19.290  16.522  0.00  1.00           H
+ATOM     82 H    PVA A   5       9.411  20.982  16.171  0.00  1.00           H
+ATOM     83 C    PVA A   5      11.446  20.534  15.740  0.00  0.00           C
+ATOM     84 O    PVA A   5      12.295  19.905  16.351  0.00  1.00           O
+ATOM     85 H    PVA A   5      11.737  21.397  15.152  2.00  0.00           H
+ATOM     86 H    PVA A   6       3.156   5.543  16.604  1.00  0.00           H
+ATOM     87 O    PVA A   6       2.393   5.771  16.011  0.00  0.00           O
+ATOM     88 C    PVA A   6       2.630   7.072  15.550  0.00  0.00           C
+ATOM     89 H    PVA A   6       3.538   7.066  14.904  0.00  1.00           H
+ATOM     90 H    PVA A   6       2.813   7.760  16.406  0.00  1.00           H
+ATOM     91 C    PVA A   6       1.440   7.566  14.720  0.00  0.00           C
+ATOM     92 H    PVA A   6       1.781   8.432  14.112  0.00  1.00           H
+ATOM     93 H    PVA A   6       1.119   6.772  14.011  0.00  1.00           H
+ATOM     94 C    PVA A   6       0.250   8.034  15.574  0.00  0.00           C
+ATOM     95 H    PVA A   6       0.588   8.786  16.320  0.00  1.00           H
+ATOM     96 H    PVA A   6      -0.474   8.539  14.898  0.00  1.00           H
+ATOM     97 C    PVA A   6      -0.460   6.880  16.290  0.00  0.00           C
+ATOM     98 H    PVA A   6       0.194   6.470  17.090  0.00  1.00           H
+ATOM     99 H    PVA A   6      -0.692   6.068  15.564  0.00  1.00           H
+ATOM    100 C    PVA A   6      -1.729   7.364  16.933  0.00  0.00           C
+ATOM    101 O    PVA A   6      -2.809   6.907  16.592  0.00  1.00           O
+ATOM    102 H    PVA A   6      -1.688   8.122  17.711  2.00  0.00           H
+ATOM    103 H    PVA A   7       0.544   0.240  10.922  1.00  0.00           H
+ATOM    104 O    PVA A   7       0.233   1.145  11.188  0.00  0.00           O
+ATOM    105 C    PVA A   7       1.365   1.815  11.670  0.00  0.00           C
+ATOM    106 H    PVA A   7       2.113   1.908  10.851  0.00  1.00           H
+ATOM    107 H    PVA A   7       1.825   1.242  12.499  0.00  1.00           H
+ATOM    108 C    PVA A   7       0.983   3.215  12.157  0.00  0.00           C
+ATOM    109 H    PVA A   7       1.902   3.785  12.413  0.00  1.00           H
+ATOM    110 H    PVA A   7       0.485   3.745  11.319  0.00  1.00           H
+ATOM    111 C    PVA A   7       0.026   3.200  13.360  0.00  0.00           C
+ATOM    112 H    PVA A   7      -0.380   4.226  13.486  0.00  1.00           H
+ATOM    113 H    PVA A   7      -0.835   2.527  13.155  0.00  1.00           H
+ATOM    114 C    PVA A   7       0.725   2.791  14.662  0.00  0.00           C
+ATOM    115 H    PVA A   7       1.592   3.460  14.848  0.00  1.00           H
+ATOM    116 H    PVA A   7       1.098   1.751  14.589  0.00  1.00           H
+ATOM    117 C    PVA A   7      -0.234   2.854  15.812  0.00  0.00           C
+ATOM    118 O    PVA A   7      -0.032   3.612  16.745  0.00  1.00           O
+ATOM    119 H    PVA A   7      -1.107   2.209  15.824  2.00  0.00           H
+ATOM    120 H    PVA A   8      17.868  10.585  12.442  1.00  0.00           H
+ATOM    121 O    PVA A   8      17.860  11.419  12.978  0.00  0.00           O
+ATOM    122 C    PVA A   8      16.643  12.051  12.693  0.00  0.00           C
+ATOM    123 H    PVA A   8      15.800  11.383  12.981  0.00  1.00           H
+ATOM    124 H    PVA A   8      16.582  12.270  11.603  0.00  1.00           H
+ATOM    125 C    PVA A   8      16.550  13.356  13.484  0.00  0.00           C
+ATOM    126 H    PVA A   8      16.634  13.125  14.569  0.00  1.00           H
+ATOM    127 H    PVA A   8      17.396  14.020  13.196  0.00  1.00           H
+ATOM    128 C    PVA A   8      15.223  14.073  13.216  0.00  0.00           C
+ATOM    129 H    PVA A   8      15.143  14.304  12.130  0.00  1.00           H
+ATOM    130 H    PVA A   8      14.379  13.405  13.502  0.00  1.00           H
+ATOM    131 C    PVA A   8      15.128  15.378  14.016  0.00  0.00           C
+ATOM    132 H    PVA A   8      15.947  16.065  13.714  0.00  1.00           H
+ATOM    133 H    PVA A   8      15.234  15.159  15.102  0.00  1.00           H
+ATOM    134 C    PVA A   8      13.810  16.053  13.783  0.00  0.00           C
+ATOM    135 O    PVA A   8      13.556  16.552  12.697  0.00  1.00           O
+ATOM    136 H    PVA A   8      13.067  16.081  14.574  2.00  0.00           H
+ATOM    137 H    PVA A   9      11.161   8.150   5.709  1.00  0.00           H
+ATOM    138 O    PVA A   9      11.627   7.306   5.955  0.00  0.00           O
+ATOM    139 C    PVA A   9      10.768   6.265   5.576  0.00  0.00           C
+ATOM    140 H    PVA A   9      10.578   6.310   4.483  0.00  1.00           H
+ATOM    141 H    PVA A   9       9.792   6.381   6.099  0.00  1.00           H
+ATOM    142 C    PVA A   9      11.375   4.914   5.963  0.00  0.00           C
+ATOM    143 H    PVA A   9      11.600   4.930   7.052  0.00  1.00           H
+ATOM    144 H    PVA A   9      10.627   4.108   5.792  0.00  1.00           H
+ATOM    145 C    PVA A   9      12.671   4.599   5.195  0.00  0.00           C
+ATOM    146 H    PVA A   9      13.319   5.504   5.150  0.00  1.00           H
+ATOM    147 H    PVA A   9      13.232   3.821   5.758  0.00  1.00           H
+ATOM    148 C    PVA A   9      12.398   4.063   3.783  0.00  0.00           C
+ATOM    149 H    PVA A   9      11.741   4.751   3.213  0.00  1.00           H
+ATOM    150 H    PVA A   9      11.889   3.076   3.854  0.00  1.00           H
+ATOM    151 C    PVA A   9      13.685   3.917   3.029  0.00  0.00           C
+ATOM    152 O    PVA A   9      14.105   2.812   2.719  0.00  1.00           O
+ATOM    153 H    PVA A   9      14.247   4.804   2.744  2.00  0.00           H
+ATOM    154 H    PVA A  10      -2.002   4.649   7.913  1.00  0.00           H
+ATOM    155 O    PVA A  10      -1.077   4.626   8.268  0.00  0.00           O
+ATOM    156 C    PVA A  10      -0.618   5.946   8.253  0.00  0.00           C
+ATOM    157 H    PVA A  10      -1.310   6.588   8.839  0.00  1.00           H
+ATOM    158 H    PVA A  10      -0.581   6.314   7.207  0.00  1.00           H
+ATOM    159 C    PVA A  10       0.781   6.006   8.864  0.00  0.00           C
+ATOM    160 H    PVA A  10       0.755   5.529   9.863  0.00  1.00           H
+ATOM    161 H    PVA A  10       1.484   5.435   8.221  0.00  1.00           H
+ATOM    162 C    PVA A  10       1.267   7.456   9.005  0.00  0.00           C
+ATOM    163 H    PVA A  10       1.245   7.944   8.005  0.00  1.00           H
+ATOM    164 H    PVA A  10       0.581   8.021   9.674  0.00  1.00           H
+ATOM    165 C    PVA A  10       2.700   7.538   9.550  0.00  0.00           C
+ATOM    166 H    PVA A  10       3.027   8.601   9.546  0.00  1.00           H
+ATOM    167 H    PVA A  10       3.391   6.970   8.888  0.00  1.00           H
+ATOM    168 C    PVA A  10       2.785   7.026  10.959  0.00  0.00           C
+ATOM    169 O    PVA A  10       3.530   6.098  11.237  0.00  1.00           O
+ATOM    170 H    PVA A  10       2.188   7.489  11.739  2.00  0.00           H
+ENDMDL
+CONECT    1    2
+CONECT    2    3    1
+CONECT    3    6    4    5    2
+CONECT    4    3
+CONECT    5    3
+CONECT    6    9    7    8    3
+CONECT    7    6
+CONECT    8    6
+CONECT    9   12    6   10   11
+CONECT   10    9
+CONECT   11    9
+CONECT   12   15    9   13   14
+CONECT   13   12
+CONECT   14   12
+CONECT   15   16   12   17
+CONECT   16   15
+CONECT   17   15
+CONECT   18   19
+CONECT   19   20   18
+CONECT   20   23   21   22   19
+CONECT   21   20
+CONECT   22   20
+CONECT   23   26   24   25   20
+CONECT   24   23
+CONECT   25   23
+CONECT   26   29   23   27   28
+CONECT   27   26
+CONECT   28   26
+CONECT   29   32   26   30   31
+CONECT   30   29
+CONECT   31   29
+CONECT   32   33   29   34
+CONECT   33   32
+CONECT   34   32
+CONECT   35   36
+CONECT   36   37   35
+CONECT   37   40   38   39   36
+CONECT   38   37
+CONECT   39   37
+CONECT   40   43   41   42   37
+CONECT   41   40
+CONECT   42   40
+CONECT   43   46   40   44   45
+CONECT   44   43
+CONECT   45   43
+CONECT   46   49   43   47   48
+CONECT   47   46
+CONECT   48   46
+CONECT   49   50   46   51
+CONECT   50   49
+CONECT   51   49
+CONECT   52   53
+CONECT   53   54   52
+CONECT   54   57   55   56   53
+CONECT   55   54
+CONECT   56   54
+CONECT   57   60   58   59   54
+CONECT   58   57
+CONECT   59   57
+CONECT   60   63   57   61   62
+CONECT   61   60
+CONECT   62   60
+CONECT   63   66   60   64   65
+CONECT   64   63
+CONECT   65   63
+CONECT   66   67   63   68
+CONECT   67   66
+CONECT   68   66
+CONECT   69   70
+CONECT   70   71   69
+CONECT   71   74   72   73   70
+CONECT   72   71
+CONECT   73   71
+CONECT   74   77   75   76   71
+CONECT   75   74
+CONECT   76   74
+CONECT   77   80   74   78   79
+CONECT   78   77
+CONECT   79   77
+CONECT   80   83   77   81   82
+CONECT   81   80
+CONECT   82   80
+CONECT   83   84   80   85
+CONECT   84   83
+CONECT   85   83
+CONECT   86   87
+CONECT   87   88   86
+CONECT   88   91   89   90   87
+CONECT   89   88
+CONECT   90   88
+CONECT   91   94   92   93   88
+CONECT   92   91
+CONECT   93   91
+CONECT   94   97   91   95   96
+CONECT   95   94
+CONECT   96   94
+CONECT   97  100   94   98   99
+CONECT   98   97
+CONECT   99   97
+CONECT  100  101   97  102
+CONECT  101  100
+CONECT  102  100
+CONECT  103  104
+CONECT  104  105  103
+CONECT  105  108  106  107  104
+CONECT  106  105
+CONECT  107  105
+CONECT  108  111  109  110  105
+CONECT  109  108
+CONECT  110  108
+CONECT  111  114  108  112  113
+CONECT  112  111
+CONECT  113  111
+CONECT  114  117  111  115  116
+CONECT  115  114
+CONECT  116  114
+CONECT  117  118  114  119
+CONECT  118  117
+CONECT  119  117
+CONECT  120  121
+CONECT  121  122  120
+CONECT  122  125  123  124  121
+CONECT  123  122
+CONECT  124  122
+CONECT  125  128  126  127  122
+CONECT  126  125
+CONECT  127  125
+CONECT  128  131  125  129  130
+CONECT  129  128
+CONECT  130  128
+CONECT  131  134  128  132  133
+CONECT  132  131
+CONECT  133  131
+CONECT  134  135  131  136
+CONECT  135  134
+CONECT  136  134
+CONECT  137  138
+CONECT  138  139  137
+CONECT  139  142  140  141  138
+CONECT  140  139
+CONECT  141  139
+CONECT  142  145  143  144  139
+CONECT  143  142
+CONECT  144  142
+CONECT  145  148  142  146  147
+CONECT  146  145
+CONECT  147  145
+CONECT  148  151  145  149  150
+CONECT  149  148
+CONECT  150  148
+CONECT  151  152  148  153
+CONECT  152  151
+CONECT  153  151
+CONECT  154  155
+CONECT  155  156  154
+CONECT  156  159  157  158  155
+CONECT  157  156
+CONECT  158  156
+CONECT  159  162  160  161  156
+CONECT  160  159
+CONECT  161  159
+CONECT  162  165  159  163  164
+CONECT  163  162
+CONECT  164  162
+CONECT  165  168  162  166  167
+CONECT  166  165
+CONECT  167  165
+CONECT  168  169  165  170
+CONECT  169  168
+CONECT  170  168

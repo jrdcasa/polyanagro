@@ -1,0 +1,24 @@
+Job Start
+   START Check trajectories Sat Feb 15 09:25:17 PM CET 2025
+   End Check trajectories Sat Feb 15 09:25:17 PM CET 2025
+ =======================  TRAJECTORY INFO    =======================
+    Trajectory: Start = 0.000 ps. Finnished at 200.000 ps. Delta_t = 20 ps. NFrames: 11
+        Start     = 0.000 ps
+        Finnished = 200.000 ps
+        Delta_t   = 20 ps
+        NFrames   = 11
+ ======================= END TRAJECTORY INFO =======================
+
+ =======================    EXTRACTION INFO      =======================
+        Start           = 0.000 ps
+        Finnished       = 200.000 ps
+        Frames to write = 11
+        DT              = 20 ps
+ =======================  END EXTRACTION INFO    =======================
+
+   START Extract to PDB trajectory Sat Feb 15 09:25:17 PM CET 2025
+     Trajectory has been written to 01-PVMon.pdb
+   END   Extract to PDB trajectory Sat Feb 15 09:25:17 PM CET 2025
+
+   ../01-Topology/PVLMon_residues.psf copied
+Job Done!!!!!

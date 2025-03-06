@@ -1,0 +1,55 @@
+
+    ***********************************************************************
+                         Pair distribution calculations 
+              ----------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an 
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 18-02-2025 19:06:53 ============
+
+		Command line: 
+			python pair_distribution.py -t 01-PVMon.pdb --psf PVLMon_residues.psf --nbins 100 --cutoff 20.0
+			         or
+			pair_distribution -t 01-PVMon.pdb --psf PVLMon_residues.psf --nbins 100 --cutoff 20.0
+
+	*** Creating a trajectory from...
+	01-PVMon.pdb
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	*** Backbone atoms have been assigned to the topology.
+	Topology file: PVLMon_residues.psf
+	TIME(Building_bonds_from_topology): 0.144354 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	PVLMon_residues.psf
+	Number of frames: 11
+	TIME(Adding topology): 0.007624 seconds
+	*** End Adding topology
+
+	Number of frames: 11
+	TIME(Read_Trajectories): 0.152192 seconds
+	*** End Creating a trajectory 
+
+		*********   RDF INFO   *********
+		  Number of bins = 100
+		  Cutoff for RDF = 20.00 angstroms
+		  Bin width      = 0.20 angstroms
+		  Intramolecular = 1
+		********* END RDF INFO *********
+

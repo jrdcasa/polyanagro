@@ -4,6 +4,12 @@ import datetime
 import utils
 import sys
 import topology
+import MDAnalysis as mda
+from MDAnalysis.analysis.rdf import InterRDF
+import warnings
+
+# Suppress specific MDAnalysis warnings (optional)
+warnings.filterwarnings("ignore", category=UserWarning)
 
 # =============================================================================
 def parse_arguments():
@@ -34,14 +40,35 @@ def parse_arguments():
                         help="Take a frame each stride frames, for example 10",
                         action="store", required=False, default=1)
 
-    parser.add_argument("--sets", dest="sets", nargs="+",
-                        help="Set of atoms to calculate the g(r). "
+    group4 = parser.add_mutually_exclusive_group(required=True)
+    group4.add_argument("--sets", dest="sets", nargs=2,
+                        help="Set of atoms to calculate the g(r)."
                              "By default all atoms are used in both sets to calculate the g(r) function",
+                        action="store")
+    group4.add_argument("--index", dest="index", type=str,
+                        help="A ndx file format with two set of indices",
+                        action="store")
+
+    group3 = parser.add_mutually_exclusive_group(required=True)
+    group3.add_argument("--dr", dest="dr", type=float,
+                        help="Bin width in angstroms for the histogram",
+                        action="store", required=False)
+
+    group3.add_argument("--nbins", dest="nbins", type=int,
+                        help="Number of bins in the histogram",
+                        action="store", required=False)
+
+    parser.add_argument("--cutoff", dest="cutoff", type=float,
+                        help="Calculate the RDF out to cutoff in angstroms.",
+                        action="store", required=False, default=20.0)
+
+    parser.add_argument("--excl", dest="excl", type=int,
+                        help="Depth of the neighbours exluded: "
+                             "--excl 1 --> Exclude the (1-2) interations"
+                             "--excl 2 --> Exclude 1-3 interations "
+                             "and so on",
                         action="store", required=False, default=None)
 
-    parser.add_argument("--dr", dest="dr", type=float,
-                        help="Bin width in angstroms for the histogram",
-                        action="store", required=False, default=0.02)
     args = parser.parse_args()
 
     for itrj in args.traj:
@@ -98,16 +125,11 @@ def print_header(version, logger_log=None):
     m += "\t\t\tpython {}".format(os.path.split(sys.argv[0])[1])
     m += m1 + "\n"
     m += "\t\t\t         or\n"
-    m += "\t\t\tpolymer_size".format(os.path.split(sys.argv[0])[1])
+    m += "\t\t\tpair_distribution".format(os.path.split(sys.argv[0])[1])
     m += m1 + "\n"
     print(m) if logger_log is None else logger_log.info(m)
 
-# =============================================================================
-def define_sets():
 
-    pass
-
-    return None, None
 
 # =============================================================================
 def main_app():
@@ -116,24 +138,53 @@ def main_app():
 
     # Parse arguments
     args = parse_arguments()
-
-    # Parse arguments
-    args = parse_arguments()
     # Setup log
-    log = utils.init_logger("Output", fileoutput=args.log, append=False, inscreen=False)
+    log = utils.init_logger("Output", fileoutput=args.log, append=False, inscreen=True)
+
+    # Starting time
+    now = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+    m = "\t\tStarting at {} ============\n".format(now)
+    print(m) if log is None else log.info(m)
+
     # Write header and arguments
     print_header(pag.version.__version__, log)
     # Load trajectory
     trj = topology.ExtTrajectory(args.traj, topfile=args.topo, logger=log)
-    # Sets
-    if args.sets is None:
-        setA = [i for i in range(0,trj.topology.natoms)]
-        setB = [i for i in range(0, trj.topology.natoms)]
+
+    # Create the RDF object to calculate
+    if args.nbins:
+        delta_r = args.cutoff / args.nbins
     else:
-        setA, setB = define_sets()
-    # Create object to calculate
-    RDFcalc = pag.RDF(trj, dt=trj.dt, setA=setA, setB=setB, stride=args.stride, logger=log)
+        delta_r = args.dr
+
+    now = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+    m = "\t\tStarting at {} ============\n".format(now)
+    print(m) if log is None else log.info(m)
+
+
+    RDFcalc = pag.RDF(trj, dt=trj.dt, stride=args.stride, excl=args.excl,
+                      delta_r= delta_r, cutoff= args.cutoff, logger=log)
+
+    if args.sets:
+        RDFcalc.define_sets(setA=args.sets[0], setB=args.sets[1])
+    if args.index:
+        RDFcalc.define_sets_idx(idx_file=args.index)
+
     RDFcalc.rdf_calc_cython()
+
+    # End time
+    now = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+    m = "\t\tStarting at {} ============\n".format(now)
+    print(m) if log is None else log.info(m)
+
+
+    # ag1 = trj.universe.select_atoms("index 0 to 5")
+    # ag2 = trj.universe.select_atoms("index 0 to 5")
+    # #rdf = InterRDF(ag1, ag2, nbins=100, range=(0.0, 20.0)) #, exclusion_block=(6,6))
+    # rdf = InterRDF(ag1, ag2, nbins=100, range=(0.0, 20.0), exclusion_block=(1,4))
+    # rdf.run()
+    # print(rdf.results.count)
+
 
 # =============================================================================
 if __name__ == "__main__":

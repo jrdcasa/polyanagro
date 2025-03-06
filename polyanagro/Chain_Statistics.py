@@ -14,7 +14,8 @@ import matplotlib.pyplot as plt
 class Chain_Statistics(pag.Calculations):
 
     __slots__ = ["_removetmpfiles_ee", "_removetmpfiles_rg", "_rg2_frame", "_ree2_frame", "_ree2rg2_frame",
-                 "_uree_frame", "_rEE_ACF", "_log", "_ree_max", "_ree_min", "_rg_max", "_rg_min",
+                 "_uree_frame", "_ree_frame", "_rEE_ACF", "_rEE2_ACF", "_log", "_ree_max", "_ree_min",
+                 "_rg_max", "_rg_min",
                  "_molecularweigth_avg", "_all_bonds", "_fdist_h5py", "_nbonds_bb_max", "_all_bb_bonds",
                  "_iatch", "_cbb_avg", "_rsq_intdist", "_rsqcount_intdist", "_rsqavg_intdist", "_lavg2"]
 
@@ -52,8 +53,10 @@ class Chain_Statistics(pag.Calculations):
         self._ree2rg2_frame = {}
         # Average molecular weight per chain
         self._molecularweigth_avg = 1.0
-        self._uree_frame = None
+        self._uree_frame = None     # Unit vector
+        self._ree_frame = None      # Ree not unit vector
         self._rEE_ACF = None
+        self._rEE2_ACF = None
         self._lavg2 = 0.0
 
         self._all_bonds = None
@@ -239,6 +242,7 @@ class Chain_Statistics(pag.Calculations):
         if acfE2E:
             #cJ self._uree_frame = np.zeros([3, nchains, nframes], dtype=np.float32)
             self._uree_frame = np.zeros([3, nchains, nframes_analysed], dtype=np.float32)
+            self._ree_frame = np.zeros([3, nchains, nframes_analysed], dtype=np.float32)
 
         if isodf:
             pag.setup_odf_intra(self._nbonds_bb_max)
@@ -346,6 +350,7 @@ class Chain_Statistics(pag.Calculations):
 
             #cJ self._rEE_ACF = np.zeros([nframes], dtype=np.float32)
             self._rEE_ACF = np.zeros([nframes_analysed], dtype=np.float32)
+            self._rEE2_ACF = np.zeros([nframes_analysed], dtype=np.float32)
 
             # Write messages
             start_time = datetime.datetime.now()
@@ -532,6 +537,10 @@ class Chain_Statistics(pag.Calculations):
                 self._uree_frame[0, ich, idx_fr] = reex[ich] / dij[ich]
                 self._uree_frame[1, ich, idx_fr] = reey[ich] / dij[ich]
                 self._uree_frame[2, ich, idx_fr] = reez[ich] / dij[ich]
+                # cJ 28-01-2025
+                self._ree_frame[0, ich, idx_fr] = reex[ich]
+                self._ree_frame[1, ich, idx_fr] = reey[ich]
+                self._ree_frame[2, ich, idx_fr] = reez[ich]
 
         self._ree2_frame[iframe] = [ree2_avg, ree2_std]
 
@@ -671,54 +680,15 @@ class Chain_Statistics(pag.Calculations):
                     6.0 * self._rg2_frame[iframe][0] / (natbb_bonds_avg * lavg2),
                     cn_uu, natbb_bonds_avg, lavg2))
 
-    # # #########################################################################
-    # def odf_intra_cython(self, initframe=0, endframe=None, stride=1, filename="odf_intra.dat"):
-    #
-    #     """
-    #     Calculate intra chain orientation correlation (for persistence length)
-    #
-    #     Calculate orientational correlation functions
-    #     for intra-chain vectors as function of chemical distance.
-    #     It also calculates components and 4th moments.
-    #     The input is supposed to contain a multiple of nvec vectors.
-    #
-    #     """
-    #
-    #     nmols_array, neigbors = self._trajectory.topology.get_array_mols_neigh()
-    #     nchains = len(nmols_array)
-    #     all_bb_bonds, nbonds_bb_perch = self._trajectory.topology.get_all_bb_bonds()
-    #     try:
-    #         nbonds_bb_max = max(nbonds_bb_perch.values())
-    #     except:
-    #         nbonds_bb_max = 1
-    #     coords_t0_wrapped = self._trajectory.universe.trajectory[0].positions
-    #     box_dimensions = self._trajectory.universe.trajectory[0].dimensions[0:3]
-    #     iatch = self._trajectory.topology._iatch
-    #     nframes = self._trajectory.get_numframes()
-    #     if endframe is None:
-    #         endframe = nframes
-    #
-    #     pag.setup_odf_intra(nbonds_bb_max)
-    #     uux = np.zeros((nchains, nbonds_bb_max), dtype=np.float32)
-    #     uuy = np.zeros((nchains, nbonds_bb_max), dtype=np.float32)
-    #     uuz = np.zeros((nchains, nbonds_bb_max), dtype=np.float32)
-    #     for iframe in range(initframe ,endframe, stride):
-    #         if iframe %100 == 0:
-    #             print("{} of {}".format(iframe, nframes ))
-    #         coords_t0_wrapped = self._trajectory.universe.trajectory[iframe].positions
-    #         box_dimensions = self._trajectory.universe.trajectory[iframe].dimensions[0:3]
-    #         coords_unwrap = pag.unwrap(coords_t0_wrapped, nmols_array, neigbors,
-    #                                    box_dimensions, iframe=iframe)
-    #
-    #         pag.odf_intra(iframe, nchains, all_bb_bonds, coords_unwrap, iatch, uux, uuy, uuz)
-    #
-    #     pag.avg_write_odf_intra(nframes, nbonds_bb_max, filename)
 
-    # # #########################################################################
+    # #########################################################################
     def _acf_e2e(self, filename="rEE_ACF.dat", write_result=True):
 
         ndumps = self._uree_frame.shape[2]
+        # Using the Doros' definiton
         pag.calc_acf_ete(self._uree_frame, self._rEE_ACF)
+        # Using the defniiton in Polymer, 268, 2023, 125677 (J. Ramirez)
+        pag.calc_acf2_ete(self._ree_frame, self._rEE2_ACF)
 
         if write_result:
             for iframe_total in range(0, self._rEE_ACF.shape[0]):
@@ -733,6 +703,19 @@ class Chain_Statistics(pag.Calculations):
                     with open(filename,'a') as f:
                         f.writelines("{0:10d}     {1:>10.2f}     {2:<10.8f}   \n".format(iframe_total, i,
                                                         self._rEE_ACF[iframe_total]))
+
+            for iframe_total in range(0, self._rEE2_ACF.shape[0]):
+                i = iframe_total*self._dt*self._stride
+                if iframe_total == 0:
+                    with open("rEE_ACF2.dat",'w') as f:
+                        f.writelines("#   iFrame     Time(ps)     rEE_ACF\n")
+                        f.writelines("#===================================\n")
+                        f.writelines("{0:10d}     {1:>10.2f}     {2:<10.8f}   \n".format(iframe_total, i,
+                                                        self._rEE2_ACF[iframe_total]))
+                else:
+                    with open("rEE_ACF2.dat",'a') as f:
+                        f.writelines("{0:10d}     {1:>10.2f}     {2:<10.8f}   \n".format(iframe_total, i,
+                                                        self._rEE2_ACF[iframe_total]))
 
     # #########################################################################
     @staticmethod
@@ -885,7 +868,48 @@ class Chain_Statistics(pag.Calculations):
                                                                                    self._rsqcount_intdist[isegments])
                 f.writelines(lines)
 
-
+    # #########################################################################
+    # def odf_intra_cython(self, initframe=0, endframe=None, stride=1, filename="odf_intra.dat"):
+    #
+    #     """
+    #     Calculate intra chain orientation correlation (for persistence length)
+    #
+    #     Calculate orientational correlation functions
+    #     for intra-chain vectors as function of chemical distance.
+    #     It also calculates components and 4th moments.
+    #     The input is supposed to contain a multiple of nvec vectors.
+    #
+    #     """
+    #
+    #     nmols_array, neigbors = self._trajectory.topology.get_array_mols_neigh()
+    #     nchains = len(nmols_array)
+    #     all_bb_bonds, nbonds_bb_perch = self._trajectory.topology.get_all_bb_bonds()
+    #     try:
+    #         nbonds_bb_max = max(nbonds_bb_perch.values())
+    #     except:
+    #         nbonds_bb_max = 1
+    #     coords_t0_wrapped = self._trajectory.universe.trajectory[0].positions
+    #     box_dimensions = self._trajectory.universe.trajectory[0].dimensions[0:3]
+    #     iatch = self._trajectory.topology._iatch
+    #     nframes = self._trajectory.get_numframes()
+    #     if endframe is None:
+    #         endframe = nframes
+    #
+    #     pag.setup_odf_intra(nbonds_bb_max)
+    #     uux = np.zeros((nchains, nbonds_bb_max), dtype=np.float32)
+    #     uuy = np.zeros((nchains, nbonds_bb_max), dtype=np.float32)
+    #     uuz = np.zeros((nchains, nbonds_bb_max), dtype=np.float32)
+    #     for iframe in range(initframe ,endframe, stride):
+    #         if iframe %100 == 0:
+    #             print("{} of {}".format(iframe, nframes ))
+    #         coords_t0_wrapped = self._trajectory.universe.trajectory[iframe].positions
+    #         box_dimensions = self._trajectory.universe.trajectory[iframe].dimensions[0:3]
+    #         coords_unwrap = pag.unwrap(coords_t0_wrapped, nmols_array, neigbors,
+    #                                    box_dimensions, iframe=iframe)
+    #
+    #         pag.odf_intra(iframe, nchains, all_bb_bonds, coords_unwrap, iatch, uux, uuy, uuz)
+    #
+    #     pag.avg_write_odf_intra(nframes, nbonds_bb_max, filename)
 
 
 

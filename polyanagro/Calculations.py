@@ -8,8 +8,8 @@ from collections import defaultdict
 class Calculations(object):
 
     __slots__ = ["_trajectory", "_dt", "_stride", "_nmols_array",
-                 "_l_neigh_array", "_freq", "_coords_unwrap", "_iframe",
-                 "_logger"]
+                 "_l_neigh_array", "_freq", "_coords_unwrap", "_coords_wrap",
+                 "_iframe", "_logger"]
     # #########################################################################
     def __init__(self, trj, dt=1, stride=1, freq=50, logger=None):
 
@@ -42,6 +42,7 @@ class Calculations(object):
         self._nmols_array, self._l_neigh_array = self._trajectory.topology.get_array_mols_neigh()
         self._freq = freq
         self._coords_unwrap = None
+        self._coords_wrap = None
         self._iframe = None
         self._logger = logger
 
