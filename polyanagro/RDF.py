@@ -1,5 +1,5 @@
 import MDAnalysis.exceptions
-
+import datetime
 import polyanagro as pag
 import numpy as np
 import math
@@ -78,6 +78,10 @@ class RDF(pag.Calculations):
         m += "\t\t  Cutoff for RDF = {0:.2f} angstroms\n".format(self._cutoff)
         m += "\t\t  Bin width      = {0:.2f} angstroms\n".format(self._delta_r)
         m += "\t\t  Intramolecular = {0:b}\n".format(True)
+        if excl is None:
+            m += "\t\t  Exclusions     = None\n"
+        else:
+            m += "\t\t  Exclusions     = {0:d}\n".format(excl)
         m += "\t\t********* END RDF INFO *********\n"
 
         # Initialize the RDF arrays
@@ -128,7 +132,16 @@ class RDF(pag.Calculations):
         nframes = 0
 
         # Accumulate histograms
+        start_time = datetime.datetime.now()
         for iframe in range(self._iniframe, self._endframe, self._stride):
+
+            if iframe % 100 == 0:
+                msg = "\tUnwrap Nojump Frame {0:9d} of {1:9d}".format(iframe, self._endframe)
+                mid_time = datetime.datetime.now()
+                elapsed_time = mid_time - start_time
+                msg += "\ttime: {0:s} seconds".format(str(elapsed_time.total_seconds()))
+                print(msg) if self._logger is None else self._logger.info(msg)
+
 
             coords_t0_wrapped = self._trajectory.universe.trajectory[iframe].positions
             box_dimensions = self._trajectory.universe.trajectory[iframe].dimensions[0:3]

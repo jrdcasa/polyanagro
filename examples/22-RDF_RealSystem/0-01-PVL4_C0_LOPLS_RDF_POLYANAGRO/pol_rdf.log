@@ -1,4 +1,4 @@
-		Starting at 20-02-2025 21:03:36 ============
+		Starting at 08-03-2025 19:41:30 ============
 
 
     ***********************************************************************
@@ -21,7 +21,7 @@
 
     ***********************************************************************
         
-		Start Job at 20-02-2025 21:03:36 ============
+		Start Job at 08-03-2025 19:41:30 ============
 
 		Command line: 
 			python pair_distribution.py -t 01-PVL4_C0_LOPLS_trj.pdb --psf confout_unwrap_labeled.psf --nbins 100 --cutoff 20.0 --index index_bb.ndx --excl 4
@@ -35,27 +35,30 @@
 	Setting bond orders: FALSE
 	*** Backbone atoms have been assigned to the topology.
 	Topology file: confout_unwrap_labeled.psf
-	TIME(Building_bonds_from_topology): 1.877123 seconds
+	TIME(Building_bonds_from_topology): 2.082442 seconds
 	*** End Building bonds from topology... 
 
 	*** Adding topology 
 	confout_unwrap_labeled.psf
 	Number of frames: 51
-	TIME(Adding topology): 0.406618 seconds
+	TIME(Adding topology): 0.455415 seconds
 	*** End Adding topology
 
 	Number of frames: 51
-	TIME(Read_Trajectories): 2.283999 seconds
+	TIME(Read_Trajectories): 2.538151 seconds
 	*** End Creating a trajectory 
 
-		Starting at 20-02-2025 21:03:38 ============
+		Starting at 08-03-2025 19:41:33 ============
 
 		*********   RDF INFO   *********
 		  Number of bins = 100
 		  Cutoff for RDF = 20.00 angstroms
 		  Bin width      = 0.20 angstroms
 		  Intramolecular = 1
+		  Exclusions     = 4
 		********* END RDF INFO *********
 
-		Starting at 20-02-2025 21:03:58 ============
+	Unwrap Nojump Frame         0 of        51	time: 1.4e-05 seconds
 
+		 End at 08-03-2025 19:41:55 ============
+		 Job Done!!!!

@@ -174,17 +174,9 @@ def main_app():
 
     # End time
     now = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
-    m = "\t\tStarting at {} ============\n".format(now)
+    m = "\n\t\t End at {} ============\n".format(now)
+    m += "\t\t Job Done!!!!"
     print(m) if log is None else log.info(m)
-
-
-    # ag1 = trj.universe.select_atoms("index 0 to 5")
-    # ag2 = trj.universe.select_atoms("index 0 to 5")
-    # #rdf = InterRDF(ag1, ag2, nbins=100, range=(0.0, 20.0)) #, exclusion_block=(6,6))
-    # rdf = InterRDF(ag1, ag2, nbins=100, range=(0.0, 20.0), exclusion_block=(1,4))
-    # rdf.run()
-    # print(rdf.results.count)
-
 
 # =============================================================================
 if __name__ == "__main__":
