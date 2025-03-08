@@ -147,7 +147,10 @@ def main_app():
         dt_trj.append(ts.dt)
         dimensions_trj.append(ts.dimensions)
 
-    trj.write_trajectory("tmp_nojump", nojump=args.input_nojump, format_trj="xtc")
+    if args.input_nojump:
+        trj.write_trajectory("tmp_nojump", nojump=False, format_trj="xtc")
+    else:
+        trj.write_trajectory("tmp_nojump", nojump=True, format_trj="xtc")
     trj = topology.ExtTrajectory("tmp_nojump.xtc", topfile=args.topo, logger=log)
     with open("com_trajectory.xyz", "w") as fxyz:
         iframe = 0
@@ -185,7 +188,8 @@ def main_app():
             iframe += 1
     # Set the first frame
     first_frame = u.trajectory[0]  # Select the first frame
-    first_frame.dimensions = dt_trj[0]  # Assign box dimensions
+    first_frame.dimensions = dimensions_trj[0]  # Assign box dimensions
+    first_frame.time = dt_trj[0]
 
     # Write the first frame to GRO format
     with mda.Writer("com_trajectory.gro", n_atoms=u.atoms.n_atoms) as w:

@@ -1,0 +1,87 @@
+
+    ***********************************************************************
+                         Center mol in a  Trajectory 
+              ----------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an 
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 08-03-2025 11:40:41 ============
+
+		Command line: 
+			python get_COM_trajectory.py -t traj_last500ns_2000ps_250frames.xtc --topo new_topo.tpr --input_nojump
+			         or
+			center_trajectory -t traj_last500ns_2000ps_250frames.xtc --topo new_topo.tpr --input_nojump
+
+	*** Creating a trajectory from...
+	traj_last500ns_2000ps_250frames.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 1.601263 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	new_topo.tpr
+	Number of frames: 251
+	TIME(Adding topology): 0.098243 seconds
+	*** End Adding topology
+
+	Number of frames: 251
+	TIME(Read_Trajectories): 1.699837 seconds
+	*** End Creating a trajectory 
+
+	**** TRAJECTORY INFO ****
+	  Number of trj files         : 1
+	  Number of atoms             : 12060
+	  Number of molecules (chains): 20
+	  Number of atoms/molecule    : 603.0
+	  Number of frames            : 251
+	  Initial time (ps)           : 0.0
+	  Time step (ps)              : 2000
+	  Total time (ps)             : 500000
+	**** End TRAJECTORY INFO ****
+		 Calculating center of mass ... (08-03-2025 11:40:43)
+
+
+	Writing trajectory... tmp_nojump
+	Frame         0 of       251	time: 0.001041 seconds
+	Frame       100 of       251	time: 0.181377 seconds
+	Frame       200 of       251	time: 0.335638 seconds
+	*** Creating a trajectory from...
+	tmp_nojump.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 1.435715 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	new_topo.tpr
+	Number of frames: 251
+	TIME(Adding topology): 0.08741 seconds
+	*** End Adding topology
+
+	Number of frames: 251
+	TIME(Read_Trajectories): 1.523727 seconds
+	*** End Creating a trajectory 
+
+	Unwrap Nojump Frame         0 of       251	time: 0.000712 seconds
+	Unwrap Nojump Frame       100 of       251	time: 7.312101 seconds
+	Unwrap Nojump Frame       200 of       251	time: 14.441956 seconds
+
+		Job  Done at 08-03-2025 11:41:03 ============
+
