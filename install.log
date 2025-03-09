@@ -1,5 +1,7 @@
 		 SYS PATH
 /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro
+/home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro
+/opt/JetBrains/pycharm-2022.2/plugins/python/helpers/pycharm_display
 /home/jramos/Programacion/MAMBA/lib/python310.zip
 /home/jramos/Programacion/MAMBA/lib/python3.10
 /home/jramos/Programacion/MAMBA/lib/python3.10/lib-dynload
@@ -7,10 +9,11 @@
 /home/jramos/Programacion/MAMBA/lib/python3.10/site-packages/topology-1.0.0-py3.10-linux-x86_64.egg
 /home/jramos/Programacion/MAMBA/lib/python3.10/site-packages/replicate_polymer-0.0.0-py3.10-linux-x86_64.egg
 /home/jramos/Programacion/MAMBA/lib/python3.10/site-packages/polyanagro-1.1-py3.10-linux-x86_64.egg
+/opt/JetBrains/pycharm-2022.2/plugins/python/helpers/pycharm_matplotlib_backend
 
-		 INSTALLING PIP PACKAGES (06/03/2025 16:04:11)
+		 INSTALLING PIP PACKAGES (08/03/2025 20:10:20)
 
 
-		 RUNNING SETUP FROM SETUPTOOLS 06/03/2025 16:04:12
+		 RUNNING SETUP FROM SETUPTOOLS 08/03/2025 20:10:21
 
 

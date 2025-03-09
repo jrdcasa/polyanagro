@@ -283,16 +283,6 @@ void c_rdf_hist_excl_openmp(int natoms, int nat_A, int nat_B, int nbins, float d
         boxi[i] = 1.0 / box[i];
     }
 
-//    iat = 0;
-//    isexcl = 0;
-//    for (int kdx = 0; kdx < dimarray2; kdx++) {
-//        kat = excl_array[iat * dimarray2 + kdx];
-//        if (iat == kat) isexcl = 1;
-//        printf("%d ", kat);
-//    }
-
-
-
     // OpenMP parallelization
 //    #pragma omp parallel for private(iat, ich, xA, yA, zA, jat, jch, xB, yB, zB, dij, k, isexcl, kat) \
 //                             reduction(+: hist_total_rdf[:nbins], hist_intra_rdf[:nbins], hist_inter_rdf[:nbins], \

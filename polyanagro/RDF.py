@@ -136,7 +136,7 @@ class RDF(pag.Calculations):
         for iframe in range(self._iniframe, self._endframe, self._stride):
 
             if iframe % 100 == 0:
-                msg = "\tUnwrap Nojump Frame {0:9d} of {1:9d}".format(iframe, self._endframe)
+                msg = "\tRDF Frame {0:9d} of {1:9d}".format(iframe, self._endframe)
                 mid_time = datetime.datetime.now()
                 elapsed_time = mid_time - start_time
                 msg += "\ttime: {0:s} seconds".format(str(elapsed_time.total_seconds()))
@@ -261,8 +261,9 @@ class RDF(pag.Calculations):
         #     self._setA = self._trajectory.universe.select_atoms("{0:s}\n".format(setA_label))
         #     self._setB = self._trajectory.universe.select_atoms("{0:s}\n".format(setB_label))
 
-        return True
+        self._writesetinfo()
 
+        return True
 
     # #########################################################################
     def define_sets_idx(self, idx_file=None):
@@ -276,15 +277,16 @@ class RDF(pag.Calculations):
                 if iline.find("[") == -1:
                     if iset == 1:
                         for token in iline.split():
-                            setA.append(int(token))
+                            setA.append(int(token)-1)
                     elif iset == 2:
                        for token in iline.split():
-                            setB.append(int(token))
+                            setB.append(int(token)-1)
                 else:
                     iset += 1
 
         self._setA = setA
         self._setB = setB
+        self._writesetinfo()
 
 
     # #########################################################################
@@ -350,3 +352,16 @@ class RDF(pag.Calculations):
 
             for icol, j in enumerate(tmp_set):
                 self._excl_array[iat, icol] = j
+
+    # #########################################################################
+    def _writesetinfo(self):
+
+        m = "\t\t*********   SET INFO   *********\n"
+        m += "\t\t  Elements in setA = {0:d}\n".format(len(self._setA))
+        m += "\t\t  Elements in setB = {0:d}\n".format(len(self._setB))
+        if self._setA == self._setB:
+            m += "\t\t  setA and setB are equals.\n".format(len(self._setB))
+        else:
+            m += "\t\t  setA and setB are differents.\n".format(len(self._setB))
+        m += "\t\t********* END SET INFO *********\n"
+        print(m) if self._logger is None else self._logger.info(m)
