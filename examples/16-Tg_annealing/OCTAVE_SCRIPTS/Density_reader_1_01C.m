@@ -4,5 +4,5 @@ function [ datarray ] = Density_reader_1_01C(filename)
 
 
 dum=csvread(filename,1,0);
-datarray=[dum(:,1),dum(:,2)];
+datarray=[dum(:,2),dum(:,3)];
 

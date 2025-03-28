@@ -168,6 +168,9 @@ def energy_analysis(energy_filenames, logger=None) -> Energy:
     from polyanagro.EnergyLAMMPS import EnergyLammps
     from polyanagro.EnergyDat import EnergyDat
 
+    if type(energy_filenames) is not list:
+        energy_filenames = [energy_filenames]
+
     # Get extension file examining the first item in the list
     if os.path.isdir(energy_filenames[0]):
         ext = os.path.splitext(energy_filenames[0])[1]

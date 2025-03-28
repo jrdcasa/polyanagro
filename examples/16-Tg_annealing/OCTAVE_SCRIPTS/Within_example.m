@@ -28,9 +28,10 @@ pkg load optim
 
 %Density file to analyze
 filename='../density_temperature_010K.csv';
+filename="/mnt/AOKI_FOLDER/99-ANALYSIS/05-Tg_StepWise/12-PVL4_C6_LOPLS/density_temperature_extended.csv";
 
 %How many synthetic sets to generate
-numsyntheticsets=240;  
+numsyntheticsets=100;  
 
 %Options; set to 1 to enable, 0 to disable
 testreject=1;           %perform asymptotic convergence test to see if dataset would be rejected

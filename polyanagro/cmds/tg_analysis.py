@@ -134,6 +134,7 @@ def parse_arguments():
     list_edrs = []
     if args.command != "refit":
         # Check the extension of the energy files
+        list_edrs = []
         for iener in args.energy_list:
             # Is a file?
             if os.path.isfile(iener):
@@ -143,7 +144,7 @@ def parse_arguments():
                 if os.path.isdir(iener):
                     ext_list.append(".edr")
                     path = os.path.join(iener, "*.edr")
-                    list_edrs = sorted(glob.glob(path), reverse=True)
+                    list_edrs += sorted(glob.glob(path), reverse=True)
                 else:
                     print("\nERROR: File or directory {} does not exist\n".format(iener))
                     exit()
@@ -208,7 +209,7 @@ def print_header(version, logger_log=None):
     m += "\t\t\tpython {}".format(os.path.split(sys.argv[0])[1])
     m += m1 + "\n"
     m += "\t\t\t         or\n"
-    m += "\t\t\tenergy_analysis".format(os.path.split(sys.argv[0])[1])
+    m += "\t\t\t{}".format(os.path.split(sys.argv[0])[1])
     m += m1 + "\n"
     print(m) if logger_log is None else logger_log.info(m)
 

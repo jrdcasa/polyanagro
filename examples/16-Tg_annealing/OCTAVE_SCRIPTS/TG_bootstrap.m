@@ -88,7 +88,7 @@ tempscale=1.25;          %what should the temperature scaling of the noise model
                         %squares.  Note that residuals will be divided by temperature raised to the power tempscale                    
                        
                        
-Percent_converged=0.90;             %greater than zero, less than one
+Percent_converged=0.80;             %greater than zero, less than one
                                     %how converged do you require the data
                                     %to be to the hyperbola asympototes?
                                
