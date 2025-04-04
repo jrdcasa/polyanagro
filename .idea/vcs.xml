@@ -3,6 +3,8 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GromacsWrapper" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/polyanagro/ext_libc/MeanSquareDisplacement" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/polyanagro/ext_libc/MeanSquareDisplacement/build" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/thirdparty" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/thirdparty/GromacsWrapper" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/thirdparty/eigen" vcs="Git" />

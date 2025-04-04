@@ -20,7 +20,7 @@
 
     ***********************************************************************
         
-		Start Job at 04-04-2025 09:53:53 ============
+		Start Job at 04-04-2025 16:20:58 ============
 
 		Command line: 
 			python msd_polymer.py -t 00-INPUTS/traj_msd_20ps_500frames_wrap.xtc --topo 00-INPUTS/new_topo.tpr --nojump 0
@@ -32,17 +32,17 @@
 
 	*** Building bonds from topology... 
 	Setting bond orders: FALSE
-	TIME(Building_bonds_from_topology): 2.131157 seconds
+	TIME(Building_bonds_from_topology): 1.578631 seconds
 	*** End Building bonds from topology... 
 
 	*** Adding topology 
 	00-INPUTS/new_topo.tpr
 	Number of frames: 501
-	TIME(Adding topology): 0.115647 seconds
+	TIME(Adding topology): 0.111205 seconds
 	*** End Adding topology
 
 	Number of frames: 501
-	TIME(Read_Trajectories): 2.247248 seconds
+	TIME(Read_Trajectories): 1.690192 seconds
 	*** End Creating a trajectory 
 
 		 The original trajectory is not unwrapped and/or jumps are not corrected.
@@ -51,38 +51,44 @@
 
 
 	Writing trajectory... traj_msd_20ps_500frames_wrap_nojump.xtc
-	Frame         0 of       501	time: 0.001529 seconds
-	Frame       100 of       501	time: 0.268363 seconds
-	Frame       200 of       501	time: 0.494755 seconds
-	Frame       300 of       501	time: 0.737108 seconds
-	Frame       400 of       501	time: 1.001452 seconds
-	Frame       500 of       501	time: 1.240777 seconds
+	Frame         0 of       501	time: 0.000874 seconds
+	Frame       100 of       501	time: 0.217043 seconds
+	Frame       200 of       501	time: 0.425501 seconds
+	Frame       300 of       501	time: 0.609878 seconds
+	Frame       400 of       501	time: 0.801448 seconds
+	Frame       500 of       501	time: 0.998976 seconds
 	*** Creating a trajectory from...
 	traj_msd_20ps_500frames_wrap_nojump.xtc
 
 	*** Building bonds from topology... 
 	Setting bond orders: FALSE
-	TIME(Building_bonds_from_topology): 1.829644 seconds
+	TIME(Building_bonds_from_topology): 1.394478 seconds
 	*** End Building bonds from topology... 
 
 	*** Adding topology 
 	00-INPUTS/new_topo.tpr
 	Number of frames: 501
-	TIME(Adding topology): 0.116319 seconds
+	TIME(Adding topology): 0.083397 seconds
 	*** End Adding topology
 
 	Number of frames: 501
-	TIME(Read_Trajectories): 1.946532 seconds
+	TIME(Read_Trajectories): 1.478463 seconds
 	*** End Creating a trajectory 
 
 		 ****************************************************************************
 		 Calculating MSD for 12060 atoms/particles in 501 frames (msd_fft3_fast).
 		 ****************************************************************************
 
-		 pos.dat file is already present in the working directory.
+		 Writing trajectory to format needed in the msd_fftw3_fast function.
+	Frame         0 of       501	time: 0.000831 seconds
+	Frame       100 of       501	time: 7.782743 seconds
+	Frame       200 of       501	time: 15.67291 seconds
+	Frame       300 of       501	time: 23.591079 seconds
+	Frame       400 of       501	time: 31.616354 seconds
+	Frame       500 of       501	time: 40.062328 seconds
 		 Running MSD for 12060 atoms/particles in 501 frames (msd_fft3_fast).
 
-		 MSD fftw3 time: 4.82 seconds
+		 MSD fftw3 time: 3.41 seconds
 
-		Job  Done at 04-04-2025 09:54:04 ============
+		Job  Done at 04-04-2025 16:21:46 ============
 

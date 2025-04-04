@@ -1,26 +1,30 @@
 		 SYS PATH
-/optnfs/CODES_SRC/polyanagro
-/usr/lib/python310.zip
-/usr/lib/python3.10
-/usr/lib/python3.10/lib-dynload
-/optnfs/CODES_SRC/sandbox_common/lib/python3.10/site-packages
-/optnfs/CODES_SRC/sandbox_common/lib/python3.10/site-packages/topology-1.0.0-py3.10-linux-x86_64.egg
-/optnfs/CODES_SRC/sandbox_common/lib/python3.10/site-packages/polyanagro-1.1-py3.10-linux-x86_64.egg
+/home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro
+/home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro
+/opt/JetBrains/pycharm-2022.2/plugins/python/helpers/pycharm_display
+/home/jramos/Programacion/MAMBA/lib/python310.zip
+/home/jramos/Programacion/MAMBA/lib/python3.10
+/home/jramos/Programacion/MAMBA/lib/python3.10/lib-dynload
+/home/jramos/Programacion/MAMBA/lib/python3.10/site-packages
+/home/jramos/Programacion/MAMBA/lib/python3.10/site-packages/topology-1.0.0-py3.10-linux-x86_64.egg
+/home/jramos/Programacion/MAMBA/lib/python3.10/site-packages/replicate_polymer-0.0.0-py3.10-linux-x86_64.egg
+/home/jramos/Programacion/MAMBA/lib/python3.10/site-packages/polyanagro-1.1-py3.10-linux-x86_64.egg
+/opt/JetBrains/pycharm-2022.2/plugins/python/helpers/pycharm_matplotlib_backend
 
-		 INSTALLING PIP PACKAGES (04/04/2025 16:12:12)
+		 INSTALLING PIP PACKAGES (04/04/2025 19:59:58)
 
-04/04/2025 16:12:14: ** None: Installing GitPython==3.1.1
-04/04/2025 16:12:17: ** None: Installing cython==0.29.24
-04/04/2025 16:12:20: ** None: Installing h5py
-04/04/2025 16:12:24: ** None: Installing panedr
-04/04/2025 16:12:27: ** None: Installing statsmodels
-04/04/2025 16:12:31: ** None: Installing MDAnalysis
+04/04/2025 19:59:59: ** None: Installing GitPython==3.1.1
+04/04/2025 20:00:01: ** None: Installing cython==0.29.24
+04/04/2025 20:00:02: ** None: Installing h5py
+04/04/2025 20:00:04: ** None: Installing panedr
+04/04/2025 20:00:06: ** None: Installing statsmodels
+04/04/2025 20:00:08: ** None: Installing MDAnalysis
 
 		 INSTALLING MSD_FFTW3 PROGRAM INTO THE PYTHON ENVIRONMENT FROM GITHUB
 
-04/04/2025 16:12:32: ** MSD_FFTW3: MSD_FFTW3 program is already installed in your system. https://github.com/jrdcasa/MeanSquareDisplacement.git
+04/04/2025 20:00:09: ** MSD_FFTW3: MSD_FFTW3 program is already installed in your system. https://github.com/jrdcasa/MeanSquareDisplacement.git
 /home/jramos/.local/bin/msd
 
-		 RUNNING SETUP FROM SETUPTOOLS 04/04/2025 16:12:35
+		 RUNNING SETUP FROM SETUPTOOLS 04/04/2025 20:00:10
 
 
