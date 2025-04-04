@@ -345,21 +345,21 @@ if __name__ == '__main__':
     m1 += "\n\t\t INSTALLING PIP PACKAGES ({})\n".format(nowm)
     print(m1) if logger is None else logger.info(m1)
     # Install requirements ===================================
-    # with open('requirements.txt') as f:
-    #     required = f.read().splitlines()
-    # for ipack in required:
-    #     try:
-    #         pkg, version = ipack.split(">=")[0:2]
-    #         if pkg[0] == "#":
-    #             continue
-    #         install_with_pip(pkg, vers=version, log=logger)
-    #     except ValueError:
-    #         pkg = ipack
-    #         if pkg[0] == "#" or len(pkg)<2:
-    #             continue
-    #         install_with_pip(pkg, log=logger)
-    #     finally:
-    #         pass
+     with open('requirements.txt') as f:
+         required = f.read().splitlines()
+     for ipack in required:
+         try:
+             pkg, version = ipack.split(">=")[0:2]
+             if pkg[0] == "#":
+                 continue
+             install_with_pip(pkg, vers=version, log=logger)
+         except ValueError:
+             pkg = ipack
+             if pkg[0] == "#" or len(pkg)<2:
+                 continue
+             install_with_pip(pkg, log=logger)
+         finally:
+             pass
 
     # Check MSD installation
     is_msd_fftw3_installed(logger, namepkg="MSD_FFTW3")
