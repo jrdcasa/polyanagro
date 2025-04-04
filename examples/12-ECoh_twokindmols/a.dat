@@ -1,0 +1,678 @@
+tmp.tpr:
+inputrec:
+   integrator                     = md
+   tinit                          = 0
+   dt                             = 0.001
+   nsteps                         = 50000000
+   init-step                      = 0
+   simulation-part                = 1
+   mts                            = false
+   comm-mode                      = Linear
+   nstcomm                        = 100
+   bd-fric                        = 0
+   ld-seed                        = -35144789
+   emtol                          = 10
+   emstep                         = 0.01
+   niter                          = 20
+   fcstep                         = 0
+   nstcgsteep                     = 1000
+   nbfgscorr                      = 10
+   rtpi                           = 0.05
+   nstxout                        = 0
+   nstvout                        = 0
+   nstfout                        = 0
+   nstlog                         = 1
+   nstcalcenergy                  = 100
+   nstenergy                      = 1000
+   nstxout-compressed             = 1
+   compressed-x-precision         = 1000
+   cutoff-scheme                  = Verlet
+   nstlist                        = 10
+   pbc                            = xyz
+   periodic-molecules             = false
+   verlet-buffer-tolerance        = 0.005
+   rlist                          = 0.923
+   coulombtype                    = Cut-off
+   coulomb-modifier               = Potential-shift
+   rcoulomb-switch                = 0
+   rcoulomb                       = 0.9
+   epsilon-r                      = 1
+   epsilon-rf                     = inf
+   vdw-type                       = Cut-off
+   vdw-modifier                   = Potential-shift
+   rvdw-switch                    = 0
+   rvdw                           = 0.9
+   DispCorr                       = No
+   table-extension                = 1
+   fourierspacing                 = 0.12
+   fourier-nx                     = 0
+   fourier-ny                     = 0
+   fourier-nz                     = 0
+   pme-order                      = 4
+   ewald-rtol                     = 1e-05
+   ewald-rtol-lj                  = 0.001
+   lj-pme-comb-rule               = Geometric
+   ewald-geometry                 = 0
+   epsilon-surface                = 0
+   tcoupl                         = V-rescale
+   nsttcouple                     = 10
+   nh-chain-length                = 0
+   print-nose-hoover-chain-variables = false
+   pcoupl                         = No
+   pcoupltype                     = Isotropic
+   nstpcouple                     = -1
+   tau-p                          = 1
+   compressibility (3x3):
+      compressibility[    0]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      compressibility[    1]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      compressibility[    2]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+   ref-p (3x3):
+      ref-p[    0]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      ref-p[    1]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      ref-p[    2]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+   refcoord-scaling               = No
+   posres-com (3):
+      posres-com[0]= 0.00000e+00
+      posres-com[1]= 0.00000e+00
+      posres-com[2]= 0.00000e+00
+   posres-comB (3):
+      posres-comB[0]= 0.00000e+00
+      posres-comB[1]= 0.00000e+00
+      posres-comB[2]= 0.00000e+00
+   QMMM                           = false
+qm-opts:
+   ngQM                           = 0
+   constraint-algorithm           = Lincs
+   continuation                   = false
+   Shake-SOR                      = false
+   shake-tol                      = 0.0001
+   lincs-order                    = 4
+   lincs-iter                     = 1
+   lincs-warnangle                = 30
+   nwall                          = 0
+   wall-type                      = 9-3
+   wall-r-linpot                  = -1
+   wall-atomtype[0]               = -1
+   wall-atomtype[1]               = -1
+   wall-density[0]                = 0
+   wall-density[1]                = 0
+   wall-ewald-zfac                = 3
+   pull                           = false
+   awh                            = false
+   rotation                       = false
+   interactiveMD                  = false
+   disre                          = No
+   disre-weighting                = Conservative
+   disre-mixed                    = false
+   dr-fc                          = 1000
+   dr-tau                         = 0
+   nstdisreout                    = 100
+   orire-fc                       = 0
+   orire-tau                      = 0
+   nstorireout                    = 100
+   free-energy                    = no
+   cos-acceleration               = 0
+   deform (3x3):
+      deform[    0]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      deform[    1]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      deform[    2]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+   simulated-tempering            = false
+   swapcoords                     = no
+   userint1                       = 0
+   userint2                       = 0
+   userint3                       = 0
+   userint4                       = 0
+   userreal1                      = 0
+   userreal2                      = 0
+   userreal3                      = 0
+   userreal4                      = 0
+   applied-forces:
+     electric-field:
+       x:
+         E0                       = 0
+         omega                    = 0
+         t0                       = 0
+         sigma                    = 0
+       y:
+         E0                       = 0
+         omega                    = 0
+         t0                       = 0
+         sigma                    = 0
+       z:
+         E0                       = 0
+         omega                    = 0
+         t0                       = 0
+         sigma                    = 0
+     density-guided-simulation:
+       active                     = false
+       group                      = protein
+       similarity-measure         = inner-product
+       atom-spreading-weight      = unity
+       force-constant             = 1e+09
+       gaussian-transform-spreading-width = 0.2
+       gaussian-transform-spreading-range-in-multiples-of-width = 4
+       reference-density-filename = reference.mrc
+       nst                        = 1
+       normalize-densities        = true
+       adaptive-force-scaling     = false
+       adaptive-force-scaling-time-constant = 4
+       shift-vector               = 
+       transformation-matrix      = 
+grpopts:
+   nrdf:         645
+   ref-t:         450
+   tau-t:         0.5
+annealing:          No
+annealing-npoints:           0
+   acc:	           0           0           0
+   nfreeze:           N           N           N
+   energygrp-flags[  0]: 0
+header:
+   bIr    = present
+   bBox   = present
+   bTop   = present
+   bX     = present
+   bV     = present
+   bF     = not present
+   natoms = 13
+   lambda = 0.000000e+00
+   buffer size = 5877
+topology:
+   name="Generic title"
+   #atoms                         = 13
+   #molblock                      = 1
+   molblock (0):
+      moltype              = 0 "Generic title"
+      #molecules                     = 1
+      #posres_xA                     = 0
+      #posres_xB                     = 0
+   bIntermolecularInteractions    = false
+   ffparams:
+      atnr=5
+      ntypes=55
+         functype[0]=LJ_SR, c6= 2.03050394e-03, c12= 3.73260514e-06
+         functype[1]=LJ_SR, c6= 4.98894195e-04, c12= 3.34220175e-07
+         functype[2]=LJ_SR, c6= 3.15004122e-03, c12= 7.12220026e-06
+         functype[3]=LJ_SR, c6= 2.19085021e-03, c12= 2.43608270e-06
+         functype[4]=LJ_SR, c6= 3.19977524e-04, c12= 1.94432872e-07
+         functype[5]=LJ_SR, c6= 4.98894195e-04, c12= 3.34220175e-07
+         functype[6]=LJ_SR, c6= 1.22578131e-04, c12= 2.99263014e-08
+         functype[7]=LJ_SR, c6= 7.73964217e-04, c12= 6.37726998e-07
+         functype[8]=LJ_SR, c6= 5.38290828e-04, c12= 2.18128321e-07
+         functype[9]=LJ_SR, c6= 7.86183737e-05, c12= 1.74096559e-08
+         functype[10]=LJ_SR, c6= 3.15004122e-03, c12= 7.12220026e-06
+         functype[11]=LJ_SR, c6= 7.73964217e-04, c12= 6.37726998e-07
+         functype[12]=LJ_SR, c6= 4.88684513e-03, c12= 1.35898972e-05
+         functype[13]=LJ_SR, c6= 3.39879468e-03, c12= 4.64829736e-06
+         functype[14]=LJ_SR, c6= 4.96400171e-04, c12= 3.70998322e-07
+         functype[15]=LJ_SR, c6= 2.19085021e-03, c12= 2.43608270e-06
+         functype[16]=LJ_SR, c6= 5.38290828e-04, c12= 2.18128321e-07
+         functype[17]=LJ_SR, c6= 3.39879468e-03, c12= 4.64829736e-06
+         functype[18]=LJ_SR, c6= 2.36385735e-03, c12= 1.58990645e-06
+         functype[19]=LJ_SR, c6= 3.45245586e-04, c12= 1.26896396e-07
+         functype[20]=LJ_SR, c6= 3.19977524e-04, c12= 1.94432872e-07
+         functype[21]=LJ_SR, c6= 7.86183737e-05, c12= 1.74096559e-08
+         functype[22]=LJ_SR, c6= 4.96400171e-04, c12= 3.70998322e-07
+         functype[23]=LJ_SR, c6= 3.45245586e-04, c12= 1.26896396e-07
+         functype[24]=LJ_SR, c6= 5.04237469e-05, c12= 1.01280841e-08
+         functype[25]=ANGLES, thA= 1.10700e+02, ctA= 3.13800e+02, thB= 1.10700e+02, ctB= 3.13800e+02
+         functype[26]=ANGLES, thA= 1.12700e+02, ctA= 4.88273e+02, thB= 1.12700e+02, ctB= 4.88273e+02
+         functype[27]=ANGLES, thA= 1.07800e+02, ctA= 2.76144e+02, thB= 1.07800e+02, ctB= 2.76144e+02
+         functype[28]=RBDIHS, rbcA[0]= 6.27600014e-01, rbcA[1]= 1.88279998e+00, rbcA[2]= 0.00000000e+00, rbcA[3]=-2.51040006e+00, rbcA[4]= 0.00000000e+00, rbcA[5]= 0.00000000e+00
+rbcB[0]= 6.27600014e-01, rbcB[1]= 1.88279998e+00, rbcB[2]= 0.00000000e+00, rbcB[3]=-2.51040006e+00, rbcB[4]= 0.00000000e+00, rbcB[5]= 0.00000000e+00
+         functype[29]=RBDIHS, rbcA[0]= 2.92880011e+00, rbcA[1]=-1.46440005e+00, rbcA[2]= 2.09199995e-01, rbcA[3]=-1.67359996e+00, rbcA[4]= 0.00000000e+00, rbcA[5]= 0.00000000e+00
+rbcB[0]= 2.92880011e+00, rbcB[1]=-1.46440005e+00, rbcB[2]= 2.09199995e-01, rbcB[3]=-1.67359996e+00, rbcB[4]= 0.00000000e+00, rbcB[5]= 0.00000000e+00
+         functype[30]=LJ14, c6A= 6.12890653e-05, c12A= 1.49631507e-08, c6B= 6.12890653e-05, c12B= 1.49631507e-08
+         functype[31]=LJ14, c6A= 2.49447097e-04, c12A= 1.67110088e-07, c6B= 2.49447097e-04, c12B= 1.67110088e-07
+         functype[32]=LJ14, c6A= 1.01525197e-03, c12A= 1.86630257e-06, c6B= 1.01525197e-03, c12B= 1.86630257e-06
+         functype[33]=ANGLES, thA= 1.09500e+02, ctA= 2.92880e+02, thB= 1.09500e+02, ctB= 2.92880e+02
+         functype[34]=ANGLES, thA= 1.11100e+02, ctA= 5.27184e+02, thB= 1.11100e+02, ctB= 5.27184e+02
+         functype[35]=ANGLES, thA= 1.23000e+02, ctA= 2.92880e+02, thB= 1.23000e+02, ctB= 2.92880e+02
+         functype[36]=ANGLES, thA= 1.20400e+02, ctA= 6.69440e+02, thB= 1.20400e+02, ctB= 6.69440e+02
+         functype[37]=ANGLES, thA= 1.15000e+02, ctA= 2.92880e+02, thB= 1.15000e+02, ctB= 2.92880e+02
+         functype[38]=ANGLES, thA= 1.10700e+02, ctA= 3.13800e+02, thB= 1.10700e+02, ctB= 3.13800e+02
+         functype[39]=ANGLES, thA= 1.12700e+02, ctA= 4.88273e+02, thB= 1.12700e+02, ctB= 4.88273e+02
+         functype[40]=ANGLES, thA= 1.07800e+02, ctA= 2.76144e+02, thB= 1.07800e+02, ctB= 2.76144e+02
+         functype[41]=RBDIHS, rbcA[0]=-1.58989996e-01, rbcA[1]=-4.76980001e-01, rbcA[2]= 0.00000000e+00, rbcA[3]= 6.35959983e-01, rbcA[4]= 0.00000000e+00, rbcA[5]= 0.00000000e+00
+rbcB[0]=-1.58989996e-01, rbcB[1]=-4.76980001e-01, rbcB[2]= 0.00000000e+00, rbcB[3]= 6.35959983e-01, rbcB[4]= 0.00000000e+00, rbcB[5]= 0.00000000e+00
+         functype[42]=RBDIHS, rbcA[0]=-4.23421001e+00, rbcA[1]= 7.22159004e+00, rbcA[2]= 1.90789998e+00, rbcA[3]=-4.89527988e+00, rbcA[4]= 0.00000000e+00, rbcA[5]= 0.00000000e+00
+rbcB[0]=-4.23421001e+00, rbcB[1]= 7.22159004e+00, rbcB[2]= 1.90789998e+00, rbcB[3]=-4.89527988e+00, rbcB[4]= 0.00000000e+00, rbcB[5]= 0.00000000e+00
+         functype[43]=RBDIHS, rbcA[0]= 3.10662007e+00, rbcA[1]=-3.77606010e+00, rbcA[2]=-5.13794994e+00, rbcA[3]= 5.80739021e+00, rbcA[4]= 0.00000000e+00, rbcA[5]= 0.00000000e+00
+rbcB[0]= 3.10662007e+00, rbcB[1]=-3.77606010e+00, rbcB[2]=-5.13794994e+00, rbcB[3]= 5.80739021e+00, rbcB[4]= 0.00000000e+00, rbcB[5]= 0.00000000e+00
+         functype[44]=RBDIHS, rbcA[0]= 7.53120005e-01, rbcA[1]= 2.25936007e+00, rbcA[2]= 0.00000000e+00, rbcA[3]=-3.01248002e+00, rbcA[4]= 0.00000000e+00, rbcA[5]= 0.00000000e+00
+rbcB[0]= 7.53120005e-01, rbcB[1]= 2.25936007e+00, rbcB[2]= 0.00000000e+00, rbcB[3]=-3.01248002e+00, rbcB[4]= 0.00000000e+00, rbcB[5]= 0.00000000e+00
+         functype[45]=RBDIHS, rbcA[0]= 6.27600014e-01, rbcA[1]= 1.88279998e+00, rbcA[2]= 0.00000000e+00, rbcA[3]=-2.51040006e+00, rbcA[4]= 0.00000000e+00, rbcA[5]= 0.00000000e+00
+rbcB[0]= 6.27600014e-01, rbcB[1]= 1.88279998e+00, rbcB[2]= 0.00000000e+00, rbcB[3]=-2.51040006e+00, rbcB[4]= 0.00000000e+00, rbcB[5]= 0.00000000e+00
+         functype[46]=LJ14, c6A= 1.72622778e-04, c12A= 6.34481978e-08, c6B= 1.72622778e-04, c12B= 6.34481978e-08
+         functype[47]=LJ14, c6A= 2.52118734e-05, c12A= 5.06404207e-09, c6B= 2.52118734e-05, c12B= 5.06404207e-09
+         functype[48]=LJ14, c6A= 1.09542510e-03, c12A= 1.21804135e-06, c6B= 1.09542510e-03, c12B= 1.21804135e-06
+         functype[49]=LJ14, c6A= 1.59988762e-04, c12A= 9.72164358e-08, c6B= 1.59988762e-04, c12B= 9.72164358e-08
+         functype[50]=LJ14, c6A= 3.86982079e-04, c12A= 3.18863499e-07, c6B= 3.86982079e-04, c12B= 3.18863499e-07
+         functype[51]=LJ14, c6A= 3.93091868e-05, c12A= 8.70482797e-09, c6B= 3.93091868e-05, c12B= 8.70482797e-09
+         functype[52]=LJ14, c6A= 1.57502061e-03, c12A= 3.56110013e-06, c6B= 1.57502061e-03, c12B= 3.56110013e-06
+         functype[53]=LJ14, c6A= 2.49447097e-04, c12A= 1.67110088e-07, c6B= 2.49447097e-04, c12B= 1.67110088e-07
+         functype[54]=LJ14, c6A= 6.12890653e-05, c12A= 1.49631507e-08, c6B= 6.12890653e-05, c12B= 1.49631507e-08
+      reppow                         = 12
+      fudgeQQ                        = 0.5
+cmap
+   atomtypes:
+      atomtype[  0]={atomnumber=   6}
+      atomtype[  1]={atomnumber=   1}
+      atomtype[  2]={atomnumber=   6}
+      atomtype[  3]={atomnumber=   8}
+      atomtype[  4]={atomnumber=   1}
+   moltype (0):
+      name="Generic title"
+      atoms:
+         atom (13):
+            atom[     0]={type=  2, typeB=  2, ptype=    Atom, m= 1.20108e+01, q= 4.50000e-01, mB= 1.20108e+01, qB= 4.50000e-01, resind=    0, atomnumber=  6}
+            atom[     1]={type=  3, typeB=  3, ptype=    Atom, m= 1.59994e+01, q=-4.50000e-01, mB= 1.59994e+01, qB=-4.50000e-01, resind=    1, atomnumber=  8}
+            atom[     2]={type=  4, typeB=  4, ptype=    Atom, m= 1.00795e+00, q= 0.00000e+00, mB= 1.00795e+00, qB= 0.00000e+00, resind=    2, atomnumber=  1}
+            atom[     3]={type=  0, typeB=  0, ptype=    Atom, m= 1.20108e+01, q=-1.20000e-01, mB= 1.20108e+01, qB=-1.20000e-01, resind=    3, atomnumber=  6}
+            atom[     4]={type=  4, typeB=  4, ptype=    Atom, m= 1.00795e+00, q= 6.00000e-02, mB= 1.00795e+00, qB= 6.00000e-02, resind=    4, atomnumber=  1}
+            atom[     5]={type=  4, typeB=  4, ptype=    Atom, m= 1.00795e+00, q= 6.00000e-02, mB= 1.00795e+00, qB= 6.00000e-02, resind=    5, atomnumber=  1}
+            atom[     6]={type=  0, typeB=  0, ptype=    Atom, m= 1.20108e+01, q=-1.20000e-01, mB= 1.20108e+01, qB=-1.20000e-01, resind=    6, atomnumber=  6}
+            atom[     7]={type=  1, typeB=  1, ptype=    Atom, m= 1.00795e+00, q= 6.00000e-02, mB= 1.00795e+00, qB= 6.00000e-02, resind=    7, atomnumber=  1}
+            atom[     8]={type=  1, typeB=  1, ptype=    Atom, m= 1.00795e+00, q= 6.00000e-02, mB= 1.00795e+00, qB= 6.00000e-02, resind=    8, atomnumber=  1}
+            atom[     9]={type=  0, typeB=  0, ptype=    Atom, m= 1.20108e+01, q=-1.80000e-01, mB= 1.20108e+01, qB=-1.80000e-01, resind=    9, atomnumber=  6}
+            atom[    10]={type=  1, typeB=  1, ptype=    Atom, m= 1.00795e+00, q= 6.00000e-02, mB= 1.00795e+00, qB= 6.00000e-02, resind=   10, atomnumber=  1}
+            atom[    11]={type=  1, typeB=  1, ptype=    Atom, m= 1.00795e+00, q= 6.00000e-02, mB= 1.00795e+00, qB= 6.00000e-02, resind=   11, atomnumber=  1}
+            atom[    12]={type=  1, typeB=  1, ptype=    Atom, m= 1.00795e+00, q= 6.00000e-02, mB= 1.00795e+00, qB= 6.00000e-02, resind=   12, atomnumber=  1}
+         atom (13):
+            atom[0]={name="C"}
+            atom[1]={name="O"}
+            atom[2]={name="H"}
+            atom[3]={name="C"}
+            atom[4]={name="H"}
+            atom[5]={name="H"}
+            atom[6]={name="C"}
+            atom[7]={name="H"}
+            atom[8]={name="H"}
+            atom[9]={name="C"}
+            atom[10]={name="H"}
+            atom[11]={name="H"}
+            atom[12]={name="H"}
+         type (13):
+            type[0]={name="opls_135",nameB="opls_135"}
+            type[1]={name="opls_140",nameB="opls_140"}
+            type[2]={name="opls_140",nameB="opls_140"}
+            type[3]={name="opls_140",nameB="opls_140"}
+            type[4]={name="opls_136",nameB="opls_136"}
+            type[5]={name="opls_140",nameB="opls_140"}
+            type[6]={name="opls_140",nameB="opls_140"}
+            type[7]={name="opls_136",nameB="opls_136"}
+            type[8]={name="opls_140",nameB="opls_140"}
+            type[9]={name="opls_140",nameB="opls_140"}
+            type[10]={name="opls_135",nameB="opls_135"}
+            type[11]={name="opls_140",nameB="opls_140"}
+            type[12]={name="opls_140",nameB="opls_140"}
+         residue (13):
+            residue[0]={name="mol", nr=16, ic=' '}
+            residue[1]={name="mol", nr=16, ic=' '}
+            residue[2]={name="mol", nr=16, ic=' '}
+            residue[3]={name="mol", nr=16, ic=' '}
+            residue[4]={name="mol", nr=16, ic=' '}
+            residue[5]={name="mol", nr=16, ic=' '}
+            residue[6]={name="mol", nr=16, ic=' '}
+            residue[7]={name="mol", nr=16, ic=' '}
+            residue[8]={name="mol", nr=16, ic=' '}
+            residue[9]={name="mol", nr=16, ic=' '}
+            residue[10]={name="mol", nr=16, ic=' '}
+            residue[11]={name="mol", nr=16, ic=' '}
+            residue[12]={name="mol", nr=16, ic=' '}
+      excls:
+         numLists=13
+         numElements=13
+         excls[0][num=1]={0}
+         excls[1][num=1]={1}
+         excls[2][num=1]={2}
+         excls[3][num=1]={3}
+         excls[4][num=1]={4}
+         excls[5][num=1]={5}
+         excls[6][num=1]={6}
+         excls[7][num=1]={7}
+         excls[8][num=1]={8}
+         excls[9][num=1]={9}
+         excls[10][num=1]={10}
+         excls[11][num=1]={11}
+         excls[12][num=1]={12}
+      Bond:
+         nr: 0
+      G96Bond:
+         nr: 0
+      Morse:
+         nr: 0
+      Cubic Bonds:
+         nr: 0
+      Connect Bonds:
+         nr: 0
+      Harmonic Pot.:
+         nr: 0
+      FENE Bonds:
+         nr: 0
+      Tab. Bonds:
+         nr: 0
+      Tab. Bonds NC:
+         nr: 0
+      Restraint Pot.:
+         nr: 0
+      Angle:
+         nr: 84
+         iatoms:
+            0 type=33 (ANGLES)   0   3   4
+            1 type=33 (ANGLES)   0   3   5
+            2 type=34 (ANGLES)   0   3   6
+            3 type=35 (ANGLES)   1   0   2
+            4 type=36 (ANGLES)   1   0   3
+            5 type=37 (ANGLES)   2   0   3
+            6 type=38 (ANGLES)   3   6   7
+            7 type=38 (ANGLES)   3   6   8
+            8 type=39 (ANGLES)   3   6   9
+            9 type=40 (ANGLES)   4   3   5
+            10 type=38 (ANGLES)   4   3   6
+            11 type=38 (ANGLES)   5   3   6
+            12 type=38 (ANGLES)   6   9  10
+            13 type=38 (ANGLES)   6   9  11
+            14 type=38 (ANGLES)   6   9  12
+            15 type=40 (ANGLES)   7   6   8
+            16 type=38 (ANGLES)   7   6   9
+            17 type=38 (ANGLES)   8   6   9
+            18 type=40 (ANGLES)  10   9  11
+            19 type=40 (ANGLES)  10   9  12
+            20 type=40 (ANGLES)  11   9  12
+      G96Angle:
+         nr: 0
+      Restricted Angles:
+         nr: 0
+      Lin. Angle:
+         nr: 0
+      Bond-Cross:
+         nr: 0
+      BA-Cross:
+         nr: 0
+      U-B:
+         nr: 0
+      Quartic Angles:
+         nr: 0
+      Tab. Angles:
+         nr: 0
+      Proper Dih.:
+         nr: 0
+      Ryckaert-Bell.:
+         nr: 105
+         iatoms:
+            0 type=41 (RBDIHS)   0   3   6   7
+            1 type=41 (RBDIHS)   0   3   6   8
+            2 type=42 (RBDIHS)   0   3   6   9
+            3 type=43 (RBDIHS)   1   0   3   6
+            4 type=44 (RBDIHS)   2   0   3   4
+            5 type=44 (RBDIHS)   2   0   3   5
+            6 type=45 (RBDIHS)   3   6   9  10
+            7 type=45 (RBDIHS)   3   6   9  11
+            8 type=45 (RBDIHS)   3   6   9  12
+            9 type=45 (RBDIHS)   4   3   6   7
+            10 type=45 (RBDIHS)   4   3   6   8
+            11 type=45 (RBDIHS)   4   3   6   9
+            12 type=45 (RBDIHS)   5   3   6   7
+            13 type=45 (RBDIHS)   5   3   6   8
+            14 type=45 (RBDIHS)   5   3   6   9
+            15 type=45 (RBDIHS)   7   6   9  10
+            16 type=45 (RBDIHS)   7   6   9  11
+            17 type=45 (RBDIHS)   7   6   9  12
+            18 type=45 (RBDIHS)   8   6   9  10
+            19 type=45 (RBDIHS)   8   6   9  11
+            20 type=45 (RBDIHS)   8   6   9  12
+      Restricted Dih.:
+         nr: 0
+      CBT Dih.:
+         nr: 0
+      Fourier Dih.:
+         nr: 0
+      Improper Dih.:
+         nr: 0
+      Improper Dih.:
+         nr: 0
+      Tab. Dih.:
+         nr: 0
+      CMAP Dih.:
+         nr: 0
+      GB 1-2 Pol. (unused):
+         nr: 0
+      GB 1-3 Pol. (unused):
+         nr: 0
+      GB 1-4 Pol. (unused):
+         nr: 0
+      GB Polarization (unused):
+         nr: 0
+      Nonpolar Sol. (unused):
+         nr: 0
+      LJ-14:
+         nr: 72
+         iatoms:
+            0 type=46 (LJ14)   1   4
+            1 type=47 (LJ14)   2   4
+            2 type=46 (LJ14)   1   5
+            3 type=47 (LJ14)   2   5
+            4 type=48 (LJ14)   1   6
+            5 type=49 (LJ14)   2   6
+            6 type=50 (LJ14)   0   7
+            7 type=51 (LJ14)   4   7
+            8 type=51 (LJ14)   5   7
+            9 type=50 (LJ14)   0   8
+            10 type=51 (LJ14)   4   8
+            11 type=51 (LJ14)   5   8
+            12 type=52 (LJ14)   0   9
+            13 type=49 (LJ14)   4   9
+            14 type=49 (LJ14)   5   9
+            15 type=53 (LJ14)   3  10
+            16 type=54 (LJ14)   7  10
+            17 type=54 (LJ14)   8  10
+            18 type=53 (LJ14)   3  11
+            19 type=54 (LJ14)   7  11
+            20 type=54 (LJ14)   8  11
+            21 type=53 (LJ14)   3  12
+            22 type=54 (LJ14)   7  12
+            23 type=54 (LJ14)   8  12
+      Coulomb-14:
+         nr: 0
+      LJC-14 q:
+         nr: 0
+      LJC Pairs NB:
+         nr: 0
+      LJ (SR):
+         nr: 0
+      Buck.ham (SR):
+         nr: 0
+      LJ (unused):
+         nr: 0
+      B.ham (unused):
+         nr: 0
+      Disper. corr.:
+         nr: 0
+      Coulomb (SR):
+         nr: 0
+      Coul (unused):
+         nr: 0
+      RF excl.:
+         nr: 0
+      Coul. recip.:
+         nr: 0
+      LJ recip.:
+         nr: 0
+      DPD:
+         nr: 0
+      Polarization:
+         nr: 0
+      Water Pol.:
+         nr: 0
+      Thole Pol.:
+         nr: 0
+      Anharm. Pol.:
+         nr: 0
+      Position Rest.:
+         nr: 0
+      Flat-bottom posres:
+         nr: 0
+      Dis. Rest.:
+         nr: 0
+      D.R.Viol. (nm):
+         nr: 0
+      Orient. Rest.:
+         nr: 0
+      Ori. R. RMSD:
+         nr: 0
+      Angle Rest.:
+         nr: 0
+      Angle Rest. Z:
+         nr: 0
+      Dih. Rest.:
+         nr: 0
+      Dih. Rest. Viol.:
+         nr: 0
+      Constraint:
+         nr: 0
+      Constr. No Conn.:
+         nr: 0
+      Settle:
+         nr: 0
+      Virtual site 1:
+         nr: 0
+      Virtual site 2:
+         nr: 0
+      Virtual site 2fd:
+         nr: 0
+      Virtual site 3:
+         nr: 0
+      Virtual site 3fd:
+         nr: 0
+      Virtual site 3fad:
+         nr: 0
+      Virtual site 3out:
+         nr: 0
+      Virtual site 4fd:
+         nr: 0
+      Virtual site 4fdn:
+         nr: 0
+      Virtual site N:
+         nr: 0
+      COM Pull En.:
+         nr: 0
+      Density fitting:
+         nr: 0
+      Quantum En.:
+         nr: 0
+      Potential:
+         nr: 0
+      Kinetic En.:
+         nr: 0
+      Total Energy:
+         nr: 0
+      Conserved En.:
+         nr: 0
+      Temperature:
+         nr: 0
+      Vir. Temp. (not used):
+         nr: 0
+      Pres. DC:
+         nr: 0
+      Pressure:
+         nr: 0
+      dH/dl constr.:
+         nr: 0
+      dVremain/dl:
+         nr: 0
+      dEkin/dl:
+         nr: 0
+      dVcoul/dl:
+         nr: 0
+      dVvdw/dl:
+         nr: 0
+      dVbonded/dl:
+         nr: 0
+      dVrestraint/dl:
+         nr: 0
+      dVtemperature/dl:
+         nr: 0
+grp[T-Coupling  ] nr=1, name=[ System]
+grp[Energy Mon. ] nr=1, name=[ rest]
+grp[Acceleration] nr=1, name=[ rest]
+grp[Freeze      ] nr=1, name=[ rest]
+grp[User1       ] nr=1, name=[ rest]
+grp[User2       ] nr=1, name=[ rest]
+grp[VCM         ] nr=1, name=[ rest]
+grp[Compressed X] nr=1, name=[ rest]
+grp[Or. Res. Fit] nr=1, name=[ rest]
+grp[QMMM        ] nr=1, name=[ rest]
+   grpname (5):
+      grpname[0]={name="System"}
+      grpname[1]={name="Other"}
+      grpname[2]={name="but"}
+      grpname[3]={name="mol"}
+      grpname[4]={name="rest"}
+   groups           T-Cou Energ Accel Freez User1 User2   VCM Compr Or. R  QMMM
+   allocated            0     0     0     0     0     0     0     0     0     0
+   groupnr[    *] =    0     0     0     0     0     0     0     0     0     0 
+box (3x3):
+   box[    0]={ 4.00000e+00,  0.00000e+00,  0.00000e+00}
+   box[    1]={ 0.00000e+00,  4.00000e+00,  0.00000e+00}
+   box[    2]={ 0.00000e+00,  0.00000e+00,  4.00000e+00}
+box_rel (3x3):
+   box_rel[    0]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+   box_rel[    1]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+   box_rel[    2]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+boxv (3x3):
+   boxv[    0]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+   boxv[    1]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+   boxv[    2]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+pres_prev (3x3):
+   pres_prev[    0]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+   pres_prev[    1]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+   pres_prev[    2]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+svir_prev (3x3):
+   svir_prev[    0]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+   svir_prev[    1]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+   svir_prev[    2]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+fvir_prev (3x3):
+   fvir_prev[    0]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+   fvir_prev[    1]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+   fvir_prev[    2]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+nosehoover_xi: not available
+x (13x3):
+   x[    0]={ 1.19400e+00,  7.59000e-01,  1.15700e+00}
+   x[    1]={ 1.31700e+00,  7.59000e-01,  1.15700e+00}
+   x[    2]={ 1.13500e+00,  8.53000e-01,  1.15700e+00}
+   x[    3]={ 1.11200e+00,  6.29000e-01,  1.15700e+00}
+   x[    4]={ 1.13600e+00,  5.72000e-01,  1.07000e+00}
+   x[    5]={ 1.13500e+00,  5.72000e-01,  1.24400e+00}
+   x[    6]={ 9.62000e-01,  6.63000e-01,  1.15700e+00}
+   x[    7]={ 9.05000e-01,  5.72000e-01,  1.15700e+00}
+   x[    8]={ 9.38000e-01,  7.20000e-01,  1.24400e+00}
+   x[    9]={ 9.28000e-01,  7.45000e-01,  1.03100e+00}
+   x[   10]={ 8.25000e-01,  7.31000e-01,  1.00500e+00}
+   x[   11]={ 9.46000e-01,  8.49000e-01,  1.05000e+00}
+   x[   12]={ 9.89000e-01,  7.13000e-01,  9.50000e-01}
+v (13x3):
+   v[    0]={ 3.32709e-01, -2.20313e-01,  2.70910e-01}
+   v[    1]={ 6.79355e-01, -7.72546e-01,  2.23020e-01}
+   v[    2]={ 3.27899e+00,  1.49263e+00,  4.89321e+00}
+   v[    3]={-2.74796e-01,  4.39136e-01,  8.15025e-03}
+   v[    4]={ 1.92315e+00,  7.60964e-01, -4.19325e-01}
+   v[    5]={-1.20883e+00,  1.47443e+00,  1.09968e+00}
+   v[    6]={-1.20185e+00, -1.27855e-01,  3.32629e-01}
+   v[    7]={-2.34690e+00,  4.80492e-01,  2.42819e+00}
+   v[    8]={-9.32369e-01,  7.51157e-01, -1.81066e-01}
+   v[    9]={ 3.56209e-01,  1.53208e-01, -4.11508e-01}
+   v[   10]={ 1.23577e-01, -1.16009e+00, -6.25370e-01}
+   v[   11]={ 8.43113e-01,  3.13718e+00,  2.53799e+00}
+   v[   12]={-2.05852e+00,  1.60156e+00,  4.70491e+00}
+Group statistics
+T-Coupling  :      13  (total 13 atoms)
+Energy Mon. :      13  (total 13 atoms)
+Acceleration:      13  (total 13 atoms)
+Freeze      :      13  (total 13 atoms)
+User1       :      13  (total 13 atoms)
+User2       :      13  (total 13 atoms)
+VCM         :      13  (total 13 atoms)
+Compressed X:      13  (total 13 atoms)
+Or. Res. Fit:      13  (total 13 atoms)
+QMMM        :      13  (total 13 atoms)

@@ -1,0 +1,73 @@
+
+    ***********************************************************************
+                  Generate a 2DMap for a pair of dyhedral types
+        -------------------------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 06-05-2024 18:01:51 ============
+
+		Command line: 
+			python 2D_torsion_density_maps.py -t test.xtc --unwrap 1 --topo sugar.tpr --phipsi phi psi
+			         or
+			2D_torsion_density_maps.py -t test.xtc --unwrap 1 --topo sugar.tpr --phipsi phi psi
+
+	*** Creating a trajectory from...
+	test.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 0.682329 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	sugar.tpr
+	Number of frames: 1201
+	TIME(Adding topology): 0.262858 seconds
+	*** End Adding topology
+
+	Number of frames: 1201
+	TIME(Read_Trajectories): 0.946288 seconds
+	*** End Creating a trajectory 
+
+	 Num of frames to analyse: 1201
+	Unwrap PBC coordinates: True
+	IFRAME: 0 of 1201 in 0.003457 seconds
+	IFRAME: 50 of 1201 in 0.093689 seconds
+	IFRAME: 100 of 1201 in 0.137839 seconds
+	IFRAME: 150 of 1201 in 0.193397 seconds
+	IFRAME: 200 of 1201 in 0.338866 seconds
+	IFRAME: 250 of 1201 in 0.389601 seconds
+	IFRAME: 300 of 1201 in 0.435941 seconds
+	IFRAME: 350 of 1201 in 0.495365 seconds
+	IFRAME: 400 of 1201 in 0.538273 seconds
+	IFRAME: 450 of 1201 in 0.673657 seconds
+	IFRAME: 500 of 1201 in 0.715466 seconds
+	IFRAME: 550 of 1201 in 0.759532 seconds
+	IFRAME: 600 of 1201 in 0.801801 seconds
+	IFRAME: 650 of 1201 in 0.844629 seconds
+	IFRAME: 700 of 1201 in 1.002991 seconds
+	IFRAME: 750 of 1201 in 1.109426 seconds
+	IFRAME: 800 of 1201 in 1.151287 seconds
+	IFRAME: 850 of 1201 in 1.55927 seconds
+	IFRAME: 900 of 1201 in 1.651943 seconds
+	IFRAME: 950 of 1201 in 1.753739 seconds
+	IFRAME: 1000 of 1201 in 2.394624 seconds
+	IFRAME: 1050 of 1201 in 2.51255 seconds
+	IFRAME: 1100 of 1201 in 2.674401 seconds
+	IFRAME: 1150 of 1201 in 3.048277 seconds
+	IFRAME: 1200 of 1201 in 3.146193 seconds

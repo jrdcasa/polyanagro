@@ -1,0 +1,70 @@
+		Starting at 09-03-2025 22:59:42 ============
+
+
+    ***********************************************************************
+                         Pair distribution calculations 
+              ----------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an 
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 09-03-2025 22:59:42 ============
+
+		Command line: 
+			python pair_distribution.py -t 01-PVL4_C0_LOPLS_trj.pdb --psf confout_unwrap_labeled.psf --nbins 100 --cutoff 20.0 --index index.ndx
+			         or
+			pair_distribution -t 01-PVL4_C0_LOPLS_trj.pdb --psf confout_unwrap_labeled.psf --nbins 100 --cutoff 20.0 --index index.ndx
+
+	*** Creating a trajectory from...
+	01-PVL4_C0_LOPLS_trj.pdb
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	*** Backbone atoms have been assigned to the topology.
+	Topology file: confout_unwrap_labeled.psf
+	TIME(Building_bonds_from_topology): 2.11109 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	confout_unwrap_labeled.psf
+	Number of frames: 51
+	TIME(Adding topology): 0.457694 seconds
+	*** End Adding topology
+
+	Number of frames: 51
+	TIME(Read_Trajectories): 2.569055 seconds
+	*** End Creating a trajectory 
+
+		Starting at 09-03-2025 22:59:44 ============
+
+		*********   RDF INFO   *********
+		  Number of bins = 100
+		  Cutoff for RDF = 20.00 angstroms
+		  Bin width      = 0.20 angstroms
+		  Intramolecular = 1
+		  Exclusions     = None
+		********* END RDF INFO *********
+
+		*********   SET INFO   *********
+		  Elements in setA = 800
+		  Elements in setB = 800
+		  setA and setB are differents.
+		********* END SET INFO *********
+
+	RDF Frame         0 of        51	time: 7e-06 seconds
+
+		 End at 09-03-2025 22:59:48 ============
+		 Job Done!!!!

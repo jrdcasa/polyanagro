@@ -1,0 +1,63 @@
+'./Polyethylene_250mer_single_chain_tra.data' !CDataIn
+'dump.mc.atom'            !CDumpOutFile
+'single_chain.xyz'        !VMDOutFile
+'energies.txt'            !EnergiestxtFile
+'restart'                 !restart file
+'EtoE.txt'                !EtoE file
+
+79717921          !iseed
+
+1	           !IMode (1-PE, 2-PP, 3-EPMs, 4-PS, 5-PDMS, 6-PLA, 7-PMMA, 8-PPdnt, 9-PEODME, 10-PDMS-b-PLA, 11-PS-b-PLA)
+1.54         !Equilibrium Bond Length (1.54, 1.64PDMS, 1.43-PLA, 1.4712-PPdnt, 1.46-PEODME)
+1.1          !Tolerance of Bond Length
+
+0            !ICoul (0-No Calculate Coulomb Interactions, 1-Calculate Coulomb Interactions)
+
+100000       !IFrameInterval for dump file
+100000       !IFrameInterval for energies txt file
+100000       !IFrameInterval for characteristic ratio txt file
+100000       !IFrameInterval for End-to-End Vector
+100000       !IFrameInterval for VMD file
+100000000    !IFrameInterval for restart file
+
+
+100000000   !NMoves
+
+  0.5       !Drmax 
+ 90.0       !Domegmax
+180.0       !Dphimax
+
+  2         !Number of calculated neighbors Depth
+ 50         !Number of loaded neighbors
+ 50         !Max number of neighbors per repeat unit
+
+  4         !Minimum number of IDepth from which the LJ interactions are allowed to compute
+  4         !Minimum number of IDepth from which the Coulomb interactions are allowed to compute
+
+450         !Temperature at Kelvin Degrees
+
+ 5          !Number of Types of Moves
+10.00       !percentage of Move Atom
+10.00       !percentage of Flip Atom
+80.00       !percentage of Rotate Strand
+00.00       !percentage of Rotate Branch
+00.00       !percentage of Flip Branch
+
+!***************Only for Block Copolymers (Inactive for Homopolymers)***********************
+
+125         !Number of Monomers for First Copolymer
+  8         !Number of atoms per repeat unit of first copolymer
+  2         !Number of backbone beads per repeat unit of first Copolymer
+  
+125         !Number of Monomers for Second Copolymer
+  5         !Number of atoms per repeat unit of first copolymer
+  3         !Number of atoms in backbone per repeat unit of second Copolymer
+
+  3         !Number of Atoms of Juction Point Unit
+  
+  9         !Number of calculated neighboors Depth for first polymer
+  2         !Number of calculated neighboors Depth for juction group
+  1         !Number of calculated neighboors Depth for second polymer     
+  
+1.54        !Equilibrium Bond Length of First  Polymer (1.54, 1.64PDMS, 1.43-PLA, 1.4712-PPdnt)
+1.43        !Equilibrium Bond Length of Second Polymer (1.54, 1.64PDMS, 1.43-PLA, 1.4712-PPdnt)

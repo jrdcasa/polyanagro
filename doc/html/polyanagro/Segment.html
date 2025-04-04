@@ -1,0 +1,3072 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.8.4" />
+<title>polyanagro.Segment API documentation</title>
+<meta name="description" content="Segment representing molecules" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>polyanagro.Segment</code></h1>
+</header>
+<section id="section-intro">
+<p>Segment representing molecules</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+Segment representing molecules
+&#34;&#34;&#34;
+import os
+from copy import copy
+from openbabel import openbabel
+import numpy as np
+import logging
+import polyanagro as pag
+
+class Segment(object):
+
+    __slots__ = [&#39;_filecoord&#39;, &#39;_filetop&#39;, &#39;_logger&#39;, &#39;_typeelements&#39;, &#39;_natoms&#39;, &#39;_coords&#39;,
+                 &#39;_dummy_head_atom&#39;, &#39;_dummy_tail_atom&#39;, &#39;_netcharge&#39;, &#39;_isBOassigned&#39;, &#39;_topology&#39;, &#39;_filetypeatoms&#39;]
+
+    # ***********************************************************************************
+    def __init__(self, filecoord=None, filetop=None, filetypeatoms=None, natoms=0,
+                 xlist=[], ylist=[], zlist=[],
+                 elementlist=[], guesstopol=True, dummy_head = -1, dummy_tail = -1):
+
+        &#34;&#34;&#34;
+        Segment constructor
+
+        Parameters:
+            * ``filecoord``  (string, default=None):
+            Name of the coordinates filecoord (Format: PDB, GRO, XYZ)
+            * ``filetop`` (string, default=None):
+            Name of the topology (Format: PDB)
+            * ``filetypeatoms`` (string, default=None):
+            Name of the file containing the matching between atoms and atomtypes. This is used mainly
+            to assign the reevaluated distances by Okuwaki et al. (Table 2)
+            * ``natoms`` (int, default = 0):
+            Number of atoms
+            * ``xlist`` (list of floats, default=[]):
+            x component of the coordinates (in angstroms)
+            * ``ylist`` (list of floats, default=[]):
+            y component of the coordinates (in angstroms)
+            * ``zlist`` (list of floats, default=[]):
+            z component of the coordinates (in angstroms)
+            * ``elementlist`` (list of strings, default=[]):
+            Element symbol
+            * ``guesstopol`` (boolean, default=True):
+            If True activate the guessing of topology based in a distance algorithm.
+            * ``dummy_head`` (integer, default=-1):
+            Index of the atom acting as dummy head atom to mimic polymer chain
+            * ``dummy_tail`` (integer, default=-1):
+            Index of the atom acting as dummy tail atom to mimic polymer chain
+
+        Attributes:
+            * ``self._filecoord``: (str) Name of the coordinates filecoord (Format: PDB, GRO, XYZ)
+            * ``self._filetop``: (str) Name of the topology (Format: PDB)
+            * ``self._logger``: (Logger) Object to throw the output
+            * ``self._filetypeatoms``: (str) Name of the file containing the matching between atoms and atomtypes. This is used mainly
+                to assign the reevaluated distances by Okuwaki et al. (Table 2)
+            * ``self._natoms``: (int) Number of atoms
+            * ``self._coords``: (ndarray, [natoms, 3]) Coordinates of the atoms
+            * ``self._dummy_head_atom``: (int) Index of the atom acting as dummy head atom to mimic polymer chain
+            * ``self._dummy_tail_atom``: (int) Index of the atom acting as dummy tail atom to mimic polymer chain
+            * ``self._netcharge``:(int) Net charge of the molecule
+            * ``self._isBOassigned``:(boolean). True if the bond order are assigned
+            * ``self._topology``: (Topology). Topology of the segment
+
+        Notes
+        -----
+        There are two ways to build a Segment object:
+            1. Segment(filecoord=&#39;ethylene.pdb&#39;)
+            2. Segment(natoms=2, xlist= [], ylist=[], zlist = [], elements = [])
+
+        If filecoord is present the other parameters are ignored. Otherwise, all parameters must be consistent.
+
+        if filetypeatoms is present, the types assignation is done.
+        The order of the atoms must be the same that the order in the coord and topology files.
+        The format of this file must be the following:
+
+        Data
+        ----
+            &lt;Number&gt; &lt;Atom&gt; &lt;type_of_atom&gt;
+            1 C c3
+            2 C c3
+            3 C c3
+            (...)
+            14 H hc
+
+        .. warning::
+            Be careful when use np.transpose function. This function seems to change the order of the array to
+            &#34;Fortran-type&#34; instead to C-Order. If use np.transpose you will use np.ascontiguousarray
+
+                Example:
+
+                a = np.tranpose(b) --&gt; a in Fortran order irrespective of the order of C
+
+                a = np.ascontiguousarray(np.transpose(b)) --&gt; a in C order
+
+                This issue is important when use mode=&#34;c&#34; in pyx files for Cython
+
+        .. warning::
+            For big molecules (&gt;1000 atoms) deactivate the guessing of topology (guesstopol=False)
+
+        &#34;&#34;&#34;
+        self._filecoord = filecoord
+        self._filetop = filetop
+        self._logger = logging.getLogger(&#34;Output&#34;) #&#34;&#34;Segment&#34;, append=True, )
+        self._typeelements = None
+
+        if filecoord is not None:
+            _elements = self.load_from_disk(filecoord)
+        else:
+            self._natoms = natoms
+            self._coords = np.column_stack((np.asarray(xlist),
+                                            np.asarray(ylist),
+                                            np.asarray(zlist)))
+            _elements = np.asarray(elementlist, dtype=np.str)
+
+        self.check_parameter_consistence()
+
+        self._dummy_head_atom = dummy_head
+        self._dummy_tail_atom = dummy_tail
+        self._netcharge = 0
+        self._isBOassigned = False
+
+        # Setup topology of the segment
+        if guesstopol:
+            if filecoord is None and filetop is None:
+                #self._topology = None
+                self._topology = pag.Topology(natoms=self._natoms)
+                if self._natoms == 0:
+                    self._topology = None
+                else:
+                    self._topology.guess_bonds_topology(self._coords, _elements)
+                    self._topology._topologyfile = None
+            elif filetop is None:
+                self._topology = pag.Topology(natoms=self._natoms)
+                self._topology.guess_bonds_topology(self._coords, _elements)
+                self._topology._topologyfile = None
+            else:
+                self.set_topology_from_disk(filetop, _elements)
+        else:
+            self._topology = None
+
+        self._filetypeatoms = filetypeatoms
+        if filetypeatoms is not None:
+            self.set_typeatoms(filetypeatoms)
+
+    # ***********************************************************************************
+    def __str__(self):
+
+        &#34;&#34;&#34; Returns the state of the attributtes of an instance&#34;&#34;&#34;
+
+        objstr = str(self.__repr__())+&#34;\n&#34;
+        for key in self.__dict__:
+            try:
+                value = getattr(self,key)
+                objstr +=  str(key) +&#34;: &#34;+str(value) + &#34;\n&#34;
+            except AttributeError:
+                objstr += str(key) +&#34;: NOT SET&#34; + &#34;\n&#34;
+        return objstr
+
+    # ***********************************************************************************
+    def __copy__(self):
+
+        s = Segment(guesstopol=False)
+
+        s._natoms = self._natoms
+        s._topology = copy(self._topology)
+        s._coords = self._coords.copy()
+        s._filecoord = self._filecoord
+        s._filetop = self._filetop
+        s._filetypeatoms  = self._filetypeatoms
+        if self._typeelements is not None:
+            s._typeelements = self._typeelements.copy()
+
+        return s
+
+    # ***********************************************************************************
+    def __eq__(self, other):
+
+        if other is None:
+            return None
+
+        res = True
+
+        keys = self.__slots__
+
+        for key in keys:
+            if isinstance(getattr(self,key), np.ndarray):
+                par = np.array_equal(getattr(self,key), getattr(other,key))
+                res = res and par
+            elif isinstance(getattr(self,key),pag.Topology):
+                par = getattr(self,key) == getattr(other,key)
+                res = res and par
+            elif isinstance(getattr(self,key),Segment):
+                par = self.__dict__[key] == other.__dict__[key]
+                res = res and par
+            else:
+                par = getattr(self,key) == getattr(other,key)
+                res = res and par
+
+        return res
+
+    # ***********************************************************************************
+    def check_parameter_consistence(self):
+
+        &#34;&#34;&#34;
+        Checks the length of the parameters passed through the constructor.
+
+        The length of the x, y, z and element arrays must be equal to the number ot atoms.
+        If there is not consistency raises a ValueError otherwise return True.
+
+        Return:
+            * ``None``
+
+        &#34;&#34;&#34;
+
+        condition = (self._coords.shape[0] == self._natoms)
+
+        if not condition:
+            line = &#34;\n\t======== ERROR ==========\n&#34; \
+                   &#34;\tCoordinates arrays must have equal length and equal to number of atoms\n&#34; \
+                   &#34;\tLength coords: %d\n&#34; \
+                   &#34;\tLength Elements: %d\n&#34;\
+                   &#34;\tNumber of atoms: %d\n&#34; \
+                    &#34;\tCoordfile: %s\n&#34; \
+                    &#34;\tTopofile: %s\n&#34; \
+                   &#34;\t======== ERROR ==========\n&#34;%(self._coords.shape[0] , len(self._elements), self._natoms, self._filecoord, self._filetop)
+
+            #print(line)
+            self._logger.error(line)
+            raise ValueError (&#34;Coordinates arrays must have equal length and equal to number of atoms&#34;)
+
+        return None
+
+    # ***********************************************************************************
+    def load_from_disk(self, path):
+
+        &#34;&#34;&#34;
+        Wrapper function to read information about the segment as a function of the extension of the file.
+        If the extesion is unkwown the function raises an error.
+
+        Parameters:
+            * ``path`` (string): Path to the file in the disk
+
+        Return:
+            * ``elements`` (list): list of elements. Example ([&#39;C&#39;,&#39;C&#39;])
+
+        Example
+        -------
+        &gt;&gt;&gt; s1.load_from_disk(&#39;../data/pe_1mon_ua.pdb&#39;)
+
+        &#34;&#34;&#34;
+
+        ext = os.path.splitext (path)[1]
+
+        if ext == &#34;.pdb&#34;:
+            elements = self.read_pdb_from_scratch(path)
+        elif ext == &#39;.xyz&#39;:
+            elements = self.read_xyz_from_scratch (path)
+        elif ext == &#39;.gro&#39;:
+            elements = self.read_gro_from_scratch(path)
+        # elif ext == &#34;.sdf&#34;:
+        #     self.read_sdf_coordtopo_from_scratch(path)
+        else:
+            self.printerror (&#34;Unkown molecular format for file: %s&#34; % path)
+            raise Exception(&#34;Unkown molecular format for file: %s&#34;%path)
+
+        return elements
+
+    # ***********************************************************************************
+    def set_topology_from_disk(self, path, elements):
+
+        &#34;&#34;&#34;
+        Wrapper function to read information of the segment topology as a function of the extension of the file.
+        If the extesion is unkwown the function raises an error.
+
+        Parameters:
+            * ``path`` (string): path to the file in the disk
+            * ``elements`` (list): list of elements. Example ([&#39;C&#39;,&#39;C&#39;])
+
+        Return:
+            * ``None``
+
+        Example
+        -------
+        &gt;&gt;&gt; s1.set_topology_from_disk(&#39;../data/pe_1mon_ua.pdb&#39;, [&#39;C&#39;,&#39;C&#39;])
+
+        &#34;&#34;&#34;
+
+        ext = os.path.splitext (path)[1]
+
+        if ext == &#34;.pdb&#34;:
+            self._topology = pag.Topology(natoms=self._natoms)
+            self.read_topology_from_pdb(path, elements)
+        elif ext == &#34;.xyz&#34;:
+            self._topology = pag.Topology(natoms=self._natoms)
+            self.read_topology_from_xyz(path)
+        elif ext == &#34;.sdf&#34;:
+            &#34;The topology is already set up in the &#34; \
+            &#34;read_sdf_coordtopo_from_scratch method&#34;
+            pass
+        else:
+            self.printerror (&#34;Unknown topology format for file: %s&#34; % path)
+            raise Exception(&#34;Unknown topology format for file: %s&#34;%path)
+
+    # ***********************************************************************************
+    def read_pdb_from_scratch(self, pdb_path):
+
+        &#34;&#34;&#34;
+        Read data of the segment from a pdb file
+        (http://www.wwpdb.org/documentation/file-format-content/format33/v3.3.html)
+
+        Parameters:
+            * ``pdb_path`` (string): Path to a pdb file
+
+        Return:
+            * ``elements`` (list):  list of elements. Example ([&#39;C&#39;,&#39;C&#39;])
+
+        &#34;&#34;&#34;
+
+        if os.path.isfile(pdb_path):
+            f = open(pdb_path)
+        else:
+            self.printerror(msg1=&#34;PDB file must exist\n {} does not exist&#34;.format(pdb_path))
+            raise Exception(&#39;chipar.segment.read_pdb_from_scratch requires an existing file as argument: {}&#39;.format(pdb_path))
+
+        self._natoms = 0
+        xlist = []
+        ylist = []
+        zlist = []
+        elist = []
+        for line in f:
+            if line.startswith(&#39;ATOM&#39;) or line.startswith(&#39;HETATM&#39;):
+                #tag = int(line[6:11].strip())
+                name = line[12:16].strip()
+                #resname = line[17:20].strip()
+                #chainid = line[21]
+                #resid = line[22:26].strip()
+                x = float(line[30:38].strip())
+                y = float(line[38:46].strip())
+                z = float(line[46:54].strip())
+                elem = line[76:78].strip()
+                if elem == &#34;&#34;:
+                    elist.append(name.capitalize())
+                else:
+                    elist.append(elem.capitalize())
+                xlist.append(x)
+                ylist.append(y)
+                zlist.append(z)
+                self._natoms += 1
+
+        self._coords = np.column_stack((np.asarray(xlist),
+                                        np.asarray(ylist),
+                                        np.asarray(zlist)))
+
+        elements = np.asarray(elist, dtype=np.str)
+
+        f.close()
+
+        return elements
+
+    # ***********************************************************************************
+    def read_xyz_from_scratch(self, xyz_path):
+
+        &#34;&#34;&#34;
+        Read data of the segment from a xyz file
+        (https://openbabel.org/docs/dev/FileFormats/XYZ_cartesian_coordinates_format.html)
+
+        Parameters:
+            * ``xyz_path`` (string): Path to a xyz file
+
+        Return:
+            * ``elements`` (list):  list of elements. Example ([&#39;C&#39;,&#39;C&#39;])
+
+        &#34;&#34;&#34;
+
+        if os.path.isfile(xyz_path):
+            f = open(xyz_path)
+        else:
+            self.printerror(msg1=&#34;XYZ file must be provided&#34;)
+            raise Exception(&#39;chipar.segment.read_xyz_from_scratch requires an existing file as argument&#39;)
+
+        nparticles = int(f.readline().strip())
+
+        self._natoms = 0
+        xlist = []
+        ylist = []
+        zlist = []
+        elist = []
+        f.readline().strip()
+        for _ in range(nparticles):
+            elem, x, y, z = f.readline().split()
+            xlist.append(float(x))
+            ylist.append(float(y))
+            zlist.append(float(z))
+            elist.append(elem.capitalize())
+            self._natoms += 1
+
+        self._coords = np.column_stack((np.asarray(xlist),
+                                        np.asarray(ylist),
+                                        np.asarray(zlist)))
+        elements = np.asarray(elist, dtype=np.str)
+
+        assert int(nparticles == self._natoms), \
+            &#34;Number of particles in the header is different to the read atoms in the xyz file&#34;
+        f.close()
+
+        return elements
+
+    # ***********************************************************************************
+    def read_gro_from_scratch(self, gro_path):
+
+        &#34;&#34;&#34;
+        Read data of the segment from a gro file
+        (http://manual.gromacs.org/archive/5.0.4/online/gro.html)
+
+        Parameters:
+            * ``gro_path`` (string): Path to a gro file
+
+        Return:
+            * ``elements`` (list):  list of elements. Example ([&#39;C&#39;,&#39;C&#39;])
+
+        &#34;&#34;&#34;
+
+        if os.path.isfile(gro_path):
+            f = open(gro_path)
+        else:
+            self.printerror(msg1=&#34;GRO file must be provided&#34;)
+            raise Exception(&#39;chipar.segment.read_gro_from_scratch requires an existing file as argument&#39;)
+
+        f.readline().strip()
+        self._natoms = int(f.readline().strip())
+
+        iline = 1
+        #chainid = 1
+        xlist = []
+        ylist = []
+        zlist = []
+        elist = []
+        while iline &lt;= self._natoms:
+            line = f.readline()
+            #resid = int(line[0:5].strip())
+            #resname = line[5:10].strip()
+            atomname = line[10:15] #force field name
+            #tag = int(line[15:20].strip())
+            xlist.append(float(line[20:28].strip())*10)
+            ylist.append(float(line[28:36].strip())*10)
+            zlist.append(float(line[36:44].strip())*10)
+            elist.append(atomname.strip())
+            iline += 1
+
+        self._coords = np.column_stack((np.asarray(xlist),
+                                        np.asarray(ylist),
+                                        np.asarray(zlist)))
+        elements = np.asarray(elist, dtype=np.str)
+
+        f.close()
+
+        return elements
+
+    # # ***********************************************************************************
+    # def read_sdf_coordtopo_from_scratch(self, sdf_path):
+    #
+    #     if os.path.isfile(sdf_path):
+    #         f = open(sdf_path)
+    #     else:
+    #         self.printerror(msg1=&#34;SDF file must be provided&#34;)
+    #         raise Exception(&#39;chipar.segment.read_sdf_coordtopo_from_scratch requires an existing file as argument&#39;)
+    #
+    #     try:
+    #         for n in range(3):
+    #             next(f)
+    #     except StopIteration:
+    #         raise PysimmError(&#39;pysimm.system.read_mol requires either &#39;
+    #                           &#39;file or string as argument&#39;)
+    #     version = None
+    #     line = next(f)
+    #     self._natoms = int(line.split()[0])
+    #     nbonds = int(line.split()[1])
+    #     if len(line.split()) &gt;= 3:
+    #         version = line.split()[-1]
+    #
+    #     self._topology = Topology(nvert=self._natoms)
+    #
+    #     xlist = []
+    #     ylist = []
+    #     zlist = []
+    #     elist = []
+    #     if version == &#39;V2000&#39;:
+    #         for iatom in range(self._natoms):
+    #             line = next(f)
+    #             x, y, z, elem, tmp, charge = line.split()[:6]
+    #             xlist.append(float(x))
+    #             ylist.append(float(y))
+    #             zlist.append(float(z))
+    #             elist.append(elem)
+    #
+    #         for n in range(nbonds):
+    #             line = next(f)
+    #             iatom, jatom, order = list(map(int, line.split()[:3]))
+    #             self._topology.add_edge([iatom-1, jatom-1])
+    #             self._topology._orderbonds[iatom-1, jatom-1] = order
+    #             self._topology._orderbonds[jatom-1, iatom-1] = order
+    #
+    #     elif version == &#39;V3000&#39;:
+    #         next(f)
+    #         line = next(f)
+    #         self._natoms = int(line.split()[0])
+    #         nbonds = int(line.split()[1])
+    #         next(f)
+    #         for iatom in range(self._natoms):
+    #             line = next(f)
+    #             idf, elem, x, y, z, charge = line.split()[2:8]
+    #             xlist.append(x)
+    #             ylist.append(y)
+    #             zlist.append(z)
+    #             elist.append(elem)
+    #
+    #         next(f)
+    #         next(f)
+    #
+    #         for n in range(nbonds):
+    #             line = next(f)
+    #             idf, order, iatom, jatom = list(map(int, line.split()[2:6]))
+    #             self.add_edge([iatom-1, jatom-1])
+    #             self._orderbonds[iatom-1, jatom-1] = order
+    #             self._orderbonds[jatom-1, iatom-1] = order
+    #
+    #     self._coords = np.column_stack((np.asarray(xlist),
+    #                                     np.asarray(ylist),
+    #                                     np.asarray(zlist)))
+    #     self._elements = np.asarray(elist, dtype=np.str)
+    #
+    #     f.close()
+
+    # ***********************************************************************************
+    def printerror(self, msg1):
+
+        self._logger.error(msg1)
+
+    # ***********************************************************************************
+    def read_topology_from_pdb(self, path, elements):
+
+        &#34;&#34;&#34;
+        Try to set up the topology reading a PDB file. The &#34;CONECT&#34; section is
+        used to yield the connectivity of the molecule, if present. Otherwise, the
+        bonds are guessed.
+
+        Parameters:
+            * ``path`` (string): Path to the PDB file
+            * ``elements`` (list):  list of elements. Example ([&#39;C&#39;,&#39;C&#39;])
+
+        Return:
+            * ``None``
+        &#34;&#34;&#34;
+
+        if os.path.isfile(path):
+            f = open(path)
+        else:
+            self.printerror(msg1=&#34;PDB file for topology must be provided&#34;)
+            raise Exception(&#39;chipar.segment.read_topology_from_pdb requires an existing file as argument&#39;)
+
+        self._topology._topologyfile = path
+
+        isthereconnect = False
+        for line in f:
+            if line.startswith(&#39;CONECT&#39;):
+                l = line.split()
+                i = int(l[1])
+                self._topology.add_vertex(i-1)
+                for jj in l[2:]:
+                    j = int(jj)
+                    if j &lt; i: continue
+                    self._topology.add_vertex(j-1)
+                    self._topology.add_edge([i-1,j-1])
+                    isthereconnect = True
+            elif line.startswith(&#39;ATOM&#39;) or line.startswith(&#34;HETATM&#34;):
+                e = line[76:78].replace(&#34; &#34;, &#34;&#34;)
+                self._topology._charge.append(0.0)
+                self._topology._elements.append(e)
+                m = pag.atomic_data.atomic_mass[e]
+                self._topology._mass.append(m)
+
+        if not isthereconnect:
+            self._topology.guess_bonds_topology(self._coords, elements)
+            self._topology.perception_rings()
+
+        f.close()
+
+        # DEBUG
+        # print (self._topology)
+        # self._topology.draw_graph(title=&#34;kk&#34;)
+
+    # ***********************************************************************************
+    def read_topology_from_xyz(self, path):
+
+        &#34;&#34;&#34;
+        Try to set up the topology reading a PDB file. The &#34;CONECT&#34; section is
+        used to yield the connectivity of the molecule, if present. Otherwise, the
+        bonds are guessed.
+
+        Parameters:
+            * ``path`` (string): Path to the PDB file
+
+        Return:
+            * ``None``
+        &#34;&#34;&#34;
+
+        if os.path.isfile(path):
+            f = open(path)
+        else:
+            self.printerror(msg1=&#34;PDB file for topology must be provided&#34;)
+            raise Exception(&#39;chipar.segment.read_topology_from_pdb requires an existing file as argument&#39;)
+
+        isthereconnect = False
+
+        if not isthereconnect:
+               self._topology.guess_bonds(self._coords, self._elements)
+
+        f.close()
+
+        # DEBUG
+        # print (self._topology)
+        # self._topology.draw_graph(title=&#34;kk&#34;)
+
+    # ***********************************************************************************
+    def get_coords(self, atomlist = None):
+
+        &#34;&#34;&#34;
+        Get the coordinates of the atomlist. It the atomlist is None, it return all coordinates
+
+        Parameters:
+            * ``atomlist`` (list, default=None): list of index number
+
+        Return:
+            * ``tmp_coords` (ndarray (float64) [#ofatoms in atomlist or self._natoms,3]) : Coordinates
+
+
+        Example
+        -------
+        &gt;&gt;&gt; s1.get_coords()
+
+        &gt;&gt;&gt; s1.get_coords(atomlist=[0,2])
+        ...         atom0 -&gt; [ 0.000,  0.765,  0.000]
+        ...         atom2 -&gt; [ 0.513,  1.165, -0.887]
+
+
+        &#34;&#34;&#34;
+
+        if atomlist is None:
+            return self._coords
+        else:
+            tmp_coords = np.zeros((len(atomlist),3))
+            i = 0
+            for item in atomlist:
+                tmp_coords[i] = self._coords[item]
+                i += 1
+            return tmp_coords
+
+    # ***********************************************************************************
+    def center_of_mass(self):
+
+        &#34;&#34;&#34;
+        Calculate the center of mass of the current coordinates
+
+        Parameters:
+            * ``None``
+
+        Return:
+            * ``com`` (type: ndarray vector) : Coordinates of the center of mass
+
+        &#34;&#34;&#34;
+
+        mtotal = 0.0
+        tmp = np.zeros(3)
+        c = self.get_coords()
+        for iatom in range(self._natoms):
+            m = pag.atomic_mass[self._topology._elements[iatom]]
+            mtotal += m
+            tmp += c[iatom,:]*m
+
+        com = tmp/mtotal
+        return com
+
+    # ***********************************************************************************
+    def center_of_geom(self):
+
+        &#34;&#34;&#34;
+        Calculate the center of geometry of the current coordinates
+
+        Parameters:
+            * ``None``
+
+        Return:
+            * ``cog`` (type: ndarray vector) : Coordinates of the geometry center
+
+        &#34;&#34;&#34;
+
+        tmp = np.zeros(3)
+        c = self.get_coords()
+        for iatom in range(self._natoms):
+            tmp += c[iatom,:]
+
+        cog = tmp/self._natoms
+        return cog
+
+    # ***********************************************************************************
+    def translate_vector(self, v):
+
+        &#34;&#34;&#34;
+        Translate the segment along the vector v.
+        This function changes the coordinates of the segment
+
+        .. image:: ../../figures/translation.png
+
+        The vector p represents the coordinates of each atom.
+
+        Parameters:
+            * ``v`` (list or (1,3)-ndarray): A vector to translate the coordinates
+
+        Return:
+            * ``None``
+
+        Examples
+        --------
+
+        Coordinates before change
+        -------------------------
+            [[-0.226  0.058  0.022],
+             [-0.341  1.094  0.372],
+             [-0.741 -0.592  0.743],
+             [-0.756 -0.027 -0.937],
+             [ 1.257 -0.325 -0.12 ],
+             [ 1.372 -1.361 -0.47 ],
+             [ 1.773  0.325 -0.841],
+             [ 1.773 -0.242  0.814],
+             [ 2.8   -0.515  0.682],
+             [ 1.32  -0.895  1.532],
+             [ 1.713  0.766 1.165]]
+
+        &gt;&gt;&gt; com = [ 0.92694264 -0.16617864  0.24637543]
+        ... s1.translate_vector(-com)
+
+        Coordinates after change
+        -------------------------
+            [[-1.15294264  0.22417864 -0.22437543],
+            [-1.26794264  1.26017864  0.12562457],
+            [-1.66794264 -0.42582136  0.49662457],
+            [-1.68294264  0.13917864 -1.18337543],
+            [ 0.33005736 -0.15882136 -0.36637543],
+            [ 0.44505736 -1.19482136 -0.71637543],
+            [ 0.84605736  0.49117    -1.08738   ],
+            [0.84605736  -0.07582     0.56762   ],
+            [1.87396     -0.34882     0.43562   ],
+            [0.39306     -0.72882     1.28562   ],
+            [0.78606      0.93218     0.91862   ]]
+        &#34;&#34;&#34;
+
+        c = self.get_coords()
+        for iatom in range(self._natoms):
+            c[iatom,:] += v
+
+        return None
+
+    # ***********************************************************************************
+    def euler_orientation(self, iseed=None):
+        &#34;&#34;&#34;
+        New coordinates of the atoms accordingly to random Euler angles.
+        There are many definitions of the Euler angles
+        (see: https://en.wikipedia.org/wiki/Euler_angles)
+
+        The definition here used is that given in:
+
+        .. Data::
+
+            MATHEMATICAL METHODS FOR PHYSICISTS
+            SEVENTH EDITION
+            George B. Arfken, Hans J. Weber, Frank E. Harris
+            pag: 140-142
+
+        .. image:: ../../figures/euler_book.png
+
+        Parameters:
+            * ``iseed`` (integer, default=None): seed for the random number generator
+
+        Return:
+            * ``euler``(list) : Euler angles [alpha, beta, gamma] in radians
+
+        &#34;&#34;&#34;
+
+        # Generate euler angles ========
+        if iseed is None:
+            euler = pag.generate_random_euler_angles()
+        else:
+            euler = pag.generate_random_euler_angles(seed=iseed)
+
+        # Create rotation matrix
+        S = pag.euler_rotation_matrix(euler)
+        # Take the transpose of the coordinates
+        C = np.ascontiguousarray(np.transpose(self.get_coords()))
+        # Change the coordinates (R) dot-product (column vector of the coordinates)
+        #print(ref.flags)
+        self._coords = np.ascontiguousarray(np.transpose(np.dot(S,C)))
+
+        return euler
+
+    # ***********************************************************************************
+    def calc_vdw_volume_VABC(self):
+
+        &#34;&#34;&#34;
+        Calculation of the van der waals volume using the method reported by Zhao et al.
+        &#34;Fast Calculation of van der Waals Volume as a Sum of Atomic and
+        Bond Contributions and Its Application to Drug Compounds&#34;,  J. Org. Chem. 2003, 68, 7368-7373
+
+        The VdW radii and volume are taken from
+        element_vdw_vmd_radius_bondi and element_vdw_vmd_volume_bondi, respectively.
+
+        The formula (4) of the article will be used in this function:
+
+        .. image:: ../../figures/volume_vdw.png
+
+        Parameters:
+            * ``None
+
+        Return:
+            * ``volume_vdw``: Van der waals volume using equation 4 in (angstroms^3/molecule)
+
+            * ``volume_tsar``: Van der waals volume using equation 6 in (angstroms^3/molecule)
+
+        &#34;&#34;&#34;
+
+        s1 = 0.0
+        for iatom in self._topology._elements:
+            s1 += pag.element_vdw_vmd_volume_bondi[iatom]
+
+        mol = openbabel.OBMol()
+
+        obConversion = openbabel.OBConversion()
+        obConversion.SetInAndOutFormats(&#34;pdb&#34;, &#34;fix&#34;)
+
+        obConversion.ReadFile(mol, self._filecoord)
+
+        Rg = len(mol.GetSSSR())
+        RA = sum([ 1 for i in mol.GetSSSR() if i.IsAromatic() is True])
+        RNR = Rg - RA
+        NB = self._natoms - 1 + Rg
+
+        volume_vdw = s1 - 5.92*NB -14.7*RA -3.8*RNR
+
+        volume_tsar = 0.801*volume_vdw + 0.18
+
+        return volume_vdw, volume_tsar
+
+    # ***********************************************************************************
+    def set_netcharge(self, netcharge):
+
+        &#34;&#34;&#34;
+        Set the net charge of the segment
+
+        Parameters:
+            * ``netcharge`` (integer): Net charge of the segment
+
+        Return:
+            * ``None``
+
+        Example
+        -------
+        &gt;&gt;&gt; s1.netcharge(-1)
+
+        &#34;&#34;&#34;
+
+        self._charge = netcharge
+
+    # ***********************************************************************************
+    def set_typeatoms(self, filetypeatoms):
+
+        &#34;&#34;&#34;
+        Set the typeatoms of the segment. The filetypeatoms must have the following format:
+
+        Data
+        ----
+            &lt;Number&gt; &lt;Atom&gt; &lt;type_of_atom&gt;
+            1 C c3
+            2 C c3
+            3 C c3
+            (...)
+            14 H hc
+
+        Parameters:
+        * ``filetypeatoms`` (integer) : Name of the file containing the fileatom array
+
+        Return:
+            * ``None``
+
+        Example
+        -------
+        &gt;&gt;&gt; s1.set_typeatoms(&#34;../data/n-hexane_types.dat&#34;)
+
+        n-hexane_types.dat
+        ------------------
+            1   C  c3
+            2   C  c3
+            3   C  c3
+            4   H  hc
+            5   H  hc
+            6   H  hc
+            7   H  hc
+            8   H  hc
+            9   H  hc
+            10  H  hc
+            11  C  c3
+            12  C  c3
+            13  C  c3
+            14  H  hc
+            15  H  hc
+            16  H  hc
+            17  H  hc
+            18  H  hc
+            19  H  hc
+            20  H  hc
+
+
+        &#34;&#34;&#34;
+
+        typelist = []
+        with open(filetypeatoms, &#39;r&#39;) as f:
+            for line in f:
+                i, el, typ = line.split()
+                typelist.append(typ)
+
+        self._typeelements = np.asarray(typelist, dtype=np.str)
+        return None</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="polyanagro.Segment.Segment"><code class="flex name class">
+<span>class <span class="ident">Segment</span></span>
+<span>(</span><span>filecoord=None, filetop=None, filetypeatoms=None, natoms=0, xlist=[], ylist=[], zlist=[], elementlist=[], guesstopol=True, dummy_head=-1, dummy_tail=-1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Segment constructor</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>filecoord</code>
+(string, default=None):
+Name of the coordinates filecoord (Format: PDB, GRO, XYZ)</li>
+<li><code>filetop</code> (string, default=None):
+Name of the topology (Format: PDB)</li>
+<li><code>filetypeatoms</code> (string, default=None):
+Name of the file containing the matching between atoms and atomtypes. This is used mainly
+to assign the reevaluated distances by Okuwaki et al. (Table 2)</li>
+<li><code>natoms</code> (int, default = 0):
+Number of atoms</li>
+<li><code>xlist</code> (list of floats, default=[]):
+x component of the coordinates (in angstroms)</li>
+<li><code>ylist</code> (list of floats, default=[]):
+y component of the coordinates (in angstroms)</li>
+<li><code>zlist</code> (list of floats, default=[]):
+z component of the coordinates (in angstroms)</li>
+<li><code>elementlist</code> (list of strings, default=[]):
+Element symbol</li>
+<li><code>guesstopol</code> (boolean, default=True):
+If True activate the guessing of topology based in a distance algorithm.</li>
+<li><code>dummy_head</code> (integer, default=-1):
+Index of the atom acting as dummy head atom to mimic polymer chain</li>
+<li><code>dummy_tail</code> (integer, default=-1):
+Index of the atom acting as dummy tail atom to mimic polymer chain</li>
+</ul>
+<h2 id="attributes">Attributes</h2>
+<ul>
+<li><code>self._filecoord</code>: (str) Name of the coordinates filecoord (Format: PDB, GRO, XYZ)</li>
+<li><code>self._filetop</code>: (str) Name of the topology (Format: PDB)</li>
+<li><code>self._logger</code>: (Logger) Object to throw the output</li>
+<li><code>self._filetypeatoms</code>: (str) Name of the file containing the matching between atoms and atomtypes. This is used mainly
+to assign the reevaluated distances by Okuwaki et al. (Table 2)</li>
+<li><code>self._natoms</code>: (int) Number of atoms</li>
+<li><code>self._coords</code>: (ndarray, [natoms, 3]) Coordinates of the atoms</li>
+<li><code>self._dummy_head_atom</code>: (int) Index of the atom acting as dummy head atom to mimic polymer chain</li>
+<li><code>self._dummy_tail_atom</code>: (int) Index of the atom acting as dummy tail atom to mimic polymer chain</li>
+<li><code>self._netcharge</code>:(int) Net charge of the molecule</li>
+<li><code>self._isBOassigned</code>:(boolean). True if the bond order are assigned</li>
+<li><code>self._topology</code>: (Topology). Topology of the segment
+Notes</li>
+</ul>
+<hr>
+<p>There are two ways to build a Segment object:
+1. Segment(filecoord='ethylene.pdb')
+2. Segment(natoms=2, xlist= [], ylist=[], zlist = [], elements = [])</p>
+<p>If filecoord is present the other parameters are ignored. Otherwise, all parameters must be consistent.</p>
+<p>if filetypeatoms is present, the types assignation is done.
+The order of the atoms must be the same that the order in the coord and topology files.
+The format of this file must be the following:</p>
+<h2 id="data">Data</h2>
+<pre><code>&lt;Number&gt; &lt;Atom&gt; &lt;type_of_atom&gt;
+1 C c3
+2 C c3
+3 C c3
+(...)
+14 H hc
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be careful when use np.transpose function. This function seems to change the order of the array to
+"Fortran-type" instead to C-Order. If use np.transpose you will use np.ascontiguousarray</p>
+<pre><code>Example:
+
+a = np.tranpose(b) --&gt; a in Fortran order irrespective of the order of C
+
+a = np.ascontiguousarray(np.transpose(b)) --&gt; a in C order
+
+This issue is important when use mode="c" in pyx files for Cython
+</code></pre>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For big molecules (&gt;1000 atoms) deactivate the guessing of topology (guesstopol=False)</p>
+</div></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Segment(object):
+
+    __slots__ = [&#39;_filecoord&#39;, &#39;_filetop&#39;, &#39;_logger&#39;, &#39;_typeelements&#39;, &#39;_natoms&#39;, &#39;_coords&#39;,
+                 &#39;_dummy_head_atom&#39;, &#39;_dummy_tail_atom&#39;, &#39;_netcharge&#39;, &#39;_isBOassigned&#39;, &#39;_topology&#39;, &#39;_filetypeatoms&#39;]
+
+    # ***********************************************************************************
+    def __init__(self, filecoord=None, filetop=None, filetypeatoms=None, natoms=0,
+                 xlist=[], ylist=[], zlist=[],
+                 elementlist=[], guesstopol=True, dummy_head = -1, dummy_tail = -1):
+
+        &#34;&#34;&#34;
+        Segment constructor
+
+        Parameters:
+            * ``filecoord``  (string, default=None):
+            Name of the coordinates filecoord (Format: PDB, GRO, XYZ)
+            * ``filetop`` (string, default=None):
+            Name of the topology (Format: PDB)
+            * ``filetypeatoms`` (string, default=None):
+            Name of the file containing the matching between atoms and atomtypes. This is used mainly
+            to assign the reevaluated distances by Okuwaki et al. (Table 2)
+            * ``natoms`` (int, default = 0):
+            Number of atoms
+            * ``xlist`` (list of floats, default=[]):
+            x component of the coordinates (in angstroms)
+            * ``ylist`` (list of floats, default=[]):
+            y component of the coordinates (in angstroms)
+            * ``zlist`` (list of floats, default=[]):
+            z component of the coordinates (in angstroms)
+            * ``elementlist`` (list of strings, default=[]):
+            Element symbol
+            * ``guesstopol`` (boolean, default=True):
+            If True activate the guessing of topology based in a distance algorithm.
+            * ``dummy_head`` (integer, default=-1):
+            Index of the atom acting as dummy head atom to mimic polymer chain
+            * ``dummy_tail`` (integer, default=-1):
+            Index of the atom acting as dummy tail atom to mimic polymer chain
+
+        Attributes:
+            * ``self._filecoord``: (str) Name of the coordinates filecoord (Format: PDB, GRO, XYZ)
+            * ``self._filetop``: (str) Name of the topology (Format: PDB)
+            * ``self._logger``: (Logger) Object to throw the output
+            * ``self._filetypeatoms``: (str) Name of the file containing the matching between atoms and atomtypes. This is used mainly
+                to assign the reevaluated distances by Okuwaki et al. (Table 2)
+            * ``self._natoms``: (int) Number of atoms
+            * ``self._coords``: (ndarray, [natoms, 3]) Coordinates of the atoms
+            * ``self._dummy_head_atom``: (int) Index of the atom acting as dummy head atom to mimic polymer chain
+            * ``self._dummy_tail_atom``: (int) Index of the atom acting as dummy tail atom to mimic polymer chain
+            * ``self._netcharge``:(int) Net charge of the molecule
+            * ``self._isBOassigned``:(boolean). True if the bond order are assigned
+            * ``self._topology``: (Topology). Topology of the segment
+
+        Notes
+        -----
+        There are two ways to build a Segment object:
+            1. Segment(filecoord=&#39;ethylene.pdb&#39;)
+            2. Segment(natoms=2, xlist= [], ylist=[], zlist = [], elements = [])
+
+        If filecoord is present the other parameters are ignored. Otherwise, all parameters must be consistent.
+
+        if filetypeatoms is present, the types assignation is done.
+        The order of the atoms must be the same that the order in the coord and topology files.
+        The format of this file must be the following:
+
+        Data
+        ----
+            &lt;Number&gt; &lt;Atom&gt; &lt;type_of_atom&gt;
+            1 C c3
+            2 C c3
+            3 C c3
+            (...)
+            14 H hc
+
+        .. warning::
+            Be careful when use np.transpose function. This function seems to change the order of the array to
+            &#34;Fortran-type&#34; instead to C-Order. If use np.transpose you will use np.ascontiguousarray
+
+                Example:
+
+                a = np.tranpose(b) --&gt; a in Fortran order irrespective of the order of C
+
+                a = np.ascontiguousarray(np.transpose(b)) --&gt; a in C order
+
+                This issue is important when use mode=&#34;c&#34; in pyx files for Cython
+
+        .. warning::
+            For big molecules (&gt;1000 atoms) deactivate the guessing of topology (guesstopol=False)
+
+        &#34;&#34;&#34;
+        self._filecoord = filecoord
+        self._filetop = filetop
+        self._logger = logging.getLogger(&#34;Output&#34;) #&#34;&#34;Segment&#34;, append=True, )
+        self._typeelements = None
+
+        if filecoord is not None:
+            _elements = self.load_from_disk(filecoord)
+        else:
+            self._natoms = natoms
+            self._coords = np.column_stack((np.asarray(xlist),
+                                            np.asarray(ylist),
+                                            np.asarray(zlist)))
+            _elements = np.asarray(elementlist, dtype=np.str)
+
+        self.check_parameter_consistence()
+
+        self._dummy_head_atom = dummy_head
+        self._dummy_tail_atom = dummy_tail
+        self._netcharge = 0
+        self._isBOassigned = False
+
+        # Setup topology of the segment
+        if guesstopol:
+            if filecoord is None and filetop is None:
+                #self._topology = None
+                self._topology = pag.Topology(natoms=self._natoms)
+                if self._natoms == 0:
+                    self._topology = None
+                else:
+                    self._topology.guess_bonds_topology(self._coords, _elements)
+                    self._topology._topologyfile = None
+            elif filetop is None:
+                self._topology = pag.Topology(natoms=self._natoms)
+                self._topology.guess_bonds_topology(self._coords, _elements)
+                self._topology._topologyfile = None
+            else:
+                self.set_topology_from_disk(filetop, _elements)
+        else:
+            self._topology = None
+
+        self._filetypeatoms = filetypeatoms
+        if filetypeatoms is not None:
+            self.set_typeatoms(filetypeatoms)
+
+    # ***********************************************************************************
+    def __str__(self):
+
+        &#34;&#34;&#34; Returns the state of the attributtes of an instance&#34;&#34;&#34;
+
+        objstr = str(self.__repr__())+&#34;\n&#34;
+        for key in self.__dict__:
+            try:
+                value = getattr(self,key)
+                objstr +=  str(key) +&#34;: &#34;+str(value) + &#34;\n&#34;
+            except AttributeError:
+                objstr += str(key) +&#34;: NOT SET&#34; + &#34;\n&#34;
+        return objstr
+
+    # ***********************************************************************************
+    def __copy__(self):
+
+        s = Segment(guesstopol=False)
+
+        s._natoms = self._natoms
+        s._topology = copy(self._topology)
+        s._coords = self._coords.copy()
+        s._filecoord = self._filecoord
+        s._filetop = self._filetop
+        s._filetypeatoms  = self._filetypeatoms
+        if self._typeelements is not None:
+            s._typeelements = self._typeelements.copy()
+
+        return s
+
+    # ***********************************************************************************
+    def __eq__(self, other):
+
+        if other is None:
+            return None
+
+        res = True
+
+        keys = self.__slots__
+
+        for key in keys:
+            if isinstance(getattr(self,key), np.ndarray):
+                par = np.array_equal(getattr(self,key), getattr(other,key))
+                res = res and par
+            elif isinstance(getattr(self,key),pag.Topology):
+                par = getattr(self,key) == getattr(other,key)
+                res = res and par
+            elif isinstance(getattr(self,key),Segment):
+                par = self.__dict__[key] == other.__dict__[key]
+                res = res and par
+            else:
+                par = getattr(self,key) == getattr(other,key)
+                res = res and par
+
+        return res
+
+    # ***********************************************************************************
+    def check_parameter_consistence(self):
+
+        &#34;&#34;&#34;
+        Checks the length of the parameters passed through the constructor.
+
+        The length of the x, y, z and element arrays must be equal to the number ot atoms.
+        If there is not consistency raises a ValueError otherwise return True.
+
+        Return:
+            * ``None``
+
+        &#34;&#34;&#34;
+
+        condition = (self._coords.shape[0] == self._natoms)
+
+        if not condition:
+            line = &#34;\n\t======== ERROR ==========\n&#34; \
+                   &#34;\tCoordinates arrays must have equal length and equal to number of atoms\n&#34; \
+                   &#34;\tLength coords: %d\n&#34; \
+                   &#34;\tLength Elements: %d\n&#34;\
+                   &#34;\tNumber of atoms: %d\n&#34; \
+                    &#34;\tCoordfile: %s\n&#34; \
+                    &#34;\tTopofile: %s\n&#34; \
+                   &#34;\t======== ERROR ==========\n&#34;%(self._coords.shape[0] , len(self._elements), self._natoms, self._filecoord, self._filetop)
+
+            #print(line)
+            self._logger.error(line)
+            raise ValueError (&#34;Coordinates arrays must have equal length and equal to number of atoms&#34;)
+
+        return None
+
+    # ***********************************************************************************
+    def load_from_disk(self, path):
+
+        &#34;&#34;&#34;
+        Wrapper function to read information about the segment as a function of the extension of the file.
+        If the extesion is unkwown the function raises an error.
+
+        Parameters:
+            * ``path`` (string): Path to the file in the disk
+
+        Return:
+            * ``elements`` (list): list of elements. Example ([&#39;C&#39;,&#39;C&#39;])
+
+        Example
+        -------
+        &gt;&gt;&gt; s1.load_from_disk(&#39;../data/pe_1mon_ua.pdb&#39;)
+
+        &#34;&#34;&#34;
+
+        ext = os.path.splitext (path)[1]
+
+        if ext == &#34;.pdb&#34;:
+            elements = self.read_pdb_from_scratch(path)
+        elif ext == &#39;.xyz&#39;:
+            elements = self.read_xyz_from_scratch (path)
+        elif ext == &#39;.gro&#39;:
+            elements = self.read_gro_from_scratch(path)
+        # elif ext == &#34;.sdf&#34;:
+        #     self.read_sdf_coordtopo_from_scratch(path)
+        else:
+            self.printerror (&#34;Unkown molecular format for file: %s&#34; % path)
+            raise Exception(&#34;Unkown molecular format for file: %s&#34;%path)
+
+        return elements
+
+    # ***********************************************************************************
+    def set_topology_from_disk(self, path, elements):
+
+        &#34;&#34;&#34;
+        Wrapper function to read information of the segment topology as a function of the extension of the file.
+        If the extesion is unkwown the function raises an error.
+
+        Parameters:
+            * ``path`` (string): path to the file in the disk
+            * ``elements`` (list): list of elements. Example ([&#39;C&#39;,&#39;C&#39;])
+
+        Return:
+            * ``None``
+
+        Example
+        -------
+        &gt;&gt;&gt; s1.set_topology_from_disk(&#39;../data/pe_1mon_ua.pdb&#39;, [&#39;C&#39;,&#39;C&#39;])
+
+        &#34;&#34;&#34;
+
+        ext = os.path.splitext (path)[1]
+
+        if ext == &#34;.pdb&#34;:
+            self._topology = pag.Topology(natoms=self._natoms)
+            self.read_topology_from_pdb(path, elements)
+        elif ext == &#34;.xyz&#34;:
+            self._topology = pag.Topology(natoms=self._natoms)
+            self.read_topology_from_xyz(path)
+        elif ext == &#34;.sdf&#34;:
+            &#34;The topology is already set up in the &#34; \
+            &#34;read_sdf_coordtopo_from_scratch method&#34;
+            pass
+        else:
+            self.printerror (&#34;Unknown topology format for file: %s&#34; % path)
+            raise Exception(&#34;Unknown topology format for file: %s&#34;%path)
+
+    # ***********************************************************************************
+    def read_pdb_from_scratch(self, pdb_path):
+
+        &#34;&#34;&#34;
+        Read data of the segment from a pdb file
+        (http://www.wwpdb.org/documentation/file-format-content/format33/v3.3.html)
+
+        Parameters:
+            * ``pdb_path`` (string): Path to a pdb file
+
+        Return:
+            * ``elements`` (list):  list of elements. Example ([&#39;C&#39;,&#39;C&#39;])
+
+        &#34;&#34;&#34;
+
+        if os.path.isfile(pdb_path):
+            f = open(pdb_path)
+        else:
+            self.printerror(msg1=&#34;PDB file must exist\n {} does not exist&#34;.format(pdb_path))
+            raise Exception(&#39;chipar.segment.read_pdb_from_scratch requires an existing file as argument: {}&#39;.format(pdb_path))
+
+        self._natoms = 0
+        xlist = []
+        ylist = []
+        zlist = []
+        elist = []
+        for line in f:
+            if line.startswith(&#39;ATOM&#39;) or line.startswith(&#39;HETATM&#39;):
+                #tag = int(line[6:11].strip())
+                name = line[12:16].strip()
+                #resname = line[17:20].strip()
+                #chainid = line[21]
+                #resid = line[22:26].strip()
+                x = float(line[30:38].strip())
+                y = float(line[38:46].strip())
+                z = float(line[46:54].strip())
+                elem = line[76:78].strip()
+                if elem == &#34;&#34;:
+                    elist.append(name.capitalize())
+                else:
+                    elist.append(elem.capitalize())
+                xlist.append(x)
+                ylist.append(y)
+                zlist.append(z)
+                self._natoms += 1
+
+        self._coords = np.column_stack((np.asarray(xlist),
+                                        np.asarray(ylist),
+                                        np.asarray(zlist)))
+
+        elements = np.asarray(elist, dtype=np.str)
+
+        f.close()
+
+        return elements
+
+    # ***********************************************************************************
+    def read_xyz_from_scratch(self, xyz_path):
+
+        &#34;&#34;&#34;
+        Read data of the segment from a xyz file
+        (https://openbabel.org/docs/dev/FileFormats/XYZ_cartesian_coordinates_format.html)
+
+        Parameters:
+            * ``xyz_path`` (string): Path to a xyz file
+
+        Return:
+            * ``elements`` (list):  list of elements. Example ([&#39;C&#39;,&#39;C&#39;])
+
+        &#34;&#34;&#34;
+
+        if os.path.isfile(xyz_path):
+            f = open(xyz_path)
+        else:
+            self.printerror(msg1=&#34;XYZ file must be provided&#34;)
+            raise Exception(&#39;chipar.segment.read_xyz_from_scratch requires an existing file as argument&#39;)
+
+        nparticles = int(f.readline().strip())
+
+        self._natoms = 0
+        xlist = []
+        ylist = []
+        zlist = []
+        elist = []
+        f.readline().strip()
+        for _ in range(nparticles):
+            elem, x, y, z = f.readline().split()
+            xlist.append(float(x))
+            ylist.append(float(y))
+            zlist.append(float(z))
+            elist.append(elem.capitalize())
+            self._natoms += 1
+
+        self._coords = np.column_stack((np.asarray(xlist),
+                                        np.asarray(ylist),
+                                        np.asarray(zlist)))
+        elements = np.asarray(elist, dtype=np.str)
+
+        assert int(nparticles == self._natoms), \
+            &#34;Number of particles in the header is different to the read atoms in the xyz file&#34;
+        f.close()
+
+        return elements
+
+    # ***********************************************************************************
+    def read_gro_from_scratch(self, gro_path):
+
+        &#34;&#34;&#34;
+        Read data of the segment from a gro file
+        (http://manual.gromacs.org/archive/5.0.4/online/gro.html)
+
+        Parameters:
+            * ``gro_path`` (string): Path to a gro file
+
+        Return:
+            * ``elements`` (list):  list of elements. Example ([&#39;C&#39;,&#39;C&#39;])
+
+        &#34;&#34;&#34;
+
+        if os.path.isfile(gro_path):
+            f = open(gro_path)
+        else:
+            self.printerror(msg1=&#34;GRO file must be provided&#34;)
+            raise Exception(&#39;chipar.segment.read_gro_from_scratch requires an existing file as argument&#39;)
+
+        f.readline().strip()
+        self._natoms = int(f.readline().strip())
+
+        iline = 1
+        #chainid = 1
+        xlist = []
+        ylist = []
+        zlist = []
+        elist = []
+        while iline &lt;= self._natoms:
+            line = f.readline()
+            #resid = int(line[0:5].strip())
+            #resname = line[5:10].strip()
+            atomname = line[10:15] #force field name
+            #tag = int(line[15:20].strip())
+            xlist.append(float(line[20:28].strip())*10)
+            ylist.append(float(line[28:36].strip())*10)
+            zlist.append(float(line[36:44].strip())*10)
+            elist.append(atomname.strip())
+            iline += 1
+
+        self._coords = np.column_stack((np.asarray(xlist),
+                                        np.asarray(ylist),
+                                        np.asarray(zlist)))
+        elements = np.asarray(elist, dtype=np.str)
+
+        f.close()
+
+        return elements
+
+    # # ***********************************************************************************
+    # def read_sdf_coordtopo_from_scratch(self, sdf_path):
+    #
+    #     if os.path.isfile(sdf_path):
+    #         f = open(sdf_path)
+    #     else:
+    #         self.printerror(msg1=&#34;SDF file must be provided&#34;)
+    #         raise Exception(&#39;chipar.segment.read_sdf_coordtopo_from_scratch requires an existing file as argument&#39;)
+    #
+    #     try:
+    #         for n in range(3):
+    #             next(f)
+    #     except StopIteration:
+    #         raise PysimmError(&#39;pysimm.system.read_mol requires either &#39;
+    #                           &#39;file or string as argument&#39;)
+    #     version = None
+    #     line = next(f)
+    #     self._natoms = int(line.split()[0])
+    #     nbonds = int(line.split()[1])
+    #     if len(line.split()) &gt;= 3:
+    #         version = line.split()[-1]
+    #
+    #     self._topology = Topology(nvert=self._natoms)
+    #
+    #     xlist = []
+    #     ylist = []
+    #     zlist = []
+    #     elist = []
+    #     if version == &#39;V2000&#39;:
+    #         for iatom in range(self._natoms):
+    #             line = next(f)
+    #             x, y, z, elem, tmp, charge = line.split()[:6]
+    #             xlist.append(float(x))
+    #             ylist.append(float(y))
+    #             zlist.append(float(z))
+    #             elist.append(elem)
+    #
+    #         for n in range(nbonds):
+    #             line = next(f)
+    #             iatom, jatom, order = list(map(int, line.split()[:3]))
+    #             self._topology.add_edge([iatom-1, jatom-1])
+    #             self._topology._orderbonds[iatom-1, jatom-1] = order
+    #             self._topology._orderbonds[jatom-1, iatom-1] = order
+    #
+    #     elif version == &#39;V3000&#39;:
+    #         next(f)
+    #         line = next(f)
+    #         self._natoms = int(line.split()[0])
+    #         nbonds = int(line.split()[1])
+    #         next(f)
+    #         for iatom in range(self._natoms):
+    #             line = next(f)
+    #             idf, elem, x, y, z, charge = line.split()[2:8]
+    #             xlist.append(x)
+    #             ylist.append(y)
+    #             zlist.append(z)
+    #             elist.append(elem)
+    #
+    #         next(f)
+    #         next(f)
+    #
+    #         for n in range(nbonds):
+    #             line = next(f)
+    #             idf, order, iatom, jatom = list(map(int, line.split()[2:6]))
+    #             self.add_edge([iatom-1, jatom-1])
+    #             self._orderbonds[iatom-1, jatom-1] = order
+    #             self._orderbonds[jatom-1, iatom-1] = order
+    #
+    #     self._coords = np.column_stack((np.asarray(xlist),
+    #                                     np.asarray(ylist),
+    #                                     np.asarray(zlist)))
+    #     self._elements = np.asarray(elist, dtype=np.str)
+    #
+    #     f.close()
+
+    # ***********************************************************************************
+    def printerror(self, msg1):
+
+        self._logger.error(msg1)
+
+    # ***********************************************************************************
+    def read_topology_from_pdb(self, path, elements):
+
+        &#34;&#34;&#34;
+        Try to set up the topology reading a PDB file. The &#34;CONECT&#34; section is
+        used to yield the connectivity of the molecule, if present. Otherwise, the
+        bonds are guessed.
+
+        Parameters:
+            * ``path`` (string): Path to the PDB file
+            * ``elements`` (list):  list of elements. Example ([&#39;C&#39;,&#39;C&#39;])
+
+        Return:
+            * ``None``
+        &#34;&#34;&#34;
+
+        if os.path.isfile(path):
+            f = open(path)
+        else:
+            self.printerror(msg1=&#34;PDB file for topology must be provided&#34;)
+            raise Exception(&#39;chipar.segment.read_topology_from_pdb requires an existing file as argument&#39;)
+
+        self._topology._topologyfile = path
+
+        isthereconnect = False
+        for line in f:
+            if line.startswith(&#39;CONECT&#39;):
+                l = line.split()
+                i = int(l[1])
+                self._topology.add_vertex(i-1)
+                for jj in l[2:]:
+                    j = int(jj)
+                    if j &lt; i: continue
+                    self._topology.add_vertex(j-1)
+                    self._topology.add_edge([i-1,j-1])
+                    isthereconnect = True
+            elif line.startswith(&#39;ATOM&#39;) or line.startswith(&#34;HETATM&#34;):
+                e = line[76:78].replace(&#34; &#34;, &#34;&#34;)
+                self._topology._charge.append(0.0)
+                self._topology._elements.append(e)
+                m = pag.atomic_data.atomic_mass[e]
+                self._topology._mass.append(m)
+
+        if not isthereconnect:
+            self._topology.guess_bonds_topology(self._coords, elements)
+            self._topology.perception_rings()
+
+        f.close()
+
+        # DEBUG
+        # print (self._topology)
+        # self._topology.draw_graph(title=&#34;kk&#34;)
+
+    # ***********************************************************************************
+    def read_topology_from_xyz(self, path):
+
+        &#34;&#34;&#34;
+        Try to set up the topology reading a PDB file. The &#34;CONECT&#34; section is
+        used to yield the connectivity of the molecule, if present. Otherwise, the
+        bonds are guessed.
+
+        Parameters:
+            * ``path`` (string): Path to the PDB file
+
+        Return:
+            * ``None``
+        &#34;&#34;&#34;
+
+        if os.path.isfile(path):
+            f = open(path)
+        else:
+            self.printerror(msg1=&#34;PDB file for topology must be provided&#34;)
+            raise Exception(&#39;chipar.segment.read_topology_from_pdb requires an existing file as argument&#39;)
+
+        isthereconnect = False
+
+        if not isthereconnect:
+               self._topology.guess_bonds(self._coords, self._elements)
+
+        f.close()
+
+        # DEBUG
+        # print (self._topology)
+        # self._topology.draw_graph(title=&#34;kk&#34;)
+
+    # ***********************************************************************************
+    def get_coords(self, atomlist = None):
+
+        &#34;&#34;&#34;
+        Get the coordinates of the atomlist. It the atomlist is None, it return all coordinates
+
+        Parameters:
+            * ``atomlist`` (list, default=None): list of index number
+
+        Return:
+            * ``tmp_coords` (ndarray (float64) [#ofatoms in atomlist or self._natoms,3]) : Coordinates
+
+
+        Example
+        -------
+        &gt;&gt;&gt; s1.get_coords()
+
+        &gt;&gt;&gt; s1.get_coords(atomlist=[0,2])
+        ...         atom0 -&gt; [ 0.000,  0.765,  0.000]
+        ...         atom2 -&gt; [ 0.513,  1.165, -0.887]
+
+
+        &#34;&#34;&#34;
+
+        if atomlist is None:
+            return self._coords
+        else:
+            tmp_coords = np.zeros((len(atomlist),3))
+            i = 0
+            for item in atomlist:
+                tmp_coords[i] = self._coords[item]
+                i += 1
+            return tmp_coords
+
+    # ***********************************************************************************
+    def center_of_mass(self):
+
+        &#34;&#34;&#34;
+        Calculate the center of mass of the current coordinates
+
+        Parameters:
+            * ``None``
+
+        Return:
+            * ``com`` (type: ndarray vector) : Coordinates of the center of mass
+
+        &#34;&#34;&#34;
+
+        mtotal = 0.0
+        tmp = np.zeros(3)
+        c = self.get_coords()
+        for iatom in range(self._natoms):
+            m = pag.atomic_mass[self._topology._elements[iatom]]
+            mtotal += m
+            tmp += c[iatom,:]*m
+
+        com = tmp/mtotal
+        return com
+
+    # ***********************************************************************************
+    def center_of_geom(self):
+
+        &#34;&#34;&#34;
+        Calculate the center of geometry of the current coordinates
+
+        Parameters:
+            * ``None``
+
+        Return:
+            * ``cog`` (type: ndarray vector) : Coordinates of the geometry center
+
+        &#34;&#34;&#34;
+
+        tmp = np.zeros(3)
+        c = self.get_coords()
+        for iatom in range(self._natoms):
+            tmp += c[iatom,:]
+
+        cog = tmp/self._natoms
+        return cog
+
+    # ***********************************************************************************
+    def translate_vector(self, v):
+
+        &#34;&#34;&#34;
+        Translate the segment along the vector v.
+        This function changes the coordinates of the segment
+
+        .. image:: ../../figures/translation.png
+
+        The vector p represents the coordinates of each atom.
+
+        Parameters:
+            * ``v`` (list or (1,3)-ndarray): A vector to translate the coordinates
+
+        Return:
+            * ``None``
+
+        Examples
+        --------
+
+        Coordinates before change
+        -------------------------
+            [[-0.226  0.058  0.022],
+             [-0.341  1.094  0.372],
+             [-0.741 -0.592  0.743],
+             [-0.756 -0.027 -0.937],
+             [ 1.257 -0.325 -0.12 ],
+             [ 1.372 -1.361 -0.47 ],
+             [ 1.773  0.325 -0.841],
+             [ 1.773 -0.242  0.814],
+             [ 2.8   -0.515  0.682],
+             [ 1.32  -0.895  1.532],
+             [ 1.713  0.766 1.165]]
+
+        &gt;&gt;&gt; com = [ 0.92694264 -0.16617864  0.24637543]
+        ... s1.translate_vector(-com)
+
+        Coordinates after change
+        -------------------------
+            [[-1.15294264  0.22417864 -0.22437543],
+            [-1.26794264  1.26017864  0.12562457],
+            [-1.66794264 -0.42582136  0.49662457],
+            [-1.68294264  0.13917864 -1.18337543],
+            [ 0.33005736 -0.15882136 -0.36637543],
+            [ 0.44505736 -1.19482136 -0.71637543],
+            [ 0.84605736  0.49117    -1.08738   ],
+            [0.84605736  -0.07582     0.56762   ],
+            [1.87396     -0.34882     0.43562   ],
+            [0.39306     -0.72882     1.28562   ],
+            [0.78606      0.93218     0.91862   ]]
+        &#34;&#34;&#34;
+
+        c = self.get_coords()
+        for iatom in range(self._natoms):
+            c[iatom,:] += v
+
+        return None
+
+    # ***********************************************************************************
+    def euler_orientation(self, iseed=None):
+        &#34;&#34;&#34;
+        New coordinates of the atoms accordingly to random Euler angles.
+        There are many definitions of the Euler angles
+        (see: https://en.wikipedia.org/wiki/Euler_angles)
+
+        The definition here used is that given in:
+
+        .. Data::
+
+            MATHEMATICAL METHODS FOR PHYSICISTS
+            SEVENTH EDITION
+            George B. Arfken, Hans J. Weber, Frank E. Harris
+            pag: 140-142
+
+        .. image:: ../../figures/euler_book.png
+
+        Parameters:
+            * ``iseed`` (integer, default=None): seed for the random number generator
+
+        Return:
+            * ``euler``(list) : Euler angles [alpha, beta, gamma] in radians
+
+        &#34;&#34;&#34;
+
+        # Generate euler angles ========
+        if iseed is None:
+            euler = pag.generate_random_euler_angles()
+        else:
+            euler = pag.generate_random_euler_angles(seed=iseed)
+
+        # Create rotation matrix
+        S = pag.euler_rotation_matrix(euler)
+        # Take the transpose of the coordinates
+        C = np.ascontiguousarray(np.transpose(self.get_coords()))
+        # Change the coordinates (R) dot-product (column vector of the coordinates)
+        #print(ref.flags)
+        self._coords = np.ascontiguousarray(np.transpose(np.dot(S,C)))
+
+        return euler
+
+    # ***********************************************************************************
+    def calc_vdw_volume_VABC(self):
+
+        &#34;&#34;&#34;
+        Calculation of the van der waals volume using the method reported by Zhao et al.
+        &#34;Fast Calculation of van der Waals Volume as a Sum of Atomic and
+        Bond Contributions and Its Application to Drug Compounds&#34;,  J. Org. Chem. 2003, 68, 7368-7373
+
+        The VdW radii and volume are taken from
+        element_vdw_vmd_radius_bondi and element_vdw_vmd_volume_bondi, respectively.
+
+        The formula (4) of the article will be used in this function:
+
+        .. image:: ../../figures/volume_vdw.png
+
+        Parameters:
+            * ``None
+
+        Return:
+            * ``volume_vdw``: Van der waals volume using equation 4 in (angstroms^3/molecule)
+
+            * ``volume_tsar``: Van der waals volume using equation 6 in (angstroms^3/molecule)
+
+        &#34;&#34;&#34;
+
+        s1 = 0.0
+        for iatom in self._topology._elements:
+            s1 += pag.element_vdw_vmd_volume_bondi[iatom]
+
+        mol = openbabel.OBMol()
+
+        obConversion = openbabel.OBConversion()
+        obConversion.SetInAndOutFormats(&#34;pdb&#34;, &#34;fix&#34;)
+
+        obConversion.ReadFile(mol, self._filecoord)
+
+        Rg = len(mol.GetSSSR())
+        RA = sum([ 1 for i in mol.GetSSSR() if i.IsAromatic() is True])
+        RNR = Rg - RA
+        NB = self._natoms - 1 + Rg
+
+        volume_vdw = s1 - 5.92*NB -14.7*RA -3.8*RNR
+
+        volume_tsar = 0.801*volume_vdw + 0.18
+
+        return volume_vdw, volume_tsar
+
+    # ***********************************************************************************
+    def set_netcharge(self, netcharge):
+
+        &#34;&#34;&#34;
+        Set the net charge of the segment
+
+        Parameters:
+            * ``netcharge`` (integer): Net charge of the segment
+
+        Return:
+            * ``None``
+
+        Example
+        -------
+        &gt;&gt;&gt; s1.netcharge(-1)
+
+        &#34;&#34;&#34;
+
+        self._charge = netcharge
+
+    # ***********************************************************************************
+    def set_typeatoms(self, filetypeatoms):
+
+        &#34;&#34;&#34;
+        Set the typeatoms of the segment. The filetypeatoms must have the following format:
+
+        Data
+        ----
+            &lt;Number&gt; &lt;Atom&gt; &lt;type_of_atom&gt;
+            1 C c3
+            2 C c3
+            3 C c3
+            (...)
+            14 H hc
+
+        Parameters:
+        * ``filetypeatoms`` (integer) : Name of the file containing the fileatom array
+
+        Return:
+            * ``None``
+
+        Example
+        -------
+        &gt;&gt;&gt; s1.set_typeatoms(&#34;../data/n-hexane_types.dat&#34;)
+
+        n-hexane_types.dat
+        ------------------
+            1   C  c3
+            2   C  c3
+            3   C  c3
+            4   H  hc
+            5   H  hc
+            6   H  hc
+            7   H  hc
+            8   H  hc
+            9   H  hc
+            10  H  hc
+            11  C  c3
+            12  C  c3
+            13  C  c3
+            14  H  hc
+            15  H  hc
+            16  H  hc
+            17  H  hc
+            18  H  hc
+            19  H  hc
+            20  H  hc
+
+
+        &#34;&#34;&#34;
+
+        typelist = []
+        with open(filetypeatoms, &#39;r&#39;) as f:
+            for line in f:
+                i, el, typ = line.split()
+                typelist.append(typ)
+
+        self._typeelements = np.asarray(typelist, dtype=np.str)
+        return None</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="polyanagro.Segment.Segment.calc_vdw_volume_VABC"><code class="name flex">
+<span>def <span class="ident">calc_vdw_volume_VABC</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculation of the van der waals volume using the method reported by Zhao et al.
+"Fast Calculation of van der Waals Volume as a Sum of Atomic and
+Bond Contributions and Its Application to Drug Compounds",
+J. Org. Chem. 2003, 68, 7368-7373</p>
+<p>The VdW radii and volume are taken from
+element_vdw_vmd_radius_bondi and element_vdw_vmd_volume_bondi, respectively.</p>
+<p>The formula (4) of the article will be used in this function:</p>
+<p><img alt="" src="../../figures/volume_vdw.png"></p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li>``None</li>
+</ul>
+<h2 id="return">Return</h2>
+<ul>
+<li>
+<p><code>volume_vdw</code>: Van der waals volume using equation 4 in (angstroms^3/molecule)</p>
+</li>
+<li>
+<p><code>volume_tsar</code>: Van der waals volume using equation 6 in (angstroms^3/molecule)</p>
+</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def calc_vdw_volume_VABC(self):
+
+    &#34;&#34;&#34;
+    Calculation of the van der waals volume using the method reported by Zhao et al.
+    &#34;Fast Calculation of van der Waals Volume as a Sum of Atomic and
+    Bond Contributions and Its Application to Drug Compounds&#34;,  J. Org. Chem. 2003, 68, 7368-7373
+
+    The VdW radii and volume are taken from
+    element_vdw_vmd_radius_bondi and element_vdw_vmd_volume_bondi, respectively.
+
+    The formula (4) of the article will be used in this function:
+
+    .. image:: ../../figures/volume_vdw.png
+
+    Parameters:
+        * ``None
+
+    Return:
+        * ``volume_vdw``: Van der waals volume using equation 4 in (angstroms^3/molecule)
+
+        * ``volume_tsar``: Van der waals volume using equation 6 in (angstroms^3/molecule)
+
+    &#34;&#34;&#34;
+
+    s1 = 0.0
+    for iatom in self._topology._elements:
+        s1 += pag.element_vdw_vmd_volume_bondi[iatom]
+
+    mol = openbabel.OBMol()
+
+    obConversion = openbabel.OBConversion()
+    obConversion.SetInAndOutFormats(&#34;pdb&#34;, &#34;fix&#34;)
+
+    obConversion.ReadFile(mol, self._filecoord)
+
+    Rg = len(mol.GetSSSR())
+    RA = sum([ 1 for i in mol.GetSSSR() if i.IsAromatic() is True])
+    RNR = Rg - RA
+    NB = self._natoms - 1 + Rg
+
+    volume_vdw = s1 - 5.92*NB -14.7*RA -3.8*RNR
+
+    volume_tsar = 0.801*volume_vdw + 0.18
+
+    return volume_vdw, volume_tsar</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.Segment.Segment.center_of_geom"><code class="name flex">
+<span>def <span class="ident">center_of_geom</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculate the center of geometry of the current coordinates</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>None</code></li>
+</ul>
+<h2 id="return">Return</h2>
+<ul>
+<li><code>cog</code> (type: ndarray vector) : Coordinates of the geometry center</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def center_of_geom(self):
+
+    &#34;&#34;&#34;
+    Calculate the center of geometry of the current coordinates
+
+    Parameters:
+        * ``None``
+
+    Return:
+        * ``cog`` (type: ndarray vector) : Coordinates of the geometry center
+
+    &#34;&#34;&#34;
+
+    tmp = np.zeros(3)
+    c = self.get_coords()
+    for iatom in range(self._natoms):
+        tmp += c[iatom,:]
+
+    cog = tmp/self._natoms
+    return cog</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.Segment.Segment.center_of_mass"><code class="name flex">
+<span>def <span class="ident">center_of_mass</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculate the center of mass of the current coordinates</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>None</code></li>
+</ul>
+<h2 id="return">Return</h2>
+<ul>
+<li><code>com</code> (type: ndarray vector) : Coordinates of the center of mass</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def center_of_mass(self):
+
+    &#34;&#34;&#34;
+    Calculate the center of mass of the current coordinates
+
+    Parameters:
+        * ``None``
+
+    Return:
+        * ``com`` (type: ndarray vector) : Coordinates of the center of mass
+
+    &#34;&#34;&#34;
+
+    mtotal = 0.0
+    tmp = np.zeros(3)
+    c = self.get_coords()
+    for iatom in range(self._natoms):
+        m = pag.atomic_mass[self._topology._elements[iatom]]
+        mtotal += m
+        tmp += c[iatom,:]*m
+
+    com = tmp/mtotal
+    return com</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.Segment.Segment.check_parameter_consistence"><code class="name flex">
+<span>def <span class="ident">check_parameter_consistence</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks the length of the parameters passed through the constructor.</p>
+<p>The length of the x, y, z and element arrays must be equal to the number ot atoms.
+If there is not consistency raises a ValueError otherwise return True.</p>
+<h2 id="return">Return</h2>
+<ul>
+<li><code>None</code></li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_parameter_consistence(self):
+
+    &#34;&#34;&#34;
+    Checks the length of the parameters passed through the constructor.
+
+    The length of the x, y, z and element arrays must be equal to the number ot atoms.
+    If there is not consistency raises a ValueError otherwise return True.
+
+    Return:
+        * ``None``
+
+    &#34;&#34;&#34;
+
+    condition = (self._coords.shape[0] == self._natoms)
+
+    if not condition:
+        line = &#34;\n\t======== ERROR ==========\n&#34; \
+               &#34;\tCoordinates arrays must have equal length and equal to number of atoms\n&#34; \
+               &#34;\tLength coords: %d\n&#34; \
+               &#34;\tLength Elements: %d\n&#34;\
+               &#34;\tNumber of atoms: %d\n&#34; \
+                &#34;\tCoordfile: %s\n&#34; \
+                &#34;\tTopofile: %s\n&#34; \
+               &#34;\t======== ERROR ==========\n&#34;%(self._coords.shape[0] , len(self._elements), self._natoms, self._filecoord, self._filetop)
+
+        #print(line)
+        self._logger.error(line)
+        raise ValueError (&#34;Coordinates arrays must have equal length and equal to number of atoms&#34;)
+
+    return None</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.Segment.Segment.euler_orientation"><code class="name flex">
+<span>def <span class="ident">euler_orientation</span></span>(<span>self, iseed=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>New coordinates of the atoms accordingly to random Euler angles.
+There are many definitions of the Euler angles
+(see: <a href="https://en.wikipedia.org/wiki/Euler_angles">https://en.wikipedia.org/wiki/Euler_angles</a>)</p>
+<p>The definition here used is that given in:</p>
+<div class="admonition data">
+<p class="admonition-title">Data</p>
+<p>MATHEMATICAL METHODS FOR PHYSICISTS
+SEVENTH EDITION
+George B. Arfken, Hans J. Weber, Frank E. Harris
+pag: 140-142</p>
+</div>
+<p><img alt="" src="../../figures/euler_book.png"></p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>iseed</code> (integer, default=None): seed for the random number generator</li>
+</ul>
+<h2 id="return">Return</h2>
+<ul>
+<li><code>euler</code>(list) : Euler angles [alpha, beta, gamma] in radians</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def euler_orientation(self, iseed=None):
+    &#34;&#34;&#34;
+    New coordinates of the atoms accordingly to random Euler angles.
+    There are many definitions of the Euler angles
+    (see: https://en.wikipedia.org/wiki/Euler_angles)
+
+    The definition here used is that given in:
+
+    .. Data::
+
+        MATHEMATICAL METHODS FOR PHYSICISTS
+        SEVENTH EDITION
+        George B. Arfken, Hans J. Weber, Frank E. Harris
+        pag: 140-142
+
+    .. image:: ../../figures/euler_book.png
+
+    Parameters:
+        * ``iseed`` (integer, default=None): seed for the random number generator
+
+    Return:
+        * ``euler``(list) : Euler angles [alpha, beta, gamma] in radians
+
+    &#34;&#34;&#34;
+
+    # Generate euler angles ========
+    if iseed is None:
+        euler = pag.generate_random_euler_angles()
+    else:
+        euler = pag.generate_random_euler_angles(seed=iseed)
+
+    # Create rotation matrix
+    S = pag.euler_rotation_matrix(euler)
+    # Take the transpose of the coordinates
+    C = np.ascontiguousarray(np.transpose(self.get_coords()))
+    # Change the coordinates (R) dot-product (column vector of the coordinates)
+    #print(ref.flags)
+    self._coords = np.ascontiguousarray(np.transpose(np.dot(S,C)))
+
+    return euler</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.Segment.Segment.get_coords"><code class="name flex">
+<span>def <span class="ident">get_coords</span></span>(<span>self, atomlist=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get the coordinates of the atomlist. It the atomlist is None, it return all coordinates</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>atomlist</code> (list, default=None): list of index number</li>
+</ul>
+<h2 id="return">Return</h2>
+<ul>
+<li><code>`tmp_coords</code> (ndarray (float64) [#ofatoms in atomlist or self._natoms,3]) : Coordinates</li>
+</ul>
+<h2 id="example">Example</h2>
+<pre><code class="python">&gt;&gt;&gt; s1.get_coords()
+</code></pre>
+<pre><code class="python">&gt;&gt;&gt; s1.get_coords(atomlist=[0,2])
+...         atom0 -&gt; [ 0.000,  0.765,  0.000]
+...         atom2 -&gt; [ 0.513,  1.165, -0.887]
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_coords(self, atomlist = None):
+
+    &#34;&#34;&#34;
+    Get the coordinates of the atomlist. It the atomlist is None, it return all coordinates
+
+    Parameters:
+        * ``atomlist`` (list, default=None): list of index number
+
+    Return:
+        * ``tmp_coords` (ndarray (float64) [#ofatoms in atomlist or self._natoms,3]) : Coordinates
+
+
+    Example
+    -------
+    &gt;&gt;&gt; s1.get_coords()
+
+    &gt;&gt;&gt; s1.get_coords(atomlist=[0,2])
+    ...         atom0 -&gt; [ 0.000,  0.765,  0.000]
+    ...         atom2 -&gt; [ 0.513,  1.165, -0.887]
+
+
+    &#34;&#34;&#34;
+
+    if atomlist is None:
+        return self._coords
+    else:
+        tmp_coords = np.zeros((len(atomlist),3))
+        i = 0
+        for item in atomlist:
+            tmp_coords[i] = self._coords[item]
+            i += 1
+        return tmp_coords</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.Segment.Segment.load_from_disk"><code class="name flex">
+<span>def <span class="ident">load_from_disk</span></span>(<span>self, path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Wrapper function to read information about the segment as a function of the extension of the file.
+If the extesion is unkwown the function raises an error.</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>path</code> (string): Path to the file in the disk</li>
+</ul>
+<h2 id="return">Return</h2>
+<ul>
+<li><code>elements</code> (list): list of elements. Example (['C','C'])</li>
+</ul>
+<h2 id="example">Example</h2>
+<pre><code class="python">&gt;&gt;&gt; s1.load_from_disk('../data/pe_1mon_ua.pdb')
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_from_disk(self, path):
+
+    &#34;&#34;&#34;
+    Wrapper function to read information about the segment as a function of the extension of the file.
+    If the extesion is unkwown the function raises an error.
+
+    Parameters:
+        * ``path`` (string): Path to the file in the disk
+
+    Return:
+        * ``elements`` (list): list of elements. Example ([&#39;C&#39;,&#39;C&#39;])
+
+    Example
+    -------
+    &gt;&gt;&gt; s1.load_from_disk(&#39;../data/pe_1mon_ua.pdb&#39;)
+
+    &#34;&#34;&#34;
+
+    ext = os.path.splitext (path)[1]
+
+    if ext == &#34;.pdb&#34;:
+        elements = self.read_pdb_from_scratch(path)
+    elif ext == &#39;.xyz&#39;:
+        elements = self.read_xyz_from_scratch (path)
+    elif ext == &#39;.gro&#39;:
+        elements = self.read_gro_from_scratch(path)
+    # elif ext == &#34;.sdf&#34;:
+    #     self.read_sdf_coordtopo_from_scratch(path)
+    else:
+        self.printerror (&#34;Unkown molecular format for file: %s&#34; % path)
+        raise Exception(&#34;Unkown molecular format for file: %s&#34;%path)
+
+    return elements</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.Segment.Segment.printerror"><code class="name flex">
+<span>def <span class="ident">printerror</span></span>(<span>self, msg1)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def printerror(self, msg1):
+
+    self._logger.error(msg1)</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.Segment.Segment.read_gro_from_scratch"><code class="name flex">
+<span>def <span class="ident">read_gro_from_scratch</span></span>(<span>self, gro_path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Read data of the segment from a gro file
+(<a href="http://manual.gromacs.org/archive/5.0.4/online/gro.html">http://manual.gromacs.org/archive/5.0.4/online/gro.html</a>)</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>gro_path</code> (string): Path to a gro file</li>
+</ul>
+<h2 id="return">Return</h2>
+<ul>
+<li><code>elements</code> (list):
+list of elements. Example (['C','C'])</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read_gro_from_scratch(self, gro_path):
+
+    &#34;&#34;&#34;
+    Read data of the segment from a gro file
+    (http://manual.gromacs.org/archive/5.0.4/online/gro.html)
+
+    Parameters:
+        * ``gro_path`` (string): Path to a gro file
+
+    Return:
+        * ``elements`` (list):  list of elements. Example ([&#39;C&#39;,&#39;C&#39;])
+
+    &#34;&#34;&#34;
+
+    if os.path.isfile(gro_path):
+        f = open(gro_path)
+    else:
+        self.printerror(msg1=&#34;GRO file must be provided&#34;)
+        raise Exception(&#39;chipar.segment.read_gro_from_scratch requires an existing file as argument&#39;)
+
+    f.readline().strip()
+    self._natoms = int(f.readline().strip())
+
+    iline = 1
+    #chainid = 1
+    xlist = []
+    ylist = []
+    zlist = []
+    elist = []
+    while iline &lt;= self._natoms:
+        line = f.readline()
+        #resid = int(line[0:5].strip())
+        #resname = line[5:10].strip()
+        atomname = line[10:15] #force field name
+        #tag = int(line[15:20].strip())
+        xlist.append(float(line[20:28].strip())*10)
+        ylist.append(float(line[28:36].strip())*10)
+        zlist.append(float(line[36:44].strip())*10)
+        elist.append(atomname.strip())
+        iline += 1
+
+    self._coords = np.column_stack((np.asarray(xlist),
+                                    np.asarray(ylist),
+                                    np.asarray(zlist)))
+    elements = np.asarray(elist, dtype=np.str)
+
+    f.close()
+
+    return elements</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.Segment.Segment.read_pdb_from_scratch"><code class="name flex">
+<span>def <span class="ident">read_pdb_from_scratch</span></span>(<span>self, pdb_path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Read data of the segment from a pdb file
+(<a href="http://www.wwpdb.org/documentation/file-format-content/format33/v3.3.html">http://www.wwpdb.org/documentation/file-format-content/format33/v3.3.html</a>)</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>pdb_path</code> (string): Path to a pdb file</li>
+</ul>
+<h2 id="return">Return</h2>
+<ul>
+<li><code>elements</code> (list):
+list of elements. Example (['C','C'])</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read_pdb_from_scratch(self, pdb_path):
+
+    &#34;&#34;&#34;
+    Read data of the segment from a pdb file
+    (http://www.wwpdb.org/documentation/file-format-content/format33/v3.3.html)
+
+    Parameters:
+        * ``pdb_path`` (string): Path to a pdb file
+
+    Return:
+        * ``elements`` (list):  list of elements. Example ([&#39;C&#39;,&#39;C&#39;])
+
+    &#34;&#34;&#34;
+
+    if os.path.isfile(pdb_path):
+        f = open(pdb_path)
+    else:
+        self.printerror(msg1=&#34;PDB file must exist\n {} does not exist&#34;.format(pdb_path))
+        raise Exception(&#39;chipar.segment.read_pdb_from_scratch requires an existing file as argument: {}&#39;.format(pdb_path))
+
+    self._natoms = 0
+    xlist = []
+    ylist = []
+    zlist = []
+    elist = []
+    for line in f:
+        if line.startswith(&#39;ATOM&#39;) or line.startswith(&#39;HETATM&#39;):
+            #tag = int(line[6:11].strip())
+            name = line[12:16].strip()
+            #resname = line[17:20].strip()
+            #chainid = line[21]
+            #resid = line[22:26].strip()
+            x = float(line[30:38].strip())
+            y = float(line[38:46].strip())
+            z = float(line[46:54].strip())
+            elem = line[76:78].strip()
+            if elem == &#34;&#34;:
+                elist.append(name.capitalize())
+            else:
+                elist.append(elem.capitalize())
+            xlist.append(x)
+            ylist.append(y)
+            zlist.append(z)
+            self._natoms += 1
+
+    self._coords = np.column_stack((np.asarray(xlist),
+                                    np.asarray(ylist),
+                                    np.asarray(zlist)))
+
+    elements = np.asarray(elist, dtype=np.str)
+
+    f.close()
+
+    return elements</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.Segment.Segment.read_topology_from_pdb"><code class="name flex">
+<span>def <span class="ident">read_topology_from_pdb</span></span>(<span>self, path, elements)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Try to set up the topology reading a PDB file. The "CONECT" section is
+used to yield the connectivity of the molecule, if present. Otherwise, the
+bonds are guessed.</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>path</code> (string): Path to the PDB file</li>
+<li><code>elements</code> (list):
+list of elements. Example (['C','C'])</li>
+</ul>
+<h2 id="return">Return</h2>
+<ul>
+<li><code>None</code></li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read_topology_from_pdb(self, path, elements):
+
+    &#34;&#34;&#34;
+    Try to set up the topology reading a PDB file. The &#34;CONECT&#34; section is
+    used to yield the connectivity of the molecule, if present. Otherwise, the
+    bonds are guessed.
+
+    Parameters:
+        * ``path`` (string): Path to the PDB file
+        * ``elements`` (list):  list of elements. Example ([&#39;C&#39;,&#39;C&#39;])
+
+    Return:
+        * ``None``
+    &#34;&#34;&#34;
+
+    if os.path.isfile(path):
+        f = open(path)
+    else:
+        self.printerror(msg1=&#34;PDB file for topology must be provided&#34;)
+        raise Exception(&#39;chipar.segment.read_topology_from_pdb requires an existing file as argument&#39;)
+
+    self._topology._topologyfile = path
+
+    isthereconnect = False
+    for line in f:
+        if line.startswith(&#39;CONECT&#39;):
+            l = line.split()
+            i = int(l[1])
+            self._topology.add_vertex(i-1)
+            for jj in l[2:]:
+                j = int(jj)
+                if j &lt; i: continue
+                self._topology.add_vertex(j-1)
+                self._topology.add_edge([i-1,j-1])
+                isthereconnect = True
+        elif line.startswith(&#39;ATOM&#39;) or line.startswith(&#34;HETATM&#34;):
+            e = line[76:78].replace(&#34; &#34;, &#34;&#34;)
+            self._topology._charge.append(0.0)
+            self._topology._elements.append(e)
+            m = pag.atomic_data.atomic_mass[e]
+            self._topology._mass.append(m)
+
+    if not isthereconnect:
+        self._topology.guess_bonds_topology(self._coords, elements)
+        self._topology.perception_rings()
+
+    f.close()</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.Segment.Segment.read_topology_from_xyz"><code class="name flex">
+<span>def <span class="ident">read_topology_from_xyz</span></span>(<span>self, path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Try to set up the topology reading a PDB file. The "CONECT" section is
+used to yield the connectivity of the molecule, if present. Otherwise, the
+bonds are guessed.</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>path</code> (string): Path to the PDB file</li>
+</ul>
+<h2 id="return">Return</h2>
+<ul>
+<li><code>None</code></li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read_topology_from_xyz(self, path):
+
+    &#34;&#34;&#34;
+    Try to set up the topology reading a PDB file. The &#34;CONECT&#34; section is
+    used to yield the connectivity of the molecule, if present. Otherwise, the
+    bonds are guessed.
+
+    Parameters:
+        * ``path`` (string): Path to the PDB file
+
+    Return:
+        * ``None``
+    &#34;&#34;&#34;
+
+    if os.path.isfile(path):
+        f = open(path)
+    else:
+        self.printerror(msg1=&#34;PDB file for topology must be provided&#34;)
+        raise Exception(&#39;chipar.segment.read_topology_from_pdb requires an existing file as argument&#39;)
+
+    isthereconnect = False
+
+    if not isthereconnect:
+           self._topology.guess_bonds(self._coords, self._elements)
+
+    f.close()</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.Segment.Segment.read_xyz_from_scratch"><code class="name flex">
+<span>def <span class="ident">read_xyz_from_scratch</span></span>(<span>self, xyz_path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Read data of the segment from a xyz file
+(<a href="https://openbabel.org/docs/dev/FileFormats/XYZ_cartesian_coordinates_format.html">https://openbabel.org/docs/dev/FileFormats/XYZ_cartesian_coordinates_format.html</a>)</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>xyz_path</code> (string): Path to a xyz file</li>
+</ul>
+<h2 id="return">Return</h2>
+<ul>
+<li><code>elements</code> (list):
+list of elements. Example (['C','C'])</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read_xyz_from_scratch(self, xyz_path):
+
+    &#34;&#34;&#34;
+    Read data of the segment from a xyz file
+    (https://openbabel.org/docs/dev/FileFormats/XYZ_cartesian_coordinates_format.html)
+
+    Parameters:
+        * ``xyz_path`` (string): Path to a xyz file
+
+    Return:
+        * ``elements`` (list):  list of elements. Example ([&#39;C&#39;,&#39;C&#39;])
+
+    &#34;&#34;&#34;
+
+    if os.path.isfile(xyz_path):
+        f = open(xyz_path)
+    else:
+        self.printerror(msg1=&#34;XYZ file must be provided&#34;)
+        raise Exception(&#39;chipar.segment.read_xyz_from_scratch requires an existing file as argument&#39;)
+
+    nparticles = int(f.readline().strip())
+
+    self._natoms = 0
+    xlist = []
+    ylist = []
+    zlist = []
+    elist = []
+    f.readline().strip()
+    for _ in range(nparticles):
+        elem, x, y, z = f.readline().split()
+        xlist.append(float(x))
+        ylist.append(float(y))
+        zlist.append(float(z))
+        elist.append(elem.capitalize())
+        self._natoms += 1
+
+    self._coords = np.column_stack((np.asarray(xlist),
+                                    np.asarray(ylist),
+                                    np.asarray(zlist)))
+    elements = np.asarray(elist, dtype=np.str)
+
+    assert int(nparticles == self._natoms), \
+        &#34;Number of particles in the header is different to the read atoms in the xyz file&#34;
+    f.close()
+
+    return elements</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.Segment.Segment.set_netcharge"><code class="name flex">
+<span>def <span class="ident">set_netcharge</span></span>(<span>self, netcharge)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Set the net charge of the segment</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>netcharge</code> (integer): Net charge of the segment</li>
+</ul>
+<h2 id="return">Return</h2>
+<ul>
+<li><code>None</code></li>
+</ul>
+<h2 id="example">Example</h2>
+<pre><code class="python">&gt;&gt;&gt; s1.netcharge(-1)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_netcharge(self, netcharge):
+
+    &#34;&#34;&#34;
+    Set the net charge of the segment
+
+    Parameters:
+        * ``netcharge`` (integer): Net charge of the segment
+
+    Return:
+        * ``None``
+
+    Example
+    -------
+    &gt;&gt;&gt; s1.netcharge(-1)
+
+    &#34;&#34;&#34;
+
+    self._charge = netcharge</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.Segment.Segment.set_topology_from_disk"><code class="name flex">
+<span>def <span class="ident">set_topology_from_disk</span></span>(<span>self, path, elements)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Wrapper function to read information of the segment topology as a function of the extension of the file.
+If the extesion is unkwown the function raises an error.</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>path</code> (string): path to the file in the disk</li>
+<li><code>elements</code> (list): list of elements. Example (['C','C'])</li>
+</ul>
+<h2 id="return">Return</h2>
+<ul>
+<li><code>None</code></li>
+</ul>
+<h2 id="example">Example</h2>
+<pre><code class="python">&gt;&gt;&gt; s1.set_topology_from_disk('../data/pe_1mon_ua.pdb', ['C','C'])
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_topology_from_disk(self, path, elements):
+
+    &#34;&#34;&#34;
+    Wrapper function to read information of the segment topology as a function of the extension of the file.
+    If the extesion is unkwown the function raises an error.
+
+    Parameters:
+        * ``path`` (string): path to the file in the disk
+        * ``elements`` (list): list of elements. Example ([&#39;C&#39;,&#39;C&#39;])
+
+    Return:
+        * ``None``
+
+    Example
+    -------
+    &gt;&gt;&gt; s1.set_topology_from_disk(&#39;../data/pe_1mon_ua.pdb&#39;, [&#39;C&#39;,&#39;C&#39;])
+
+    &#34;&#34;&#34;
+
+    ext = os.path.splitext (path)[1]
+
+    if ext == &#34;.pdb&#34;:
+        self._topology = pag.Topology(natoms=self._natoms)
+        self.read_topology_from_pdb(path, elements)
+    elif ext == &#34;.xyz&#34;:
+        self._topology = pag.Topology(natoms=self._natoms)
+        self.read_topology_from_xyz(path)
+    elif ext == &#34;.sdf&#34;:
+        &#34;The topology is already set up in the &#34; \
+        &#34;read_sdf_coordtopo_from_scratch method&#34;
+        pass
+    else:
+        self.printerror (&#34;Unknown topology format for file: %s&#34; % path)
+        raise Exception(&#34;Unknown topology format for file: %s&#34;%path)</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.Segment.Segment.set_typeatoms"><code class="name flex">
+<span>def <span class="ident">set_typeatoms</span></span>(<span>self, filetypeatoms)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Set the typeatoms of the segment. The filetypeatoms must have the following format:</p>
+<h2 id="data">Data</h2>
+<pre><code>&lt;Number&gt; &lt;Atom&gt; &lt;type_of_atom&gt;
+1 C c3
+2 C c3
+3 C c3
+(...)
+14 H hc
+</code></pre>
+<p>Parameters:
+* <code>filetypeatoms</code> (integer) : Name of the file containing the fileatom array</p>
+<h2 id="return">Return</h2>
+<ul>
+<li><code>None</code></li>
+</ul>
+<h2 id="example">Example</h2>
+<pre><code class="python">&gt;&gt;&gt; s1.set_typeatoms(&quot;../data/n-hexane_types.dat&quot;)
+</code></pre>
+<h2 id="n-hexane_typesdat">n-hexane_types.dat</h2>
+<pre><code>1   C  c3
+2   C  c3
+3   C  c3
+4   H  hc
+5   H  hc
+6   H  hc
+7   H  hc
+8   H  hc
+9   H  hc
+10  H  hc
+11  C  c3
+12  C  c3
+13  C  c3
+14  H  hc
+15  H  hc
+16  H  hc
+17  H  hc
+18  H  hc
+19  H  hc
+20  H  hc
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_typeatoms(self, filetypeatoms):
+
+    &#34;&#34;&#34;
+    Set the typeatoms of the segment. The filetypeatoms must have the following format:
+
+    Data
+    ----
+        &lt;Number&gt; &lt;Atom&gt; &lt;type_of_atom&gt;
+        1 C c3
+        2 C c3
+        3 C c3
+        (...)
+        14 H hc
+
+    Parameters:
+    * ``filetypeatoms`` (integer) : Name of the file containing the fileatom array
+
+    Return:
+        * ``None``
+
+    Example
+    -------
+    &gt;&gt;&gt; s1.set_typeatoms(&#34;../data/n-hexane_types.dat&#34;)
+
+    n-hexane_types.dat
+    ------------------
+        1   C  c3
+        2   C  c3
+        3   C  c3
+        4   H  hc
+        5   H  hc
+        6   H  hc
+        7   H  hc
+        8   H  hc
+        9   H  hc
+        10  H  hc
+        11  C  c3
+        12  C  c3
+        13  C  c3
+        14  H  hc
+        15  H  hc
+        16  H  hc
+        17  H  hc
+        18  H  hc
+        19  H  hc
+        20  H  hc
+
+
+    &#34;&#34;&#34;
+
+    typelist = []
+    with open(filetypeatoms, &#39;r&#39;) as f:
+        for line in f:
+            i, el, typ = line.split()
+            typelist.append(typ)
+
+    self._typeelements = np.asarray(typelist, dtype=np.str)
+    return None</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.Segment.Segment.translate_vector"><code class="name flex">
+<span>def <span class="ident">translate_vector</span></span>(<span>self, v)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Translate the segment along the vector v.
+This function changes the coordinates of the segment</p>
+<p><img alt="" src="../../figures/translation.png"></p>
+<p>The vector p represents the coordinates of each atom.</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>v</code> (list or (1,3)-ndarray): A vector to translate the coordinates</li>
+</ul>
+<h2 id="return">Return</h2>
+<ul>
+<li><code>None</code></li>
+</ul>
+<h2 id="examples">Examples</h2>
+<h2 id="coordinates-before-change">Coordinates Before Change</h2>
+<pre><code>[[-0.226  0.058  0.022],
+ [-0.341  1.094  0.372],
+ [-0.741 -0.592  0.743],
+ [-0.756 -0.027 -0.937],
+ [ 1.257 -0.325 -0.12 ],
+ [ 1.372 -1.361 -0.47 ],
+ [ 1.773  0.325 -0.841],
+ [ 1.773 -0.242  0.814],
+ [ 2.8   -0.515  0.682],
+ [ 1.32  -0.895  1.532],
+ [ 1.713  0.766 1.165]]
+</code></pre>
+<pre><code class="python">&gt;&gt;&gt; com = [ 0.92694264 -0.16617864  0.24637543]
+... s1.translate_vector(-com)
+</code></pre>
+<h2 id="coordinates-after-change">Coordinates After Change</h2>
+<pre><code>[[-1.15294264  0.22417864 -0.22437543],
+[-1.26794264  1.26017864  0.12562457],
+[-1.66794264 -0.42582136  0.49662457],
+[-1.68294264  0.13917864 -1.18337543],
+[ 0.33005736 -0.15882136 -0.36637543],
+[ 0.44505736 -1.19482136 -0.71637543],
+[ 0.84605736  0.49117    -1.08738   ],
+[0.84605736  -0.07582     0.56762   ],
+[1.87396     -0.34882     0.43562   ],
+[0.39306     -0.72882     1.28562   ],
+[0.78606      0.93218     0.91862   ]]
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def translate_vector(self, v):
+
+    &#34;&#34;&#34;
+    Translate the segment along the vector v.
+    This function changes the coordinates of the segment
+
+    .. image:: ../../figures/translation.png
+
+    The vector p represents the coordinates of each atom.
+
+    Parameters:
+        * ``v`` (list or (1,3)-ndarray): A vector to translate the coordinates
+
+    Return:
+        * ``None``
+
+    Examples
+    --------
+
+    Coordinates before change
+    -------------------------
+        [[-0.226  0.058  0.022],
+         [-0.341  1.094  0.372],
+         [-0.741 -0.592  0.743],
+         [-0.756 -0.027 -0.937],
+         [ 1.257 -0.325 -0.12 ],
+         [ 1.372 -1.361 -0.47 ],
+         [ 1.773  0.325 -0.841],
+         [ 1.773 -0.242  0.814],
+         [ 2.8   -0.515  0.682],
+         [ 1.32  -0.895  1.532],
+         [ 1.713  0.766 1.165]]
+
+    &gt;&gt;&gt; com = [ 0.92694264 -0.16617864  0.24637543]
+    ... s1.translate_vector(-com)
+
+    Coordinates after change
+    -------------------------
+        [[-1.15294264  0.22417864 -0.22437543],
+        [-1.26794264  1.26017864  0.12562457],
+        [-1.66794264 -0.42582136  0.49662457],
+        [-1.68294264  0.13917864 -1.18337543],
+        [ 0.33005736 -0.15882136 -0.36637543],
+        [ 0.44505736 -1.19482136 -0.71637543],
+        [ 0.84605736  0.49117    -1.08738   ],
+        [0.84605736  -0.07582     0.56762   ],
+        [1.87396     -0.34882     0.43562   ],
+        [0.39306     -0.72882     1.28562   ],
+        [0.78606      0.93218     0.91862   ]]
+    &#34;&#34;&#34;
+
+    c = self.get_coords()
+    for iatom in range(self._natoms):
+        c[iatom,:] += v
+
+    return None</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="polyanagro" href="index.html">polyanagro</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="polyanagro.Segment.Segment" href="#polyanagro.Segment.Segment">Segment</a></code></h4>
+<ul class="">
+<li><code><a title="polyanagro.Segment.Segment.calc_vdw_volume_VABC" href="#polyanagro.Segment.Segment.calc_vdw_volume_VABC">calc_vdw_volume_VABC</a></code></li>
+<li><code><a title="polyanagro.Segment.Segment.center_of_geom" href="#polyanagro.Segment.Segment.center_of_geom">center_of_geom</a></code></li>
+<li><code><a title="polyanagro.Segment.Segment.center_of_mass" href="#polyanagro.Segment.Segment.center_of_mass">center_of_mass</a></code></li>
+<li><code><a title="polyanagro.Segment.Segment.check_parameter_consistence" href="#polyanagro.Segment.Segment.check_parameter_consistence">check_parameter_consistence</a></code></li>
+<li><code><a title="polyanagro.Segment.Segment.euler_orientation" href="#polyanagro.Segment.Segment.euler_orientation">euler_orientation</a></code></li>
+<li><code><a title="polyanagro.Segment.Segment.get_coords" href="#polyanagro.Segment.Segment.get_coords">get_coords</a></code></li>
+<li><code><a title="polyanagro.Segment.Segment.load_from_disk" href="#polyanagro.Segment.Segment.load_from_disk">load_from_disk</a></code></li>
+<li><code><a title="polyanagro.Segment.Segment.printerror" href="#polyanagro.Segment.Segment.printerror">printerror</a></code></li>
+<li><code><a title="polyanagro.Segment.Segment.read_gro_from_scratch" href="#polyanagro.Segment.Segment.read_gro_from_scratch">read_gro_from_scratch</a></code></li>
+<li><code><a title="polyanagro.Segment.Segment.read_pdb_from_scratch" href="#polyanagro.Segment.Segment.read_pdb_from_scratch">read_pdb_from_scratch</a></code></li>
+<li><code><a title="polyanagro.Segment.Segment.read_topology_from_pdb" href="#polyanagro.Segment.Segment.read_topology_from_pdb">read_topology_from_pdb</a></code></li>
+<li><code><a title="polyanagro.Segment.Segment.read_topology_from_xyz" href="#polyanagro.Segment.Segment.read_topology_from_xyz">read_topology_from_xyz</a></code></li>
+<li><code><a title="polyanagro.Segment.Segment.read_xyz_from_scratch" href="#polyanagro.Segment.Segment.read_xyz_from_scratch">read_xyz_from_scratch</a></code></li>
+<li><code><a title="polyanagro.Segment.Segment.set_netcharge" href="#polyanagro.Segment.Segment.set_netcharge">set_netcharge</a></code></li>
+<li><code><a title="polyanagro.Segment.Segment.set_topology_from_disk" href="#polyanagro.Segment.Segment.set_topology_from_disk">set_topology_from_disk</a></code></li>
+<li><code><a title="polyanagro.Segment.Segment.set_typeatoms" href="#polyanagro.Segment.Segment.set_typeatoms">set_typeatoms</a></code></li>
+<li><code><a title="polyanagro.Segment.Segment.translate_vector" href="#polyanagro.Segment.Segment.translate_vector">translate_vector</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.8.4</a>.</p>
+</footer>
+</body>
+</html>

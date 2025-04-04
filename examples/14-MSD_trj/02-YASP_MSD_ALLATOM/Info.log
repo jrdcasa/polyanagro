@@ -1,0 +1,24 @@
+Job Start
+   START Check trajectories Mon Mar 31 05:05:47 PM CEST 2025
+   End Check trajectories Mon Mar 31 05:05:47 PM CEST 2025
+ =======================  TRAJECTORY INFO    =======================
+    Trajectory: Start = 0.000 ps. Finnished at 10000.000 ps. Delta_t = 20 ps. NFrames: 501
+        Start     = 0.000 ps
+        Finnished = 10000.000 ps
+        Delta_t   = 20 ps
+        NFrames   = 501
+ ======================= END TRAJECTORY INFO =======================
+
+ =======================    EXTRACTION INFO      =======================
+        Start           = 0.000 ps
+        Finnished       = 10000.000 ps
+        Frames to write = 501
+        DT              = 20 ps
+ =======================  END EXTRACTION INFO    =======================
+
+   START Extract to PDB trajectory Mon Mar 31 05:05:47 PM CEST 2025
+     Trajectory has been written to 01-PVL4_C0_LOPLS_trj.pdb
+   END   Extract to PDB trajectory Mon Mar 31 05:05:57 PM CEST 2025
+
+   confout_unwrap_labeled.psf copied
+Job Done!!!!!

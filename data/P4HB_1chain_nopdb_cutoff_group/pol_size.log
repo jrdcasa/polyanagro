@@ -1,0 +1,92 @@
+
+    ***********************************************************************
+                         Polymer size calculations 
+              ----------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an 
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 05-05-2022 18:09:15 ============
+
+		Command line: 
+			python polymer_size.py -t ./1_4HB_100_exc_0.xtc --tpr ./1_4HB_100_exc_0.tpr --e2e ./e2e.dat --c2n ./backbond.ndx --unwrap False
+			         or
+			polymer_size -t ./1_4HB_100_exc_0.xtc --tpr ./1_4HB_100_exc_0.tpr --e2e ./e2e.dat --c2n ./backbond.ndx --unwrap False
+
+	*** Creating a trajectory from...
+	./1_4HB_100_exc_0.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 0.50818 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	./1_4HB_100_exc_0.tpr
+	Number of frames: 1001
+	TIME(Adding topology): 0.465098 seconds
+	*** End Adding topology
+
+	Number of frames: 1001
+	TIME(Read_Trajectories): 0.97355 seconds
+	*** End Creating a trajectory 
+
+	*** Molecular weigth...
+
+	Average Molecular Weight (g/mol) : 8626.05
+
+	*** Calculating Radius of gyration...
+
+	Radius of gyration to be written to ./Rg.dat 
+
+	*** Calculating End to End distance...
+
+	End to End distance to be written to ./Ree.dat 
+
+	Unwrap PBC coordinates: False
+	IFRAME: 0 in 0.001751 seconds
+	IFRAME: 50 in 0.124268 seconds
+	IFRAME: 100 in 0.24697 seconds
+	IFRAME: 150 in 0.370353 seconds
+	IFRAME: 200 in 0.49531 seconds
+	IFRAME: 250 in 0.620169 seconds
+	IFRAME: 300 in 0.783038 seconds
+	IFRAME: 350 in 0.921536 seconds
+	IFRAME: 400 in 1.059873 seconds
+	IFRAME: 450 in 1.182343 seconds
+	IFRAME: 500 in 1.306688 seconds
+	IFRAME: 550 in 1.431251 seconds
+	IFRAME: 600 in 1.561376 seconds
+	IFRAME: 650 in 1.68489 seconds
+	IFRAME: 700 in 1.852235 seconds
+	IFRAME: 750 in 1.979325 seconds
+	IFRAME: 800 in 2.105774 seconds
+	IFRAME: 850 in 2.22867 seconds
+	IFRAME: 900 in 2.352927 seconds
+	IFRAME: 950 in 2.476307 seconds
+	IFRAME: 1000 in 2.606682 seconds
+
+	TIME(Chain dimensions): 2.609232 seconds
+	*** End Calculating Chain Dimensions.
+
+	*** Average values ***
+		 Rg^2_avg     =     792.98 +-     453.00 (angstroms)
+		 Ree^2_avg    =    4060.81 +-    4453.22 (angstroms)
+		 Ree^2/Rg^2   =       4.18 +-       3.40 (angstroms)
+		 Cn_avg       =       3.78 +-       4.14 
+
+		Job  Done at 05-05-2022 18:09:19 ============
+

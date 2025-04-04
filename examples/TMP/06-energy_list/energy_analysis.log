@@ -1,0 +1,94 @@
+
+    ***********************************************************************
+                                Energy Analysis 
+              ----------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an 
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 23-08-2022 23:56:02 ============
+
+		Command line: 
+			python energy_analysis.py calc -e ../../data/energy/GROMACS_edr/set_data_03_list/ener.edr ../../data/energy/GROMACS_edr/set_data_03_list/ener.part0002.edr ../../data/energy/GROMACS_edr/set_data_03_list/ener.part0003.edr --joinpath /usr/bin/gmx --tbegin 18 --tend 20 --groupterm --avg
+			         or
+			energy_analysis calc -e ../../data/energy/GROMACS_edr/set_data_03_list/ener.edr ../../data/energy/GROMACS_edr/set_data_03_list/ener.part0002.edr ../../data/energy/GROMACS_edr/set_data_03_list/ener.part0003.edr --joinpath /usr/bin/gmx --tbegin 18 --tend 20 --groupterm --avg
+
+		Reading energy data from /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/example/06-energy_list/united_edr.edr
+
+		**** ENERGY INFO ****
+		  Number of points in energy files   : 301
+		  Original trajectory from 0.0 (ps) to 30.0 (ps).
+		  Analyzed trajectory from 18.0 (ps) to 20.0 (ps).
+		  Timestep 0.1 (ps).
+		**** End ENERGY INFO ****
+
+		 Individual energy plots have been saved in:
+		  /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/example/06-energy_list/individual_energy
+
+		 Grouped density plots have been saved in:
+		  /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/example/06-energy_list/grouped_density
+
+		**** ENERGY AVG INFO ****
+
+         Name        N    Mean        Std         Min        Max        Drift    Units 
+0             Time  21   19.00000    0.62048    18.00000   20.00000     2.00000      ps
+1             Bond  21   90.11333   17.82442    65.61201  127.41269     7.52570  kJ/mol
+2            Angle  21  140.98163   21.51734    92.91061  178.79498    17.42824  kJ/mol
+3   Ryckaert-Bell.  21  236.04001   20.64840   204.97258  273.14407     0.24167  kJ/mol
+4    Improper Dih.  21    7.23635    3.71376     1.77361   17.90021     1.31736  kJ/mol
+5          LJ (SR)  21  -64.16459   10.93764   -79.74567  -32.73082     5.65239  kJ/mol
+6    Disper. corr.  21   -7.59657    0.00653    -7.61304   -7.58372     0.00356  kJ/mol
+7     Coulomb (SR)  21    0.00000    0.00000     0.00000    0.00000     0.00000  kJ/mol
+8        Potential  21  402.61016   43.88814   332.21841  491.35812    32.16897  kJ/mol
+9      Kinetic En.  21  400.97863   61.80775   316.44180  553.56335   -25.70962  kJ/mol
+10    Total Energy  21  803.58878   79.18539   651.75000  982.69452     6.45942  kJ/mol
+11   Conserved En.  21 2952.10707    9.46437  2930.78906 2968.65527     5.59268  kJ/mol
+12     Temperature  21  452.83237   69.80061   357.36340  625.14905   -29.03433       K
+13        Pres. DC  21    0.00000    0.00000     0.00000    0.00000     0.00000     bar
+14        Pressure  21 -216.29674  444.16976 -1261.52100  505.83261  -535.40058     bar
+15           Box-X  21    2.57119    0.00072     2.56939    2.57260     0.00039      nm
+16           Box-Y  21    2.57119    0.00072     2.56939    2.57260     0.00039      nm
+17           Box-Z  21    2.57119    0.00072     2.56939    2.57260     0.00039      nm
+18          Volume  21   16.99826    0.01419    16.96252   17.02624     0.00776    nm^3
+19         Density  21   99.24814    0.08289    99.08498   99.45718    -0.04523  kg/m^3
+20              pV  21    1.02366    0.00085     1.02151    1.02534     0.00047  kJ/mol
+21        Enthalpy  21  804.61244   79.18539   652.77380  983.71735     6.45986  kJ/mol
+22          Vir-XX  21  248.75074  332.31219  -365.61053  776.85071   188.72782  kJ/mol
+23          Vir-XY  21  -39.17908  218.12812  -408.26758  278.89807    19.69403  kJ/mol
+24          Vir-XZ  21  -41.64988  186.23990  -326.05261  274.25861    83.00020  kJ/mol
+25          Vir-YX  21  -39.17916  218.12802  -408.26880  278.89743    19.69401  kJ/mol
+26          Vir-YY  21  257.07775  281.25418  -366.67688  646.19604   154.52889  kJ/mol
+27          Vir-YZ  21  -43.36350  197.07166  -319.43350  432.69977    17.87142  kJ/mol
+28          Vir-ZX  21  -41.64974  186.23993  -326.05200  274.25842    82.99955  kJ/mol
+29          Vir-ZY  21  -43.36323  197.07178  -319.43317  432.70081    17.87141  kJ/mol
+30          Vir-ZZ  21  227.48938  321.49762  -404.90845 1115.17957   453.36469  kJ/mol
+31         Pres-XX  21 -220.14076  638.91583 -1157.40161  971.92664  -376.65141     bar
+32         Pres-XY  21   83.13366  433.71618  -536.69336  842.83179   -32.01480     bar
+33         Pres-XZ  21   83.75708  378.48425  -541.18231  662.50665  -158.76366     bar
+34         Pres-YX  21   83.13382  433.71600  -536.69208  842.83417   -32.01465     bar
+35         Pres-YY  21 -243.99430  546.61996 -1074.68481  963.45911  -345.51154     bar
+36         Pres-YZ  21   95.01469  392.21963  -889.29498  606.93073   -50.85163     bar
+37         Pres-ZX  21   83.75680  378.48433  -541.18463  662.50549  -158.76235     bar
+38         Pres-ZY  21   95.01417  392.21982  -889.29700  606.93005   -50.85156     bar
+39         Pres-ZZ  21 -184.75516  639.01202 -1961.00476 1116.28723  -884.03869     bar
+40   #Surf*SurfTen  21  121.58221 1572.74852 -2697.89600 2803.36279 -1344.67874     bar
+41        T-System  21  452.83237   69.80061   357.36340  625.14905   -29.03432       K
+
+
+		**** END ENERGY AVG INFO ****
+
+		Job  Done at 23-08-2022 23:56:05 ============
+

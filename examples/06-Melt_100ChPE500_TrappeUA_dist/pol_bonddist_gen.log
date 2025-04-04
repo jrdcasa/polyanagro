@@ -1,0 +1,86 @@
+
+    ***********************************************************************
+            Bonded Distributions (bond, angle, dihedral, improper)
+        -------------------------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 30-09-2022 19:37:30 ============
+
+		Command line: 
+			python bonded_distribution.py calculate -t ../04-Melt_100ChPE500_TrappeUA/01-RESTART-0000-1000ns/traj_comp.xtc ../04-Melt_100ChPE500_TrappeUA/02-RESTART-1000-2000ns/traj_comp.part0002.xtc ../04-Melt_100ChPE500_TrappeUA/03-RESTART-2000-3000ns/traj_comp.part0003.xtc --topo ../04-Melt_100ChPE500_TrappeUA/01-RESTART-0000-1000ns/topol.tpr --unwrap 1 --bonddist C2-C2_bb C3-C2_bb --angdist C2-C2-C2_bb C3-C2-C2_bb --dihdist C2-C2-C2-C2_bb C3-C2-C2-C2_bb
+			         or
+			bonded_distribution calculate -t ../04-Melt_100ChPE500_TrappeUA/01-RESTART-0000-1000ns/traj_comp.xtc ../04-Melt_100ChPE500_TrappeUA/02-RESTART-1000-2000ns/traj_comp.part0002.xtc ../04-Melt_100ChPE500_TrappeUA/03-RESTART-2000-3000ns/traj_comp.part0003.xtc --topo ../04-Melt_100ChPE500_TrappeUA/01-RESTART-0000-1000ns/topol.tpr --unwrap 1 --bonddist C2-C2_bb C3-C2_bb --angdist C2-C2-C2_bb C3-C2-C2_bb --dihdist C2-C2-C2-C2_bb C3-C2-C2-C2_bb
+
+	*** Creating a trajectory from...
+	../04-Melt_100ChPE500_TrappeUA/01-RESTART-0000-1000ns/traj_comp.xtc
+	../04-Melt_100ChPE500_TrappeUA/02-RESTART-1000-2000ns/traj_comp.part0002.xtc
+	../04-Melt_100ChPE500_TrappeUA/03-RESTART-2000-3000ns/traj_comp.part0003.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 23.139737 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../04-Melt_100ChPE500_TrappeUA/01-RESTART-0000-1000ns/topol.tpr
+	Number of frames: 151
+	TIME(Adding topology): 1.149668 seconds
+	*** End Adding topology
+
+	Number of frames: 151
+	TIME(Read_Trajectories): 24.28979 seconds
+	*** End Creating a trajectory 
+
+	Unwrap PBC coordinates: True
+	IFRAME: 0 in 4.5e-05 seconds
+	ESTIMATED TIME using 10 frames (1.171875 seconds): 17.70 seconds
+	IFRAME: 50 in 6.003253 seconds
+	IFRAME: 100 in 12.02023 seconds
+	IFRAME: 150 in 17.713445 seconds
+	Unwrap PBC coordinates: True
+	IFRAME: 0 in 4.5e-05 seconds
+	ESTIMATED TIME using 10 frames (1.148621 seconds): 17.34 seconds
+	IFRAME: 50 in 5.549372 seconds
+	IFRAME: 100 in 12.54509 seconds
+	IFRAME: 150 in 17.515966 seconds
+	Unwrap PBC coordinates: True
+	IFRAME: 0 in 4.3e-05 seconds
+	ESTIMATED TIME using 10 frames (1.070986 seconds): 16.17 seconds
+	IFRAME: 50 in 5.107729 seconds
+	IFRAME: 100 in 10.130965 seconds
+	IFRAME: 150 in 15.416811 seconds
+	Unwrap PBC coordinates: True
+	IFRAME: 0 in 4.6e-05 seconds
+	ESTIMATED TIME using 10 frames (1.077581 seconds): 16.27 seconds
+	IFRAME: 50 in 5.437674 seconds
+	IFRAME: 100 in 10.678812 seconds
+	IFRAME: 150 in 15.754885 seconds
+	Unwrap PBC coordinates: True
+	IFRAME: 0 in 4.2e-05 seconds
+	ESTIMATED TIME using 10 frames (1.170548 seconds): 17.68 seconds
+	IFRAME: 50 in 5.679299 seconds
+	IFRAME: 100 in 12.05425 seconds
+	IFRAME: 150 in 18.297137 seconds
+	Unwrap PBC coordinates: True
+	IFRAME: 0 in 4e-05 seconds
+	ESTIMATED TIME using 10 frames (1.21702 seconds): 18.38 seconds
+	IFRAME: 50 in 5.780867 seconds
+	IFRAME: 100 in 11.194765 seconds
+	IFRAME: 150 in 16.887575 seconds
+		Job  Done at 30-09-2022 19:39:36 ============
+

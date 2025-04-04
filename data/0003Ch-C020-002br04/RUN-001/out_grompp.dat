@@ -1,0 +1,70 @@
+                      :-) GROMACS - gmx grompp, 2018.3 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
+    Par Bjelkmar    Aldert van Buuren   Rudi van Drunen     Anton Feenstra  
+  Gerrit Groenhof    Aleksei Iupinov   Christoph Junghans   Anca Hamuraru   
+ Vincent Hindriksen Dimitrios Karkoulis    Peter Kasson        Jiri Kraus    
+  Carsten Kutzner      Per Larsson      Justin A. Lemkul    Viveca Lindahl  
+  Magnus Lundborg   Pieter Meulenhoff    Erik Marklund      Teemu Murtola   
+    Szilard Pall       Sander Pronk      Roland Schulz     Alexey Shvetsov  
+   Michael Shirts     Alfons Sijbers     Peter Tieleman    Teemu Virolainen 
+ Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2017, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx grompp, version 2018.3
+Executable:   /opt/gromacs-2018.3/bin/gmx_mpi
+Data prefix:  /opt/gromacs-2018.3
+Working dir:  /media/jramos/JRD_05/0003Ch-C020-002br04/03-NPT-100frames_450K
+Command line:
+  gmx_mpi grompp -f ./NPT_Berendsen.mdp -p ../01-GENERATE_INITIAL/topol.top -c ../02-GROMACS_MIN-ALL/confout.gro -maxwarn 10
+
+Replacing old mdp entry 'nstxtcout' by 'nstxout-compressed'
+Replacing old mdp entry 'xtc_grps' by 'compressed-x-grps'
+
+NOTE 1 [file ./NPT_Berendsen.mdp]:
+  Setting nstcalcenergy (100) equal to nstenergy (50)
+
+
+NOTE 2 [file ./NPT_Berendsen.mdp]:
+  leapfrog does not yet support Nose-Hoover chains, nhchainlength reset to 1
+
+
+WARNING 1 [file ./NPT_Berendsen.mdp]:
+  Using Berendsen pressure coupling invalidates the true ensemble for the
+  thermostat
+
+Setting the LD random seed to 473742763
+Generated 15 of the 15 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'PE-001'
+Removing all charge groups because cutoff-scheme=Verlet
+Number of degrees of freedom in T-Coupling group System is 213.00
+
+There were 2 notes
+
+There was 1 warning
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.1#
+
+GROMACS reminds you: "You could give Aristotle a tutorial. And you could thrill him to the core of his being. Such is the privilege of living after Newton, Darwin, Einstein, Planck, Watson, Crick and their colleagues." (Richard Dawkins)
+
+Analysing residue names:
+There are:    18      Other residues
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+Determining Verlet buffer for a tolerance of 0.005 kJ/mol/ps at 450 K
+Calculated rlist for 1x1 atom pair-list as 1.000 nm, buffer size 0.000 nm
+Set rlist, assuming 4x4 atom pair-list, to 1.000 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+This run will generate roughly 1 Mb of data

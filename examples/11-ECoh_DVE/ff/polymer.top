@@ -1,0 +1,12 @@
+#include "forcefield/forcefield.itp"
+#include "polymer.itp"
+
+
+[ system ]
+; name
+Polymer
+
+[ molecules ]
+; name  number
+polymer 60
+

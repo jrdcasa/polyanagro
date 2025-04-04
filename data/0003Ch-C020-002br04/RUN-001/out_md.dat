@@ -1,0 +1,61 @@
+                      :-) GROMACS - gmx mdrun, 2018.3 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
+    Par Bjelkmar    Aldert van Buuren   Rudi van Drunen     Anton Feenstra  
+  Gerrit Groenhof    Aleksei Iupinov   Christoph Junghans   Anca Hamuraru   
+ Vincent Hindriksen Dimitrios Karkoulis    Peter Kasson        Jiri Kraus    
+  Carsten Kutzner      Per Larsson      Justin A. Lemkul    Viveca Lindahl  
+  Magnus Lundborg   Pieter Meulenhoff    Erik Marklund      Teemu Murtola   
+    Szilard Pall       Sander Pronk      Roland Schulz     Alexey Shvetsov  
+   Michael Shirts     Alfons Sijbers     Peter Tieleman    Teemu Virolainen 
+ Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2017, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx mdrun, version 2018.3
+Executable:   /opt/gromacs-2018.3/bin/gmx_mpi
+Data prefix:  /opt/gromacs-2018.3
+Working dir:  /media/jramos/JRD_05/0003Ch-C020-002br04/03-NPT-100frames_450K
+Command line:
+  gmx_mpi mdrun -ntomp 4 -pin on -v
+
+
+Back Off! I just backed up md.log to ./#md.log.1#
+Reading file topol.tpr, VERSION 2018.3 (single precision)
+Changing nstlist from 10 to 100, rlist from 1 to 1.016
+
+Using 1 MPI process
+Using 4 OpenMP threads 
+
+
+Back Off! I just backed up traj_comp.xtc to ./#traj_comp.xtc.1#
+
+Back Off! I just backed up traj.trr to ./#traj.trr.1#
+
+Back Off! I just backed up ener.edr to ./#ener.edr.1#
+starting mdrun 'Created by J.Ramos (Generator_v10)'
+5000 steps,     10.0 ps.
+step 0step 100, remaining wall clock time:     0 s          step 200, remaining wall clock time:     0 s          step 300, remaining wall clock time:     0 s          step 400, remaining wall clock time:     0 s          step 500, remaining wall clock time:     0 s          step 600, remaining wall clock time:     0 s          step 700, remaining wall clock time:     0 s          step 800, remaining wall clock time:     0 s          step 900, remaining wall clock time:     0 s          step 1000, remaining wall clock time:     0 s          step 1100, remaining wall clock time:     0 s          step 1200, remaining wall clock time:     0 s          step 1300, remaining wall clock time:     0 s          step 1400, remaining wall clock time:     0 s          step 1500, remaining wall clock time:     0 s          step 1600, remaining wall clock time:     0 s          step 1700, remaining wall clock time:     0 s          step 1800, remaining wall clock time:     0 s          step 1900, remaining wall clock time:     0 s          step 2000, remaining wall clock time:     0 s          step 2100, remaining wall clock time:     0 s          step 2200, remaining wall clock time:     0 s          step 2300, remaining wall clock time:     0 s          step 2400, remaining wall clock time:     0 s          step 2500, remaining wall clock time:     0 s          step 2600, remaining wall clock time:     0 s          step 2700, remaining wall clock time:     0 s          step 2800, remaining wall clock time:     0 s          step 2900, remaining wall clock time:     0 s          step 3000, remaining wall clock time:     0 s          step 3100, remaining wall clock time:     0 s          step 3200, remaining wall clock time:     0 s          step 3300, remaining wall clock time:     0 s          step 3400, remaining wall clock time:     0 s          step 3500, remaining wall clock time:     0 s          step 3600, remaining wall clock time:     0 s          step 3700, remaining wall clock time:     0 s          step 3800, remaining wall clock time:     0 s          step 3900, remaining wall clock time:     0 s          step 4000, remaining wall clock time:     0 s          step 4100, remaining wall clock time:     0 s          step 4200, remaining wall clock time:     0 s          step 4300, remaining wall clock time:     0 s          step 4400, remaining wall clock time:     0 s          step 4500, remaining wall clock time:     0 s          step 4600, remaining wall clock time:     0 s          step 4700, remaining wall clock time:     0 s          step 4800, remaining wall clock time:     0 s          step 4900, remaining wall clock time:     0 s          
+Writing final coordinates.
+
+Back Off! I just backed up confout.gro to ./#confout.gro.1#
+step 5000, remaining wall clock time:     0 s          
+               Core t (s)   Wall t (s)        (%)
+       Time:        1.592        0.398      400.0
+                 (ns/day)    (hour/ns)
+Performance:     2171.400        0.011
+
+GROMACS reminds you: "I Am a Wonderful Thing" (Kid Creole)
+

@@ -1,0 +1,81 @@
+
+    ***********************************************************************
+                     Manipulate topology for polymers
+              ----------------------------------------------
+
+                                Version None
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        Topology is an open-source python library to quickly modify topology 
+        of polymer molecules
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+
+		Command line: 
+			python topology_cmd -i PVLMon.xsd -r headtail.dat -a residues.dat -p PVLMon
+			         or
+			topology_cmd  -i PVLMon.xsd -r headtail.dat -a residues.dat -p PVLMon
+
+		Starting: 	 15-02-2025 20:51:51
+
+		Input is a XSD format.
+		Reading... (15-02-2025 20:51:51)
+		End read   (15-02-2025 20:51:51)
+
+		****** WRITE PDB and PSF files (15-02-2025 20:51:51) ****** 
+		 Writing PDB file...PVLMon.pdb (15-02-2025 20:51:51)
+		 CONECT table has been written.
+		****** END WRITE PDB and PSF files (15-02-2025 20:51:51) ****** 
+
+		****** RENUMBERING AND ASSIGN RESIDUES PDB and PSF files (15-02-2025 20:51:51) ****** 
+		 Renumbering PDB file... PVLMon.pdb (15-02-2025 20:51:51)
+
+			 Start Loop over atoms. (15-02-2025 20:51:51)
+			 End Loop over atoms. (15-02-2025 20:51:51)
+
+			 Start Creating topology. (15-02-2025 20:51:51)
+			 End Creating topology. (15-02-2025 20:51:51)
+		 Head-Tail info from ... headtail.dat (15-02-2025 20:51:51)
+		 Write renumbered file ... PVLMon_residues.pdb (15-02-2025 20:51:51)
+		 Writing PSF file...PVLMon_residues.psf (15-02-2025 20:51:51)
+
+		****** END RENUMBERING PDB and PSF files (15-02-2025 20:51:51) ****** 
+
+		****** SUMMARY (15-02-2025 20:51:51) ****** 
+		 PDB file: PVLMon_residues.pdb
+		 GRO file: PVLMon_residues.gro
+		 PSF file: PVLMon_residues.psf
+		****** END SUMMARY (15-02-2025 20:51:51) ****** 
+
+		Summarize of the input system (15-02-2025 20:51:51)
+		=======================================================
+		Input file                  : /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/examples/21-RDF_Small/01-Topology/PVLMon.xsd
+		CONECT table input file     : True
+		Head info file              : headtail.dat
+		Residue info file           : residues.dat
+		
+		Number of molecules         : 10
+		Number of residues          : 10
+		Number of atoms             : 170
+		Number of bonds             : 160
+		Bond info available         : True
+		Simulation box dimension    : 1.6185 1.6185 1.6185 nm
+		Simulation box angles       : 90.00 90.00 90.00 degrees
+		
+		Output raw pdb file         : PVLMon.pdb
+		CONECT table output pdb file: True
+		=======================================================
+
+
+
+		Job  Done at 15-02-2025 20:51:51 ============
+		Total time: 0.26 seconds

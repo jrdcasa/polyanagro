@@ -1,0 +1,20 @@
+
+	Job Information
+	---------------
+
+		***************** START Energy TEST *****************
+			Estimated time to run the test is ??? minutes.
+		Starting: 	 22-08-2022 15:04:02
+
+		Test_01: Check read EDR from GROMACS
+		The timestep in the edr is 1ps.
+		Reading energy data from ../data/energy/GROMACS_edr/set_data_01/ener.edr
+
+		Test_02 Check read EDR from GROMACS and group plot
+		The timestep in the edr is 1ps.
+		Reading energy data from ../data/energy/GROMACS_edr/set_data_01/ener.edr
+
+		Test_03: Check read EDR from GROMACS (BIG)
+		The timestep in the edr is 20ps.
+		Reading energy data from ../data/energy/GROMACS_edr/set_data_02/ener.part0001.edr
+

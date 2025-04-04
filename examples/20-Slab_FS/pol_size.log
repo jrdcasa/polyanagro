@@ -1,0 +1,74 @@
+
+    ***********************************************************************
+                         Polymer size calculations 
+              ----------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an 
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 18-11-2024 19:32:01 ============
+
+		Command line: 
+			python polymer_size -t traj_cut.trr --topo new_topo.tpr --unwrap 0
+			         or
+			polymer_size -t traj_cut.trr --topo new_topo.tpr --unwrap 0
+
+	*** Creating a trajectory from...
+	traj_cut.trr
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 42.653978 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	new_topo.tpr
+	Number of frames: 51
+	TIME(Adding topology): 0.95443 seconds
+	*** End Adding topology
+
+	Number of frames: 51
+	TIME(Read_Trajectories): 43.608766 seconds
+	*** End Creating a trajectory 
+
+	 Num of frames to analyse: 51
+	*** Molecular weigth...
+
+	Average Molecular Weigth (g/mol) : 2864.12
+
+	*** Calculating Radius of gyration...
+	Radius of gyration to be written to ./Rg.dat 
+
+	*** Calculating End to End distance...
+	End to End distance to be written to ./Ree.dat 
+
+	Unwrap PBC coordinates: False
+	Cn, bond orientation, odf and internal distances calculations are deactivated, either not info about branch or backbone
+
+	IFRAME: 0 of 51 in 4e-06 seconds
+	IFRAME: 50 of 51 in 0.698232 seconds
+
+	TIME(Chain dimensions): 0.720483 seconds
+	*** End Calculating Chain Dimensions.
+
+	*** Average values ***
+		 Rg^2_avg     =     575.42 +-      12.87 (angstroms)
+		 Ree^2_avg    = -999999.99 +- -999999.99 (angstroms)
+		 Ree^2/Rg^2   = -999999.99 +- -999999.99 (angstroms)
+		 Cn_avg       = -999999.99 +- -999999.99 
+
+		Job  Done at 18-11-2024 19:32:45 ============
+

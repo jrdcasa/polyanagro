@@ -1,0 +1,39 @@
+                       :-) GROMACS - gmx dump, 2018.3 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
+    Par Bjelkmar    Aldert van Buuren   Rudi van Drunen     Anton Feenstra  
+  Gerrit Groenhof    Aleksei Iupinov   Christoph Junghans   Anca Hamuraru   
+ Vincent Hindriksen Dimitrios Karkoulis    Peter Kasson        Jiri Kraus    
+  Carsten Kutzner      Per Larsson      Justin A. Lemkul    Viveca Lindahl  
+  Magnus Lundborg   Pieter Meulenhoff    Erik Marklund      Teemu Murtola   
+    Szilard Pall       Sander Pronk      Roland Schulz     Alexey Shvetsov  
+   Michael Shirts     Alfons Sijbers     Peter Tieleman    Teemu Virolainen 
+ Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2017, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx dump, version 2018.3
+Executable:   /opt/gromacs-2018.3/bin/gmx_mpi
+Data prefix:  /opt/gromacs-2018.3
+Working dir:  /home/jramos/PycharmProjects/polyanagro/data/0100Ch-C500-000br02/T-450K/06-NPT-100ns-Parrinello
+Command line:
+  gmx_mpi dump -s 01-RESTART-0000-1000ns/topol.tpr
+
+Reading file 01-RESTART-0000-1000ns/topol.tpr, VERSION 2016.3 (single precision)
+Reading file 01-RESTART-0000-1000ns/topol.tpr, VERSION 2016.3 (single precision)
+Note: file tpx version 110, software tpx version 112
+
+GROMACS reminds you: "The determined Real Programmer can write FORTRAN programs in any language." (Ed Post)
+

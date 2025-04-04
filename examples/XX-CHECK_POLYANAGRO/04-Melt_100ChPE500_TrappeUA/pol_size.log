@@ -1,0 +1,87 @@
+
+    ***********************************************************************
+                         Polymer size calculations 
+              ----------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an 
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 27-08-2022 00:50:57 ============
+
+		Command line: 
+			python polymer_size -t ../../04-Melt_100ChPE500_TrappeUA/01-RESTART-0000-1000ns/traj_comp.xtc ../../04-Melt_100ChPE500_TrappeUA/02-RESTART-1000-2000ns/traj_comp.part0002.xtc ../../04-Melt_100ChPE500_TrappeUA/03-RESTART-2000-3000ns/traj_comp.part0003.xtc --topo ../../04-Melt_100ChPE500_TrappeUA/01-RESTART-0000-1000ns/topol.tpr --unwrap 1 --rg_massw --e2e listend2end.dat --e2acf --distributions --c2n backbone_idx.dat --bondorientation --isodf
+			         or
+			polymer_size -t ../../04-Melt_100ChPE500_TrappeUA/01-RESTART-0000-1000ns/traj_comp.xtc ../../04-Melt_100ChPE500_TrappeUA/02-RESTART-1000-2000ns/traj_comp.part0002.xtc ../../04-Melt_100ChPE500_TrappeUA/03-RESTART-2000-3000ns/traj_comp.part0003.xtc --topo ../../04-Melt_100ChPE500_TrappeUA/01-RESTART-0000-1000ns/topol.tpr --unwrap 1 --rg_massw --e2e listend2end.dat --e2acf --distributions --c2n backbone_idx.dat --bondorientation --isodf
+
+	*** Creating a trajectory from...
+	../../04-Melt_100ChPE500_TrappeUA/01-RESTART-0000-1000ns/traj_comp.xtc
+	../../04-Melt_100ChPE500_TrappeUA/02-RESTART-1000-2000ns/traj_comp.part0002.xtc
+	../../04-Melt_100ChPE500_TrappeUA/03-RESTART-2000-3000ns/traj_comp.part0003.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 25.020155 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../../04-Melt_100ChPE500_TrappeUA/01-RESTART-0000-1000ns/topol.tpr
+	Number of frames: 151
+	TIME(Adding topology): 1.19069 seconds
+	*** End Adding topology
+
+	Number of frames: 151
+	TIME(Read_Trajectories): 26.211256 seconds
+	*** End Creating a trajectory 
+
+	*** Molecular weigth...
+
+	Average Molecular Weigth (g/mol) : 7017.00
+
+	*** Calculating Radius of gyration...
+	Radius of gyration to be written to ./Rg.dat 
+
+	*** Calculating End to End distance...
+	End to End distance to be written to ./Ree.dat 
+
+	Unwrap PBC coordinates: True
+	Preparing backbone information in      0.202 seconds
+	Preparing distribution information in      0.001 seconds
+	Preparing internal chain distances information in      0.000 seconds
+	IFRAME: 0 in 3e-06 seconds
+	ESTIMATED TIME using 10 frames (4.260239 seconds): 64.33 seconds
+	IFRAME: 50 in 24.239906 seconds
+	IFRAME: 100 in 47.957181 seconds
+	IFRAME: 150 in 71.53168 seconds
+
+	TIME(Chain dimensions): 72.235219 seconds
+	*** End Calculating Chain Dimensions.
+
+	*** Calculating End-to-End autocorrelation vector...
+	TIME(End-to-End autocorrelation vector): 0.004365 seconds
+	*** End Calculating End-to-End autocorrelation vector.
+
+	*** Calculating distributions...
+	TIME(Distributions): 0.003032 seconds
+	*** End distributions calculation.
+
+	*** Average values ***
+		 Rg^2_avg     =    1721.28 +-      82.10 (angstroms)
+		 Ree^2_avg    =   10575.22 +-     832.86 (angstroms)
+		 Ree^2/Rg^2   =       6.14 +-       0.30 (angstroms)
+		 Cn_avg       =       8.93 +-       0.70 
+
+		Job  Done at 27-08-2022 00:52:35 ============
+

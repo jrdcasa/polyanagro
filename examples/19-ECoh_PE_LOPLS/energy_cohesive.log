@@ -1,0 +1,110 @@
+
+    ***********************************************************************
+                  Calculate the cohesive energy using GROMACS
+        -------------------------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 14-10-2024 19:42:23 ============
+
+		Command line: 
+			python energy_cohesive.py --traj trj_out.xtc --gmxfullpath /opt/gromacs/gromacs-2024_x/bin/gmx --tpr new_topo.tpr --topo trajectory_topo_replicate.top --fraction_trj_avg 0.25
+			         or
+			energy_cohesive.py --traj trj_out.xtc --gmxfullpath /opt/gromacs/gromacs-2024_x/bin/gmx --tpr new_topo.tpr --topo trajectory_topo_replicate.top --fraction_trj_avg 0.25
+
+		Starting at 14-10-2024 19:42:23 ============
+
+		 Working directory: /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/examples/19-ECoh_PE_LOPLS
+
+	*** Creating a trajectory from...
+	trj_out.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 9.036311 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	new_topo.tpr
+	Number of frames: 13
+	TIME(Adding topology): 0.270896 seconds
+	*** End Adding topology
+
+	Number of frames: 13
+	TIME(Read_Trajectories): 9.307702 seconds
+	*** End Creating a trajectory 
+
+	*** Molecular weigth...
+
+	Average Molecular Weigth (g/mol) : 2808.02
+	Total Molecular Mass (g/mol) : 84240.60
+
+		 Reading the tpr file (new_topo.tpr)
+
+		 Number of different kind of molecules: defaultdict(None, {'"ETH"': 602})
+
+		 Creating index file (index.ndx)
+
+		 Calculating intramolecular potential energy of the isolated chains. (14-10-2024 19:42:33)
+			 Join trajectories to trj_full.xtc. (14-10-2024 19:42:33)
+			 Calculating energy for molecule 1 of 30. (14-10-2024 19:42:33)
+			 Calculating energy for molecule 2 of 30. (14-10-2024 19:42:34)
+			 Calculating energy for molecule 3 of 30. (14-10-2024 19:42:36)
+			 Calculating energy for molecule 4 of 30. (14-10-2024 19:42:37)
+			 Calculating energy for molecule 5 of 30. (14-10-2024 19:42:39)
+			 Calculating energy for molecule 6 of 30. (14-10-2024 19:42:40)
+			 Calculating energy for molecule 7 of 30. (14-10-2024 19:42:42)
+			 Calculating energy for molecule 8 of 30. (14-10-2024 19:42:43)
+			 Calculating energy for molecule 9 of 30. (14-10-2024 19:42:45)
+			 Calculating energy for molecule 10 of 30. (14-10-2024 19:42:46)
+			 Calculating energy for molecule 11 of 30. (14-10-2024 19:42:48)
+			 Calculating energy for molecule 12 of 30. (14-10-2024 19:42:49)
+			 Calculating energy for molecule 13 of 30. (14-10-2024 19:42:51)
+			 Calculating energy for molecule 14 of 30. (14-10-2024 19:42:52)
+			 Calculating energy for molecule 15 of 30. (14-10-2024 19:42:54)
+			 Calculating energy for molecule 16 of 30. (14-10-2024 19:42:55)
+			 Calculating energy for molecule 17 of 30. (14-10-2024 19:42:57)
+			 Calculating energy for molecule 18 of 30. (14-10-2024 19:42:59)
+			 Calculating energy for molecule 19 of 30. (14-10-2024 19:43:01)
+			 Calculating energy for molecule 20 of 30. (14-10-2024 19:43:03)
+			 Calculating energy for molecule 21 of 30. (14-10-2024 19:43:04)
+			 Calculating energy for molecule 22 of 30. (14-10-2024 19:43:06)
+			 Calculating energy for molecule 23 of 30. (14-10-2024 19:43:07)
+			 Calculating energy for molecule 24 of 30. (14-10-2024 19:43:09)
+			 Calculating energy for molecule 25 of 30. (14-10-2024 19:43:10)
+			 Calculating energy for molecule 26 of 30. (14-10-2024 19:43:12)
+			 Calculating energy for molecule 27 of 30. (14-10-2024 19:43:13)
+			 Calculating energy for molecule 28 of 30. (14-10-2024 19:43:15)
+			 Calculating energy for molecule 29 of 30. (14-10-2024 19:43:16)
+			 Calculating energy for molecule 30 of 30. (14-10-2024 19:43:18)
+		 Calculating potential energy of the full system. (14-10-2024 19:43:19)
+
+		 Number of rows to average: from 3 to 13
+		 From 310000.0 to 490000.0 ps
+
+	*** Average values per chain***
+		 Full Potential Energy      (kJ/mol)     =    3110.47 +-      26.04 (kJ/mol)
+		 Isolated Potential Energy  (kJ/mol)     =    3813.62 +-      26.06 (kJ/mol)
+		 Energy cohesive            (kJ/mol)     =     703.15 +-      19.83 (kJ/mol)
+		 Molar volume               (cm^3/mol)   =    3646.78 +-       0.00 (cm^3/mol)
+		 CED                        (J/cm^3)     =     192.81 +-       5.44 (J/cm^3)
+		 Solubility parameter       (J/cm^3)^0.5 =      13.88 +-       0.20 (J/cm^3)^0.5
+			 1 (J/cm^3)^0.5 = 1 (MPa)^0.5
+		 Density                    (g/cm^3)     =      0.719 +-      0.010 (g/cm^3)
+
+		Job  Done at 14-10-2024 19:43:21 ============
+

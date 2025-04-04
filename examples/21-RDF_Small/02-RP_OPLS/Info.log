@@ -1,0 +1,92 @@
+
+    ***********************************************************************
+              Replicate a molecule or polymer chain (ReMoPo)
+              ----------------------------------------------
+
+                                Version 3.0
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        ReMoPo is an open-source python library to quickly replicate a molecule
+        from a pdb file containing the seed molecule. After that, the script assigns
+        the force field parameters using the foyer library (https://mosdef.org/)
+        This program generates GROMACS and LAMMPS files to run simulations.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 15-02-2025 20:58:25 ============
+
+		Command line: 
+			python replicate_polymer -p ../01-Topology/PVLMon_residues.pdb --images 1 1 1 -f /home/jramos/Programacion/GITHUB_REPO_DIR/replicate_polymer_topology/forcefields/oplsaa.xml
+			         or
+			replicate_polymer -p ../01-Topology/PVLMon_residues.pdb --images 1 1 1 -f /home/jramos/Programacion/GITHUB_REPO_DIR/replicate_polymer_topology/forcefields/oplsaa.xml
+
+
+		Check resname and connect in the input file. (../01-Topology/PVLMon_residues.pdb)... (15-02-2025 20:58:25)
+		*************************************************************************************************************
+
+		End Check resname and connect in the input file. (../01-Topology/PVLMon_residues.pdb)... (15-02-2025 20:58:25)
+		*****************************************************************************************************************
+
+		Replicating and typing molecule (15-02-2025 20:58:25)
+		*********************************************************
+		Loading seed structure from ../01-Topology/PVLMon_residues.pdb (15-02-2025 20:58:25)
+
+			 Start Loop over atoms. (15-02-2025 20:58:25)
+			 End Loop over atoms. (15-02-2025 20:58:25)
+
+			 Start Creating topology. (15-02-2025 20:58:25)
+			 End Creating topology. (15-02-2025 20:58:25)
+		Applying force field to the seed molecules ../01-Topology/PVLMon_residues.pdb (15-02-2025 20:58:25)
+		 Checking bonds    ... (verbose: False) (15-02-2025 20:58:26).
+		 End checking bonds ... (verbose: False) (15-02-2025 20:58:26).
+		 Checking angles    ... (verbose: False) (15-02-2025 20:58:26).
+		 End checking angles ... (verbose: False) (15-02-2025 20:58:26).
+		 Checking dihedrals    ... (verbose: False) (15-02-2025 20:58:26).
+		 End dihedrals angles ... (verbose: False) (15-02-2025 20:58:26).
+		------------------------------------------------------------------------------------
+		WARN: Parameters have not been assigned to all impropers.
+		Total system impropers: 170, Parameterized impropers: 0.
+ 		Note that if your system contains torsions of Ryckaert-Bellemans functional form,
+		all of these torsions are processed as propers.
+		This warn can be ignored if you are sure that impropers are not needed!!!!!
+		------------------------------------------------------------------------------------
+
+		Replicating molecules ../01-Topology/PVLMon_residues.pdb (15-02-2025 20:58:26)
+
+		Replicate a molecule or polymer chain (15-02-2025 20:58:26)
+		***************************************************************
+		Input file                  : ../01-Topology/PVLMon_residues.pdb
+		Number of molecules in cell : 10
+		Number of chains in cell    : 1
+		Number of bonds in cell     : 160
+		Number of residues in cell  : 10
+		Number of atoms in cell     : 170
+		Simulation box dimension    : 1.6185 1.6185 1.6185 nm
+		Simulation box angles       : 90.00 90.00 90.00 degrees
+		Replicate the molecule 1x1x1 times
+		***************************************************************
+
+		Molecule replicated info (15-02-2025 20:58:26)
+		*************************************************
+		Number of molecules in cell : 10
+		Number of chains in cell    : 1
+		Number of residues in cell  : 10
+		Number of atoms in cell     : 170
+		Simulation box dimension    : 1.6185 1.6185 1.6185 nm
+		Simulation box angles       : 90.00 90.00 90.00 degrees
+		Mass density                : 0.4000 g/cm3
+		*************************************************
+
+
+		Removing TER labels in the pdb file of the seed molecules.(./PVLMon_residues_replicate.pdb)... (15-02-2025 20:58:26)
+		Job  Done at 15-02-2025 20:58:26 ============
+
+		Total time: 0.61 seconds

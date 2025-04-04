@@ -1,0 +1,21 @@
+	*** Creating a trajectory from...
+	../../data/0003Ch-C020-002br04/RUN-001/traj_comp.xtc
+	../../data/0003Ch-C020-002br04/RUN-002/traj_comp.part0002.xtc
+	../../data/0003Ch-C020-002br04/RUN-003/traj_comp.part0003.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	*** Backbone atoms have been assigned to the topology.
+	Topology file: ../../data/0003Ch-C020-002br04/namd_out.psf
+	TIME(Building_bonds_from_topology): 0.009831 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../../data/0003Ch-C020-002br04/namd_out.psf
+	Number of frames: 301
+	TIME(Adding topology): 0.008516 seconds
+	*** End Adding topology 
+	Number of frames: 301
+	TIME(Read_Trajectories): 0.018763 seconds
+	*** End Creating a trajectory 
+

@@ -1,0 +1,43 @@
+title		= NPT Equilibration for AS48 in LPOPG 
+; define		= -DPOSRES	; position restrain the protein
+; Run parameters
+integrator	= md		; leap-frog integrator
+nsteps		= 30000000	; 30 ns
+dt		    = 0.002		; 2 fs
+cutoff-scheme   = verlet
+; Output control
+nstxtcout		= 50000		; save coordinates every 0.2 ps
+; nstvout		= 50000		; save velocities every 0.2 ps
+nstenergy	= 50000		; save energies every 0.2 ps
+nstlog		= 50000		; update log file every 0.2 ps
+energygrps      = system 
+; Bond parameters
+; Neighborsearching
+ns_type		= grid		; search neighboring grid cels
+nstlist		= 1		    ; 10 fs
+rlist		= 333.3		; short-range neighborlist cutoff (in nm)
+rcoulomb	= 333.3		; short-range electrostatic cutoff (in nm)
+rvdw		= 333.3		; short-range van der Waals cutoff (in nm)
+; Electrostatics
+coulombtype	= cutoff		; Particle Mesh Ewald for long-range electrostatics
+vdwtype         = cutoff
+; Temperature coupling is on
+tcoupl		= v-rescale		    ; More accurate thermostat
+tc-grps		= system	; three coupling groups - more accurate
+tau_t		= 0.5	 	        ; time constant, in ps
+ref_t		= 400 		        ; reference temperature, one for each group, in K
+; Pressure coupling is on
+pcoupl		= no	    ; Pressure coupling on in NPT
+pcoupltype	= isotropic		    ; uniform scaling of x-y box vectors, independent z
+tau_p		= 5.0			        ; time constant, in ps
+ref_p		= 1.0			        ; reference pressure, x-y, z (in bar)
+compressibility = 4.5e-5	4.5e-5	; isothermal compressibility, bar^-1
+; Periodic boundary conditions
+pbc		    = xyz		; 3-D PBC
+; Dispersion correction
+DispCorr	= no
+; Velocity generation
+gen_vel		= no		; Velocity generation is off
+; Scale COM of reference coordinates
+; refcoord_scaling = com
+

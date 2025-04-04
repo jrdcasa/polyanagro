@@ -1,0 +1,13 @@
+#include "oplsaa.ff/forcefield.itp"
+
+#include "benzene.itp"
+
+[ system ]
+; Name
+Benzene
+
+[ molecules ]
+; Compound        #mols
+BNZ                1
+
+

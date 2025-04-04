@@ -1,0 +1,33 @@
+# This file was created Mon Oct 14 18:00:30 2024
+# Created by:
+#              :-) GROMACS - gmx energy, 2021.4-Ubuntu-2021.4-2 (-:
+# 
+# Executable:   /usr/bin/gmx
+# Data prefix:  /usr
+# Working dir:  /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/examples/19-ECoh_PE_LOPLS/MOL1
+# Command line:
+#   gmx energy -f expand.edr
+# gmx energy is part of G R O M A C S:
+#
+# Great Red Owns Many ACres of Sand 
+#
+@    title "GROMACS Energies"
+@    xaxis  label "Time (ps)"
+@    yaxis  label "(kJ/mol)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "Bond"
+@ s1 legend "Angle"
+@ s2 legend "Ryckaert-Bell."
+@ s3 legend "LJ-14"
+@ s4 legend "Coulomb-14"
+@ s5 legend "LJ (SR)"
+@ s6 legend "Coulomb (SR)"
+@ s7 legend "Coul. recip."
+@ s8 legend "Potential"
+250000.000000  1306.783813  1869.084351  486.038971  260.756653  -95.562149  -191.432327  275.272583   33.812420  3944.754395

@@ -1,0 +1,81 @@
+
+    ***********************************************************************
+              Replicate a molecule or polymer chain (ReMoPo)
+              ----------------------------------------------
+
+                                Version 3.0
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        ReMoPo is an open-source python library to quickly replicate a molecule
+        from a pdb file containing the seed molecule. After that, the script assigns
+        the force field parameters using the foyer library (https://mosdef.org/)
+        This program generates GROMACS and LAMMPS files to run simulations.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 07-03-2023 11:37:01 ============
+
+		Command line: 
+			python replicate_polymer -p C150_1fold_residues.pdb -f /home/jramos/Programacion/GITHUB_REPO_DIR/replicate_polymer_topology/forcefields/loplsaa.xml --images 2 2 1
+			         or
+			replicate_polymer -p C150_1fold_residues.pdb -f /home/jramos/Programacion/GITHUB_REPO_DIR/replicate_polymer_topology/forcefields/loplsaa.xml --images 2 2 1
+
+
+		Check resname and connect in the input file. (C150_1fold_residues.pdb)... (07-03-2023 11:37:01)
+		Replicating and typing molecule (07-03-2023 11:37:01)
+		********************************************************
+		Loading seed structure from C150_1fold_residues.pdb (07-03-2023 11:37:01)
+		Applying force field to the seed molecules C150_1fold_residues.pdb (07-03-2023 11:37:01)
+		 Checking bonds    ... (verbose: False) (07-03-2023 11:37:05).
+		 End checking bonds ... (verbose: False) (07-03-2023 11:37:05).
+		 Checking angles    ... (verbose: False) (07-03-2023 11:37:05).
+		 End checking angles ... (verbose: False) (07-03-2023 11:37:05).
+		 Checking dihedrals    ... (verbose: False) (07-03-2023 11:37:05).
+		 End dihedrals angles ... (verbose: False) (07-03-2023 11:37:05).
+		------------------------------------------------------------------------------------
+		WARN: Parameters have not been assigned to all impropers.
+		Total system impropers: 600, Parameterized impropers: 0.
+ 		Note that if your system contains torsions of Ryckaert-Bellemans functional form,
+		all of these torsions are processed as propers.
+		This warn can be ignored if you are sure that impropers are not needed!!!!!
+		------------------------------------------------------------------------------------
+
+		Replicating molecules C150_1fold_residues.pdb (07-03-2023 11:37:01)
+
+		Replicate a molecule or polymer chain (07-03-2023 11:37:05)
+		***************************************************************
+		Input file                  : C150_1fold_residues.pdb
+		Number of molecules in cell : 1
+		Number of chains in cell    : 1
+		Number of bonds in cell     : 451
+		Number of residues in cell  : 75
+		Number of atoms in cell     : 452
+		Simulation box dimension    : 0.7528 0.5837 9.3631 nm
+		Simulation box angles       : 90.00 90.00 90.00 degrees
+		Replicate the molecule 2x2x1 times
+		***************************************************************
+
+		Molecule replicated info (07-03-2023 11:37:05)
+		*************************************************
+		Number of molecules in cell : 4
+		Number of chains in cell    : 4
+		Number of residues in cell  : 300
+		Number of atoms in cell     : 1808
+		Simulation box dimension    : 1.5056 1.1674 9.3631 nm
+		Simulation box angles       : 90.00 90.00 90.00 degrees
+		Mass density                : 0.8500 g/cm3
+		*************************************************
+
+
+		Removing TER labels in the pdb file of the seed molecules.(./C150_1fold_residues_replicate.pdb)... (07-03-2023 11:37:05)
+		Job  Done at 07-03-2023 11:37:05 ============
+
+		Total time: 4.32 seconds

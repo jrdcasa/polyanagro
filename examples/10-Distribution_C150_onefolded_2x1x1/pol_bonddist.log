@@ -1,0 +1,75 @@
+
+    ***********************************************************************
+            Bonded Distributions (bond, angle, dihedral, improper)
+        -------------------------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 07-03-2023 12:03:25 ============
+
+		Command line: 
+			python bonded_distribution.py generate -t ./01-PREPARE/C150_1fold_residues_replicate.pdb --topo 01-PREPARE/topol.tpr --listbb 01-PREPARE/C150_1fold_residues_replicate.pdb
+			         or
+			bonded_distribution generate -t ./01-PREPARE/C150_1fold_residues_replicate.pdb --topo 01-PREPARE/topol.tpr --listbb 01-PREPARE/C150_1fold_residues_replicate.pdb
+
+	*** Creating a trajectory from...
+	./01-PREPARE/C150_1fold_residues_replicate.pdb
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 0.188671 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	01-PREPARE/topol.tpr
+	Number of frames: 1
+	TIME(Adding topology): 0.034764 seconds
+	*** End Adding topology
+
+	Number of frames: 1
+	TIME(Read_Trajectories): 0.223763 seconds
+	*** End Creating a trajectory 
+
+
+ Generating the data to calculate bonded distributions (2023-03-07 12:03:25.904200)
+	  * Bond types
+	  ------------
+	   lopls_140a-lopls_135_br 
+	   lopls_136-lopls_135_bb 
+	   lopls_140b-lopls_136_br 
+	   lopls_136-lopls_136_bb 
+	   allbbbonds 
+	   allbrbonds 
+	   allbonds 
+	  ------------
+
+	  * Angles types
+	  -------------
+	   lopls_140b-lopls_136-lopls_135_br 
+	   lopls_136-lopls_136-lopls_135_bb 
+	   lopls_140a-lopls_135-lopls_140a_br 
+	   lopls_140a-lopls_135-lopls_136_br 
+	   lopls_140b-lopls_136-lopls_136_br 
+	   lopls_136-lopls_136-lopls_136_bb 
+	   lopls_140b-lopls_136-lopls_140b_br 
+	   allbbangles 
+	   allbrangles 
+	   allangles 
+	  -------------
+
+		Job  Done at 07-03-2023 12:03:26 ============
+

@@ -1,0 +1,101 @@
+
+    ***********************************************************************
+                         Polymer size calculations 
+              ----------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an 
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 08-07-2022 22:51:24 ============
+
+		Command line: 
+			python polymer_size.py -t ./single_chain.xyz --tpr topol.tpr --unwrap 0 --e2e listend2end.dat --c2n backbone_idx.dat --e2acf --distributions --bondorientation
+			         or
+			polymer_size -t ./single_chain.xyz --tpr topol.tpr --unwrap 0 --e2e listend2end.dat --c2n backbone_idx.dat --e2acf --distributions --bondorientation
+
+	*** Creating a trajectory from...
+	./single_chain.xyz
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 0.119799 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	topol.tpr
+	Number of frames: 1001
+	TIME(Adding topology): 0.074712 seconds
+	*** End Adding topology
+
+	Number of frames: 1001
+	TIME(Read_Trajectories): 0.194803 seconds
+	*** End Creating a trajectory 
+
+	*** Molecular weigth...
+
+	Average Molecular Weigth (g/mol) : 6005.00
+
+	*** Calculating Radius of gyration...
+	Radius of gyration to be written to ./Rg.dat 
+
+	*** Calculating End to End distance...
+	End to End distance to be written to ./Ree.dat 
+
+	Unwrap PBC coordinates: False
+	Preparing backbone information in      0.001 seconds
+	Preparing distribution information in      0.001 seconds
+	Preparing internal chain distances information in      0.000 seconds
+	IFRAME: 0 in 3e-06 seconds
+	IFRAME: 50 in 0.186843 seconds
+	IFRAME: 100 in 0.392113 seconds
+	IFRAME: 150 in 0.621398 seconds
+	IFRAME: 200 in 0.826994 seconds
+	IFRAME: 250 in 1.048448 seconds
+	IFRAME: 300 in 1.250872 seconds
+	IFRAME: 350 in 1.540454 seconds
+	IFRAME: 400 in 1.723453 seconds
+	IFRAME: 450 in 1.95098 seconds
+	IFRAME: 500 in 2.135903 seconds
+	IFRAME: 550 in 2.320426 seconds
+	IFRAME: 600 in 2.524713 seconds
+	IFRAME: 650 in 2.707309 seconds
+	IFRAME: 700 in 2.938185 seconds
+	IFRAME: 750 in 3.119102 seconds
+	IFRAME: 800 in 3.300958 seconds
+	IFRAME: 850 in 3.482483 seconds
+	IFRAME: 900 in 3.663766 seconds
+	IFRAME: 950 in 3.885249 seconds
+	IFRAME: 1000 in 4.090861 seconds
+
+	TIME(Chain dimensions): 4.121036 seconds
+	*** End Calculating Chain Dimensions.
+
+	*** Calculating End-to-End autocorrelation vector...
+	TIME(End-to-End autocorrelation vector): 0.011998 seconds
+	*** End Calculating End-to-End autocorrelation vector.
+
+	*** Calculating distributions...
+	TIME(Distributions): 0.002391 seconds
+	*** End distributions calculation.
+
+	*** Average values ***
+		 Rg^2_avg     =    1735.44 +-     890.22 (angstroms)
+		 Ree^2_avg    =   10797.15 +-    8604.87 (angstroms)
+		 Ree^2/Rg^2   =       5.87 +-       2.98 (angstroms)
+		 Cn_avg       =       9.11 +-       7.26 
+
+		Job  Done at 08-07-2022 22:51:28 ============
+

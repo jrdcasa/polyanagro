@@ -1,0 +1,18 @@
+# Overview
+
+[**Polyanagro**](https://github.com/jrdcasa/polyanagro) is a Python package for analysing and calculating some properties of **polymers** from molecular dynamics simulations performed with the [GROMACS](https://www.gromacs.org/) or [LAMMPS](https://www.lammps.org/) packages.
+
+An analysis with [**Polyanagro**](https://github.com/jrdcasa/polyanagro) usually requires one (or more) trajectory files and a topology file.
+
+The use is made through a series of commands, which are described in the section [04-Commands](./04-commands.md).
+
+The trajectories allowed are:
+
+* XTC from GROMACS and LAMPPS
+* DCD from LAMMPS.
+
+The topologies allowed are:
+
+* TPR from GROMACS.
+* PDB
+* PSF

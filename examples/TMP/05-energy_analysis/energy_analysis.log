@@ -1,0 +1,98 @@
+
+    ***********************************************************************
+                                Energy Analysis 
+              ----------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an 
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 24-08-2022 16:06:09 ============
+
+		Command line: 
+			python energy_analysis.py calc -e ../../data/energy/GROMACS_edr/set_data_02/ener.part0001.edr --tbegin 100000 --groupterms --avg --acf Density Temperature
+			         or
+			energy_analysis calc -e ../../data/energy/GROMACS_edr/set_data_02/ener.part0001.edr --tbegin 100000 --groupterms --avg --acf Density Temperature
+
+		Reading energy data from /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/data/energy/GROMACS_edr/set_data_02/ener.part0001.edr
+
+		**** ENERGY INFO ****
+		  Number of points in energy files   : 25001
+		  Original trajectory from 0.0 (ps) to 500000.0 (ps).
+		  Analyzed trajectory from 100000.0 (ps) to 500000.0 (ps).
+		  Timestep 20.0 (ps).
+		**** End ENERGY INFO ****
+
+		 Individual energy plots have been saved in:
+		  /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/example/05-energy_analysis/individual_energy
+
+		 Grouped density plots have been saved in:
+		  /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/example/05-energy_analysis/grouped_density
+
+		**** ENERGY AVG INFO ****
+
+         Name         N        Mean           Std           Min           Max           Drift     Units 
+0             Time  20001  300000.00000  115478.71406  100000.00000   500000.00000  400000.00000      ps
+1             Bond  20001    8001.94548     177.26851    7266.82129     8775.17871      -0.23622  kJ/mol
+2            Angle  20001   37760.92329     358.30793   36181.27734    39494.03906       5.89030  kJ/mol
+3   Ryckaert-Bell.  20001    9278.83421     147.98521    8504.55273     9908.73926       2.68064  kJ/mol
+4            LJ-14  20001    5731.42005      75.91315    5440.70703     6010.94678       1.14253  kJ/mol
+5       Coulomb-14  20001   -2187.19606      65.85147   -2474.03931    -1893.14612       5.16606  kJ/mol
+6          LJ (SR)  20001  -16310.61855     215.72563  -17175.05469   -15510.49902      10.02687  kJ/mol
+7    Disper. corr.  20001   -1342.34755      11.61770   -1387.83472    -1289.49683       0.31625  kJ/mol
+8     Coulomb (SR)  20001    6584.81435     103.79172    6143.49707     7049.14648      -8.06669  kJ/mol
+9     Coul. recip.  20001     175.42250       5.08730     156.09996      194.98747       0.21105  kJ/mol
+10       Potential  20001   47693.19773     505.74614   45602.14844    49702.79297      17.13088  kJ/mol
+11     Kinetic En.  20001   53729.14983     435.85046   52008.13281    55557.71094      10.21384  kJ/mol
+12    Total Energy  20001  101422.34754     680.19092   98808.81250   104133.34375      27.34466  kJ/mol
+13   Conserved En.  20001 6202443.66340 2340159.42333 2148023.25000 10254754.00000 8105941.56338  kJ/mol
+14     Temperature  20001     450.05616       3.65085     435.64026      465.37289       0.08555       K
+15        Pres. DC  20001    -170.36661       2.94607    -182.08604     -157.21310       0.08037     bar
+16        Pressure  20001      -0.25626     440.27815   -1818.28906     1821.08289      10.76336     bar
+17    Constr. rmsd  20001       0.00000       0.00000       0.00000        0.00000       0.00000        
+18           Box-X  20001       5.07810       0.01464       5.02196        5.14641       0.00040      nm
+19           Box-Y  20001       5.07810       0.01464       5.02196        5.14641       0.00040      nm
+20           Box-Z  20001       5.07810       0.01464       5.02196        5.14641       0.00040      nm
+21          Volume  20001     130.95242       1.13321     126.65394      136.30527       0.03072    nm^3
+22         Density  20001     726.76568       6.28537     698.17261      751.37500      -0.17110  kg/m^3
+23              pV  20001       7.88614       0.06824       7.62728        8.20850       0.00185  kJ/mol
+24        Enthalpy  20001  101430.23372     680.21053   98816.58594   104141.32812      27.34651  kJ/mol
+25          Vir-XX  20001   17928.76705    2667.04140    7684.84863    28463.10938    -194.58066  kJ/mol
+26          Vir-XY  20001       0.89451    1744.93598   -7387.08057     6902.12158      12.69880  kJ/mol
+27          Vir-XZ  20001      -7.32368    1735.47837   -6683.80908     6937.80420      46.37583  kJ/mol
+28          Vir-YX  20001       0.89464    1744.93609   -7387.05518     6902.24658      12.69860  kJ/mol
+29          Vir-YY  20001   17929.83472    2659.52807    8067.91162    28562.58984      66.92343  kJ/mol
+30          Vir-YZ  20001       1.78269    1719.19896   -7533.91113     7802.45312       0.80963  kJ/mol
+31          Vir-ZX  20001      -7.32311    1735.47804   -6683.87598     6937.78271      46.37637  kJ/mol
+32          Vir-ZY  20001       1.78322    1719.19856   -7533.94824     7802.37793       0.81010  kJ/mol
+33          Vir-ZZ  20001   17879.00167    2670.28683    6296.99707    28298.70312      10.54917  kJ/mol
+34         Pres-XX  20001      -0.63631     678.23733   -2563.95093     2554.02808      38.34274     bar
+35         Pres-XY  20001      -1.57584     445.48275   -1728.50464     1899.30347     -12.91087     bar
+36         Pres-XZ  20001       2.52578     442.67574   -1785.12915     1741.67444     -10.57212     bar
+37         Pres-YX  20001      -1.57587     445.48279   -1728.48999     1899.29712     -12.91083     bar
+38         Pres-YY  20001      -6.59096     676.12883   -2708.07544     2550.61401      -6.15553     bar
+39         Pres-YZ  20001       0.70433     438.60316   -2041.50854     1954.04211       3.33065     bar
+40         Pres-ZX  20001       2.52564     442.67568   -1785.13464     1741.65027     -10.57226     bar
+41         Pres-ZY  20001       0.70420     438.60307   -2041.48938     1954.05151       3.33053     bar
+42         Pres-ZZ  20001       6.45849     679.41795   -2692.71143     2845.43628       0.10287     bar
+43   #Surf*SurfTen  20001      51.14006    3917.85279  -14755.88477    16418.41211     -80.85937     bar
+44        T-System  20001     450.05616       3.65085     435.64026      465.37289       0.08555       K
+45     Lamb-System  20001       1.00000       0.00000       1.00000        1.00000      -0.00000        
+
+
+		**** END ENERGY AVG INFO ****
+
+		Job  Done at 24-08-2022 16:06:22 ============
+

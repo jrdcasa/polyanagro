@@ -1,0 +1,88 @@
+
+    ***********************************************************************
+                     Calculate mean square displacement 
+                       using different implementations
+        -------------------------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 04-04-2025 09:53:53 ============
+
+		Command line: 
+			python msd_polymer.py -t 00-INPUTS/traj_msd_20ps_500frames_wrap.xtc --topo 00-INPUTS/new_topo.tpr --nojump 0
+			         or
+			msd_polymer.py -t 00-INPUTS/traj_msd_20ps_500frames_wrap.xtc --topo 00-INPUTS/new_topo.tpr --nojump 0
+
+	*** Creating a trajectory from...
+	00-INPUTS/traj_msd_20ps_500frames_wrap.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 2.131157 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	00-INPUTS/new_topo.tpr
+	Number of frames: 501
+	TIME(Adding topology): 0.115647 seconds
+	*** End Adding topology
+
+	Number of frames: 501
+	TIME(Read_Trajectories): 2.247248 seconds
+	*** End Creating a trajectory 
+
+		 The original trajectory is not unwrapped and/or jumps are not corrected.
+		 Nojump option: False. Provided trajectory is wrapped.
+		  
+
+
+	Writing trajectory... traj_msd_20ps_500frames_wrap_nojump.xtc
+	Frame         0 of       501	time: 0.001529 seconds
+	Frame       100 of       501	time: 0.268363 seconds
+	Frame       200 of       501	time: 0.494755 seconds
+	Frame       300 of       501	time: 0.737108 seconds
+	Frame       400 of       501	time: 1.001452 seconds
+	Frame       500 of       501	time: 1.240777 seconds
+	*** Creating a trajectory from...
+	traj_msd_20ps_500frames_wrap_nojump.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 1.829644 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	00-INPUTS/new_topo.tpr
+	Number of frames: 501
+	TIME(Adding topology): 0.116319 seconds
+	*** End Adding topology
+
+	Number of frames: 501
+	TIME(Read_Trajectories): 1.946532 seconds
+	*** End Creating a trajectory 
+
+		 ****************************************************************************
+		 Calculating MSD for 12060 atoms/particles in 501 frames (msd_fft3_fast).
+		 ****************************************************************************
+
+		 pos.dat file is already present in the working directory.
+		 Running MSD for 12060 atoms/particles in 501 frames (msd_fft3_fast).
+
+		 MSD fftw3 time: 4.82 seconds
+
+		Job  Done at 04-04-2025 09:54:04 ============
+

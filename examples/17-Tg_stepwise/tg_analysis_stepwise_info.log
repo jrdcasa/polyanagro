@@ -1,0 +1,85 @@
+
+    ***********************************************************************
+                    Glass Transtion Temperature Analysis 
+              ----------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an 
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 04-07-2024 17:25:47 ============
+
+		Command line: 
+			python tg_analysis.py stepwise -d EDRs
+			         or
+			energy_analysis stepwise -d EDRs
+
+		Reading energy data from: 
+			EDRs/00005_030.part0001.edr
+			EDRs/00005_029.part0001.edr
+			EDRs/00005_028.part0001.edr
+			EDRs/00005_027.part0001.edr
+			EDRs/00005_026.part0001.edr
+			EDRs/00005_025.part0001.edr
+			EDRs/00005_024.part0001.edr
+			EDRs/00005_023.part0001.edr
+			EDRs/00005_022.part0001.edr
+			EDRs/00005_021.part0001.edr
+			EDRs/00005_020.part0001.edr
+			EDRs/00005_019.part0001.edr
+			EDRs/00005_018.part0001.edr
+			EDRs/00005_017.part0001.edr
+			EDRs/00005_016.part0001.edr
+			EDRs/00005_015.part0001.edr
+			EDRs/00005_014.part0001.edr
+			EDRs/00005_013.part0001.edr
+			EDRs/00005_012.part0001.edr
+			EDRs/00005_011.part0001.edr
+			EDRs/00005_010.part0001.edr
+			EDRs/00005_009.part0001.edr
+			EDRs/00005_008.part0001.edr
+			EDRs/00005_007.part0001.edr
+			EDRs/00005_006.part0001.edr
+			EDRs/00005_005.part0001.edr
+			EDRs/00005_004.part0001.edr
+			EDRs/00005_003.part0001.edr
+			EDRs/00005_002.part0001.edr
+			EDRs/00005_001.part0001.edr
+			EDRs/00005_000.part0001.edr
+
+		**** ENERGY INFO ****
+		  Number of points in energy files   : 31
+		  Original trajectory from 2020.0 (ps) to 122020.0 (ps).
+		  Timestep 4000.0 (ps).
+		**** End ENERGY INFO ****
+
+		**** TERMS DENSITY and TEMPERATURE PRESENT IN THE ENERGY FILE ****
+		Density
+		Temperature
+		**** END TERMS DENSITY and TEMPERATURE PRESENT IN THE ENERGY FILE ****
+
+		**** GLASS TRANSITION FITTING INFO ****
+		Starting analysis for current dataset.
+		Tg from initial fit (in K): 327.9
+		Normed residual (smaller is better):   0.000058
+		Convergence parameter set to: 90.0%
+		Dataset not rejected
+		Estimated Tg (in K): 327.87
+		Standard Error:  2.06
+		Rejected: 0
+		**** END GLASS TRANSITION FITTING INFO ****
+
+		Job  Done at 04-07-2024 17:25:50 ============
+

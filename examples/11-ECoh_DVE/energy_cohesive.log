@@ -1,0 +1,128 @@
+
+    ***********************************************************************
+                  Calculate the cohesive energy using GROMACS
+        -------------------------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 15-01-2024 22:32:01 ============
+
+		Command line: 
+			python energy_cohesive.py --traj trj_0000_0001ns_0100ps.xtc trj_0001_0002ns_0100ps.xtc --gmxfullpath /usr/bin/gmx --tpr new_topo_122.tpr --topo ff/polymer.top --fraction_trj_avg 0.25
+			         or
+			energy_cohesive.py --traj trj_0000_0001ns_0100ps.xtc trj_0001_0002ns_0100ps.xtc --gmxfullpath /usr/bin/gmx --tpr new_topo_122.tpr --topo ff/polymer.top --fraction_trj_avg 0.25
+
+		Starting at 15-01-2024 22:32:01 ============
+
+		 Working directory: /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/examples/11-ECoh_DVE
+
+	*** Creating a trajectory from...
+	trj_0000_0001ns_0100ps.xtc
+	trj_0001_0002ns_0100ps.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 23.657588 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	new_topo_122.tpr
+	Number of frames: 21
+	TIME(Adding topology): 3.481758 seconds
+	*** End Adding topology
+
+	Number of frames: 21
+	TIME(Read_Trajectories): 27.140772 seconds
+	*** End Creating a trajectory 
+
+	*** Molecular weigth...
+
+	Average Molecular Weigth (g/mol) : 3155.78
+	Total Molecular Mass (g/mol) : 189346.80
+
+		 Reading the tpr file (new_topo_122.tpr)
+
+		 Number of different kind of molecules: defaultdict(None, {'"polymer"': 428})
+
+		 Creating index file (index.ndx)
+
+		 Calculating intramolecular potential energy of the isolated chains. (15-01-2024 22:32:28)
+			 Join trajectories to trj_full.xtc. (15-01-2024 22:32:28)
+			 Calculating energy for molecule 1 of 60. (15-01-2024 22:32:28)
+			 Calculating energy for molecule 2 of 60. (15-01-2024 22:32:30)
+			 Calculating energy for molecule 3 of 60. (15-01-2024 22:32:31)
+			 Calculating energy for molecule 4 of 60. (15-01-2024 22:32:32)
+			 Calculating energy for molecule 5 of 60. (15-01-2024 22:32:32)
+			 Calculating energy for molecule 6 of 60. (15-01-2024 22:32:33)
+			 Calculating energy for molecule 7 of 60. (15-01-2024 22:32:34)
+			 Calculating energy for molecule 8 of 60. (15-01-2024 22:32:35)
+			 Calculating energy for molecule 9 of 60. (15-01-2024 22:32:36)
+			 Calculating energy for molecule 10 of 60. (15-01-2024 22:32:37)
+			 Calculating energy for molecule 11 of 60. (15-01-2024 22:32:38)
+			 Calculating energy for molecule 12 of 60. (15-01-2024 22:32:39)
+			 Calculating energy for molecule 13 of 60. (15-01-2024 22:32:40)
+			 Calculating energy for molecule 14 of 60. (15-01-2024 22:32:41)
+			 Calculating energy for molecule 15 of 60. (15-01-2024 22:32:42)
+			 Calculating energy for molecule 16 of 60. (15-01-2024 22:32:43)
+			 Calculating energy for molecule 17 of 60. (15-01-2024 22:32:44)
+			 Calculating energy for molecule 18 of 60. (15-01-2024 22:32:45)
+			 Calculating energy for molecule 19 of 60. (15-01-2024 22:32:46)
+			 Calculating energy for molecule 20 of 60. (15-01-2024 22:32:47)
+			 Calculating energy for molecule 21 of 60. (15-01-2024 22:32:48)
+			 Calculating energy for molecule 22 of 60. (15-01-2024 22:32:49)
+			 Calculating energy for molecule 23 of 60. (15-01-2024 22:32:50)
+			 Calculating energy for molecule 24 of 60. (15-01-2024 22:32:51)
+			 Calculating energy for molecule 25 of 60. (15-01-2024 22:32:52)
+			 Calculating energy for molecule 26 of 60. (15-01-2024 22:32:52)
+			 Calculating energy for molecule 27 of 60. (15-01-2024 22:32:53)
+			 Calculating energy for molecule 28 of 60. (15-01-2024 22:32:54)
+			 Calculating energy for molecule 29 of 60. (15-01-2024 22:32:55)
+			 Calculating energy for molecule 30 of 60. (15-01-2024 22:32:56)
+			 Calculating energy for molecule 31 of 60. (15-01-2024 22:32:57)
+			 Calculating energy for molecule 32 of 60. (15-01-2024 22:32:58)
+			 Calculating energy for molecule 33 of 60. (15-01-2024 22:32:59)
+			 Calculating energy for molecule 34 of 60. (15-01-2024 22:33:00)
+			 Calculating energy for molecule 35 of 60. (15-01-2024 22:33:01)
+			 Calculating energy for molecule 36 of 60. (15-01-2024 22:33:01)
+			 Calculating energy for molecule 37 of 60. (15-01-2024 22:33:02)
+			 Calculating energy for molecule 38 of 60. (15-01-2024 22:33:03)
+			 Calculating energy for molecule 39 of 60. (15-01-2024 22:33:04)
+			 Calculating energy for molecule 40 of 60. (15-01-2024 22:33:05)
+			 Calculating energy for molecule 41 of 60. (15-01-2024 22:33:06)
+			 Calculating energy for molecule 42 of 60. (15-01-2024 22:33:07)
+			 Calculating energy for molecule 43 of 60. (15-01-2024 22:33:08)
+			 Calculating energy for molecule 44 of 60. (15-01-2024 22:33:09)
+			 Calculating energy for molecule 45 of 60. (15-01-2024 22:33:09)
+			 Calculating energy for molecule 46 of 60. (15-01-2024 22:33:10)
+			 Calculating energy for molecule 47 of 60. (15-01-2024 22:33:11)
+			 Calculating energy for molecule 48 of 60. (15-01-2024 22:33:12)
+			 Calculating energy for molecule 49 of 60. (15-01-2024 22:33:13)
+			 Calculating energy for molecule 50 of 60. (15-01-2024 22:33:14)
+			 Calculating energy for molecule 51 of 60. (15-01-2024 22:33:15)
+			 Calculating energy for molecule 52 of 60. (15-01-2024 22:33:16)
+			 Calculating energy for molecule 53 of 60. (15-01-2024 22:33:17)
+			 Calculating energy for molecule 54 of 60. (15-01-2024 22:33:18)
+			 Calculating energy for molecule 55 of 60. (15-01-2024 22:33:19)
+			 Calculating energy for molecule 56 of 60. (15-01-2024 22:33:20)
+			 Calculating energy for molecule 57 of 60. (15-01-2024 22:33:21)
+			 Calculating energy for molecule 58 of 60. (15-01-2024 22:33:22)
+			 Calculating energy for molecule 59 of 60. (15-01-2024 22:33:22)
+			 Calculating energy for molecule 60 of 60. (15-01-2024 22:33:23)
+		 Calculating potential energy of the full system. (15-01-2024 22:33:24)
+
+		 Number of rows to average: from 5 to 21
+		 From 500.0 to 2000.0 ps

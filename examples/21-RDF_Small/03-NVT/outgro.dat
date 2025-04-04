@@ -1,0 +1,70 @@
+                       :-) GROMACS - gmx grompp, 2024 (-:
+
+Executable:   /opt/gromacs/gromacs-2024_x/bin/gmx
+Data prefix:  /opt/gromacs/gromacs-2024_x
+Working dir:  /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/examples/21-RDF_Small/03-NVT
+Command line:
+  gmx grompp -f NPT.mdp -p ../02-RP_OPLS/PVLMon_residues_replicate.top -c ../02-RP_OPLS/PVLMon_residues_replicate.gro -o new_topo.tpr --maxwarn 5
+
+Ignoring obsolete mdp entry 'ns_type'
+Number of degrees of freedom in T-Coupling group System is 407.00
+
+NOTE 1 [file NPT.mdp]:
+  The optimal PME mesh load for parallel simulations is below 0.5
+  and for highly parallel simulations between 0.25 and 0.33,
+  for higher performance, increase the cut-off and the PME grid spacing.
+
+
+
+There was 1 NOTE
+
+GROMACS reminds you: "Time is the best appraiser of scientific work, and I am aware that an industrial discovery rarely produces all its fruit in the hands of its first inventor." (Louis Pasteur)
+
+Setting the LD random seed to -9569813
+
+Generated 45 of the 45 non-bonded parameter combinations
+
+Excluding 3 bonded neighbours molecule type 'PVA'
+
+turning H bonds into constraints...
+
+Excluding 3 bonded neighbours molecule type 'PVA'
+
+Excluding 3 bonded neighbours molecule type 'PVA'
+
+Excluding 3 bonded neighbours molecule type 'PVA'
+
+Excluding 3 bonded neighbours molecule type 'PVA'
+
+Excluding 3 bonded neighbours molecule type 'PVA'
+
+Excluding 3 bonded neighbours molecule type 'PVA'
+
+Excluding 3 bonded neighbours molecule type 'PVA'
+
+Excluding 3 bonded neighbours molecule type 'PVA'
+
+Excluding 3 bonded neighbours molecule type 'PVA'
+
+Setting gen_seed to -830607507
+
+Velocities were taken from a Maxwell distribution at 500 K
+Analysing residue names:
+There are:    10      Other residues
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+
+The largest distance between excluded atoms is 0.391 nm between atom 6 and 15
+
+Determining Verlet buffer for a tolerance of 1e-06 kJ/mol/ps at 500 K
+
+Calculated rlist for 1x1 atom pair-list as 1.299 nm, buffer size 0.599 nm
+
+Set rlist, assuming 4x4 atom pair-list, to 1.210 nm, buffer size 0.510 nm
+
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 24x24x24, spacing 0.109 0.109 0.109
+
+Estimate for the relative computational load of the PME mesh part: 0.74
+
+This run will generate roughly 0 Mb of data

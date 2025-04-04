@@ -1,0 +1,66 @@
+
+    ***********************************************************************
+                     Manipulate topology for polymers
+              ----------------------------------------------
+
+                                Version 1.0
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        Topology is an open-source python library to quickly modify topology 
+        of polymer molecules
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+
+		Command line: 
+			python topology_cmd -i C150_1fold_initial_new.pdb -p C150_1fold -r C150_1fold_headtail.dat -a C150_1fold_residues.dat
+			         or
+			topology_cmd -i C150_1fold_initial_new.pdb -p C150_1fold -r C150_1fold_headtail.dat -a C150_1fold_residues.dat
+
+		Starting: 	 07-03-2023 11:34:52
+
+		Input is a PDB format.
+		Reading... (07-03-2023 11:34:52)
+		End read   (07-03-2023 11:34:53)
+
+		Summarize of the input system (07-03-2023 11:34:53)
+		=======================================================
+		Input file                : /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/examples/10-Distribution_C150_onefolded_2x1x1/01-PREPARE/C150_1fold_initial_new.pdb
+		Number of molecules       : 1
+		Number of residues        : 1
+		Number of atoms           : 452
+		Number of bonds           : 451
+		Bond info available       : True
+		Simulation box dimension  : 0.0000 0.0000 0.0000 nm
+		Simulation box angles     : 0.00 0.00 0.00 degrees
+		=======================================================
+
+		****** WRITE PDB and PSF files (07-03-2023 11:34:53) ****** 
+		 Writing PDB file...C150_1fold.pdb (07-03-2023 11:34:53)
+		****** END WRITE PDB and PSF files (07-03-2023 11:34:53) ****** 
+
+		****** RENUMBERING AND ASSIGN RESIDUES PDB and PSF files (07-03-2023 11:34:53) ****** 
+		 Renumbering PDB file... C150_1fold.pdb (07-03-2023 11:34:53)
+		 Head-Tail info from ... C150_1fold_headtail.dat (07-03-2023 11:34:53)
+		 Write renumbered file ... C150_1fold_residues.pdb (07-03-2023 11:34:53)
+		 Writing PSF file...C150_1fold_residues.psf (07-03-2023 11:34:53)
+
+		****** END RENUMBERING PDB and PSF files (07-03-2023 11:34:53) ****** 
+
+		****** SUMMARY (07-03-2023 11:34:53) ****** 
+		 PDB file: C150_1fold_residues.pdb
+		 GRO file: C150_1fold_residues.gro
+		 PSF file: C150_1fold_residues.psf
+		****** END SUMMARY (07-03-2023 11:34:53) ****** 
+
+		Job  Done at 07-03-2023 11:34:53 ============
+
+		Total time: 0.29 seconds

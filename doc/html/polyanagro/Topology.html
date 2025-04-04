@@ -1,0 +1,2413 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.8.4" />
+<title>polyanagro.Topology API documentation</title>
+<meta name="description" content="This is a derived class of MolecularGraph. It specializes the molecular graph to a topology." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>polyanagro.Topology</code></h1>
+</header>
+<section id="section-intro">
+<p>This is a derived class of MolecularGraph. It specializes the molecular graph to a topology.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+This is a derived class of MolecularGraph. It specializes the molecular graph to a topology.
+&#34;&#34;&#34;
+import polyanagro as pag
+import numpy as np
+import MDAnalysis
+import datetime
+
+&#34;&#34;&#34;
+Reference 2:    &#34;Automatic Perception of Organic Molecules Based on Essential Structural Information&#34;
+                 Yuan Zhao, Tiejun Cheng, and Renxiao Wang*
+                 J. Chem. Inf. Model. 2007, 47, 1379-1385
+
+Reference 3:    &#34;A New Algorithm for Exhaustive Ring Perception in a Molecular Graph&#34;
+                Th. Hanser, Ph. Jauffret, and G. Kaufmann
+                J. Chem. Inf. Comput. Sci. 1996, 36, 1146-1152
+&#34;&#34;&#34;
+
+class Topology(pag.MolecularGraph):
+
+    __slots__ = [&#39;_orderbonds&#39;, &#39;_nringsCauchy&#39;, &#39;_elements&#39;, &#39;_charge&#39;, &#39;_mass&#39;, &#39;_topologyfile&#39;, &#34;logger&#34;]
+
+    # #########################################################################
+    def __init__(self, natoms=-1, listbonds = None, undirected=True, logger=None):
+
+        &#34;&#34;&#34;
+        Topology constructor, Topology objects rarely are direcly build by users.
+        Segment class initializes the Topology of the system
+
+        Parameters:
+            * ``natoms`` (integer , default = -1):  Number of atoms in the topology
+            * ``listbonds`` (list, default = None): List of bonds betweem atoms
+            * ``undirected`` (boolean, default = True): False for directed graph or True for undirected graph.
+            (see warning in `polyanagro.MolecularGraph.MolecularGraph`)
+            * ``logger`` (Logger instance): Log the results
+
+        Attributes:
+            * ``self._orderbonds`` --&gt; A numpy array (natomsxnatoms) to set up the bond order between two atoms
+            * ``self._elements`` --&gt; A list
+            * ``self._charge`` --&gt; Atomic charge list
+            * ``self._mass`` --&gt; Atomic mass list
+            * ``self._nringsCauchy`` --&gt;
+            * ``self._topologyfile`` --&gt; Topology file
+            * ``self.logger`` (Logger instance): Log the results
+
+            Examples
+            ----------
+        &gt;&gt;&gt; self._topology = Topology(natoms=4, listbonds=[(0,1), (2,3)])
+
+        .. image:: ../../figures/topo01_test06.png
+
+
+        &#34;&#34;&#34;
+
+        super().__init__(nvert=natoms, listbonds=listbonds, undirected=undirected)
+
+        if not logger is None:
+            self.logger = logger
+        else:
+            self.logger = None
+
+        self._orderbonds = np.zeros([self._natoms, self._natoms], dtype=float)
+        self._elements = []
+        self._charge = []
+        self._mass = []
+        self._nringsCauchy = 0
+        self._topologyfile = &#34;&#34;
+
+    # #########################################################################
+    def __copy__(self):
+
+        t = Topology()
+        t._natoms = self._natoms
+        t._nringsCauchy = self._nringsCauchy
+        t._undirected = self._undirected
+        t._bonds = self._bonds[:]
+        t._cycles = self._cycles[:]
+        t._nmols = self._nmols[:]
+        t._graphdict = self._graphdict.copy()
+        t._orderbonds = self._orderbonds.copy()
+
+        t._mass = self._mass[:]
+        t._elements = self._elements[:]
+        t._charge = self._charge[:]
+        t._topologyfile = self._topologyfile
+        t.logger = self.logger
+
+        return t
+
+    # #########################################################################
+    def __eq__(self, other):
+
+        &#34;&#34;&#34;
+        Overrides equal method
+
+        ``Parameters``:
+            * **other** (type: Topology) --&gt;
+        &#34;&#34;&#34;
+
+        if other is None:
+            return None
+
+        res = True
+        # Get both attributtes from the super and sub clasess because the use of __slots__
+        keys = super().__slots__+self.__slots__
+        for key in keys:
+
+            #print(key, &#34;self.&#34;+key)
+            #print(getattr(self,key))
+
+            if isinstance(getattr(self,key), np.ndarray):
+                par = np.array_equal(getattr(self,key), getattr(other,key))
+                res = res and par
+            elif isinstance(getattr(self,key), Topology):
+                par = self.__dict__[key] == other.__dict__[key]
+                res = res and par
+            elif key == &#34;_bonds&#34;:
+                l1 = getattr(self,key)
+                l2 = getattr(other,key)
+                for item in l1:
+                    par = item in l2
+                    res = res and par
+            else:
+                par = getattr(self,key) == getattr(other,key)
+                res = res and par
+
+        return res
+
+    # #########################################################################
+    def guess_bonds_topology(self, coords, elements):
+
+        &#34;&#34;&#34;
+        Given a set of coordinate atoms, it guess if a bond exists between two atoms
+
+        Parameters:
+            * ``coords`` (ndarray-float64 (natoms, 3)): Coordinates of the atoms to create bonds
+            * ``elements`` (ndarray-string (natoms)): Element for each atom
+
+        Return:
+            * ``None``
+
+        &#34;&#34;&#34;
+
+        natoms = self._natoms
+
+        if np.shape(coords)[0] != natoms:
+            raise ValueError(&#39;Coord must have same natoms rows. Natoms: {0:d}, Coords: {1:d}&#39;
+                             .format(natoms, np.shape(coords)[0]))
+        if np.shape(elements)[0] != natoms:
+            raise ValueError(&#39;Element must have same natoms rows. Natoms: {0:d}, Elements: {1:d}&#39;
+                             .format(natoms, np.shape(elements)[0]))
+
+        # Calculate the atom distance matrix
+        dist, tmp1, tmp2, tmp3 = pag.distance_array(coords, coords)
+        # Set up the connectivity of the molecule
+        self.detect_connectivity(dist, elements)
+
+        # Elements
+        self._elements = elements.tolist()
+
+        for iatom in range(natoms):
+            e = self._elements[iatom]
+            self._charge.append(0.0)
+            m = pag.atomic_data.atomic_mass[e]
+            self._mass.append(m)
+
+        # Cauchy formula to detect the number of rings in the molecule
+        nsegments = len(self.get_forest())
+        nbonds = len(self.get_allbonds())
+        self._nringsCauchy = nbonds - self._natoms + nsegments
+        self.perception_rings()
+
+    # #########################################################################
+    def guess_nringsCauchy(self):
+        &#34;&#34;&#34;
+        Cauchy formula to detect the number of rings in the molecule
+
+        Parameters:
+            * ``None``
+
+        Return:
+            * ``Number of Cauchy rings``
+        &#34;&#34;&#34;
+
+        nsegments = len(self.get_forest())
+        nbonds = len(self.get_allbonds())
+        self._nringsCauchy = nbonds - self._natoms + nsegments
+        return self._nringsCauchy
+
+    # #########################################################################
+    def get_bonds_topologyCONNECTPDB(self, filenamePDB, assign_bo=False):
+
+        &#34;&#34;&#34;
+        Get the bonds from the PDB CONECT records
+
+        Parameters:
+            * ``filenamePDB`` (string): The name of a PDB file containing CONECT records
+            * ``assign_bo`` (boolean): If True the bonds are assigned
+
+        Return:
+            * ``None``
+
+        Example
+        -------
+        Topoogy molecule n-hexane
+
+        &gt;&gt;&gt; t = Topology()
+        ... fnamePDB = &#34;../data/n-hexane.pdb&#34;
+        ... t.get_bonds_topologyCONNECTPDB(filenamePDB=fnamePDB, assign_bo=True)
+        ... t.draw_graph_networkx(title=&#34;graphs/topo01_test08&#34;)
+
+        .. image:: ../../figures/topo01_test08.png
+
+        &#34;&#34;&#34;
+
+        msg =&#34;\n\tBuilding bonds from PDB topology...\n&#34;
+        if assign_bo:
+            msg += &#34;\tSetting bond orders: TRUE&#34;
+        else:
+            msg += &#34;\tSetting bond orders: FALSE&#34;
+        print(msg) if self.logger is None else self.logger.info(msg)
+        start_time = datetime.datetime.now()
+
+        # NATOMS
+        with open(filenamePDB,&#39;r&#39;) as filePDB:
+
+            filePDB.seek(0)
+            self._topologyfile = filePDB
+
+            natoms = 0
+            while True:
+                iline = filePDB.readline()
+                if not iline:
+                    break
+                elif iline.find(&#34;ATOM&#34;) != -1 or iline.find(&#34;HETATM&#34;) != -1:
+                    natoms += 1
+                    e = iline[76:78].replace(&#34; &#34;, &#34;&#34;)
+                    self._elements.append(e)
+                    self._charge.append(0.0)
+                    m = pag.atomic_data.atomic_mass[e]
+                    self._mass.append(m)
+
+            for ivert in range(natoms):
+                self.add_vertex(ivert)
+
+            self._orderbonds = np.zeros([self._natoms, self._natoms], dtype=float)
+
+        # NBONDS
+        nbonds = 0
+        isthereconnect = False
+        with open(filenamePDB, &#39;r&#39;) as filePDB:
+            # Go to the begin of the file
+            filePDB.seek(0)
+
+            for line in filePDB:
+                if not line.startswith(&#39;CONECT&#39;):
+                    continue
+                else:
+                    isthereconnect = True
+                # The lines containing only CONNECT label are not take into account
+                # CONNECT (without numbers)
+                if line.split()[1]:
+                    iatom = int(line.split()[1])
+                    for jatom in line.split()[2:]:
+                        self.add_edge([iatom-1, int(jatom)-1])
+                        self._orderbonds[iatom-1, int(jatom)-1] = 0
+                        self._orderbonds[int(jatom)-1, iatom-1] = 0
+
+        self._set_forest()
+        if assign_bo:
+            self.assign_bond_orders()
+        self.guess_nringsCauchy()
+
+        end_time = datetime.datetime.now()
+        elapsed_time = end_time - start_time
+        msg = &#34;\tTIME(Building_bonds_from_PDB_topology): {0:s} seconds&#34;.format(str(elapsed_time.total_seconds()))
+        print(msg) if self.logger is None else self.logger.info(msg)
+
+
+    # #########################################################################
+    def detect_connectivity(self, distances, elements, test_max_valence=True):
+
+        &#34;&#34;&#34;
+        Identification of bonded atoms using the method proposed in Reference 1
+        based on the distances of atoms
+
+        Reference 1:    &#34;A rule-based algorithm for automatic bond type perception&#34;
+                Qian Zhang, Wei Zhang, Youyong Li, Junmei Wang, Liling Zhang and Tingjun Hou
+                Journal of Cheminformatics 2012, 4:26
+                https://jcheminf.biomedcentral.com/articles/10.1186/1758-2946-4-26
+
+        Parameters:
+            * ``distances`` (ndarray (float64, float64)): Symmetric matrix of distances between atoms
+            * ``elements`` (ndarray (str)) : Array of the name of elements
+            * ``test_max_valence`` (boolean) : Make the test of maximum valence for each atom in the system
+
+        Return:
+            * ``None``
+
+
+        &#34;&#34;&#34;
+        isbonded = lambda dij,ri, rj : 0.8 &lt; dij &lt; ri+rj+0.4
+
+        for iatom in range(self._natoms):
+            for jatom in range(iatom+1, self._natoms):
+                d  = distances[iatom, jatom]
+                r1 = pag.element_cov_radius[elements[iatom]]
+                r2 = pag.element_cov_radius[elements[jatom]]
+                if isbonded(d, r1, r2):
+                    self.add_edge([iatom, jatom])
+                    self._orderbonds[iatom, jatom] = 0
+                    self._orderbonds[jatom, iatom] = 0
+
+        if test_max_valence:
+            self.check_atom_max_valence(distances, elements)
+
+    # #########################################################################
+    def check_atom_max_valence(self, distances, elements):
+
+        &#34;&#34;&#34;
+        Check number of covalently connected neighbors.
+        If the number of neighbors is greater that the value given in maximal valence dictionary
+        (`polyanagro.atomic_data.maximal_valences`),
+        then remove the edges with the longest distances until match the maximum valence of the atom.
+
+        Parameters:
+            * ``distances`` (ndarray (float64, float64)) : Symmetric matrix of distances between atoms
+            * ``elements`` (ndarray (str)): Array of the name of elements
+
+        Return:
+            * ``None``
+
+        &#34;&#34;&#34;
+        for iatom in range(0, self._natoms):
+            e = elements[iatom]
+            if e in pag.maximal_valences.keys():
+                neigh =  self.get_neighbours(iatom)
+                n_neigh = len(neigh)
+
+                # For each neighbour
+                while n_neigh &gt; pag.maximal_valences[e]:
+                    neigh =  self.get_neighbours(iatom)
+                    max_dist = 0.0
+                    iatom_max = -1
+                    jatom_max = -1
+                    for jatom in neigh:
+                        dij = distances[iatom, jatom]
+                        if dij &gt; max_dist:
+                            max_dist = dij
+                            iatom_max = iatom
+                            jatom_max = jatom
+                    self.remove_edge([iatom_max, jatom_max])
+                    n_neigh -= 1
+
+    # #########################################################################
+    def get_bonds_topologyPSF(self, filenamePSF, assign_bo=False):
+
+        &#34;&#34;&#34;
+        Get the bonds using a PSF file for the topology
+
+        Parameters:
+            * ``filenamePSF`` (string) : The name of a PSF file
+                (https://www.ks.uiuc.edu/Training/Tutorials/namd/namd-tutorial-unix-html/node23.html)
+            * ``assign_bo`` (boolean): If True the bonds are assigned
+
+        Return
+        ------
+            * ``None``
+
+        Example
+        -------
+        Topoogy 3 chains SCB polymers
+
+        &gt;&gt;&gt; filepsf = &#34;../data/0003Ch-C020-002br04/namd.psf&#34;
+        ... t = Topology()
+        ... t.get_bonds_topologyPSF(filepsf)
+
+        &#34;&#34;&#34;
+
+        msg =&#34;\n\tBuilding bonds from PSF topology... \n&#34;
+        if assign_bo:
+            msg += &#34;\tSetting bond orders: TRUE&#34;
+        else:
+            msg += &#34;\tSetting bond orders: FALSE&#34;
+        print(msg) if self.logger is None else self.logger.info(msg)
+        start_time = datetime.datetime.now()
+
+        self._topologyfile = filenamePSF
+
+        # NATOMS
+        with open(filenamePSF, &#39;r&#39;) as filePSF:
+            # Go to the begin of the file
+            filePSF.seek(0)
+            while True:
+                iline = filePSF.readline()
+                if not iline:
+                    break
+                elif iline.find(&#39;!NATOM&#39;) != -1:
+                    natoms = int(iline.split()[0])
+                    for _ in range(natoms):
+                        iline = filePSF.readline()
+                        element = iline.split()[5]
+                        self._elements.append(element)
+                        self._charge.append(float(iline.split()[6]))
+                        self._mass.append(float(&#34;{0:.2f}&#34;.format(float(iline.split()[7]))))
+
+        for ivert in range(natoms):
+            self.add_vertex(ivert)
+
+        self._orderbonds = np.zeros([self._natoms, self._natoms], dtype=float)
+
+        # NBONDS
+        nbonds = 0
+        with open(filenamePSF, &#39;r&#39;) as filePSF:
+            # Go to the begin of the file
+            filePSF.seek(0)
+
+            while True:
+                iline = filePSF.readline()
+                if not iline:
+                    break
+                elif iline.find(&#39;!NBOND&#39;) != -1:
+                    nbonds = int(iline.split()[0])
+                    nlines = int(nbonds/4)
+                    rest = nbonds % 4
+                    if rest &gt; 0: nlines += 1
+                    for _ in range(nlines-1):
+                        atoms = filePSF.readline().split()
+                        for i in range(0,7,2):
+                            iat = int(atoms[i]) - 1
+                            jat = int(atoms[i+1]) - 1
+                            self.add_edge([iat, jat], setforest=False)
+                            self._orderbonds[iat, jat] = 0
+                            self._orderbonds[jat, iat] = 0
+                    atoms = filePSF.readline().split()
+                    for i in range(0, len(atoms), 2):
+                        iat = int(atoms[i]) - 1
+                        jat = int(atoms[i+1]) - 1
+                        self.add_edge([iat, jat], setforest=False)
+                        self._orderbonds[iat, jat] = 0
+                        self._orderbonds[jat, iat] = 0
+
+        self._set_forest()
+        if assign_bo:
+            self.assign_bond_orders()
+        self.guess_nringsCauchy()
+
+        end_time = datetime.datetime.now()
+        elapsed_time = end_time - start_time
+        msg = &#34;\tTIME(Building_bonds_from_PSF_topology): {0:s} seconds&#34;.format(str(elapsed_time.total_seconds()))
+        print(msg) if self.logger is None else self.logger.info(msg)
+
+
+    # #########################################################################
+    def get_bonds_topologyMDAnalysis(self, filenameTopo, filecoord=None, assign_bo=False):
+
+        &#34;&#34;&#34;
+        Get the bonds using the python package MDAnalysis (https://www.mdanalysis.org/)
+
+        Parameters:
+            * ``filenameTopo`` (string): The name of a topology format available in MDAnalysis
+                (https://userguide.mdanalysis.org/1.0.0/formats/format_reference.html)
+            * ``filecoord`` (string) : The name of a file containing compatible coordinates in MDAnalysis
+            * ``assign_bo`` (boolean): If True the bonds are assigned
+
+        Return:
+            * ``None``
+
+        Example
+        -------
+        Topoogy 3 chains SCB polymers
+
+        &gt;&gt;&gt; filename_tpr = &#34;../data/0003Ch-C020-002br04/RUN-001/topol.tpr&#34;
+        ... top = Topology()
+        ... top.get_bonds_topologyMDAnalysis(filename_tpr, assign_bo=False)
+        ... top.draw_graph_pygraphviz(title=&#34;graphs/topo01_test09&#34;)
+
+        .. image:: ../../figures/topo01_test09.png
+
+        &#34;&#34;&#34;
+
+        msg =&#34;\n\tBuilding bonds from topology... \n&#34;
+        if assign_bo:
+            msg += &#34;\tSetting bond orders: TRUE&#34;
+        else:
+            msg += &#34;\tSetting bond orders: FALSE&#34;
+        print(msg) if self.logger is None else self.logger.info(msg)
+        start_time = datetime.datetime.now()
+
+        if filecoord is None:
+            u = MDAnalysis.Universe(filenameTopo)
+        else:
+            u = MDAnalysis.Universe(filenameTopo, filecoord)
+        self._topologyfile = filenameTopo
+
+        # NATOMS
+        for iatom in u.atoms:
+            self.add_vertex(iatom.index)
+            self._charge.append(iatom.charge)
+            # This is for united atoms
+            element = iatom.type
+            mass = float(&#34;{0:.2f}&#34;.format(iatom.mass))
+            self._elements.append(element)
+            self._mass.append(mass)
+
+        # NBONDS
+        self._orderbonds = np.zeros([self._natoms, self._natoms], dtype=float)
+        for ibond in u.bonds:
+            iat = ibond[0].index
+            jat = ibond[1].index
+            self.add_edge([iat, jat], setforest=False)
+            self._orderbonds[iat, jat] = 0
+            self._orderbonds[jat, iat] = 0
+
+        self._set_forest()
+        if assign_bo:
+            self.assign_bond_orders()
+        self.guess_nringsCauchy()
+        del u
+
+        end_time = datetime.datetime.now()
+        elapsed_time = end_time - start_time
+        msg = &#34;\tTIME(Building_bonds_from_topology): {0:s} seconds&#34;.format(str(elapsed_time.total_seconds()))
+        print(msg) if self.logger is None else self.logger.info(msg)
+
+
+    # #########################################################################
+    def assign_bond_orders(self):
+
+        &#34;&#34;&#34;
+        This method assigns bond orders to the bonds according to the algorithm reported in
+        &#34;Automated simultaneous assignment of bond orders and formal charges&#34;
+        Ivan D. Welsh and Jane R. Allison
+        J. Cheminform (2019) 11:18
+
+        https://doi.org/10.1186/s13321-019-0340-0
+
+        The function uses the external software **indigo-bondorders** (located in thirdparty/indigo-bondorder).
+        This code is compiled and installed in thirdparty/indigox
+
+        The structure to assign bonds needs to have all hydrogen bonds. Thus, united atom models do not work
+        with this function.
+
+        Parameters:
+            * ``None``
+
+        Return:
+            * ``None``
+
+        ..warning:: This only works with all-atom models, for united-atoms the order bond is not assigned correctly.
+
+        &#34;&#34;&#34;
+        try:
+            import indigox as ix
+        except ModuleNotFoundError:
+            print(&#34;Bond orders cannot be calculated. The indigox module is not installed.&#34;)
+            return None
+
+        # Periodic Table data from indigox
+        PT = ix.PeriodicTable()
+
+        iatom_aux = self._natoms + 1
+        for imol_atoms in self._nmols:
+
+            # Build a molecule in the indigox framework
+            mol = ix.Molecule()
+
+            # Prepare the bonds and atoms to calculate the order bond for each molecule
+            # in the topology
+            edges_aux = []
+            element_aux = {}
+            for iatom in imol_atoms:
+                e = self._elements[iatom]
+                if e in pag.united_atoms_equivalence:
+                    element_aux[iatom] = pag.united_atoms_equivalence[e][0]
+                else:
+                    element_aux[iatom] = e
+                    # If the element is not in the periodic table, try to get
+                    # the element by molecular mass.
+                    if PT[e] is None:
+                        m = float(&#34;{0:.2f}&#34;.format(self._mass[iatom]))
+                        e = list(pag.atomic_mass.keys())[list(pag.atomic_mass.values()).index(m)]
+                        if PT[e]:
+                            element_aux[iatom] = e
+                        else:
+                            msg = &#34;\n\tAtom {} is not an element.\n&#34;.format(e)
+                            msg += &#34;\tBond orders cannot be assigned.\n&#34;
+                            msg += &#34;\tThe molecular mass {} does not correspoind to element {}\n&#34;.format(m, e)
+                            print(msg) if self.logger is None else self.logger.warning(msg)
+                            return
+                for jatom in self._graphdict[iatom]:
+                    if not {iatom, jatom} in edges_aux:
+                        edges_aux.append({iatom, jatom})
+                if e in pag.united_atoms_equivalence:
+                    numH = pag.united_atoms_equivalence[e].count(&#39;H&#39;)
+                    for _ in range(numH):
+                        edges_aux.append({iatom,iatom_aux})
+                        element_aux[iatom_aux] = &#39;H&#39;
+                        iatom_aux += 1
+
+            # Total charge
+            charge = 0.0
+            for iat in imol_atoms:
+                charge += self._charge[iat]
+            mol.SetTotalCharge(int(charge))
+
+            # Add all atoms in a dictionary and get the bonds in the
+            # framework of indigox program
+            all_atoms = dict()
+            bonds_topo = edges_aux
+            for i, j in bonds_topo:
+                if not i in all_atoms:
+                    # Element of i
+                    try:
+                        e = element_aux[i]
+                    except IndexError:
+                        e = &#39;H&#39;
+                    all_atoms[i] = mol.NewAtom(PT[e])
+                    index = all_atoms[i].SetIndex(i)
+                    name = e+str(index)
+                    all_atoms[i].SetName(name)
+                if not j in all_atoms:
+                    # Element of j
+                    try:
+                        e = element_aux[j]
+                    except IndexError:
+                        e = &#39;H&#39;
+                    all_atoms[j] = mol.NewAtom(PT[e])
+                    index = all_atoms[j].SetIndex(j)
+                    name = e+str(index)
+                    all_atoms[j].SetName(name)
+
+                mol.NewBond(all_atoms[i], all_atoms[j])
+
+            # Setup to use the FPT algorithm with single electrons without preplacing
+            # to calculate bond orders and formal charges
+            opts = ix.Options.AssignElectrons
+            opts.ALGORITHM = opts.Algorithm.FPT
+            opts.FPT.ADD_EDGES_TO_TD = False
+            opts.FPT.MINIMUM_PROPAGATION_DEPTH = 1
+            opts.USE_ELECTRON_PAIRS = False
+
+            # Calculate bond orders and formal charges.
+            # Count have the total number of resonance structures
+            nresonances = mol.AssignElectrons()
+            #print(&#34;{} resonace structure(s) calculated with a score of {}.&#34;.format(nresonances, mol.GetMinimumElectronAssignmentScore()))
+
+            # Sum all order bonds for the resonace structures.
+            for iresonance in range(nresonances):
+                mol.ApplyElectronAssignment(iresonance)
+
+                for ibond in mol.GetBonds():
+                    i = ibond.GetSourceAtom().GetIndex()
+                    j = ibond.GetTargetAtom().GetIndex()
+                    bo =  ibond.GetOrder()
+                    try:
+                        if bo == bo.SINGLE_BOND:
+                            self._orderbonds[i,j] += 1.0
+                            self._orderbonds[j,i] += 1.0
+                        elif bo == bo.DOUBLE_BOND:
+                            self._orderbonds[i,j] += 2.0
+                            self._orderbonds[j,i] += 2.0
+                        elif bo == bo.TRIPLE_BOND:
+                            self._orderbonds[i,j] += 3.0
+                            self._orderbonds[j,i] += 3.0
+                        else:
+                           msg = &#34;\n\t=================================================\n&#34;
+                           msg += &#34;\t! -&gt; Bond order cannot be assigned between {} and {} atoms\n&#34;.format(i,j)
+                           msg += &#34;\t{}\n&#34;.format(bo)
+                           msg += &#34;\t=================================================\n&#34;
+                           print(msg) if self.logger is None else self.logger.warning(msg)
+                    except IndexError:
+                        pass
+
+            # Correct for aromaticity. Check all bonds
+            bonds_topo = edges_aux
+            if nresonances != 0:
+                for i, j in bonds_topo:
+                    # Jump over the virtual bonds with H created for united atoms
+                    try:
+                        m = self._orderbonds[i,j] % nresonances
+                    except IndexError:
+                        continue
+                    if m != 0:
+                        self._orderbonds[i,j] = 1.5
+                        self._orderbonds[j,i] = 1.5
+                    else:
+                        self._orderbonds[i,j] /= nresonances
+                        self._orderbonds[j,i] /= nresonances
+
+        return None
+
+    # #########################################################################
+    def get_array_mols_neigh(self):
+
+        &#34;&#34;&#34;
+        Parameters:
+            * ``None``
+
+        Return:
+            * ``nmols_array``
+            * ``l_neigh_array``
+
+        Examples
+        --------
+
+        &gt;&gt;&gt; t = Topology(natoms=6, listbonds=[(0,1), (1,5), (1,6), (2,3)])
+
+        .. image:: ../../figures/topo02_test06.png
+
+        &gt;&gt;&gt; nmols_array, l_neigh_array = t.get_array_mols_neigh()
+        ... nmols_array = [[0, 1, 5], [2, 3, -1], [4, -1, -1]]
+        ... l_neigh_array = [[1, -1], [0, 5], [3, -1], [2, -1], [-1, -1], [1, -1]]
+
+       &#34;&#34;&#34;
+
+        nmols = self._nmols
+        # This padding is needed in the case of non-equal molecules.
+        nmols_array = pag.padding_list(nmols, fillval=-1)
+        nmols_array = np.array(nmols_array, dtype=np.int32)
+
+        # Array of neighbours for each atom
+        l_neigh = []
+        for item in self._graphdict.values():
+            l_neigh.append(item)
+        l_neigh_array = pag.padding_list(l_neigh,fillval=-1)
+        l_neigh_array = np.array(l_neigh_array, dtype=np.int32)
+
+        return nmols_array, l_neigh_array</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="polyanagro.Topology.Topology"><code class="flex name class">
+<span>class <span class="ident">Topology</span></span>
+<span>(</span><span>natoms=-1, listbonds=None, undirected=True, logger=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Topology constructor, Topology objects rarely are direcly build by users.
+Segment class initializes the Topology of the system</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>natoms</code> (integer , default = -1):
+Number of atoms in the topology</li>
+<li><code>listbonds</code> (list, default = None): List of bonds betweem atoms</li>
+<li><code>undirected</code> (boolean, default = True): False for directed graph or True for undirected graph.
+(see warning in <code><a title="polyanagro.MolecularGraph.MolecularGraph" href="MolecularGraph.html#polyanagro.MolecularGraph.MolecularGraph">MolecularGraph</a></code>)</li>
+<li><code>logger</code> (Logger instance): Log the results</li>
+</ul>
+<h2 id="attributes">Attributes</h2>
+<ul>
+<li><code>self._orderbonds</code> &ndash;&gt; A numpy array (natomsxnatoms) to set up the bond order between two atoms</li>
+<li><code>self._elements</code> &ndash;&gt; A list</li>
+<li><code>self._charge</code> &ndash;&gt; Atomic charge list</li>
+<li><code>self._mass</code> &ndash;&gt; Atomic mass list</li>
+<li><code>self._nringsCauchy</code> &ndash;&gt;</li>
+<li><code>self._topologyfile</code> &ndash;&gt; Topology file</li>
+<li><code>self.logger</code> (Logger instance): Log the results</li>
+</ul>
+<h2 id="examples">Examples</h2>
+<pre><code class="python">&gt;&gt;&gt; self._topology = Topology(natoms=4, listbonds=[(0,1), (2,3)])
+</code></pre>
+<p><img alt="" src="../../figures/topo01_test06.png"></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Topology(pag.MolecularGraph):
+
+    __slots__ = [&#39;_orderbonds&#39;, &#39;_nringsCauchy&#39;, &#39;_elements&#39;, &#39;_charge&#39;, &#39;_mass&#39;, &#39;_topologyfile&#39;, &#34;logger&#34;]
+
+    # #########################################################################
+    def __init__(self, natoms=-1, listbonds = None, undirected=True, logger=None):
+
+        &#34;&#34;&#34;
+        Topology constructor, Topology objects rarely are direcly build by users.
+        Segment class initializes the Topology of the system
+
+        Parameters:
+            * ``natoms`` (integer , default = -1):  Number of atoms in the topology
+            * ``listbonds`` (list, default = None): List of bonds betweem atoms
+            * ``undirected`` (boolean, default = True): False for directed graph or True for undirected graph.
+            (see warning in `polyanagro.MolecularGraph.MolecularGraph`)
+            * ``logger`` (Logger instance): Log the results
+
+        Attributes:
+            * ``self._orderbonds`` --&gt; A numpy array (natomsxnatoms) to set up the bond order between two atoms
+            * ``self._elements`` --&gt; A list
+            * ``self._charge`` --&gt; Atomic charge list
+            * ``self._mass`` --&gt; Atomic mass list
+            * ``self._nringsCauchy`` --&gt;
+            * ``self._topologyfile`` --&gt; Topology file
+            * ``self.logger`` (Logger instance): Log the results
+
+            Examples
+            ----------
+        &gt;&gt;&gt; self._topology = Topology(natoms=4, listbonds=[(0,1), (2,3)])
+
+        .. image:: ../../figures/topo01_test06.png
+
+
+        &#34;&#34;&#34;
+
+        super().__init__(nvert=natoms, listbonds=listbonds, undirected=undirected)
+
+        if not logger is None:
+            self.logger = logger
+        else:
+            self.logger = None
+
+        self._orderbonds = np.zeros([self._natoms, self._natoms], dtype=float)
+        self._elements = []
+        self._charge = []
+        self._mass = []
+        self._nringsCauchy = 0
+        self._topologyfile = &#34;&#34;
+
+    # #########################################################################
+    def __copy__(self):
+
+        t = Topology()
+        t._natoms = self._natoms
+        t._nringsCauchy = self._nringsCauchy
+        t._undirected = self._undirected
+        t._bonds = self._bonds[:]
+        t._cycles = self._cycles[:]
+        t._nmols = self._nmols[:]
+        t._graphdict = self._graphdict.copy()
+        t._orderbonds = self._orderbonds.copy()
+
+        t._mass = self._mass[:]
+        t._elements = self._elements[:]
+        t._charge = self._charge[:]
+        t._topologyfile = self._topologyfile
+        t.logger = self.logger
+
+        return t
+
+    # #########################################################################
+    def __eq__(self, other):
+
+        &#34;&#34;&#34;
+        Overrides equal method
+
+        ``Parameters``:
+            * **other** (type: Topology) --&gt;
+        &#34;&#34;&#34;
+
+        if other is None:
+            return None
+
+        res = True
+        # Get both attributtes from the super and sub clasess because the use of __slots__
+        keys = super().__slots__+self.__slots__
+        for key in keys:
+
+            #print(key, &#34;self.&#34;+key)
+            #print(getattr(self,key))
+
+            if isinstance(getattr(self,key), np.ndarray):
+                par = np.array_equal(getattr(self,key), getattr(other,key))
+                res = res and par
+            elif isinstance(getattr(self,key), Topology):
+                par = self.__dict__[key] == other.__dict__[key]
+                res = res and par
+            elif key == &#34;_bonds&#34;:
+                l1 = getattr(self,key)
+                l2 = getattr(other,key)
+                for item in l1:
+                    par = item in l2
+                    res = res and par
+            else:
+                par = getattr(self,key) == getattr(other,key)
+                res = res and par
+
+        return res
+
+    # #########################################################################
+    def guess_bonds_topology(self, coords, elements):
+
+        &#34;&#34;&#34;
+        Given a set of coordinate atoms, it guess if a bond exists between two atoms
+
+        Parameters:
+            * ``coords`` (ndarray-float64 (natoms, 3)): Coordinates of the atoms to create bonds
+            * ``elements`` (ndarray-string (natoms)): Element for each atom
+
+        Return:
+            * ``None``
+
+        &#34;&#34;&#34;
+
+        natoms = self._natoms
+
+        if np.shape(coords)[0] != natoms:
+            raise ValueError(&#39;Coord must have same natoms rows. Natoms: {0:d}, Coords: {1:d}&#39;
+                             .format(natoms, np.shape(coords)[0]))
+        if np.shape(elements)[0] != natoms:
+            raise ValueError(&#39;Element must have same natoms rows. Natoms: {0:d}, Elements: {1:d}&#39;
+                             .format(natoms, np.shape(elements)[0]))
+
+        # Calculate the atom distance matrix
+        dist, tmp1, tmp2, tmp3 = pag.distance_array(coords, coords)
+        # Set up the connectivity of the molecule
+        self.detect_connectivity(dist, elements)
+
+        # Elements
+        self._elements = elements.tolist()
+
+        for iatom in range(natoms):
+            e = self._elements[iatom]
+            self._charge.append(0.0)
+            m = pag.atomic_data.atomic_mass[e]
+            self._mass.append(m)
+
+        # Cauchy formula to detect the number of rings in the molecule
+        nsegments = len(self.get_forest())
+        nbonds = len(self.get_allbonds())
+        self._nringsCauchy = nbonds - self._natoms + nsegments
+        self.perception_rings()
+
+    # #########################################################################
+    def guess_nringsCauchy(self):
+        &#34;&#34;&#34;
+        Cauchy formula to detect the number of rings in the molecule
+
+        Parameters:
+            * ``None``
+
+        Return:
+            * ``Number of Cauchy rings``
+        &#34;&#34;&#34;
+
+        nsegments = len(self.get_forest())
+        nbonds = len(self.get_allbonds())
+        self._nringsCauchy = nbonds - self._natoms + nsegments
+        return self._nringsCauchy
+
+    # #########################################################################
+    def get_bonds_topologyCONNECTPDB(self, filenamePDB, assign_bo=False):
+
+        &#34;&#34;&#34;
+        Get the bonds from the PDB CONECT records
+
+        Parameters:
+            * ``filenamePDB`` (string): The name of a PDB file containing CONECT records
+            * ``assign_bo`` (boolean): If True the bonds are assigned
+
+        Return:
+            * ``None``
+
+        Example
+        -------
+        Topoogy molecule n-hexane
+
+        &gt;&gt;&gt; t = Topology()
+        ... fnamePDB = &#34;../data/n-hexane.pdb&#34;
+        ... t.get_bonds_topologyCONNECTPDB(filenamePDB=fnamePDB, assign_bo=True)
+        ... t.draw_graph_networkx(title=&#34;graphs/topo01_test08&#34;)
+
+        .. image:: ../../figures/topo01_test08.png
+
+        &#34;&#34;&#34;
+
+        msg =&#34;\n\tBuilding bonds from PDB topology...\n&#34;
+        if assign_bo:
+            msg += &#34;\tSetting bond orders: TRUE&#34;
+        else:
+            msg += &#34;\tSetting bond orders: FALSE&#34;
+        print(msg) if self.logger is None else self.logger.info(msg)
+        start_time = datetime.datetime.now()
+
+        # NATOMS
+        with open(filenamePDB,&#39;r&#39;) as filePDB:
+
+            filePDB.seek(0)
+            self._topologyfile = filePDB
+
+            natoms = 0
+            while True:
+                iline = filePDB.readline()
+                if not iline:
+                    break
+                elif iline.find(&#34;ATOM&#34;) != -1 or iline.find(&#34;HETATM&#34;) != -1:
+                    natoms += 1
+                    e = iline[76:78].replace(&#34; &#34;, &#34;&#34;)
+                    self._elements.append(e)
+                    self._charge.append(0.0)
+                    m = pag.atomic_data.atomic_mass[e]
+                    self._mass.append(m)
+
+            for ivert in range(natoms):
+                self.add_vertex(ivert)
+
+            self._orderbonds = np.zeros([self._natoms, self._natoms], dtype=float)
+
+        # NBONDS
+        nbonds = 0
+        isthereconnect = False
+        with open(filenamePDB, &#39;r&#39;) as filePDB:
+            # Go to the begin of the file
+            filePDB.seek(0)
+
+            for line in filePDB:
+                if not line.startswith(&#39;CONECT&#39;):
+                    continue
+                else:
+                    isthereconnect = True
+                # The lines containing only CONNECT label are not take into account
+                # CONNECT (without numbers)
+                if line.split()[1]:
+                    iatom = int(line.split()[1])
+                    for jatom in line.split()[2:]:
+                        self.add_edge([iatom-1, int(jatom)-1])
+                        self._orderbonds[iatom-1, int(jatom)-1] = 0
+                        self._orderbonds[int(jatom)-1, iatom-1] = 0
+
+        self._set_forest()
+        if assign_bo:
+            self.assign_bond_orders()
+        self.guess_nringsCauchy()
+
+        end_time = datetime.datetime.now()
+        elapsed_time = end_time - start_time
+        msg = &#34;\tTIME(Building_bonds_from_PDB_topology): {0:s} seconds&#34;.format(str(elapsed_time.total_seconds()))
+        print(msg) if self.logger is None else self.logger.info(msg)
+
+
+    # #########################################################################
+    def detect_connectivity(self, distances, elements, test_max_valence=True):
+
+        &#34;&#34;&#34;
+        Identification of bonded atoms using the method proposed in Reference 1
+        based on the distances of atoms
+
+        Reference 1:    &#34;A rule-based algorithm for automatic bond type perception&#34;
+                Qian Zhang, Wei Zhang, Youyong Li, Junmei Wang, Liling Zhang and Tingjun Hou
+                Journal of Cheminformatics 2012, 4:26
+                https://jcheminf.biomedcentral.com/articles/10.1186/1758-2946-4-26
+
+        Parameters:
+            * ``distances`` (ndarray (float64, float64)): Symmetric matrix of distances between atoms
+            * ``elements`` (ndarray (str)) : Array of the name of elements
+            * ``test_max_valence`` (boolean) : Make the test of maximum valence for each atom in the system
+
+        Return:
+            * ``None``
+
+
+        &#34;&#34;&#34;
+        isbonded = lambda dij,ri, rj : 0.8 &lt; dij &lt; ri+rj+0.4
+
+        for iatom in range(self._natoms):
+            for jatom in range(iatom+1, self._natoms):
+                d  = distances[iatom, jatom]
+                r1 = pag.element_cov_radius[elements[iatom]]
+                r2 = pag.element_cov_radius[elements[jatom]]
+                if isbonded(d, r1, r2):
+                    self.add_edge([iatom, jatom])
+                    self._orderbonds[iatom, jatom] = 0
+                    self._orderbonds[jatom, iatom] = 0
+
+        if test_max_valence:
+            self.check_atom_max_valence(distances, elements)
+
+    # #########################################################################
+    def check_atom_max_valence(self, distances, elements):
+
+        &#34;&#34;&#34;
+        Check number of covalently connected neighbors.
+        If the number of neighbors is greater that the value given in maximal valence dictionary
+        (`polyanagro.atomic_data.maximal_valences`),
+        then remove the edges with the longest distances until match the maximum valence of the atom.
+
+        Parameters:
+            * ``distances`` (ndarray (float64, float64)) : Symmetric matrix of distances between atoms
+            * ``elements`` (ndarray (str)): Array of the name of elements
+
+        Return:
+            * ``None``
+
+        &#34;&#34;&#34;
+        for iatom in range(0, self._natoms):
+            e = elements[iatom]
+            if e in pag.maximal_valences.keys():
+                neigh =  self.get_neighbours(iatom)
+                n_neigh = len(neigh)
+
+                # For each neighbour
+                while n_neigh &gt; pag.maximal_valences[e]:
+                    neigh =  self.get_neighbours(iatom)
+                    max_dist = 0.0
+                    iatom_max = -1
+                    jatom_max = -1
+                    for jatom in neigh:
+                        dij = distances[iatom, jatom]
+                        if dij &gt; max_dist:
+                            max_dist = dij
+                            iatom_max = iatom
+                            jatom_max = jatom
+                    self.remove_edge([iatom_max, jatom_max])
+                    n_neigh -= 1
+
+    # #########################################################################
+    def get_bonds_topologyPSF(self, filenamePSF, assign_bo=False):
+
+        &#34;&#34;&#34;
+        Get the bonds using a PSF file for the topology
+
+        Parameters:
+            * ``filenamePSF`` (string) : The name of a PSF file
+                (https://www.ks.uiuc.edu/Training/Tutorials/namd/namd-tutorial-unix-html/node23.html)
+            * ``assign_bo`` (boolean): If True the bonds are assigned
+
+        Return
+        ------
+            * ``None``
+
+        Example
+        -------
+        Topoogy 3 chains SCB polymers
+
+        &gt;&gt;&gt; filepsf = &#34;../data/0003Ch-C020-002br04/namd.psf&#34;
+        ... t = Topology()
+        ... t.get_bonds_topologyPSF(filepsf)
+
+        &#34;&#34;&#34;
+
+        msg =&#34;\n\tBuilding bonds from PSF topology... \n&#34;
+        if assign_bo:
+            msg += &#34;\tSetting bond orders: TRUE&#34;
+        else:
+            msg += &#34;\tSetting bond orders: FALSE&#34;
+        print(msg) if self.logger is None else self.logger.info(msg)
+        start_time = datetime.datetime.now()
+
+        self._topologyfile = filenamePSF
+
+        # NATOMS
+        with open(filenamePSF, &#39;r&#39;) as filePSF:
+            # Go to the begin of the file
+            filePSF.seek(0)
+            while True:
+                iline = filePSF.readline()
+                if not iline:
+                    break
+                elif iline.find(&#39;!NATOM&#39;) != -1:
+                    natoms = int(iline.split()[0])
+                    for _ in range(natoms):
+                        iline = filePSF.readline()
+                        element = iline.split()[5]
+                        self._elements.append(element)
+                        self._charge.append(float(iline.split()[6]))
+                        self._mass.append(float(&#34;{0:.2f}&#34;.format(float(iline.split()[7]))))
+
+        for ivert in range(natoms):
+            self.add_vertex(ivert)
+
+        self._orderbonds = np.zeros([self._natoms, self._natoms], dtype=float)
+
+        # NBONDS
+        nbonds = 0
+        with open(filenamePSF, &#39;r&#39;) as filePSF:
+            # Go to the begin of the file
+            filePSF.seek(0)
+
+            while True:
+                iline = filePSF.readline()
+                if not iline:
+                    break
+                elif iline.find(&#39;!NBOND&#39;) != -1:
+                    nbonds = int(iline.split()[0])
+                    nlines = int(nbonds/4)
+                    rest = nbonds % 4
+                    if rest &gt; 0: nlines += 1
+                    for _ in range(nlines-1):
+                        atoms = filePSF.readline().split()
+                        for i in range(0,7,2):
+                            iat = int(atoms[i]) - 1
+                            jat = int(atoms[i+1]) - 1
+                            self.add_edge([iat, jat], setforest=False)
+                            self._orderbonds[iat, jat] = 0
+                            self._orderbonds[jat, iat] = 0
+                    atoms = filePSF.readline().split()
+                    for i in range(0, len(atoms), 2):
+                        iat = int(atoms[i]) - 1
+                        jat = int(atoms[i+1]) - 1
+                        self.add_edge([iat, jat], setforest=False)
+                        self._orderbonds[iat, jat] = 0
+                        self._orderbonds[jat, iat] = 0
+
+        self._set_forest()
+        if assign_bo:
+            self.assign_bond_orders()
+        self.guess_nringsCauchy()
+
+        end_time = datetime.datetime.now()
+        elapsed_time = end_time - start_time
+        msg = &#34;\tTIME(Building_bonds_from_PSF_topology): {0:s} seconds&#34;.format(str(elapsed_time.total_seconds()))
+        print(msg) if self.logger is None else self.logger.info(msg)
+
+
+    # #########################################################################
+    def get_bonds_topologyMDAnalysis(self, filenameTopo, filecoord=None, assign_bo=False):
+
+        &#34;&#34;&#34;
+        Get the bonds using the python package MDAnalysis (https://www.mdanalysis.org/)
+
+        Parameters:
+            * ``filenameTopo`` (string): The name of a topology format available in MDAnalysis
+                (https://userguide.mdanalysis.org/1.0.0/formats/format_reference.html)
+            * ``filecoord`` (string) : The name of a file containing compatible coordinates in MDAnalysis
+            * ``assign_bo`` (boolean): If True the bonds are assigned
+
+        Return:
+            * ``None``
+
+        Example
+        -------
+        Topoogy 3 chains SCB polymers
+
+        &gt;&gt;&gt; filename_tpr = &#34;../data/0003Ch-C020-002br04/RUN-001/topol.tpr&#34;
+        ... top = Topology()
+        ... top.get_bonds_topologyMDAnalysis(filename_tpr, assign_bo=False)
+        ... top.draw_graph_pygraphviz(title=&#34;graphs/topo01_test09&#34;)
+
+        .. image:: ../../figures/topo01_test09.png
+
+        &#34;&#34;&#34;
+
+        msg =&#34;\n\tBuilding bonds from topology... \n&#34;
+        if assign_bo:
+            msg += &#34;\tSetting bond orders: TRUE&#34;
+        else:
+            msg += &#34;\tSetting bond orders: FALSE&#34;
+        print(msg) if self.logger is None else self.logger.info(msg)
+        start_time = datetime.datetime.now()
+
+        if filecoord is None:
+            u = MDAnalysis.Universe(filenameTopo)
+        else:
+            u = MDAnalysis.Universe(filenameTopo, filecoord)
+        self._topologyfile = filenameTopo
+
+        # NATOMS
+        for iatom in u.atoms:
+            self.add_vertex(iatom.index)
+            self._charge.append(iatom.charge)
+            # This is for united atoms
+            element = iatom.type
+            mass = float(&#34;{0:.2f}&#34;.format(iatom.mass))
+            self._elements.append(element)
+            self._mass.append(mass)
+
+        # NBONDS
+        self._orderbonds = np.zeros([self._natoms, self._natoms], dtype=float)
+        for ibond in u.bonds:
+            iat = ibond[0].index
+            jat = ibond[1].index
+            self.add_edge([iat, jat], setforest=False)
+            self._orderbonds[iat, jat] = 0
+            self._orderbonds[jat, iat] = 0
+
+        self._set_forest()
+        if assign_bo:
+            self.assign_bond_orders()
+        self.guess_nringsCauchy()
+        del u
+
+        end_time = datetime.datetime.now()
+        elapsed_time = end_time - start_time
+        msg = &#34;\tTIME(Building_bonds_from_topology): {0:s} seconds&#34;.format(str(elapsed_time.total_seconds()))
+        print(msg) if self.logger is None else self.logger.info(msg)
+
+
+    # #########################################################################
+    def assign_bond_orders(self):
+
+        &#34;&#34;&#34;
+        This method assigns bond orders to the bonds according to the algorithm reported in
+        &#34;Automated simultaneous assignment of bond orders and formal charges&#34;
+        Ivan D. Welsh and Jane R. Allison
+        J. Cheminform (2019) 11:18
+
+        https://doi.org/10.1186/s13321-019-0340-0
+
+        The function uses the external software **indigo-bondorders** (located in thirdparty/indigo-bondorder).
+        This code is compiled and installed in thirdparty/indigox
+
+        The structure to assign bonds needs to have all hydrogen bonds. Thus, united atom models do not work
+        with this function.
+
+        Parameters:
+            * ``None``
+
+        Return:
+            * ``None``
+
+        ..warning:: This only works with all-atom models, for united-atoms the order bond is not assigned correctly.
+
+        &#34;&#34;&#34;
+        try:
+            import indigox as ix
+        except ModuleNotFoundError:
+            print(&#34;Bond orders cannot be calculated. The indigox module is not installed.&#34;)
+            return None
+
+        # Periodic Table data from indigox
+        PT = ix.PeriodicTable()
+
+        iatom_aux = self._natoms + 1
+        for imol_atoms in self._nmols:
+
+            # Build a molecule in the indigox framework
+            mol = ix.Molecule()
+
+            # Prepare the bonds and atoms to calculate the order bond for each molecule
+            # in the topology
+            edges_aux = []
+            element_aux = {}
+            for iatom in imol_atoms:
+                e = self._elements[iatom]
+                if e in pag.united_atoms_equivalence:
+                    element_aux[iatom] = pag.united_atoms_equivalence[e][0]
+                else:
+                    element_aux[iatom] = e
+                    # If the element is not in the periodic table, try to get
+                    # the element by molecular mass.
+                    if PT[e] is None:
+                        m = float(&#34;{0:.2f}&#34;.format(self._mass[iatom]))
+                        e = list(pag.atomic_mass.keys())[list(pag.atomic_mass.values()).index(m)]
+                        if PT[e]:
+                            element_aux[iatom] = e
+                        else:
+                            msg = &#34;\n\tAtom {} is not an element.\n&#34;.format(e)
+                            msg += &#34;\tBond orders cannot be assigned.\n&#34;
+                            msg += &#34;\tThe molecular mass {} does not correspoind to element {}\n&#34;.format(m, e)
+                            print(msg) if self.logger is None else self.logger.warning(msg)
+                            return
+                for jatom in self._graphdict[iatom]:
+                    if not {iatom, jatom} in edges_aux:
+                        edges_aux.append({iatom, jatom})
+                if e in pag.united_atoms_equivalence:
+                    numH = pag.united_atoms_equivalence[e].count(&#39;H&#39;)
+                    for _ in range(numH):
+                        edges_aux.append({iatom,iatom_aux})
+                        element_aux[iatom_aux] = &#39;H&#39;
+                        iatom_aux += 1
+
+            # Total charge
+            charge = 0.0
+            for iat in imol_atoms:
+                charge += self._charge[iat]
+            mol.SetTotalCharge(int(charge))
+
+            # Add all atoms in a dictionary and get the bonds in the
+            # framework of indigox program
+            all_atoms = dict()
+            bonds_topo = edges_aux
+            for i, j in bonds_topo:
+                if not i in all_atoms:
+                    # Element of i
+                    try:
+                        e = element_aux[i]
+                    except IndexError:
+                        e = &#39;H&#39;
+                    all_atoms[i] = mol.NewAtom(PT[e])
+                    index = all_atoms[i].SetIndex(i)
+                    name = e+str(index)
+                    all_atoms[i].SetName(name)
+                if not j in all_atoms:
+                    # Element of j
+                    try:
+                        e = element_aux[j]
+                    except IndexError:
+                        e = &#39;H&#39;
+                    all_atoms[j] = mol.NewAtom(PT[e])
+                    index = all_atoms[j].SetIndex(j)
+                    name = e+str(index)
+                    all_atoms[j].SetName(name)
+
+                mol.NewBond(all_atoms[i], all_atoms[j])
+
+            # Setup to use the FPT algorithm with single electrons without preplacing
+            # to calculate bond orders and formal charges
+            opts = ix.Options.AssignElectrons
+            opts.ALGORITHM = opts.Algorithm.FPT
+            opts.FPT.ADD_EDGES_TO_TD = False
+            opts.FPT.MINIMUM_PROPAGATION_DEPTH = 1
+            opts.USE_ELECTRON_PAIRS = False
+
+            # Calculate bond orders and formal charges.
+            # Count have the total number of resonance structures
+            nresonances = mol.AssignElectrons()
+            #print(&#34;{} resonace structure(s) calculated with a score of {}.&#34;.format(nresonances, mol.GetMinimumElectronAssignmentScore()))
+
+            # Sum all order bonds for the resonace structures.
+            for iresonance in range(nresonances):
+                mol.ApplyElectronAssignment(iresonance)
+
+                for ibond in mol.GetBonds():
+                    i = ibond.GetSourceAtom().GetIndex()
+                    j = ibond.GetTargetAtom().GetIndex()
+                    bo =  ibond.GetOrder()
+                    try:
+                        if bo == bo.SINGLE_BOND:
+                            self._orderbonds[i,j] += 1.0
+                            self._orderbonds[j,i] += 1.0
+                        elif bo == bo.DOUBLE_BOND:
+                            self._orderbonds[i,j] += 2.0
+                            self._orderbonds[j,i] += 2.0
+                        elif bo == bo.TRIPLE_BOND:
+                            self._orderbonds[i,j] += 3.0
+                            self._orderbonds[j,i] += 3.0
+                        else:
+                           msg = &#34;\n\t=================================================\n&#34;
+                           msg += &#34;\t! -&gt; Bond order cannot be assigned between {} and {} atoms\n&#34;.format(i,j)
+                           msg += &#34;\t{}\n&#34;.format(bo)
+                           msg += &#34;\t=================================================\n&#34;
+                           print(msg) if self.logger is None else self.logger.warning(msg)
+                    except IndexError:
+                        pass
+
+            # Correct for aromaticity. Check all bonds
+            bonds_topo = edges_aux
+            if nresonances != 0:
+                for i, j in bonds_topo:
+                    # Jump over the virtual bonds with H created for united atoms
+                    try:
+                        m = self._orderbonds[i,j] % nresonances
+                    except IndexError:
+                        continue
+                    if m != 0:
+                        self._orderbonds[i,j] = 1.5
+                        self._orderbonds[j,i] = 1.5
+                    else:
+                        self._orderbonds[i,j] /= nresonances
+                        self._orderbonds[j,i] /= nresonances
+
+        return None
+
+    # #########################################################################
+    def get_array_mols_neigh(self):
+
+        &#34;&#34;&#34;
+        Parameters:
+            * ``None``
+
+        Return:
+            * ``nmols_array``
+            * ``l_neigh_array``
+
+        Examples
+        --------
+
+        &gt;&gt;&gt; t = Topology(natoms=6, listbonds=[(0,1), (1,5), (1,6), (2,3)])
+
+        .. image:: ../../figures/topo02_test06.png
+
+        &gt;&gt;&gt; nmols_array, l_neigh_array = t.get_array_mols_neigh()
+        ... nmols_array = [[0, 1, 5], [2, 3, -1], [4, -1, -1]]
+        ... l_neigh_array = [[1, -1], [0, 5], [3, -1], [2, -1], [-1, -1], [1, -1]]
+
+       &#34;&#34;&#34;
+
+        nmols = self._nmols
+        # This padding is needed in the case of non-equal molecules.
+        nmols_array = pag.padding_list(nmols, fillval=-1)
+        nmols_array = np.array(nmols_array, dtype=np.int32)
+
+        # Array of neighbours for each atom
+        l_neigh = []
+        for item in self._graphdict.values():
+            l_neigh.append(item)
+        l_neigh_array = pag.padding_list(l_neigh,fillval=-1)
+        l_neigh_array = np.array(l_neigh_array, dtype=np.int32)
+
+        return nmols_array, l_neigh_array</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="polyanagro.MolecularGraph.MolecularGraph" href="MolecularGraph.html#polyanagro.MolecularGraph.MolecularGraph">MolecularGraph</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="polyanagro.Topology.Topology.logger"><code class="name">var <span class="ident">logger</span></code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="polyanagro.Topology.Topology.assign_bond_orders"><code class="name flex">
+<span>def <span class="ident">assign_bond_orders</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method assigns bond orders to the bonds according to the algorithm reported in
+"Automated simultaneous assignment of bond orders and formal charges"
+Ivan D. Welsh and Jane R. Allison
+J. Cheminform (2019) 11:18</p>
+<p><a href="https://doi.org/10.1186/s13321-019-0340-0">https://doi.org/10.1186/s13321-019-0340-0</a></p>
+<p>The function uses the external software <strong>indigo-bondorders</strong> (located in thirdparty/indigo-bondorder).
+This code is compiled and installed in thirdparty/indigox</p>
+<p>The structure to assign bonds needs to have all hydrogen bonds. Thus, united atom models do not work
+with this function.</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>None</code></li>
+</ul>
+<h2 id="return">Return</h2>
+<ul>
+<li><code>None</code></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning:&ensp;This only works with all-atom models, for united-atoms the order bond is not assigned correctly.</p>
+</div></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def assign_bond_orders(self):
+
+    &#34;&#34;&#34;
+    This method assigns bond orders to the bonds according to the algorithm reported in
+    &#34;Automated simultaneous assignment of bond orders and formal charges&#34;
+    Ivan D. Welsh and Jane R. Allison
+    J. Cheminform (2019) 11:18
+
+    https://doi.org/10.1186/s13321-019-0340-0
+
+    The function uses the external software **indigo-bondorders** (located in thirdparty/indigo-bondorder).
+    This code is compiled and installed in thirdparty/indigox
+
+    The structure to assign bonds needs to have all hydrogen bonds. Thus, united atom models do not work
+    with this function.
+
+    Parameters:
+        * ``None``
+
+    Return:
+        * ``None``
+
+    ..warning:: This only works with all-atom models, for united-atoms the order bond is not assigned correctly.
+
+    &#34;&#34;&#34;
+    try:
+        import indigox as ix
+    except ModuleNotFoundError:
+        print(&#34;Bond orders cannot be calculated. The indigox module is not installed.&#34;)
+        return None
+
+    # Periodic Table data from indigox
+    PT = ix.PeriodicTable()
+
+    iatom_aux = self._natoms + 1
+    for imol_atoms in self._nmols:
+
+        # Build a molecule in the indigox framework
+        mol = ix.Molecule()
+
+        # Prepare the bonds and atoms to calculate the order bond for each molecule
+        # in the topology
+        edges_aux = []
+        element_aux = {}
+        for iatom in imol_atoms:
+            e = self._elements[iatom]
+            if e in pag.united_atoms_equivalence:
+                element_aux[iatom] = pag.united_atoms_equivalence[e][0]
+            else:
+                element_aux[iatom] = e
+                # If the element is not in the periodic table, try to get
+                # the element by molecular mass.
+                if PT[e] is None:
+                    m = float(&#34;{0:.2f}&#34;.format(self._mass[iatom]))
+                    e = list(pag.atomic_mass.keys())[list(pag.atomic_mass.values()).index(m)]
+                    if PT[e]:
+                        element_aux[iatom] = e
+                    else:
+                        msg = &#34;\n\tAtom {} is not an element.\n&#34;.format(e)
+                        msg += &#34;\tBond orders cannot be assigned.\n&#34;
+                        msg += &#34;\tThe molecular mass {} does not correspoind to element {}\n&#34;.format(m, e)
+                        print(msg) if self.logger is None else self.logger.warning(msg)
+                        return
+            for jatom in self._graphdict[iatom]:
+                if not {iatom, jatom} in edges_aux:
+                    edges_aux.append({iatom, jatom})
+            if e in pag.united_atoms_equivalence:
+                numH = pag.united_atoms_equivalence[e].count(&#39;H&#39;)
+                for _ in range(numH):
+                    edges_aux.append({iatom,iatom_aux})
+                    element_aux[iatom_aux] = &#39;H&#39;
+                    iatom_aux += 1
+
+        # Total charge
+        charge = 0.0
+        for iat in imol_atoms:
+            charge += self._charge[iat]
+        mol.SetTotalCharge(int(charge))
+
+        # Add all atoms in a dictionary and get the bonds in the
+        # framework of indigox program
+        all_atoms = dict()
+        bonds_topo = edges_aux
+        for i, j in bonds_topo:
+            if not i in all_atoms:
+                # Element of i
+                try:
+                    e = element_aux[i]
+                except IndexError:
+                    e = &#39;H&#39;
+                all_atoms[i] = mol.NewAtom(PT[e])
+                index = all_atoms[i].SetIndex(i)
+                name = e+str(index)
+                all_atoms[i].SetName(name)
+            if not j in all_atoms:
+                # Element of j
+                try:
+                    e = element_aux[j]
+                except IndexError:
+                    e = &#39;H&#39;
+                all_atoms[j] = mol.NewAtom(PT[e])
+                index = all_atoms[j].SetIndex(j)
+                name = e+str(index)
+                all_atoms[j].SetName(name)
+
+            mol.NewBond(all_atoms[i], all_atoms[j])
+
+        # Setup to use the FPT algorithm with single electrons without preplacing
+        # to calculate bond orders and formal charges
+        opts = ix.Options.AssignElectrons
+        opts.ALGORITHM = opts.Algorithm.FPT
+        opts.FPT.ADD_EDGES_TO_TD = False
+        opts.FPT.MINIMUM_PROPAGATION_DEPTH = 1
+        opts.USE_ELECTRON_PAIRS = False
+
+        # Calculate bond orders and formal charges.
+        # Count have the total number of resonance structures
+        nresonances = mol.AssignElectrons()
+        #print(&#34;{} resonace structure(s) calculated with a score of {}.&#34;.format(nresonances, mol.GetMinimumElectronAssignmentScore()))
+
+        # Sum all order bonds for the resonace structures.
+        for iresonance in range(nresonances):
+            mol.ApplyElectronAssignment(iresonance)
+
+            for ibond in mol.GetBonds():
+                i = ibond.GetSourceAtom().GetIndex()
+                j = ibond.GetTargetAtom().GetIndex()
+                bo =  ibond.GetOrder()
+                try:
+                    if bo == bo.SINGLE_BOND:
+                        self._orderbonds[i,j] += 1.0
+                        self._orderbonds[j,i] += 1.0
+                    elif bo == bo.DOUBLE_BOND:
+                        self._orderbonds[i,j] += 2.0
+                        self._orderbonds[j,i] += 2.0
+                    elif bo == bo.TRIPLE_BOND:
+                        self._orderbonds[i,j] += 3.0
+                        self._orderbonds[j,i] += 3.0
+                    else:
+                       msg = &#34;\n\t=================================================\n&#34;
+                       msg += &#34;\t! -&gt; Bond order cannot be assigned between {} and {} atoms\n&#34;.format(i,j)
+                       msg += &#34;\t{}\n&#34;.format(bo)
+                       msg += &#34;\t=================================================\n&#34;
+                       print(msg) if self.logger is None else self.logger.warning(msg)
+                except IndexError:
+                    pass
+
+        # Correct for aromaticity. Check all bonds
+        bonds_topo = edges_aux
+        if nresonances != 0:
+            for i, j in bonds_topo:
+                # Jump over the virtual bonds with H created for united atoms
+                try:
+                    m = self._orderbonds[i,j] % nresonances
+                except IndexError:
+                    continue
+                if m != 0:
+                    self._orderbonds[i,j] = 1.5
+                    self._orderbonds[j,i] = 1.5
+                else:
+                    self._orderbonds[i,j] /= nresonances
+                    self._orderbonds[j,i] /= nresonances
+
+    return None</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.Topology.Topology.check_atom_max_valence"><code class="name flex">
+<span>def <span class="ident">check_atom_max_valence</span></span>(<span>self, distances, elements)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Check number of covalently connected neighbors.
+If the number of neighbors is greater that the value given in maximal valence dictionary
+(<code><a title="polyanagro.atomic_data.maximal_valences" href="atomic_data.html#polyanagro.atomic_data.maximal_valences">maximal_valences</a></code>),
+then remove the edges with the longest distances until match the maximum valence of the atom.</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>distances</code> (ndarray (float64, float64)) : Symmetric matrix of distances between atoms</li>
+<li><code>elements</code> (ndarray (str)): Array of the name of elements</li>
+</ul>
+<h2 id="return">Return</h2>
+<ul>
+<li><code>None</code></li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_atom_max_valence(self, distances, elements):
+
+    &#34;&#34;&#34;
+    Check number of covalently connected neighbors.
+    If the number of neighbors is greater that the value given in maximal valence dictionary
+    (`polyanagro.atomic_data.maximal_valences`),
+    then remove the edges with the longest distances until match the maximum valence of the atom.
+
+    Parameters:
+        * ``distances`` (ndarray (float64, float64)) : Symmetric matrix of distances between atoms
+        * ``elements`` (ndarray (str)): Array of the name of elements
+
+    Return:
+        * ``None``
+
+    &#34;&#34;&#34;
+    for iatom in range(0, self._natoms):
+        e = elements[iatom]
+        if e in pag.maximal_valences.keys():
+            neigh =  self.get_neighbours(iatom)
+            n_neigh = len(neigh)
+
+            # For each neighbour
+            while n_neigh &gt; pag.maximal_valences[e]:
+                neigh =  self.get_neighbours(iatom)
+                max_dist = 0.0
+                iatom_max = -1
+                jatom_max = -1
+                for jatom in neigh:
+                    dij = distances[iatom, jatom]
+                    if dij &gt; max_dist:
+                        max_dist = dij
+                        iatom_max = iatom
+                        jatom_max = jatom
+                self.remove_edge([iatom_max, jatom_max])
+                n_neigh -= 1</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.Topology.Topology.detect_connectivity"><code class="name flex">
+<span>def <span class="ident">detect_connectivity</span></span>(<span>self, distances, elements, test_max_valence=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Identification of bonded atoms using the method proposed in Reference 1
+based on the distances of atoms</p>
+<p>Reference 1:
+"A rule-based algorithm for automatic bond type perception"
+Qian Zhang, Wei Zhang, Youyong Li, Junmei Wang, Liling Zhang and Tingjun Hou
+Journal of Cheminformatics 2012, 4:26
+<a href="https://jcheminf.biomedcentral.com/articles/10.1186/1758-2946-4-26">https://jcheminf.biomedcentral.com/articles/10.1186/1758-2946-4-26</a></p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>distances</code> (ndarray (float64, float64)): Symmetric matrix of distances between atoms</li>
+<li><code>elements</code> (ndarray (str)) : Array of the name of elements</li>
+<li><code>test_max_valence</code> (boolean) : Make the test of maximum valence for each atom in the system</li>
+</ul>
+<h2 id="return">Return</h2>
+<ul>
+<li><code>None</code></li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def detect_connectivity(self, distances, elements, test_max_valence=True):
+
+    &#34;&#34;&#34;
+    Identification of bonded atoms using the method proposed in Reference 1
+    based on the distances of atoms
+
+    Reference 1:    &#34;A rule-based algorithm for automatic bond type perception&#34;
+            Qian Zhang, Wei Zhang, Youyong Li, Junmei Wang, Liling Zhang and Tingjun Hou
+            Journal of Cheminformatics 2012, 4:26
+            https://jcheminf.biomedcentral.com/articles/10.1186/1758-2946-4-26
+
+    Parameters:
+        * ``distances`` (ndarray (float64, float64)): Symmetric matrix of distances between atoms
+        * ``elements`` (ndarray (str)) : Array of the name of elements
+        * ``test_max_valence`` (boolean) : Make the test of maximum valence for each atom in the system
+
+    Return:
+        * ``None``
+
+
+    &#34;&#34;&#34;
+    isbonded = lambda dij,ri, rj : 0.8 &lt; dij &lt; ri+rj+0.4
+
+    for iatom in range(self._natoms):
+        for jatom in range(iatom+1, self._natoms):
+            d  = distances[iatom, jatom]
+            r1 = pag.element_cov_radius[elements[iatom]]
+            r2 = pag.element_cov_radius[elements[jatom]]
+            if isbonded(d, r1, r2):
+                self.add_edge([iatom, jatom])
+                self._orderbonds[iatom, jatom] = 0
+                self._orderbonds[jatom, iatom] = 0
+
+    if test_max_valence:
+        self.check_atom_max_valence(distances, elements)</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.Topology.Topology.get_array_mols_neigh"><code class="name flex">
+<span>def <span class="ident">get_array_mols_neigh</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>None</code></li>
+</ul>
+<h2 id="return">Return</h2>
+<ul>
+<li><code>nmols_array</code></li>
+<li><code>l_neigh_array</code></li>
+</ul>
+<h2 id="examples">Examples</h2>
+<pre><code class="python">&gt;&gt;&gt; t = Topology(natoms=6, listbonds=[(0,1), (1,5), (1,6), (2,3)])
+</code></pre>
+<p><img alt="" src="../../figures/topo02_test06.png"></p>
+<pre><code class="python">&gt;&gt;&gt; nmols_array, l_neigh_array = t.get_array_mols_neigh()
+... nmols_array = [[0, 1, 5], [2, 3, -1], [4, -1, -1]]
+... l_neigh_array = [[1, -1], [0, 5], [3, -1], [2, -1], [-1, -1], [1, -1]]
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_array_mols_neigh(self):
+
+    &#34;&#34;&#34;
+    Parameters:
+        * ``None``
+
+    Return:
+        * ``nmols_array``
+        * ``l_neigh_array``
+
+    Examples
+    --------
+
+    &gt;&gt;&gt; t = Topology(natoms=6, listbonds=[(0,1), (1,5), (1,6), (2,3)])
+
+    .. image:: ../../figures/topo02_test06.png
+
+    &gt;&gt;&gt; nmols_array, l_neigh_array = t.get_array_mols_neigh()
+    ... nmols_array = [[0, 1, 5], [2, 3, -1], [4, -1, -1]]
+    ... l_neigh_array = [[1, -1], [0, 5], [3, -1], [2, -1], [-1, -1], [1, -1]]
+
+   &#34;&#34;&#34;
+
+    nmols = self._nmols
+    # This padding is needed in the case of non-equal molecules.
+    nmols_array = pag.padding_list(nmols, fillval=-1)
+    nmols_array = np.array(nmols_array, dtype=np.int32)
+
+    # Array of neighbours for each atom
+    l_neigh = []
+    for item in self._graphdict.values():
+        l_neigh.append(item)
+    l_neigh_array = pag.padding_list(l_neigh,fillval=-1)
+    l_neigh_array = np.array(l_neigh_array, dtype=np.int32)
+
+    return nmols_array, l_neigh_array</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.Topology.Topology.get_bonds_topologyCONNECTPDB"><code class="name flex">
+<span>def <span class="ident">get_bonds_topologyCONNECTPDB</span></span>(<span>self, filenamePDB, assign_bo=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get the bonds from the PDB CONECT records</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>filenamePDB</code> (string): The name of a PDB file containing CONECT records</li>
+<li><code>assign_bo</code> (boolean): If True the bonds are assigned</li>
+</ul>
+<h2 id="return">Return</h2>
+<ul>
+<li><code>None</code></li>
+</ul>
+<h2 id="example">Example</h2>
+<p>Topoogy molecule n-hexane</p>
+<pre><code class="python">&gt;&gt;&gt; t = Topology()
+... fnamePDB = &quot;../data/n-hexane.pdb&quot;
+... t.get_bonds_topologyCONNECTPDB(filenamePDB=fnamePDB, assign_bo=True)
+... t.draw_graph_networkx(title=&quot;graphs/topo01_test08&quot;)
+</code></pre>
+<p><img alt="" src="../../figures/topo01_test08.png"></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_bonds_topologyCONNECTPDB(self, filenamePDB, assign_bo=False):
+
+    &#34;&#34;&#34;
+    Get the bonds from the PDB CONECT records
+
+    Parameters:
+        * ``filenamePDB`` (string): The name of a PDB file containing CONECT records
+        * ``assign_bo`` (boolean): If True the bonds are assigned
+
+    Return:
+        * ``None``
+
+    Example
+    -------
+    Topoogy molecule n-hexane
+
+    &gt;&gt;&gt; t = Topology()
+    ... fnamePDB = &#34;../data/n-hexane.pdb&#34;
+    ... t.get_bonds_topologyCONNECTPDB(filenamePDB=fnamePDB, assign_bo=True)
+    ... t.draw_graph_networkx(title=&#34;graphs/topo01_test08&#34;)
+
+    .. image:: ../../figures/topo01_test08.png
+
+    &#34;&#34;&#34;
+
+    msg =&#34;\n\tBuilding bonds from PDB topology...\n&#34;
+    if assign_bo:
+        msg += &#34;\tSetting bond orders: TRUE&#34;
+    else:
+        msg += &#34;\tSetting bond orders: FALSE&#34;
+    print(msg) if self.logger is None else self.logger.info(msg)
+    start_time = datetime.datetime.now()
+
+    # NATOMS
+    with open(filenamePDB,&#39;r&#39;) as filePDB:
+
+        filePDB.seek(0)
+        self._topologyfile = filePDB
+
+        natoms = 0
+        while True:
+            iline = filePDB.readline()
+            if not iline:
+                break
+            elif iline.find(&#34;ATOM&#34;) != -1 or iline.find(&#34;HETATM&#34;) != -1:
+                natoms += 1
+                e = iline[76:78].replace(&#34; &#34;, &#34;&#34;)
+                self._elements.append(e)
+                self._charge.append(0.0)
+                m = pag.atomic_data.atomic_mass[e]
+                self._mass.append(m)
+
+        for ivert in range(natoms):
+            self.add_vertex(ivert)
+
+        self._orderbonds = np.zeros([self._natoms, self._natoms], dtype=float)
+
+    # NBONDS
+    nbonds = 0
+    isthereconnect = False
+    with open(filenamePDB, &#39;r&#39;) as filePDB:
+        # Go to the begin of the file
+        filePDB.seek(0)
+
+        for line in filePDB:
+            if not line.startswith(&#39;CONECT&#39;):
+                continue
+            else:
+                isthereconnect = True
+            # The lines containing only CONNECT label are not take into account
+            # CONNECT (without numbers)
+            if line.split()[1]:
+                iatom = int(line.split()[1])
+                for jatom in line.split()[2:]:
+                    self.add_edge([iatom-1, int(jatom)-1])
+                    self._orderbonds[iatom-1, int(jatom)-1] = 0
+                    self._orderbonds[int(jatom)-1, iatom-1] = 0
+
+    self._set_forest()
+    if assign_bo:
+        self.assign_bond_orders()
+    self.guess_nringsCauchy()
+
+    end_time = datetime.datetime.now()
+    elapsed_time = end_time - start_time
+    msg = &#34;\tTIME(Building_bonds_from_PDB_topology): {0:s} seconds&#34;.format(str(elapsed_time.total_seconds()))
+    print(msg) if self.logger is None else self.logger.info(msg)</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.Topology.Topology.get_bonds_topologyMDAnalysis"><code class="name flex">
+<span>def <span class="ident">get_bonds_topologyMDAnalysis</span></span>(<span>self, filenameTopo, filecoord=None, assign_bo=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get the bonds using the python package MDAnalysis (<a href="https://www.mdanalysis.org/">https://www.mdanalysis.org/</a>)</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>filenameTopo</code> (string): The name of a topology format available in MDAnalysis
+(<a href="https://userguide.mdanalysis.org/1.0.0/formats/format_reference.html">https://userguide.mdanalysis.org/1.0.0/formats/format_reference.html</a>)</li>
+<li><code>filecoord</code> (string) : The name of a file containing compatible coordinates in MDAnalysis</li>
+<li><code>assign_bo</code> (boolean): If True the bonds are assigned</li>
+</ul>
+<h2 id="return">Return</h2>
+<ul>
+<li><code>None</code></li>
+</ul>
+<h2 id="example">Example</h2>
+<p>Topoogy 3 chains SCB polymers</p>
+<pre><code class="python">&gt;&gt;&gt; filename_tpr = &quot;../data/0003Ch-C020-002br04/RUN-001/topol.tpr&quot;
+... top = Topology()
+... top.get_bonds_topologyMDAnalysis(filename_tpr, assign_bo=False)
+... top.draw_graph_pygraphviz(title=&quot;graphs/topo01_test09&quot;)
+</code></pre>
+<p><img alt="" src="../../figures/topo01_test09.png"></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_bonds_topologyMDAnalysis(self, filenameTopo, filecoord=None, assign_bo=False):
+
+    &#34;&#34;&#34;
+    Get the bonds using the python package MDAnalysis (https://www.mdanalysis.org/)
+
+    Parameters:
+        * ``filenameTopo`` (string): The name of a topology format available in MDAnalysis
+            (https://userguide.mdanalysis.org/1.0.0/formats/format_reference.html)
+        * ``filecoord`` (string) : The name of a file containing compatible coordinates in MDAnalysis
+        * ``assign_bo`` (boolean): If True the bonds are assigned
+
+    Return:
+        * ``None``
+
+    Example
+    -------
+    Topoogy 3 chains SCB polymers
+
+    &gt;&gt;&gt; filename_tpr = &#34;../data/0003Ch-C020-002br04/RUN-001/topol.tpr&#34;
+    ... top = Topology()
+    ... top.get_bonds_topologyMDAnalysis(filename_tpr, assign_bo=False)
+    ... top.draw_graph_pygraphviz(title=&#34;graphs/topo01_test09&#34;)
+
+    .. image:: ../../figures/topo01_test09.png
+
+    &#34;&#34;&#34;
+
+    msg =&#34;\n\tBuilding bonds from topology... \n&#34;
+    if assign_bo:
+        msg += &#34;\tSetting bond orders: TRUE&#34;
+    else:
+        msg += &#34;\tSetting bond orders: FALSE&#34;
+    print(msg) if self.logger is None else self.logger.info(msg)
+    start_time = datetime.datetime.now()
+
+    if filecoord is None:
+        u = MDAnalysis.Universe(filenameTopo)
+    else:
+        u = MDAnalysis.Universe(filenameTopo, filecoord)
+    self._topologyfile = filenameTopo
+
+    # NATOMS
+    for iatom in u.atoms:
+        self.add_vertex(iatom.index)
+        self._charge.append(iatom.charge)
+        # This is for united atoms
+        element = iatom.type
+        mass = float(&#34;{0:.2f}&#34;.format(iatom.mass))
+        self._elements.append(element)
+        self._mass.append(mass)
+
+    # NBONDS
+    self._orderbonds = np.zeros([self._natoms, self._natoms], dtype=float)
+    for ibond in u.bonds:
+        iat = ibond[0].index
+        jat = ibond[1].index
+        self.add_edge([iat, jat], setforest=False)
+        self._orderbonds[iat, jat] = 0
+        self._orderbonds[jat, iat] = 0
+
+    self._set_forest()
+    if assign_bo:
+        self.assign_bond_orders()
+    self.guess_nringsCauchy()
+    del u
+
+    end_time = datetime.datetime.now()
+    elapsed_time = end_time - start_time
+    msg = &#34;\tTIME(Building_bonds_from_topology): {0:s} seconds&#34;.format(str(elapsed_time.total_seconds()))
+    print(msg) if self.logger is None else self.logger.info(msg)</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.Topology.Topology.get_bonds_topologyPSF"><code class="name flex">
+<span>def <span class="ident">get_bonds_topologyPSF</span></span>(<span>self, filenamePSF, assign_bo=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get the bonds using a PSF file for the topology</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>filenamePSF</code> (string) : The name of a PSF file
+(<a href="https://www.ks.uiuc.edu/Training/Tutorials/namd/namd-tutorial-unix-html/node23.html">https://www.ks.uiuc.edu/Training/Tutorials/namd/namd-tutorial-unix-html/node23.html</a>)</li>
+<li><code>assign_bo</code> (boolean): If True the bonds are assigned</li>
+</ul>
+<h2 id="return">Return</h2>
+<pre><code>* &lt;code&gt;None&lt;/code&gt;
+</code></pre>
+<h2 id="example">Example</h2>
+<p>Topoogy 3 chains SCB polymers</p>
+<pre><code class="python">&gt;&gt;&gt; filepsf = &quot;../data/0003Ch-C020-002br04/namd.psf&quot;
+... t = Topology()
+... t.get_bonds_topologyPSF(filepsf)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_bonds_topologyPSF(self, filenamePSF, assign_bo=False):
+
+    &#34;&#34;&#34;
+    Get the bonds using a PSF file for the topology
+
+    Parameters:
+        * ``filenamePSF`` (string) : The name of a PSF file
+            (https://www.ks.uiuc.edu/Training/Tutorials/namd/namd-tutorial-unix-html/node23.html)
+        * ``assign_bo`` (boolean): If True the bonds are assigned
+
+    Return
+    ------
+        * ``None``
+
+    Example
+    -------
+    Topoogy 3 chains SCB polymers
+
+    &gt;&gt;&gt; filepsf = &#34;../data/0003Ch-C020-002br04/namd.psf&#34;
+    ... t = Topology()
+    ... t.get_bonds_topologyPSF(filepsf)
+
+    &#34;&#34;&#34;
+
+    msg =&#34;\n\tBuilding bonds from PSF topology... \n&#34;
+    if assign_bo:
+        msg += &#34;\tSetting bond orders: TRUE&#34;
+    else:
+        msg += &#34;\tSetting bond orders: FALSE&#34;
+    print(msg) if self.logger is None else self.logger.info(msg)
+    start_time = datetime.datetime.now()
+
+    self._topologyfile = filenamePSF
+
+    # NATOMS
+    with open(filenamePSF, &#39;r&#39;) as filePSF:
+        # Go to the begin of the file
+        filePSF.seek(0)
+        while True:
+            iline = filePSF.readline()
+            if not iline:
+                break
+            elif iline.find(&#39;!NATOM&#39;) != -1:
+                natoms = int(iline.split()[0])
+                for _ in range(natoms):
+                    iline = filePSF.readline()
+                    element = iline.split()[5]
+                    self._elements.append(element)
+                    self._charge.append(float(iline.split()[6]))
+                    self._mass.append(float(&#34;{0:.2f}&#34;.format(float(iline.split()[7]))))
+
+    for ivert in range(natoms):
+        self.add_vertex(ivert)
+
+    self._orderbonds = np.zeros([self._natoms, self._natoms], dtype=float)
+
+    # NBONDS
+    nbonds = 0
+    with open(filenamePSF, &#39;r&#39;) as filePSF:
+        # Go to the begin of the file
+        filePSF.seek(0)
+
+        while True:
+            iline = filePSF.readline()
+            if not iline:
+                break
+            elif iline.find(&#39;!NBOND&#39;) != -1:
+                nbonds = int(iline.split()[0])
+                nlines = int(nbonds/4)
+                rest = nbonds % 4
+                if rest &gt; 0: nlines += 1
+                for _ in range(nlines-1):
+                    atoms = filePSF.readline().split()
+                    for i in range(0,7,2):
+                        iat = int(atoms[i]) - 1
+                        jat = int(atoms[i+1]) - 1
+                        self.add_edge([iat, jat], setforest=False)
+                        self._orderbonds[iat, jat] = 0
+                        self._orderbonds[jat, iat] = 0
+                atoms = filePSF.readline().split()
+                for i in range(0, len(atoms), 2):
+                    iat = int(atoms[i]) - 1
+                    jat = int(atoms[i+1]) - 1
+                    self.add_edge([iat, jat], setforest=False)
+                    self._orderbonds[iat, jat] = 0
+                    self._orderbonds[jat, iat] = 0
+
+    self._set_forest()
+    if assign_bo:
+        self.assign_bond_orders()
+    self.guess_nringsCauchy()
+
+    end_time = datetime.datetime.now()
+    elapsed_time = end_time - start_time
+    msg = &#34;\tTIME(Building_bonds_from_PSF_topology): {0:s} seconds&#34;.format(str(elapsed_time.total_seconds()))
+    print(msg) if self.logger is None else self.logger.info(msg)</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.Topology.Topology.guess_bonds_topology"><code class="name flex">
+<span>def <span class="ident">guess_bonds_topology</span></span>(<span>self, coords, elements)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Given a set of coordinate atoms, it guess if a bond exists between two atoms</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>coords</code> (ndarray-float64 (natoms, 3)): Coordinates of the atoms to create bonds</li>
+<li><code>elements</code> (ndarray-string (natoms)): Element for each atom</li>
+</ul>
+<h2 id="return">Return</h2>
+<ul>
+<li><code>None</code></li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def guess_bonds_topology(self, coords, elements):
+
+    &#34;&#34;&#34;
+    Given a set of coordinate atoms, it guess if a bond exists between two atoms
+
+    Parameters:
+        * ``coords`` (ndarray-float64 (natoms, 3)): Coordinates of the atoms to create bonds
+        * ``elements`` (ndarray-string (natoms)): Element for each atom
+
+    Return:
+        * ``None``
+
+    &#34;&#34;&#34;
+
+    natoms = self._natoms
+
+    if np.shape(coords)[0] != natoms:
+        raise ValueError(&#39;Coord must have same natoms rows. Natoms: {0:d}, Coords: {1:d}&#39;
+                         .format(natoms, np.shape(coords)[0]))
+    if np.shape(elements)[0] != natoms:
+        raise ValueError(&#39;Element must have same natoms rows. Natoms: {0:d}, Elements: {1:d}&#39;
+                         .format(natoms, np.shape(elements)[0]))
+
+    # Calculate the atom distance matrix
+    dist, tmp1, tmp2, tmp3 = pag.distance_array(coords, coords)
+    # Set up the connectivity of the molecule
+    self.detect_connectivity(dist, elements)
+
+    # Elements
+    self._elements = elements.tolist()
+
+    for iatom in range(natoms):
+        e = self._elements[iatom]
+        self._charge.append(0.0)
+        m = pag.atomic_data.atomic_mass[e]
+        self._mass.append(m)
+
+    # Cauchy formula to detect the number of rings in the molecule
+    nsegments = len(self.get_forest())
+    nbonds = len(self.get_allbonds())
+    self._nringsCauchy = nbonds - self._natoms + nsegments
+    self.perception_rings()</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.Topology.Topology.guess_nringsCauchy"><code class="name flex">
+<span>def <span class="ident">guess_nringsCauchy</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Cauchy formula to detect the number of rings in the molecule</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>None</code></li>
+</ul>
+<h2 id="return">Return</h2>
+<ul>
+<li><code>Number of Cauchy rings</code></li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def guess_nringsCauchy(self):
+    &#34;&#34;&#34;
+    Cauchy formula to detect the number of rings in the molecule
+
+    Parameters:
+        * ``None``
+
+    Return:
+        * ``Number of Cauchy rings``
+    &#34;&#34;&#34;
+
+    nsegments = len(self.get_forest())
+    nbonds = len(self.get_allbonds())
+    self._nringsCauchy = nbonds - self._natoms + nsegments
+    return self._nringsCauchy</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="polyanagro.MolecularGraph.MolecularGraph" href="MolecularGraph.html#polyanagro.MolecularGraph.MolecularGraph">MolecularGraph</a></b></code>:
+<ul class="hlist">
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.add_edge" href="MolecularGraph.html#polyanagro.MolecularGraph.MolecularGraph.add_edge">add_edge</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.add_vertex" href="MolecularGraph.html#polyanagro.MolecularGraph.MolecularGraph.add_vertex">add_vertex</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.bfs_iterative" href="MolecularGraph.html#polyanagro.MolecularGraph.MolecularGraph.bfs_iterative">bfs_iterative</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.dfs_iterative" href="MolecularGraph.html#polyanagro.MolecularGraph.MolecularGraph.dfs_iterative">dfs_iterative</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.draw_graph_forest_networkx" href="MolecularGraph.html#polyanagro.MolecularGraph.MolecularGraph.draw_graph_forest_networkx">draw_graph_forest_networkx</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.draw_graph_forest_pygraphviz" href="MolecularGraph.html#polyanagro.MolecularGraph.MolecularGraph.draw_graph_forest_pygraphviz">draw_graph_forest_pygraphviz</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.draw_graph_networkx" href="MolecularGraph.html#polyanagro.MolecularGraph.MolecularGraph.draw_graph_networkx">draw_graph_networkx</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.draw_graph_pygraphviz" href="MolecularGraph.html#polyanagro.MolecularGraph.MolecularGraph.draw_graph_pygraphviz">draw_graph_pygraphviz</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.find_all_paths" href="MolecularGraph.html#polyanagro.MolecularGraph.MolecularGraph.find_all_paths">find_all_paths</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.find_all_paths_length" href="MolecularGraph.html#polyanagro.MolecularGraph.MolecularGraph.find_all_paths_length">find_all_paths_length</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.find_isolated_vertices" href="MolecularGraph.html#polyanagro.MolecularGraph.MolecularGraph.find_isolated_vertices">find_isolated_vertices</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.get_allbends" href="MolecularGraph.html#polyanagro.MolecularGraph.MolecularGraph.get_allbends">get_allbends</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.get_allbonds" href="MolecularGraph.html#polyanagro.MolecularGraph.MolecularGraph.get_allbonds">get_allbonds</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.get_alldihedrals" href="MolecularGraph.html#polyanagro.MolecularGraph.MolecularGraph.get_alldihedrals">get_alldihedrals</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.get_allimpropers" href="MolecularGraph.html#polyanagro.MolecularGraph.MolecularGraph.get_allimpropers">get_allimpropers</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.get_edges" href="MolecularGraph.html#polyanagro.MolecularGraph.MolecularGraph.get_edges">get_edges</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.get_forest" href="MolecularGraph.html#polyanagro.MolecularGraph.MolecularGraph.get_forest">get_forest</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.get_graph" href="MolecularGraph.html#polyanagro.MolecularGraph.MolecularGraph.get_graph">get_graph</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.get_neighbours" href="MolecularGraph.html#polyanagro.MolecularGraph.MolecularGraph.get_neighbours">get_neighbours</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.get_vertices" href="MolecularGraph.html#polyanagro.MolecularGraph.MolecularGraph.get_vertices">get_vertices</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.is_connected" href="MolecularGraph.html#polyanagro.MolecularGraph.MolecularGraph.is_connected">is_connected</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.iscyclic" href="MolecularGraph.html#polyanagro.MolecularGraph.MolecularGraph.iscyclic">iscyclic</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.perception_rings" href="MolecularGraph.html#polyanagro.MolecularGraph.MolecularGraph.perception_rings">perception_rings</a></code></li>
+<li><code><a title="polyanagro.MolecularGraph.MolecularGraph.remove_edge" href="MolecularGraph.html#polyanagro.MolecularGraph.MolecularGraph.remove_edge">remove_edge</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="polyanagro" href="index.html">polyanagro</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="polyanagro.Topology.Topology" href="#polyanagro.Topology.Topology">Topology</a></code></h4>
+<ul class="">
+<li><code><a title="polyanagro.Topology.Topology.assign_bond_orders" href="#polyanagro.Topology.Topology.assign_bond_orders">assign_bond_orders</a></code></li>
+<li><code><a title="polyanagro.Topology.Topology.check_atom_max_valence" href="#polyanagro.Topology.Topology.check_atom_max_valence">check_atom_max_valence</a></code></li>
+<li><code><a title="polyanagro.Topology.Topology.detect_connectivity" href="#polyanagro.Topology.Topology.detect_connectivity">detect_connectivity</a></code></li>
+<li><code><a title="polyanagro.Topology.Topology.get_array_mols_neigh" href="#polyanagro.Topology.Topology.get_array_mols_neigh">get_array_mols_neigh</a></code></li>
+<li><code><a title="polyanagro.Topology.Topology.get_bonds_topologyCONNECTPDB" href="#polyanagro.Topology.Topology.get_bonds_topologyCONNECTPDB">get_bonds_topologyCONNECTPDB</a></code></li>
+<li><code><a title="polyanagro.Topology.Topology.get_bonds_topologyMDAnalysis" href="#polyanagro.Topology.Topology.get_bonds_topologyMDAnalysis">get_bonds_topologyMDAnalysis</a></code></li>
+<li><code><a title="polyanagro.Topology.Topology.get_bonds_topologyPSF" href="#polyanagro.Topology.Topology.get_bonds_topologyPSF">get_bonds_topologyPSF</a></code></li>
+<li><code><a title="polyanagro.Topology.Topology.guess_bonds_topology" href="#polyanagro.Topology.Topology.guess_bonds_topology">guess_bonds_topology</a></code></li>
+<li><code><a title="polyanagro.Topology.Topology.guess_nringsCauchy" href="#polyanagro.Topology.Topology.guess_nringsCauchy">guess_nringsCauchy</a></code></li>
+<li><code><a title="polyanagro.Topology.Topology.logger" href="#polyanagro.Topology.Topology.logger">logger</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.8.4</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,55 @@
+
+    ***********************************************************************
+                    Glass Transtion Temperature Analysis 
+              ----------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an 
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 08-07-2024 09:35:25 ============
+
+		Command line: 
+			python tg_analysis.py annealing -e 1.part0001.edr --bin 10 --range 0 1000
+			         or
+			energy_analysis annealing -e 1.part0001.edr --bin 10 --range 0 1000
+
+		Reading energy data from: 
+			1.part0001.edr
+
+		**** ENERGY INFO ****
+		  Number of points in energy files   : 150001
+		  Original trajectory from 0.0 (ps) to 600000.0 (ps).
+		  Timestep 4.0 (ps).
+		**** End ENERGY INFO ****
+
+		**** TERMS DENSITY and TEMPERATURE PRESENT IN THE ENERGY FILE ****
+		Density
+		Temperature
+		**** END TERMS DENSITY and TEMPERATURE PRESENT IN THE ENERGY FILE ****
+
+		**** GLASS TRANSITION FITTING INFO ****
+		Starting analysis for current dataset.
+		Tg from initial fit (in K): 405.8
+		Normed residual (smaller is better):   0.000294
+		Convergence parameter set to: 90.0%
+		Dataset not rejected
+		Estimated Tg (in K): 405.80
+		Standard Error:  3.58
+		Rejected: 0
+		**** END GLASS TRANSITION FITTING INFO ****
+
+		Job  Done at 08-07-2024 09:35:36 ============
+

@@ -1,0 +1,37 @@
+# This file was created Mon Oct 14 16:43:33 2024
+# Created by:
+#              :-) GROMACS - gmx energy, 2021.4-Ubuntu-2021.4-2 (-:
+# 
+# Executable:   /usr/bin/gmx
+# Data prefix:  /usr
+# Working dir:  /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/examples/19-ECoh_PE_LOPLS
+# Command line:
+#   gmx energy -f Full_traj_out.edr -o SC_density_full.xvg
+# gmx energy is part of G R O M A C S:
+#
+# GROningen Mixture of Alchemy and Childrens' Stories
+#
+@    title "GROMACS Energies"
+@    xaxis  label "Time (ps)"
+@    yaxis  label "(kg/m^3)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "Density"
+250000.000000  709.916992
+270000.000000  722.791138
+290000.000000  723.583130
+310000.000000  719.670105
+330000.000000  720.988770
+350000.000000  732.187805
+370000.000000  735.007629
+390000.000000  705.849670
+410000.000000  705.590271
+430000.000000  724.416077
+450000.000000  720.081726
+470000.000000  706.026184
+490000.000000  723.502747

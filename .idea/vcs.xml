@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GromacsWrapper" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/thirdparty" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/thirdparty/GromacsWrapper" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/thirdparty/eigen" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/thirdparty/indigo-bondorder" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/thirdparty/openbabel" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/thirdparty/topology" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/thirdparty/topology/thirdparty/indigo-bondorder" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/topology" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/topology/thirdparty/indigo-bondorder" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/topology/thirdparty/openbabel" vcs="Git" />
+  </component>
+</project>

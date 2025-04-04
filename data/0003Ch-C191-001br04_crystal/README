@@ -1,0 +1,7 @@
+Extracted from /home/jramos/PROGRAMACION/SCRIPTS/PYTHON/CRYSTANA2/TEST_03_Atomistic_C4branched
+
+catdcd -o traj.dcd -i index.dat /home/jramos/PROGRAMACION/SCRIPTS/PYTHON/CRYSTANA2/TEST_01_Atomistic_Lineal/dump_cut-500_nojump.dcd
+
+cp /home/jramos/PROGRAMACION/SCRIPTS/PYTHON/CRYSTANA2/TEST_01_Atomistic_Lineal/namd.psf .
+
+Modifiy PSF at hand

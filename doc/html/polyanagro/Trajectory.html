@@ -1,0 +1,1045 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.8.4" />
+<title>polyanagro.Trajectory API documentation</title>
+<meta name="description" content="Class to handle trajectories. This make a heavy use of MDAnalysis.
+In fact, it works as a wrapper to the MDAnalysis library" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>polyanagro.Trajectory</code></h1>
+</header>
+<section id="section-intro">
+<p>Class to handle trajectories. This make a heavy use of MDAnalysis.
+In fact, it works as a wrapper to the MDAnalysis library</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+Class to handle trajectories. This make a heavy use of MDAnalysis.
+In fact, it works as a wrapper to the MDAnalysis library
+&#34;&#34;&#34;
+import MDAnalysis
+import datetime
+import numpy as np
+import polyanagro as pag
+from copy import copy
+
+class Trajectory(object):
+
+    &#34;&#34;&#34;
+    Trajectory class.
+
+    A list of trajectory paths are given in order to create a Trajectory object
+
+    &#34;&#34;&#34;
+
+    __slots__ = [&#39;typetrj&#39;, &#39;trjpath&#39;, &#39;trjlist&#39;, &#39;dt&#39;, &#39;topology&#39;, &#39;logger&#39;]
+   # ***********************************************************************************
+    def __init__(self, trjlist=None, topfile=None, logger=None):
+
+        &#34;&#34;&#34;
+        Trajectory Constructor.
+
+        Parameters:
+            * ``trjlist`` (list of string): Path list of the trajectories
+            * ``topfile`` string : Path to the topology file. If None the topology is empty
+            * ``logger`` (Logger instance): Log the results. If logger=None, the output is on the screen
+
+        Attributes:
+            * ``self.typetrj`` (list) --&gt; Type of trajectories, example: [&#39;xtc&#39;,&#39;xtc&#39;,&#39;xtc&#39;]
+            * ``self.trjpath`` (list) --&gt; List of the trajectory paths
+            * ``self.trjlist`` (list) --&gt; List if the Trajectory objects (MDAnalysis)
+            * ``self.dt`` (float) --&gt; Time between frames in ps
+            * ``self.topology`` (Topology) --&gt; Topology of the trajectories
+            * ``self.logger`` (Logger instance) --&gt; Log the results
+
+
+        &#34;&#34;&#34;
+
+        start_time = datetime.datetime.now()
+
+        if not logger is None:
+            self.logger = logger
+            msg = &#34;\tCreating a trajectory...\n&#34;
+            print(msg) if self.logger is None else self.logger.info(msg)
+        else:
+            self.logger = None
+
+        # These properties are setup in add_trjs method
+        self.typetrj = []
+        self.trjpath = []
+        self.trjlist = []
+        if not trjlist is None:
+            self.add_trjs(trjlist)
+            self.dt = self.trjlist[0].dt
+
+        if not topfile:
+            self.topology = pag.Topology()
+        else:
+            t = pag.Topology(logger=self.logger)
+            t.get_bonds_topologyMDAnalysis(topfile, filecoord=self.trjpath[0])
+            self.set_top(t)
+
+        end_time = datetime.datetime.now()
+        elapsed_time = end_time - start_time
+        msg = &#34;\tTIME(Read_Trajectories): {0:s} seconds&#34;.format(str(elapsed_time.total_seconds()))
+        print(msg) if self.logger is None else self.logger.info(msg)
+
+    # ***********************************************************************************
+    def __copy__(self):
+
+        trj = Trajectory(logger=self.logger)
+        trj.typetrj = self.typetrj[:]
+        trj.trjpath = self.trjpath[:]
+        trj.trjlist = self.trjlist[:]
+        trj.topology = copy(self.topology)
+        trj.dt = self.dt
+        trj.logger = self.logger
+
+        return trj
+
+    # ***********************************************************************************
+    def add_trjs(self, fullnametrjset):
+
+        &#34;&#34;&#34;
+        Add trajectories from a list (or set) and check that its type is equal to the others added trajectories.
+        The trajectory names have to be an order. It is supposed that the first trajectory is the first name
+        in an alphabetically order and so on.
+
+        Modify self.typetrj, self.trjpath
+
+        Parameters:
+            * ``fullnametrjset`` (list or set): Path of the trajectory files
+
+        Returns:
+            * ``Ǹone``
+
+        &#34;&#34;&#34;
+
+        if not isinstance(fullnametrjset, list):
+            fullnametrjset = [fullnametrjset]
+
+        fullnametrjset = sorted(set(fullnametrjset))
+
+        for fullnametrj in fullnametrjset:
+
+            # Check and open trajectory file
+            self.trjpath.append(fullnametrj)
+            file_trj, path_trj, type_trj, isfile = pag.get_name_file_ext(fullnametrj)
+
+            if len(self.typetrj) != 0 and not type_trj in self.typetrj:
+                msg = &#34;\tTrying to add a {0} trajectory type to a {1} trajectory list&#34;.format(type_trj, self.typetrj[0])
+                print(msg) if self.logger is None else self.logger.info(msg)
+                msg = &#34;\t The trajectory is ignored.&#34;
+                print(msg) if self.logger is None else self.logger.info(msg)
+                continue
+            self.typetrj.append(type_trj)
+
+            try:
+                self.trajectoryReader_MDAnalysis(fullnametrj)
+                msg =&#34;\tAdding the trajectory {0:s} ({1} frames)&#34;.format(fullnametrj, self.trjlist[-1].n_frames)
+                print(msg) if self.logger is None else self.logger.info(msg)
+            except (FileNotFoundError, TypeError) as e:
+                msg = &#34;\n\t{0:s} is not found or is not an allowed file\n&#34;.format(fullnametrj)
+                msg += &#34;\tTrajectory object is empty.\n&#34;
+                print(msg) if self.logger is None else self.logger.error(msg)
+                pass
+
+        ntot_frames = self.get_numframes()
+        msg = &#34;\tTotal number of frames: {0}&#34;.format(ntot_frames)
+        print(msg) if self.logger is None else self.logger.info(msg)
+
+        return None
+
+    # ***********************************************************************************
+    def get_numframes(self):
+
+        &#34;&#34;&#34;
+        Get the total number of frames
+
+        Parameters:
+            * ``None``
+
+        Returns:
+            * ``Ǹone``
+
+        &#34;&#34;&#34;
+
+        nfr = 0
+        for item in self.trjlist:
+            if nfr == 0:
+                nfr += item.n_frames
+            else:
+                nfr += item.n_frames - 1
+
+        return nfr
+
+    # ***********************************************************************************
+    def trajectoryReader_MDAnalysis(self, trjname, removefirst=True):
+
+        &#34;&#34;&#34;
+        Reader for XTC, DCD and TRR trajectories.
+
+        Set up the attribute self.trjlist
+
+        Parameters:
+            * ``trjpath``: Name of the trajectory to load
+            * ``removefirst``: Default: True --&gt; Remove the first frame of the trajectory
+
+        Return:
+            * ``None``
+        &#34;&#34;&#34;
+
+        try:
+            # Try to open the file to see if it exists or not.
+            open(trjname,&#39;r&#39;).close()
+            if self.typetrj[-1] == &#34;xtc&#34;:
+                self.trjlist.append(MDAnalysis.coordinates.XTC.XTCReader(trjname))
+            elif self.typetrj[-1] == &#34;trr&#34;:
+                self.trjlist.append(MDAnalysis.coordinates.TRR.TRRReader(trjname))
+            elif self.typetrj[-1] == &#34;dcd&#34;:
+                self.trjlist.append(MDAnalysis.coordinates.DCD.DCDReader(trjname))
+        except (FileNotFoundError, OSError):
+            msg = &#34;\n\t{0:s} format file is wrong.\n&#34;.format(self.trjpath)
+            msg += &#34;\tTrajectory object is empty.\n&#34;
+            print(msg) if self.logger is None else self.logger.error(msg)
+
+    # ***********************************************************************************
+    def set_top(self, top):
+
+        &#34;&#34;&#34;
+        Add topology to the Trajectory object.
+
+        This method changes self.topology attributr
+
+        Parameters:
+            * ``top`` (Topology) : A topology instance
+
+        Return:
+            * ``None``
+
+        &#34;&#34;&#34;
+
+        msg = &#34;\tAdding topology {0:s} &#34;.format(top._topologyfile)
+        print(msg) if self.logger is None else self.logger.info(msg)
+
+        self.topology = top
+
+    # ***********************************************************************************
+    def write_trajectory(self, filename, pbc=True, nojump=False, format=None):
+
+        &#34;&#34;&#34;
+        Write trajectory
+
+        Parameters:
+            * ``filename`` (string) : Name of the trayectory file
+            * ``pbc`` (boolean, default True) : if True remove PBC. Ignored if ``nojump`` is True
+            * ``nojump`` (boolean, default False) : if True remove jumps between frames
+            * ``format`` (string): Format of the trajectory. The format must be supported by MDAnalysis package
+            (https://www.mdanalysis.org/docs/documentation_pages/coordinates/init.html)
+
+        Return:
+            * ``None``
+
+        &#34;&#34;&#34;
+
+        msg = &#34;\n\tWriting trajectory... {0:s}&#34;.format(filename)
+        print(msg) if self.logger is None else self.logger.info(msg)
+
+        natoms = self.topology._natoms
+        n_image = np.zeros((natoms, 3), dtype=np.int32)
+        nmols_array, l_neigh_array = self.topology.get_array_mols_neigh()
+    #    nchains = len(nmols_array)
+
+        # Check format
+        if format is None:
+            W = MDAnalysis.Writer(filename, n_atoms=natoms)
+        else:
+            _filename = filename+&#34;.&#34;+format
+            W = MDAnalysis.Writer(_filename, n_atoms=natoms, format=format)
+
+        start_time = datetime.datetime.now()
+        indx_iframe = 0
+        c_unwrap_0 = None
+
+        # Universe with a virtual contiguous trajectory
+        u = MDAnalysis.Universe(self.topology._topologyfile, self.trjpath, continuous=True)
+        s_atoms = u.select_atoms(&#34;all&#34;)
+
+        for ts in u.trajectory:
+
+            # Using unwrapping function from MDAnalysis library
+            # if pbc:
+            #     s_atoms.unwrap()
+
+            if indx_iframe%100 == 0:
+                msg = &#34;\tFrame {0:9d} of {1:9d}&#34;.format(indx_iframe,self.get_numframes())
+                mid_time = datetime.datetime.now()
+                elapsed_time = mid_time - start_time
+                msg += &#34;\ttime: {0:s} seconds&#34;.format(str(elapsed_time.total_seconds()))
+                print(msg) if self.logger is None else self.logger.info(msg)
+
+            # Write coordinates without jump in the molecules (chains)
+            if nojump:
+                # 1. Get box dimensions
+                box = ts.dimensions
+                # 2. Unwrap coordinates
+                if indx_iframe == 0:
+                    c_unwrap_0 = pag.unwrap(ts.positions, nmols_array, l_neigh_array, box)
+                    # 4. Update coordinates in the trajectory file
+                    # for iatom in range(len(c_unwrap_0)):
+                    #    ts.positions[iatom] = c_unwrap_0[iatom,:]
+                    ts.positions = c_unwrap_0
+                else:
+                    c_jump = pag.unwrap_nojump(ts.positions, c_unwrap_0, n_image, nmols_array, l_neigh_array, box)
+                    c_unwrap_0 = pag.unwrap(ts.positions, nmols_array, l_neigh_array, box)
+                    # 4. Update coordinates in the trajectory file
+                    # for iatom in range(len(c_jump)):
+                    ts.positions = c_jump
+                #5. Write coordinates
+                W.write(s_atoms)
+                indx_iframe += 1
+            elif pbc and not nojump:
+                # 1. Get box dimensions
+                box = ts.dimensions
+                # 2. Unwrap coordinates
+                # c_unwrap = unwrap(ts.positions, nmols_array, l_neigh_array, box)
+                # # 3. Update coordinates in the trajectory file
+                # for item in range(len(c_unwrap)):
+                #     ts.positions[item] = c_unwrap[item]
+                ts.positions = pag.unwrap(ts.positions, nmols_array, l_neigh_array, box)
+
+                indx_iframe += 1
+                #5. Write coordinates
+                W.write(s_atoms)
+            else:
+                W.write(s_atoms)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="polyanagro.Trajectory.Trajectory"><code class="flex name class">
+<span>class <span class="ident">Trajectory</span></span>
+<span>(</span><span>trjlist=None, topfile=None, logger=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Trajectory class.</p>
+<p>A list of trajectory paths are given in order to create a Trajectory object</p>
+<p>Trajectory Constructor.</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>trjlist</code> (list of string): Path list of the trajectories</li>
+<li><code>topfile</code> string : Path to the topology file. If None the topology is empty</li>
+<li><code>logger</code> (Logger instance): Log the results. If logger=None, the output is on the screen</li>
+</ul>
+<h2 id="attributes">Attributes</h2>
+<ul>
+<li><code>self.typetrj</code> (list) &ndash;&gt; Type of trajectories, example: ['xtc','xtc','xtc']</li>
+<li><code>self.trjpath</code> (list) &ndash;&gt; List of the trajectory paths</li>
+<li><code>self.trjlist</code> (list) &ndash;&gt; List if the Trajectory objects (MDAnalysis)</li>
+<li><code>self.dt</code> (float) &ndash;&gt; Time between frames in ps</li>
+<li><code>self.topology</code> (Topology) &ndash;&gt; Topology of the trajectories</li>
+<li><code>self.logger</code> (Logger instance) &ndash;&gt; Log the results</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Trajectory(object):
+
+    &#34;&#34;&#34;
+    Trajectory class.
+
+    A list of trajectory paths are given in order to create a Trajectory object
+
+    &#34;&#34;&#34;
+
+    __slots__ = [&#39;typetrj&#39;, &#39;trjpath&#39;, &#39;trjlist&#39;, &#39;dt&#39;, &#39;topology&#39;, &#39;logger&#39;]
+   # ***********************************************************************************
+    def __init__(self, trjlist=None, topfile=None, logger=None):
+
+        &#34;&#34;&#34;
+        Trajectory Constructor.
+
+        Parameters:
+            * ``trjlist`` (list of string): Path list of the trajectories
+            * ``topfile`` string : Path to the topology file. If None the topology is empty
+            * ``logger`` (Logger instance): Log the results. If logger=None, the output is on the screen
+
+        Attributes:
+            * ``self.typetrj`` (list) --&gt; Type of trajectories, example: [&#39;xtc&#39;,&#39;xtc&#39;,&#39;xtc&#39;]
+            * ``self.trjpath`` (list) --&gt; List of the trajectory paths
+            * ``self.trjlist`` (list) --&gt; List if the Trajectory objects (MDAnalysis)
+            * ``self.dt`` (float) --&gt; Time between frames in ps
+            * ``self.topology`` (Topology) --&gt; Topology of the trajectories
+            * ``self.logger`` (Logger instance) --&gt; Log the results
+
+
+        &#34;&#34;&#34;
+
+        start_time = datetime.datetime.now()
+
+        if not logger is None:
+            self.logger = logger
+            msg = &#34;\tCreating a trajectory...\n&#34;
+            print(msg) if self.logger is None else self.logger.info(msg)
+        else:
+            self.logger = None
+
+        # These properties are setup in add_trjs method
+        self.typetrj = []
+        self.trjpath = []
+        self.trjlist = []
+        if not trjlist is None:
+            self.add_trjs(trjlist)
+            self.dt = self.trjlist[0].dt
+
+        if not topfile:
+            self.topology = pag.Topology()
+        else:
+            t = pag.Topology(logger=self.logger)
+            t.get_bonds_topologyMDAnalysis(topfile, filecoord=self.trjpath[0])
+            self.set_top(t)
+
+        end_time = datetime.datetime.now()
+        elapsed_time = end_time - start_time
+        msg = &#34;\tTIME(Read_Trajectories): {0:s} seconds&#34;.format(str(elapsed_time.total_seconds()))
+        print(msg) if self.logger is None else self.logger.info(msg)
+
+    # ***********************************************************************************
+    def __copy__(self):
+
+        trj = Trajectory(logger=self.logger)
+        trj.typetrj = self.typetrj[:]
+        trj.trjpath = self.trjpath[:]
+        trj.trjlist = self.trjlist[:]
+        trj.topology = copy(self.topology)
+        trj.dt = self.dt
+        trj.logger = self.logger
+
+        return trj
+
+    # ***********************************************************************************
+    def add_trjs(self, fullnametrjset):
+
+        &#34;&#34;&#34;
+        Add trajectories from a list (or set) and check that its type is equal to the others added trajectories.
+        The trajectory names have to be an order. It is supposed that the first trajectory is the first name
+        in an alphabetically order and so on.
+
+        Modify self.typetrj, self.trjpath
+
+        Parameters:
+            * ``fullnametrjset`` (list or set): Path of the trajectory files
+
+        Returns:
+            * ``Ǹone``
+
+        &#34;&#34;&#34;
+
+        if not isinstance(fullnametrjset, list):
+            fullnametrjset = [fullnametrjset]
+
+        fullnametrjset = sorted(set(fullnametrjset))
+
+        for fullnametrj in fullnametrjset:
+
+            # Check and open trajectory file
+            self.trjpath.append(fullnametrj)
+            file_trj, path_trj, type_trj, isfile = pag.get_name_file_ext(fullnametrj)
+
+            if len(self.typetrj) != 0 and not type_trj in self.typetrj:
+                msg = &#34;\tTrying to add a {0} trajectory type to a {1} trajectory list&#34;.format(type_trj, self.typetrj[0])
+                print(msg) if self.logger is None else self.logger.info(msg)
+                msg = &#34;\t The trajectory is ignored.&#34;
+                print(msg) if self.logger is None else self.logger.info(msg)
+                continue
+            self.typetrj.append(type_trj)
+
+            try:
+                self.trajectoryReader_MDAnalysis(fullnametrj)
+                msg =&#34;\tAdding the trajectory {0:s} ({1} frames)&#34;.format(fullnametrj, self.trjlist[-1].n_frames)
+                print(msg) if self.logger is None else self.logger.info(msg)
+            except (FileNotFoundError, TypeError) as e:
+                msg = &#34;\n\t{0:s} is not found or is not an allowed file\n&#34;.format(fullnametrj)
+                msg += &#34;\tTrajectory object is empty.\n&#34;
+                print(msg) if self.logger is None else self.logger.error(msg)
+                pass
+
+        ntot_frames = self.get_numframes()
+        msg = &#34;\tTotal number of frames: {0}&#34;.format(ntot_frames)
+        print(msg) if self.logger is None else self.logger.info(msg)
+
+        return None
+
+    # ***********************************************************************************
+    def get_numframes(self):
+
+        &#34;&#34;&#34;
+        Get the total number of frames
+
+        Parameters:
+            * ``None``
+
+        Returns:
+            * ``Ǹone``
+
+        &#34;&#34;&#34;
+
+        nfr = 0
+        for item in self.trjlist:
+            if nfr == 0:
+                nfr += item.n_frames
+            else:
+                nfr += item.n_frames - 1
+
+        return nfr
+
+    # ***********************************************************************************
+    def trajectoryReader_MDAnalysis(self, trjname, removefirst=True):
+
+        &#34;&#34;&#34;
+        Reader for XTC, DCD and TRR trajectories.
+
+        Set up the attribute self.trjlist
+
+        Parameters:
+            * ``trjpath``: Name of the trajectory to load
+            * ``removefirst``: Default: True --&gt; Remove the first frame of the trajectory
+
+        Return:
+            * ``None``
+        &#34;&#34;&#34;
+
+        try:
+            # Try to open the file to see if it exists or not.
+            open(trjname,&#39;r&#39;).close()
+            if self.typetrj[-1] == &#34;xtc&#34;:
+                self.trjlist.append(MDAnalysis.coordinates.XTC.XTCReader(trjname))
+            elif self.typetrj[-1] == &#34;trr&#34;:
+                self.trjlist.append(MDAnalysis.coordinates.TRR.TRRReader(trjname))
+            elif self.typetrj[-1] == &#34;dcd&#34;:
+                self.trjlist.append(MDAnalysis.coordinates.DCD.DCDReader(trjname))
+        except (FileNotFoundError, OSError):
+            msg = &#34;\n\t{0:s} format file is wrong.\n&#34;.format(self.trjpath)
+            msg += &#34;\tTrajectory object is empty.\n&#34;
+            print(msg) if self.logger is None else self.logger.error(msg)
+
+    # ***********************************************************************************
+    def set_top(self, top):
+
+        &#34;&#34;&#34;
+        Add topology to the Trajectory object.
+
+        This method changes self.topology attributr
+
+        Parameters:
+            * ``top`` (Topology) : A topology instance
+
+        Return:
+            * ``None``
+
+        &#34;&#34;&#34;
+
+        msg = &#34;\tAdding topology {0:s} &#34;.format(top._topologyfile)
+        print(msg) if self.logger is None else self.logger.info(msg)
+
+        self.topology = top
+
+    # ***********************************************************************************
+    def write_trajectory(self, filename, pbc=True, nojump=False, format=None):
+
+        &#34;&#34;&#34;
+        Write trajectory
+
+        Parameters:
+            * ``filename`` (string) : Name of the trayectory file
+            * ``pbc`` (boolean, default True) : if True remove PBC. Ignored if ``nojump`` is True
+            * ``nojump`` (boolean, default False) : if True remove jumps between frames
+            * ``format`` (string): Format of the trajectory. The format must be supported by MDAnalysis package
+            (https://www.mdanalysis.org/docs/documentation_pages/coordinates/init.html)
+
+        Return:
+            * ``None``
+
+        &#34;&#34;&#34;
+
+        msg = &#34;\n\tWriting trajectory... {0:s}&#34;.format(filename)
+        print(msg) if self.logger is None else self.logger.info(msg)
+
+        natoms = self.topology._natoms
+        n_image = np.zeros((natoms, 3), dtype=np.int32)
+        nmols_array, l_neigh_array = self.topology.get_array_mols_neigh()
+    #    nchains = len(nmols_array)
+
+        # Check format
+        if format is None:
+            W = MDAnalysis.Writer(filename, n_atoms=natoms)
+        else:
+            _filename = filename+&#34;.&#34;+format
+            W = MDAnalysis.Writer(_filename, n_atoms=natoms, format=format)
+
+        start_time = datetime.datetime.now()
+        indx_iframe = 0
+        c_unwrap_0 = None
+
+        # Universe with a virtual contiguous trajectory
+        u = MDAnalysis.Universe(self.topology._topologyfile, self.trjpath, continuous=True)
+        s_atoms = u.select_atoms(&#34;all&#34;)
+
+        for ts in u.trajectory:
+
+            # Using unwrapping function from MDAnalysis library
+            # if pbc:
+            #     s_atoms.unwrap()
+
+            if indx_iframe%100 == 0:
+                msg = &#34;\tFrame {0:9d} of {1:9d}&#34;.format(indx_iframe,self.get_numframes())
+                mid_time = datetime.datetime.now()
+                elapsed_time = mid_time - start_time
+                msg += &#34;\ttime: {0:s} seconds&#34;.format(str(elapsed_time.total_seconds()))
+                print(msg) if self.logger is None else self.logger.info(msg)
+
+            # Write coordinates without jump in the molecules (chains)
+            if nojump:
+                # 1. Get box dimensions
+                box = ts.dimensions
+                # 2. Unwrap coordinates
+                if indx_iframe == 0:
+                    c_unwrap_0 = pag.unwrap(ts.positions, nmols_array, l_neigh_array, box)
+                    # 4. Update coordinates in the trajectory file
+                    # for iatom in range(len(c_unwrap_0)):
+                    #    ts.positions[iatom] = c_unwrap_0[iatom,:]
+                    ts.positions = c_unwrap_0
+                else:
+                    c_jump = pag.unwrap_nojump(ts.positions, c_unwrap_0, n_image, nmols_array, l_neigh_array, box)
+                    c_unwrap_0 = pag.unwrap(ts.positions, nmols_array, l_neigh_array, box)
+                    # 4. Update coordinates in the trajectory file
+                    # for iatom in range(len(c_jump)):
+                    ts.positions = c_jump
+                #5. Write coordinates
+                W.write(s_atoms)
+                indx_iframe += 1
+            elif pbc and not nojump:
+                # 1. Get box dimensions
+                box = ts.dimensions
+                # 2. Unwrap coordinates
+                # c_unwrap = unwrap(ts.positions, nmols_array, l_neigh_array, box)
+                # # 3. Update coordinates in the trajectory file
+                # for item in range(len(c_unwrap)):
+                #     ts.positions[item] = c_unwrap[item]
+                ts.positions = pag.unwrap(ts.positions, nmols_array, l_neigh_array, box)
+
+                indx_iframe += 1
+                #5. Write coordinates
+                W.write(s_atoms)
+            else:
+                W.write(s_atoms)</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="polyanagro.Trajectory.Trajectory.dt"><code class="name">var <span class="ident">dt</span></code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="polyanagro.Trajectory.Trajectory.logger"><code class="name">var <span class="ident">logger</span></code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="polyanagro.Trajectory.Trajectory.topology"><code class="name">var <span class="ident">topology</span></code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="polyanagro.Trajectory.Trajectory.trjlist"><code class="name">var <span class="ident">trjlist</span></code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="polyanagro.Trajectory.Trajectory.trjpath"><code class="name">var <span class="ident">trjpath</span></code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="polyanagro.Trajectory.Trajectory.typetrj"><code class="name">var <span class="ident">typetrj</span></code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="polyanagro.Trajectory.Trajectory.add_trjs"><code class="name flex">
+<span>def <span class="ident">add_trjs</span></span>(<span>self, fullnametrjset)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Add trajectories from a list (or set) and check that its type is equal to the others added trajectories.
+The trajectory names have to be an order. It is supposed that the first trajectory is the first name
+in an alphabetically order and so on.</p>
+<p>Modify self.typetrj, self.trjpath</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>fullnametrjset</code> (list or set): Path of the trajectory files</li>
+</ul>
+<h2 id="returns">Returns</h2>
+<ul>
+<li><code>Ǹone</code></li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_trjs(self, fullnametrjset):
+
+    &#34;&#34;&#34;
+    Add trajectories from a list (or set) and check that its type is equal to the others added trajectories.
+    The trajectory names have to be an order. It is supposed that the first trajectory is the first name
+    in an alphabetically order and so on.
+
+    Modify self.typetrj, self.trjpath
+
+    Parameters:
+        * ``fullnametrjset`` (list or set): Path of the trajectory files
+
+    Returns:
+        * ``Ǹone``
+
+    &#34;&#34;&#34;
+
+    if not isinstance(fullnametrjset, list):
+        fullnametrjset = [fullnametrjset]
+
+    fullnametrjset = sorted(set(fullnametrjset))
+
+    for fullnametrj in fullnametrjset:
+
+        # Check and open trajectory file
+        self.trjpath.append(fullnametrj)
+        file_trj, path_trj, type_trj, isfile = pag.get_name_file_ext(fullnametrj)
+
+        if len(self.typetrj) != 0 and not type_trj in self.typetrj:
+            msg = &#34;\tTrying to add a {0} trajectory type to a {1} trajectory list&#34;.format(type_trj, self.typetrj[0])
+            print(msg) if self.logger is None else self.logger.info(msg)
+            msg = &#34;\t The trajectory is ignored.&#34;
+            print(msg) if self.logger is None else self.logger.info(msg)
+            continue
+        self.typetrj.append(type_trj)
+
+        try:
+            self.trajectoryReader_MDAnalysis(fullnametrj)
+            msg =&#34;\tAdding the trajectory {0:s} ({1} frames)&#34;.format(fullnametrj, self.trjlist[-1].n_frames)
+            print(msg) if self.logger is None else self.logger.info(msg)
+        except (FileNotFoundError, TypeError) as e:
+            msg = &#34;\n\t{0:s} is not found or is not an allowed file\n&#34;.format(fullnametrj)
+            msg += &#34;\tTrajectory object is empty.\n&#34;
+            print(msg) if self.logger is None else self.logger.error(msg)
+            pass
+
+    ntot_frames = self.get_numframes()
+    msg = &#34;\tTotal number of frames: {0}&#34;.format(ntot_frames)
+    print(msg) if self.logger is None else self.logger.info(msg)
+
+    return None</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.Trajectory.Trajectory.get_numframes"><code class="name flex">
+<span>def <span class="ident">get_numframes</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get the total number of frames</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>None</code></li>
+</ul>
+<h2 id="returns">Returns</h2>
+<ul>
+<li><code>Ǹone</code></li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_numframes(self):
+
+    &#34;&#34;&#34;
+    Get the total number of frames
+
+    Parameters:
+        * ``None``
+
+    Returns:
+        * ``Ǹone``
+
+    &#34;&#34;&#34;
+
+    nfr = 0
+    for item in self.trjlist:
+        if nfr == 0:
+            nfr += item.n_frames
+        else:
+            nfr += item.n_frames - 1
+
+    return nfr</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.Trajectory.Trajectory.set_top"><code class="name flex">
+<span>def <span class="ident">set_top</span></span>(<span>self, top)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Add topology to the Trajectory object.</p>
+<p>This method changes self.topology attributr</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>top</code> (Topology) : A topology instance</li>
+</ul>
+<h2 id="return">Return</h2>
+<ul>
+<li><code>None</code></li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_top(self, top):
+
+    &#34;&#34;&#34;
+    Add topology to the Trajectory object.
+
+    This method changes self.topology attributr
+
+    Parameters:
+        * ``top`` (Topology) : A topology instance
+
+    Return:
+        * ``None``
+
+    &#34;&#34;&#34;
+
+    msg = &#34;\tAdding topology {0:s} &#34;.format(top._topologyfile)
+    print(msg) if self.logger is None else self.logger.info(msg)
+
+    self.topology = top</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.Trajectory.Trajectory.trajectoryReader_MDAnalysis"><code class="name flex">
+<span>def <span class="ident">trajectoryReader_MDAnalysis</span></span>(<span>self, trjname, removefirst=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Reader for XTC, DCD and TRR trajectories.</p>
+<p>Set up the attribute self.trjlist</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>trjpath</code>: Name of the trajectory to load</li>
+<li><code>removefirst</code>: Default: True &ndash;&gt; Remove the first frame of the trajectory</li>
+</ul>
+<h2 id="return">Return</h2>
+<ul>
+<li><code>None</code></li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def trajectoryReader_MDAnalysis(self, trjname, removefirst=True):
+
+    &#34;&#34;&#34;
+    Reader for XTC, DCD and TRR trajectories.
+
+    Set up the attribute self.trjlist
+
+    Parameters:
+        * ``trjpath``: Name of the trajectory to load
+        * ``removefirst``: Default: True --&gt; Remove the first frame of the trajectory
+
+    Return:
+        * ``None``
+    &#34;&#34;&#34;
+
+    try:
+        # Try to open the file to see if it exists or not.
+        open(trjname,&#39;r&#39;).close()
+        if self.typetrj[-1] == &#34;xtc&#34;:
+            self.trjlist.append(MDAnalysis.coordinates.XTC.XTCReader(trjname))
+        elif self.typetrj[-1] == &#34;trr&#34;:
+            self.trjlist.append(MDAnalysis.coordinates.TRR.TRRReader(trjname))
+        elif self.typetrj[-1] == &#34;dcd&#34;:
+            self.trjlist.append(MDAnalysis.coordinates.DCD.DCDReader(trjname))
+    except (FileNotFoundError, OSError):
+        msg = &#34;\n\t{0:s} format file is wrong.\n&#34;.format(self.trjpath)
+        msg += &#34;\tTrajectory object is empty.\n&#34;
+        print(msg) if self.logger is None else self.logger.error(msg)</code></pre>
+</details>
+</dd>
+<dt id="polyanagro.Trajectory.Trajectory.write_trajectory"><code class="name flex">
+<span>def <span class="ident">write_trajectory</span></span>(<span>self, filename, pbc=True, nojump=False, format=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Write trajectory</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>filename</code> (string) : Name of the trayectory file</li>
+<li><code>pbc</code> (boolean, default True) : if True remove PBC. Ignored if <code>nojump</code> is True</li>
+<li><code>nojump</code> (boolean, default False) : if True remove jumps between frames</li>
+<li><code>format</code> (string): Format of the trajectory. The format must be supported by MDAnalysis package
+(<a href="https://www.mdanalysis.org/docs/documentation_pages/coordinates/init.html">https://www.mdanalysis.org/docs/documentation_pages/coordinates/init.html</a>)</li>
+</ul>
+<h2 id="return">Return</h2>
+<ul>
+<li><code>None</code></li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def write_trajectory(self, filename, pbc=True, nojump=False, format=None):
+
+    &#34;&#34;&#34;
+    Write trajectory
+
+    Parameters:
+        * ``filename`` (string) : Name of the trayectory file
+        * ``pbc`` (boolean, default True) : if True remove PBC. Ignored if ``nojump`` is True
+        * ``nojump`` (boolean, default False) : if True remove jumps between frames
+        * ``format`` (string): Format of the trajectory. The format must be supported by MDAnalysis package
+        (https://www.mdanalysis.org/docs/documentation_pages/coordinates/init.html)
+
+    Return:
+        * ``None``
+
+    &#34;&#34;&#34;
+
+    msg = &#34;\n\tWriting trajectory... {0:s}&#34;.format(filename)
+    print(msg) if self.logger is None else self.logger.info(msg)
+
+    natoms = self.topology._natoms
+    n_image = np.zeros((natoms, 3), dtype=np.int32)
+    nmols_array, l_neigh_array = self.topology.get_array_mols_neigh()
+#    nchains = len(nmols_array)
+
+    # Check format
+    if format is None:
+        W = MDAnalysis.Writer(filename, n_atoms=natoms)
+    else:
+        _filename = filename+&#34;.&#34;+format
+        W = MDAnalysis.Writer(_filename, n_atoms=natoms, format=format)
+
+    start_time = datetime.datetime.now()
+    indx_iframe = 0
+    c_unwrap_0 = None
+
+    # Universe with a virtual contiguous trajectory
+    u = MDAnalysis.Universe(self.topology._topologyfile, self.trjpath, continuous=True)
+    s_atoms = u.select_atoms(&#34;all&#34;)
+
+    for ts in u.trajectory:
+
+        # Using unwrapping function from MDAnalysis library
+        # if pbc:
+        #     s_atoms.unwrap()
+
+        if indx_iframe%100 == 0:
+            msg = &#34;\tFrame {0:9d} of {1:9d}&#34;.format(indx_iframe,self.get_numframes())
+            mid_time = datetime.datetime.now()
+            elapsed_time = mid_time - start_time
+            msg += &#34;\ttime: {0:s} seconds&#34;.format(str(elapsed_time.total_seconds()))
+            print(msg) if self.logger is None else self.logger.info(msg)
+
+        # Write coordinates without jump in the molecules (chains)
+        if nojump:
+            # 1. Get box dimensions
+            box = ts.dimensions
+            # 2. Unwrap coordinates
+            if indx_iframe == 0:
+                c_unwrap_0 = pag.unwrap(ts.positions, nmols_array, l_neigh_array, box)
+                # 4. Update coordinates in the trajectory file
+                # for iatom in range(len(c_unwrap_0)):
+                #    ts.positions[iatom] = c_unwrap_0[iatom,:]
+                ts.positions = c_unwrap_0
+            else:
+                c_jump = pag.unwrap_nojump(ts.positions, c_unwrap_0, n_image, nmols_array, l_neigh_array, box)
+                c_unwrap_0 = pag.unwrap(ts.positions, nmols_array, l_neigh_array, box)
+                # 4. Update coordinates in the trajectory file
+                # for iatom in range(len(c_jump)):
+                ts.positions = c_jump
+            #5. Write coordinates
+            W.write(s_atoms)
+            indx_iframe += 1
+        elif pbc and not nojump:
+            # 1. Get box dimensions
+            box = ts.dimensions
+            # 2. Unwrap coordinates
+            # c_unwrap = unwrap(ts.positions, nmols_array, l_neigh_array, box)
+            # # 3. Update coordinates in the trajectory file
+            # for item in range(len(c_unwrap)):
+            #     ts.positions[item] = c_unwrap[item]
+            ts.positions = pag.unwrap(ts.positions, nmols_array, l_neigh_array, box)
+
+            indx_iframe += 1
+            #5. Write coordinates
+            W.write(s_atoms)
+        else:
+            W.write(s_atoms)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="polyanagro" href="index.html">polyanagro</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="polyanagro.Trajectory.Trajectory" href="#polyanagro.Trajectory.Trajectory">Trajectory</a></code></h4>
+<ul class="">
+<li><code><a title="polyanagro.Trajectory.Trajectory.add_trjs" href="#polyanagro.Trajectory.Trajectory.add_trjs">add_trjs</a></code></li>
+<li><code><a title="polyanagro.Trajectory.Trajectory.dt" href="#polyanagro.Trajectory.Trajectory.dt">dt</a></code></li>
+<li><code><a title="polyanagro.Trajectory.Trajectory.get_numframes" href="#polyanagro.Trajectory.Trajectory.get_numframes">get_numframes</a></code></li>
+<li><code><a title="polyanagro.Trajectory.Trajectory.logger" href="#polyanagro.Trajectory.Trajectory.logger">logger</a></code></li>
+<li><code><a title="polyanagro.Trajectory.Trajectory.set_top" href="#polyanagro.Trajectory.Trajectory.set_top">set_top</a></code></li>
+<li><code><a title="polyanagro.Trajectory.Trajectory.topology" href="#polyanagro.Trajectory.Trajectory.topology">topology</a></code></li>
+<li><code><a title="polyanagro.Trajectory.Trajectory.trajectoryReader_MDAnalysis" href="#polyanagro.Trajectory.Trajectory.trajectoryReader_MDAnalysis">trajectoryReader_MDAnalysis</a></code></li>
+<li><code><a title="polyanagro.Trajectory.Trajectory.trjlist" href="#polyanagro.Trajectory.Trajectory.trjlist">trjlist</a></code></li>
+<li><code><a title="polyanagro.Trajectory.Trajectory.trjpath" href="#polyanagro.Trajectory.Trajectory.trjpath">trjpath</a></code></li>
+<li><code><a title="polyanagro.Trajectory.Trajectory.typetrj" href="#polyanagro.Trajectory.Trajectory.typetrj">typetrj</a></code></li>
+<li><code><a title="polyanagro.Trajectory.Trajectory.write_trajectory" href="#polyanagro.Trajectory.Trajectory.write_trajectory">write_trajectory</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.8.4</a>.</p>
+</footer>
+</body>
+</html>
