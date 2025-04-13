@@ -20,29 +20,29 @@
 
     ***********************************************************************
         
-		Start Job at 04-04-2025 16:20:58 ============
+		Start Job at 11-04-2025 19:18:53 ============
 
 		Command line: 
-			python msd_polymer.py -t 00-INPUTS/traj_msd_20ps_500frames_wrap.xtc --topo 00-INPUTS/new_topo.tpr --nojump 0
+			python msd_polymer.py -t 00-INPUTS/traj_msd_20ps_500frames_wrap.xtc --topo 00-INPUTS/new_topo.tpr --method=msd_fftw3_cython --nojump 0
 			         or
-			msd_polymer.py -t 00-INPUTS/traj_msd_20ps_500frames_wrap.xtc --topo 00-INPUTS/new_topo.tpr --nojump 0
+			msd_polymer.py -t 00-INPUTS/traj_msd_20ps_500frames_wrap.xtc --topo 00-INPUTS/new_topo.tpr --method=msd_fftw3_cython --nojump 0
 
 	*** Creating a trajectory from...
 	00-INPUTS/traj_msd_20ps_500frames_wrap.xtc
 
 	*** Building bonds from topology... 
 	Setting bond orders: FALSE
-	TIME(Building_bonds_from_topology): 1.578631 seconds
+	TIME(Building_bonds_from_topology): 4.192103 seconds
 	*** End Building bonds from topology... 
 
 	*** Adding topology 
 	00-INPUTS/new_topo.tpr
 	Number of frames: 501
-	TIME(Adding topology): 0.111205 seconds
+	TIME(Adding topology): 1.591564 seconds
 	*** End Adding topology
 
 	Number of frames: 501
-	TIME(Read_Trajectories): 1.690192 seconds
+	TIME(Read_Trajectories): 5.784563 seconds
 	*** End Creating a trajectory 
 
 		 The original trajectory is not unwrapped and/or jumps are not corrected.
@@ -51,44 +51,52 @@
 
 
 	Writing trajectory... traj_msd_20ps_500frames_wrap_nojump.xtc
-	Frame         0 of       501	time: 0.000874 seconds
-	Frame       100 of       501	time: 0.217043 seconds
-	Frame       200 of       501	time: 0.425501 seconds
-	Frame       300 of       501	time: 0.609878 seconds
-	Frame       400 of       501	time: 0.801448 seconds
-	Frame       500 of       501	time: 0.998976 seconds
+	Frame         0 of       501	time: 0.001194 seconds
+	Frame       100 of       501	time: 0.21304 seconds
+	Frame       200 of       501	time: 0.447021 seconds
+	Frame       300 of       501	time: 0.639144 seconds
+	Frame       400 of       501	time: 0.822913 seconds
+	Frame       500 of       501	time: 1.116537 seconds
 	*** Creating a trajectory from...
 	traj_msd_20ps_500frames_wrap_nojump.xtc
 
 	*** Building bonds from topology... 
 	Setting bond orders: FALSE
-	TIME(Building_bonds_from_topology): 1.394478 seconds
+	TIME(Building_bonds_from_topology): 4.852285 seconds
 	*** End Building bonds from topology... 
 
 	*** Adding topology 
 	00-INPUTS/new_topo.tpr
 	Number of frames: 501
-	TIME(Adding topology): 0.083397 seconds
+	TIME(Adding topology): 1.824541 seconds
 	*** End Adding topology
 
 	Number of frames: 501
-	TIME(Read_Trajectories): 1.478463 seconds
+	TIME(Read_Trajectories): 6.678591 seconds
 	*** End Creating a trajectory 
 
-		 ****************************************************************************
-		 Calculating MSD for 12060 atoms/particles in 501 frames (msd_fft3_fast).
-		 ****************************************************************************
+	 =============================================================================
+	 Calculating MSD for 12060 atoms/particles in 501 frames (FFTW3 algorithm).
+	 =============================================================================
 
-		 Writing trajectory to format needed in the msd_fftw3_fast function.
-	Frame         0 of       501	time: 0.000831 seconds
-	Frame       100 of       501	time: 7.782743 seconds
-	Frame       200 of       501	time: 15.67291 seconds
-	Frame       300 of       501	time: 23.591079 seconds
-	Frame       400 of       501	time: 31.616354 seconds
-	Frame       500 of       501	time: 40.062328 seconds
-		 Running MSD for 12060 atoms/particles in 501 frames (msd_fft3_fast).
+	 *****************************************
+		 Estimation of the memory neccesary 		
+	 *****************************************
 
-		 MSD fftw3 time: 3.41 seconds
+		 Number of atoms                              : 12060 atoms
+		 Number of frames                             : 501 frames
+		 Sample time                                  :    20.0 ps
+		 Memory used by python program                :   0.368 GB.
+		 Memory used by signal (all atoms and frames) :   0.135 GB.
+		   ======= Compute S2 =======
+		 Memory used by c-FFTW3 (S2, signal, autocor) :   0.271 GB.
+		 Memory used by c-FFTW3 (S2, res, autocor)    :   0.045 GB.
+		 Memory used by c-FFTW3 (S2Averaged )         :   0.000 GB.
+		 Memory used by c-FFTW3 (sumAuxS2 )           :   0.000 GB.
+		 Memory used by c-FFTW3 (S1Averaged )         :   0.000 GB.
+		 Memory used by c-FFTW3 (sumAuxS1 )           :   0.000 GB.
+	 -------------------------------------------------------------
+		 Total Memory estimation for FFTW3 MSD        :   0.819 GB.
+		 Free memory                                  :  52.144 GB.
 
-		Job  Done at 04-04-2025 16:21:46 ============
-
+	IFRAME: 0 of 501 in 91.247022 seconds

@@ -1,0 +1,100 @@
+
+    ***********************************************************************
+                     Calculate mean square displacement 
+                       using different implementations
+        -------------------------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 11-04-2025 18:20:23 ============
+
+		Command line: 
+			python msd_polymer.py -t /mnt/AOKI_FOLDER/99-ANALYSIS/06-MSD_ALL_GROMACS/01-PVL4_C0_LOPLS_500K_REBASH/trajout_nojump_02.xtc --topo /mnt/AOKI_FOLDER/01-PVL4_C0_LOPLS/03-PREPARE_LIBRARY_POLYPLY_40Mon/04-MD_NPT_0000_0200ns_500K/new_topo.tpr --method=msd_fftw3_cython --stride 4 --nojump 1
+			         or
+			msd_polymer.py -t /mnt/AOKI_FOLDER/99-ANALYSIS/06-MSD_ALL_GROMACS/01-PVL4_C0_LOPLS_500K_REBASH/trajout_nojump_02.xtc --topo /mnt/AOKI_FOLDER/01-PVL4_C0_LOPLS/03-PREPARE_LIBRARY_POLYPLY_40Mon/04-MD_NPT_0000_0200ns_500K/new_topo.tpr --method=msd_fftw3_cython --stride 4 --nojump 1
+
+	*** Creating a trajectory from...
+	/mnt/AOKI_FOLDER/99-ANALYSIS/06-MSD_ALL_GROMACS/01-PVL4_C0_LOPLS_500K_REBASH/trajout_nojump_02.xtc
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 2.286819 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	/mnt/AOKI_FOLDER/01-PVL4_C0_LOPLS/03-PREPARE_LIBRARY_POLYPLY_40Mon/04-MD_NPT_0000_0200ns_500K/new_topo.tpr
+	Number of frames: 100001
+	TIME(Adding topology): 0.539045 seconds
+	*** End Adding topology
+
+	Number of frames: 100001
+	TIME(Read_Trajectories): 2.826405 seconds
+	*** End Creating a trajectory 
+
+	 ===============================================================================
+	 Calculating MSD for 12060 atoms/particles in 25001 frames (FFTW3 algorithm).
+	 ===============================================================================
+
+	 *****************************************
+		 Estimation of the memory neccesary 		
+	 *****************************************
+
+		 Number of atoms                              : 12060 atoms
+		 Number of frames                             : 25001 frames
+		 Sample time                                  :    80.0 ps
+		 Memory used by python program                :   0.301 GB.
+		 Memory used by signal (all atoms and frames) :   6.739 GB.
+		   ======= Compute S2 =======
+		 Memory used by c-FFTW3 (S2, signal, autocor) :  13.479 GB.
+		 Memory used by c-FFTW3 (S2, res, autocor)    :   2.246 GB.
+		 Memory used by c-FFTW3 (S2Averaged )         :   0.001 GB.
+		 Memory used by c-FFTW3 (sumAuxS2 )           :   0.000 GB.
+		 Memory used by c-FFTW3 (S1Averaged )         :   0.001 GB.
+		 Memory used by c-FFTW3 (sumAuxS1 )           :   0.001 GB.
+	 -------------------------------------------------------------
+		 Total Memory estimation for FFTW3 MSD        :  22.766 GB.
+		 Free memory                                  :  53.158 GB.
+
+	IFRAME: 0 of 25001 in 0.055915 seconds
+	IFRAME: 1000 of 25001 in 18.738912 seconds
+	IFRAME: 2000 of 25001 in 37.958506 seconds
+	IFRAME: 3000 of 25001 in 56.571481 seconds
+	IFRAME: 4000 of 25001 in 74.914465 seconds
+	IFRAME: 5000 of 25001 in 95.307953 seconds
+	IFRAME: 6000 of 25001 in 117.045704 seconds
+	IFRAME: 7000 of 25001 in 136.744623 seconds
+	IFRAME: 8000 of 25001 in 156.574753 seconds
+	IFRAME: 9000 of 25001 in 175.858597 seconds
+	IFRAME: 10000 of 25001 in 194.656629 seconds
+	IFRAME: 11000 of 25001 in 216.033997 seconds
+	IFRAME: 12000 of 25001 in 235.421144 seconds
+	IFRAME: 13000 of 25001 in 255.685702 seconds
+	IFRAME: 14000 of 25001 in 275.550904 seconds
+	IFRAME: 15000 of 25001 in 295.279007 seconds
+	IFRAME: 16000 of 25001 in 314.628211 seconds
+	IFRAME: 17000 of 25001 in 335.545789 seconds
+	IFRAME: 18000 of 25001 in 355.513783 seconds
+	IFRAME: 19000 of 25001 in 375.874014 seconds
+	IFRAME: 20000 of 25001 in 393.960416 seconds
+	IFRAME: 21000 of 25001 in 412.381049 seconds
+	IFRAME: 22000 of 25001 in 433.053765 seconds
+	IFRAME: 23000 of 25001 in 452.497184 seconds
+	IFRAME: 24000 of 25001 in 471.698197 seconds
+	IFRAME: 25000 of 25001 in 489.379868 seconds
+
+		Job  Done at 11-04-2025 18:30:22 ============
+

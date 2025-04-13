@@ -4,7 +4,7 @@ import sys
 import argparse
 import datetime
 import topology
-
+import time
 
 # =============================================================================
 def parse_arguments():
@@ -40,21 +40,35 @@ def parse_arguments():
                         help="If True the coordinates provided are unwrapped without jumps",
                         required=True, metavar="True or False, 1 or 0")
 
-    parser.add_argument("--start", dest="start",
+    parser.add_argument("--com", dest="com", type=str2bool,
+                        help="If True the g3(t) function is calculated",
+                        required=True, metavar="True or False, 1 or 0")
+
+    parser.add_argument("--start", dest="start", type=int,
                         help="The starting frame for the trajectory.",
                         action="store", required=False, default=0)
 
-    parser.add_argument("--end", dest="end",
+    parser.add_argument("--end", dest="end", type=int,
                         help="The stopping frame for the trajectory.",
                         action="store", required=False, default=-1)
 
-    parser.add_argument("--stride", dest="stride",
+    parser.add_argument("--stride", dest="stride", type=int,
                         help="The step size for the trajectory.",
                         action="store", required=False, default=1)
 
+    parser.add_argument("-o", "--output", dest="output",
+                        help="Name of the output for the MSD data.",
+                        action="store", required=False, default="msd.dat")
+
     parser.add_argument("--method", dest="method",
-                        help="The step size for the trajectory.",
-                        action="store", required=False, default="msd_fftw3_fast")
+                        help="The method to calculate the MSD. "
+                             "Values: classic_opt_cython, classic_multitau,  msd_fftw3_fast, msd_fftw3_cython."
+                             "Default: msd_fftw3_cython",
+                        action="store", required=False, default="msd_fftw3_cython")
+
+    parser.add_argument("--startingfactor", dest="startingfactor", type=int,
+                        help="Number of starting points of 'independent' time series",
+                        action="store", required=False, default=None)
 
     args = parser.parse_args()
 
@@ -67,7 +81,7 @@ def parse_arguments():
         print("\nERROR: File {} does not exist\n".format(args.topo))
         exit()
 
-    methods_available = ["classic_opt_cython", "classic_multitau",  "msd_fftw3_fast"]
+    methods_available = ["classic_opt_cython", "classic_multitau",  "msd_fftw3_fast", "msd_fftw3_cython"]
     if args.method not in methods_available:
         print("\nERROR: Method is not implemented\n")
         print("Methods available are: ")
@@ -75,8 +89,14 @@ def parse_arguments():
             print(" {}".format(item))
         print("\n")
         exit()
-    return args
 
+    if args.method == "classic_multitau":
+        if args.startingfactor is None:
+            print("\nERROR: classic_multitau requires a value for --startingfactor\n")
+            print("\n")
+            exit()
+
+    return args
 
 
 # =============================================================================
@@ -124,13 +144,12 @@ def print_header(version, logger_log=None):
     print(m) if logger_log is None else logger_log.info(m)
 
 
-
-
-
 # =============================================================================
 def main_app():
 
     import polyanagro as pag
+
+    start_time = time.time()
 
     # Parse arguments
     args = parse_arguments()
@@ -155,14 +174,17 @@ def main_app():
     #                 end=args.end, step=args.stride, logger=log)
     #
     if args.method == "classic_opt_cython":
-        objmsd = pag.MSD(trj, args.nojump, method="classic_opt_cython", outputname="msd_classic_opt.dat", start=args.start,
-                         end=args.end, step=args.stride, logger=log)
+        objmsd = pag.MSD(trj, args.nojump, method="classic_opt_cython", outputname=args.output, start=args.start,
+                         end=args.end, step=args.stride, com=args.com, logger=log)
     elif args.method == "classic_multitau":
-        objmsd = pag.MSD(trj, args.nojump, method="classic_multitau", outputname="classic_multitau.dat", start=args.start,
-                         end=args.end, step=args.stride, logger=log)
+        objmsd = pag.MSD(trj, args.nojump, method="classic_multitau", outputname=args.output, start=args.start,
+                         end=args.end, step=args.stride, com=args.com, startingfactor=args.startingfactor, logger=log)
     elif args.method == "msd_fftw3_fast":
-        objmsd = pag.MSD(trj, args.nojump, method="msd_fftw3_fast", outputname="msd_fftw3.dat", start=args.start,
-                         end=args.end, step=args.stride, logger=log)
+        objmsd = pag.MSD(trj, args.nojump, method="msd_fftw3_fast", outputname=args.output, start=args.start,
+                         end=args.end, com=args.com, step=args.stride, logger=log)
+    elif args.method == "msd_fftw3_cython":
+        objmsd = pag.MSD(trj, args.nojump, method="msd_fftw3_cython", outputname=args.output, start=args.start,
+                         end=args.end, com=args.com, step=args.stride, logger=log)
     else:
         msg = "\t\t The original trajectory is not unwrapped and/or jumps are not corrected.\n"
         msg += "\t\t Nojump option: {}. Provided trajectory is wrapped.\n".format(args.nojump)
@@ -170,6 +192,12 @@ def main_app():
         print(msg) if log is None else log.info(msg)
 
     #objmsd = pag.MSD(trj, args.nojump, method="multiple_window", logger=log)
+
+    # Calculate duration
+    end_time = time.time()
+    duration = end_time - start_time
+    msg = "\n\t\tExecution time: {0:.2f} seconds".format(duration)
+    print(msg) if log is None else log.info(msg)
 
     now = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
     msg = "\n\t\tJob  Done at {} ============\n".format(now)

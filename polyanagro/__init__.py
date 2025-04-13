@@ -31,7 +31,7 @@ from ext_libc.c_internal_distances import setup_internal_distances, \
                                           insternalchaindist_cython
 
 from ext_libc.c_msd_openmp import msd_atomistic_cython, msd_atomistic_opt_cython, \
-                                  msd_fftw3_ext, msd_all_c
+                                 msd_all_c, msd_fftw3_cython, msd_com_c
 
 
 

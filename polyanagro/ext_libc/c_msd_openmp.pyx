@@ -12,12 +12,12 @@ cdef bint USED_OPENMP
 # declare the interface to the C code
 cdef extern from "calc_msd.c":
     cdef bint USED_OPENMP
-
-    void c_msd_fft3(double*, double*, int, int)
-    void c_msd_all(double*, int, int, int, double, int)
+    #void c_msd_fft3(double*, double*, int, int)
+    void c_msd_all(double*, int, int, int, double, int, const char*)
+cdef extern from "calc_msd_fftw3.c":
+    double* c_msd_fftw3_fast(double *, int, int, int)
 
 OPENMP_ENABLED = True if USED_OPENMP else False
-
 
 # ========================================================================================
 @cython.boundscheck(False)
@@ -117,9 +117,9 @@ def msd_atomistic_cython(int nframes, int natoms, int dim, float dt, float[:, :,
         free(msd)
 
 # ========================================================================================
-@cython.boundscheck(False)
-@cython.wraparound(False)
-@cython.cdivision(True)  # Avoids unnecessary division checks
+# @cython.boundscheck(False)
+# @cython.wraparound(False)
+# @cython.cdivision(True)  # Avoids unnecessary division checks
 def msd_atomistic_opt_cython(int nframes, int natoms, int dim, float dt, float[:, :, :] positions, bytes filename):
 
     cdef int i, j, irow, icol
@@ -194,23 +194,10 @@ def msd_atomistic_opt_cython(int nframes, int natoms, int dim, float dt, float[:
     free(count)
     free(times)
 
-# =============================================================================
-def msd_fftw3_ext(np.ndarray[np.float64_t, ndim=3] positions):
-
-    cdef int n = positions.shape[0]  # Number of frames
-    cdef int num_atoms = positions.shape[1]  # Number of atoms
-    cdef np.ndarray[np.float64_t, ndim=2] msd = np.zeros((n, num_atoms), dtype=np.float64)
-
-    c_msd_fft3(&positions[0, 0, 0], &msd[0, 0], n, num_atoms)
-
-    # Compute the mean MSD per frame
-    cdef np.ndarray[np.float64_t, ndim=1] msd_avg = np.mean(msd, axis=1)
-
-    return msd_avg
 
 # =============================================================================
 def msd_all_c(np.ndarray[np.float64_t, ndim=3] positions,
-              int nmol, double timestep, int weedf):
+              int nmol, double timestep, int weedf, str filename):
 
     """
 
@@ -219,6 +206,7 @@ def msd_all_c(np.ndarray[np.float64_t, ndim=3] positions,
         nmol: Number of molecules
         timestep: Timestep in ps
         weedf: Number of starting points of independient time series
+        filename: Name for the MSD filename
 
     Returns:
 
@@ -227,5 +215,73 @@ def msd_all_c(np.ndarray[np.float64_t, ndim=3] positions,
     cdef int nframes = positions.shape[0]  # Number of frames
     cdef int natoms = positions.shape[1]  # Number of atoms
 
-    c_msd_all(&positions[0, 0, 0], nframes, nmol, natoms, timestep, weedf)
+    cdef bytes encoded = filename.encode('utf-8')  # keep it alive
+    cdef const char *c_str = encoded
 
+    c_msd_all(&positions[0, 0, 0], nframes, nmol, natoms, timestep, weedf, c_str)
+
+
+# =============================================================================
+def msd_fftw3_cython(np.ndarray[np.float64_t, ndim=3, mode='c'] positions,
+                     double timestep):
+
+    cdef int natoms = positions.shape[0]  # nSignals
+    cdef int ndim = positions.shape[1]    # Dimnesions
+    cdef int nframes = positions.shape[2] # Signalsize
+    #cdef int nsignals = natoms*ndim
+    # cdef int signalsize = nframes
+    cdef double* result
+
+    # Check memory use
+
+    result = c_msd_fftw3_fast(&positions[0, 0, 0], natoms, nframes , ndim)
+
+    if result == NULL:
+        raise MemoryError("computeMSD returned NULL")
+
+    # Total length of result array
+    cdef int size = nframes * ndim
+    # Wrap into NumPy array (copy it)
+    msd = np.empty(size, dtype=np.float64)
+    for i in range(size):
+        msd[i] = result[i]
+
+    return msd
+
+# =============================================================================
+def msd_com_c(np.ndarray[int, ndim=2, mode="c"] mols,
+              np.ndarray[np.float64_t, ndim=1, mode="c"] mass,
+              np.ndarray[np.float64_t, ndim=3, mode="c"] positions_atoms,
+              np.ndarray[np.float64_t, ndim=3, mode="c"] positions_com):
+
+    cdef int nchains = mols.shape[0]
+    cdef int maxatomsch = mols.shape[1]
+    cdef int nframes = positions_atoms.shape[0]
+    cdef int dimensions = positions_atoms.shape[2]
+
+    cdef int ich, i, iframe, d
+    cdef int atom_index
+    cdef double m, total_mass
+    cdef double tmp_pos[3]
+
+    for iframe in range(nframes):
+        for ich in range(nchains):
+            total_mass = 0.0
+            tmp_pos[0] = tmp_pos[1] = tmp_pos[2] = 0.0
+
+            for i in range(maxatomsch):
+                atom_index = mols[ich, i]
+                if atom_index < 0:
+                    continue  # skip invalid entries
+
+                m = mass[atom_index]
+                total_mass += m
+                for d in range(dimensions):
+                    tmp_pos[d] += m * positions_atoms[iframe, atom_index, d]
+
+            if total_mass > 0.0:
+                for d in range(dimensions):
+                    positions_com[iframe, ich, d] = tmp_pos[d] / total_mass
+            else:
+                for d in range(dimensions):
+                    positions_com[iframe, ich, d] = 0.0  # fallback if mass sum is zero

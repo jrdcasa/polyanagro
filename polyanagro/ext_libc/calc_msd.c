@@ -1,11 +1,11 @@
-#ifndef __MSD_FFTW3_H
-#define __MSD_FFTW3_H
+#ifndef __MSD_H
+#define __MSD_H
 
 #include <omp.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include <fftw3.h>
+#include <time.h>
 
 #ifdef _OPENMP
   #include <omp.h>
@@ -13,41 +13,6 @@
 #else
   #define USED_OPENMP 0
 #endif
-
-// ==============================================================================
-void c_msd_fft3(double *trajectory, double *msd, int n, int num_atoms)  {
-
-    fftw_complex *in, *out;
-    fftw_plan p;
-
-
-    for (int atom = 0; atom < num_atoms; atom++) {
-        in = (fftw_complex*) fftw_malloc(sizeof(fftw_complex) * n);
-        out = (fftw_complex*) fftw_malloc(sizeof(fftw_complex) * n);
-
-        // Load trajectory data for this atom
-        for (int i = 0; i < n; i++) {
-            in[i][0] = trajectory[i * num_atoms * 3 + atom * 3]; // X-coordinates
-            in[i][1] = 0.0;  // Imaginary part
-        }
-
-        // Compute FFT
-        p = fftw_plan_dft_1d(n, in, out, FFTW_FORWARD, FFTW_ESTIMATE);
-        fftw_execute(p);
-
-        // Compute MSD
-        for (int i = 0; i < n; i++) {
-            msd[i * num_atoms + atom] = out[i][0] * out[i][0] + out[i][1] * out[i][1]; // Square magnitude
-        }
-
-        // Cleanup
-        fftw_destroy_plan(p);
-        fftw_free(in);
-        fftw_free(out);
-
-    }
-
-}
 
 // ==============================================================================
 void shiftcm(double *positions, int iframe, int natoms,
@@ -135,7 +100,8 @@ void calccm(int ns, double *xraw, double *yraw, double *zraw,
 
 // ==============================================================================
 void c_msd_all (double *positions, int nframes, int nmol,
-                int natoms, double timestep, int weedf) {
+                int natoms, double timestep, int weedf,
+                const char *filename) {
 
     /*
         positions(nframes, natoms, 3) -> Positions of all atoms in the trayectory
@@ -156,6 +122,7 @@ void c_msd_all (double *positions, int nframes, int nmol,
     double *r2a, *r2cm, *r4cm;                        /* partial averages */
     double dtime;
     int normcorrect = 0;
+    clock_t start, end;
 
     // Declaration and initialization
     int np = natoms + nmol;  //Allocate the atoms and com in the same array
@@ -164,7 +131,7 @@ void c_msd_all (double *positions, int nframes, int nmol,
     // Default values can be modified in the input command
     //option -m
     int meanf = 99999;
-    int nfrm = 610;
+    int nfrm = nframes;
     // option -abs
     int noshiftcm = 1;          /* flag: 0=subtract total cm; 1=do nothing */
     // option -nosym
@@ -180,7 +147,6 @@ void c_msd_all (double *positions, int nframes, int nmol,
     // option --xz
     int filmoutput = 0;
 
-
     /* maxmean: maximum number of frames, value needed for array
        allocation - real number of frames is (max-weedf)*weedf.
        default: 600  needed: (tframes/weedf)+weedf
@@ -189,11 +155,10 @@ void c_msd_all (double *positions, int nframes, int nmol,
     */
     if (nfrm < meanf) meanf = nfrm;
     /* restrict max number of frames to size of allocated arrays. */
-    fprintf(stderr,"msdmol info: nfrm=%d, trajectories may contain total of %d frames [with g6].\n",
-	        nfrm,(nfrm-weedf)*weedf);
+//    fprintf(stderr,"msdmol info: nfrm=%d, trajectories may contain total of %d frames [with g6].\n",
+//	        nfrm,(nfrm-weedf)*weedf);
     nsit = ns/nmol;
     if (innerav > nsit/8) innerav = (nsit-1)/8 +1;  /* will lead to max 1/4 of chain */
-
     if (( (time = (double*) malloc(sizeof(double) * nfrm)) == NULL) ||
         ( (times = (double*) malloc(sizeof(double) * weedf)) == NULL) ||
         ( (dx = (double*) malloc(sizeof(double) * np*nfrm)) == NULL) ||
@@ -235,7 +200,15 @@ void c_msd_all (double *positions, int nframes, int nmol,
     tframes = 0;     /* Count the number of frames */
     frames = weedf;  /* Count the frames for averaging */
 
+    start = clock();
+    printf("\t\t[Step 1 of 3] \n");
     for (int iframe = 0; iframe<nframes; iframe++) {
+
+        // Progress bar
+        if (iframe % (nframes / 100 + 1) == 0 || iframe == nframes - 1) {
+            printf("\r\t\t[Step 1 of 3] Progress: %3d%%", (iframe * 100) / nframes);
+            fflush(stdout);
+        }
 
         ii = tframes%weedf;  //Module
 
@@ -288,6 +261,9 @@ void c_msd_all (double *positions, int nframes, int nmol,
         tframes++;
         time[ii] = tframes * timestep;
     }
+    printf("\n");
+    end = clock();
+    printf("\t\t[Step 1 of 3] Timing : %.3f seconds\n", (double)(end - start) / CLOCKS_PER_SEC);
 
     if (frames == meanf) {
         fprintf(stderr, "msdmol warning: reached max number of frames - increase -m nfrm ?");
@@ -326,7 +302,16 @@ void c_msd_all (double *positions, int nframes, int nmol,
     /* *** calculate averages */
 
     /* average over starting times */
+    start = clock();
+    printf("\t\t[Step 2 of 3] \n");
     for (i=weedf; i<frames-1; i++) {  /* loop over frames */
+
+        // Progress bar
+        if (i % ((frames -1) / 1000 + 1) == 0 || i == (frames - 1) - 1) {
+            printf("\r\t\t[Step 2 of 3] Progress: %5.1f%%", (i * 1000) / (frames-1)/10.0);
+            fflush(stdout);
+        }
+
         /* first weedf frames are already calculated during reading */
         ii = i*np;
         for (k=1; k<frames-i; k++) {  /* loop over time differences */
@@ -344,8 +329,13 @@ void c_msd_all (double *positions, int nframes, int nmol,
 	       }
        }
    }
+    printf("\n");
+    end = clock();
+    printf("\t\t[Step 2 of 3] Timing : %.3f seconds\n", (double)(end - start) / CLOCKS_PER_SEC);
 
    /* average over atoms  */
+    start = clock();
+    printf("\t\t[Step 3 of 3] \n");
     ii=1+nsit/12;     /* number of inner monomers used for averaging of r6 */
     ij = (nsit)/2;    /* center of molecule */
     for (k=1; k<frames; k++) {  /* loop over time differences */
@@ -416,6 +406,9 @@ void c_msd_all (double *positions, int nframes, int nmol,
             dz[kk] *= xx;
         }
     }
+    printf("\n");
+    end = clock();
+    printf("\t\t[Step 3 of 3] Timing : %.3f seconds\n", (double)(end - start) / CLOCKS_PER_SEC);
 
     /* restore initial times of first weedf frames */
     for (j=0;j<weedf; j++)  time[j] = times[j];
@@ -439,64 +432,138 @@ void c_msd_all (double *positions, int nframes, int nmol,
     }
 
     /* *** output */
+//    FILE *fp = fopen("msd.dat", "w");
+    FILE *fp = fopen(filename, "w");
+    if (fp == NULL) {
+        perror("Error opening file");
+        return 1;
+    }
 
-    if (g2flag==1) {
-        printf("# calculated MSD in cm frame of each chain (monomer resolved g2)\n");
+    if (g2flag == 1) {
+        fprintf(fp, "# calculated MSD in cm frame of each chain (monomer resolved g2)\n");
     }
-    if (noshiftcm==1) printf("# calculate in absolute frame: total CM is NOT considered\n");
-    printf("# weed=%d maxmean=%d #frames=%d/%d(+%d) #particles=%d nmol=%d\n",weedf,meanf,tframes,frames-weedf-normcorrect,normcorrect,ns,nmol);
+    if (noshiftcm == 1) {
+        fprintf(fp, "# calculate in absolute frame: total CM is NOT considered\n");
+    }
+    fprintf(fp, "# weed=%d maxmean=%d #frames=%d/%d(+%d) #particles=%d nmol=%d\n",
+            weedf, meanf, tframes, frames - weedf - normcorrect, normcorrect, ns, nmol);
 
-  if (filmoutput==0) {
-    printf("# dt x2 y2 z2  g0(all) g3(cm) g3_xz  g4(end) ... g1(inner) (7+%d)\n", ij);
-    for (k=1;k<frames; k++) if (k!=weedf) {
-      printf("%lf %lg %lg %lg %lg %lg %lg ",time[k]-time[0],
-	     x2av[k],y2av[k],z2av[k], r2av[k], r4av[k], x4av[k]+z4av[k] );
-      if (nsit>2) {
-	if (nosym==1) {  /* no symmetry, output of all atoms */
-	  for ( j=0; j<nsit; j++) {  /* atoms per molecule */
-	    printf(" %lg",r2a[k*nsit+j]);
-	  }
-	} else {  /* apply symmetry of linear chains */
-	  for ( j=0; j<(nsit+1)/2; j++) {  /* atoms per molecule */
-	    printf(" %lg",(r2a[k*nsit+j]+r2a[k*nsit+nsit-j-1])*0.5);
-	  }
-	}}
-      printf("\n");
+    if (filmoutput == 0) {
+        fprintf(fp, "# dt x2 y2 z2  g0(all) g3(cm) g3_xz  g4(end) ... g1(inner) (7+%d)\n", ij);
+        for (k = 1; k < frames; k++) {
+            if (k != weedf) {
+                fprintf(fp, "%lf %lg %lg %lg %lg %lg %lg ",
+                        time[k] - time[0],
+                        x2av[k], y2av[k], z2av[k],
+                        r2av[k], r4av[k], x4av[k] + z4av[k]);
+                if (nsit > 2) {
+                    if (nosym == 1) {
+                        for (j = 0; j < nsit; j++) {
+                            fprintf(fp, " %lg", r2a[k * nsit + j]);
+                        }
+                    } else {
+                        for (j = 0; j < (nsit + 1) / 2; j++) {
+                            fprintf(fp, " %lg", (r2a[k * nsit + j] + r2a[k * nsit + nsit - j - 1]) * 0.5);
+                        }
+                    }
+                }
+                fprintf(fp, "\n");
+            }
+        }
+    } else {
+        fprintf(fp, "# dt x2 y2 z2  g0(all) g3(cm) g3_xz g0_xz g3_x g3_y g3_z  g4(end) g1(inner) g1av(%d inner) g1av_x g1av_y g1av_z  ...components xyz:g_e,g_2,4,8...\n", 2 * innerav);
+        for (k = 1; k < frames; k++) {
+            if (k != weedf) {
+                fprintf(fp, "%lf %lg %lg %lg %lg %lg %lg",
+                        time[k] - time[0],
+                        x2av[k], y2av[k], z2av[k],
+                        r2av[k], r4av[k], x4av[k] + z4av[k]);
+
+                fprintf(fp, " %lg %lg %lg %lg",
+                        x2av[k] + z2av[k],
+                        x4av[k], y4av[k], z4av[k]);
+
+                if (nsit > 2) {
+                    if (nosym == 1) {
+                        for (j = 0; j < nsit; j++) {
+                            fprintf(fp, " %lg", r2a[k * nsit + j]);
+                        }
+                    } else {
+                        fprintf(fp, " %lg", (r2a[k * nsit] + r2a[k * nsit + nsit - 1]) * 0.5);
+                        fprintf(fp, " %lg", (r2a[k * nsit + (nsit - 1) / 2] + r2a[k * nsit + nsit - 1 - (nsit - 1) / 2]) * 0.5);
+
+                        aa = xx = yy = zz = 0.0;
+                        for (j = (nsit + 1) / 2 - innerav; j < (nsit + 1) / 2; j++) {
+                            aa += (r2a[k * nsit + j] + r2a[k * nsit + nsit - j - 1]) * 0.5;
+                            xx += (dx[k * nsit + j] + dx[k * nsit + nsit - j - 1]) * 0.5;
+                            yy += (dy[k * nsit + j] + dy[k * nsit + nsit - j - 1]) * 0.5;
+                            zz += (dz[k * nsit + j] + dz[k * nsit + nsit - j - 1]) * 0.5;
+                        }
+
+                        fprintf(fp, " %lg %lg %lg %lg", aa / innerav, xx / innerav, yy / innerav, zz / innerav);
+
+                        for (j = 1; j <= (nsit + 1) / 2; j *= 2) {
+                            fprintf(fp, " %lg", (dx[k * nsit + j - 1] + dx[k * nsit + nsit - j]) * 0.5);
+                            fprintf(fp, " %lg", (dy[k * nsit + j - 1] + dy[k * nsit + nsit - j]) * 0.5);
+                            fprintf(fp, " %lg", (dz[k * nsit + j - 1] + dz[k * nsit + nsit - j]) * 0.5);
+                        }
+                    }
+                }
+                fprintf(fp, "\n");
+            }
+        }
     }
-  } else {  /* new output style to facilitate film specific analysis */
-    printf("# dt x2 y2 z2  g0(all) g3(cm) g3_xz g0_xz g3_x g3_y g3_z  g4(end) g1(inner) g1av(%d inner) g1av_x g1av_y g1av_z  ...components xyz:g_e,g_2,4,8...\n",2*innerav);
-    for (k=1;k<frames; k++) if (k!=weedf) {
-      printf("%lf %lg %lg %lg %lg %lg %lg",time[k]-time[0],
-	     x2av[k],y2av[k],z2av[k], r2av[k], r4av[k], x4av[k]+z4av[k]);
-      printf(" %lg %lg %lg %lg",x2av[k]+z2av[k],x4av[k],y4av[k],z4av[k]);
-      if (nsit>2) {
-	if (nosym==1) {  /* no symmetry, output of all atoms */
-	  for ( j=0; j<nsit; j++) {  /* atoms per molecule */
-	    printf(" %lg",r2a[k*nsit+j]);
-	  }
-	} else {  /* apply symmetry of linear chains */
-	  printf(" %lg",(r2a[k*nsit]+r2a[k*nsit+nsit-1])*0.5);  /* end monomers */
-	  printf(" %lg",(r2a[k*nsit+(nsit-1)/2]+r2a[k*nsit+nsit-1-(nsit-1)/2])*0.5);  /* inner monomers */
-	  aa=xx=yy=zz=0.0;
-	  for ( j=(nsit+1)/2-innerav; j<(nsit+1)/2; j++) {  /* average inner 16 monomers */
-	    aa += (r2a[k*nsit+j]+r2a[k*nsit+nsit-j-1])*0.5;
-	    xx += (dx[k*nsit+j]+dx[k*nsit+nsit-j-1])*0.5;
-	    yy += (dy[k*nsit+j]+dy[k*nsit+nsit-j-1])*0.5;
-	    zz += (dz[k*nsit+j]+dz[k*nsit+nsit-j-1])*0.5;
-	  }
-	  printf(" %lg %lg %lg %lg",aa/innerav,xx/innerav,yy/innerav,zz/innerav);
-	  for ( j=1; j<=(nsit+1)/2; j*=2) {  /* only powers of 2 from end */
-            /* component resolved output */
-	    /*	    printf(" %lg",(r2a[k*nsit+j-1]+r2a[k*nsit+nsit-j])*0.5); */
-	    printf(" %lg",(dx[k*nsit+j-1]+dx[k*nsit+nsit-j])*0.5);
-	    printf(" %lg",(dy[k*nsit+j-1]+dy[k*nsit+nsit-j])*0.5);
-	    printf(" %lg",(dz[k*nsit+j-1]+dz[k*nsit+nsit-j])*0.5);
-	  }
-	}}
-      printf("\n");
-    }
-  }
 
 }
+
+//// ==============================================================================
+//void c_com_chain(int mols[], float mass[], float coords_unwrap[],
+//                 int nchains, int maxatomsch, float rgsq_ich_iframe[])
+//{
+//
+//    // Variables
+//    int ich, inx;
+//    int iat, iatom;
+//    int dim=3;
+//    int dimrg = 4;
+//    float* com = malloc(nchains*dim*sizeof(float));
+//    float* mass_ich = malloc(nchains*sizeof(float));
+//    int* nat_ich = malloc(nchains*sizeof(float));
+//
+//    // Initializate center of mass (com)
+//    for (ich = 0; ich < nchains; ich++) {
+//        mass_ich[ich] = 0.0;
+//        nat_ich[ich] = 0;
+//        for (inx = 0; inx < dim; inx++) {
+//            com[ich*dim+inx] = 0.0;
+//        }
+//    }
+//
+//    // DEBUG
+//    // for (ich = 0; ich < nchains; ich++) {
+//    //      printf("ich:%d %f %f %f\n", ich, com[ich*dim+0], com[ich*dim+1], com[ich*dim+2] );
+//    //  }
+//
+//    // Calculate radius of gyration. The three first columns are Rgx, Rgy and Rgz.
+//    // The fourth column is the Rg^2 = Rgx^2 + Rgy^2 + Rgz^2
+//    #ifdef PARALLEL
+//    #pragma omp parallel for private(ich, iat, iatom, inx) \
+//    shared(nchains, com, rgsq_ich_iframe, mass_ich)
+//    #endif
+//   for (ich = 0; ich < nchains; ich++) {
+//        // Calculate center of mass (com)
+//        for (iat = 0; iat < maxatomsch; iat++) {
+//            iatom = mols[ich*maxatomsch+iat];
+//            mass_ich[ich] += mass[iatom];
+//            for (inx = 0; inx < dim; inx++) {
+//                com[ich*dim+inx] += mass[iatom] * coords_unwrap[iatom*dim+inx];
+//            }
+//        }
+//        for (inx = 0; inx < dim; inx++) {
+//            com[ich*dim+inx] = com[ich*dim+inx]/mass_ich[ich];
+//        }
+
+
+
 
 #endif

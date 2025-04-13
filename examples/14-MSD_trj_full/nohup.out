@@ -1,0 +1,285 @@
+
+  ============================================================================  
+
+    ja-netfilter 2022.2.0
+
+    A javaagent framework :)
+
+    https://github.com/ja-netfilter/ja-netfilter
+
+  ============================================================================  
+
+2025-04-10 18:40:23,579 [   1646]   WARN - #c.i.n.i.NotificationGroupManagerImpl - Notification group CodeWithMe is already registered (group=com.intellij.notification.NotificationGroup@86aac5). Plugin descriptor: PluginDescriptor(name=Code With Me, id=com.jetbrains.codeWithMe, descriptorPath=plugin.xml, path=/opt/JetBrains/pycharm-2022.2/plugins/cwm-plugin, version=222.3345.131, package=null, isBundled=true)
+2025-04-10 18:40:23,682 [   1749]   WARN - #c.i.o.a.i.ActionManagerImpl - keymap "Visual Studio" not found PluginDescriptor(name=IDEA CORE, id=com.intellij, descriptorPath=plugin.xml, path=/opt/JetBrains/pycharm-2022.2/lib, version=222.3345.131, package=com.intellij.feedback, isBundled=true)
+2025-04-10 18:40:23,691 [   1758]   WARN - #c.i.o.a.i.ActionManagerImpl - keymap "Eclipse" not found PluginDescriptor(name=IDEA CORE, id=com.intellij, descriptorPath=plugin.xml, path=/opt/JetBrains/pycharm-2022.2/lib, version=222.3345.131, package=com.intellij.feedback, isBundled=true)
+2025-04-10 18:40:23,692 [   1759]   WARN - #c.i.o.a.i.ActionManagerImpl - keymap "NetBeans 6.5" not found PluginDescriptor(name=IDEA CORE, id=com.intellij, descriptorPath=plugin.xml, path=/opt/JetBrains/pycharm-2022.2/lib, version=222.3345.131, package=com.intellij.feedback, isBundled=true)
+2025-04-10 18:40:23,693 [   1760]   WARN - #c.i.o.a.i.ActionManagerImpl - keymap "Visual Studio" not found PluginDescriptor(name=IDEA CORE, id=com.intellij, descriptorPath=plugin.xml, path=/opt/JetBrains/pycharm-2022.2/lib, version=222.3345.131, package=com.intellij.feedback, isBundled=true)
+2025-04-10 18:40:23,731 [   1798]   WARN - #c.i.o.a.i.ActionManagerImpl - keymap "Visual Studio" not found PluginDescriptor(name=HTML Tools, id=HtmlTools, descriptorPath=plugin.xml, path=/opt/JetBrains/pycharm-2022.2/plugins/htmltools, version=222.3345.131, package=null, isBundled=true)
+2025-04-10 18:40:23,736 [   1803]   WARN - #c.i.o.a.i.ActionManagerImpl - keymap "Eclipse" not found PluginDescriptor(name=GitHub, id=org.jetbrains.plugins.github, descriptorPath=plugin.xml, path=/opt/JetBrains/pycharm-2022.2/plugins/github, version=222.3345.131, package=org.jetbrains.plugins.github, isBundled=true)
+2025-04-10 18:40:23,740 [   1807]   WARN - #c.i.o.a.i.ActionManagerImpl - keymap "Eclipse" not found PluginDescriptor(name=Space, id=com.jetbrains.space, moduleName=intellij.space.vcs, descriptorPath=intellij.space.vcs.xml, path=/opt/JetBrains/pycharm-2022.2/plugins/space, version=222.3345.131, package=com.intellij.space.vcs, isBundled=true)
+2025-04-10 18:40:23,741 [   1808]   WARN - #c.i.o.a.i.ActionManagerImpl - keymap "Eclipse" not found PluginDescriptor(name=JavaScript and TypeScript, id=JavaScript, descriptorPath=plugin.xml, path=/opt/JetBrains/pycharm-2022.2/plugins/JavaScriptLanguage, version=222.3345.131, package=null, isBundled=true)
+2025-04-10 18:40:23,742 [   1809]   WARN - #c.i.o.a.i.ActionManagerImpl - keymap "Visual Studio" not found PluginDescriptor(name=JavaScript and TypeScript, id=JavaScript, descriptorPath=plugin.xml, path=/opt/JetBrains/pycharm-2022.2/plugins/JavaScriptLanguage, version=222.3345.131, package=null, isBundled=true)
+2025-04-10 18:40:23,750 [   1817]   WARN - #c.i.o.a.i.ActionManagerImpl - keymap "Eclipse" not found PluginDescriptor(name=Python, id=Pythonid, descriptorPath=plugin.xml, path=/opt/JetBrains/pycharm-2022.2/plugins/python, version=222.3345.131, package=null, isBundled=true)
+2025-04-10 18:40:23,751 [   1818]   WARN - #c.i.o.a.i.ActionManagerImpl - keymap "NetBeans 6.5" not found PluginDescriptor(name=Python, id=Pythonid, descriptorPath=plugin.xml, path=/opt/JetBrains/pycharm-2022.2/plugins/python, version=222.3345.131, package=null, isBundled=true)
+2025-04-10 18:40:23,752 [   1819]   WARN - #c.i.o.a.i.ActionManagerImpl - keymap "Visual Studio" not found PluginDescriptor(name=Python, id=Pythonid, descriptorPath=plugin.xml, path=/opt/JetBrains/pycharm-2022.2/plugins/python, version=222.3345.131, package=null, isBundled=true)
+2025-04-10 18:40:23,753 [   1820]   WARN - #c.i.o.a.i.ActionManagerImpl - keymap "Eclipse" not found PluginDescriptor(name=Python, id=Pythonid, descriptorPath=plugin.xml, path=/opt/JetBrains/pycharm-2022.2/plugins/python, version=222.3345.131, package=null, isBundled=true)
+Info  | RdCoroutineScope          | 23:JobScheduler FJ pool 4/11 | RdCoroutineHost overridden 
+2025-04-10 18:40:24,927 [   2994]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:24,963 [   3030]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:24,979 [   3046]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:24,983 [   3050]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:24,986 [   3053]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:24,994 [   3061]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,002 [   3069]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,006 [   3073]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,011 [   3078]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,017 [   3084]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,026 [   3093]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,032 [   3099]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,036 [   3103]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,039 [   3106]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,043 [   3110]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,047 [   3114]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,049 [   3116]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,051 [   3118]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,053 [   3120]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,055 [   3122]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,057 [   3124]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,059 [   3126]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,061 [   3128]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,068 [   3135]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,071 [   3138]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,083 [   3150]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,089 [   3156]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,093 [   3160]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,096 [   3163]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,099 [   3166]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,104 [   3171]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,109 [   3176]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,116 [   3183]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,119 [   3186]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,135 [   3202]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,139 [   3206]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,145 [   3212]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,149 [   3216]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,152 [   3219]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,167 [   3234]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:25,171 [   3238]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2025-04-10 18:40:28,295 [   6362]   WARN - #g.r.GitUntrackedFilesHolder - Ignoring unversioned file under another root: /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/polyanagro/ext_libc/MeanSquareDisplacement; root: /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro; mapped root: /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/polyanagro/ext_libc/MeanSquareDisplacement
+2025-04-10 18:40:28,295 [   6362]   WARN - #g.r.GitUntrackedFilesHolder - Ignoring ignored file under another root: /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/polyanagro/__pycache__; root: /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro; mapped root: null
+2025-04-10 18:40:28,295 [   6362]   WARN - #g.r.GitUntrackedFilesHolder - Ignoring ignored file under another root: /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/utils/__pycache__; root: /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro; mapped root: null
+2025-04-10 18:40:28,328 [   6395]   WARN - #g.r.GitUntrackedFilesHolder - Ignoring ignored file under another root: /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/polyanagro/ext_libc/MeanSquareDisplacement/build; root: /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/polyanagro/ext_libc/MeanSquareDisplacement; mapped root: /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/polyanagro/ext_libc/MeanSquareDisplacement/build
+2025-04-10 18:40:30,151 [   8218]   WARN - #c.i.o.a.i.ActionUpdater - 598 ms to grab EDT for CWMTelephonyGroup#update@NavBarToolbar (com.jetbrains.rd.platform.codeWithMe.telephony.CWMTelephonyGroup)
+2025-04-10 18:40:38,008 [  16075]   WARN - #c.j.p.s.s.PySkeletonRefresher - Some skeletons failed to generate
+2025-04-10 18:40:38,008 [  16075]   WARN - #c.j.p.s.s.PySkeletonRefresher - debugpy._vendored.pydevd._pydevd_bundle.pydevd_cython
+2025-04-10 18:40:38,008 [  16075]   WARN - #c.j.p.s.s.PySkeletonRefresher - debugpy._vendored.pydevd._pydevd_frame_eval.pydevd_frame_evaluator
+2025-04-10 18:40:38,008 [  16075]   WARN - #c.j.p.s.s.PySkeletonRefresher - debugpy._vendored.pydevd.pydevd_attach_to_process.attach_linux_amd64
+2025-04-10 18:40:38,008 [  16075]   WARN - #c.j.p.s.s.PySkeletonRefresher - dgl._ffi._cy3.core
+2025-04-10 18:40:38,008 [  16075]   WARN - #c.j.p.s.s.PySkeletonRefresher - dgl.libdgl
+2025-04-10 18:40:38,008 [  16075]   WARN - #c.j.p.s.s.PySkeletonRefresher - greenlet.tests._test_extension
+2025-04-10 18:40:38,009 [  16076]   WARN - #c.j.p.s.s.PySkeletonRefresher - greenlet.tests._test_extension_cpp
+2025-04-10 18:40:38,009 [  16076]   WARN - #c.j.p.s.s.PySkeletonRefresher - llvmlite.binding.libllvmlite
+2025-04-10 18:40:38,009 [  16076]   WARN - #c.j.p.s.s.PySkeletonRefresher - numba.np.ufunc.tbbpool
+2025-04-10 18:40:38,009 [  16076]   WARN - #c.j.p.s.s.PySkeletonRefresher - numpy.core._umath_tests
+2025-04-10 18:40:38,009 [  16076]   WARN - #c.j.p.s.s.PySkeletonRefresher - nvidia.cuda_cupti.lib.libcheckpoint
+2025-04-10 18:40:38,009 [  16076]   WARN - #c.j.p.s.s.PySkeletonRefresher - nvidia.cuda_cupti.lib.libnvperf_host
+2025-04-10 18:40:38,009 [  16076]   WARN - #c.j.p.s.s.PySkeletonRefresher - nvidia.cuda_cupti.lib.libnvperf_target
+2025-04-10 18:40:38,009 [  16076]   WARN - #c.j.p.s.s.PySkeletonRefresher - nvidia.cuda_cupti.lib.libpcsamplingutil
+2025-04-10 18:40:38,009 [  16076]   WARN - #c.j.p.s.s.PySkeletonRefresher - pyarrow.libarrow_python
+2025-04-10 18:40:38,009 [  16076]   WARN - #c.j.p.s.s.PySkeletonRefresher - pyarrow.libarrow_python_flight
+2025-04-10 18:40:38,009 [  16076]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch.lib.libc10
+2025-04-10 18:40:38,009 [  16076]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch.lib.libc10_cuda
+2025-04-10 18:40:38,009 [  16076]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch.lib.libcaffe2_nvrtc
+2025-04-10 18:40:38,009 [  16076]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch.lib.libnvfuser_codegen
+2025-04-10 18:40:38,009 [  16076]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch.lib.libshm
+2025-04-10 18:40:38,009 [  16076]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch.lib.libtorch
+2025-04-10 18:40:38,010 [  16077]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch.lib.libtorch_cpu
+2025-04-10 18:40:38,010 [  16077]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch.lib.libtorch_cuda
+2025-04-10 18:40:38,010 [  16077]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch.lib.libtorch_cuda_linalg
+2025-04-10 18:40:38,010 [  16077]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch.lib.libtorch_global_deps
+2025-04-10 18:40:38,010 [  16077]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch.lib.libtorch_python
+2025-04-10 18:40:38,010 [  16077]   WARN - #c.j.p.s.s.PySkeletonRefresher - wx._html2
+2025-04-10 18:40:52,220 [  30287]   WARN - #c.i.i.s.download - Shared indexes download was cancelled. Indexing has completed faster
+2025-04-10 18:41:32,278 [  70345]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 18:42:16,385 [ 114452]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 18:43:06,435 [ 164502]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 18:43:11,987 [ 170054]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 18:43:29,631 [ 187698]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 18:43:31,515 [ 189582]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 18:44:59,731 [ 277798]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 18:45:05,584 [ 283651]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 18:45:35,981 [ 314048]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 18:46:01,250 [ 339317]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 18:46:06,104 [ 344171]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 18:46:44,571 [ 382638]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 18:46:49,386 [ 387453]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 18:47:28,728 [ 426795]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 18:47:33,727 [ 431794]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 18:48:02,127 [ 460194]   WARN - #c.i.u.x.Binding - no accessors for org.jetbrains.idea.perforce.perforce.ConnectionId
+2025-04-10 18:49:25,776 [ 543843]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 18:49:30,719 [ 548786]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 18:49:40,531 [ 558598]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 18:49:45,511 [ 563578]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 18:50:22,200 [ 600267]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 18:51:14,596 [ 652663]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 18:51:20,982 [ 659049]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 18:51:46,418 [ 684485]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 18:51:51,558 [ 689625]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 18:52:53,737 [ 751804]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 18:52:58,816 [ 756883]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 18:55:54,110 [ 932177]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 18:55:55,949 [ 934016]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 18:56:42,816 [ 980883]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 18:56:44,698 [ 982765]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 19:06:30,399 [1568466]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 19:06:32,398 [1570465]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 19:06:52,174 [1590241]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 19:06:53,937 [1592004]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 19:08:17,598 [1675665]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 19:08:19,387 [1677454]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 19:10:20,610 [1798677]   WARN - #c.i.e.p.BaseOSProcessHandler - Process hasn't generated any output for a long time.
+If it's a long-running mostly idle daemon process, consider overriding OSProcessHandler#readerOptions with 'BaseOutputReader.Options.forMostlySilentProcess()' to reduce CPU usage.
+Command line: /home/jramos/Programacion/MAMBA/bin/python3 /home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/polyanagro/cmds/msd_polymer.py -t /mnt/AOKI_FOLDER/99-ANALYSIS/06-MSD_ALL_GROMACS/01-PVL4_C0_LOPLS_500K_REBASH/trajout_nojump_02.xtc --topo /mnt/AOKI_FOLDER/01-PVL4_C0_LOPLS/03-PREPARE_LIBRARY_POLYPLY_40Mon/04-MD_NPT_0000_0200ns_500K/new_topo.tpr --method=msd_fftw3_cython --nojump 1 
+java.lang.Throwable: Process creation:
+	at com.intellij.execution.process.BaseOSProcessHandler.<init>(BaseOSProcessHandler.java:33)
+	at com.intellij.execution.process.OSProcessHandler.<init>(OSProcessHandler.java:84)
+	at com.intellij.execution.process.KillableProcessHandler.<init>(KillableProcessHandler.java:77)
+	at com.intellij.execution.process.ColoredProcessHandler.<init>(ColoredProcessHandler.java:51)
+	at com.intellij.execution.process.KillableColoredProcessHandler.<init>(KillableColoredProcessHandler.java:60)
+	at com.intellij.execution.process.KillableColoredProcessHandler.<init>(KillableColoredProcessHandler.java:50)
+	at com.jetbrains.python.run.PythonProcessHandler.<init>(PythonProcessHandler.java:23)
+	at com.jetbrains.python.run.PythonCommandLineState.doCreateProcess(PythonCommandLineState.java:487)
+	at com.jetbrains.python.run.PythonCommandLineState.doStartProcess(PythonCommandLineState.java:412)
+	at com.jetbrains.python.run.PythonCommandLineState.startProcess(PythonCommandLineState.java:347)
+	at com.jetbrains.python.run.PythonCommandLineState.execute(PythonCommandLineState.java:230)
+	at com.jetbrains.python.run.PythonScriptCommandLineState.execute(PythonScriptCommandLineState.java:146)
+	at com.jetbrains.python.run.PythonCommandLineState.execute(PythonCommandLineState.java:176)
+	at com.jetbrains.python.run.PythonRunner.lambda$execute$1(PythonRunner.java:63)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1$1.run(Executors.java:702)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1$1.run(Executors.java:699)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1.run(Executors.java:699)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2025-04-10 19:16:01,948 [2140015]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 19:16:03,671 [2141738]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 19:16:31,245 [2169312]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 19:16:35,507 [2173574]   WARN - #c.j.p.d.p.MultiProcessDebugger - Socket closed
+java.net.SocketException: Socket closed
+	at java.base/sun.nio.ch.NioSocketImpl.endAccept(NioSocketImpl.java:689)
+	at java.base/sun.nio.ch.NioSocketImpl.accept(NioSocketImpl.java:762)
+	at java.base/java.net.ServerSocket.implAccept(ServerSocket.java:675)
+	at java.base/java.net.ServerSocket.platformImplAccept(ServerSocket.java:641)
+	at java.base/java.net.ServerSocket.implAccept(ServerSocket.java:617)
+	at java.base/java.net.ServerSocket.implAccept(ServerSocket.java:574)
+	at java.base/java.net.ServerSocket.accept(ServerSocket.java:532)
+	at com.jetbrains.python.debugger.pydev.transport.ServerModeDebuggerTransport.waitForConnect(ServerModeDebuggerTransport.java:39)
+	at com.jetbrains.python.debugger.pydev.RemoteDebugger.waitForConnect(RemoteDebugger.java:118)
+	at com.jetbrains.python.debugger.pydev.MultiProcessDebugger$DebuggerProcessAcceptor.run(MultiProcessDebugger.java:529)
+	at com.intellij.openapi.application.impl.ApplicationImpl$1.run(ApplicationImpl.java:297)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1$1.run(Executors.java:702)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1$1.run(Executors.java:699)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1.run(Executors.java:699)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2025-04-10 19:16:35,531 [2173598]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 19:16:58,730 [2196797]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 19:17:03,033 [2201100]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 19:17:57,464 [2255531]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 19:18:01,483 [2259550]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 19:18:38,917 [2296984]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 19:18:42,901 [2300968]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 19:19:24,149 [2342216]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 19:19:25,997 [2344064]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 19:20:42,251 [2420318]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 19:20:47,026 [2425093]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 19:20:59,767 [2437834]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 19:21:04,974 [2443041]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 19:21:11,194 [2449261]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 19:21:16,049 [2454116]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 19:22:35,055 [2533122]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 19:22:50,222 [2548289]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 19:22:55,064 [2553131]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 19:23:43,833 [2601900]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 19:23:48,552 [2606619]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 19:24:13,514 [2631581]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-10 19:24:18,399 [2636466]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 09:49:37,266 [54555333]   WARN - #c.i.i.IdeEventQueue - System clock's jumped back by ~1 sec
+2025-04-11 10:08:03,623 [55661690]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 10:08:08,635 [55666702]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 10:08:36,519 [55694586]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 10:08:38,457 [55696524]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 10:09:05,020 [55723087]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 10:09:10,135 [55728202]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 10:23:50,849 [56608916]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 10:23:55,891 [56613958]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 10:28:28,098 [56886165]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 10:28:32,823 [56890890]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 10:29:18,115 [56936182]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 10:29:19,923 [56937990]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 10:31:48,022 [57086089]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 10:32:31,834 [57129901]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 10:32:36,557 [57134624]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 10:37:05,964 [57404031]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 10:37:11,091 [57409158]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:24:25,073 [67443140]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:24:32,431 [67450498]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:24:51,993 [67470060]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:24:54,486 [67472553]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:35:24,193 [68102260]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:35:31,728 [68109795]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:38:02,574 [68260641]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:38:09,822 [68267889]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:38:26,672 [68284739]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:39:26,602 [68344669]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:39:45,141 [68363208]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:44:04,254 [68622321]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:44:24,214 [68642281]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:46:06,354 [68744421]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:46:18,399 [68756466]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:46:20,752 [68758819]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:51:00,670 [69038737]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:51:06,867 [69044934]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:52:43,069 [69141136]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:52:49,199 [69147266]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:53:21,294 [69179361]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:53:23,606 [69181673]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:53:41,115 [69199182]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:53:43,358 [69201425]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:54:46,630 [69264697]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:54:51,372 [69269439]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:55:52,175 [69330242]   WARN - #c.j.p.d.p.MultiProcessDebugger - Accept timed out
+java.net.SocketTimeoutException: Accept timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedAccept(NioSocketImpl.java:708)
+	at java.base/sun.nio.ch.NioSocketImpl.accept(NioSocketImpl.java:752)
+	at java.base/java.net.ServerSocket.implAccept(ServerSocket.java:675)
+	at java.base/java.net.ServerSocket.platformImplAccept(ServerSocket.java:641)
+	at java.base/java.net.ServerSocket.implAccept(ServerSocket.java:617)
+	at java.base/java.net.ServerSocket.implAccept(ServerSocket.java:574)
+	at java.base/java.net.ServerSocket.accept(ServerSocket.java:532)
+	at com.jetbrains.python.debugger.pydev.transport.ServerModeDebuggerTransport.waitForConnect(ServerModeDebuggerTransport.java:39)
+	at com.jetbrains.python.debugger.pydev.RemoteDebugger.waitForConnect(RemoteDebugger.java:118)
+	at com.jetbrains.python.debugger.pydev.MultiProcessDebugger$DebuggerProcessAcceptor.run(MultiProcessDebugger.java:529)
+	at com.intellij.openapi.application.impl.ApplicationImpl$1.run(ApplicationImpl.java:297)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1$1.run(Executors.java:702)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1$1.run(Executors.java:699)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1.run(Executors.java:699)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2025-04-11 13:56:24,618 [69362685]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:56:26,810 [69364877]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:56:42,743 [69380810]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:56:44,965 [69383032]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:57:33,582 [69431649]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 13:57:35,757 [69433824]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 16:58:54,181 [80312248]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path
+2025-04-11 16:59:00,430 [80318497]   WARN - #c.j.p.r.PythonCommandLineState - Python interpreter flavor is not taken into account while initializing Python path

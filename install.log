@@ -11,20 +11,9 @@
 /home/jramos/Programacion/MAMBA/lib/python3.10/site-packages/polyanagro-1.1-py3.10-linux-x86_64.egg
 /opt/JetBrains/pycharm-2022.2/plugins/python/helpers/pycharm_matplotlib_backend
 
-		 INSTALLING PIP PACKAGES (04/04/2025 19:59:58)
+		 INSTALLING PIP PACKAGES (13/04/2025 12:46:49)
 
-04/04/2025 19:59:59: ** None: Installing GitPython==3.1.1
-04/04/2025 20:00:01: ** None: Installing cython==0.29.24
-04/04/2025 20:00:02: ** None: Installing h5py
-04/04/2025 20:00:04: ** None: Installing panedr
-04/04/2025 20:00:06: ** None: Installing statsmodels
-04/04/2025 20:00:08: ** None: Installing MDAnalysis
 
-		 INSTALLING MSD_FFTW3 PROGRAM INTO THE PYTHON ENVIRONMENT FROM GITHUB
-
-04/04/2025 20:00:09: ** MSD_FFTW3: MSD_FFTW3 program is already installed in your system. https://github.com/jrdcasa/MeanSquareDisplacement.git
-/home/jramos/.local/bin/msd
-
-		 RUNNING SETUP FROM SETUPTOOLS 04/04/2025 20:00:10
+		 RUNNING SETUP FROM SETUPTOOLS 13/04/2025 12:46:50
 
 

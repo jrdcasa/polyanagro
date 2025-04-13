@@ -4,16 +4,17 @@ import os
 import subprocess
 import numpy as np
 import polyanagro as pag
+import psutil
 
-class MSD(pag.Calculations):
+class MSD(object):
 
     r"""Class to calculate the mean square displacement"""
 
     # =============================================================================================
     def __init__(self, trj, isnotjump, list_atoms = None,
-                 shift_atoms_from_center= None, method="multiple_window",
-                 number_of_block_elements = 10,
-                 number_of_blocks = 10, outputname="msd_atom.dat", start=0, end=-1, step=1, logger=None):
+                 shift_atoms_from_center= None, method="msd_fftw3_cython",
+                 startingfactor=None, com=0,
+                 outputname="msd_atom.dat", start=0, end=-1, step=1, logger=None):
 
         r"""Constructor of the msd object
 
@@ -36,21 +37,23 @@ class MSD(pag.Calculations):
 
         """
 
-        implemented_methods = ["multiple_window", "classic_py", "classic_opt_cython",
-                               "msd_fftw3", "classic_multitau", "msd_fftw3_fast"]
+        implemented_methods = ["classic_py", "classic_opt_cython",
+                               "classic_multitau", "msd_fftw3_fast", "msd_fftw3_cython"]
 
         self._trajectory = trj
-        self._dt = self._trajectory.universe.trajectory.dt #in ps
         self._isnotjump = isnotjump
         self._logger = logger
         self._filename_msd = outputname
         self._start = start
+        self._freq = 100
+        self._startingfactor = startingfactor
         if end == -1:
             self._end = len(self._trajectory.universe.trajectory)
         else:
             self._end = end
         self._step = step
-
+        self._positions_signal = None
+        self._dt = self._trajectory.universe.trajectory.dt * self._step  # in ps
         if list_atoms is not None:
 #            print("list_atoms")
             self._s_atoms = list_atoms
@@ -66,28 +69,14 @@ class MSD(pag.Calculations):
             print(m) if self._logger is None else self._logger.error(m)
             exit()
 
-        # ====================== MULTIPLE WINDOW METHOD ===================
-        if method == "multiple_window":
+        self._n_atoms = len(self._s_atoms)
+        self._n_frames = len(self._trajectory.universe.trajectory[self._start:self._end:self._step])
+        self._n_dim = 3
+        self._n_mols = len(self._trajectory.topology._nmols)
+        self._com = com
+        self._nmols_array, self._l_neigh_array = self._trajectory.topology.get_array_mols_neigh()
 
-            self.max_number_of_blocks = number_of_blocks
-            self.number_of_block_elements = number_of_block_elements
-            self.number_particles = len(self.s_atoms)
-
-            self.block_data = np.zeros([self.max_number_of_blocks,
-                                        self.number_particles,
-                                        self.number_of_block_elements, 3], dtype=float)
-
-            self.block_length = np.zeros (self.max_number_of_blocks, dtype=int)
-            self.msdcount = np.zeros([self.max_number_of_blocks, self.number_of_block_elements], dtype = float)
-            self.msdav = np.zeros([self.max_number_of_blocks, self.number_of_block_elements], dtype = float)
-
-            self.msdav_x = np.zeros([self.max_number_of_blocks, self.number_of_block_elements], dtype = float)
-            self.msdav_y = np.zeros([self.max_number_of_blocks, self.number_of_block_elements], dtype = float)
-            self.msdav_z = np.zeros([self.max_number_of_blocks, self.number_of_block_elements], dtype = float)
-
-            self.msd_internal_multiplewindow_python()
-
-        elif method == "classic_py":
+        if method == "classic_py":
 
             self.msd_classic_py()
 
@@ -99,7 +88,7 @@ class MSD(pag.Calculations):
 
             self.msd_classic_multitau()
 
-        elif method== "msd_fftw3":
+        elif method== "msd_fftw3_cython":
 
             self.msd_fftw3_cython()
 
@@ -113,7 +102,6 @@ class MSD(pag.Calculations):
             print ("Use one of the following methods: {}".format(implemented_methods))
             exit()
 
-        pass
 
     # =============================================================================================
     def msd_internal_multiplewindow_python(self):
@@ -295,9 +283,11 @@ class MSD(pag.Calculations):
         n_mol = len(self._trajectory.topology._nmols)
         n_frames = len(self._trajectory.universe.trajectory[self._start:self._end:self._step])
         positions = np.zeros((n_frames, n_atoms, 3), dtype=np.float64)
-
         # Input parameter from command line
-        weedf = 2  # number of starting points of independent time series
+        weedf = self._startingfactor  # number of starting points of independent time series
+
+        # Test if there is memory available in the system
+        self._check_memory_multitau(weedf)
 
         m = "\t\t Calculating MSD for {} atoms/particles in {} frames.\n".format(n_atoms, n_frames)
         m1= "\t\t "+"*"*len(m)+"\n"
@@ -305,32 +295,90 @@ class MSD(pag.Calculations):
         for i, ts in enumerate(self._trajectory.universe.trajectory[self._start:self._end:self._step]):
             positions[i] = self._s_atoms.positions
 
-        pag.msd_all_c(positions, n_mol, self._dt, weedf)
+        pag.msd_all_c(positions, n_mol, self._dt, weedf, self._filename_msd)
 
+        # COM MSD
+        if self._com:
 
-    # # =============================================================================================
-    # def msd_fftw3_cython(self):
-    #
-    #     n_atoms = len(self._s_atoms)
-    #     n_frames = len(self._trajectory.universe.trajectory[self._start:self._end:self._step])
-    #     positions = np.zeros((n_frames, n_atoms, 3), dtype=np.float64)
-    #
-    #     m = "\t\t Calculating MSD for {} atoms/particles in {} frames (FFTW3 algorithm).\n".format(n_atoms, n_frames)
-    #     m1= "\t\t "+"*"*len(m)+"\n"
-    #     print(m1+m+m1) if self._logger is None else self._logger.info(m1+m+m1)
-    #     for i, ts in enumerate(self._trajectory.universe.trajectory[self._start:self._end:self._step]):
-    #         positions[i] = self._s_atoms.positions
-    #
-    #     msd_avg = pag.msd_fftw3_ext(positions)
-    #
-    #     # Print
-    #     filename = "msd_fftw3.dat"
-    #     with open(filename, 'w') as f:
-    #         for i in range(n_frames):
-    #             line = "{0:.3f}  {1:.6f}\n".format(i*self._dt, msd_avg[i])
-    #             f.writelines(line)
+            m = "\t\t Calculating COM-MSD for {} particles in {} frames.\n".format(n_mol, n_frames)
+            m1= "\t\t "+"*"*len(m)+"\n"
+            print(m1+m+m1) if self._logger is None else self._logger.info(m1+m+m1)
 
-    # print(msd_avg)
+            positions_com = np.zeros((n_frames, n_mol, 3), dtype=np.float64)
+            mass = np.array(self._trajectory.topology.mass, dtype=np.float64)
+
+            pag.msd_com_c(self._nmols_array, mass, positions, positions_com)
+
+                # Write COM trj
+            with open("com_trajectory.xyz", "w") as fxyz:
+                iframe = 0
+                indx_iframe = 0
+                start_time = datetime.datetime.now()
+                for iframe in range(0, n_frames):
+
+                    fxyz.writelines("{}\n".format(n_mol))
+                    fxyz.writelines("Frame {}\n".format(iframe))
+                    for ich in range(0, n_mol):
+                        line = "C {} {} {}\n".format(positions_com[iframe, ich, 0],
+                                                   positions_com[iframe, ich, 1],
+                                                   positions_com[iframe, ich, 2] )
+                        fxyz.writelines(line)
+
+            self._filename_msd = "msd_com.dat"
+            pag.msd_all_c(positions_com, n_mol, self._dt, weedf, self._filename_msd)
+
+    # =============================================================================================
+    def msd_fftw3_cython(self):
+
+        n_dim = 3
+        # self._n_atoms = len(self._s_atoms)
+        # self._n_frames = len(self._trajectory.universe.trajectory[self._start:self._end:self._step])
+        self._positions_signal = np.zeros((self._n_atoms, n_dim, self._n_frames), dtype=np.float64)
+
+        m = "\t Calculating MSD for {} atoms/particles in {} frames (FFTW3 algorithm).\n".\
+            format(self._n_atoms, self._n_frames)
+        m1= "\t "+"="*len(m)+"\n"
+        print(m1+m+m1) if self._logger is None else self._logger.info(m1+m+m1)
+        s = datetime.datetime.now()
+        self._freq = int(self._n_frames / (self._n_frames*0.001))
+
+        # Test if there is memory available in the system
+        self._check_memory_msdfftw3()
+
+        for i, ts in enumerate(self._trajectory.universe.trajectory[self._start:self._end:self._step]):
+            self._positions_signal[:,:, i] = self._s_atoms.positions
+            # Write info
+            if i%self._freq == 0:
+                elapsed_time = datetime.datetime.now() - s
+                m = "\tIFRAME: {0:d} of {1:d} in {2:s} seconds".format \
+                    (i, self._n_frames, str(elapsed_time.total_seconds()))
+                print(m) if self._logger is None else self._logger.info(m)
+
+        # Toy example:
+        # self._positions_signal= np.zeros((3, 3, 4), dtype=np.float64)
+        # self._n_atoms = 3
+        # self._n_dim = 3
+        # self._n_frames = 4
+        # for i, ts in enumerate(self._trajectory.universe.trajectory[self._start:self._n_frames:self._step]):
+        #     for iatom in range(0, self._n_atoms):
+        #         for idim in range(0, n_dim):
+        #             self._positions_signal[iatom, idim, i] = self._s_atoms.positions[iatom, idim]
+
+        msd = pag.msd_fftw3_cython(self._positions_signal, self._dt)
+
+        # Print
+        with open(self._filename_msd, 'w') as f:
+            line = "#Timestep(ps) msd_x(A^2) msd_y(A^2) msd_z(A^2) msd(A^2)\n"
+            f.writelines(line)
+            for i in range(0, self._n_frames):
+                line = "{0:.3f} ".format(i*self._dt)
+                sum_msd_xyz = 0
+                for k in range(0, n_dim):
+                    tmp = msd[i+self._n_frames*k]
+                    sum_msd_xyz += tmp
+                    line += "{0:.6f} ".format(tmp)
+                line += "{0:.6f}\n".format(sum_msd_xyz)
+                f.writelines(line)
 
     # =============================================================================================
     def msd_fftw3_fast(self):
@@ -347,8 +395,6 @@ class MSD(pag.Calculations):
             msg += "\t\t Please install from: https://github.com/RaulPPelaez/MeanSquareDisplacement\n"
             print(msg) if self._logger is None else self._logger.info(msg)
             return None
-
-
 
         m = "\t\t Calculating MSD for {} atoms/particles in {} frames (msd_fft3_fast).\n".format(n_atoms, n_frames)
         m1= "\t\t "+"*"*len(m)+"\n"
@@ -368,7 +414,6 @@ class MSD(pag.Calculations):
                         elapsed_time = mid_time - start_time
                         msg += "\ttime: {0:s} seconds".format(str(elapsed_time.total_seconds()))
                         print(msg) if self._logger is None else self._logger.info(msg)
-
 
                     f.write("#\n")  # Frame separator
                     for atom in self._s_atoms:
@@ -396,3 +441,88 @@ class MSD(pag.Calculations):
             print(msg) if self._logger is None else self._logger.info(msg)
         except subprocess.CalledProcessError as e:
             print(f"Error running MSD fftw3: {e.stderr}")
+
+    # =============================================================================================
+    def _check_memory_msdfftw3(self):
+
+            msg = "\t\t Estimation of the memory neccesary \t\t\n"
+            m1= "\t "+"*"*len(msg)+"\n"
+            print(m1+msg+m1) if self._logger is None else self._logger.info(m1+msg+m1)
+
+            process = psutil.Process(os.getpid())
+            python_program_Gb = process.memory_info().rss / (1024 ** 3)
+            positions_signal_bytes = self._positions_signal.nbytes / (1024 ** 3)
+            S2c_signal_in_bytes = 8 * 2 * ((self._n_frames * 2) / 2 + 1) * self._n_atoms * 3 / (1024 ** 3)
+            S2c_res_in_bytes = 8 * self._n_frames * self._n_atoms / (1024 ** 3)
+            S2c_s2Averaged_in_bytes = 8 * self._n_frames * 3 / (1024 ** 3)
+            S2c_sumAux_in_bytes = 8 * self._n_atoms * 3 / (1024 ** 3)
+            S1c_s2Averaged_in_bytes = 8 * self._n_frames * 3 / (1024 ** 3)
+            S1c_sumAux_in_bytes = 8 * self._n_frames * 3 / (1024 ** 3)
+            ss = python_program_Gb + positions_signal_bytes + S2c_signal_in_bytes + S2c_res_in_bytes
+            msg = "\t\t Number of atoms                              : {0:d} atoms\n".format(self._n_atoms)
+            msg += "\t\t Number of frames                             : {0:d} frames\n".format(self._n_frames)
+            msg += "\t\t Sample time                                  : {0:7.1f} ps\n".format(self._dt)
+            msg += "\t\t Memory used by python program                : {0:7.3f} GB.\n".format(python_program_Gb)
+            msg += "\t\t Memory used by signal (all atoms and frames) : {0:7.3f} GB.\n".format(positions_signal_bytes)
+            msg += "\t\t   ======= Compute S2 =======\n"
+            msg += "\t\t Memory used by c-FFTW3 (S2, signal, autocor) : {0:7.3f} GB.\n".format(S2c_signal_in_bytes)
+            msg += "\t\t Memory used by c-FFTW3 (S2, res, autocor)    : {0:7.3f} GB.\n".format(S2c_res_in_bytes)
+            msg += "\t\t Memory used by c-FFTW3 (S2Averaged )         : {0:7.3f} GB.\n".format(S2c_s2Averaged_in_bytes)
+            msg += "\t\t Memory used by c-FFTW3 (sumAuxS2 )           : {0:7.3f} GB.\n".format(S2c_sumAux_in_bytes)
+            msg += "\t\t Memory used by c-FFTW3 (S1Averaged )         : {0:7.3f} GB.\n".format(S1c_s2Averaged_in_bytes)
+            msg += "\t\t Memory used by c-FFTW3 (sumAuxS1 )           : {0:7.3f} GB.".format(S1c_sumAux_in_bytes)
+
+            print(msg) if self._logger is None else self._logger.info(msg)
+            msg = "\t\t Total Memory estimation for FFTW3 MSD        : {0:7.3f} GB.".format(ss)
+            m1= "\t "+"-"*len(msg)+"\n"
+            print(m1+msg) if self._logger is None else self._logger.info(m1+msg)
+            mem = psutil.virtual_memory()
+            # Available memory in bytes
+            free_bytes = mem.available
+            free_gb = free_bytes / (1024 ** 3)
+
+            msg = "\t\t Free memory                                  : {0:7.3f} GB.\n".format(free_gb)
+            print(msg) if self._logger is None else self._logger.info(msg)
+
+            if ss > free_gb:
+                msg = "\n\t\t There is not free memory available. \n\t\t" \
+                    " Increase memory and/or decrease the number of frames/atoms in the trajectory."
+                print(msg) if self._logger is None else self._logger.error(msg)
+                exit()
+
+    # =============================================================================================
+    def _check_memory_multitau(self, weedf):
+
+            msg = "\t\t Estimation of the memory neccesary \t\t\n"
+            m1= "\t "+"*"*len(msg)+"\n"
+            print(m1+msg+m1) if self._logger is None else self._logger.info(m1+msg+m1)
+
+            process = psutil.Process(os.getpid())
+            python_program_Gb = process.memory_info().rss / (1024 ** 3)
+            time_avg_bytes = self._n_frames * 9 / (1024 ** 3)
+            times_bytes = weedf / (1024 ** 3)
+            dxdydz_bytes = (self._n_atoms + self._n_mols) * self._n_frames * 8 / (1024 ** 3)
+            ss = time_avg_bytes + times_bytes + dxdydz_bytes
+            msg = "\t\t Number of atoms                              : {0:d} atoms\n".format(self._n_atoms)
+            msg += "\t\t Number of molecules                          : {0:d} atoms\n".format(self._n_mols)
+            msg += "\t\t Number of frames                             : {0:d} frames\n".format(self._n_frames)
+            msg += "\t\t Sample time                                  : {0:7.1f} ps\n".format(self._dt)
+            msg += "\t\t Memory used by python program                : {0:7.3f} GB.\n".format(python_program_Gb)
+
+            print(msg) if self._logger is None else self._logger.info(msg)
+            msg = "\t\t Total Memory estimation for FFTW3 MSD        : {0:7.3f} GB.".format(ss)
+            m1= "\t "+"-"*len(msg)+"\n"
+            print(m1+msg) if self._logger is None else self._logger.info(m1+msg)
+            mem = psutil.virtual_memory()
+            # Available memory in bytes
+            free_bytes = mem.available
+            free_gb = free_bytes / (1024 ** 3)
+
+            msg = "\t\t Free memory                                  : {0:7.3f} GB.\n".format(free_gb)
+            print(msg) if self._logger is None else self._logger.info(msg)
+
+            if ss > free_gb:
+                msg = "\n\t\t There is not free memory available. \n\t\t" \
+                    " Increase memory and/or decrease the number of frames/atoms in the trajectory."
+                print(msg) if self._logger is None else self._logger.error(msg)
+                exit()

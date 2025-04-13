@@ -23,10 +23,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad1397b9-ba54-446b-9246-9f1da47e52d0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/examples/14-MSD_trj/average_results.gnu" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/14-MSD_trj/msd_fftw3_orginal.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/14-MSD_trj_full/MSD.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/14-MSD_trj_full/msd_fftw3.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/14-MSD_trj_full/nohup.out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/polyanagro/ext_libc/calc_msd_fftw3.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/examples/14-MSD_trj/.traj_msd_20ps_500frames_wrap_nojump.xtc_offsets.npz" beforeDir="false" afterPath="$PROJECT_DIR$/examples/14-MSD_trj/.traj_msd_20ps_500frames_wrap_nojump.xtc_offsets.npz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/examples/14-MSD_trj/MSD.log" beforeDir="false" afterPath="$PROJECT_DIR$/examples/14-MSD_trj/MSD.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/14-MSD_trj/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/examples/14-MSD_trj/README.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/14-MSD_trj/msd_fftw3.dat" beforeDir="false" afterPath="$PROJECT_DIR$/examples/14-MSD_trj/msd_fftw3.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/install.log" beforeDir="false" afterPath="$PROJECT_DIR$/install.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/setup.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polyanagro/MSD.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/MSD.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polyanagro/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polyanagro/cmds/msd_polymer.py" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/cmds/msd_polymer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/c_msd_openmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/c_msd_openmp.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/c_msd_openmp.pyx" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/c_msd_openmp.pyx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/calc_msd.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/calc_msd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polyanagro/ext_libc/calc_rg.c" beforeDir="false" afterPath="$PROJECT_DIR$/polyanagro/ext_libc/calc_rg.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,9 +92,14 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro/examples/14-MSD_trj",
+    "last_opened_file_path": "/home/jramos/Programacion/GITHUB_REPO_DIR/polyanagro_large_files/polyanagro/examples/14-MSD_trj_full/01-PVL4_C0_LOPLS_500K_REBASH/12-RUN12_COM",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "Cython"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -97,7 +118,7 @@
       <recent name="$PROJECT_DIR$/data" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.00-INSTALL">
+  <component name="RunManager" selected="Python.14-MSD_All nojump msd_fftw3_cython FULLTRJ COM">
     <configuration name="00-INSTALL" type="PythonConfigurationType" factoryName="Python">
       <module name="polyanagro" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -714,7 +735,123 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="14-MSD_All" type="PythonConfigurationType" factoryName="Python">
+    <configuration name="14-MSD_All jump " type="PythonConfigurationType" factoryName="Python">
+      <module name="polyanagro" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/examples/14-MSD_trj" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/polyanagro/cmds/msd_polymer.py" />
+      <option name="PARAMETERS" value="-t 00-INPUTS/traj_msd_20ps_500frames_wrap.xtc --topo 00-INPUTS/new_topo.tpr --nojump 1" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="14-MSD_All nojump msd_fftw3_cython FULLTRJ COM" type="PythonConfigurationType" factoryName="Python">
+      <module name="polyanagro" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../polyanagro_large_files/polyanagro/examples/14-MSD_trj_full/01-PVL4_C0_LOPLS_500K_REBASH/12-RUN12_COM" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/polyanagro/cmds/msd_polymer.py" />
+      <option name="PARAMETERS" value="-t ../00-INPUTS/trajout_nojump_02.xtc --topo ../00-INPUTS/new_topo.tpr --method=&quot;classic_multitau&quot; --stride 4 --nojump 1 --startingfactor 8 --com 1" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2">
+        <option name="RunConfigurationTask" enabled="true" run_configuration_name="00-INSTALL" run_configuration_type="PythonConfigurationType" />
+      </method>
+    </configuration>
+    <configuration name="14-MSD_All nojump msd_fftw3_cython FULLTRJ" type="PythonConfigurationType" factoryName="Python">
+      <module name="polyanagro" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/examples/14-MSD_trj_full" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/polyanagro/cmds/msd_polymer.py" />
+      <option name="PARAMETERS" value="-t /mnt/AOKI_FOLDER/99-ANALYSIS/06-MSD_ALL_GROMACS/01-PVL4_C0_LOPLS_500K_REBASH/trajout_nojump_02.xtc --topo /mnt/AOKI_FOLDER/01-PVL4_C0_LOPLS/03-PREPARE_LIBRARY_POLYPLY_40Mon/04-MD_NPT_0000_0200ns_500K/new_topo.tpr --method=&quot;msd_fftw3_cython&quot; --stride 4 --nojump 1" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2">
+        <option name="RunConfigurationTask" enabled="true" run_configuration_name="00-INSTALL" run_configuration_type="PythonConfigurationType" />
+      </method>
+    </configuration>
+    <configuration name="14-MSD_All nojump msd_fftw3_cython MULTITAU" type="PythonConfigurationType" factoryName="Python">
+      <module name="polyanagro" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../polyanagro_large_files/polyanagro/examples/14-MSD_trj_full/01-PVL4_C0_LOPLS_500K_REBASH/09-RUN09_P_F_200ps_nojump_MULTITAU" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/polyanagro/cmds/msd_polymer.py" />
+      <option name="PARAMETERS" value="-t ../00-INPUTS/trajout_nojump_02.xtc --topo ../00-INPUTS/new_topo.tpr --method=&quot;classic_multitau&quot; --stride 4 --nojump 1 --startingfactor 8" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2">
+        <option name="RunConfigurationTask" enabled="true" run_configuration_name="00-INSTALL" run_configuration_type="PythonConfigurationType" />
+      </method>
+    </configuration>
+    <configuration name="14-MSD_All nojump msd_fftw3_cython" type="PythonConfigurationType" factoryName="Python">
+      <module name="polyanagro" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/examples/14-MSD_trj" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/polyanagro/cmds/msd_polymer.py" />
+      <option name="PARAMETERS" value="-t 00-INPUTS/traj_msd_20ps_500frames_wrap.xtc --topo 00-INPUTS/new_topo.tpr --method=&quot;msd_fftw3_cython&quot; --nojump 0" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="14-MSD_All nojump" type="PythonConfigurationType" factoryName="Python">
       <module name="polyanagro" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -1660,7 +1797,12 @@
     </configuration>
     <list>
       <item itemvalue="Python.00-INSTALL" />
-      <item itemvalue="Python.14-MSD_All" />
+      <item itemvalue="Python.14-MSD_All nojump" />
+      <item itemvalue="Python.14-MSD_All nojump msd_fftw3_cython" />
+      <item itemvalue="Python.14-MSD_All nojump msd_fftw3_cython FULLTRJ" />
+      <item itemvalue="Python.14-MSD_All nojump msd_fftw3_cython FULLTRJ COM" />
+      <item itemvalue="Python.14-MSD_All nojump msd_fftw3_cython MULTITAU" />
+      <item itemvalue="Python.14-MSD_All jump " />
       <item itemvalue="Python.21-rEE_otraformula" />
       <item itemvalue="Python.98-com_trajectory" />
       <item itemvalue="Python.99-RDF_01" />
@@ -1900,7 +2042,10 @@
       <workItem from="1741779479972" duration="699000" />
       <workItem from="1742374694517" duration="3000" />
       <workItem from="1743177018778" duration="1469000" />
-      <workItem from="1743184695192" duration="89054000" />
+      <workItem from="1743184695192" duration="96750000" />
+      <workItem from="1744093854004" duration="47066000" />
+      <workItem from="1744303230580" duration="8211000" />
+      <workItem from="1744385004358" duration="29434000" />
     </task>
     <servers />
   </component>
@@ -2307,28 +2452,43 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/polyanagro/MSD.py</url>
-          <line>283</line>
+          <line>271</line>
           <option name="timeStamp" value="1478" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/polyanagro/MSD.py</url>
-          <line>332</line>
-          <option name="timeStamp" value="1483" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/polyanagro/MSD.py</url>
-          <line>307</line>
-          <option name="timeStamp" value="1485" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/setup.py</url>
           <line>120</line>
           <option name="timeStamp" value="1491" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/polyanagro/cmds/msd_polymer.py</url>
+          <line>201</line>
+          <option name="timeStamp" value="1505" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/polyanagro/MSD.py</url>
+          <line>309</line>
+          <option name="timeStamp" value="1508" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/polyanagro/MSD.py</url>
+          <line>337</line>
+          <option name="timeStamp" value="1509" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="cython-line">
           <url>file://$PROJECT_DIR$/polyanagro/ext_libc/c_internal_distances.pyx</url>
           <line>53</line>
           <option name="timeStamp" value="767" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="cython-line">
+          <url>file://$PROJECT_DIR$/polyanagro/ext_libc/c_msd_openmp.pyx</url>
+          <line>236</line>
+          <option name="timeStamp" value="1497" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="cython-line">
+          <url>file://$PROJECT_DIR$/polyanagro/ext_libc/c_msd_openmp.pyx</url>
+          <line>272</line>
+          <option name="timeStamp" value="1510" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -2344,15 +2504,7 @@
         <watch expression="e" language="Python" />
       </configuration>
       <configuration name="PythonConfigurationType">
-        <watch expression="os.path.join(os.getcwd(), executable_file)" />
-        <watch expression="os.path.isfile(executable_file)" language="Python" />
-        <watch expression="os.path.isfile(os.path.join(os.getcwd(), &quot;bin/msd&quot;))" />
-        <watch expression="os.getcwd()" />
-        <watch expression="result" />
-        <watch expression="os.path.join(os.getcwd(), executable_file_installed)" />
-        <watch expression="os.path.isfile(os.path.join(os.getcwd(), executable_file_installed)" />
-        <watch expression="if os.path.isfile(os.path.join(os.getcwd(), executable_file_installed))" />
-        <watch expression="os.path.isfile(os.path.join(os.getcwd(), executable_file_installed))" />
+        <watch expression="self._t" language="Python" />
       </configuration>
     </watches-manager>
   </component>
@@ -2367,9 +2519,10 @@
     <SUITE FILE_PATH="coverage/polyanagro$10_Distrib_single_chain.coverage" NAME="10-Distrib single chain aPP Coverage Results" MODIFIED="1678198833842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Documentos/___MIS_CHARLAS___/2022-2023-Master_Polimeros_Simulacion/98-Practica01_MCSingleChain/PP-Trappe/aPP_TrappeUA_n3_450K" />
     <SUITE FILE_PATH="coverage/polyanagro$test_RDF.coverage" NAME="test_RDF Coverage Results" MODIFIED="1655393509672" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/polyanagro$05_energy_analysis.coverage" NAME="06-energy_analysis calc Coverage Results" MODIFIED="1661346368389" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/example/05-energy_analysis" />
-    <SUITE FILE_PATH="coverage/polyanagro$00_INSTALL.coverage" NAME="00-INSTALL Coverage Results" MODIFIED="1743776431831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/polyanagro$00_INSTALL.coverage" NAME="00-INSTALL Coverage Results" MODIFIED="1744541209463" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/polyanagro$08_energy_analysis_lammps.coverage" NAME="08-energy_analysis_lammps Coverage Results" MODIFIED="1661342440444" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/example/05-energy_analysis" />
     <SUITE FILE_PATH="coverage/polyanagro$16_Tg_annealing_refit_bin.coverage" NAME="16-Tg_annealing refit bin Coverage Results" MODIFIED="1720424370435" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/16-Tg_annealing" />
+    <SUITE FILE_PATH="coverage/polyanagro$14_MSD_All_nojump_msd_fftw3_cython_FULLTRJ.coverage" NAME="14-MSD_All nojump msd_fftw3_cython FULLTRJ Coverage Results" MODIFIED="1744388422242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/14-MSD_trj_full" />
     <SUITE FILE_PATH="coverage/polyanagro$center_trajectory.coverage" NAME="center_trajectory Coverage Results" MODIFIED="1725559580781" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/polyanagro/cmds" />
     <SUITE FILE_PATH="coverage/polyanagro$04_Melt__1_.coverage" NAME="04-Melt (1) Coverage Results" MODIFIED="1661549223042" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/04-Melt_100ChPE500_TrappeUA/" />
     <SUITE FILE_PATH="coverage/polyanagro$99_RDF_01.coverage" NAME="99-RDF_01 Coverage Results" MODIFIED="1739902012799" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/21-RDF_Small/05-RDF_POLYANAGRO" />
@@ -2388,6 +2541,7 @@
     <SUITE FILE_PATH="coverage/polyanagro$09_vocta_analysis_py_tmp.coverage" NAME="09-vocta_analysis.py_tmp Coverage Results" MODIFIED="1666543984495" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Documentos/___MIS_PETICIONES_PROYECTOS___/2021-MovilidadExtranjero/08-Results/05-CG/02-iPP-CG3-ibi_big/99-ANALYSIS/01-VISUAL_DIST_PRESS/01-NOPRESS" />
     <SUITE FILE_PATH="coverage/polyanagro$test_segment.coverage" NAME="test_segment Coverage Results" MODIFIED="1639474240542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/polyanagro$02_Melt.coverage" NAME="02-Melt Coverage Results" MODIFIED="1700512647243" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/polyanagro/cmds" />
+    <SUITE FILE_PATH="coverage/polyanagro$14_MSD_All_nojump_msd_fftw3_cython_MULTITAU.coverage" NAME="14-MSD_All nojump msd_fftw3_cython MULTITAU Coverage Results" MODIFIED="1744482115083" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../polyanagro_large_files/polyanagro/examples/14-MSD_trj_full/01-PVL4_C0_LOPLS_500K_REBASH/09-RUN09_P_F_200ps_nojump_MULTITAU" />
     <SUITE FILE_PATH="coverage/polyanagro$21_rEE_otraformula.coverage" NAME="21-rEE_otraformula Coverage Results" MODIFIED="1738065700819" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/AOKI_FOLDER/99-ANALYSIS/01-POLYMER_SIZE_FULLTRJ_NOJUMP_TRJ/TMP" />
     <SUITE FILE_PATH="coverage/polyanagro$06_energy_analysis__h.coverage" NAME="06-energy_analysis -h Coverage Results" MODIFIED="1661275228058" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/example/05-energy_analysis" />
     <SUITE FILE_PATH="coverage/polyanagro$cmds_polymer_size_p4hb_one_chain_nopbc.coverage" NAME="cmds polymer_size p4hb one chain nopbc Coverage Results" MODIFIED="1651766954993" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data/P4HB_1chain_nopdb_cutoff_group" />
@@ -2418,6 +2572,7 @@
     <SUITE FILE_PATH="coverage/polyanagro$02_test_energy_py__1_.coverage" NAME="02-test_energy.py (1) Coverage Results" MODIFIED="1661169841508" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/polyanagro$03_odf_250br_550K.coverage" NAME="03-odf-250br_550K Coverage Results" MODIFIED="1615981737728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/media/jramos/PEBranch/0075Ch-C500-250br02_b/T-550K/06-NPT-100ns-Parrinello/ANALYSIS_POLYANAGRO" />
     <SUITE FILE_PATH="coverage/polyanagro$01_test_radiusofgyration_py.coverage" NAME="01-test_radiusofgyration.py Coverage Results" MODIFIED="1661090774133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/" />
+    <SUITE FILE_PATH="coverage/polyanagro$14_MSD_All_nojump.coverage" NAME="14-MSD_All nojump Coverage Results" MODIFIED="1744105614289" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/14-MSD_trj" />
     <SUITE FILE_PATH="coverage/polyanagro$test_molecular_graph.coverage" NAME="test_molecular_graph Coverage Results" MODIFIED="1655392738996" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/topology/test/Test-MolecularGraphs" />
     <SUITE FILE_PATH="coverage/polyanagro$TEST.coverage" NAME="TEST Coverage Results" MODIFIED="1725980659099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/media/jramos/PortableSSD/2024-CB_Granada/99-ANALYSIS/01-POLYMER_SIZE/09-12MLG_Single" />
     <SUITE FILE_PATH="coverage/polyanagro$06_energy_analysis_calc__1_.coverage" NAME="06-energy_analysis calc (1) Coverage Results" MODIFIED="1741779968799" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/mnt/DRAGO_FOLDER/04-NPT" />
@@ -2425,6 +2580,9 @@
     <SUITE FILE_PATH="coverage/polyanagro$09_vocta_analysis_py.coverage" NAME="09-vocta_analysis.py Coverage Results" MODIFIED="1665582426322" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/09-votca_analysis/Example01" />
     <SUITE FILE_PATH="coverage/polyanagro$99_RDF_02_index_neigh_excl.coverage" NAME="99-RDF_02 index neigh_excl Coverage Results" MODIFIED="1741557560571" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/22-RDF_RealSystem/0-01-PVL4_C0_LOPLS_RDF_POLYANAGRO" />
     <SUITE FILE_PATH="coverage/polyanagro$16_Tg_annealing_refit.coverage" NAME="16-Tg_annealing refit raw Coverage Results" MODIFIED="1720424383334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/16-Tg_annealing" />
+    <SUITE FILE_PATH="coverage/polyanagro$14_MSD_All_nojump_msd_fftw3_cython.coverage" NAME="14-MSD_All nojump msd_fftw3_cython Coverage Results" MODIFIED="1744391930845" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/14-MSD_trj" />
+    <SUITE FILE_PATH="coverage/polyanagro$14_MSD_All_nojump_msd_fftw3_cython_FULLTRJ_COM.coverage" NAME="14-MSD_All nojump msd_fftw3_cython FULLTRJ COM Coverage Results" MODIFIED="1744541211528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../polyanagro_large_files/polyanagro/examples/14-MSD_trj_full/01-PVL4_C0_LOPLS_500K_REBASH/12-RUN12_COM" />
+    <SUITE FILE_PATH="coverage/polyanagro$14_MSD_All_jump_.coverage" NAME="14-MSD_All jump  Coverage Results" MODIFIED="1744007301956" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/14-MSD_trj" />
     <SUITE FILE_PATH="coverage/polyanagro$setup_install.coverage" NAME="setup install Coverage Results" MODIFIED="1656103776331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/polyanagro$maps_calculate_DVE.coverage" NAME="maps calculate DVE Coverage Results" MODIFIED="1702504417281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/TMP/PP/99-MDs/99-ANALYSIS/02-BOND_DISTRIBUTION/01-DVE_N10" />
     <SUITE FILE_PATH="coverage/polyanagro$99_TEST.coverage" NAME="99-TEST Coverage Results" MODIFIED="1661807523956" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Documentos/___MIS_PETICIONES_PROYECTOS___/2021-MovilidadExtranjero/08-Results/04-PE_AA/01-PE/99-ANALYSIS/03-POLYMER_SIZE" />
@@ -2438,7 +2596,7 @@
     <SUITE FILE_PATH="coverage/polyanagro$03_Polymer_SC_MC.coverage" NAME="03-Polymer_SC_MC Coverage Results" MODIFIED="1657309883447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/example/03-Polymer_SC_MonteCarlo/03-PE" />
     <SUITE FILE_PATH="coverage/polyanagro$04_info_trj.coverage" NAME="04-info_trj Coverage Results" MODIFIED="1660932753037" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/example/04-Info_trj" />
     <SUITE FILE_PATH="coverage/polyanagro$test_radiusofgyration.coverage" NAME="test_radiusofgyration Coverage Results" MODIFIED="1655823049845" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/polyanagro$14_MSD_All.coverage" NAME="14-MSD_All Coverage Results" MODIFIED="1743776456888" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/14-MSD_trj" />
+    <SUITE FILE_PATH="coverage/polyanagro$14_MSD_All.coverage" NAME="14-MSD_All nojump Coverage Results" MODIFIED="1744007459042" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/14-MSD_trj" />
     <SUITE FILE_PATH="coverage/polyanagro$cmds_polymer_size_p3hb.coverage" NAME="cmds polymer_size p3hb Coverage Results" MODIFIED="1643714958861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/TMPS/TMP9_BB/2022-P3HB_20Mon_100Ch_Tg/07-NPT_CRescale_500ns_700K/ANALYSIS" />
     <SUITE FILE_PATH="coverage/polyanagro$a_pdb.coverage" NAME="a.pdb Coverage Results" MODIFIED="1662304394316" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/08-ExtractMolecules" />
     <SUITE FILE_PATH="coverage/polyanagro$16_Tg_annealing.coverage" NAME="16-Tg_annealing Coverage Results" MODIFIED="1720424124275" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/16-Tg_annealing" />

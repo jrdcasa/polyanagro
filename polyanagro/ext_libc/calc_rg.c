@@ -154,12 +154,4 @@ static void c_rg_chain_massweigth(int mols[], float mass[], float coords_unwrap[
    free(mass_ich);
 }
 
-
-
-
-
-
-
-
-
 #endif
