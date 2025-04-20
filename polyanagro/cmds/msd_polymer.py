@@ -42,7 +42,7 @@ def parse_arguments():
 
     parser.add_argument("--com", dest="com", type=str2bool,
                         help="If True the g3(t) function is calculated",
-                        required=True, metavar="True or False, 1 or 0")
+                        required=False, metavar="True or False, 1 or 0", default=0)
 
     parser.add_argument("--start", dest="start", type=int,
                         help="The starting frame for the trajectory.",

@@ -241,7 +241,7 @@ class BondedDistributions(pag.Calculations):
         # Start calculations for each frame
         #nframes = self._trajectory.nframes
         ini = begin
-        m = "\tUnwrap PBC coordinates: {}".format(unwrap_pbc)
+        m = "\tProvide unwrapped PBC coordinates: {}".format(unwrap_pbc)
         print(m) if self._logger is None else self._logger.info(m)
 
         # Main loop of frames ====================================================
@@ -272,7 +272,7 @@ class BondedDistributions(pag.Calculations):
                 print(m) if self._logger is None else self._logger.info(m)
 
             # If pbc is false it is assumed that the trajectory is unwrapped
-            if unwrap_pbc:
+            if not unwrap_pbc:
                 self._unwrap_coordinates(iframe)
             else:
                 self._coords_unwrap = self._trajectory.universe.trajectory[iframe].positions
