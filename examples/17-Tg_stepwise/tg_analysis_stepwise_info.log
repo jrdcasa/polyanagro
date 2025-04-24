@@ -19,12 +19,12 @@
 
     ***********************************************************************
         
-		Start Job at 04-07-2024 17:25:47 ============
+		Start Job at 24-04-2025 15:50:32 ============
 
 		Command line: 
-			python tg_analysis.py stepwise -d EDRs
+			python tg_analysis.py stepwise -d EDRs --range 0 700 --tgguess 300 --scaleparam 300
 			         or
-			energy_analysis stepwise -d EDRs
+			tg_analysis.py stepwise -d EDRs --range 0 700 --tgguess 300 --scaleparam 300
 
 		Reading energy data from: 
 			EDRs/00005_030.part0001.edr
@@ -72,14 +72,14 @@
 
 		**** GLASS TRANSITION FITTING INFO ****
 		Starting analysis for current dataset.
-		Tg from initial fit (in K): 327.9
-		Normed residual (smaller is better):   0.000058
+		Tg from initial fit (in K): 326.9
+		Normed residual (smaller is better):   0.000037
 		Convergence parameter set to: 90.0%
 		Dataset not rejected
-		Estimated Tg (in K): 327.87
-		Standard Error:  2.06
+		Estimated Tg (in K): 326.89
+		Standard Error:  2.00
 		Rejected: 0
 		**** END GLASS TRANSITION FITTING INFO ****
 
-		Job  Done at 04-07-2024 17:25:50 ============
+		Job  Done at 24-04-2025 15:50:35 ============
 

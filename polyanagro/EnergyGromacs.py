@@ -50,13 +50,17 @@ class EnergyGromacs(Energy):
         # Stepwise
         else:
             mean_values_list = []
+            std_values_list = []
             for iedr in self._energy_list_filenames:
                 tmp_df = panedr.edr_to_df(iedr)
                 # Discard the first 10 points to calculate the average
                 tmp_df_discart_first_lines = tmp_df.iloc[skip_lines:]
                 mean_values_list.append(pd.DataFrame(tmp_df_discart_first_lines.mean()).transpose())
+                std_values_list.append(pd.DataFrame(tmp_df_discart_first_lines.std()).transpose())
             self._df = pd.concat(mean_values_list, ignore_index=True)
+            self._df_std = pd.concat(std_values_list, ignore_index=True)
             self._properties = self._df.columns.tolist()
+            self._properties_std = self._df_std.columns.tolist()
 
     # =========================================================================
     def plot_energy_group(self, skip_data=0, path_to_save="."):

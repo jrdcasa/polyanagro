@@ -267,7 +267,7 @@ def main_app():
     # Check end2end and backbone lists
     isree, isreeacf, listend2end = get_listend(args)
     iscnn, backbone_list_atoms, isbbatom = get_backbone_atoms(args, trj.topology.natoms, trj.topology._iatch)
-    # Uwrap or not coordinates
+    # Unwrap or not coordinates
     isunwrap = args.isunwrap
     # Calculate chain dimensions
     objcalc.calculate(listend2end, diroutput="./", isree=isree, isrg=True, iscn=iscnn, acfE2E=isreeacf,

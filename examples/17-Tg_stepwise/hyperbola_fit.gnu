@@ -25,7 +25,7 @@ set key font ",8"
 unset grid
 
 set title ""
-set label 1 "" at 327.8670490072444, 1.1451355203978015 point pointtype 7 pointsize 1.4 
+set label 1 "" at 326.89002218995773, 1.14465490195585 point pointtype 7 pointsize 1.4 
 p "./hyperbola_fit_a.dat" u 1:2 ls 1 title "Simulated data", \
   "./hyperbola_fit_b.dat" u 1:2 ls 2 w l title "Best-fit hyperbola",\
   "./hyperbola_fit_c.dat" u 1:2 ls 3 w l title "Asymptotes",\

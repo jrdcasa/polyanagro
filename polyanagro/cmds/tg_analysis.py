@@ -249,14 +249,19 @@ def energy_info_function(e, args, log):
 # =============================================================================
 def extract_data_function(e, temp_group_value=1.0):
 
-    lines = '#Time(ps) Temperature(K) Density(g/cm^3)\n'
-    select_columns = e._df[['Time', 'Temperature', 'Density']]
+    lines = '#Time(ps) Temperature(K) T_std(K) Density(g/cm^3) Dens_std(g/cm^3)\n'
+    select_columns = e._df[['Time', 'Temperature', 'Density']] #+ e._df_std[['Density']]
+    select_columns = select_columns.assign(Temperature_std=e._df_std[['Temperature']])
+    select_columns = select_columns.assign(Density_std=e._df_std[['Density']])
 
     # Write the selected columns to a file with specific formatting
     with open('density_temperature_raw.csv', 'w') as fraw:
         # Write data rows
+
         for index, row in select_columns.iterrows():
-            lines += '{0:8.1f},{1:6.1f},{2:8.4f}\n'.format(row['Time'], row['Temperature'], row['Density']/1000)
+            lines += '{0:8.1f},{1:6.1f}, {2:6.1f}, {3:8.4f}, {4:8.4f}\n'.format(row['Time'],
+                                                           row['Temperature'], row['Temperature_std'],
+                                                           row['Density']/1000,row['Density_std']/1000 )
         fraw.writelines(lines)
 
     df = pd.DataFrame(e._df, columns=['Time', 'Temperature', 'Density'])
